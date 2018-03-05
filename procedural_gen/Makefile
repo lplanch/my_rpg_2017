@@ -14,6 +14,7 @@ CFLAGS		+=	-g -I ../include/
 LDFLAGS		+=	-L ../lib/my/ -lmy
 
 FILES		=	src/main_proc.c				\
+			src/map_creation.c			\
 
 SRCS		=	$(FILES)
 

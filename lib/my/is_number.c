@@ -5,7 +5,7 @@
 ** do the number is a number ?
 */
 
-int is_number(char *str)
+int is_nbr(char *str)
 {
 	for (int i = 0; str[i] != '\0'; i++) {
 		if (i == 0 && str[i] == '-')

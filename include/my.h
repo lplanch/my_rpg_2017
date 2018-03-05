@@ -62,7 +62,7 @@ int disp_stdarg(char *s, ...);
 
 void replace_chr(char *str, char replace, char with);
 
-int is_number(char *str);
+int is_nbr(char *str);
 int my_strchr(char *str, char chr);
 
 int count_lines(char **tbl);
