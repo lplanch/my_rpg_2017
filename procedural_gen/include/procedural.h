@@ -22,3 +22,4 @@ typedef struct proc_gen
 } proc_t;
 
 int map_creation(int width, int height, int nbr_room);
+int verify_collide_room(proc_t *proc, proom_t *proc_room, int nbr);

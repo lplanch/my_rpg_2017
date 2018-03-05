@@ -15,6 +15,7 @@ LDFLAGS		+=	-L ../lib/my/ -lmy
 
 FILES		=	src/main_proc.c				\
 			src/map_creation.c			\
+			src/verify_collide.c			\
 
 SRCS		=	$(FILES)
 
