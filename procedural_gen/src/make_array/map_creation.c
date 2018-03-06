@@ -52,7 +52,5 @@ proc_t *map_creation(void)
 	}
 	create_entry(proc);
 	create_leave(proc);
-	print_map(proc->map);
-	free_proc(proc);
 	return (proc);
 }
