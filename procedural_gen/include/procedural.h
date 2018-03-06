@@ -6,16 +6,25 @@
 */
 
 #include <math.h>
-#include <time.h>
+#include <SFML/Audio.h>
+#include <SFML/Graphics.h>
 
 #define MIN(a, b) ((a < b)? a : b)
 #define MAX(a, b) ((a > b)? a : b)
 
-static unsigned int map_width = 80;
-static unsigned int map_height = 45;
-static unsigned int max_room_s = 12;
-static unsigned int min_room_s = 8;
-static unsigned int nbr_rooms = 9;
+//GAME MANAGE
+static const unsigned int WIDTH = 1664;
+static const unsigned int HEIGHT = 936;
+static const char *window_name = "INTO THE DEEP";
+static const float zoom = 4;
+static const sfVector2f vzoom = {4, 4};
+
+//PROCEDURAL GENERATION
+static const unsigned int map_width = 80;
+static const unsigned int map_height = 45;
+static const unsigned int max_room_s = 12;
+static const unsigned int min_room_s = 8;
+static const unsigned int nbr_rooms = 9;
 
 typedef struct proc_room
 {
@@ -26,12 +35,28 @@ typedef struct proc_room
 	int center[2];
 } proom_t;
 
+typedef struct map_sprite
+{
+	sfSprite *sprite;
+	sfVector2f pos;
+	sfIntRect rect;
+} smap_t;
+
+typedef struct game_manager
+{
+	sfVideoMode mode;
+	sfRenderWindow *window;
+} gmanager_t;
+
 typedef struct proc_gen
 {
+	gmanager_t *gman;
 	proom_t **proom;
+	smap_t ***smap;
 	char **map;
 } proc_t;
 
+//MAKE MAP
 proc_t *map_creation(void);
 void make_positions_proom(proc_t *proc);
 void make_holes(proom_t *proom, char **map, int i);
@@ -44,3 +69,17 @@ void make_corridors(proc_t *proc, int length);
 //CREATE MANDATORY BLOCKS
 void create_entry(proc_t *proc);
 void create_leave(proc_t *proc);
+
+//DRAW MAP
+void draw_map(proc_t *proc);
+
+//MANAGER
+void move_camera_position(proc_t *proc, int px, int py);
+int verif_input_map(proc_t *proc);
+
+//CREATE BLOCKS
+void make_ground_block(sfTexture *blocks, smap_t *smap);
+void make_exit_block(sfTexture *blocks, smap_t *smap);
+
+//MAIN GAME
+int launch_dungeon_game(proc_t *proc);
