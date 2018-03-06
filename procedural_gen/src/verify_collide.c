@@ -8,19 +8,65 @@
 #include "my.h"
 #include "../include/procedural.h"
 
-int verify_collide_room(proc_t *proc, proom_t *proc_room, int nbr)
+int intersect(proom_t *r1, proom_t *r2)
 {
-	for (int i = 0; i < nbr; i++) {
-		if ((proc_room->pos[0] < proc->proc_room[i]->pos[0] ||
-		proc->proc_room[i]->pos[0] + proc->proc_room[i]->height < proc_room->pos[0]) &&
-		(proc_room->pos[1] < proc->proc_room[i]->pos[1] ||
-		proc->proc_room[i]->pos[1] + proc->proc_room[i]->width < proc_room->pos[1])) {
-			my_putstr("ok");
-		} else {
-			my_putchar('\n');
-			return (0);
+	if (r1->pos1[0] <= r2->pos2[0] && r1->pos2[0] >= r2->pos1[0]
+	&& r1->pos1[1] <= r2->pos2[1] && r1->pos2[1] >= r2->pos1[1]) {
+		return (1);
+	} else {
+		return (0);
+	}
+}
+
+void verify_intersect(proom_t *temp_proom, proc_t *proc, int iter, int *fail)
+{
+	for (int i = 0; i < iter; i++) {
+		if (intersect(temp_proom, proc->proom[i])) {
+			*fail = 1;
+			break;
 		}
 	}
-	my_putchar('\n');
-	return (1);
+}
+
+proom_t *new_room(void)
+{
+	proom_t *proom = malloc(sizeof(proom_t));
+
+	proom->width = min_room_s + (rand() % (max_room_s - min_room_s + 1));
+	proom->height = min_room_s + (rand() % (max_room_s - min_room_s + 1));
+	proom->pos1[0] = rand() % (map_width - proom->width - 1) + 1;
+	proom->pos1[1] = rand() % (map_height - proom->height - 1) + 1;
+	proom->pos2[0] = proom->pos1[0] + proom->width;
+	proom->pos2[1] = proom->pos1[1] + proom->height;
+	proom->center[0] = floor((proom->pos1[0] + proom->pos2[0]) / 2);
+	proom->center[1] = floor((proom->pos1[1] + proom->pos2[1]) / 2);
+	return (proom);
+}
+
+void make_positions_proom(proc_t *proc)
+{
+	proom_t *temp_proom;
+	int iter = 0;
+	int fail;
+
+	for (int i = 0; i < nbr_rooms; i++) {
+		fail = 0;
+		temp_proom = new_room();
+		verify_intersect(temp_proom, proc, iter, &fail);
+		if (!fail) {
+			proc->proom[iter] = temp_proom;
+			iter += 1;
+		} else {
+			free(temp_proom);
+		}
+	}
+}
+
+void make_holes(proom_t *proom, char **map)
+{
+	for (int y = proom->pos1[1]; y < proom->pos2[1]; y++) {
+		for (int x = proom->pos1[0]; x < proom->pos2[0]; x++) {
+			map[y][x] = ' ';
+		}
+	}
 }
