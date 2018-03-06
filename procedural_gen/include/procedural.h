@@ -13,8 +13,8 @@
 
 static unsigned int map_width = 80;
 static unsigned int map_height = 45;
-static unsigned int max_room_s = 13;
-static unsigned int min_room_s = 6;
+static unsigned int max_room_s = 12;
+static unsigned int min_room_s = 8;
 static unsigned int nbr_rooms = 9;
 
 typedef struct proc_room
@@ -40,3 +40,7 @@ void make_holes(proom_t *proom, char **map, int i);
 void v_corridor(char **map, int y1, int y2, int x);
 void h_corridor(char **map, int x1, int x2, int y);
 void make_corridors(proc_t *proc, int length);
+
+//CREATE MANDATORY BLOCKS
+void create_entry(proc_t *proc);
+void create_leave(proc_t *proc);

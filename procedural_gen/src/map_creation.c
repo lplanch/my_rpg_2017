@@ -50,6 +50,8 @@ proc_t *map_creation(void)
 	for (int i = 0; proc->proom[i] != NULL; i++) {
 		make_holes(proc->proom[i], proc->map, i);
 	}
+	create_entry(proc);
+	create_leave(proc);
 	print_map(proc->map);
 	free_proc(proc);
 	return (proc);

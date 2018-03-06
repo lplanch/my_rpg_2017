@@ -17,6 +17,7 @@ FILES		=	src/main_proc.c				\
 			src/map_creation.c			\
 			src/verify_collide.c			\
 			src/corridors.c				\
+			src/mandatory_blocks.c			\
 
 SRCS		=	$(FILES)
 
