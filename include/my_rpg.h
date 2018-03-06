@@ -17,4 +17,7 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+sfIntRect create_rect(int top, int left, int width, int height);
+sfVector2f create_vector2f(float x, float y);
+
 #endif
