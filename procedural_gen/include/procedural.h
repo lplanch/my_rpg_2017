@@ -16,6 +16,8 @@
 static const unsigned int WIDTH = 1664;
 static const unsigned int HEIGHT = 936;
 static const char *window_name = "INTO THE DEEP";
+static const float zoom = 4;
+static const sfVector2f vzoom = {4, 4};
 
 //PROCEDURAL GENERATION
 static const unsigned int map_width = 80;
@@ -77,6 +79,7 @@ int verif_input_map(proc_t *proc);
 
 //CREATE BLOCKS
 void make_ground_block(sfTexture *blocks, smap_t *smap);
+void make_exit_block(sfTexture *blocks, smap_t *smap);
 
 //MAIN GAME
 int launch_dungeon_game(proc_t *proc);

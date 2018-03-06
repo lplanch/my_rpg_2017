@@ -11,13 +11,13 @@
 void verify_movement_input(sfEvent event, proc_t *proc)
 {
 	if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp) {
-		move_camera_position(proc, 0, -5);
+		move_camera_position(proc, 0, -5 * zoom);
 	} if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown) {
-		move_camera_position(proc, 0, 5);
+		move_camera_position(proc, 0, 5 * zoom);
 	} if (event.type == sfEvtKeyPressed && event.key.code == sfKeyLeft) {
-		move_camera_position(proc, -5, 0);
+		move_camera_position(proc, -5 * zoom, 0);
 	} if (event.type == sfEvtKeyPressed && event.key.code == sfKeyRight) {
-		move_camera_position(proc, 5, 0);
+		move_camera_position(proc, 5 * zoom, 0);
 	}
 
 }
