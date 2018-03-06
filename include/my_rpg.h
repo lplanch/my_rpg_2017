@@ -11,6 +11,12 @@
 #include <SFML/Graphics.h>
 #include "game_object.h"
 
+typedef struct struct_main_menu
+{
+	game_object *rope;
+	game_object *rock[3];
+} st_menu;
+
 typedef struct struct_rpg
 {
 	st_menu mainm;
