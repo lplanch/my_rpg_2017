@@ -16,8 +16,7 @@
 static const unsigned int WIDTH = 1664;
 static const unsigned int HEIGHT = 936;
 static const char *window_name = "INTO THE DEEP";
-static const float zoom = 4;
-static const sfVector2f vzoom = {4, 4};
+//static const float zoom = 0.2;
 
 //PROCEDURAL GENERATION
 static const unsigned int map_width = 80;
@@ -46,6 +45,10 @@ typedef struct game_manager
 {
 	sfVideoMode mode;
 	sfRenderWindow *window;
+	sfView *camera;
+	sfSprite *player;
+	sfVector2f camera_pos;
+	float zoom;
 } gmanager_t;
 
 typedef struct proc_gen
@@ -69,6 +72,7 @@ void make_corridors(proc_t *proc, int length);
 //CREATE MANDATORY BLOCKS
 void create_entry(proc_t *proc);
 void create_leave(proc_t *proc);
+sfVector2f get_entry_pos(proc_t *proc);
 
 //DRAW MAP
 void draw_map(proc_t *proc);

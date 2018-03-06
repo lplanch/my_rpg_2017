@@ -36,8 +36,8 @@ smap_t ***create_sprite_map(char **map)
 		smap[y] = my_calloc(sizeof(smap_t *) * (my_strlen(map[y]) + 1));
 		for (int x = 0; map[y][x] != '\0'; x++) {
 			smap[y][x] = malloc(sizeof(smap_t));
-			smap[y][x]->pos.x = y * 16 * zoom;
-			smap[y][x]->pos.y = x * 16 * zoom;
+			smap[y][x]->pos.x = y * 16;
+			smap[y][x]->pos.y = x * 16;
 			smap[y][x] = generate_block(blocks, map[y][x], smap[y][x]);
 		}
 	}

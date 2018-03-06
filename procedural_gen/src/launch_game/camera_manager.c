@@ -8,20 +8,10 @@
 #include "my.h"
 #include "../../include/procedural.h"
 
-void increment_camera(smap_t *smap, int x, int y)
-{
-	if (smap != NULL) {
-		smap->pos.x += x;
-		smap->pos.y += y;
-		sfSprite_setPosition(smap->sprite, smap->pos);
-	}
-}
-
 void move_camera_position(proc_t *proc, int px, int py)
 {
-	for (int y = 0; proc->map[y] != NULL; y++) {
-		for (int x = 0; proc->map[y][x] != '\0'; x++) {
-			increment_camera(proc->smap[y][x], px, py);
-		}
-	}
+	proc->gman->camera_pos.x += px;
+	proc->gman->camera_pos.y += py;
+	sfView_setCenter(proc->gman->camera, proc->gman->camera_pos);
+	sfRenderWindow_setView(proc->gman->window, proc->gman->camera);
 }

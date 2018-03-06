@@ -18,7 +18,6 @@ void make_ground_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
-	sfSprite_setScale(smap->sprite, vzoom);
 }
 
 void make_exit_block(sfTexture *blocks, smap_t *smap)
@@ -31,5 +30,4 @@ void make_exit_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
-	sfSprite_setScale(smap->sprite, vzoom);
 }
