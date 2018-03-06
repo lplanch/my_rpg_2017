@@ -17,7 +17,7 @@ int main(void)
 
        s.window = sfRenderWindow_create(mode, "RPG", sfDefaultStyle, NULL);
        sfRenderWindow_setFramerateLimit(s.window, 60);
-//	main_menu(&s);
+	main_menu(&s);
        sfRenderWindow_destroy(s.window);
 	return (0);
 }
