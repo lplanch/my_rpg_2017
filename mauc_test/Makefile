@@ -1,29 +1,28 @@
 ##
-## EPITECH PROJECT, 2018
+## EPITECH PROJECT, 2017
 ## Makefile
 ## File description:
 ## makefile
 ##
 
-NAME		=	proc
+NAME		=	my_rpg
 
 CC		=	cc
 
-CFLAGS		+=	-g -I ../include/
+CFLAGS		+=	-g -I include/
 
-LDFLAGS		+=	-L ../lib/my/ -lmy
+LDFLAGS		+=	-L lib/my/ -lmy -l c_graph_prog
 
-FILES		=	src/main_proc.c				\
-			src/map_creation.c			\
-			src/verify_collide.c			\
-			src/corridors.c				\
-			src/mandatory_blocks.c			\
+FILES		=	main.c						\
 
 SRCS		=	$(FILES)
 
 OBJ		=	$(SRCS:.c=.o) $(MAIN:.c=.o)
 
-.PHONY: fclean clean all re debug
+all:			$(NAME)
+
+
+.PHONY: fclean clean all re
 
 RED		=	\033[0;31m
 GREEN		=	\033[0;32m
@@ -31,16 +30,14 @@ NC		=	\033[0m
 GREY		=	\033[90m
 BG_COLOR	=	\033[46m
 
-all:			$(NAME)
-
 $(NAME):	$(OBJ)
 	@echo -e '${BG_COLOR}Flags: $(LDFLAGS) $(CFLAGS)${NC}'
 	@echo -e '${RED}Create${NC}: ${GREY}./$(NAME)${NC}'
-	@make -C ../lib/my/
+	@make -C lib/my/
 	@$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
 
 %.o:		%.c
-	@echo -e '${GREEN} [ OK ]${NC} Building asm : $<'
+	@echo -e '${GREEN} [ OK ]${NC} Build $<'
 	@$(CC) -o $@ -c $< $(LDFLAGS) $(CFLAGS)
 
 
@@ -51,12 +48,12 @@ clean:
 	@rm -f gmon.out
 	@rm -rf a.out
 	@find . -name *.gc* -delete
-	@make clean -C ../lib/my/
-	@echo -e '${RED}Clean asm${NC} : OK'
+	@echo -e '${RED}Clean${NC} : OK'
+	@make clean -C lib/my/
 
 fclean:		clean
 	@rm -rf $(NAME)
-	@make fclean -C ../lib/my/
-	@echo -e '${RED}Fclean asm${NC}: ./$(NAME) removed'
+	@echo -e '${RED}Fclean${NC}: ./$(NAME) removed'
+	@make fclean -C lib/my/
 
 re:		fclean all
