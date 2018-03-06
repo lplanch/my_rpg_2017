@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "../include/procedural.h"
+#include "../../include/procedural.h"
 
 void print_map(char **map)
 {

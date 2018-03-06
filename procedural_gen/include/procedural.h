@@ -6,7 +6,8 @@
 */
 
 #include <math.h>
-#include <time.h>
+#include <SFML/Audio.h>
+#include <SFML/Graphics.h>
 
 #define MIN(a, b) ((a < b)? a : b)
 #define MAX(a, b) ((a > b)? a : b)
@@ -26,9 +27,17 @@ typedef struct proc_room
 	int center[2];
 } proom_t;
 
+typedef struct map_sprite
+{
+	sfSprite *sprite;
+	sfVector2f pos;
+	sfIntRect rect;
+} smap_t;
+
 typedef struct proc_gen
 {
 	proom_t **proom;
+	smap_t **smap;
 	char **map;
 } proc_t;
 

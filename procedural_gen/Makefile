@@ -11,13 +11,14 @@ CC		=	cc
 
 CFLAGS		+=	-g -I ../include/
 
-LDFLAGS		+=	-L ../lib/my/ -lmy
+LDFLAGS		+=	-L ../lib/my/ -lmy -l c_graph_prog
 
-FILES		=	src/main_proc.c				\
-			src/map_creation.c			\
-			src/verify_collide.c			\
-			src/corridors.c				\
-			src/mandatory_blocks.c			\
+FILES		=	src/main_proc.c					\
+			src/make_array/map_creation.c			\
+			src/make_array/verify_collide.c			\
+			src/make_array/corridors.c			\
+			src/make_array/mandatory_blocks.c		\
+			src/draw_map/main_draw_map.c			\
 
 SRCS		=	$(FILES)
 
@@ -40,7 +41,7 @@ $(NAME):	$(OBJ)
 	@$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
 
 %.o:		%.c
-	@echo -e '${GREEN} [ OK ]${NC} Building asm : $<'
+	@echo -e '${GREEN} [ OK ]${NC} Building proc : $<'
 	@$(CC) -o $@ -c $< $(LDFLAGS) $(CFLAGS)
 
 
@@ -52,11 +53,11 @@ clean:
 	@rm -rf a.out
 	@find . -name *.gc* -delete
 	@make clean -C ../lib/my/
-	@echo -e '${RED}Clean asm${NC} : OK'
+	@echo -e '${RED}Clean proc${NC} : OK'
 
 fclean:		clean
 	@rm -rf $(NAME)
 	@make fclean -C ../lib/my/
-	@echo -e '${RED}Fclean asm${NC}: ./$(NAME) removed'
+	@echo -e '${RED}Fclean proc${NC}: ./$(NAME) removed'
 
 re:		fclean all
