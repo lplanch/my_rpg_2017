@@ -26,6 +26,7 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void vertical_movement_mainm(st_rpg *s);
 void destroy_main_menu(st_rpg *s);
 int main_menu(st_rpg *s);
 void display_menu_background(st_rpg *s);

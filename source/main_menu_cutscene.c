@@ -31,8 +31,27 @@ int event_main_menu_cutscene(st_rpg *s)
                      destroy_main_menu(s);
                      return (1);
               }
+              if (event.type == sfEvtKeyPressed) {
+                     s->mainm.rope->rect.left = 70 * 14;
+                     sfSprite_setTextureRect(s->mainm.rope->sprite,
+                     s->mainm.rope->rect);
+                     return (2);
+              }
        }
        return (0);
+}
+
+void vertical_movement_mainm(st_rpg *s)
+{
+       s->mainm.first->pos.y -= s->mainm.first->speed;
+       sfSprite_setPosition(s->mainm.first->sprite, s->mainm.first->pos);
+       for (int i = 0; i != 2; i += 1) {
+              s->mainm.rockback[i]->pos.y -= s->mainm.rockback[i]->speed;
+              if (s->mainm.rockback[i]->pos.y < -2936)
+                     s->mainm.rockback[i]->pos.y = 2936;
+              sfSprite_setPosition(s->mainm.rockback[i]->sprite,
+              s->mainm.rockback[i]->pos);
+       }
 }
 
 void rope_animation(st_rpg *s)
@@ -49,9 +68,12 @@ void rope_animation(st_rpg *s)
 
 int main_menu_cutscene(st_rpg *s)
 {
+       int a = 0;
+
        while (sfRenderWindow_isOpen(s->window)) {
-              if (event_main_menu_cutscene(s))
-                     return (1);
+              a = event_main_menu_cutscene(s);
+              if (a == 1 || a == 2)
+                     return (a);
               rope_animation(s);
               if (s->mainm.rope->rect.left > 950)
                      break;

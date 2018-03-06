@@ -37,23 +37,23 @@ void initialize_menu(st_rpg *s)
        s->mainm.t.clock = sfClock_create();
 }
 
-void vertical_movement_mainm(st_rpg *s)
+int event_main_menu(st_rpg *s)
 {
-       s->mainm.first->pos.y -= s->mainm.first->speed;
-       sfSprite_setPosition(s->mainm.first->sprite, s->mainm.first->pos);
-       for (int i = 0; i != 2; i += 1) {
-              s->mainm.rockback[i]->pos.y -= s->mainm.rockback[i]->speed;
-              if (s->mainm.rockback[i]->pos.y < -2936)
-                     s->mainm.rockback[i]->pos.y = 2936;
-              sfSprite_setPosition(s->mainm.rockback[i]->sprite,
-              s->mainm.rockback[i]->pos);
+       sfEvent event;
+
+       while (sfRenderWindow_pollEvent(s->window, &event)) {
+              if (event.type == sfEvtClosed) {
+                     destroy_main_menu(s);
+                     return (1);
+              }
        }
+       return (0);
 }
 
 int main_menu(st_rpg *s)
 {
        initialize_menu(s);
-       if (main_menu_cutscene(s))
+       if (main_menu_cutscene(s) == 1)
               return (0);
        while (sfRenderWindow_isOpen(s->window)) {
               if (event_main_menu(s))
