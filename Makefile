@@ -15,6 +15,7 @@ LDFLAGS		+=	-L lib/my/ -lmy -l c_graph_prog -lm
 
 FILES		=	source/main.c				\
 			source/game_object.c			\
+			source/create_rect.c
 
 SRCS		=	$(FILES)
 
