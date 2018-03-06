@@ -48,7 +48,7 @@ proc_t *map_creation(void)
 	increment_proc_struct(proc);
 	make_positions_proom(proc);
 	for (int i = 0; proc->proom[i] != NULL; i++) {
-		make_holes(proc->proom[i], proc->map);
+		make_holes(proc->proom[i], proc->map, i);
 	}
 	print_map(proc->map);
 	free_proc(proc);

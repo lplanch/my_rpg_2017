@@ -56,13 +56,14 @@ void make_positions_proom(proc_t *proc)
 		if (!fail) {
 			proc->proom[iter] = temp_proom;
 			iter += 1;
+			make_corridors(proc, iter);
 		} else {
 			free(temp_proom);
 		}
 	}
 }
 
-void make_holes(proom_t *proom, char **map)
+void make_holes(proom_t *proom, char **map, int i)
 {
 	for (int y = proom->pos1[1]; y < proom->pos2[1]; y++) {
 		for (int x = proom->pos1[0]; x < proom->pos2[0]; x++) {
