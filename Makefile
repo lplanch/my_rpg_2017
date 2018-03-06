@@ -15,7 +15,9 @@ LDFLAGS		+=	-L lib/my/ -lmy -l c_graph_prog -lm
 
 FILES		=	source/main.c				\
 			source/game_object.c			\
-			source/create_rect.c
+			source/create_rect.c			\
+			source/main_menu_cutscene.c		\
+			source/main_menu.c
 
 SRCS		=	$(FILES)
 
@@ -38,7 +40,7 @@ $(NAME):	$(OBJ)
 	@$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
 
 %.o:		%.c
-	@echo -e '${GREEN} [ OK ]${NC} Building asm : $<'
+	@echo -e '${GREEN} [ OK ]${NC} Building : $<'
 	@$(CC) -o $@ -c $< $(LDFLAGS) $(CFLAGS)
 
 
@@ -50,11 +52,11 @@ clean:
 	@rm -rf a.out
 	@find . -name *.gc* -delete
 	@make clean -C lib/my/
-	@echo -e '${RED}Clean asm${NC} : OK'
+	@echo -e '${RED}Clean${NC} : OK'
 
 fclean:		clean
 	@rm -rf $(NAME)
 	@make fclean -C lib/my/
-	@echo -e '${RED}Fclean asm${NC}: ./$(NAME) removed'
+	@echo -e '${RED}Fclean${NC}: ./$(NAME) removed'
 
 re:		fclean all
