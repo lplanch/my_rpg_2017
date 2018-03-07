@@ -12,13 +12,14 @@ void destroy_main_menu(st_rpg *s)
 {
        destroy_object(s->mainm.first);
        destroy_object(s->mainm.rope);
-       destroy_button(s->mainm.button[0]);
-       destroy_button(s->mainm.button[1]);
+       destroy_object(s->mainm.cursor);
        for (int i = 0; i != 2; i += 1) {
+              destroy_button(s->mainm.button[i]);
               destroy_object(s->mainm.rockback[i]);
               destroy_object(s->mainm.rock2[i]);
               destroy_object(s->mainm.abyss[i]);
        }
+       destroy_button(s->mainm.button[2]);
        sfClock_destroy(s->mainm.t.clock);
 }
 
@@ -26,6 +27,7 @@ void display_main_menu_interface(st_rpg *s)
 {
        sfRenderWindow_drawText(s->window, s->mainm.button[0]->text->text, NULL);
        sfRenderWindow_drawText(s->window, s->mainm.button[1]->text->text, NULL);
+       sfRenderWindow_drawText(s->window, s->mainm.button[2]->text->text, NULL);
        sfRenderWindow_drawSprite(s->window, s->mainm.cursor->sprite, NULL);
 }
 
@@ -36,11 +38,13 @@ void initialize_menu_interface(st_rpg *s)
        s->mainm.sens = 1;
        s->mainm.option = 0;
        s->mainm.cursor = create_object("images/cursor.png",
-       create_vector2f(900, 600), create_rect(0, 0, 100, 116), 2);
-       s->mainm.button[1] = create_button("Quit", create_vector2f(1000, 750),
-       create_rect(0, 0, 400, 400), grey);
-       s->mainm.button[0] = create_button("Play", create_vector2f(1000, 600),
-       create_rect(0, 0, 400, 400), grey);
+       create_vector2f(900, 520), create_rect(0, 0, 100, 116), 2);
+       s->mainm.button[0] = create_button("Play", create_vector2f(1000, 520),
+       create_rect(0, 0, 400, 100), grey);
+       s->mainm.button[1] = create_button("Options", create_vector2f(1000, 670),
+       create_rect(0, 0, 400, 100), grey);
+       s->mainm.button[2] = create_button("Quit", create_vector2f(1000, 820),
+       create_rect(0, 0, 400, 100), grey);
 }
 
 void initialize_menu(st_rpg *s)
@@ -64,16 +68,24 @@ void initialize_menu(st_rpg *s)
        initialize_menu_interface(s);
 }
 
-void main_menu_manage_cursor_events(st_rpg *s)
+void main_menu_manage_cursor_events(st_rpg *s, sfEvent event)
 {
-       if ((sfKeyboard_isKeyPressed(sfKeyDown) ||
-       sfKeyboard_isKeyPressed(sfKeyS)) && s->mainm.option < 1) {
-              s->mainm.cursor->pos.y += 150;
-              s->mainm.option += 1;
-       } else if ((sfKeyboard_isKeyPressed(sfKeyUp) ||
-       sfKeyboard_isKeyPressed(sfKeyZ)) && s->mainm.option > 0) {
-              s->mainm.cursor->pos.y -= 150;
-              s->mainm.option -= 1;
+       if (event.type == sfEvtKeyPressed) {
+              if ((sfKeyboard_isKeyPressed(sfKeyS) ||
+              sfKeyboard_isKeyPressed(sfKeyDown)) && s->mainm.option < 2) {
+                     s->mainm.cursor->pos.y += 150;
+                     s->mainm.option += 1;
+              } else if ((sfKeyboard_isKeyPressed(sfKeyZ) ||
+              sfKeyboard_isKeyPressed(sfKeyUp)) && s->mainm.option > 0) {
+                     s->mainm.cursor->pos.y -= 150;
+                     s->mainm.option -= 1;
+              }
+       }
+       for (int i = 0; i != 3; i += 1) {
+              if (mouse_in_object(s->mainm.button[i]->obj, s->window)) {
+                     s->mainm.cursor->pos.y = s->mainm.button[i]->obj->pos.y;
+                     s->mainm.option = i;
+              }
        }
 }
 
@@ -86,7 +98,7 @@ int event_main_menu(st_rpg *s)
                      destroy_main_menu(s);
                      return (1);
               }
-              main_menu_manage_cursor_events(s);
+                     main_menu_manage_cursor_events(s, event);
        }
        return (0);
 }
@@ -95,8 +107,8 @@ void main_menu_interface_animation(st_rpg *s)
 {
        sfColor grey = {96, 96, 96, 255};
 
-       sfText_setColor(s->mainm.button[0]->text->text, grey);
-       sfText_setColor(s->mainm.button[1]->text->text, grey);
+       for (int i = 0; i != 3; i += 1)
+              sfText_setColor(s->mainm.button[i]->text->text, grey);
        sfText_setColor(s->mainm.button[s->mainm.option]->text->text, sfWhite);
 }
 

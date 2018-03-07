@@ -22,7 +22,7 @@ typedef struct struct_main_menu
 	st_time t;
 	int option;
 	int sens;
-	st_button *button[2];
+	st_button *button[3];
 	g_object *cursor;
 	g_object *rope;
 	g_object *first;
@@ -37,6 +37,7 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+int mouse_in_object(g_object *obj, sfRenderWindow *window);
 st_button *create_button(char *str, sfVector2f pos, sfIntRect rect, sfColor c);
 void *destroy_button(st_button *button);
 void movement_mainm(st_rpg *s);

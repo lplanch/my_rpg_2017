@@ -47,12 +47,12 @@ void movement_mainm(st_rpg *s)
               s->mainm.rockback[i]->pos.y -= s->mainm.rockback[i]->speed;
               s->mainm.rock2[i]->pos.y -= s->mainm.rock2[i]->speed;
               s->mainm.abyss[i]->pos.y -= s->mainm.abyss[i]->speed;
-              if (s->mainm.rockback[i]->pos.y < -2936)
+              if (s->mainm.rockback[i]->pos.y <= -2936)
                      s->mainm.rockback[i]->pos.y += 2936 * 2;
-              if (s->mainm.rock2[i]->pos.y < -2236)
+              if (s->mainm.rock2[i]->pos.y <= -2236)
                      s->mainm.rock2[i]->pos.y += 2236 * 2;
-              if (s->mainm.abyss[i]->pos.y < -5712)
-                     s->mainm.rock2[i]->pos.y += 5712 * 2;
+              if (s->mainm.abyss[i]->pos.y <= -5712)
+                     s->mainm.abyss[i]->pos.y += 5712 * 2;
               sfSprite_setPosition(s->mainm.rockback[i]->sprite,
               s->mainm.rockback[i]->pos);
               sfSprite_setPosition(s->mainm.abyss[i]->sprite,
