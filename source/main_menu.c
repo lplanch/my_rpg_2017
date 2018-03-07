@@ -89,16 +89,27 @@ void main_menu_manage_cursor_events(st_rpg *s, sfEvent event)
        }
 }
 
+int launch_main_menu(st_rpg *s)
+{
+       if (sfKeyboard_isKeyPressed(sfKeyE)
+       || sfKeyboard_isKeyPressed(sfKeyReturn)
+       || sfMouse_isButtonPressed(sfMouseLeft)) {
+              if (s->mainm.option == 2)
+                     return (1);
+       }
+       return (0);
+}
+
 int event_main_menu(st_rpg *s)
 {
        sfEvent event;
 
        while (sfRenderWindow_pollEvent(s->window, &event)) {
-              if (event.type == sfEvtClosed) {
+              if (event.type == sfEvtClosed || launch_main_menu(s)) {
                      destroy_main_menu(s);
                      return (1);
               }
-                     main_menu_manage_cursor_events(s, event);
+              main_menu_manage_cursor_events(s, event);
        }
        return (0);
 }
