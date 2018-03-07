@@ -17,7 +17,8 @@ FILES		=	source/main.c				\
 			source/game_object.c			\
 			source/create_rect.c			\
 			source/main_menu_cutscene.c		\
-			source/main_menu.c
+			source/main_menu.c			\
+			source/button_generator.c
 
 SRCS		=	$(FILES)
 
