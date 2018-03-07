@@ -14,7 +14,8 @@ void destroy_main_menu(st_rpg *s)
        destroy_object(s->mainm.rope);
        for (int i = 0; i != 2; i += 1) {
               destroy_object(s->mainm.rockback[i]);
-//              destroy_object(s->mainm.hole[i]);
+              destroy_object(s->mainm.rock2[i]);
+              destroy_object(s->mainm.abyss[i]);
        }
 }
 
@@ -25,14 +26,15 @@ void initialize_menu(st_rpg *s)
        s->mainm.rope = create_object("images/menu/ropesheet.png",
        create_vector2f(200, 0), create_rect(0, 0, 72, 1080), 0);
        for (int i = 0; i != 2; i += 1) {
+              s->mainm.abyss[i] = create_object("images/menu/abyss2.png",
+       create_vector2f(300 + 1400 * i , 5712 * i),
+       create_rect(0, 0, 1920, 5712), 2);
               s->mainm.rockback[i] = create_object("images/menu/RockCave.png",
-       create_vector2f(0, 2936 * i), create_rect(0, 0, 1920, 2936), 5);
-//              s->mainm.hole[i] = create_object("images/menu/holes.png",
-//       create_vector2f(rand() % 1920 - 50, y + y * -i + rand() % 200),
-//       create_rect(0, rand() % 3 * 50, 50, 100), 0);
-//       sfSprite_setScale(s->mainm.hole[i]->sprite,
-//       create_vector2f(2 + rand() % 6, 2 + rand() % 6));
+       create_vector2f(0, 2936 * i), create_rect(0, 0, 1920, 2936), 6);
+              s->mainm.rock2[i] = create_object("images/menu/rock3.png",
+       create_vector2f(110, 2236 * i), create_rect(0, 0, 1920, 2236), 4);
        }
+       sfSprite_setScale(s->mainm.abyss[1]->sprite, create_vector2f(-1, 1));
        s->mainm.t.sec = 0.0;
        s->mainm.t.clock = sfClock_create();
 }

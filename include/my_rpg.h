@@ -16,8 +16,9 @@ typedef struct struct_main_menu
 	st_time t;
 	g_object *rope;
 	g_object *first;
+	g_object *abyss[2];
 	g_object *rockback[2];
-	g_object *hole[2];
+	g_object *rock2[2];
 } st_menu;
 
 typedef struct struct_rpg

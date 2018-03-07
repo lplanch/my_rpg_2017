@@ -10,13 +10,12 @@
 
 void display_menu_background(st_rpg *s)
 {
-       sfRenderWindow_clear(s->window, sfBlack);
-       for (int i = 1; i != -1; i -= 1) {
-              sfRenderWindow_drawSprite(s->window,
-              s->mainm.rockback[i]->sprite, NULL);
-//              sfRenderWindow_drawSprite(s->window,
-//              s->mainm.hole[i]->sprite, NULL);
-       }
+       sfRenderWindow_drawSprite(s->window, s->mainm.abyss[0]->sprite, NULL);
+       sfRenderWindow_drawSprite(s->window, s->mainm.abyss[1]->sprite, NULL);
+       sfRenderWindow_drawSprite(s->window, s->mainm.rock2[0]->sprite, NULL);
+       sfRenderWindow_drawSprite(s->window, s->mainm.rock2[1]->sprite, NULL);
+       sfRenderWindow_drawSprite(s->window, s->mainm.rockback[0]->sprite, NULL);
+       sfRenderWindow_drawSprite(s->window, s->mainm.rockback[1]->sprite, NULL);
        sfRenderWindow_drawSprite(s->window, s->mainm.first->sprite, NULL);
        sfRenderWindow_drawSprite(s->window, s->mainm.rope->sprite, NULL);
        sfRenderWindow_display(s->window);
@@ -47,10 +46,20 @@ void vertical_movement_mainm(st_rpg *s)
        sfSprite_setPosition(s->mainm.first->sprite, s->mainm.first->pos);
        for (int i = 0; i != 2; i += 1) {
               s->mainm.rockback[i]->pos.y -= s->mainm.rockback[i]->speed;
+              s->mainm.rock2[i]->pos.y -= s->mainm.rock2[i]->speed;
+              s->mainm.abyss[i]->pos.y -= s->mainm.abyss[i]->speed;
               if (s->mainm.rockback[i]->pos.y < -2936)
-                     s->mainm.rockback[i]->pos.y = 2936;
+                     s->mainm.rockback[i]->pos.y += 2936 * 2;
+              if (s->mainm.rock2[i]->pos.y < -3000)
+                     s->mainm.rock2[i]->pos.y += 2236 * 2;
+              if (s->mainm.rock2[i]->pos.y < -5712)
+                     s->mainm.rock2[i]->pos.y += 5712 * 2;
               sfSprite_setPosition(s->mainm.rockback[i]->sprite,
               s->mainm.rockback[i]->pos);
+              sfSprite_setPosition(s->mainm.abyss[i]->sprite,
+              s->mainm.abyss[i]->pos);
+              sfSprite_setPosition(s->mainm.rock2[i]->sprite,
+              s->mainm.rock2[i]->pos);
        }
 }
 
