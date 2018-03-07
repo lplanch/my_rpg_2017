@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="5" height="5" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="5" height="5" tilewidth="32" tileheight="32" infinite="0" nextobjectid="4">
  <tileset firstgid="1" name="gg" tilewidth="32" tileheight="32" tilecount="961" columns="31">
   <image source="gg.png" width="1000" height="1000"/>
  </tileset>
@@ -17,8 +17,17 @@
 282,142,143,0,0,
 0,173,174,230,231,
 0,204,205,261,262,
-0,0,0,0,0,
-0,0,0,0,0
+287,0,0,0,0,
+318,0,0,0,0
 </data>
  </layer>
+ <objectgroup name="obj_col">
+  <object id="1" x="118.25" y="76.75" width="20.75" height="16.25">
+   <ellipse/>
+  </object>
+  <object id="2" x="2.5" y="13.25" width="29" height="17.5">
+   <ellipse/>
+  </object>
+  <object id="3" x="13.25" y="153" width="7.5" height="6.75"/>
+ </objectgroup>
 </map>

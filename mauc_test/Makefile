@@ -19,6 +19,7 @@ FILES		=	main.c				\
 			src/move.c			\
 			src/prog.c			\
 			src/setup.c			\
+			src/tileset.c			\
 
 SRCS		=	$(FILES)
 
