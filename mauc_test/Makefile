@@ -13,7 +13,12 @@ CFLAGS		+=	-g -I include/
 
 LDFLAGS		+=	-L lib/my/ -lmy -l c_graph_prog
 
-FILES		=	main.c						\
+FILES		=	main.c				\
+			src/collision.c			\
+			src/game.c			\
+			src/move.c			\
+			src/prog.c			\
+			src/setup.c			\
 
 SRCS		=	$(FILES)
 

@@ -18,6 +18,17 @@
 
 #include "struct.h"
 
+int prog(void);
+void characters_setup(files_t *fi);
+int game(files_t *fi);
+void move_ok(files_t *fi);
+void move_up(files_t *fi);
+void move_down(files_t *fi);
+void move_right(files_t *fi);
+void move_left(files_t *fi);
+int collision(files_t *fi);
+void draw(files_t *fi);
+
 #ifndef MY_COOK_
 #define MY_COOK_
 

@@ -13,6 +13,7 @@
 
 typedef struct s_files
 {
+	int direction;
 	sfRenderWindow *window;
 	sfTexture *texture;
 	sfSprite *sprite;
@@ -23,6 +24,7 @@ typedef struct s_files
 	sfSprite *gsprite;
 	sfIntRect gsquare;
 	sfVector2f gsquare2;
+	sfVector2f invers2;
 } files_t;
 
 #endif
