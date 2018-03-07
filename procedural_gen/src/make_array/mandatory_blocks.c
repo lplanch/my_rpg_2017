@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "../include/procedural.h"
+#include "../../include/procedural.h"
 
 int count_rooms(proom_t **proom)
 {
@@ -15,6 +15,22 @@ int count_rooms(proom_t **proom)
 	while (proom[res] != NULL)
 		res += 1;
 	return (res);
+}
+
+sfVector2f get_entry_pos(proc_t *proc)
+{
+	sfVector2f result = {0, 0};
+
+	for (int y = 0; proc->map[y] != NULL; y++) {
+		for (int x = 0; proc->map[y][x] != '\0'; x++) {
+			if (proc->map[y][x] == 'E' || proc->map[y][x] == 'B') {
+				result.x = y * 16;
+				result.y = x * 16;
+				return (result);
+			}
+		}
+	}
+	return (result);
 }
 
 void create_entry(proc_t *proc)
