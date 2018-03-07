@@ -8,6 +8,7 @@
 #include <math.h>
 #include <SFML/Audio.h>
 #include <SFML/Graphics.h>
+#include <SFML/Window.h>
 
 #define MIN(a, b) ((a < b)? a : b)
 #define MAX(a, b) ((a > b)? a : b)
