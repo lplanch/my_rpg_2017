@@ -14,24 +14,26 @@ void verify_other_input(sfEvent event, proc_t *proc)
 		sfView_zoom(proc->gman->camera, 0.9);
 		sfRenderWindow_setView(proc->gman->window, proc->gman->camera);
 	} if (event.type == sfEvtKeyPressed && event.key.code == sfKeyM) {
-		proc->gman->zoom += 1;
 		sfView_zoom(proc->gman->camera, 1.1);
 		sfRenderWindow_setView(proc->gman->window, proc->gman->camera);
-	} if (sfKeyboard_isKeyPressed(sfKeyO) == sfTrue)
-		my_putchar('a');
-
+	}
 }
 
 void verif_movement_input(proc_t *proc)
 {
 	if (sfKeyboard_isKeyPressed(sfKeyUp) == sfTrue) {
-		move_camera_position(proc, 0, -1);
-	} if (sfKeyboard_isKeyPressed(sfKeyDown) == sfTrue) {
-		move_camera_position(proc, 0, 1);
-	} if (sfKeyboard_isKeyPressed(sfKeyLeft) == sfTrue) {
-		move_camera_position(proc, -1, 0);
-	} if (sfKeyboard_isKeyPressed(sfKeyRight) == sfTrue) {
-		move_camera_position(proc, 1, 0);
+		proc->gman->player.velocity.y = -speed * 5;
+	} else if (sfKeyboard_isKeyPressed(sfKeyDown) == sfTrue) {
+		proc->gman->player.velocity.y = speed * 5;
+	} else {
+		proc->gman->player.velocity.y = 0;
+	}
+	if (sfKeyboard_isKeyPressed(sfKeyLeft) == sfTrue) {
+		proc->gman->player.velocity.x = -speed * 5;
+	} else if (sfKeyboard_isKeyPressed(sfKeyRight) == sfTrue) {
+		proc->gman->player.velocity.x = speed * 5;
+	} else {
+		proc->gman->player.velocity.x = 0;
 	}
 }
 

@@ -8,16 +8,12 @@
 #include "my.h"
 #include "../../include/procedural.h"
 
-void move_camera_position(proc_t *proc, int px, int py)
+void update_camera_position(proc_t *proc)
 {
-	int temp[2];
+	sfVector2f movement;
 
-	temp[0] = (proc->gman->camera_pos.x + px) / 16;
-	temp[1] = (proc->gman->camera_pos.y + py) / 16;
-	if (proc->map[temp[0]][temp[1]] != '#') {
-		proc->gman->camera_pos.x += px;
-		proc->gman->camera_pos.y += py;
-		sfView_setCenter(proc->gman->camera, proc->gman->camera_pos);
-		sfRenderWindow_setView(proc->gman->window, proc->gman->camera);
-	}
+	proc->gman->camera_pos.x = proc->gman->player.pos.x;
+	proc->gman->camera_pos.y = proc->gman->player.pos.y;
+	sfView_setCenter(proc->gman->camera, proc->gman->camera_pos);
+	sfRenderWindow_setView(proc->gman->window, proc->gman->camera);
 }

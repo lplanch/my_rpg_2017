@@ -17,7 +17,6 @@
 static const unsigned int WIDTH = 1664;
 static const unsigned int HEIGHT = 936;
 static const char *window_name = "INTO THE DEEP";
-//static const float zoom = 0.2;
 
 //PROCEDURAL GENERATION
 static const unsigned int map_width = 80;
@@ -25,6 +24,9 @@ static const unsigned int map_height = 45;
 static const unsigned int max_room_s = 12;
 static const unsigned int min_room_s = 8;
 static const unsigned int nbr_rooms = 9;
+
+//PLAYER
+static const float speed = 0.005;
 
 typedef struct proc_room
 {
@@ -42,14 +44,23 @@ typedef struct map_sprite
 	sfIntRect rect;
 } smap_t;
 
+typedef struct player_manager
+{
+	sfSprite *sprite;
+	sfVector2f pos;
+	sfIntRect rect;
+	sfVector2f velocity;
+	sfVector2f speed;
+	sfVector2f m_speed;
+} player_t;
+
 typedef struct game_manager
 {
 	sfVideoMode mode;
 	sfRenderWindow *window;
 	sfView *camera;
-	sfSprite *player;
+	player_t player;
 	sfVector2f camera_pos;
-	float zoom;
 } gmanager_t;
 
 typedef struct proc_gen
@@ -79,8 +90,9 @@ sfVector2f get_entry_pos(proc_t *proc);
 void draw_map(proc_t *proc);
 
 //MANAGER
-void move_camera_position(proc_t *proc, int px, int py);
 int verif_input_map(proc_t *proc);
+void update_camera_position(proc_t *proc);
+void update_player_position(proc_t *proc);
 
 //CREATE BLOCKS
 void make_ground_block(sfTexture *blocks, smap_t *smap);

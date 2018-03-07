@@ -40,10 +40,10 @@ void squaresetup_game(files_t *fi)
 void characters_setup(files_t *fi)
 {
 	fi->texture =
-	sfTexture_createFromFile("car8.png", NULL);
+	sfTexture_createFromFile("car/car2.png", NULL);
 	fi->sprite = sfSprite_create();
 	fi->gtexture =
-	sfTexture_createFromFile("mo.jpeg", NULL);
+	sfTexture_createFromFile("map/mo.jpeg", NULL);
 	fi->gsprite = sfSprite_create();
 	squaresetup_game(fi);
 	spriteset_game(fi);

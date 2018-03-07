@@ -23,6 +23,7 @@ FILES		=	src/main_proc.c					\
 			src/launch_game/launch_dungeon.c		\
 			src/launch_game/camera_manager.c		\
 			src/launch_game/input_manager.c			\
+			src/launch_game/player_movement.c		\
 
 SRCS		=	$(FILES)
 
