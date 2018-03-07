@@ -32,7 +32,7 @@ int prog(void)
 	files_t fi;
 
 	create(&fi);
-	create_tileset(&fi);
+	create_map(&fi);
 	/*while (sfRenderWindow_isOpen(fi.window)) {
 		game(&fi);
 		sfRenderWindow_close(fi.window);

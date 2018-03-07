@@ -16,10 +16,13 @@ typedef struct s_testmap
 	int x;
 	int x2;
 	int y;
+	int layer_background[25];
+	int layer_col[25];
 	sfImage *image;
 	sfImage *testmap;
 	sfSprite *sprite;
 	sfTexture *texture;
+	sfIntRect square;
 	sfColor color;
 } testmap_t;
 

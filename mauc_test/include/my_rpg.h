@@ -28,7 +28,7 @@ void move_right(files_t *fi);
 void move_left(files_t *fi);
 int collision(files_t *fi);
 void draw(files_t *fi);
-void create_tileset(files_t *fi);
+void create_map(files_t *fi);
 
 #ifndef MY_COOK_
 #define MY_COOK_
