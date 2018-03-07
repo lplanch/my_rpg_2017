@@ -11,9 +11,19 @@
 #include <SFML/Graphics.h>
 #include "game_object.h"
 
+typedef struct struct_button
+{
+	t_object *text;
+	g_object *obj;
+} st_button;
+
 typedef struct struct_main_menu
 {
 	st_time t;
+	int option;
+	int sens;
+	st_button *button[2];
+	g_object *cursor;
 	g_object *rope;
 	g_object *first;
 	g_object *abyss[2];
@@ -27,7 +37,9 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
-void vertical_movement_mainm(st_rpg *s);
+st_button *create_button(char *str, sfVector2f pos, sfIntRect rect, sfColor c);
+void *destroy_button(st_button *button);
+void movement_mainm(st_rpg *s);
 void destroy_main_menu(st_rpg *s);
 int main_menu(st_rpg *s);
 void display_menu_background(st_rpg *s);

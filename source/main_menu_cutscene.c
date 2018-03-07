@@ -18,7 +18,6 @@ void display_menu_background(st_rpg *s)
        sfRenderWindow_drawSprite(s->window, s->mainm.rockback[1]->sprite, NULL);
        sfRenderWindow_drawSprite(s->window, s->mainm.first->sprite, NULL);
        sfRenderWindow_drawSprite(s->window, s->mainm.rope->sprite, NULL);
-       sfRenderWindow_display(s->window);
 }
 
 int event_main_menu_cutscene(st_rpg *s)
@@ -40,7 +39,7 @@ int event_main_menu_cutscene(st_rpg *s)
        return (0);
 }
 
-void vertical_movement_mainm(st_rpg *s)
+void movement_mainm(st_rpg *s)
 {
        s->mainm.first->pos.y -= s->mainm.first->speed;
        sfSprite_setPosition(s->mainm.first->sprite, s->mainm.first->pos);
@@ -50,9 +49,9 @@ void vertical_movement_mainm(st_rpg *s)
               s->mainm.abyss[i]->pos.y -= s->mainm.abyss[i]->speed;
               if (s->mainm.rockback[i]->pos.y < -2936)
                      s->mainm.rockback[i]->pos.y += 2936 * 2;
-              if (s->mainm.rock2[i]->pos.y < -3000)
+              if (s->mainm.rock2[i]->pos.y < -2236)
                      s->mainm.rock2[i]->pos.y += 2236 * 2;
-              if (s->mainm.rock2[i]->pos.y < -5712)
+              if (s->mainm.abyss[i]->pos.y < -5712)
                      s->mainm.rock2[i]->pos.y += 5712 * 2;
               sfSprite_setPosition(s->mainm.rockback[i]->sprite,
               s->mainm.rockback[i]->pos);
@@ -87,6 +86,7 @@ int main_menu_cutscene(st_rpg *s)
               if (s->mainm.rope->rect.left > 950)
                      break;
               display_menu_background(s);
+              sfRenderWindow_display(s->window);
        }
        return (0);
 }
