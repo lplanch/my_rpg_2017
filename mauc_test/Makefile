@@ -11,7 +11,7 @@ CC		=	cc
 
 CFLAGS		+=	-g -I include/
 
-LDFLAGS		+=	-L lib/my/ -lmy -l c_graph_prog -lm -ljansson
+LDFLAGS		+=	-L lib/my/ -lmy -l c_graph_prog -lm
 
 FILES		=	main.c				\
 			src/collision.c			\
