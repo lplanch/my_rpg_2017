@@ -26,3 +26,12 @@ sfVector2f create_vector2f(float x, float y)
 	pos.y = y;
 	return (pos);
 }
+
+sfVector2i create_vector2i(int x, int y)
+{
+	sfVector2i size;
+
+	size.x = x;
+	size.y = y;
+	return (size);
+}

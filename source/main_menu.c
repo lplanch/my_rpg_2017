@@ -29,6 +29,7 @@ void display_main_menu_interface(st_rpg *s)
        sfRenderWindow_drawText(s->window, s->mainm.button[1]->text->text, NULL);
        sfRenderWindow_drawText(s->window, s->mainm.button[2]->text->text, NULL);
        sfRenderWindow_drawSprite(s->window, s->mainm.cursor->sprite, NULL);
+       sfRenderWindow_drawSprite(s->window, s->mainm.anim->obj->sprite, NULL);
 }
 
 void initialize_menu_interface(st_rpg *s)
@@ -45,6 +46,10 @@ void initialize_menu_interface(st_rpg *s)
        create_rect(0, 0, 400, 100), grey);
        s->mainm.button[2] = create_button("Quit", create_vector2f(1000, 820),
        create_rect(0, 0, 400, 100), grey);
+       s->mainm.anim = create_anim(create_object("images/Darkness1.png",
+       create_vector2f(rand() % 1820, rand() % 980),
+       create_rect(0, 0, 192, 192), 0),
+       create_vector2i(5, 4), 0.04);
 }
 
 void initialize_menu(st_rpg *s)
@@ -94,6 +99,14 @@ int launch_main_menu(st_rpg *s)
        if (sfKeyboard_isKeyPressed(sfKeyE)
        || sfKeyboard_isKeyPressed(sfKeyReturn)
        || sfMouse_isButtonPressed(sfMouseLeft)) {
+              if (s->mainm.option == 0) {
+                     s->mainm.anim->c = 0;
+                     s->mainm.anim->l = 0;
+                     s->mainm.anim->obj->pos.x = rand() % 1820;
+                     s->mainm.anim->obj->pos.y = rand() % 980;
+                     sfSprite_setPosition(s->mainm.anim->obj->sprite,
+                     s->mainm.anim->obj->pos);
+              }
               if (s->mainm.option == 2)
                      return (1);
        }
@@ -142,6 +155,7 @@ int main_menu(st_rpg *s)
               if (event_main_menu(s))
                      break;
               movement_mainm(s);
+              clocked_animation(s->mainm.anim);
               cursor_animation(s, 890, 910);
               main_menu_interface_animation(s);
               display_menu_background(s);

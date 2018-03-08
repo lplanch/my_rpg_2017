@@ -19,7 +19,9 @@ FILES		=	source/main.c				\
 			source/main_menu_cutscene.c		\
 			source/main_menu.c			\
 			source/button_generator.c		\
-			source/mouse_in_object.c
+			source/mouse_in_object.c		\
+			source/st_time.c			\
+			source/animation.c
 
 SRCS		=	$(FILES)
 
