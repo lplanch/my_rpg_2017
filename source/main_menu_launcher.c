@@ -1,0 +1,44 @@
+/*
+** EPITECH PROJECT, 2018
+** my_rpg
+** File description:
+** best project
+*/
+
+#include <stdlib.h>
+#include "my_rpg.h"
+
+int launch_main_menu_saves(st_rpg *s)
+{
+       if (s->mainm.option == 2)
+              main_menu_goto_main(s);
+       else
+              main_menu_goto_slots(s);
+       return (0);
+}
+
+int launch_main_menu_options(st_rpg *s)
+{
+       if (s->mainm.option == 2) {
+              main_menu_goto_main(s);
+       }
+       return (0);
+}
+
+int launch_main_menu_main(st_rpg *s)
+{
+       if (s->mainm.option == 0) {
+              main_menu_goto_saves(s);
+       } if (s->mainm.option == 1) {
+              main_menu_goto_options(s);
+       } else if (s->mainm.option == 2)
+              return (1);
+       return (0);
+}
+
+int launch_main_menu_create_slots(st_rpg *s)
+{
+       if (s->mainm.option == 3)
+              main_menu_goto_saves(s);
+       return (0);
+}
