@@ -22,11 +22,12 @@ void move_up(files_t *fi)
 	while (a != 4) {
 		if (a == 1)
 			move(fi);
-		fi->gsquare2.y += 5;
+		fi->square2.y -= 5;
+		move_ID_player(fi);
 		if (collision(fi) == 0)
 			draw(fi);
 		else
-			fi->gsquare2.y -= 5;
+			fi->square2.y += 10;
 		a++;
 	}
 }
@@ -38,11 +39,13 @@ void move_down(files_t *fi)
 	while (a != 4) {
 		if (a == 1)
 			move(fi);
-		fi->gsquare2.y -= 5;
+		fi->square2.y += 5;
+		move_ID_player(fi);
+		draw(fi);
 		if (collision(fi) == 0)
 			draw(fi);
 		else
-			fi->gsquare2.y += 5;
+			fi->square2.y -= 5;
 		a++;
 	}
 }
@@ -54,11 +57,13 @@ void move_right(files_t *fi)
 	while (a != 4) {
 		if (a == 1)
 			move(fi);
-		fi->gsquare2.x -= 5;
+		fi->square2.x += 5;
+		move_ID_player(fi);
+		draw(fi);
 		if (collision(fi) == 0)
 			draw(fi);
 		else
-			fi->gsquare2.x += 5;
+			fi->square2.x -= 5;
 		a++;
 	}
 }
@@ -70,11 +75,13 @@ void move_left(files_t *fi)
 	while (a != 4) {
 		if (a == 1)
 			move(fi);
-		fi->gsquare2.x += 5;
+		fi->square2.x -= 5;
+		move_ID_player(fi);
+		draw(fi);
 		if (collision(fi) == 0)
 			draw(fi);
 		else
-			fi->gsquare2.x -= 5;
+			fi->square2.x += 5;
 		a++;
 	}
 }

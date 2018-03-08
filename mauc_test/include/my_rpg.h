@@ -6,6 +6,7 @@
 */
 
 #include <dirent.h>
+#include <math.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
@@ -29,6 +30,7 @@ void move_left(files_t *fi);
 int collision(files_t *fi);
 void draw(files_t *fi);
 void create_map(files_t *fi);
+void move_ID_player(files_t *fi);
 
 #ifndef MY_COOK_
 #define MY_COOK_

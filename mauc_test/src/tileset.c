@@ -8,6 +8,54 @@
 #include "my.h"
 #include "my_rpg.h"
 
+void ok3(files_t *fi, int col, int c, int l)
+{
+	int x = 0;
+	int compter = (col / 31);
+	int y = compter * 32;
+
+	while (c != 32) {
+		l = 0;
+		fi->testmap.x = fi->testmap.x2;
+		x = (col - compter * 31) * 32 - 32;
+		while (l != 32) {
+			fi->testmap.color = sfImage_getPixel(fi->testmap.image, x, y);
+			sfImage_setPixel(fi->testmap.testmap_tile3, fi->testmap.x,
+			fi->testmap.y, fi->testmap.color);
+			l++;
+			x++;
+			fi->testmap.x++;
+		}
+		fi->testmap.y++;
+		y++;
+		c++;
+	}
+}
+
+void ok2(files_t *fi, int col, int c, int l)
+{
+	int x = 0;
+	int compter = (col / 31);
+	int y = compter * 32;
+
+	while (c != 32) {
+		l = 0;
+		fi->testmap.x = fi->testmap.x2;
+		x = (col - compter * 31) * 32 - 32;
+		while (l != 32) {
+			fi->testmap.color = sfImage_getPixel(fi->testmap.image, x, y);
+			sfImage_setPixel(fi->testmap.testmap_col, fi->testmap.x,
+			fi->testmap.y, fi->testmap.color);
+			l++;
+			x++;
+			fi->testmap.x++;
+		}
+		fi->testmap.y++;
+		y++;
+		c++;
+	}
+}
+
 void ok(files_t *fi, int col, int c, int l)
 {
 	int x = 0;
@@ -20,7 +68,7 @@ void ok(files_t *fi, int col, int c, int l)
 		x = (col - compter * 31) * 32 - 32;
 		while (l != 32) {
 			fi->testmap.color = sfImage_getPixel(fi->testmap.image, x, y);
-			sfImage_setPixel(fi->testmap.testmap, fi->testmap.x,
+			sfImage_setPixel(fi->testmap.testmap_backgound, fi->testmap.x,
 			fi->testmap.y, fi->testmap.color);
 			l++;
 			x++;
@@ -32,24 +80,56 @@ void ok(files_t *fi, int col, int c, int l)
 	}
 }
 
-void set_and_draw(files_t *fi)
+void draw_map(files_t *fi)
+{
+	while (sfRenderWindow_isOpen(fi->window)) {
+		sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite, NULL);
+		sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite2, NULL);
+		sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite3, NULL);
+		sfRenderWindow_display(fi->window);
+	}
+}
+
+void set_background(files_t *fi)
 {
 	sfVector2f invers;
 
 	invers.x = 5;
 	invers.y = 5;
-	fi->testmap.texture = sfTexture_createFromImage(fi->testmap.testmap, NULL);
+	fi->testmap.texture = sfTexture_createFromImage(fi->testmap.testmap_backgound, NULL);
 	fi->testmap.sprite = sfSprite_create();
 	sfSprite_scale(fi->testmap.sprite, invers);
 	sfSprite_setTextureRect(fi->testmap.sprite, fi->testmap.square);
 	sfSprite_setTexture(fi->testmap.sprite, fi->testmap.texture, sfTrue);
-	while (sfRenderWindow_isOpen(fi->window)) {
-		sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite, NULL);
-		sfRenderWindow_display(fi->window);
-	}
 }
 
-void transfer_pixel2(files_t *fi, int compter, int height)
+void set_col(files_t *fi)
+{
+	sfVector2f invers;
+
+	invers.x = 5;
+	invers.y = 5;
+	fi->testmap.texture2 = sfTexture_createFromImage(fi->testmap.testmap_col, NULL);
+	fi->testmap.sprite2 = sfSprite_create();
+	sfSprite_scale(fi->testmap.sprite2, invers);
+	sfSprite_setTextureRect(fi->testmap.sprite2, fi->testmap.square);
+	sfSprite_setTexture(fi->testmap.sprite2, fi->testmap.texture2, sfTrue);
+}
+
+void set_tile(files_t *fi)
+{
+	sfVector2f invers;
+
+	invers.x = 5;
+	invers.y = 5;
+	fi->testmap.texture3 = sfTexture_createFromImage(fi->testmap.testmap_tile3, NULL);
+	fi->testmap.sprite3 = sfSprite_create();
+	sfSprite_scale(fi->testmap.sprite3, invers);
+	sfSprite_setTextureRect(fi->testmap.sprite3, fi->testmap.square);
+	sfSprite_setTexture(fi->testmap.sprite3, fi->testmap.texture3, sfTrue);
+}
+
+void transfer_pixel_background2(files_t *fi, int compter, int height)
 {
 	int c = 0;
 	int l = 0;
@@ -58,6 +138,28 @@ void transfer_pixel2(files_t *fi, int compter, int height)
 		fi->testmap.y = height * 32;
 		ok(fi, fi->testmap.layer_background[compter], c, l);
 	}
+}
+
+void transfer_pixel_col2(files_t *fi, int compter, int height)
+{
+	int c = 0;
+	int l = 0;
+
+	if (fi->testmap.layer_col[compter] == 0)
+		fi->testmap.layer_col[compter] = 93;
+	fi->testmap.y = height * 32;
+	ok2(fi, fi->testmap.layer_col[compter], c, l);
+}
+
+void transfer_pixel_tile32(files_t *fi, int compter, int height)
+{
+	int c = 0;
+	int l = 0;
+
+	if (fi->testmap.layer_tile3[compter] == 0)
+		fi->testmap.layer_tile3[compter] = 93;
+	fi->testmap.y = height * 32;
+	ok3(fi, fi->testmap.layer_tile3[compter], c, l);
 }
 
 void transfer_pixel(files_t *fi)
@@ -69,7 +171,9 @@ void transfer_pixel(files_t *fi)
 	while (height != 5) {
 		width = 0;
 		while (width != 5) {
-			transfer_pixel2(fi, compter, height);
+			transfer_pixel_background2(fi, compter, height);
+			transfer_pixel_col2(fi, compter, height);
+			transfer_pixel_tile32(fi, compter, height);
 			fi->testmap.x2 += 32;
 			width++;
 			compter++;
@@ -85,12 +189,15 @@ void create_layers(files_t *fi)
 	int layer_background[25] = {263, 263, 263, 233, 263, 232, 263, 263, 263,
 	264, 263, 235, 263, 263, 263, 264, 269, 263, 233,
 	263, 263, 265, 270, 270, 267};
-	int layer_col[25] = {282, 142, 143, 0, 0, 0, 173, 174, 230, 231, 0,
-	204, 205, 261, 262, 287, 0, 0, 0, 0, 318, 0, 0, 0, 0};
+	int layer_col[25] = {282, 142, 143, 0, 0, 0, 173, 174, 230, 231, 0, 204,
+	205, 261, 262, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	int layer_tile3[25] = {0, 142, 143, 0, 0, 0, 173, 174, 290, 291, 0, 294,
+	295, 321, 322, 0, 287, 0, 0, 0, 0, 318, 0, 0, 0};
 
 	while (i != 25) {
 		fi->testmap.layer_col[i] = layer_col[i];
 		fi->testmap.layer_background[i] = layer_background[i];
+		fi->testmap.layer_tile3[i] = layer_tile3[i];
 		i++;
 	}
 }
@@ -99,7 +206,9 @@ void create_images(files_t *fi)
 {
 	fi->testmap.x2 = 0;
 	fi->testmap.image = sfImage_createFromFile("TestMap/gg.png");
-	fi->testmap.testmap = sfImage_create(1000, 1000);
+	fi->testmap.testmap_col = sfImage_create(1000, 1000);
+	fi->testmap.testmap_backgound = sfImage_create(1000, 1000);
+	fi->testmap.testmap_tile3 = sfImage_create(1000, 1000);
 	fi->testmap.square.left = 0;
 	fi->testmap.square.top = 0;
 	fi->testmap.square.height = 1000;
@@ -111,5 +220,8 @@ void create_map(files_t *fi)
 {
 	create_images(fi);
 	transfer_pixel(fi);
-	set_and_draw(fi);
+	set_background(fi);
+	set_col(fi);
+	set_tile(fi);
+	//draw_map(fi);
 }
