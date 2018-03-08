@@ -18,12 +18,14 @@ void print_help(void)
 
 int main(int ac, char **av)
 {
-	proc_t *proc;
+	gage_t *gage = malloc(sizeof(gage_t));
 
 	if (ac == 2 && !my_strcmp(av[1], "-h")) {
 		print_help();
 	} else if (ac == 1) {
-		proc = map_creation();
-		draw_map(proc);
+		gage->current_floor = 0;
+		gage->max_floor = 10;
+		gage->proc = map_creation();
+		draw_map(gage);
 	}
 }

@@ -45,6 +45,7 @@ FILES		=	my_putchar.c		\
 			my_putcharror.c		\
 			get_next_line.c		\
 			count_chr_tbl.c		\
+			int_to_str.c		\
 
 SRCS		=	$(FILES)
 
