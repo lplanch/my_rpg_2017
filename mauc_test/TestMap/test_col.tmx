@@ -3,7 +3,7 @@
  <tileset firstgid="1" name="gg" tilewidth="32" tileheight="32" tilecount="961" columns="31">
   <image source="gg.png" width="1000" height="1000"/>
  </tileset>
- <layer name="Tile Layer 1" width="5" height="5">
+ <layer name="tile1" width="5" height="5">
   <data encoding="csv">
 263,263,263,233,263,
 232,263,263,263,264,
@@ -12,22 +12,31 @@
 263,265,270,270,267
 </data>
  </layer>
- <layer name="COL" width="5" height="5">
+ <layer name="COL" width="5" height="5" visible="0">
   <data encoding="csv">
 282,142,143,0,0,
 0,173,174,230,231,
 0,204,205,261,262,
-287,0,0,0,0,
-318,0,0,0,0
+0,0,0,0,0,
+0,0,0,0,0
 </data>
  </layer>
- <objectgroup name="obj_col">
-  <object id="1" x="118.25" y="76.75" width="20.75" height="16.25">
+ <layer name="tile3" width="5" height="5">
+  <data encoding="csv">
+0,142,143,0,0,
+0,173,174,290,291,
+0,294,295,321,322,
+0,287,0,0,0,
+0,318,0,0,0
+</data>
+ </layer>
+ <objectgroup name="obj_col" visible="0">
+  <object id="1" type="c" x="117.781" y="73.75" width="20" height="20">
    <ellipse/>
   </object>
-  <object id="2" x="2.5" y="13.25" width="29" height="17.5">
+  <object id="2" type="c" x="1.75" y="5.5" width="29" height="27.25">
    <ellipse/>
   </object>
-  <object id="3" x="13.25" y="153" width="7.5" height="6.75"/>
+  <object id="3" type="c" x="77.25" y="121" width="7.5" height="6.75"/>
  </objectgroup>
 </map>

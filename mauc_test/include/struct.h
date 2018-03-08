@@ -11,6 +11,11 @@
 #ifndef STRUCT_H_
 #define STRUCT_H_
 
+typedef struct s_pos
+{
+	int x;
+	int y;
+} pos_t;
 typedef struct s_testmap
 {
 	int x;
@@ -18,28 +23,44 @@ typedef struct s_testmap
 	int y;
 	int layer_background[25];
 	int layer_col[25];
+	int layer_tile3[25];
 	sfImage *image;
-	sfImage *testmap;
+	sfImage *testmap_backgound;
+	sfImage *testmap_col;
+	sfImage *testmap_tile3;
 	sfSprite *sprite;
 	sfTexture *texture;
+	sfSprite *sprite2;
+	sfTexture *texture2;
+	sfSprite *sprite3;
+	sfTexture *texture3;
 	sfIntRect square;
 	sfColor color;
 } testmap_t;
 
+typedef struct s_colcircle
+{
+	float center_circle_x;
+	float center_circle_y;
+	int rayon_circle;
+} colcircle_t;
+
 typedef struct s_files
 {
 	int direction;
+	int nbr_colcircle;
 	sfRenderWindow *window;
 	sfTexture *texture;
 	sfSprite *sprite;
 	sfIntRect square;
 	sfVector2f square2;
 	sfVector2f invers;
-	sfTexture *gtexture;
-	sfSprite *gsprite;
-	sfIntRect gsquare;
-	sfVector2f gsquare2;
-	sfVector2f invers2;
+	sfTexture *ID_text;
+	sfSprite *ID_sprite;
+	sfIntRect ID_player;
+	sfVector2f vect_ID_player;
+	pos_t pos[6];
+	colcircle_t colcircle[1];
 	testmap_t testmap;
 } files_t;
 

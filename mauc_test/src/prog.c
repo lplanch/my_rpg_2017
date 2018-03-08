@@ -23,7 +23,7 @@ void create2(files_t *fi)
 void create(files_t *fi)
 {
 	window_create(fi, "my_rpg");
-	//create2(fi);
+	create2(fi);
 }
 
 int prog(void)
@@ -33,10 +33,10 @@ int prog(void)
 
 	create(&fi);
 	create_map(&fi);
-	/*while (sfRenderWindow_isOpen(fi.window)) {
+	while (sfRenderWindow_isOpen(fi.window)) {
 		game(&fi);
 		sfRenderWindow_close(fi.window);
 	}
-	//destroy(&fi);*/
+	//destroy(&fi);
 	return (0);
 }
