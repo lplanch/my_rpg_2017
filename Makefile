@@ -9,7 +9,7 @@ NAME		=	my_rpg
 
 CC		=	cc
 
-CFLAGS		+=	-g -Iinclude
+CFLAGS		+=	-g -Iinclude -W -Wall -Wextra
 
 LDFLAGS		+=	-L lib/my/ -lmy -l c_graph_prog -lm
 

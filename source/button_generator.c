@@ -19,7 +19,7 @@ st_button *create_button(char *str, sfVector2f pos, sfIntRect rect, sfColor c)
        return (button);
 }
 
-void *destroy_button(st_button *button)
+void destroy_button(st_button *button)
 {
        destroy_text(button->text);
        destroy_object(button->obj);
