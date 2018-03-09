@@ -8,6 +8,17 @@
 #include "my.h"
 #include "my_rpg.h"
 
+void free_tab(char **tab)
+{
+	int i = 0;
+
+	while (i != 13) {
+		free (tab[i]);
+		i++;
+	}
+	free (tab);
+}
+
 int tab_circle(char **tab, int i, files_t *fi, int circle)
 {
 	fi->colcircle[circle].rayon_circle = (str_to_int(tab[i]) / 2) * 5;
@@ -51,6 +62,7 @@ void tab_to_struct(files_t *fi, char **tab)
 		}
 		compter++;
 	}
+	free_tab(tab);
 }
 
 void parsing2(char *buff, int y, files_t *fi)
@@ -72,6 +84,7 @@ void parsing2(char *buff, int y, files_t *fi)
 		i++;
 		a++;
 	}
+	free (buff);
 	tab_to_struct(fi, tab);
 }
 
