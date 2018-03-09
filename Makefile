@@ -9,7 +9,7 @@ NAME		=	my_rpg
 
 CC		=	cc
 
-CFLAGS		+=	-g -Iinclude
+CFLAGS		+=	-g -Iinclude -W -Wall -Wextra
 
 LDFLAGS		+=	-L lib/my/ -lmy -l c_graph_prog -lm
 
@@ -21,7 +21,10 @@ FILES		=	source/main.c				\
 			source/button_generator.c		\
 			source/mouse_in_object.c		\
 			source/st_time.c			\
-			source/animation.c
+			source/animation.c			\
+			source/main_menu_goto.c		\
+			source/main_menu_launcher.c		\
+			source/main_menu_base.c
 
 SRCS		=	$(FILES)
 

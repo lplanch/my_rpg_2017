@@ -51,9 +51,9 @@ void make_player_position(proc_t *proc)
 	tempy[1] = (proc->gman->player.pos.x) / 16;
 	tempx[0] = (proc->gman->player.pos.y) / 16;
 	tempx[1] = (proc->gman->player.pos.x + proc->gman->player.speed.x) / 16;
-	if (proc->map[tempy[1]][tempy[0]] != '#') {
+	if (proc->map[tempy[0]][tempy[1]] != '#') {
 		proc->gman->player.pos.y += proc->gman->player.speed.y;
-	} if (proc->map[tempx[1]][tempx[0]] != '#') {
+	} if (proc->map[tempx[0]][tempx[1]] != '#') {
 		proc->gman->player.pos.x += proc->gman->player.speed.x;
 	}
 }

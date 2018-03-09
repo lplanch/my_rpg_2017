@@ -10,10 +10,11 @@
 
 void init_player(gmanager_t *gman, proc_t *proc)
 {
+	sfVector2f zoom = {0.4, 0.4};
 	sfTexture *player_texture = sfTexture_createFromFile(
 	"ressources/car2.png", NULL);
-	sfVector2f zoom = {0.5, 0.5};
 
+	gman->player.texture = player_texture;
 	gman->player.sprite = sfSprite_create();
 	gman->player.pos = get_entry_pos(proc);
 	gman->player.rect.left = 0;
@@ -39,11 +40,12 @@ gmanager_t *init_dungeon_game(proc_t *proc)
 	gman->mode.width = WIDTH;
 	gman->mode.height = HEIGHT;
 	gman->mode.bitsPerPixel = 32;
-	gman->window = sfRenderWindow_create(gman->mode, window_name, sfClose, NULL);
+	gman->window = sfRenderWindow_create(gman->mode, window_name, sfClose,
+	NULL);
 	init_player(gman, proc);
 	gman->camera_pos = gman->player.pos;
 	gman->camera = sfRenderWindow_getDefaultView(gman->window);
-	sfView_zoom(gman->camera, 0.2);
+	sfView_zoom(gman->camera, 0.18);
 	sfView_setCenter(gman->camera, gman->camera_pos);
 	sfRenderWindow_setView(gman->window, gman->camera);
 	return (gman);
@@ -54,7 +56,8 @@ int draw_sprites_map(proc_t *proc)
 	for (int y = 0; proc->map[y] != NULL; y++) {
 		for (int x = 0; proc->map[y][x] != '\0'; x++) {
 			if (proc->smap[y][x] != NULL) {
-				sfRenderWindow_drawSprite(proc->gman->window, proc->smap[y][x]->sprite, NULL);
+				sfRenderWindow_drawSprite(proc->gman->window,
+				proc->smap[y][x]->sprite, NULL);
 			}
 		}
 	}
@@ -73,14 +76,16 @@ int update_sprite(proc_t *proc)
 	update_camera_position(proc);
 }
 
-int launch_dungeon_game(proc_t *proc)
+int launch_dungeon_game(gage_t *gage)
 {
-	proc->gman = init_dungeon_game(proc);
-	while (sfRenderWindow_isOpen(proc->gman->window)) {
-		verif_input_map(proc);
-		update_sprite(proc);
-		sfRenderWindow_clear(proc->gman->window, sfBlack);
-		draw_sprites_map(proc);
-		sfRenderWindow_display(proc->gman->window);
+	gage->proc->gman = init_dungeon_game(gage->proc);
+	while (sfRenderWindow_isOpen(gage->proc->gman->window)) {
+		verif_input_map(gage);
+		update_sprite(gage->proc);
+		sfRenderWindow_clear(gage->proc->gman->window, sfBlack);
+		draw_sprites_map(gage->proc);
+		sfRenderWindow_display(gage->proc->gman->window);
+		verify_exit_player(gage);
 	}
+	free_gage_game(gage);
 }

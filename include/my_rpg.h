@@ -32,11 +32,11 @@ typedef struct struct_button
 
 typedef struct struct_main_menu
 {
+	int menu;
 	st_time t;
-	st_anim *anim;
 	int option;
 	int sens;
-	st_button *button[3];
+	st_button *button[4];
 	g_object *cursor;
 	g_object *rope;
 	g_object *first;
@@ -51,12 +51,25 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+int launch_main_menu_options(st_rpg *s);
+int launch_main_menu_create_slots(st_rpg *s);
+int launch_main_menu_main(st_rpg *s);
+int launch_main_menu_saves(st_rpg *s);
+void main_menu_goto_main(st_rpg *s);
+void main_menu_goto_slots(st_rpg *s);
+void main_menu_goto_saves(st_rpg *s);
+void main_menu_goto_options(st_rpg *s);
+int get_max_buttons(st_rpg *s);
+void destroy_main_menu(st_rpg *s);
+void initialize_menu(st_rpg *s);
+int left_clicked_on_buttons(st_rpg *s, sfEvent event);
 st_time create_st_time(void);
+void destroy_anim(st_anim *anim);
 st_anim *create_anim(g_object *obj, sfVector2i max, float speed);
 void clocked_animation(st_anim *anim);
 int mouse_in_object(g_object *obj, sfRenderWindow *window);
 st_button *create_button(char *str, sfVector2f pos, sfIntRect rect, sfColor c);
-void *destroy_button(st_button *button);
+void destroy_button(st_button *button);
 void movement_mainm(st_rpg *s);
 void destroy_main_menu(st_rpg *s);
 int main_menu(st_rpg *s);

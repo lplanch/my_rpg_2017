@@ -46,6 +46,7 @@ typedef struct map_sprite
 
 typedef struct player_manager
 {
+	sfTexture *texture;
 	sfSprite *sprite;
 	sfVector2f pos;
 	sfIntRect rect;
@@ -69,12 +70,22 @@ typedef struct proc_gen
 	proom_t **proom;
 	smap_t ***smap;
 	char **map;
+	sfTexture *blocks_texture;
+	unsigned int current_floor;
 } proc_t;
+
+typedef struct game_agent
+{
+	proc_t *proc;
+	unsigned int current_floor;
+	unsigned int max_floor;
+} gage_t;
 
 //MAKE MAP
 proc_t *map_creation(void);
 void make_positions_proom(proc_t *proc);
 void make_holes(proom_t *proom, char **map, int i);
+void increment_proc_struct(proc_t *proc);
 
 //CORRIDORS
 void v_corridor(char **map, int y1, int y2, int x);
@@ -85,12 +96,16 @@ void make_corridors(proc_t *proc, int length);
 void create_entry(proc_t *proc);
 void create_leave(proc_t *proc);
 sfVector2f get_entry_pos(proc_t *proc);
+sfVector2f get_exit_pos(proc_t *proc);
+void verify_exit_player(gage_t *gage);
 
 //DRAW MAP
-void draw_map(proc_t *proc);
+void draw_map(gage_t *gage);
+void free_map_tbl(proc_t *proc);
+smap_t ***create_sprite_map(proc_t *proc, char **map);
 
 //MANAGER
-int verif_input_map(proc_t *proc);
+int verif_input_map(gage_t *gage);
 void update_camera_position(proc_t *proc);
 void update_player_position(proc_t *proc);
 
@@ -99,4 +114,7 @@ void make_ground_block(sfTexture *blocks, smap_t *smap);
 void make_exit_block(sfTexture *blocks, smap_t *smap);
 
 //MAIN GAME
-int launch_dungeon_game(proc_t *proc);
+int launch_dungeon_game(gage_t *gage);
+void free_dungeon(proc_t *proc);
+void free_gage_game(gage_t *gage);
+void next_level_screen(gage_t *gage);
