@@ -39,12 +39,12 @@ void initialize_menu_interface(st_rpg *s)
        s->mainm.option = 0;
        s->mainm.cursor = create_object("images/cursor.png",
        create_vector2f(900, 500), create_rect(0, 0, 100, 116), 2);
-       s->mainm.button[0] = create_button("Play", create_vector2f(1000, 500),
-       create_rect(0, 0, 400, 100), grey);
-       s->mainm.button[1] = create_button("Options", create_vector2f(1000, 620),
-       create_rect(0, 0, 400, 100), grey);
-       s->mainm.button[2] = create_button("Quit", create_vector2f(1000, 740),
-       create_rect(0, 0, 400, 100), grey);
+       s->mainm.button[0] = create_vbutton("Play", create_vector2f(1000, 500),
+       grey, 100);
+       s->mainm.button[1] = create_vbutton("Options",
+       create_vector2f(1000, 620), grey, 100);
+       s->mainm.button[2] = create_vbutton("Quit", create_vector2f(1000, 740),
+       grey, 100);
 }
 
 void initialize_menu(st_rpg *s)

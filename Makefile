@@ -24,7 +24,10 @@ FILES		=	source/main.c				\
 			source/animation.c			\
 			source/main_menu_goto.c		\
 			source/main_menu_launcher.c		\
-			source/main_menu_base.c
+			source/main_menu_base.c		\
+			source/main_menu_events.c		\
+			source/custom_main.c			\
+			source/custom_get_buttons.c
 
 SRCS		=	$(FILES)
 
