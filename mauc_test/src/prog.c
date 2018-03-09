@@ -49,7 +49,12 @@ int prog(void)
 {
 	int o = 0;
 	files_t fi;
+	struct stat a;
 
+	if (stat("TestMap/parsing", &a) == -1) {
+		return (0);
+	}
+	parsing(a, &fi);
 	create(&fi);
 	create_map(&fi);
 	while (sfRenderWindow_isOpen(fi.window)) {

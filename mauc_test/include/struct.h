@@ -38,17 +38,25 @@ typedef struct s_testmap
 	sfColor color;
 } testmap_t;
 
+typedef struct s_colsquare
+{
+	pos_t pos;
+	int width;
+	int height;
+} colsquare_t;
+
 typedef struct s_colcircle
 {
-	float center_circle_x;
-	float center_circle_y;
 	int rayon_circle;
+	int center_circle_x;
+	int center_circle_y;
 } colcircle_t;
 
 typedef struct s_files
 {
 	int direction;
 	int nbr_colcircle;
+	int nbr_colsquare;
 	sfRenderWindow *window;
 	sfTexture *texture;
 	sfSprite *sprite;
@@ -60,7 +68,8 @@ typedef struct s_files
 	sfIntRect ID_player;
 	sfVector2f vect_ID_player;
 	pos_t pos[6];
-	colcircle_t colcircle[1];
+	colcircle_t colcircle[2];
+	colsquare_t colsquare[1];
 	testmap_t testmap;
 } files_t;
 

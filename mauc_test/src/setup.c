@@ -10,10 +10,11 @@
 
 void setup_col(files_t *fi)
 {
-	fi->nbr_colcircle = 1;
-	fi->colcircle[0].center_circle_x = 127.8 * 5;
-	fi->colcircle[0].center_circle_y = 83.8 * 5;
-	fi->colcircle[0].rayon_circle = 10 * 5;
+	fi->nbr_colcircle = 2;
+	fi->nbr_colsquare = 1;
+	//fi->colcircle[0].center_circle_x = 127.8 * 5;
+	//fi->colcircle[0].center_circle_y = 83.8 * 5;
+	//fi->colcircle[0].rayon_circle = 10 * 5;
 }
 
 sfVector2f create_vector2f(float x, float y)

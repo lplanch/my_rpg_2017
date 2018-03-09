@@ -27,7 +27,7 @@ void move_up(files_t *fi)
 		if (collision(fi) == 0)
 			draw(fi);
 		else
-			fi->square2.y += 10;
+			fi->square2.y += 5;
 		a++;
 	}
 }

@@ -20,6 +20,7 @@ FILES		=	main.c				\
 			src/prog.c			\
 			src/setup.c			\
 			src/tileset.c			\
+			src/parsing.c			\
 
 SRCS		=	$(FILES)
 
