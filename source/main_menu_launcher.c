@@ -31,8 +31,10 @@ int launch_main_menu_main(st_rpg *s)
               main_menu_goto_saves(s);
        } if (s->mainm.option == 1) {
               main_menu_goto_options(s);
-       } else if (s->mainm.option == 2)
+       } else if (s->mainm.option == 2) {
+              destroy_main_menu(s);
               return (1);
+       }
        return (0);
 }
 
@@ -40,7 +42,9 @@ int launch_main_menu_create_slots(st_rpg *s)
 {
        if (s->mainm.option == 3)
               main_menu_goto_saves(s);
-       else
+       else {
+              destroy_main_menu(s);
               return (custom_main(s));
+       }
        return (0);
 }

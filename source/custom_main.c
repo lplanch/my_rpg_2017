@@ -7,16 +7,29 @@
 
 #include "my_rpg.h"
 
+void destroy_cust_buttons(st_rpg *s)
+{
+       int i = cust_minx_buttons(s->cust.menu);
+
+       while (i != cust_maxx_buttons(s->cust.menu) + 1) {
+              destroy_button(s->cust.bt[i][1]);
+              i += 1;
+       }
+}
+
 void custom_destroy(st_rpg *s)
 {
        destroy_object(s->cust.back);
+       destroy_object(s->cust.cursor);
        destroy_object(s->cust.circle);
+       destroy_cust_buttons(s);
 }
 
-void cust_cursor_animation(st_rpg *s, int min, int max)
+void cust_cursor_animation(st_rpg *s)
 {
        s->cust.cursor->pos.y += s->cust.sens;
-       if (s->cust.cursor->pos.y > max || s->cust.cursor->pos.y < min)
+       if (s->cust.cursor->pos.y > s->cust.cmax ||
+              s->cust.cursor->pos.y < s->cust.cmin)
               s->cust.sens = -s->cust.sens;
        sfSprite_setPosition(s->cust.cursor->sprite, s->cust.cursor->pos);
 }
@@ -27,7 +40,7 @@ void cust_menu_interface_animation(st_rpg *s)
 
        for (int i = 0; i != cust_get_buttons(s->cust.menu); i += 1)
               sfText_setColor(s->cust.bt[i][1]->text->text, grey);
-       sfText_setColor(s->cust.bt[s->cust.optiony][1]->text->text, sfWhite);
+       sfText_setColor(s->cust.bt[s->cust.optionx][1]->text->text, sfWhite);
 }
 
 void create_st_custom(st_rpg *s)
@@ -35,10 +48,11 @@ void create_st_custom(st_rpg *s)
        sfColor grey = {96, 96, 96, 255};
 
        s->cust.sens = 0.25;
-       s->cust.returnv = 0;
        s->cust.menu = 1;
        s->cust.optionx = 1;
        s->cust.optiony = 1;
+       s->cust.cmin = 710;
+       s->cust.cmax = 715;
        s->cust.circle = create_object("images/cust/circle.png",
        create_vector2f(300, 600), create_rect(0, 0, 520, 170), 0);
        s->cust.back = create_object("images/cust/bg.png",
@@ -76,17 +90,18 @@ int cust_left_clicked(st_rpg *s, sfEvent event)
        return (0);
 }
 
-void cust_menu_backto_main(st_rpg *s) {
+int cust_menu_backto_main(st_rpg *s)
+{
        custom_destroy(s);
        s->mainm.option = 0;
        s->mainm.menu = 0;
-       main_menu(s);
+       return (main_menu(s));
 }
 
 int launch_cust_menu_sex(st_rpg *s)
 {
        if (s->cust.optionx == 0)
-              cust_menu_backto_main(s);
+              return (cust_menu_backto_main(s));
        else {
               if (s->cust.optionx == 1)
                      s->cust.cdata.sex = 'M';
@@ -99,7 +114,7 @@ int launch_cust_menu_sex(st_rpg *s)
 
 int which_cust_menu(st_rpg *s)
 {
-       if (s->mainm.menu == 1)
+       if (s->cust.menu == 1)
               return (launch_cust_menu_sex(s));
        return (0);
 }
@@ -118,14 +133,16 @@ void get_cursor_pos(st_rpg *s)
 {
        if (s->cust.menu == 1) {
               if (s->cust.optionx == 0) {
-                     s->cust.cursor->pos.x = 300;
-                     s->cust.cursor->pos.y = 800;
+                     s->cust.cursor->pos.x = 330;
+                     s->cust.cursor->pos.y = 850;
                      s->cust.rot = 90;
               } else {
                      s->cust.cursor->pos.x = 1180 + 330 * (s->cust.optionx - 1);
                      s->cust.cursor->pos.y = 710;
                      s->cust.rot = -90;
               }
+              s->cust.cmin = s->cust.cursor->pos.y;
+              s->cust.cmax = s->cust.cmin + 5;
        }
        sfSprite_setPosition(s->cust.cursor->sprite, s->cust.cursor->pos);
        sfSprite_setRotation(s->cust.cursor->sprite, s->cust.rot);
@@ -173,9 +190,12 @@ int custom_event(st_rpg *s)
        sfEvent event;
 
        while (sfRenderWindow_pollEvent(s->window, &event)) {
-              if (event.type == sfEvtClosed || custom_launch(s, event)) {
-                     s->cust.returnv = 1;
+              if (event.type == sfEvtClosed) {
+                     s->returnv = 1;
                      custom_destroy(s);
+                     return (1);
+              } if (custom_launch(s, event)) {
+                     s->returnv = 1;
                      return (1);
               }
               custom_manage_cursor_events_key(s, event);
@@ -190,10 +210,10 @@ int custom_main(st_rpg *s)
        while (sfRenderWindow_isOpen(s->window)) {
               if (custom_event(s))
                      break;
-              cust_cursor_animation(s, 710, 715);
+              cust_cursor_animation(s);
               cust_menu_interface_animation(s);
               display_cust(s);
               sfRenderWindow_display(s->window);
        }
-       return (s->cust.returnv);
+       return (s->returnv);
 }

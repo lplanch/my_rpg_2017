@@ -43,8 +43,9 @@ typedef struct struct_st_custom
 	int optiony;
 	float sens;
 	int menu;
-	int returnv;
 	float rot;
+	int cmin;
+	int cmax;
 	g_object *cursor;
 	st_button *bt[4][2];
 	g_object *circle;
@@ -68,6 +69,7 @@ typedef struct struct_main_menu
 
 typedef struct struct_rpg
 {
+	int returnv;
 	st_custom cust;
 	st_menu mainm;
 	sfRenderWindow *window;

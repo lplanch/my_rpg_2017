@@ -61,8 +61,12 @@ int event_main_menu(st_rpg *s)
        sfEvent event;
 
        while (sfRenderWindow_pollEvent(s->window, &event)) {
-              if (event.type == sfEvtClosed || launch_main_menu(s, event)) {
+              if (event.type == sfEvtClosed) {
+                     s->returnv = 1;
                      destroy_main_menu(s);
+                     return (1);
+              } if (launch_main_menu(s, event)) {
+                     s->returnv = 1;
                      return (1);
               }
               main_menu_manage_cursor_events(s, event);

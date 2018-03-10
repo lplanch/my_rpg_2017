@@ -52,5 +52,5 @@ int main_menu(st_rpg *s)
               display_main_menu_interface(s);
               sfRenderWindow_display(s->window);
        }
-       return (0);
+       return (s->returnv);
 }
