@@ -25,8 +25,10 @@ static const unsigned int max_room_s = 12;
 static const unsigned int min_room_s = 8;
 static const unsigned int nbr_rooms = 9;
 
+static const sfColor background = {20, 11, 40, 255};
+
 //PLAYER
-static const float speed = 0.005;
+static const float speed = 0.018;
 
 typedef struct proc_room
 {
@@ -86,6 +88,7 @@ proc_t *map_creation(void);
 void make_positions_proom(proc_t *proc);
 void make_holes(proom_t *proom, char **map, int i);
 void increment_proc_struct(proc_t *proc);
+void make_map_better(char **map);
 
 //CORRIDORS
 void v_corridor(char **map, int y1, int y2, int x);
@@ -98,6 +101,7 @@ void create_leave(proc_t *proc);
 sfVector2f get_entry_pos(proc_t *proc);
 sfVector2f get_exit_pos(proc_t *proc);
 void verify_exit_player(gage_t *gage);
+int verify_collide(char block);
 
 //DRAW MAP
 void draw_map(gage_t *gage);
@@ -112,6 +116,20 @@ void update_player_position(proc_t *proc);
 //CREATE BLOCKS
 void make_ground_block(sfTexture *blocks, smap_t *smap);
 void make_exit_block(sfTexture *blocks, smap_t *smap);
+void make_leftright_block(sfTexture *blocks, smap_t *smap);
+void make_bot_block(sfTexture *blocks, smap_t *smap);
+void make_top_block(sfTexture *blocks, smap_t *smap);
+
+void make_corner_botleft_block(sfTexture *blocks, smap_t *smap);
+void make_corner_botright_block(sfTexture *blocks, smap_t *smap);
+void make_corner_topleft_block(sfTexture *blocks, smap_t *smap);
+void make_corner_topright_block(sfTexture *blocks, smap_t *smap);
+
+void make_deadlock_top_block(sfTexture *blocks, smap_t *smap);
+void make_deadlock_bot_block(sfTexture *blocks, smap_t *smap);
+void make_deadlock_right_block(sfTexture *blocks, smap_t *smap);
+void make_deadlock_left_block(sfTexture *blocks, smap_t *smap);
+
 
 //MAIN GAME
 int launch_dungeon_game(gage_t *gage);

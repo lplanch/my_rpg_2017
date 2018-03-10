@@ -32,5 +32,6 @@ proc_t *map_creation(void)
 	}
 	create_entry(proc);
 	create_leave(proc);
+	make_map_better(proc->map);
 	return (proc);
 }

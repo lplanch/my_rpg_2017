@@ -1,2 +1,6 @@
-floor : 16, 32
-top wall : 16, 16
+T = top block
+V = bottom block
+L = left block
+R = right block
+G = bot and top block
+K = left and right block

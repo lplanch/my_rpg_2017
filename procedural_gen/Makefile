@@ -18,14 +18,18 @@ FILES		=	src/main_proc.c					\
 			src/make_array/verify_collide.c			\
 			src/make_array/corridors.c			\
 			src/make_array/mandatory_blocks.c		\
+			src/make_array/make_map_better.c		\
 			src/make_sprite_map/main_draw_map.c		\
 			src/make_sprite_map/create_blocks.c		\
+			src/make_sprite_map/create_blocks_corner.c	\
+			src/make_sprite_map/create_blocks_deadlock.c	\
 			src/launch_game/launch_dungeon.c		\
 			src/launch_game/camera_manager.c		\
 			src/launch_game/input_manager.c			\
 			src/launch_game/player_movement.c		\
 			src/launch_game/free_dungeon.c			\
 			src/launch_game/restart_game.c			\
+			src/launch_game/verify_collisions.c		\
 
 SRCS		=	$(FILES)
 

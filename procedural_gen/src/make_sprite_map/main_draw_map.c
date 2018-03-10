@@ -18,6 +18,40 @@ smap_t *generate_block(sfTexture *blocks, char chr, smap_t *smap)
 	case 'S':
 		make_exit_block(blocks, smap);
 		break;
+	case 'L':
+	case 'R':
+		make_leftright_block(blocks, smap);
+		break;
+	case 'T':
+		make_top_block(blocks, smap);
+		break;
+	case 'V':
+		make_bot_block(blocks, smap);
+		break;
+	case 'A':
+		make_corner_topleft_block(blocks, smap);
+		break;
+	case 'P':
+		make_corner_topright_block(blocks, smap);
+		break;
+	case 'W':
+		make_corner_botleft_block(blocks, smap);
+		break;
+	case 'N':
+		make_corner_botright_block(blocks, smap);
+		break;
+	case 'Y':
+		make_deadlock_top_block(blocks, smap);
+		break;
+	case 'H':
+		make_deadlock_bot_block(blocks, smap);
+		break;
+	case 'G':
+		make_deadlock_left_block(blocks, smap);
+		break;
+	case 'J':
+		make_deadlock_right_block(blocks, smap);
+		break;
 	default:
 		free(smap);
 		smap = NULL;
@@ -30,19 +64,20 @@ smap_t ***create_sprite_map(proc_t *proc, char **map)
 {
 	smap_t ***smap = my_calloc(sizeof(smap_t **) * (count_lines(map) + 1));
 	sfTexture *blocks = sfTexture_createFromFile(
-	"ressources/0x72_16x16DungeonTileset.v1.png", NULL);
+	"ressources/dungeon_lvl1_tiles.png", NULL);
 
 	proc->blocks_texture = blocks;
 	for (int y = 0; map[y] != NULL; y++) {
 		smap[y] = my_calloc(sizeof(smap_t *) * (my_strlen(map[y]) + 1));
 		for (int x = 0; map[y][x] != '\0'; x++) {
 			smap[y][x] = malloc(sizeof(smap_t));
-			smap[y][x]->pos.x = x * 16;
-			smap[y][x]->pos.y = y * 16;
+			smap[y][x]->pos.x = x * 48;
+			smap[y][x]->pos.y = y * 48;
 			smap[y][x] = generate_block(blocks, map[y][x],
 			smap[y][x]);
 		}
 	}
+	print_map(map);
 	return (smap);
 }
 
