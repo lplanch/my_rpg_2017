@@ -22,13 +22,15 @@ st_button *create_button(char *str, g_object *object, sfColor c, int size)
 
 st_button *create_vbutton(char *str, sfVector2f pos, sfColor c, int size)
 {
-       sfIntRect rect = create_rect(0, 0, 2 * (size / 3) * my_strlen(str), size);
        st_button *button = malloc(sizeof(st_button));
 
        button->text = create_text(str, pos, "images/button.ttf");
-       button->obj = create_object("images/void.png", pos, rect, 0);
+       button->obj = create_object("images/void.png", pos,
+       create_rect(0, 0, 0, size), 0);
 	sfText_setColor(button->text->text, c);
        sfText_setCharacterSize(button->text->text, size);
+       button->obj->rect.width = sfText_findCharacterPos(button->text->text,
+       1000).x - sfText_findCharacterPos(button->text->text, 0).x;
        return (button);
 }
 
