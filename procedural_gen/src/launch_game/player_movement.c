@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** player_movement.c
 ** File description:
-**
+** make player move
 */
 
 #include "my.h"
@@ -47,13 +47,13 @@ void make_player_position(proc_t *proc)
 	int tempy[2];
 	int tempx[2];
 
-	tempy[0] = (proc->gman->player.pos.y + proc->gman->player.speed.y) / 16;
-	tempy[1] = (proc->gman->player.pos.x) / 16;
-	tempx[0] = (proc->gman->player.pos.y) / 16;
-	tempx[1] = (proc->gman->player.pos.x + proc->gman->player.speed.x) / 16;
-	if (proc->map[tempy[0]][tempy[1]] != '#') {
+	tempy[0] = (proc->gman->player.pos.y + proc->gman->player.speed.y) / 48;
+	tempy[1] = (proc->gman->player.pos.x) / 48;
+	tempx[0] = (proc->gman->player.pos.y) / 48;
+	tempx[1] = (proc->gman->player.pos.x + proc->gman->player.speed.x) / 48;
+	if (verify_collide(proc->map[tempy[0]][tempy[1]])) {
 		proc->gman->player.pos.y += proc->gman->player.speed.y;
-	} if (proc->map[tempx[0]][tempx[1]] != '#') {
+	} if (verify_collide(proc->map[tempx[0]][tempx[1]])) {
 		proc->gman->player.pos.x += proc->gman->player.speed.x;
 	}
 }

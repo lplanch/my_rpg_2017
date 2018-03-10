@@ -10,7 +10,7 @@
 
 void init_player(gmanager_t *gman, proc_t *proc)
 {
-	sfVector2f zoom = {0.4, 0.4};
+	sfVector2f zoom = {1, 1};
 	sfTexture *player_texture = sfTexture_createFromFile(
 	"ressources/car2.png", NULL);
 
@@ -45,7 +45,7 @@ gmanager_t *init_dungeon_game(proc_t *proc)
 	init_player(gman, proc);
 	gman->camera_pos = gman->player.pos;
 	gman->camera = sfRenderWindow_getDefaultView(gman->window);
-	sfView_zoom(gman->camera, 0.18);
+	sfView_zoom(gman->camera, 0.5);
 	sfView_setCenter(gman->camera, gman->camera_pos);
 	sfRenderWindow_setView(gman->window, gman->camera);
 	return (gman);
@@ -82,7 +82,7 @@ int launch_dungeon_game(gage_t *gage)
 	while (sfRenderWindow_isOpen(gage->proc->gman->window)) {
 		verif_input_map(gage);
 		update_sprite(gage->proc);
-		sfRenderWindow_clear(gage->proc->gman->window, sfBlack);
+		sfRenderWindow_clear(gage->proc->gman->window, background);
 		draw_sprites_map(gage->proc);
 		sfRenderWindow_display(gage->proc->gman->window);
 		verify_exit_player(gage);

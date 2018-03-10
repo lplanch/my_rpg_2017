@@ -53,10 +53,10 @@ int verif_input_map(gage_t *gage)
 
 void verify_exit_player(gage_t *gage)
 {
-	int px = gage->proc->gman->player.pos.x / 16;
-	int py = gage->proc->gman->player.pos.y / 16;
-	int ex = get_exit_pos(gage->proc).x / 16;
-	int ey = get_exit_pos(gage->proc).y / 16;
+	int px = gage->proc->gman->player.pos.x / 48;
+	int py = gage->proc->gman->player.pos.y / 48;
+	int ex = get_exit_pos(gage->proc).x / 48;
+	int ey = get_exit_pos(gage->proc).y / 48;
 
 	if (px == ex && py == ey) {
 		next_level_screen(gage);

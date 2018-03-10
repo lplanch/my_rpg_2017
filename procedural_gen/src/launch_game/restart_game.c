@@ -17,6 +17,7 @@ void create_char_map_restart(proc_t *proc)
 	}
 	create_entry(proc);
 	create_leave(proc);
+	make_map_better(proc->map);
 }
 
 void print_map(char **map)
@@ -50,7 +51,7 @@ void draw_floor_restart(gage_t *gage)
 	sfText *next_level = sfText_create();
 
 	screen_center.y -= 9;
-	screen_center.x -= (my_strlen(level_string) * 18) / 2;
+	screen_center.x -= (my_strlen(level_string) * 9) / 2;
 	sfText_setString(next_level, level_string);
 	sfText_setFont(next_level, font);
 	sfText_setCharacterSize(next_level, 18);
