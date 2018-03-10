@@ -6,16 +6,29 @@
 */
 
 #include <stdlib.h>
+#include "my.h"
 #include "my_rpg.h"
 
-st_button *create_button(char *str, sfVector2f pos, sfIntRect rect, sfColor c)
+st_button *create_button(char *str, g_object *object, sfColor c, int size)
 {
+       st_button *button = malloc(sizeof(st_button));
+
+       button->text = create_text(str, object->pos, "images/button.ttf");
+       button->obj = object;
+	sfText_setColor(button->text->text, c);
+       sfText_setCharacterSize(button->text->text, size);
+       return (button);
+}
+
+st_button *create_vbutton(char *str, sfVector2f pos, sfColor c, int size)
+{
+       sfIntRect rect = create_rect(0, 0, 2 * (size / 3) * my_strlen(str), size);
        st_button *button = malloc(sizeof(st_button));
 
        button->text = create_text(str, pos, "images/button.ttf");
        button->obj = create_object("images/void.png", pos, rect, 0);
 	sfText_setColor(button->text->text, c);
-       sfText_setCharacterSize(button->text->text, 100);
+       sfText_setCharacterSize(button->text->text, size);
        return (button);
 }
 

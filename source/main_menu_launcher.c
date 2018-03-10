@@ -40,5 +40,7 @@ int launch_main_menu_create_slots(st_rpg *s)
 {
        if (s->mainm.option == 3)
               main_menu_goto_saves(s);
+       else
+              return (custom_main(s));
        return (0);
 }

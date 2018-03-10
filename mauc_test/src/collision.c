@@ -33,6 +33,21 @@ int collision_ID(files_t *fi)
 	return (0);
 }
 
+int check_colsquare(files_t *fi, int nbr)
+{
+	int i = 0;
+
+	while (i != 6) {
+		if (fi->pos[i].x > fi->colsquare[nbr].pos.x && fi->pos[i].x < (fi->colsquare[nbr].pos.x + fi->colsquare[nbr].width) && fi->pos[i].y > fi->colsquare[nbr].pos.y &&
+		fi->pos[i].y < (fi->colsquare[nbr].pos.y + fi->colsquare[nbr].height))
+			return (1);
+		else {
+			i++;
+		}
+	}
+	return (0);
+}
+
 int check_colcircle(files_t *fi, int nbr)
 {
  	float distance_pt_center = 0;
@@ -52,13 +67,24 @@ int check_colcircle(files_t *fi, int nbr)
 	return (0);
 }
 
-int collision_circle(files_t *fi)
+int collision_prog(files_t *fi)
 {
 	int nbr = 0;
-	//while (nbr != fi->nbr_colcircle) {
-		check_colcircle(fi, nbr);
-		//nbr++;
-	//}
+
+	while (nbr < fi->nbr_colcircle) {
+		if (check_colcircle(fi, nbr) == 1)
+			return (1);
+		else
+			nbr++;
+	}
+	nbr = 0;
+	while (nbr < fi->nbr_colsquare) {
+		if (check_colsquare(fi, nbr) == 1)
+			return (1);
+		else
+			nbr++;
+	}
+	return (0);
 }
 
 int collision(files_t *fi)
@@ -66,5 +92,5 @@ int collision(files_t *fi)
 	if (collision_ID(fi) == 1)
 		return (1);
 	else
-		 return (collision_circle(fi));
+		 return (collision_prog(fi));
 }

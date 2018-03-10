@@ -31,6 +31,7 @@ int collision(files_t *fi);
 void draw(files_t *fi);
 void create_map(files_t *fi);
 void move_ID_player(files_t *fi);
+void parsing(struct stat a, files_t *fi);
 
 #ifndef MY_COOK_
 #define MY_COOK_

@@ -18,7 +18,7 @@
          "name":"COL",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":5,
          "x":0,
          "y":0
@@ -52,7 +52,7 @@
                 }, 
                 {
                  "ellipse":true,
-                 "height":27.25,
+                 "height":29,
                  "id":2,
                  "name":"",
                  "rotation":0,
@@ -60,7 +60,7 @@
                  "visible":true,
                  "width":29,
                  "x":1.75,
-                 "y":5.5
+                 "y":3.75
                 }, 
                 {
                  "height":6.75,
@@ -70,12 +70,12 @@
                  "type":"c",
                  "visible":true,
                  "width":7.5,
-                 "x":77.25,
-                 "y":121
+                 "x":45.25,
+                 "y":153
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }],
