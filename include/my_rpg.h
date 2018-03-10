@@ -69,12 +69,14 @@ typedef struct struct_main_menu
 
 typedef struct struct_rpg
 {
+	g_object *loading;
 	int returnv;
 	st_custom cust;
 	st_menu mainm;
 	sfRenderWindow *window;
 } st_rpg;
 
+void loading(st_rpg *s);
 int cust_get_buttons(int menu);
 int cust_minx_buttons(int menu);
 int cust_maxx_buttons(int menu);

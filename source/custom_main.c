@@ -92,6 +92,7 @@ int cust_left_clicked(st_rpg *s, sfEvent event)
 
 int cust_menu_backto_main(st_rpg *s)
 {
+       loading(s);
        custom_destroy(s);
        s->mainm.option = 0;
        s->mainm.menu = 0;
