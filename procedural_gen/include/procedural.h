@@ -114,6 +114,9 @@ void update_camera_position(proc_t *proc);
 void update_player_position(proc_t *proc);
 
 //CREATE BLOCKS
+int is_ground(char chr);
+int many_around(char **map, int x, int y);
+
 void make_ground_block(sfTexture *blocks, smap_t *smap);
 void make_exit_block(sfTexture *blocks, smap_t *smap);
 void make_leftright_block(sfTexture *blocks, smap_t *smap);
@@ -124,6 +127,11 @@ void make_corner_botleft_block(sfTexture *blocks, smap_t *smap);
 void make_corner_botright_block(sfTexture *blocks, smap_t *smap);
 void make_corner_topleft_block(sfTexture *blocks, smap_t *smap);
 void make_corner_topright_block(sfTexture *blocks, smap_t *smap);
+
+void make_icorner_botleft_block(sfTexture *blocks, smap_t *smap);
+void make_icorner_botright_block(sfTexture *blocks, smap_t *smap);
+void make_icorner_topleft_block(sfTexture *blocks, smap_t *smap);
+void make_icorner_topright_block(sfTexture *blocks, smap_t *smap);
 
 void make_deadlock_top_block(sfTexture *blocks, smap_t *smap);
 void make_deadlock_bot_block(sfTexture *blocks, smap_t *smap);

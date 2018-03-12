@@ -22,6 +22,7 @@ FILES		=	src/main_proc.c					\
 			src/make_sprite_map/main_draw_map.c		\
 			src/make_sprite_map/create_blocks.c		\
 			src/make_sprite_map/create_blocks_corner.c	\
+			src/make_sprite_map/create_blocks_icorner.c	\
 			src/make_sprite_map/create_blocks_deadlock.c	\
 			src/launch_game/launch_dungeon.c		\
 			src/launch_game/camera_manager.c		\

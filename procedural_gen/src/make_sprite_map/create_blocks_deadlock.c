@@ -55,3 +55,10 @@ void make_deadlock_right_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
 }
+
+int is_ground(char chr)
+{
+	if (chr == ' ' || chr == 'S' || chr == 'E')
+		return (1);
+	return (0);
+}

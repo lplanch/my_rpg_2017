@@ -11,42 +11,19 @@
 void parse_wall_map(char **map, int y, int x)
 {
 	if (y > 1 && x > 1 && x < my_strlen(map[y]) && y < count_lines(map) - 1) {
-		if (map[y][x] == '#' && map[y + 1][x] == ' ' &&
-		map[y][x - 1] != ' ' && map[y][x + 1] != ' ')
+		if (map[y][x] == '#' && is_ground(map[y + 1][x]) &&
+		!is_ground(map[y][x - 1]) && !is_ground(map[y][x + 1]))
 			map[y][x] = 'T';
-		if (map[y][x] == '#' && map[y - 1][x] == ' ' &&
-		map[y][x - 1] != ' ' && map[y][x + 1] != ' ')
+		if (map[y][x] == '#' && is_ground(map[y - 1][x]) &&
+		!is_ground(map[y][x - 1]) && !is_ground(map[y][x + 1]))
 			map[y][x] = 'V';
-		if (map[y][x] == '#' && map[y][x - 1] == ' ' &&
-		map[y - 1][x] != ' ' && map[y + 1][x] != ' ')
+		if (map[y][x] == '#' && is_ground(map[y][x - 1]) &&
+		!is_ground(map[y - 1][x]) && !is_ground(map[y + 1][x]))
 			map[y][x] = 'R';
-		if (map[y][x] == '#' && map[y][x + 1] == ' ' &&
-		map[y - 1][x] != ' ' && map[y + 1][x] != ' ')
+		if (map[y][x] == '#' && is_ground(map[y][x + 1]) &&
+		!is_ground(map[y - 1][x]) && !is_ground(map[y + 1][x]))
 			map[y][x] = 'L';
 	}
-}
-
-int many_around(char **map, int x, int y)
-{
-	int result = 0;
-
-	if (map[y][x + 1] == ' ')
-		result += 1;
-	if (map[y][x - 1] == ' ')
-		result += 1;
-	if (map[y + 1][x] == ' ')
-		result += 1;
-	if (map[y - 1][x] == ' ')
-		result += 1;
-	if (map[y + 1][x + 1] == ' ')
-		result += 1;
-	if (map[y - 1][x - 1] == ' ')
-		result += 1;
-	if (map[y - 1][x + 1] == ' ')
-		result += 1;
-	if (map[y + 1][x - 1] == ' ')
-		result += 1;
-	return (result);
 }
 
 void parse_corner_map(char **map, int y, int x)
@@ -54,16 +31,16 @@ void parse_corner_map(char **map, int y, int x)
 	if (y > 1 && x > 1 && x < my_strlen(map[y]) &&
 	y < count_lines(map) - 1) {
 		if (map[y][x] == '#' && many_around(map, x, y) == 1 &&
-		map[y - 1][x - 1] == ' ')
+		is_ground(map[y - 1][x - 1]))
 			map[y][x] = 'N';
 		if (map[y][x] == '#' && many_around(map, x, y) == 1 &&
-		map[y - 1][x + 1] == ' ')
+		is_ground(map[y - 1][x + 1]))
 			map[y][x] = 'W';
 		if (map[y][x] == '#' && many_around(map, x, y) == 1 &&
-		map[y + 1][x - 1] == ' ')
+		is_ground(map[y + 1][x - 1]))
 			map[y][x] = 'P';
 		if (map[y][x] == '#' && many_around(map, x, y) == 1 &&
-		map[y + 1][x + 1] == ' ')
+		is_ground(map[y + 1][x + 1]))
 			map[y][x] = 'A';
 	}
 }
@@ -72,20 +49,41 @@ void parse_deadlock_map(char **map, int y, int x)
 {
 	if (y > 1 && x > 1 && x < my_strlen(map[y]) &&
 	y < count_lines(map) - 1) {
-		if (map[y][x] == '#' && map[y][x - 1] == ' ' &&
-		map[y][x + 1] == ' ' && map[y + 1][x] == ' ' &&
-		map[y - 1][x - 1] == ' ' && map[y - 1][x + 1] == ' ')
+		if (map[y][x] == '#' && is_ground(map[y][x - 1]) &&
+		is_ground(map[y][x + 1]) && is_ground(map[y + 1][x]))
 			map[y][x] = 'Y';
-		if (map[y][x] == '#' && map[y][x - 1] == ' ' &&
-		map[y][x + 1] == ' ' && map[y + 1][x] == ' ' &&
-		map[y + 1][x - 1] == ' ' && map[y + 1][x + 1] == ' ')
+		if (map[y][x] == '#' && is_ground(map[y][x - 1]) &&
+		is_ground(map[y][x + 1]) && is_ground(map[y - 1][x]))
 			map[y][x] = 'H';
-		if (map[y][x] == '#' && many_around(map, x, y) == 7 &&
-		map[y][x - 1] != ' ')
+		if (map[y][x] == '#' && is_ground(map[y - 1][x]) &&
+		is_ground(map[y + 1][x]) && is_ground(map[y][x + 1]))
 			map[y][x] = 'G';
-		if (map[y][x] == '#' && many_around(map, x, y) == 7 &&
-		map[y][x + 1] != ' ')
+		if (map[y][x] == '#' && is_ground(map[y - 1][x]) &&
+		is_ground(map[y + 1][x]) && is_ground(map[y][x - 1]))
 			map[y][x] = 'J';
+	}
+}
+
+void parse_icorner_map(char **map, int y, int x)
+{
+	if (y > 1 && x > 1 && x < my_strlen(map[y]) &&
+	y < count_lines(map) - 1) {
+		if (map[y][x] == '#' && is_ground(map[y][x + 1]) &&
+		is_ground(map[y + 1][x]) && !is_ground(map[y - 1][x]) &&
+		!is_ground(map[y][x - 1]))
+			map[y][x] = 'Z';
+		if (map[y][x] == '#' && is_ground(map[y][x - 1]) &&
+		is_ground(map[y + 1][x]) && !is_ground(map[y - 1][x]) &&
+		!is_ground(map[y][x + 1]))
+			map[y][x] = 'O';
+		if (map[y][x] == '#' && is_ground(map[y - 1][x]) &&
+		is_ground(map[y][x + 1]) && !is_ground(map[y + 1][x]) &&
+		!is_ground(map[y][x - 1]))
+			map[y][x] = 'U';
+		if (map[y][x] == '#' && is_ground(map[y - 1][x]) &&
+		is_ground(map[y][x - 1]) && !is_ground(map[y + 1][x]) &&
+		!is_ground(map[y][x + 1]))
+			map[y][x] = 'I';
 	}
 }
 
@@ -96,6 +94,7 @@ void make_map_better(char **map)
 			parse_wall_map(map, y, x);
 			parse_corner_map(map, y, x);
 			parse_deadlock_map(map, y, x);
+			parse_icorner_map(map, y, x);
 		}
 	}
 }

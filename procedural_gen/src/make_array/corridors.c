@@ -22,6 +22,29 @@ void v_corridor(char **map, int y1, int y2, int x)
 	}
 }
 
+int many_around(char **map, int x, int y)
+{
+	int result = 0;
+
+	if (is_ground(map[y][x + 1]))
+		result += 1;
+	if (is_ground(map[y][x - 1]))
+		result += 1;
+	if (is_ground(map[y + 1][x]))
+		result += 1;
+	if (is_ground(map[y - 1][x]))
+		result += 1;
+	if (is_ground(map[y + 1][x + 1]))
+		result += 1;
+	if (is_ground(map[y - 1][x - 1]))
+		result += 1;
+	if (is_ground(map[y - 1][x + 1]))
+		result += 1;
+	if (is_ground(map[y + 1][x - 1]))
+		result += 1;
+	return (result);
+}
+
 void make_corridors(proc_t *proc, int length)
 {
 	int pcenter[2];

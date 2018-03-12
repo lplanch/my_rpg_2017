@@ -2,5 +2,11 @@ T = top block
 V = bottom block
 L = left block
 R = right block
-G = bot and top block
-K = left and right block
+
+E = entry pos
+S = exit pos
+
+Z = interior top left corridor
+O = interior top right corridor
+U = interior bottom left corridor
+I = interior bottom right corridor

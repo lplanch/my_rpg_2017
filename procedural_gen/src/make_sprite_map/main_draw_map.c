@@ -52,6 +52,18 @@ smap_t *generate_block(sfTexture *blocks, char chr, smap_t *smap)
 	case 'J':
 		make_deadlock_right_block(blocks, smap);
 		break;
+	case 'O':
+		make_icorner_topright_block(blocks, smap);
+		break;
+	case 'Z':
+		make_icorner_topleft_block(blocks, smap);
+		break;
+	case 'U':
+		make_icorner_botleft_block(blocks, smap);
+		break;
+	case 'I':
+		make_icorner_botright_block(blocks, smap);
+		break;
 	default:
 		free(smap);
 		smap = NULL;
@@ -77,7 +89,6 @@ smap_t ***create_sprite_map(proc_t *proc, char **map)
 			smap[y][x]);
 		}
 	}
-	print_map(map);
 	return (smap);
 }
 
