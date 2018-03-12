@@ -10,11 +10,10 @@
 
 void setup_col(files_t *fi)
 {
-	fi->nbr_colcircle = 2;
-	fi->nbr_colsquare = 1;
+	fi->nbr_colcircle = 46;
+	fi->nbr_colsquare = 6;
 	//fi->colcircle[0].center_circle_x = 127.8 * 5;
 	//fi->colcircle[0].center_circle_y = 83.8 * 5;
-	//fi->colcircle[0].rayon_circle = 10 * 5;
 }
 
 sfVector2f create_vector2f(float x, float y)
@@ -76,6 +75,16 @@ void squaresetup_game(files_t *fi)
 	sfSprite_setPosition(fi->sprite, fi->square2);
 }
 
+void setup_camera(files_t *fi)
+{
+	fi->view = sfView_create();
+	fi->view = sfRenderWindow_getDefaultView(fi->window);
+	fi->camera.x = fi->square2.x;
+	fi->camera.y = fi->square2.y;
+	sfView_setCenter(fi->view, fi->camera);
+	sfRenderWindow_setView(fi->window, fi->view);
+}
+
 void characters_setup(files_t *fi)
 {
 	fi->texture =
@@ -87,5 +96,6 @@ void characters_setup(files_t *fi)
 	squaresetup_game(fi);
 	spriteset_game(fi);
 	sfSprite_setTextureRect(fi->sprite, fi->square);
+	setup_camera(fi);
 	setup_col(fi);
 }

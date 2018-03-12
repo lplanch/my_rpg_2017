@@ -50,7 +50,7 @@ void tab_to_struct(files_t *fi, char **tab)
 	int square = 0;
 	int i = 0;
 
-	while (compter != 3) {
+	while (compter != 52) {
 		if (my_strcmp("yes", tab[i]) == 0) {
 			i++;
 			i = tab_circle(tab, i, fi, circle);
@@ -72,7 +72,7 @@ void parsing2(char *buff, int y, files_t *fi)
 	int a = 0;
 	char **tab = my_calloc(sizeof(char *) * y);
 
-	while (a != 13) {
+	while (a != 214) {
 		x = 0;
 		tab[a] = my_calloc(sizeof(char) * 6);
 		while (buff[i] != '\n') {

@@ -168,9 +168,9 @@ void transfer_pixel(files_t *fi)
 	int height = 0;
 	int compter = 0;
 
-	while (height != 5) {
+	while (height != 20) {
 		width = 0;
-		while (width != 5) {
+		while (width != 20) {
 			transfer_pixel_background2(fi, compter, height);
 			transfer_pixel_col2(fi, compter, height);
 			transfer_pixel_tile32(fi, compter, height);
@@ -186,20 +186,12 @@ void transfer_pixel(files_t *fi)
 void create_layers(files_t *fi)
 {
 	int i = 0;
-	int layer_background[25] = {263, 263, 263, 233, 263, 232, 263, 263, 263,
-	264, 263, 235, 263, 263, 263, 264, 269, 263, 233,
-	263, 263, 265, 270, 270, 267};
-	int layer_col[25] = {282, 142, 143, 0, 0, 0, 173, 174, 230, 231, 0, 204,
-	205, 261, 262, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-	int layer_tile3[25] = {0, 142, 143, 0, 0, 0, 173, 174, 290, 291, 0, 294,
-	295, 321, 322, 0, 287, 0, 0, 0, 0, 318, 0, 0, 0};
+	int j = 0;
+	int **jh = get_layer("TestMap/layers");
 
-	while (i != 25) {
-		fi->testmap.layer_col[i] = layer_col[i];
-		fi->testmap.layer_background[i] = layer_background[i];
-		fi->testmap.layer_tile3[i] = layer_tile3[i];
-		i++;
-	}
+	fi->testmap.layer_background = jh[0];
+	fi->testmap.layer_tile3 = jh[1];
+	fi->testmap.layer_col = jh[2];
 }
 
 void create_images(files_t *fi)
@@ -211,8 +203,8 @@ void create_images(files_t *fi)
 	fi->testmap.testmap_tile3 = sfImage_create(1000, 1000);
 	fi->testmap.square.left = 0;
 	fi->testmap.square.top = 0;
-	fi->testmap.square.height = 1000;
-	fi->testmap.square.width = 1000;
+	fi->testmap.square.height = 640;
+	fi->testmap.square.width = 640;
 	create_layers(fi);
 }
 

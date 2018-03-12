@@ -1,4 +1,12 @@
-#include "layer.h"
+/*
+** EPITECH PROJECT, 2018
+** get_layer.c
+** File description:
+** get_layer file for my_rpg
+*/
+
+#include "my.h"
+#include "my_rpg.h"
 
 void get_int(int **end, char *all, int *where, int count)
 {
@@ -37,7 +45,7 @@ void set_int(int **end, char *all, int i, int a)
 	int count = 0;
 
 	while (count != a) {
-		end[count] = malloc(sizeof(int) * i);
+		end[count] = my_calloc(sizeof(int) * i);
 		get_int(end, all, &where, count);
 		count++;
 	}
@@ -57,7 +65,7 @@ int **get_layer(char *name)
 		all = my_strcat_dup(all, buffer);
 		a++;
 	}
-	end = malloc(sizeof(int *) * a);
+	end = my_calloc(sizeof(int *) * a);
 	i = size_malloc(all);
 	set_int(end, all, i, a);
 	free(all);

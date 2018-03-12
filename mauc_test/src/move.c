@@ -8,6 +8,13 @@
 #include "my.h"
 #include "my_rpg.h"
 
+void move_camera(files_t *fi)
+{
+	fi->camera = fi->square2;
+	sfView_setCenter(fi->view, fi->camera);
+	sfRenderWindow_setView(fi->window, fi->view);
+}
+
 void move(files_t *fi)
 {
 	fi->square.left += 48;
@@ -29,6 +36,7 @@ void move_up(files_t *fi)
 		else
 			fi->square2.y += 5;
 		a++;
+		move_camera(fi);
 	}
 }
 
@@ -47,6 +55,7 @@ void move_down(files_t *fi)
 		else
 			fi->square2.y -= 5;
 		a++;
+		move_camera(fi);
 	}
 }
 
@@ -65,6 +74,7 @@ void move_right(files_t *fi)
 		else
 			fi->square2.x -= 5;
 		a++;
+		move_camera(fi);
 	}
 }
 
@@ -83,6 +93,7 @@ void move_left(files_t *fi)
 		else
 			fi->square2.x += 5;
 		a++;
+		move_camera(fi);
 	}
 }
 
