@@ -59,6 +59,7 @@ int check_colcircle(files_t *fi, int nbr)
 		//printf("ccx= %f\n", fi->colcircle[nbr].center_circle_x);
 		//printf("ccy= %f\n", fi->colcircle[nbr].center_circle_y);
 		//printf("d=%f\n\n", distance_pt_center);
+		//printf("r=%i\n", fi->colcircle[nbr].rayon_circle);
 		if (distance_pt_center <= fi->colcircle[nbr].rayon_circle) {
 			return (1);
 		} else
@@ -72,16 +73,16 @@ int collision_prog(files_t *fi)
 	int nbr = 0;
 
 	while (nbr < fi->nbr_colcircle) {
-		if (check_colcircle(fi, nbr) == 1)
+		if (check_colcircle(fi, nbr) == 1) {
 			return (1);
-		else
+		} else
 			nbr++;
 	}
 	nbr = 0;
 	while (nbr < fi->nbr_colsquare) {
-		if (check_colsquare(fi, nbr) == 1)
+		if (check_colsquare(fi, nbr) == 1) {
 			return (1);
-		else
+		} else
 			nbr++;
 	}
 	return (0);

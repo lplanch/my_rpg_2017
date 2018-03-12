@@ -17,10 +17,10 @@ void draw(files_t *fi)
 	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite, NULL);
 	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite2, NULL);
 	sfRenderWindow_drawSprite(fi->window, fi->ID_sprite, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->sprite, NULL);
 	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite3, NULL);
+	sfRenderWindow_drawSprite(fi->window, fi->sprite, NULL);
 	sfRenderWindow_display(fi->window);
-	usleep(10000);
+	usleep(1);
 }
 
 int game(files_t *fi)

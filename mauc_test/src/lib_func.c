@@ -1,10 +1,18 @@
-#include <stdlib.h>
+/*
+** EPITECH PROJECT, 2018
+** libfunc.c
+** File description:
+** libfunc file for my_rpg
+*/
+
+#include "my.h"
+#include "my_rpg.h"
 
 int is_num(char a)
 {
-       if (a > 47 && a < 58)
-              return (1);
-       return (0);
+	if (a > 47 && a < 58)
+		return (1);
+	return (0);
 }
 
 int my_getnbr_i(char const *str, int i)
@@ -20,27 +28,18 @@ int my_getnbr_i(char const *str, int i)
 	return (f);
 }
 
-int my_strlen(char const *str)
-{
-	int i = 0;
-
-	while (str[i] != '\0')
-		i = i + 1;
-	return (i);
-}
-
 char *my_strcat(char *str1, char *str2)
 {
-       int len = my_strlen(str1);
-       int comp = 0;
+	int len = my_strlen(str1);
+	int comp = 0;
 
-       while(str2[comp] != '\0') {
-              str1[len] = str2[comp];
-              len++;
-              comp++;
-       }
-       str1[len] = '\0';
-       return (str1);
+	while(str2[comp] != '\0') {
+		str1[len] = str2[comp];
+		len++;
+		comp++;
+	}
+	str1[len] = '\0';
+	return (str1);
 }
 
 void my_strcpy(char *dest, char *src)
@@ -56,10 +55,10 @@ void my_strcpy(char *dest, char *src)
 
 char *my_strcat_dup(char *str1, char *str2)
 {
-       char *res = malloc(sizeof(char) *
-my_strlen(str1) + my_strlen(str2) + 1);
+	char *res = my_calloc(sizeof(char) *
+my_strlen(str1) + my_strlen(str2) + 2);
 
-       my_strcpy(res, str1);
-       res = my_strcat(res, str2);
-       return (res);
+	my_strcpy(res, str1);
+	res = my_strcat(res, str2);
+	return (res);
 }
