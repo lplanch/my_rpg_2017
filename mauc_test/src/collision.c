@@ -158,5 +158,5 @@ int collision(files_t *fi)
 	if (collision_ID(fi) == 1)
 		return (1);
 	else
-		 return (0); //collision_prog(fi)
+		 return (collision_prog(fi));
 }

@@ -68,6 +68,7 @@ int **get_layer(char *name)
 	end = my_calloc(sizeof(int *) * a);
 	i = size_malloc(all);
 	set_int(end, all, i, a);
+	close(fd);
 	free(all);
 	free(buffer);
 	return (end);
