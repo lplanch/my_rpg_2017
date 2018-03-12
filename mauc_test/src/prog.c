@@ -20,13 +20,16 @@ void destroy(files_t *fi)
 	sfImage_destroy(fi->testmap.image);
 	sfImage_destroy(fi->testmap.testmap_backgound);
 	sfImage_destroy(fi->testmap.testmap_col);
-	sfImage_destroy(fi->testmap.testmap_tile3);
+	sfImage_destroy(fi->testmap.testmap_colID);
+	sfImage_destroy(fi->testmap.testmap_prof);
 	sfSprite_destroy(fi->testmap.sprite);
 	sfSprite_destroy(fi->testmap.sprite2);
 	sfSprite_destroy(fi->testmap.sprite3);
+	sfSprite_destroy(fi->testmap.sprite4);
 	sfTexture_destroy(fi->testmap.texture);
 	sfTexture_destroy(fi->testmap.texture2);
 	sfTexture_destroy(fi->testmap.texture3);
+	sfTexture_destroy(fi->testmap.texture4);
 	sfSprite_destroy(fi->sprite);
 	sfSprite_destroy(fi->ID_sprite);
 	sfTexture_destroy(fi->texture);

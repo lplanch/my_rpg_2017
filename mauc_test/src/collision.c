@@ -8,6 +8,77 @@
 #include "my.h"
 #include "my_rpg.h"
 
+int case_ID(files_t *fi, int nb_ID)
+{
+	switch (fi->testmap.layer_colID[nb_ID]) {
+		case 32:
+		case 33:
+		case 34:
+		case 35:
+		case 36:
+		case 37:
+		case 42:
+		case 43:
+		case 44:
+		case 45:
+		case 46:
+		case 47:
+		case 48:
+		case 49:
+		case 50:
+		case 51:
+		case 63:
+		case 64:
+		case 65:
+		case 66:
+		case 67:
+		case 68:
+		case 73:
+		case 74:
+		case 75:
+		case 76:
+		case 77:
+		case 78:
+		case 79:
+		case 80:
+		case 81:
+		case 82:
+		case 156:
+		case 157:
+		case 158:
+		case 159:
+		case 168:
+		case 169:
+		case 170:
+		case 171:
+		case 173:
+		case 174:
+		case 175:
+		case 176:
+		case 177:
+		case 178:
+		case 187:
+		case 188:
+		case 189:
+		case 190:
+		case 199:
+		case 200:
+		case 201:
+		case 202:
+		case 204:
+		case 205:
+		case 206:
+		case 207:
+		case 208:
+		case 209:
+			return (1);
+			break;
+		default:
+			return (0);
+			break;
+	}
+}
+
 int collision_ID(files_t *fi)
 {
 	int i = 0;
@@ -17,17 +88,9 @@ int collision_ID(files_t *fi)
 	int y = fi->pos[i].y / size_cube;
 
 	while (i != 6) {
-		nb_ID = 5 * ((fi->pos[i].y / size_cube)) + fi->pos[i].x / size_cube;
-		switch (fi->testmap.layer_col[nb_ID]) {
-			case 173:
-			case 174:
-			case 204:
-			case 205:
-				return (1);
-				break;
-			default:
-				break;
-		}
+		nb_ID = 60 * ((fi->pos[i].y / size_cube)) + fi->pos[i].x / size_cube;
+		if (case_ID(fi, nb_ID) == 1)
+			return (1);
 		i++;
 	}
 	return (0);
@@ -38,7 +101,9 @@ int check_colsquare(files_t *fi, int nbr)
 	int i = 0;
 
 	while (i != 6) {
-		if (fi->pos[i].x > fi->colsquare[nbr].pos.x && fi->pos[i].x < (fi->colsquare[nbr].pos.x + fi->colsquare[nbr].width) && fi->pos[i].y > fi->colsquare[nbr].pos.y &&
+		if (fi->pos[i].x > fi->colsquare[nbr].pos.x &&
+		fi->pos[i].x < (fi->colsquare[nbr].pos.x + fi->colsquare[nbr].width) &&
+		fi->pos[i].y > fi->colsquare[nbr].pos.y &&
 		fi->pos[i].y < (fi->colsquare[nbr].pos.y + fi->colsquare[nbr].height))
 			return (1);
 		else {
@@ -93,5 +158,5 @@ int collision(files_t *fi)
 	if (collision_ID(fi) == 1)
 		return (1);
 	else
-		 return (collision_prog(fi));
+		 return (0); //collision_prog(fi)
 }
