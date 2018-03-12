@@ -45,6 +45,7 @@ typedef struct struct_st_custom
 	float rot;
 	int cmin;
 	int cmax;
+	int pos;
 	g_object *cursor;
 	st_button *bt[4];
 	g_object *circle;
