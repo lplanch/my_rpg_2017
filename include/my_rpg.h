@@ -39,15 +39,14 @@ typedef struct custom_data
 typedef struct struct_st_custom
 {
 	st_cdata cdata;
-	int optionx;
-	int optiony;
+	int option;
 	float sens;
 	int menu;
 	float rot;
 	int cmin;
 	int cmax;
 	g_object *cursor;
-	st_button *bt[4][2];
+	st_button *bt[4];
 	g_object *circle;
 	g_object *back;
 } st_custom;
