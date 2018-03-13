@@ -10,6 +10,7 @@
 #include <SFML/Audio.h>
 #include <SFML/Graphics.h>
 #include "game_object.h"
+#include "projectile.h"
 
 typedef struct struct_animation
 {
@@ -69,6 +70,7 @@ typedef struct struct_main_menu
 
 typedef struct struct_rpg
 {
+	proj_t *kunai;
 	g_object *loading;
 	int returnv;
 	st_custom cust;
@@ -76,6 +78,7 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void launch_projectile(proj_t *proj, sfRenderWindow *window);
 void loading(st_rpg *s);
 int cust_get_buttons(int menu);
 int cust_minx_buttons(int menu);

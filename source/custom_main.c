@@ -53,7 +53,8 @@ void create_st_custom(st_rpg *s)
 	s->cust.menu = 1;
 	s->cust.option = 1;
 	s->cust.cdata.sex = 'M';
-	s->cust.cdata.name = my_calloc(sizeof(char) * 13);
+	s->cust.cdata.name = my_calloc(sizeof(char) * 14);
+	// s->cust.cdata.name = "";
 	s->cust.option = 1;
 	s->cust.cmin = 710;
 	s->cust.cmax = 715;
@@ -153,8 +154,8 @@ int launch_cust_menu_name(st_rpg *s)
 		if (s->cust.option == 1)
 			cust_menu_goto_sex(s);
 		else
-			s->cust.cdata.name = sfText_getString(s->cust.bt[3]
-			->text->text);
+			s->cust.cdata.name = my_strdup(sfText_getString(s
+				->cust.bt[3]->text->text));
 	}
 	return (0);
 }
@@ -240,20 +241,19 @@ void custom_manage_cursor_events_mouse(st_rpg *s)
 
 void custom_manage_name_write(st_rpg *s, sfEvent event)
 {
-	char *str = sfText_getString(s->cust.bt[3]->text->text);
-
 	if (event.type == sfEvtTextEntered && event.text.unicode > 30 &&
-	    event.text.unicode < 127 && s->cust.pos < 12) {
-        	str[s->cust.pos] = event.text.unicode;
+	event.text.unicode < 127 && s->cust.pos < 12) {
+        	s->cust.cdata.name[s->cust.pos] = event.text.unicode;
 		s->cust.pos += 1;
-	} if (event.text.unicode == 127 && s->cust.pos > 0) {
-		str[s->cust.pos - 1] = 0;
+	} if ((event.type == sfEvtKeyPressed &&
+	sfKeyboard_isKeyPressed(sfKeyBack)) && s->cust.pos > 0) {
+		s->cust.cdata.name[s->cust.pos - 1] = 0;
 		s->cust.pos -= 1;
 	} if (sfKeyboard_isKeyPressed(sfKeyDown)) {
 		s->cust.option = 2;
 		get_cursor_pos(s);
 	}
-	sfText_setString(s->cust.bt[3]->text->text, str);
+	sfText_setString(s->cust.bt[3]->text->text, s->cust.cdata.name);
 }
 
 int custom_event(st_rpg *s)

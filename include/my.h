@@ -74,6 +74,7 @@ char *int_to_str(int nbr);
 
 int my_abs(int nbr);
 
+char *my_re_alloc(char *str, int value);
 void *my_calloc(int size);
 void free_tbl(char **tbl);
 
@@ -85,6 +86,7 @@ char **my_sort_params(char **table);
 int count_nbr_str(char **table);
 int my_strcmp(char const *s1, char const *s2);
 
+char *my_strcpy(char *dest, char *src);
 char *my_strdup(char const *src);
 char **my_tbldup(char **tbl);
 
