@@ -120,11 +120,6 @@ int check_colcircle(files_t *fi, int nbr)
 
 	while (i != 6) {
 		distance_pt_center = sqrt(powf((fi->pos[i].x - fi->colcircle[nbr].center_circle_x), 2) + powf(((fi->pos[i].y) - fi->colcircle[nbr].center_circle_y), 2));
-		//printf("%s\n", "OKKKKK");
-		//printf("ccx= %f\n", fi->colcircle[nbr].center_circle_x);
-		//printf("ccy= %f\n", fi->colcircle[nbr].center_circle_y);
-		//printf("d=%f\n\n", distance_pt_center);
-		//printf("r=%i\n", fi->colcircle[nbr].rayon_circle);
 		if (distance_pt_center <= fi->colcircle[nbr].rayon_circle) {
 			return (1);
 		} else

@@ -10,8 +10,8 @@
 
 void setup_col(files_t *fi)
 {
-	fi->nbr_colcircle = 48;
-	fi->nbr_colsquare = 11;
+	fi->nbr_colcircle = 28;
+	fi->nbr_colsquare = 110;
 	//fi->colcircle[0].center_circle_x = 127.8 * 5;
 	//fi->colcircle[0].center_circle_y = 83.8 * 5;
 }

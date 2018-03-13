@@ -158,9 +158,6 @@
   <object id="43" type="c" x="757.522" y="456.174" width="20" height="20">
    <ellipse/>
   </object>
-  <object id="45" type="c" x="726.261" y="267" width="20" height="20">
-   <ellipse/>
-  </object>
   <object id="46" type="c" x="758" y="200.531" width="20" height="20">
    <ellipse/>
   </object>
@@ -216,7 +213,6 @@
   <object id="75" x="1888" y="416" width="6" height="75.8182"/>
   <object id="77" x="1890" y="176" width="7.81818" height="239.955"/>
   <object id="80" x="1874.13" y="113.625" width="7.75" height="46.5"/>
-  <object id="81" x="1894.38" y="157.375" height="0.125"/>
   <object id="83" x="1842.13" y="107.375" width="39.625" height="7.375"/>
   <object id="84" x="1825.75" y="79.375" width="9.125" height="32.25"/>
   <object id="87" x="1777.74" y="74.625" width="51.1359" height="8.11413"/>
@@ -239,9 +235,6 @@
   <object id="123" x="1410.25" y="261.5" width="8.75" height="33.75"/>
   <object id="124" x="1393.44" y="261.875" width="19.6875" height="13"/>
   <object id="126" x="1377.88" y="230" width="10.8125" height="34.875"/>
-  <object id="128" x="1374.56" y="229.125" width="0.125">
-   <ellipse/>
-  </object>
   <object id="129" x="1361.81" y="198.188" width="9.375" height="34.4375"/>
   <object id="130" x="1361.73" y="70.1818" width="9.36364" height="90.9091"/>
   <object id="131" x="1343.73" y="70" width="26.8182" height="12.6364"/>
