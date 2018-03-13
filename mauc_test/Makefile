@@ -15,14 +15,18 @@ LDFLAGS		+=	-L lib/my/ -lmy -l c_graph_prog -lm
 
 FILES		=	main.c				\
 			src/collision.c			\
+			src/collision_prog.c		\
 			src/game.c			\
 			src/move.c			\
+			src/move_prog.c			\
 			src/prog.c			\
 			src/setup.c			\
+			src/setup2.c			\
 			src/tileset.c			\
 			src/parsing.c			\
 			src/lib_func.c			\
 			src/get_layer.c			\
+			src/free.c			\
 
 SRCS		=	$(FILES)
 

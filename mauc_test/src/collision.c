@@ -119,39 +119,13 @@ int check_colcircle(files_t *fi, int nbr)
 	int i = 0;
 
 	while (i != 6) {
-		distance_pt_center = sqrt(powf((fi->pos[i].x - fi->colcircle[nbr].center_circle_x), 2) + powf(((fi->pos[i].y) - fi->colcircle[nbr].center_circle_y), 2));
+		distance_pt_center = sqrt(powf((fi->pos[i].x
+		- fi->colcircle[nbr].center_circle_x), 2) + powf(((fi->pos[i].y)
+		- fi->colcircle[nbr].center_circle_y), 2));
 		if (distance_pt_center <= fi->colcircle[nbr].rayon_circle) {
 			return (1);
 		} else
 			i++;
 	}
 	return (0);
-}
-
-int collision_prog(files_t *fi)
-{
-	int nbr = 0;
-
-	while (nbr < fi->nbr_colcircle) {
-		if (check_colcircle(fi, nbr) == 1) {
-			return (1);
-		} else
-			nbr++;
-	}
-	nbr = 0;
-	while (nbr < fi->nbr_colsquare) {
-		if (check_colsquare(fi, nbr) == 1) {
-			return (1);
-		} else
-			nbr++;
-	}
-	return (0);
-}
-
-int collision(files_t *fi)
-{
-	if (collision_ID(fi) == 1)
-		return (1);
-	else
-		 return (collision_prog(fi));
 }
