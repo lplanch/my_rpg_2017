@@ -22,12 +22,13 @@ FILES		=	source/main.c				\
 			source/mouse_in_object.c		\
 			source/st_time.c			\
 			source/animation.c			\
-			source/main_menu_goto.c		\
+			source/main_menu_goto.c			\
 			source/main_menu_launcher.c		\
-			source/main_menu_base.c		\
+			source/main_menu_base.c			\
 			source/main_menu_events.c		\
 			source/custom_main.c			\
-			source/custom_get_buttons.c
+			source/custom_get_buttons.c		\
+			source/projectile.c
 
 SRCS		=	$(FILES)
 

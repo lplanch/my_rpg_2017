@@ -10,6 +10,7 @@
 #include <SFML/Audio.h>
 #include <SFML/Graphics.h>
 #include "game_object.h"
+#include "projectile.h"
 
 typedef struct struct_animation
 {
@@ -39,14 +40,15 @@ typedef struct custom_data
 typedef struct struct_st_custom
 {
 	st_cdata cdata;
-	int optionx;
-	int optiony;
+	int option;
 	float sens;
 	int menu;
-	int returnv;
 	float rot;
+	int cmin;
+	int cmax;
+	int pos;
 	g_object *cursor;
-	st_button *bt[4][2];
+	st_button *bt[4];
 	g_object *circle;
 	g_object *back;
 } st_custom;
@@ -68,11 +70,16 @@ typedef struct struct_main_menu
 
 typedef struct struct_rpg
 {
+	proj_t *kunai;
+	g_object *loading;
+	int returnv;
 	st_custom cust;
 	st_menu mainm;
 	sfRenderWindow *window;
 } st_rpg;
 
+void launch_projectile(proj_t *proj, sfRenderWindow *window);
+void loading(st_rpg *s);
 int cust_get_buttons(int menu);
 int cust_minx_buttons(int menu);
 int cust_maxx_buttons(int menu);

@@ -14,10 +14,10 @@ void display_main_menu_interface(st_rpg *s)
        sfRenderWindow_drawText(s->window, s->mainm.button[1]->text->text, NULL);
        sfRenderWindow_drawText(s->window, s->mainm.button[2]->text->text, NULL);
        sfRenderWindow_drawSprite(s->window, s->mainm.cursor->sprite, NULL);
-       if (s->mainm.menu > 2)
+       if (s->mainm.menu > 2) {
               sfRenderWindow_drawText(s->window,
               s->mainm.button[3]->text->text, NULL);
-
+      }
 }
 
 void main_menu_interface_animation(st_rpg *s)
@@ -52,5 +52,5 @@ int main_menu(st_rpg *s)
               display_main_menu_interface(s);
               sfRenderWindow_display(s->window);
        }
-       return (0);
+       return (s->returnv);
 }

@@ -11,33 +11,35 @@ int cust_get_buttons(int menu)
 {
        if (menu == 1)
               return (3);
+       if (menu == 2)
+              return (4);
        return (0);
 }
 
 int cust_maxx_buttons(int menu)
 {
-       if (menu == 1)
+       if (menu == 1 || menu == 2)
               return (2);
        return (0);
 }
 
 int cust_minx_buttons(int menu)
 {
-       if (menu == 1)
+       if (menu == 1 || menu == 2)
               return (0);
        return (0);
 }
 
 int cust_miny_buttons(int menu)
 {
-       if (menu == 1)
-              return (1);
+       if (menu == 1 || menu == 2)
+              return (0);
        return (0);
 }
 
 int cust_maxy_buttons(int menu)
 {
-       if (menu == 1)
+       if (menu == 1 || menu == 2)
               return (0);
        return (0);
 }

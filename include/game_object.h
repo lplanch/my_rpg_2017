@@ -22,7 +22,7 @@ typedef struct game_object
 	sfTexture *texture;
 	sfVector2f pos;
 	sfIntRect rect;
-	int speed;
+	float speed;
 } g_object;
 
 typedef struct time_manage
@@ -32,7 +32,7 @@ typedef struct time_manage
 	sfTime time;
 } st_time;
 
-g_object *create_object(char *path, sfVector2f pos, sfIntRect rect, int sp);
+g_object *create_object(char *path, sfVector2f pos, sfIntRect rect, float sp);
 void destroy_object(g_object *object);
 void destroy_text(t_object *object);
 t_object *create_text(char *str, sfVector2f pos, char *font);

@@ -49,6 +49,8 @@ void initialize_menu_interface(st_rpg *s)
 
 void initialize_menu(st_rpg *s)
 {
+       s->returnv = 0;
+       s->kunai = create_projectile("projectile/Kunai");
        s->mainm.first = create_object("images/menu/first.png",
        create_vector2f(0, 0), create_rect(0, 0, 1920, 1080), 6);
        s->mainm.rope = create_object("images/menu/ropesheet.png",

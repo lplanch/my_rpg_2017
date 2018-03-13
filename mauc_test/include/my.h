@@ -12,6 +12,7 @@
 #include <fcntl.h>
 #include <signal.h>
 #include <time.h>
+#include <sys/stat.h>
 
 #ifndef MY_H_
 
@@ -92,5 +93,9 @@ char **my_tbl_append(char **tbl, char *to_add);
 char **my_tbl_rm(char **tbl, int nbr);
 
 char *my_str_minimalize(char *str);
+
+int my_getnbr_i(char const *str, int i);
+char *my_strcat_dup(char *str1, char *str2);
+int is_num(char a);
 
 #endif

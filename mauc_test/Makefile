@@ -21,6 +21,8 @@ FILES		=	main.c				\
 			src/setup.c			\
 			src/tileset.c			\
 			src/parsing.c			\
+			src/lib_func.c			\
+			src/get_layer.c			\
 
 SRCS		=	$(FILES)
 
