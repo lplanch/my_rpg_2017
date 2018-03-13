@@ -8,24 +8,15 @@
 #include "my.h"
 #include "my_rpg.h"
 
-void free_tab(char **tab)
-{
-	int i = 0;
-
-	while (i != 13) {
-		free (tab[i]);
-		i++;
-	}
-	free (tab);
-}
-
 int tab_circle(char **tab, int i, files_t *fi, int circle)
 {
 	fi->colcircle[circle].rayon_circle = ((str_to_int(tab[i]) / 100) / 2) * 5;
 	i++;
-	fi->colcircle[circle].center_circle_x = ((str_to_int(tab[i]) / 100) * 5) + fi->colcircle[circle].rayon_circle;
+	fi->colcircle[circle].center_circle_x =
+	((str_to_int(tab[i]) / 100) * 5) + fi->colcircle[circle].rayon_circle;
 	i++;
-	fi->colcircle[circle].center_circle_y = ((str_to_int(tab[i]) / 100) * 5)+ fi->colcircle[circle].rayon_circle;
+	fi->colcircle[circle].center_circle_y =
+	((str_to_int(tab[i]) / 100) * 5)+ fi->colcircle[circle].rayon_circle;
 	i++;
 	return (i);
 }
@@ -43,7 +34,7 @@ int tab_square(char **tab, int i, files_t *fi, int square)
 	return (i);
 }
 
-void tab_to_struct(files_t *fi, char **tab)
+void tab_to_struct(files_t *fi, char **tab, int y)
 {
 	int compter = 0;
 	int circle = 0;
@@ -62,10 +53,10 @@ void tab_to_struct(files_t *fi, char **tab)
 		}
 		compter++;
 	}
-	free_tab(tab);
+	free_tab(tab, y);
 }
 
-void parsing2(char *buff, int y, files_t *fi, char *str)
+void parsing2(int y, files_t *fi, char *str)
 {
 	int i = 0;
 	int x = 0;
@@ -84,9 +75,8 @@ void parsing2(char *buff, int y, files_t *fi, char *str)
 		i++;
 		a++;
 	}
-	tab[a] = 0;
-	free (buff);
-	tab_to_struct(fi, tab);
+	free (str);
+	tab_to_struct(fi, tab, y);
 }
 
 void parsing(struct stat a, files_t *fi)
@@ -97,7 +87,7 @@ void parsing(struct stat a, files_t *fi)
 	int len = 0;
 	int file = open("TestMap/parsing", O_RDONLY);
 	char *buff = my_calloc(sizeof(char) * a.st_size + 1);
-	char *str = malloc(sizeof(char) * a.st_size + 1);
+	char *str = my_calloc(sizeof(char) * a.st_size + 1);
 
 	while ((len = read(file, buff, a.st_size))) {
 		buff[len] = 0;
@@ -110,5 +100,6 @@ void parsing(struct stat a, files_t *fi)
 		}
 	}
 	str[k] = 0;
-	parsing2(buff, y, fi, str);
+	parsing2(y, fi, str);
+	free (buff);
 }

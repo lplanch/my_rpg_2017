@@ -15,25 +15,40 @@ sfRenderWindow* window_create(files_t *fi, char *name)
 	return (0);
 }
 
-void destroy(files_t *fi)
+void destroy_sprite(files_t *fi)
 {
-	sfImage_destroy(fi->testmap.image);
-	sfImage_destroy(fi->testmap.testmap_backgound);
-	sfImage_destroy(fi->testmap.testmap_col);
-	sfImage_destroy(fi->testmap.testmap_colID);
-	sfImage_destroy(fi->testmap.testmap_prof);
+	sfSprite_destroy(fi->sprite);
+	sfSprite_destroy(fi->ID_sprite);
 	sfSprite_destroy(fi->testmap.sprite);
 	sfSprite_destroy(fi->testmap.sprite2);
 	sfSprite_destroy(fi->testmap.sprite3);
 	sfSprite_destroy(fi->testmap.sprite4);
+	sfSprite_destroy(fi->testmap.sprite5);
+}
+
+void destroy_text(files_t *fi)
+{
+	sfTexture_destroy(fi->texture);
+	sfTexture_destroy(fi->ID_text);
 	sfTexture_destroy(fi->testmap.texture);
 	sfTexture_destroy(fi->testmap.texture2);
 	sfTexture_destroy(fi->testmap.texture3);
 	sfTexture_destroy(fi->testmap.texture4);
-	sfSprite_destroy(fi->sprite);
-	sfSprite_destroy(fi->ID_sprite);
-	sfTexture_destroy(fi->texture);
-	sfTexture_destroy(fi->ID_text);
+	sfTexture_destroy(fi->testmap.texture5);
+}
+
+void destroy(files_t *fi)
+{
+	sfImage_destroy(fi->testmap.image);
+	sfImage_destroy(fi->testmap.testmap_backgound);
+	sfImage_destroy(fi->testmap.testmap_relief);
+	sfImage_destroy(fi->testmap.testmap_col);
+	sfImage_destroy(fi->testmap.testmap_colID);
+	sfImage_destroy(fi->testmap.testmap_prof);
+	//sfView_destroy (fi->view);
+	destroy_sprite(fi);
+	destroy_text(fi);
+	free_all(fi);
 	sfRenderWindow_destroy(fi->window);
 }
 

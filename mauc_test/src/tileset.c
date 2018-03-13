@@ -274,7 +274,6 @@ void transfer_pixel(files_t *fi)
 void create_layers(files_t *fi)
 {
 	int i = 0;
-	int j = 0;
 	int **jh = get_layer("TestMap/layers2");
 
 	fi->testmap.layer_background = jh[0];
