@@ -8,6 +8,30 @@
 #include "my.h"
 #include "my_rpg.h"
 
+void ok5(files_t *fi, int col, int c, int l)
+{
+	int x = 0;
+	int compter = (col / 31);
+	int y = compter * 32;
+
+	while (c != 32) {
+		l = 0;
+		fi->testmap.x = fi->testmap.x2;
+		x = (col - compter * 31) * 32 - 32;
+		while (l != 32) {
+			fi->testmap.color = sfImage_getPixel(fi->testmap.image, x, y);
+			sfImage_setPixel(fi->testmap.testmap_relief, fi->testmap.x,
+			fi->testmap.y, fi->testmap.color);
+			l++;
+			x++;
+			fi->testmap.x++;
+		}
+		fi->testmap.y++;
+		y++;
+		c++;
+	}
+}
+
 void ok4(files_t *fi, int col, int c, int l)
 {
 	int x = 0;
@@ -117,6 +141,19 @@ void set_background(files_t *fi)
 	sfSprite_setTexture(fi->testmap.sprite, fi->testmap.texture, sfTrue);
 }
 
+void set_relief(files_t *fi)
+{
+	sfVector2f invers;
+
+	invers.x = 5;
+	invers.y = 5;
+	fi->testmap.texture5 = sfTexture_createFromImage(fi->testmap.testmap_relief, NULL);
+	fi->testmap.sprite5 = sfSprite_create();
+	sfSprite_scale(fi->testmap.sprite5, invers);
+	sfSprite_setTextureRect(fi->testmap.sprite5, fi->testmap.square);
+	sfSprite_setTexture(fi->testmap.sprite5, fi->testmap.texture5, sfTrue);
+}
+
 void set_col(files_t *fi)
 {
 	sfVector2f invers;
@@ -167,6 +204,17 @@ void transfer_pixel_background(files_t *fi, int compter, int height)
 	}
 }
 
+void transfer_pixel_relief(files_t *fi, int compter, int height)
+{
+	int c = 0;
+	int l = 0;
+
+	if (fi->testmap.layer_relief[compter] == 0)
+		fi->testmap.layer_relief[compter] = 93;
+	fi->testmap.y = height * 32;
+	ok5(fi, fi->testmap.layer_relief[compter], c, l);
+}
+
 void transfer_pixel_col(files_t *fi, int compter, int height)
 {
 	int c = 0;
@@ -210,6 +258,7 @@ void transfer_pixel(files_t *fi)
 		width = 0;
 		while (width != 60) {
 			transfer_pixel_background(fi, compter, height);
+			transfer_pixel_relief(fi, compter, height);
 			transfer_pixel_col(fi, compter, height);
 			transfer_pixel_colID(fi, compter, height);
 			transfer_pixel_prof(fi, compter, height);
@@ -229,9 +278,10 @@ void create_layers(files_t *fi)
 	int **jh = get_layer("TestMap/layers2");
 
 	fi->testmap.layer_background = jh[0];
-	fi->testmap.layer_colID = jh[1];
-	fi->testmap.layer_col = jh[2];
-	fi->testmap.layer_prof = jh[3];
+	fi->testmap.layer_relief = jh[1];
+	fi->testmap.layer_colID = jh[2];
+	fi->testmap.layer_col = jh[3];
+	fi->testmap.layer_prof = jh[4];
 }
 
 void create_images(files_t *fi)
@@ -239,6 +289,7 @@ void create_images(files_t *fi)
 	fi->testmap.x2 = 0;
 	fi->testmap.image = sfImage_createFromFile("TestMap/gg.png");
 	fi->testmap.testmap_backgound = sfImage_create(1920, 640);
+	fi->testmap.testmap_relief = sfImage_create(1920, 640);
 	fi->testmap.testmap_col = sfImage_create(1920, 640);
 	fi->testmap.testmap_colID = sfImage_create(1920, 640);
 	fi->testmap.testmap_prof = sfImage_create(1920, 640);
@@ -254,6 +305,7 @@ void create_map(files_t *fi)
 	create_images(fi);
 	transfer_pixel(fi);
 	set_background(fi);
+	set_relief(fi);
 	set_col(fi);
 	set_colID(fi);
 	set_prof(fi);

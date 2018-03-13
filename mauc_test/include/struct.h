@@ -22,11 +22,13 @@ typedef struct s_testmap
 	int x2;
 	int y;
 	int *layer_background;
+	int *layer_relief;
 	int *layer_col;
 	int *layer_colID;
 	int *layer_prof;
 	sfImage *image;
 	sfImage *testmap_backgound;
+	sfImage *testmap_relief;
 	sfImage *testmap_col;
 	sfImage *testmap_colID;
 	sfImage *testmap_prof;
@@ -38,6 +40,8 @@ typedef struct s_testmap
 	sfTexture *texture3;
 	sfSprite *sprite4;
 	sfTexture *texture4;
+	sfSprite *sprite5;
+	sfTexture *texture5;
 	sfIntRect square;
 	sfColor color;
 } testmap_t;

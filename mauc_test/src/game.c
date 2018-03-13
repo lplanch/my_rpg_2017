@@ -15,6 +15,7 @@ void draw(files_t *fi)
 	sfSprite_setPosition(fi->sprite, fi->square2);
 	sfRenderWindow_clear(fi->window, sfBlack);
 	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite, NULL);
+	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite5, NULL);
 	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite2, NULL);
 	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite3, NULL);
 	sfRenderWindow_drawSprite(fi->window, fi->ID_sprite, NULL);
