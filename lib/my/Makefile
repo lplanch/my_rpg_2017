@@ -46,6 +46,8 @@ FILES		=	my_putchar.c		\
 			get_next_line.c		\
 			count_chr_tbl.c		\
 			int_to_str.c		\
+			my_strcpy.c		\
+			re_alloc.c
 
 SRCS		=	$(FILES)
 

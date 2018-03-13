@@ -35,7 +35,7 @@ t_object *create_text(char *str, sfVector2f pos, char *font)
 	return (text);
 }
 
-g_object *create_object(char *path, sfVector2f pos, sfIntRect rect, int sp)
+g_object *create_object(char *path, sfVector2f pos, sfIntRect rect, float sp)
 {
 	g_object *object = malloc(sizeof(g_object));
 
