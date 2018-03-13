@@ -63,6 +63,7 @@ int draw_sprites_map(proc_t *proc)
 	}
 	sfRenderWindow_drawSprite(proc->gman->window,
 	proc->gman->player.sprite, NULL);
+	return (1);
 }
 
 int update_sprite(proc_t *proc)
@@ -70,10 +71,13 @@ int update_sprite(proc_t *proc)
 	sfVector2f player_pos;
 
 	update_player_position(proc);
-	player_pos.x = proc->gman->player.pos.x - (proc->gman->player.rect.width / 10);
-	player_pos.y = proc->gman->player.pos.y - (proc->gman->player.rect.height / 10);
+	player_pos.x = proc->gman->player.pos.x -
+	(proc->gman->player.rect.width / 10);
+	player_pos.y = proc->gman->player.pos.y -
+	(proc->gman->player.rect.height / 10);
 	sfSprite_setPosition(proc->gman->player.sprite, player_pos);
 	update_camera_position(proc);
+	return (1);
 }
 
 int launch_dungeon_game(gage_t *gage)
@@ -82,10 +86,12 @@ int launch_dungeon_game(gage_t *gage)
 	while (sfRenderWindow_isOpen(gage->proc->gman->window)) {
 		verif_input_map(gage);
 		update_sprite(gage->proc);
-		sfRenderWindow_clear(gage->proc->gman->window, background);
+		sfRenderWindow_clear(gage->proc->gman->window,
+		gage->pvar->background);
 		draw_sprites_map(gage->proc);
 		sfRenderWindow_display(gage->proc->gman->window);
 		verify_exit_player(gage);
 	}
 	free_gage_game(gage);
+	return (1);
 }

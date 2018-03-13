@@ -28,14 +28,16 @@ void verify_intersect(proom_t *temp_proom, proc_t *proc, int iter, int *fail)
 	}
 }
 
-proom_t *new_room(void)
+proom_t *new_room(proc_var_t *pvar)
 {
 	proom_t *proom = malloc(sizeof(proom_t));
 
-	proom->width = min_room_s + (rand() % (max_room_s - min_room_s + 1));
-	proom->height = min_room_s + (rand() % (max_room_s - min_room_s + 1));
-	proom->pos1[0] = rand() % (map_width - proom->width - 1) + 1;
-	proom->pos1[1] = rand() % (map_height - proom->height - 1) + 1;
+	proom->width = pvar->min_room_s + (rand() %
+	(pvar->max_room_s - pvar->min_room_s + 1));
+	proom->height = pvar->min_room_s + (rand() %
+	(pvar->max_room_s - pvar->min_room_s + 1));
+	proom->pos1[0] = rand() % (pvar->map_width - proom->width - 1) + 1;
+	proom->pos1[1] = rand() % (pvar->map_height - proom->height - 1) + 1;
 	proom->pos2[0] = proom->pos1[0] + proom->width;
 	proom->pos2[1] = proom->pos1[1] + proom->height;
 	proom->center[0] = floor((proom->pos1[0] + proom->pos2[0]) / 2);
@@ -43,15 +45,15 @@ proom_t *new_room(void)
 	return (proom);
 }
 
-void make_positions_proom(proc_t *proc)
+void make_positions_proom(gage_t *gage, proc_t *proc)
 {
 	proom_t *temp_proom;
 	int iter = 0;
 	int fail;
 
-	for (int i = 0; i < nbr_rooms; i++) {
+	for (int i = 0; i < gage->pvar->nbr_rooms; i++) {
 		fail = 0;
-		temp_proom = new_room();
+		temp_proom = new_room(gage->pvar);
 		verify_intersect(temp_proom, proc, iter, &fail);
 		if (!fail) {
 			proc->proom[iter] = temp_proom;

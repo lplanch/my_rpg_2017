@@ -72,13 +72,13 @@ smap_t *generate_block(sfTexture *blocks, char chr, smap_t *smap)
 	return (smap);
 }
 
-smap_t ***create_sprite_map(proc_t *proc, char **map)
+smap_t ***create_sprite_map(gage_t *gage, char **map)
 {
 	smap_t ***smap = my_calloc(sizeof(smap_t **) * (count_lines(map) + 1));
-	sfTexture *blocks = sfTexture_createFromFile(
-	"ressources/dungeon_lvl1_tiles.png", NULL);
+	sfTexture *blocks = sfTexture_createFromFile(gage->pvar->texture_path,
+	NULL);
 
-	proc->blocks_texture = blocks;
+	gage->proc->blocks_texture = blocks;
 	for (int y = 0; map[y] != NULL; y++) {
 		smap[y] = my_calloc(sizeof(smap_t *) * (my_strlen(map[y]) + 1));
 		for (int x = 0; map[y][x] != '\0'; x++) {
@@ -94,7 +94,7 @@ smap_t ***create_sprite_map(proc_t *proc, char **map)
 
 void draw_map(gage_t *gage)
 {
-	gage->proc->smap = create_sprite_map(gage->proc, gage->proc->map);
+	gage->proc->smap = create_sprite_map(gage, gage->proc->map);
 
 	launch_dungeon_game(gage);
 }

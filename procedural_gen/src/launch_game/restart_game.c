@@ -8,16 +8,16 @@
 #include "my.h"
 #include "../../include/procedural.h"
 
-void create_char_map_restart(proc_t *proc)
+void create_char_map_restart(gage_t *gage)
 {
-	increment_proc_struct(proc);
-	make_positions_proom(proc);
-	for (int i = 0; proc->proom[i] != NULL; i++) {
-		make_holes(proc->proom[i], proc->map, i);
+	increment_proc_struct(gage->pvar, gage->proc);
+	make_positions_proom(gage, gage->proc);
+	for (int i = 0; gage->proc->proom[i] != NULL; i++) {
+		make_holes(gage->proc->proom[i], gage->proc->map, i);
 	}
-	create_entry(proc);
-	create_leave(proc);
-	make_map_better(proc->map);
+	create_entry(gage->proc);
+	create_leave(gage->proc);
+	make_map_better(gage->proc->map);
 }
 
 void print_map(char **map)
@@ -33,8 +33,8 @@ void print_map(char **map)
 
 void init_next_level(gage_t *gage)
 {
-	create_char_map_restart(gage->proc);
-	gage->proc->smap = create_sprite_map(gage->proc, gage->proc->map);
+	create_char_map_restart(gage);
+	gage->proc->smap = create_sprite_map(gage, gage->proc->map);
 	gage->proc->gman->player.pos = get_entry_pos(gage->proc);
 	gage->proc->gman->player.velocity.y = 0;
 	gage->proc->gman->player.velocity.x = 0;
@@ -45,7 +45,7 @@ void init_next_level(gage_t *gage)
 void draw_floor_restart(gage_t *gage)
 {
 	sfVector2f screen_center = gage->proc->gman->camera_pos;
-	char *cur_level = int_to_str(gage->current_floor);
+	char *cur_level = int_to_str(gage->pvar->current_floor);
 	char *level_string = my_strcat("Floor ", cur_level);
 	sfFont *font = sfFont_createFromFile("ressources/OpenSans.ttf");
 	sfText *next_level = sfText_create();
@@ -68,10 +68,10 @@ void draw_floor_restart(gage_t *gage)
 void next_level_screen(gage_t *gage)
 {
 	free_dungeon(gage->proc);
-	if (gage->current_floor < gage->max_floor) {
-		gage->current_floor += 1;
-	} else if (gage->current_floor < gage->max_floor) {
-		gage->current_floor -= 1;
+	if (gage->pvar->current_floor < gage->pvar->max_floor) {
+		gage->pvar->current_floor += 1;
+	} else if (gage->pvar->current_floor < gage->pvar->max_floor) {
+		gage->pvar->current_floor -= 1;
 	} else {
 		sfRenderWindow_close(gage->proc->gman->window);
 		return;

@@ -43,5 +43,4 @@ void free_gage_game(gage_t *gage)
 	sfRenderWindow_destroy(gage->proc->gman->window);
 	free(gage->proc->gman);
 	free(gage->proc);
-	free(gage);
 }

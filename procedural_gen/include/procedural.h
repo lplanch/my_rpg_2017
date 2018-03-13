@@ -16,16 +16,7 @@
 //GAME MANAGE
 static const unsigned int WIDTH = 1664;
 static const unsigned int HEIGHT = 936;
-static const char *window_name = "INTO THE DEEP";
-
-//PROCEDURAL GENERATION
-static const unsigned int map_width = 80;
-static const unsigned int map_height = 45;
-static const unsigned int max_room_s = 12;
-static const unsigned int min_room_s = 8;
-static const unsigned int nbr_rooms = 9;
-
-static const sfColor background = {20, 11, 40, 255};
+static const char window_name[13] = "INTO THE DEEP";
 
 //PLAYER
 static const float speed = 0.018;
@@ -76,19 +67,31 @@ typedef struct proc_gen
 	unsigned int current_floor;
 } proc_t;
 
+typedef struct proc_var
+{
+	char *texture_path;
+	unsigned int map_width;
+	unsigned int map_height;
+	unsigned int max_room_s;
+	unsigned int min_room_s;
+	unsigned int nbr_rooms;
+	unsigned int current_floor;
+	unsigned int max_floor;
+	sfColor background;
+} proc_var_t;
+
 typedef struct game_agent
 {
 	proc_t *proc;
-	unsigned int current_floor;
-	unsigned int max_floor;
+	proc_var_t *pvar;
 } gage_t;
 
 //MAKE MAP
-proc_t *map_creation(void);
-void make_positions_proom(proc_t *proc);
+proc_t *map_creation(gage_t *gage);
+void make_positions_proom(gage_t *gage, proc_t *proc);
 void make_holes(proom_t *proom, char **map, int i);
-void increment_proc_struct(proc_t *proc);
 void make_map_better(char **map);
+void increment_proc_struct(proc_var_t *pvar, proc_t *proc);
 
 //CORRIDORS
 void v_corridor(char **map, int y1, int y2, int x);
@@ -106,7 +109,7 @@ int verify_collide(char block);
 //DRAW MAP
 void draw_map(gage_t *gage);
 void free_map_tbl(proc_t *proc);
-smap_t ***create_sprite_map(proc_t *proc, char **map);
+smap_t ***create_sprite_map(gage_t *gage, char **map);
 
 //MANAGER
 int verif_input_map(gage_t *gage);
