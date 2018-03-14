@@ -10,8 +10,9 @@
 
 void setup_col(files_t *fi)
 {
-	fi->nbr_colcircle = 28;
-	fi->nbr_colsquare = 114;
+	fi->nbr_colcircle = 29;
+	fi->nbr_colsquare = 116;
+	fi->direction = 3;
 }
 
 sfVector2f create_vector2f(float x, float y)

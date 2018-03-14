@@ -254,7 +254,7 @@ void transfer_pixel(files_t *fi)
 	int height = 0;
 	int compter = 0;
 
-	while (height != 20) {
+	while (height != 100) {
 		width = 0;
 		while (width != 60) {
 			transfer_pixel_background(fi, compter, height);
@@ -274,7 +274,7 @@ void transfer_pixel(files_t *fi)
 void create_layers(files_t *fi)
 {
 	int i = 0;
-	int **jh = get_layer("TestMap/layers2");
+	int **jh = get_layer("TestMap/layers");
 
 	fi->testmap.layer_background = jh[0];
 	fi->testmap.layer_relief = jh[1];
@@ -287,11 +287,11 @@ void create_images(files_t *fi)
 {
 	fi->testmap.x2 = 0;
 	fi->testmap.image = sfImage_createFromFile("TestMap/gg.png");
-	fi->testmap.testmap_backgound = sfImage_create(1920, 640);
-	fi->testmap.testmap_relief = sfImage_create(1920, 640);
-	fi->testmap.testmap_col = sfImage_create(1920, 640);
-	fi->testmap.testmap_colID = sfImage_create(1920, 640);
-	fi->testmap.testmap_prof = sfImage_create(1920, 640);
+	fi->testmap.testmap_backgound = sfImage_create(1920, 3200);
+	fi->testmap.testmap_relief = sfImage_create(1920, 3200);
+	fi->testmap.testmap_col = sfImage_create(1920, 3200);
+	fi->testmap.testmap_colID = sfImage_create(1920, 3200);
+	fi->testmap.testmap_prof = sfImage_create(1920, 3200);
 	fi->testmap.square.left = 0;
 	fi->testmap.square.top = 0;
 	fi->testmap.square.height = 640;

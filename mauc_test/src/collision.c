@@ -8,9 +8,28 @@
 #include "my.h"
 #include "my_rpg.h"
 
+void case_tp(files_t *fi, int nb_ID)
+{
+	switch (fi->testmap.layer_relief[nb_ID]) {
+		case 314:
+			fi->square2.x = 840;
+			fi->square2.y = 4284;
+			fi->square.top = 0;
+			sfSprite_setPosition(fi->sprite, fi->square2);
+			break;
+		case 286:
+			fi->square2.x = 3720;
+			fi->square2.y = 2900;
+			fi->square.top = 144;
+			sfSprite_setPosition(fi->sprite, fi->square2);
+			break;
+		default:
+			break;
+	}
+}
+
 int case_ID(files_t *fi, int nb_ID)
 {
-	printf("%i\n", fi->testmap.layer_colID[nb_ID]);
 	switch (fi->testmap.layer_colID[nb_ID]) {
 		case 32:
 		case 33:
@@ -90,8 +109,10 @@ int collision_ID(files_t *fi)
 
 	while (i != 10) {
 		nb_ID = 60 * ((fi->pos[i].y / size_cube)) + fi->pos[i].x / size_cube;
-		if (case_ID(fi, nb_ID) == 1)
+		if (case_ID(fi, nb_ID) == 1) {
 			return (1);
+		}
+		case_tp(fi, nb_ID);
 		i++;
 	}
 	return (0);
@@ -105,9 +126,9 @@ int check_colsquare(files_t *fi, int nbr)
 		if (fi->pos[i].x > fi->colsquare[nbr].pos.x &&
 		fi->pos[i].x < (fi->colsquare[nbr].pos.x + fi->colsquare[nbr].width) &&
 		fi->pos[i].y > fi->colsquare[nbr].pos.y &&
-		fi->pos[i].y < (fi->colsquare[nbr].pos.y + fi->colsquare[nbr].height))
+		fi->pos[i].y < (fi->colsquare[nbr].pos.y + fi->colsquare[nbr].height)) {
 			return (1);
-		else {
+		} else {
 			i++;
 		}
 	}
