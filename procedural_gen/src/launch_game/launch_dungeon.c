@@ -48,10 +48,11 @@ gmanager_t *init_dungeon_game(proc_t *proc)
 	sfView_zoom(gman->camera, 0.5);
 	sfView_setCenter(gman->camera, gman->camera_pos);
 	sfRenderWindow_setView(gman->window, gman->camera);
+	init_minimap(gman);
 	return (gman);
 }
 
-int draw_sprites_map(proc_t *proc)
+int draw_sprites_map(gage_t *gage, proc_t *proc)
 {
 	for (int y = 0; proc->map[y] != NULL; y++) {
 		for (int x = 0; proc->map[y][x] != '\0'; x++) {
@@ -63,6 +64,7 @@ int draw_sprites_map(proc_t *proc)
 	}
 	sfRenderWindow_drawSprite(proc->gman->window,
 	proc->gman->player.sprite, NULL);
+	verify_minimap(gage);
 	return (1);
 }
 
@@ -88,7 +90,7 @@ int launch_dungeon_game(gage_t *gage)
 		update_sprite(gage->proc);
 		sfRenderWindow_clear(gage->proc->gman->window,
 		gage->pvar->background);
-		draw_sprites_map(gage->proc);
+		draw_sprites_map(gage, gage->proc);
 		sfRenderWindow_display(gage->proc->gman->window);
 		verify_exit_player(gage);
 	}

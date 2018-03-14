@@ -10,6 +10,8 @@
 #include <SFML/Graphics.h>
 #include <SFML/Window.h>
 
+#include "procedural_struct.h"
+
 #define MIN(a, b) ((a < b)? a : b)
 #define MAX(a, b) ((a > b)? a : b)
 
@@ -21,77 +23,14 @@ static const char window_name[13] = "INTO THE DEEP";
 //PLAYER
 static const float speed = 0.018;
 
-typedef struct proc_room
-{
-	int pos1[2];
-	int pos2[2];
-	int width;
-	int height;
-	int center[2];
-} proom_t;
-
-typedef struct map_sprite
-{
-	sfSprite *sprite;
-	sfVector2f pos;
-	sfIntRect rect;
-} smap_t;
-
-typedef struct player_manager
-{
-	sfTexture *texture;
-	sfSprite *sprite;
-	sfVector2f pos;
-	sfIntRect rect;
-	sfVector2f velocity;
-	sfVector2f speed;
-	sfVector2f m_speed;
-} player_t;
-
-typedef struct game_manager
-{
-	sfVideoMode mode;
-	sfRenderWindow *window;
-	sfView *camera;
-	player_t player;
-	sfVector2f camera_pos;
-} gmanager_t;
-
-typedef struct proc_gen
-{
-	gmanager_t *gman;
-	proom_t **proom;
-	smap_t ***smap;
-	char **map;
-	sfTexture *blocks_texture;
-	unsigned int current_floor;
-} proc_t;
-
-typedef struct proc_var
-{
-	char *texture_path;
-	unsigned int map_width;
-	unsigned int map_height;
-	unsigned int max_room_s;
-	unsigned int min_room_s;
-	unsigned int nbr_rooms;
-	unsigned int current_floor;
-	unsigned int max_floor;
-	sfColor background;
-} proc_var_t;
-
-typedef struct game_agent
-{
-	proc_t *proc;
-	proc_var_t *pvar;
-} gage_t;
-
 //MAKE MAP
 proc_t *map_creation(gage_t *gage);
 void make_positions_proom(gage_t *gage, proc_t *proc);
 void make_holes(proom_t *proom, char **map, int i);
 void make_map_better(char **map);
 void increment_proc_struct(proc_var_t *pvar, proc_t *proc);
+char **border_map(proc_var_t *pvar, char **map);
+void print_map(char **map);
 
 //CORRIDORS
 void v_corridor(char **map, int y1, int y2, int x);
@@ -115,6 +54,16 @@ smap_t ***create_sprite_map(gage_t *gage, char **map);
 int verif_input_map(gage_t *gage);
 void update_camera_position(proc_t *proc);
 void update_player_position(proc_t *proc);
+
+//MINIMAP
+void init_minimap(gmanager_t *gman);
+void verify_minimap(gage_t *gage);
+
+//FRAMEBUFFER
+framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
+void my_fill_screen(framebuffer_t *buffer, sfColor color);
+void my_put_pixel(framebuffer_t *buffer, int x, int y, sfColor color);
+void fill_minimap_screen(framebuffer_t *buffer, sfColor color);
 
 //CREATE BLOCKS
 int is_ground(char chr);

@@ -45,5 +45,7 @@ int main(int ac, char **av)
 	} else if (ac == 1) {
 		gage->proc = map_creation(gage);
 		draw_map(gage);
+		free(gage->pvar);
 	}
+	free(gage);
 }

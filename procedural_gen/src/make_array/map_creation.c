@@ -29,6 +29,7 @@ proc_t *map_creation(gage_t *gage)
 	for (int i = 0; proc->proom[i] != NULL; i++) {
 		make_holes(proc->proom[i], proc->map, i);
 	}
+	proc->map = border_map(gage->pvar, proc->map);
 	create_entry(proc);
 	create_leave(proc);
 	make_map_better(proc->map);

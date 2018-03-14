@@ -19,6 +19,7 @@ FILES		=	src/main_proc.c					\
 			src/make_array/corridors.c			\
 			src/make_array/mandatory_blocks.c		\
 			src/make_array/make_map_better.c		\
+			src/make_array/make_map_border.c		\
 			src/make_sprite_map/main_draw_map.c		\
 			src/make_sprite_map/create_blocks.c		\
 			src/make_sprite_map/create_blocks_corner.c	\
@@ -31,6 +32,9 @@ FILES		=	src/main_proc.c					\
 			src/launch_game/free_dungeon.c			\
 			src/launch_game/restart_game.c			\
 			src/launch_game/verify_collisions.c		\
+			src/minimap_system/main_minimap.c		\
+			src/minimap_system/fill_screen.c		\
+			src/minimap_system/put_pixel.c			\
 
 SRCS		=	$(FILES)
 
