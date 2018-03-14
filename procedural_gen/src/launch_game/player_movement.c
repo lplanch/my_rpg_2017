@@ -62,7 +62,6 @@ void update_player_position(proc_t *proc)
 {
 	proc->gman->player.speed.y += proc->gman->player.velocity.y;
 	proc->gman->player.speed.x += proc->gman->player.velocity.x;
-
 	if (proc->gman->player.speed.x > proc->gman->player.m_speed.x)
 		proc->gman->player.speed.x = proc->gman->player.m_speed.x;
 	else if (proc->gman->player.speed.x < -proc->gman->player.m_speed.x)

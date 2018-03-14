@@ -55,6 +55,8 @@ typedef struct game_manager
 	player_t player;
 	sfVector2f camera_pos;
 	minimap_t *minimap;
+	sfClock *clock;
+	sfTime time;
 } gmanager_t;
 
 typedef struct proc_gen
@@ -75,8 +77,8 @@ typedef struct proc_var
 	unsigned int max_room_s;
 	unsigned int min_room_s;
 	unsigned int nbr_rooms;
-	unsigned int current_floor;
-	unsigned int max_floor;
+	int current_floor;
+	int max_floor;
 	sfColor background;
 } proc_var_t;
 

@@ -49,6 +49,7 @@ gmanager_t *init_dungeon_game(proc_t *proc)
 	sfView_setCenter(gman->camera, gman->camera_pos);
 	sfRenderWindow_setView(gman->window, gman->camera);
 	init_minimap(gman);
+	gman->clock = sfClock_create();
 	return (gman);
 }
 
@@ -74,11 +75,12 @@ int update_sprite(proc_t *proc)
 
 	update_player_position(proc);
 	player_pos.x = proc->gman->player.pos.x -
-	(proc->gman->player.rect.width / 10);
+	(proc->gman->player.rect.width / 2);
 	player_pos.y = proc->gman->player.pos.y -
-	(proc->gman->player.rect.height / 10);
+	(proc->gman->player.rect.height / 2);
 	sfSprite_setPosition(proc->gman->player.sprite, player_pos);
 	update_camera_position(proc);
+	proc->gman->time = sfClock_restart(proc->gman->clock);
 	return (1);
 }
 
