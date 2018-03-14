@@ -30,7 +30,7 @@ int cust_minx_buttons(int menu)
        return (0);
 }
 
-int cust_miny_buttons(int menu)
+/*int cust_miny_buttons(int menu)
 {
        if (menu == 1 || menu == 2)
               return (0);
@@ -42,4 +42,4 @@ int cust_maxy_buttons(int menu)
        if (menu == 1 || menu == 2)
               return (0);
        return (0);
-}
+}*/
