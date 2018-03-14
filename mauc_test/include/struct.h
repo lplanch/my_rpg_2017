@@ -81,8 +81,8 @@ typedef struct s_files
 	sfIntRect ID_player;
 	sfVector2f vect_ID_player;
 	pos_t pos[10];
-	colcircle_t colcircle[28];
-	colsquare_t colsquare[114];
+	colcircle_t colcircle[29];
+	colsquare_t colsquare[116];
 	testmap_t testmap;
 } files_t;
 

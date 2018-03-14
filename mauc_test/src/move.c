@@ -17,75 +17,64 @@ void move_camera(files_t *fi)
 
 void move_up(files_t *fi)
 {
-	int a = 0;
+	int a = fi->square2.y + fi->speed.y;
+	int b = fi->square2.y;
 
-	while (a != 4) {
-		if (a == 1)
-			move(fi);
-		fi->square2.y -= 15;
+	while (b != a) {
+		fi->square2.y -= 1;
+		b -= 1;
 		move_ID_player(fi);
-		if (collision(fi) == 0)
-			draw(fi);
-		else
-			fi->square2.y += 15;
-		a++;
-		move_camera(fi);
+		if (collision(fi) == 1) {
+			fi->square2.y += 1;
+		}
+		sfSprite_setPosition(fi->sprite, fi->square2);
 	}
 }
 
 void move_down(files_t *fi)
 {
-	int a = 0;
+	int a = fi->square2.y + fi->speed.y;
+	int b = fi->square2.y;
 
-	while (a != 4) {
-		if (a == 1)
-			move(fi);
-		fi->square2.y += 15;
+	while (b != a) {
+		fi->square2.y += 1;
+		b += 1;
 		move_ID_player(fi);
-		draw(fi);
-		if (collision(fi) == 0)
-			draw(fi);
-		else
-			fi->square2.y -= 15;
-		a++;
-		move_camera(fi);
+		if (collision(fi) == 1) {
+			fi->square2.y -= 1;
+		}
+		sfSprite_setPosition(fi->sprite, fi->square2);
 	}
 }
 
 void move_right(files_t *fi)
 {
-	int a = 0;
+	int a = fi->square2.x + fi->speed.x;
+	int b = fi->square2.x;
 
-	while (a != 4) {
-		if (a == 1)
-			move(fi);
-		fi->square2.x += 15;
+	while (b != a) {
+		fi->square2.x += 1;
+		b += 1;
 		move_ID_player(fi);
-		draw(fi);
-		if (collision(fi) == 0)
-			draw(fi);
-		else
-			fi->square2.x -= 15;
-		a++;
-		move_camera(fi);
+		if (collision(fi) == 1) {
+			fi->square2.x -= 1;
+		}
+		sfSprite_setPosition(fi->sprite, fi->square2);
 	}
 }
 
 void move_left(files_t *fi)
 {
-	int a = 0;
+	int a = fi->square2.x + fi->speed.x;
+	int b = fi->square2.x;
 
-	while (a != 4) {
-		if (a == 1)
-			move(fi);
-		fi->square2.x -= 15;
+	while (b != a) {
+		fi->square2.x -= 1;
+		b -= 1;
 		move_ID_player(fi);
-		draw(fi);
-		if (collision(fi) == 0)
-			draw(fi);
-		else
-			fi->square2.x += 15;
-		a++;
-		move_camera(fi);
+		if (collision(fi) == 1) {
+			fi->square2.x += 1;
+		}
+		sfSprite_setPosition(fi->sprite, fi->square2);
 	}
 }

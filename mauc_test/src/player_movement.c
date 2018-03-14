@@ -44,14 +44,22 @@ void decrement_speed(files_t *fi)
 
 void make_player_position(files_t *fi)
 {
-	fi->square2.y += fi->speed.y;
-	fi->square2.x += fi->speed.x;
-	move_ID_player(fi);
-	if (collision(fi) == 1) {
-		fi->square2.y -= fi->speed.y;
-		fi->square2.x -= fi->speed.x;
+	switch (fi->direction) {
+		case 1:
+			move_up(fi);
+			break;
+		case 2:
+			move_right(fi);
+			break;
+		case 3:
+			move_down(fi);
+			break;
+		case 4:
+			move_left(fi);
+			break;
 	}
-	sfSprite_setPosition(fi->sprite, fi->square2);
+	if (fi->speed.x != 0 || fi->speed.y != 0)
+		move(fi);
 }
 
 void update_player_position(files_t *fi)
@@ -67,7 +75,6 @@ void update_player_position(files_t *fi)
 	else if (fi->speed.y < -fi->maxspeed.y)
 		fi->speed.y = -fi->maxspeed.y;
 	make_player_position(fi);
-	move(fi);
 	move_camera(fi);
 	decrement_speed(fi);
 }
