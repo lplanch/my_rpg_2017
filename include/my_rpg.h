@@ -70,7 +70,6 @@ typedef struct struct_main_menu
 
 typedef struct struct_rpg
 {
-	proj_t *kunai;
 	g_object *loading;
 	int returnv;
 	st_custom cust;

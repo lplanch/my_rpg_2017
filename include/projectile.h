@@ -16,6 +16,8 @@ typedef struct projectile
 	float dmg;
 	float ratio;
 	float cd;
+	char *effect;
+	float duration;
 	sfVector2f angle;
 } proj_t;
 

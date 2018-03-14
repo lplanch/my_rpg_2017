@@ -62,6 +62,8 @@ proj_t *create_projectile(char *path)
 	proj->dmg = str_to_int(get_next_line(fd)) / 100;
 	proj->ratio = str_to_int(get_next_line(fd)) / 100;
 	proj->cd = str_to_int(get_next_line(fd)) / 100;
+	proj->effect = get_next_line(fd);
+	proj->duration = str_to_int(get_next_line(fd)) / 100;
 	proj->obj->rect.width = sfTexture_getSize(sfSprite_getTexture(proj
 	->obj->sprite)).x;
 	proj->obj->rect.height = sfTexture_getSize(sfSprite_getTexture(proj
@@ -75,11 +77,14 @@ proj_t *create_projectile(char *path)
 	printf("cd is = %f\n", proj->cd);
 	printf("width is = %d\n", proj->obj->rect.width);
 	printf("height is = %d\n", proj->obj->rect.height);
+	printf("effect is = %s\n", proj->effect);
+	printf("duration is = %f\n", proj->duration);
 	return (proj);
 }
 
 void destroy_projectile(proj_t *proj)
 {
 	destroy_object(proj->obj);
+	free(proj->effect);
 	free(proj);
 }

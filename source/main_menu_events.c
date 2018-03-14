@@ -68,10 +68,8 @@ int event_main_menu(st_rpg *s)
               } if (launch_main_menu(s, event)) {
                      s->returnv = 1;
                      return (1);
-	     } if (event.type == sfEvtMouseButtonPressed &&
-	     sfMouse_isButtonPressed(sfMouseLeft))
-	     	launch_projectile(s->kunai, s->window);
-              main_menu_manage_cursor_events(s, event);
+	     }
+             main_menu_manage_cursor_events(s, event);
        }
        return (0);
 }

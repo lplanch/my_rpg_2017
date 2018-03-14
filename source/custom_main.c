@@ -115,7 +115,7 @@ void cust_menu_goto_name(st_rpg *s)
 				       grey, 70);
 	s->cust.bt[2] = create_vbutton("Ok !", create_vector2f(1475, 600),
 				       grey, 70);
-	s->cust.bt[3] = create_vbutton("", create_vector2f(1250, 400),
+	s->cust.bt[3] = create_vbutton("Name", create_vector2f(1250, 400),
 				       grey, 50);
 }
 
@@ -206,11 +206,7 @@ void custom_manage_cursor_events_key(st_rpg *s, sfEvent event)
 {
 	int maxx = cust_maxx_buttons(s->cust.menu);
 	int minx = cust_minx_buttons(s->cust.menu);
-//       int maxy = cust_maxy_buttons(s->cust.menu);
-//       int miny = cust_miny_buttons(s->cust.menu);
 
-//       printf("minx = %d, maxx = %d, miny = %d, maxy = %d\n", minx, maxx, miny, maxy);
-//       printf("menu = %d, option = %d, option = %d\n", s->cust.menu, s->cust.option, s->cust.option);
 	if (event.type == sfEvtKeyPressed) {
 		if (s->cust.option == 3 && (sfKeyboard_isKeyPressed(sfKeyS) ||
 		sfKeyboard_isKeyPressed(sfKeyDown)))
@@ -232,8 +228,8 @@ void custom_manage_cursor_events_mouse(st_rpg *s)
 {
 	for (int i = 0; i != cust_get_buttons(s->cust.menu); i += 1) {
 		if (mouse_in_object(s->cust.bt[i]->obj, s->window) &&
-		    s->mainm.option != i) {
-			s->mainm.option = i;
+		    s->cust.option != i) {
+			s->cust.option = i;
 			get_cursor_pos(s);
 		}
 	}

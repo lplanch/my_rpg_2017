@@ -38,19 +38,18 @@ void initialize_menu_interface(st_rpg *s)
        s->mainm.sens = 1;
        s->mainm.option = 0;
        s->mainm.cursor = create_object("images/cursor.png",
-       create_vector2f(900, 500), create_rect(0, 0, 100, 116), 2);
-       s->mainm.button[0] = create_vbutton("Play", create_vector2f(1000, 500),
+       create_vector2f(700, 500), create_rect(0, 0, 100, 116), 2);
+       s->mainm.button[0] = create_vbutton("Play", create_vector2f(800, 500),
        grey, 100);
        s->mainm.button[1] = create_vbutton("Options",
-       create_vector2f(1000, 620), grey, 100);
-       s->mainm.button[2] = create_vbutton("Quit", create_vector2f(1000, 740),
+       create_vector2f(800, 620), grey, 100);
+       s->mainm.button[2] = create_vbutton("Quit", create_vector2f(800, 740),
        grey, 100);
 }
 
 void initialize_menu(st_rpg *s)
 {
        s->returnv = 0;
-       s->kunai = create_projectile("projectile/Kunai");
        s->mainm.first = create_object("images/menu/first.png",
        create_vector2f(0, 0), create_rect(0, 0, 1920, 1080), 6);
        s->mainm.rope = create_object("images/menu/ropesheet.png",
