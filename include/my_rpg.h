@@ -79,6 +79,18 @@ typedef struct struct_rpg
 
 void launch_projectile(proj_t *proj, sfRenderWindow *window);
 void loading(st_rpg *s);
+void cust_menu_goto_name(st_rpg *s);
+void cust_menu_goto_sex(st_rpg *s);
+int cust_menu_backto_main(st_rpg *s);
+void display_cust(st_rpg *s);
+void destroy_cust_buttons(st_rpg *s);
+void custom_destroy(st_rpg *s);
+void create_st_custom(st_rpg *s);
+void custom_manage_cursor_events_mouse(st_rpg *s);
+void custom_manage_cursor_events_key(st_rpg *s, sfEvent event);
+void cust_cursor_animation(st_rpg *s);
+void get_cursor_pos(st_rpg *s);
+int custom_launch(st_rpg *s, sfEvent event);
 int cust_get_buttons(int menu);
 int cust_minx_buttons(int menu);
 int cust_maxx_buttons(int menu);
