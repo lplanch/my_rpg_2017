@@ -8,6 +8,18 @@
 #include "my.h"
 #include "my_rpg.h"
 
+void move_allpts2(files_t *fi)
+{
+	fi->pos[6].x = fi->vect_ID_player.x + (fi->ID_player.width / 4);
+	fi->pos[6].y = fi->vect_ID_player.y;
+	fi->pos[7].x = fi->vect_ID_player.x + (fi->ID_player.width / 2) + (fi->ID_player.width / 4);
+	fi->pos[7].y = fi->vect_ID_player.y;
+	fi->pos[8].x = fi->vect_ID_player.x + (fi->ID_player.width / 4);
+	fi->pos[8].y = fi->vect_ID_player.y + fi->ID_player.height;
+	fi->pos[9].x = fi->vect_ID_player.x + (fi->ID_player.width / 2) + (fi->ID_player.width / 4);
+	fi->pos[9].y = fi->vect_ID_player.y + fi->ID_player.height;
+}
+
 void move_allpts(files_t *fi)
 {
 	fi->pos[0].x = fi->vect_ID_player.x;
@@ -22,6 +34,7 @@ void move_allpts(files_t *fi)
 	fi->pos[4].y = fi->vect_ID_player.y;
 	fi->pos[5].x = fi->vect_ID_player.x + (fi->ID_player.width / 2);
 	fi->pos[5].y = fi->vect_ID_player.y + fi->ID_player.height;
+	move_allpts2(fi);
 }
 
 void move_ID_player(files_t *fi)
@@ -49,18 +62,25 @@ void move_ok(files_t *fi)
 	if (sfKeyboard_isKeyPressed(sfKeyUp) == sfTrue) {
 		fi->square.top = 144;
 		fi->direction = 1;
-		move_up(fi);
-	} if (sfKeyboard_isKeyPressed(sfKeyDown) == sfTrue) {
+		//move_up(fi);
+		fi->velocity.y = -speed * 2;
+	} else if (sfKeyboard_isKeyPressed(sfKeyDown) == sfTrue) {
 		fi->square.top = 0;
 		fi->direction = 3;
-		move_down(fi);
-	} if (sfKeyboard_isKeyPressed(sfKeyRight) == sfTrue) {
+		//move_down(fi);
+		fi->velocity.y = speed * 2;
+	} else
+	 	fi->velocity.y = 0;
+	if (sfKeyboard_isKeyPressed(sfKeyRight) == sfTrue) {
 		fi->square.top = 96;
 		fi->direction = 2;
-		move_right(fi);
-	} if (sfKeyboard_isKeyPressed(sfKeyLeft) == sfTrue) {
+		//move_right(fi);
+		fi->velocity.x = speed * 2;
+	} else if (sfKeyboard_isKeyPressed(sfKeyLeft) == sfTrue) {
 		fi->square.top = 48;
 		fi->direction = 4;
-		move_left(fi);
-	}
+		//move_left(fi);
+		fi->velocity.x = -speed * 2;
+	} else
+		fi->velocity.x = 0;
 }

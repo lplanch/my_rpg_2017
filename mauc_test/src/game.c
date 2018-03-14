@@ -36,6 +36,7 @@ int game(files_t *fi)
 				a = 1;
 		}
 		move_ok(fi);
+		update_player_position(fi);
 		move_ID_player(fi);
 		draw(fi);
 		usleep(50000);

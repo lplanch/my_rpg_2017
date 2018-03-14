@@ -27,6 +27,7 @@ FILES		=	main.c				\
 			src/lib_func.c			\
 			src/get_layer.c			\
 			src/free.c			\
+			src/player_movement.c		\
 
 SRCS		=	$(FILES)
 

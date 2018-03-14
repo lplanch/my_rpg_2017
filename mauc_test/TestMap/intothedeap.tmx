@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="60" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="220">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="60" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="226">
  <tileset firstgid="1" name="gg" tilewidth="32" tileheight="32" tilecount="961" columns="31">
   <image source="gg.png" width="1000" height="1000"/>
  </tileset>
@@ -318,5 +318,9 @@
   <object id="219" type="c" x="693.667" y="76.6667" width="20" height="20">
    <ellipse/>
   </object>
+  <object id="220" x="722.364" y="556.182" width="7.27273" height="83.6364"/>
+  <object id="222" x="774.727" y="587.273" width="7.27273" height="52.7273"/>
+  <object id="223" x="722.375" y="639.875" width="59.75" height="3"/>
+  <object id="225" x="1265.82" y="-7.81818" width="34.7273" height="7.81818"/>
  </objectgroup>
 </map>

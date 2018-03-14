@@ -19,6 +19,7 @@
 
 #include "struct.h"
 
+static const float speed = 10;
 int prog(void);
 int game(files_t *fi);
 void draw(files_t *fi);
@@ -29,6 +30,7 @@ void setup_camera(files_t *fi);
 void setup_col(files_t *fi);
 
 void move(files_t *fi);
+void move_camera(files_t *fi);
 void move_ok(files_t *fi);
 void move_up(files_t *fi);
 void move_down(files_t *fi);
@@ -44,6 +46,7 @@ int collision_ID(files_t *fi);
 int **get_layer(char *name);
 void create_map(files_t *fi);
 void parsing(struct stat a, files_t *fi);
+void update_player_position(files_t *fi);
 
 void free_tab(char **tab, int y);
 void free_all(files_t *fi);

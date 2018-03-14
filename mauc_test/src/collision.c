@@ -10,6 +10,7 @@
 
 int case_ID(files_t *fi, int nb_ID)
 {
+	printf("%i\n", fi->testmap.layer_colID[nb_ID]);
 	switch (fi->testmap.layer_colID[nb_ID]) {
 		case 32:
 		case 33:
@@ -87,7 +88,7 @@ int collision_ID(files_t *fi)
 	int x = fi->pos[i].x / size_cube;
 	int y = fi->pos[i].y / size_cube;
 
-	while (i != 6) {
+	while (i != 10) {
 		nb_ID = 60 * ((fi->pos[i].y / size_cube)) + fi->pos[i].x / size_cube;
 		if (case_ID(fi, nb_ID) == 1)
 			return (1);
@@ -100,7 +101,7 @@ int check_colsquare(files_t *fi, int nbr)
 {
 	int i = 0;
 
-	while (i != 6) {
+	while (i != 10) {
 		if (fi->pos[i].x > fi->colsquare[nbr].pos.x &&
 		fi->pos[i].x < (fi->colsquare[nbr].pos.x + fi->colsquare[nbr].width) &&
 		fi->pos[i].y > fi->colsquare[nbr].pos.y &&
@@ -118,7 +119,7 @@ int check_colcircle(files_t *fi, int nbr)
  	float distance_pt_center = 0;
 	int i = 0;
 
-	while (i != 6) {
+	while (i != 10) {
 		distance_pt_center = sqrt(powf((fi->pos[i].x
 		- fi->colcircle[nbr].center_circle_x), 2) + powf(((fi->pos[i].y)
 		- fi->colcircle[nbr].center_circle_y), 2));
