@@ -8,6 +8,14 @@
 #include "my_rpg.h"
 #include "my.h"
 
+void get_cursor_pos_classes(st_rpg *s)
+{
+	if (s->cust.option != 0) {
+		s->cust.cursor->pos.x = 980 + 250 * (s->cust.option - 1);
+		s->cust.cursor->pos.y = 705;
+	}
+}
+
 void get_cursor_pos(st_rpg *s)
 {
 	if (s->cust.option == 0) {
@@ -23,7 +31,8 @@ void get_cursor_pos(st_rpg *s)
 			s->cust.cursor->pos.y = 710;
 		}
 		s->cust.rot = -90;
-	}
+	} if (s->cust.menu == 3)
+		get_cursor_pos_classes(s);
 	s->cust.cmin = s->cust.cursor->pos.y;
 	s->cust.cmax = s->cust.cmin + 5;
 	sfSprite_setPosition(s->cust.cursor->sprite, s->cust.cursor->pos);

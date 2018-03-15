@@ -23,6 +23,16 @@ int launch_cust_menu_sex(st_rpg *s)
 	return (0);
 }
 
+int launch_cust_menu_classes(st_rpg *s)
+{
+	if (s->cust.option == 0)
+		return (cust_menu_backto_main(s));
+	else {
+		s->cust.cdata.classe = s->cust.option - 1;
+	}
+	return (0);
+}
+
 int launch_cust_menu_name(st_rpg *s)
 {
 	if (s->cust.option == 0)
@@ -30,9 +40,8 @@ int launch_cust_menu_name(st_rpg *s)
 	else {
 		if (s->cust.option == 1)
 			cust_menu_goto_sex(s);
-		else
-			s->cust.cdata.name = my_strdup(sfText_getString(s
-				->cust.bt[3]->text->text));
+		else if (s->cust.option == 2)
+			cust_menu_goto_classes(s);
 	}
 	return (0);
 }
@@ -43,6 +52,8 @@ int which_cust_menu(st_rpg *s)
 		return (launch_cust_menu_sex(s));
 	if (s->cust.menu == 2)
 		return (launch_cust_menu_name(s));
+	if (s->cust.menu == 3)
+		return (launch_cust_menu_classes(s));
 	return (0);
 }
 

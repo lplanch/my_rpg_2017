@@ -36,6 +36,25 @@ void cust_menu_goto_sex(st_rpg *s)
 				       grey, 70);
 }
 
+void cust_menu_goto_classes(st_rpg *s)
+{
+	sfColor grey = {96, 96, 96, 255};
+
+	s->cust.menu = 3;
+	destroy_button(s->cust.bt[1]);
+	destroy_button(s->cust.bt[2]);
+	destroy_button(s->cust.bt[3]);
+	s->cust.bt[1] = create_vbutton("Archer", create_vector2f(900, 600),
+				       grey, 50);
+	s->cust.bt[2] = create_vbutton("Gunner", create_vector2f(1150, 600),
+				       grey, 50);
+	s->cust.bt[3] = create_vbutton("Rogue", create_vector2f(1400, 600),
+				       grey, 50);
+	s->cust.bt[4] = create_vbutton("Warrior", create_vector2f(1600, 600),
+      				       grey, 50);
+	get_cursor_pos_classes(s);
+}
+
 int cust_menu_backto_main(st_rpg *s)
 {
 	loading(s);
