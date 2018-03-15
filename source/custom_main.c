@@ -54,7 +54,7 @@ int custom_event(st_rpg *s)
 			s->returnv = 1;
 			custom_destroy(s);
 			return (1);
-		} if (s->cust.option == 3)
+		} if (s->cust.option == 3 && s->cust.menu == 2)
 			custom_manage_name_write(s, event);
 		else
 			custom_manage_cursor_events_key(s, event);

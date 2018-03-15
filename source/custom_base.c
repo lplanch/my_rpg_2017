@@ -38,6 +38,8 @@ void custom_destroy(st_rpg *s)
 
 void cust_initialize_buttons(st_rpg *s)
 {
+	sfColor grey = {96, 96, 96, 255};
+
 	s->cust.bt[0] = create_vbutton("Back to menu",
 	create_vector2f(25, 880), grey, 70);
 	s->cust.bt[1] = create_vbutton("Male", create_vector2f(1100, 600),
@@ -48,12 +50,11 @@ void cust_initialize_buttons(st_rpg *s)
 
 void create_st_custom(st_rpg *s)
 {
-	sfColor grey = {96, 96, 96, 255};
-
 	s->cust.sens = 0.25;
 	s->cust.pos = 0;
 	s->cust.menu = 1;
 	s->cust.option = 1;
+	s->cust.cdata.classe = 0;
 	s->cust.cdata.sex = 'M';
 	s->cust.cdata.name = my_calloc(sizeof(char) * 14);
 	s->cust.option = 1;
