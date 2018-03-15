@@ -50,6 +50,7 @@ gmanager_t *init_dungeon_game(proc_t *proc)
 	sfRenderWindow_setView(gman->window, gman->camera);
 	init_minimap(gman);
 	gman->clock = sfClock_create();
+	gman->dt = 1.;
 	return (gman);
 }
 
