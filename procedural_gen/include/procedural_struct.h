@@ -41,11 +41,11 @@ typedef struct player_manager
 {
 	sfTexture *texture;
 	sfSprite *sprite;
-	sfVector2f pos;
 	sfIntRect rect;
-	sfVector2f velocity;
-	sfVector2f speed;
-	sfVector2f m_speed;
+	sfVector2f pos;
+	int max_speed;
+	sfVector2i nbr_frame;
+	sfVector2f acceleration;
 } player_t;
 
 typedef struct game_manager
@@ -58,6 +58,7 @@ typedef struct game_manager
 	minimap_t *minimap;
 	sfClock *clock;
 	sfTime time;
+	float dt;
 } gmanager_t;
 
 typedef struct proc_gen
