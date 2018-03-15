@@ -20,9 +20,6 @@ static const unsigned int WIDTH = 1664;
 static const unsigned int HEIGHT = 936;
 static const char window_name[13] = "INTO THE DEEP";
 
-//PLAYER
-static const float speed = 0.018;
-
 //MAKE MAP
 proc_t *map_creation(gage_t *gage);
 void make_positions_proom(gage_t *gage, proc_t *proc);
@@ -54,10 +51,13 @@ smap_t ***create_sprite_map(gage_t *gage, char **map);
 int verif_input_map(gage_t *gage);
 void update_camera_position(proc_t *proc);
 void update_player_position(proc_t *proc);
+void verify_y_movement(proc_t *proc);
+void verify_x_movement(proc_t *proc);
 
 //MINIMAP
 void init_minimap(gmanager_t *gman);
 void verify_minimap(gage_t *gage);
+void update_minimap(proc_t *proc);
 
 //FRAMEBUFFER
 framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);

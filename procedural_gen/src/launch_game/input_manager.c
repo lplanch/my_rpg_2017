@@ -23,20 +23,8 @@ void verify_other_input(sfEvent event, gage_t *gage)
 
 void verif_movement_input(proc_t *proc)
 {
-	if (sfKeyboard_isKeyPressed(sfKeyUp) == sfTrue) {
-		proc->gman->player.velocity.y = -speed * 5;
-	} else if (sfKeyboard_isKeyPressed(sfKeyDown) == sfTrue) {
-		proc->gman->player.velocity.y = speed * 5;
-	} else {
-		proc->gman->player.velocity.y = 0;
-	}
-	if (sfKeyboard_isKeyPressed(sfKeyLeft) == sfTrue) {
-		proc->gman->player.velocity.x = -speed * 5;
-	} else if (sfKeyboard_isKeyPressed(sfKeyRight) == sfTrue) {
-		proc->gman->player.velocity.x = speed * 5;
-	} else {
-		proc->gman->player.velocity.x = 0;
-	}
+	verify_y_movement(proc);
+	verify_x_movement(proc);
 }
 
 int verif_input_map(gage_t *gage)

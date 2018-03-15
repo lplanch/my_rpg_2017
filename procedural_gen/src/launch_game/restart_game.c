@@ -38,10 +38,8 @@ void init_next_level(gage_t *gage)
 	create_char_map_restart(gage);
 	gage->proc->smap = create_sprite_map(gage, gage->proc->map);
 	gage->proc->gman->player.pos = get_entry_pos(gage->proc);
-	gage->proc->gman->player.velocity.y = 0;
-	gage->proc->gman->player.velocity.x = 0;
-	gage->proc->gman->player.speed.y = 0;
-	gage->proc->gman->player.speed.x = 0;
+	gage->proc->gman->player.acceleration.x = 0;
+	gage->proc->gman->player.acceleration.y = 0;
 }
 
 void draw_floor_restart(gage_t *gage)
