@@ -40,6 +40,7 @@ void cursor_animation(st_rpg *s, int min, int max)
 int main_menu(st_rpg *s)
 {
        initialize_menu(s);
+  //     sfMusic_play(s->mainm.music);
        if (main_menu_cutscene(s) == 1)
               return (0);
        while (sfRenderWindow_isOpen(s->window)) {

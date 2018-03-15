@@ -45,6 +45,7 @@ void initialize_menu_interface(st_rpg *s)
        create_vector2f(800, 620), grey, 100);
        s->mainm.button[2] = create_vbutton("Quit", create_vector2f(800, 740),
        grey, 100);
+//       s->mainm.music = sfMusic_createFromFile("audio/menu.ogg");
 }
 
 void initialize_menu(st_rpg *s)

@@ -33,7 +33,7 @@ typedef struct struct_button
 
 typedef struct custom_data
 {
-	char sex;
+	int sex;
 	char *name;
 	int classe;
 } st_cdata;
@@ -48,6 +48,8 @@ typedef struct struct_st_custom
 	int cmin;
 	int cmax;
 	int pos;
+	int chosen;
+	g_object *face;
 	g_object *cursor;
 	st_button *bt[5];
 	g_object *circle;
@@ -56,6 +58,7 @@ typedef struct struct_st_custom
 
 typedef struct struct_main_menu
 {
+	sfMusic *music;
 	int menu;
 	st_time t;
 	int option;

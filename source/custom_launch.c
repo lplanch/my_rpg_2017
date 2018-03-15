@@ -15,9 +15,9 @@ int launch_cust_menu_sex(st_rpg *s)
 		return (cust_menu_backto_main(s));
 	else {
 		if (s->cust.option == 1)
-			s->cust.cdata.sex = 'M';
+			s->cust.cdata.sex = 0;
 		else
-			s->cust.cdata.sex = 'F';
+			s->cust.cdata.sex = 1;
 		cust_menu_goto_name(s);
 	}
 	return (0);
