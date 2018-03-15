@@ -27,6 +27,7 @@ typedef struct proc_room
 	int width;
 	int height;
 	int center[2];
+	int visited;
 } proom_t;
 
 typedef struct map_sprite

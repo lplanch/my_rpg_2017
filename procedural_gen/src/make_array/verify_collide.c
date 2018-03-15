@@ -36,12 +36,13 @@ proom_t *new_room(proc_var_t *pvar)
 	(pvar->max_room_s - pvar->min_room_s + 1));
 	proom->height = pvar->min_room_s + (rand() %
 	(pvar->max_room_s - pvar->min_room_s + 1));
-	proom->pos1[0] = rand() % (pvar->map_width - proom->width - 1) + 1;
-	proom->pos1[1] = rand() % (pvar->map_height - proom->height - 1) + 1;
+	proom->pos1[0] = rand() % (pvar->map_width - proom->width - 2) + 1;
+	proom->pos1[1] = rand() % (pvar->map_height - proom->height - 2) + 1;
 	proom->pos2[0] = proom->pos1[0] + proom->width;
 	proom->pos2[1] = proom->pos1[1] + proom->height;
 	proom->center[0] = floor((proom->pos1[0] + proom->pos2[0]) / 2);
 	proom->center[1] = floor((proom->pos1[1] + proom->pos2[1]) / 2);
+	proom->visited = 0;
 	return (proom);
 }
 

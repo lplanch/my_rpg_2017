@@ -51,11 +51,10 @@ void make_player_position(proc_t *proc)
 	tempy[1] = (proc->gman->player.pos.x) / 48;
 	tempx[0] = (proc->gman->player.pos.y) / 48;
 	tempx[1] = (proc->gman->player.pos.x + proc->gman->player.speed.x) / 48;
-	if (verify_collide(proc->map[tempy[0]][tempy[1]])) {
+	if (verify_collide(proc->map[tempy[0]][tempy[1]]))
 		proc->gman->player.pos.y += proc->gman->player.speed.y;
-	} if (verify_collide(proc->map[tempx[0]][tempx[1]])) {
+	if (verify_collide(proc->map[tempx[0]][tempx[1]]))
 		proc->gman->player.pos.x += proc->gman->player.speed.x;
-	}
 }
 
 void update_player_position(proc_t *proc)

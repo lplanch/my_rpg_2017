@@ -15,9 +15,11 @@ void create_char_map_restart(gage_t *gage)
 	for (int i = 0; gage->proc->proom[i] != NULL; i++) {
 		make_holes(gage->proc->proom[i], gage->proc->map, i);
 	}
+	gage->proc->map = border_map(gage->pvar, gage->proc->map);
 	create_entry(gage->proc);
 	create_leave(gage->proc);
 	make_map_better(gage->proc->map);
+	print_map(gage->proc->map);
 }
 
 void print_map(char **map)
