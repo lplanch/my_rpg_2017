@@ -20,10 +20,16 @@ void squaresetup_game(files_t *fi)
 	fi->square.top = 0;
 	fi->square.width = 48;
 	fi->square.height = 48;
-	fi->square2.x = 1200;
-	fi->square2.y = 500;
+	fi->square2.x = 840;
+	fi->square2.y = 4384;
 	fi->invers.x = 2;
 	fi->invers.y = 2;
+	fi->speed.x = 0;
+	fi->speed.y = 0;
+	fi->velocity.x = 0;
+	fi->velocity.y = 0;
+	fi->maxspeed.x = speed * 50;
+	fi->maxspeed.y = speed * 50;
 	sfSprite_scale(fi->sprite, fi->invers);
 	sfSprite_setTextureRect(fi->sprite, fi->square);
 	sfSprite_setPosition(fi->sprite, fi->square2);

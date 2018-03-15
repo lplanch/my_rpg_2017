@@ -41,7 +41,7 @@ void tab_to_struct(files_t *fi, char **tab, int y)
 	int square = 0;
 	int i = 0;
 
-	while (compter != 138) {
+	while (compter != 145) { //633
 		if (my_strcmp("yes", tab[i]) == 0) {
 			i++;
 			i = tab_circle(tab, i, fi, circle);

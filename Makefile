@@ -28,6 +28,10 @@ FILES		=	source/main.c				\
 			source/main_menu_events.c		\
 			source/custom_main.c			\
 			source/custom_get_buttons.c		\
+			source/custom_base.c			\
+			source/custom_goto.c			\
+			source/custom_launch.c			\
+			source/custom_cursor.c			\
 			source/projectile.c
 
 SRCS		=	$(FILES)

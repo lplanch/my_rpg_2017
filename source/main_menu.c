@@ -46,7 +46,7 @@ int main_menu(st_rpg *s)
               if (event_main_menu(s))
                      break;
               movement_mainm(s);
-              cursor_animation(s, 890, 910);
+              cursor_animation(s, 690, 710);
               main_menu_interface_animation(s);
               display_menu_background(s);
               display_main_menu_interface(s);

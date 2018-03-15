@@ -72,14 +72,17 @@ typedef struct s_files
 	sfSprite *sprite;
 	sfIntRect square;
 	sfVector2f square2;
+	sfVector2f speed;
+	sfVector2f velocity;
 	sfVector2f invers;
+	sfVector2f maxspeed;
 	sfTexture *ID_text;
 	sfSprite *ID_sprite;
 	sfIntRect ID_player;
 	sfVector2f vect_ID_player;
-	pos_t pos[6];
-	colcircle_t colcircle[28];
-	colsquare_t colsquare[110];
+	pos_t pos[10];
+	colcircle_t colcircle[29];
+	colsquare_t colsquare[116];
 	testmap_t testmap;
 } files_t;
 

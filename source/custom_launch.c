@@ -1,0 +1,58 @@
+/*
+** EPITECH PROJECT, 2018
+** my_rpg
+** File description:
+** best project
+*/
+
+#include "my_rpg.h"
+#include "my.h"
+
+
+int launch_cust_menu_sex(st_rpg *s)
+{
+	if (s->cust.option == 0)
+		return (cust_menu_backto_main(s));
+	else {
+		if (s->cust.option == 1)
+			s->cust.cdata.sex = 'M';
+		else
+			s->cust.cdata.sex = 'F';
+		cust_menu_goto_name(s);
+	}
+	return (0);
+}
+
+int launch_cust_menu_name(st_rpg *s)
+{
+	if (s->cust.option == 0)
+		return (cust_menu_backto_main(s));
+	else {
+		if (s->cust.option == 1)
+			cust_menu_goto_sex(s);
+		else
+			s->cust.cdata.name = my_strdup(sfText_getString(s
+				->cust.bt[3]->text->text));
+	}
+	return (0);
+}
+
+int which_cust_menu(st_rpg *s)
+{
+	if (s->cust.menu == 1)
+		return (launch_cust_menu_sex(s));
+	if (s->cust.menu == 2)
+		return (launch_cust_menu_name(s));
+	return (0);
+}
+
+int custom_launch(st_rpg *s, sfEvent event)
+{
+	if ((event.type == sfEvtKeyPressed && (sfKeyboard_isKeyPressed(sfKeyE)
+	|| sfKeyboard_isKeyPressed(sfKeyReturn)))
+	|| cust_left_clicked(s, event)) {
+		if (which_cust_menu(s))
+			return (1);
+	}
+	return (0);
+}
