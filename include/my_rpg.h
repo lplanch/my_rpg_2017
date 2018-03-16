@@ -33,8 +33,9 @@ typedef struct struct_button
 
 typedef struct custom_data
 {
-	char sex;
+	int sex;
 	char *name;
+	int classe;
 } st_cdata;
 
 typedef struct struct_st_custom
@@ -47,14 +48,17 @@ typedef struct struct_st_custom
 	int cmin;
 	int cmax;
 	int pos;
+	int chosen;
+	g_object *face;
 	g_object *cursor;
-	st_button *bt[4];
+	st_button *bt[5];
 	g_object *circle;
 	g_object *back;
 } st_custom;
 
 typedef struct struct_main_menu
 {
+	sfMusic *music;
 	int menu;
 	st_time t;
 	int option;
@@ -79,7 +83,9 @@ typedef struct struct_rpg
 
 void launch_projectile(proj_t *proj, sfRenderWindow *window);
 void loading(st_rpg *s);
+int cust_left_clicked(st_rpg *s, sfEvent event);
 void cust_menu_goto_name(st_rpg *s);
+void cust_menu_goto_classes(st_rpg *s);
 void cust_menu_goto_sex(st_rpg *s);
 int cust_menu_backto_main(st_rpg *s);
 void display_cust(st_rpg *s);
@@ -89,6 +95,7 @@ void create_st_custom(st_rpg *s);
 void custom_manage_cursor_events_mouse(st_rpg *s);
 void custom_manage_cursor_events_key(st_rpg *s, sfEvent event);
 void cust_cursor_animation(st_rpg *s);
+void get_cursor_pos_classes(st_rpg *s);
 void get_cursor_pos(st_rpg *s);
 int custom_launch(st_rpg *s, sfEvent event);
 int cust_get_buttons(int menu);

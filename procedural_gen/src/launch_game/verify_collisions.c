@@ -10,7 +10,7 @@
 
 int verify_collide(char block)
 {
-	if (block == ' ' || block == 'E' || block == 'S') {
+	if (block == ' ' || block == 'E' || block == 'S' || block == 'B') {
 		return (1);
 	}
 	return (0);

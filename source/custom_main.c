@@ -54,7 +54,7 @@ int custom_event(st_rpg *s)
 			s->returnv = 1;
 			custom_destroy(s);
 			return (1);
-		} if (s->cust.option == 3)
+		} if (s->cust.option == 3 && s->cust.menu == 2)
 			custom_manage_name_write(s, event);
 		else
 			custom_manage_cursor_events_key(s, event);
@@ -69,14 +69,16 @@ int custom_event(st_rpg *s)
 
 int custom_main(st_rpg *s)
 {
-       create_st_custom(s);
-       while (sfRenderWindow_isOpen(s->window)) {
-              if (custom_event(s))
-                     break;
-              cust_cursor_animation(s);
-              cust_menu_interface_animation(s);
-              display_cust(s);
-              sfRenderWindow_display(s->window);
-       }
-       return (s->returnv);
+	create_st_custom(s);
+	while (sfRenderWindow_isOpen(s->window)) {
+		if (custom_event(s))
+			break;
+	s->cust.face->rect.left = 100 * s->cust.cdata.sex;
+	sfSprite_setTextureRect(s->cust.face->sprite, s->cust.face->rect);
+	cust_cursor_animation(s);
+	cust_menu_interface_animation(s);
+	display_cust(s);
+	sfRenderWindow_display(s->window);
+	}
+	return (s->returnv);
 }
