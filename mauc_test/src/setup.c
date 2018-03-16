@@ -20,8 +20,8 @@ void squaresetup_game(files_t *fi)
 	fi->square.top = 0;
 	fi->square.width = 48;
 	fi->square.height = 48;
-	fi->square2.x = 840;
-	fi->square2.y = 4384;
+	fi->square2.x = 3720;
+	fi->square2.y = 2800;
 	fi->invers.x = 2;
 	fi->invers.y = 2;
 	fi->speed.x = 0;

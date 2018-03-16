@@ -65,6 +65,7 @@ typedef struct s_files
 	int direction;
 	int nbr_colcircle;
 	int nbr_colsquare;
+	int camera_pos;
 	sfView *view;
 	sfVector2f camera;
 	sfRenderWindow *window;
@@ -81,8 +82,8 @@ typedef struct s_files
 	sfIntRect ID_player;
 	sfVector2f vect_ID_player;
 	pos_t pos[10];
-	colcircle_t colcircle[29];
-	colsquare_t colsquare[116];
+	colcircle_t colcircle[42];
+	colsquare_t colsquare[204];
 	testmap_t testmap;
 } files_t;
 

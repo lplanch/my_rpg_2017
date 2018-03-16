@@ -16,12 +16,14 @@ void case_tp(files_t *fi, int nb_ID)
 			fi->square2.y = 4284;
 			fi->square.top = 0;
 			sfSprite_setPosition(fi->sprite, fi->square2);
+			fi->camera_pos = 1;
 			break;
 		case 286:
 			fi->square2.x = 3720;
 			fi->square2.y = 2900;
 			fi->square.top = 144;
 			sfSprite_setPosition(fi->sprite, fi->square2);
+			fi->camera_pos = 0;
 			break;
 		default:
 			break;

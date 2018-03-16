@@ -10,7 +10,14 @@
 
 void move_camera(files_t *fi)
 {
-	fi->camera = fi->square2;
+	switch (fi->camera_pos) {
+		case 0:
+			fi->camera = fi->square2;
+			break;
+		case 1:
+			fi->camera.x = 870;
+			fi->camera.y = 4862;
+	}
 	sfView_setCenter(fi->view, fi->camera);
 	sfRenderWindow_setView(fi->window, fi->view);
 }
