@@ -32,7 +32,8 @@ FILES		=	source/main.c				\
 			source/custom_goto.c			\
 			source/custom_launch.c			\
 			source/custom_cursor.c			\
-			source/projectile.c
+			source/projectile.c			\
+			source/fight.c
 
 SRCS		=	$(FILES)
 

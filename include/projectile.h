@@ -12,7 +12,9 @@
 typedef struct projectile
 {
 	g_object *obj;
-	int range;
+	float range;
+	float used;
+	int shot;
 	float dmg;
 	float ratio;
 	float cd;

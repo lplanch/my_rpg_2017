@@ -56,6 +56,19 @@ typedef struct struct_st_custom
 	g_object *back;
 } st_custom;
 
+typedef struct struct_fight_archer
+{
+	sfCircleShape *circle;
+	st_button *icons[4];
+	int kalash;
+	int current;
+	float kalashspeed;
+	proj_t *arrow[10];
+	proj_t *axe;
+	st_anim *anim;
+	st_time t;
+} fight_t;
+
 typedef struct struct_main_menu
 {
 	sfMusic *music;
@@ -74,6 +87,7 @@ typedef struct struct_main_menu
 
 typedef struct struct_rpg
 {
+	fight_t fight;
 	g_object *loading;
 	int returnv;
 	st_custom cust;
@@ -81,6 +95,7 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+int fight_instance(st_rpg *s);
 void launch_projectile(proj_t *proj, sfRenderWindow *window);
 void loading(st_rpg *s);
 int cust_left_clicked(st_rpg *s, sfEvent event);

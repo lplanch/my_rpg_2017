@@ -34,6 +34,7 @@ void destroy_cust_buttons(st_rpg *s)
 void custom_destroy(st_rpg *s)
 {
        destroy_object(s->cust.back);
+       destroy_object(s->cust.face);
        destroy_object(s->cust.cursor);
        destroy_object(s->cust.circle);
        destroy_cust_buttons(s);

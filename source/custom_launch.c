@@ -29,6 +29,8 @@ int launch_cust_menu_classes(st_rpg *s)
 		return (cust_menu_backto_main(s));
 	else {
 		s->cust.cdata.classe = s->cust.option - 1;
+		custom_destroy(s);
+		return (fight_instance(s));
 	}
 	return (0);
 }
