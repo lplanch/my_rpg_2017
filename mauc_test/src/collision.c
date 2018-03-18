@@ -25,6 +25,20 @@ void case_tp(files_t *fi, int nb_ID)
 			sfSprite_setPosition(fi->sprite, fi->square2);
 			fi->camera_pos = 0;
 			break;
+		case 25:
+			fi->square2.x = 7218;
+			fi->square2.y = 5957;
+			fi->square.top = 144;
+			sfSprite_setPosition(fi->sprite, fi->square2);
+			fi->camera_pos = 0;
+			break;
+		case 284:
+			fi->square2.x = 6591;
+			fi->square2.y = 54;
+			fi->square.top = 96;
+			sfSprite_setPosition(fi->sprite, fi->square2);
+			fi->camera_pos = 0;
+			break;
 		default:
 			break;
 	}

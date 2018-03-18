@@ -10,13 +10,23 @@
 
 void move_camera(files_t *fi)
 {
+	if (fi->square2.x <= 960 || fi->square2.x >= 8931 || fi->square2.y <= 532 || (fi->square2.y >= 2740 && fi->square2.y <= 3000)) {
+		fi->camera_pos = 2;
+	} else
+		fi->camera_pos = 0;
 	switch (fi->camera_pos) {
 		case 0:
 			fi->camera = fi->square2;
+			fi->camera_prec = fi->square2;
+			fi->camera_prec = fi->camera;
 			break;
 		case 1:
 			fi->camera.x = 870;
 			fi->camera.y = 4862;
+			break;
+		case 2:
+			fi->camera = fi->camera_prec;
+			break;
 	}
 	sfView_setCenter(fi->view, fi->camera);
 	sfRenderWindow_setView(fi->window, fi->view);

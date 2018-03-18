@@ -68,6 +68,7 @@ typedef struct s_files
 	int camera_pos;
 	sfView *view;
 	sfVector2f camera;
+	sfVector2f camera_prec;
 	sfRenderWindow *window;
 	sfTexture *texture;
 	sfSprite *sprite;
