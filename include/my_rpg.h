@@ -56,9 +56,18 @@ typedef struct struct_st_custom
 	g_object *back;
 } st_custom;
 
-typedef struct struct_fight_archer
+typedef struct aoe
 {
 	sfCircleShape *circle;
+	int shot;
+	st_anim *anim;
+	st_time t;
+	float duration;
+} aoe_t;
+
+typedef struct struct_fight_archer
+{
+	aoe_t barrage;
 	st_button *icons[4];
 	int kalash;
 	int current;
