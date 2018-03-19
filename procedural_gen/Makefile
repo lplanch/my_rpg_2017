@@ -37,6 +37,7 @@ FILES		=	src/main_proc.c					\
 			src/minimap_system/fill_screen.c		\
 			src/minimap_system/put_pixel.c			\
 			src/minimap_system/update_minimap.c		\
+			src/minimap_system/draw_geometry/draw_rect.c	\
 
 SRCS		=	$(FILES)
 

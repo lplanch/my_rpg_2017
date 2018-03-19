@@ -47,7 +47,6 @@ void free_dungeon(proc_t *proc)
 	}
 	free(proc->smap);
 	free_map_tbl(proc);
-	//free_minimap(proc);
 }
 
 void free_gage_game(gage_t *gage)

@@ -26,3 +26,14 @@ void fill_minimap_screen(framebuffer_t *buffer, sfColor color)
 		}
 	}
 }
+
+void reset_screen(framebuffer_t *buffer)
+{
+	sfColor trans = {0, 0, 0, 0};
+
+	for (int y = 0; y < buffer->height; y++) {
+		for (int x = 0; x < buffer->width; x++) {
+			my_put_pixel(buffer, x, y, trans);
+		}
+	}
+}

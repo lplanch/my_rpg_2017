@@ -43,6 +43,7 @@ void init_next_level(gage_t *gage)
 	gage->proc->gman->player.nbr_frame.x = 0;
 	gage->proc->gman->player.nbr_frame.y = 0;
 	gage->proc->gman->dt = 1;
+	reset_screen(gage->proc->minimap->f_minimap);
 }
 
 void draw_floor_restart(gage_t *gage)
@@ -80,5 +81,4 @@ void next_level_screen(gage_t *gage)
 		return;
 	}
 	draw_floor_restart(gage);
-	//sleep(4);
 }
