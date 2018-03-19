@@ -16,6 +16,9 @@ void display_cust(st_rpg *s)
 		sfRenderWindow_drawText(s->window,
 					s->cust.bt[i]->text->text, NULL);
 	sfRenderWindow_drawSprite(s->window, s->cust.cursor->sprite, NULL);
+	if (s->cust.chosen)
+		sfRenderWindow_drawSprite(s->window,
+			s->cust.face->sprite, NULL);
 }
 
 void destroy_cust_buttons(st_rpg *s)
@@ -31,6 +34,7 @@ void destroy_cust_buttons(st_rpg *s)
 void custom_destroy(st_rpg *s)
 {
        destroy_object(s->cust.back);
+       destroy_object(s->cust.face);
        destroy_object(s->cust.cursor);
        destroy_object(s->cust.circle);
        destroy_cust_buttons(s);
@@ -46,6 +50,10 @@ void cust_initialize_buttons(st_rpg *s)
 	grey, 70);
 	s->cust.bt[2] = create_vbutton("Female", create_vector2f(1400, 600),
 	grey, 70);
+	s->cust.face = create_object("images/heroface.png", create_vector2f(450,
+	500), create_rect(0, 0, 100, 100), 0);
+	sfSprite_setScale(s->cust.face->sprite, create_vector2f(2, 2));
+	s->cust.chosen = 0;
 }
 
 void create_st_custom(st_rpg *s)
@@ -55,7 +63,7 @@ void create_st_custom(st_rpg *s)
 	s->cust.menu = 1;
 	s->cust.option = 1;
 	s->cust.cdata.classe = 0;
-	s->cust.cdata.sex = 'M';
+	s->cust.cdata.sex = 0;
 	s->cust.cdata.name = my_calloc(sizeof(char) * 14);
 	s->cust.option = 1;
 	s->cust.cmin = 710;

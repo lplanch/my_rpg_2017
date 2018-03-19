@@ -13,6 +13,7 @@ void cust_menu_goto_name(st_rpg *s)
 	sfColor grey = {96, 96, 96, 255};
 
 	s->cust.menu = 2;
+	s->cust.chosen = 1;
 	destroy_button(s->cust.bt[1]);
 	destroy_button(s->cust.bt[2]);
 	s->cust.bt[1] = create_vbutton("Back", create_vector2f(1100, 600),
