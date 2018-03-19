@@ -65,6 +65,8 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
 void my_fill_screen(framebuffer_t *buffer, sfColor color);
 void my_put_pixel(framebuffer_t *buffer, int x, int y, sfColor color);
 void fill_minimap_screen(framebuffer_t *buffer, sfColor color);
+void reset_screen(framebuffer_t *buffer);
+void my_draw_rect(framebuffer_t *buff, int pos[2], int size[2], sfColor color);
 
 //CREATE BLOCKS
 int is_ground(char chr);

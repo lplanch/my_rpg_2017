@@ -28,6 +28,7 @@ void init_minimap(proc_t *proc)
 	proc->minimap->fm_sprite = sfSprite_create();
 	sfSprite_setTexture(
 	proc->minimap->fm_sprite, proc->minimap->fm_texture, sfTrue);
+	reset_screen(proc->minimap->f_minimap);
 }
 
 void draw_minimap(proc_t *proc)
