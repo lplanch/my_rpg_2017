@@ -30,8 +30,9 @@ FILES		=	src/main_proc.c					\
 			src/launch_game/input_manager.c			\
 			src/launch_game/player_movement.c		\
 			src/launch_game/free_dungeon.c			\
-			src/launch_game/restart_game.c			\
 			src/launch_game/verify_collisions.c		\
+			src/restart_game/restart_game.c			\
+			src/restart_game/text_anims.c			\
 			src/minimap_system/main_minimap.c		\
 			src/minimap_system/fill_screen.c		\
 			src/minimap_system/put_pixel.c			\

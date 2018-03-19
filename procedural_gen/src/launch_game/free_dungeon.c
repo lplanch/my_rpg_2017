@@ -25,6 +25,19 @@ void free_map_tbl(proc_t *proc)
 	sfTexture_destroy(proc->blocks_texture);
 }
 
+void free_minimap(proc_t *proc)
+{
+	free(proc->minimap->f_background->pixels);
+	free(proc->minimap->f_minimap->pixels);
+	free(proc->minimap->f_background);
+	free(proc->minimap->f_minimap);
+	sfTexture_destroy(proc->minimap->fb_texture);
+	sfTexture_destroy(proc->minimap->fm_texture);
+	sfSprite_destroy(proc->minimap->fb_sprite);
+	sfSprite_destroy(proc->minimap->fm_sprite);
+	free(proc->minimap);
+}
+
 void free_dungeon(proc_t *proc)
 {
 	for (int y = 0; proc->map[y] != NULL; y++) {
@@ -34,6 +47,7 @@ void free_dungeon(proc_t *proc)
 	}
 	free(proc->smap);
 	free_map_tbl(proc);
+	//free_minimap(proc);
 }
 
 void free_gage_game(gage_t *gage)
@@ -41,6 +55,7 @@ void free_gage_game(gage_t *gage)
 	sfTexture_destroy(gage->proc->gman->player.texture);
 	sfSprite_destroy(gage->proc->gman->player.sprite);
 	sfRenderWindow_destroy(gage->proc->gman->window);
+	sfClock_destroy(gage->proc->gman->clock);
 	free(gage->proc->gman);
 	free(gage->proc);
 }

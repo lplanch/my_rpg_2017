@@ -43,6 +43,7 @@ proom_t *new_room(proc_var_t *pvar)
 	proom->center[0] = floor((proom->pos1[0] + proom->pos2[0]) / 2);
 	proom->center[1] = floor((proom->pos1[1] + proom->pos2[1]) / 2);
 	proom->visited = 0;
+	proom->drawed = 0;
 	return (proom);
 }
 

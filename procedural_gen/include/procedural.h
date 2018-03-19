@@ -53,9 +53,10 @@ void update_camera_position(proc_t *proc);
 void update_player_position(proc_t *proc);
 void verify_y_movement(proc_t *proc);
 void verify_x_movement(proc_t *proc);
+int interval(float value, float less, float max);
 
 //MINIMAP
-void init_minimap(gmanager_t *gman);
+void init_minimap(proc_t *proc);
 void verify_minimap(gage_t *gage);
 void update_minimap(proc_t *proc);
 
@@ -90,9 +91,12 @@ void make_deadlock_bot_block(sfTexture *blocks, smap_t *smap);
 void make_deadlock_right_block(sfTexture *blocks, smap_t *smap);
 void make_deadlock_left_block(sfTexture *blocks, smap_t *smap);
 
-
 //MAIN GAME
 int launch_dungeon_game(gage_t *gage);
 void free_dungeon(proc_t *proc);
 void free_gage_game(gage_t *gage);
+
+//START A NEW LEVEL
 void next_level_screen(gage_t *gage);
+void fade_in_text(sfRenderWindow *window, sfText *text);
+void fade_out_text(sfRenderWindow *window, sfText *text);

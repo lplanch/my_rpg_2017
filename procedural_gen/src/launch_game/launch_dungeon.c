@@ -11,7 +11,6 @@
 void init_player(gmanager_t *gman, proc_t *proc)
 {
 	sfVector2f zoom = {1, 1};
-	sfVector2i frame_nbr = {0, 0};
 	sfTexture *player_texture = sfTexture_createFromFile(
 	"ressources/car2.png", NULL);
 
@@ -25,7 +24,8 @@ void init_player(gmanager_t *gman, proc_t *proc)
 	gman->player.acceleration.x = 0;
 	gman->player.acceleration.y = 0;
 	gman->player.max_speed = 200;
-	gman->player.nbr_frame = frame_nbr;
+	gman->player.nbr_frame.x = 0;
+	gman->player.nbr_frame.y = 0;
 	sfSprite_setTexture(gman->player.sprite, player_texture, sfTrue);
 	sfSprite_setTextureRect(gman->player.sprite, gman->player.rect);
 	sfSprite_setPosition(gman->player.sprite, gman->player.pos);
@@ -48,7 +48,7 @@ gmanager_t *init_dungeon_game(proc_t *proc)
 	sfView_zoom(gman->camera, 0.5);
 	sfView_setCenter(gman->camera, gman->camera_pos);
 	sfRenderWindow_setView(gman->window, gman->camera);
-	init_minimap(gman);
+	init_minimap(proc);
 	gman->clock = sfClock_create();
 	gman->dt = 1.;
 	return (gman);
@@ -81,6 +81,7 @@ int update_sprite(proc_t *proc)
 	(proc->gman->player.rect.height / 2);
 	sfSprite_setPosition(proc->gman->player.sprite, player_pos);
 	update_camera_position(proc);
+	update_minimap(proc);
 	proc->gman->time = sfClock_restart(proc->gman->clock);
 	proc->gman->dt = sfTime_asSeconds(proc->gman->time);
 	return (1);

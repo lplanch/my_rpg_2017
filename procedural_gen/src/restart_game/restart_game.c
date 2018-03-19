@@ -40,6 +40,9 @@ void init_next_level(gage_t *gage)
 	gage->proc->gman->player.pos = get_entry_pos(gage->proc);
 	gage->proc->gman->player.acceleration.x = 0;
 	gage->proc->gman->player.acceleration.y = 0;
+	gage->proc->gman->player.nbr_frame.x = 0;
+	gage->proc->gman->player.nbr_frame.y = 0;
+	gage->proc->gman->dt = 1;
 }
 
 void draw_floor_restart(gage_t *gage)
@@ -50,15 +53,15 @@ void draw_floor_restart(gage_t *gage)
 	sfFont *font = sfFont_createFromFile("ressources/OpenSans.ttf");
 	sfText *next_level = sfText_create();
 
-	screen_center.y -= 9;
-	screen_center.x -= (my_strlen(level_string) * 9) / 2;
+	screen_center.y -= 12;
+	screen_center.x -= (my_strlen(level_string) * 12) / 2;
 	sfText_setString(next_level, level_string);
 	sfText_setFont(next_level, font);
-	sfText_setCharacterSize(next_level, 18);
+	sfText_setCharacterSize(next_level, 24);
 	sfText_setPosition(next_level, screen_center);
-	sfText_setColor(next_level, sfWhite);
-	sfRenderWindow_drawText(gage->proc->gman->window, next_level, NULL);
-	sfRenderWindow_display(gage->proc->gman->window);
+	fade_in_text(gage->proc->gman->window, next_level);
+	init_next_level(gage);
+	fade_out_text(gage->proc->gman->window, next_level);
 	sfText_destroy(next_level);
 	sfFont_destroy(font);
 	free(cur_level);
@@ -76,8 +79,6 @@ void next_level_screen(gage_t *gage)
 		sfRenderWindow_close(gage->proc->gman->window);
 		return;
 	}
-	sfRenderWindow_clear(gage->proc->gman->window, sfBlack);
 	draw_floor_restart(gage);
-	init_next_level(gage);
-	sleep(4);
+	//sleep(4);
 }

@@ -28,6 +28,7 @@ typedef struct proc_room
 	int height;
 	int center[2];
 	int visited;
+	int drawed;
 } proom_t;
 
 typedef struct map_sprite
@@ -55,7 +56,6 @@ typedef struct game_manager
 	sfView *camera;
 	player_t player;
 	sfVector2f camera_pos;
-	minimap_t *minimap;
 	sfClock *clock;
 	sfTime time;
 	float dt;
@@ -66,6 +66,7 @@ typedef struct proc_gen
 	gmanager_t *gman;
 	proom_t **proom;
 	smap_t ***smap;
+	minimap_t *minimap;
 	char **map;
 	sfTexture *blocks_texture;
 	unsigned int current_floor;
