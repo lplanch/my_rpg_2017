@@ -61,6 +61,7 @@ void create_spells_archer(st_rpg *s)
 	s->fight.barrage.circle = sfCircleShape_create();
 	sfCircleShape_setRadius(s->fight.barrage.circle, 100);
 	sfCircleShape_setOutlineColor(s->fight.barrage.circle, sfRed);
+	sfCircleShape_setFillColor(s->fight.barrage.circle, sfTransparent);
 	sfCircleShape_setOutlineThickness(s->fight.barrage.circle, 5);
 }
 
@@ -155,6 +156,9 @@ int fight_events(st_rpg *s)
 
 void display_arrows(st_rpg *s)
 {
+	if (s->fight.barrage.shot)
+		sfRenderWindow_drawCircleShape(s->window,
+			s->fight.barrage.circle, NULL);
 	for (int i = 0; i != 10; i += 1) {
 		if (s->fight.arrow[i]->shot) {
 			sfRenderWindow_drawSprite(s->window,
@@ -164,9 +168,6 @@ void display_arrows(st_rpg *s)
 	if (s->fight.axe->shot)
 		sfRenderWindow_drawSprite(s->window,
 			s->fight.axe->obj->sprite, NULL);
-	if (s->fight.barrage.shot)
-		sfRenderWindow_drawCircleShape(s->window,
-			s->fight.barrage.circle, NULL);
 }
 
 int fight_instance(st_rpg *s)
