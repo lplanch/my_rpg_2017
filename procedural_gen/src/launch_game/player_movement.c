@@ -10,10 +10,10 @@
 
 void verify_y_movement(proc_t *proc)
 {
-	if (sfKeyboard_isKeyPressed(sfKeyUp) == sfTrue) {
+	if (sfKeyboard_isKeyPressed(sfKeyZ) == sfTrue) {
 		if (proc->gman->player.nbr_frame.y > -10)
 			proc->gman->player.nbr_frame.y -= 1;
-	} else if (sfKeyboard_isKeyPressed(sfKeyDown) == sfTrue) {
+	} else if (sfKeyboard_isKeyPressed(sfKeyS) == sfTrue) {
 		if (proc->gman->player.nbr_frame.y < 10)
 			proc->gman->player.nbr_frame.y += 1;
 	} else {
@@ -26,10 +26,10 @@ void verify_y_movement(proc_t *proc)
 
 void verify_x_movement(proc_t *proc)
 {
-	if (sfKeyboard_isKeyPressed(sfKeyLeft) == sfTrue) {
+	if (sfKeyboard_isKeyPressed(sfKeyQ) == sfTrue) {
 		if (proc->gman->player.nbr_frame.x > -10)
 			proc->gman->player.nbr_frame.x -= 1;
-	} else if (sfKeyboard_isKeyPressed(sfKeyRight) == sfTrue) {
+	} else if (sfKeyboard_isKeyPressed(sfKeyD) == sfTrue) {
 		if (proc->gman->player.nbr_frame.x < 10)
 			proc->gman->player.nbr_frame.x += 1;
 	} else {

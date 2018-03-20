@@ -44,6 +44,7 @@ typedef struct player_manager
 	sfSprite *sprite;
 	sfIntRect rect;
 	sfVector2f pos;
+	sfVector2f last_pos;
 	int max_speed;
 	sfVector2i nbr_frame;
 	sfVector2f acceleration;

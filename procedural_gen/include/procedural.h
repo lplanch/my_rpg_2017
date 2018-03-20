@@ -41,6 +41,7 @@ sfVector2f get_entry_pos(proc_t *proc);
 sfVector2f get_exit_pos(proc_t *proc);
 void verify_exit_player(gage_t *gage);
 int verify_collide(char block);
+int is_wall(char block);
 
 //DRAW MAP
 void draw_map(gage_t *gage);
@@ -59,6 +60,9 @@ int interval(float value, float less, float max);
 void init_minimap(proc_t *proc);
 void verify_minimap(gage_t *gage);
 void update_minimap(proc_t *proc);
+void draw_rect_room(proc_t *proc, proom_t *proom, int x, int y);
+void draw_rect_corridor(proc_t *proc, int x, int y);
+void draw_rect_player(proc_t *proc);
 
 //FRAMEBUFFER
 framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
@@ -67,6 +71,7 @@ void my_put_pixel(framebuffer_t *buffer, int x, int y, sfColor color);
 void fill_minimap_screen(framebuffer_t *buffer, sfColor color);
 void reset_screen(framebuffer_t *buffer);
 void my_draw_rect(framebuffer_t *buff, int pos[2], int size[2], sfColor color);
+void my_draw_f_rect(framebuffer_t *buff, int pos[2], int size[2], int diag[4]);
 
 //CREATE BLOCKS
 int is_ground(char chr);

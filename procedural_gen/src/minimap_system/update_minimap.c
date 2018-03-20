@@ -21,24 +21,39 @@ void increment_visited(proc_t *proc)
 		proc->proom[i]->pos2[1] + 2)) {
 			proc->proom[i]->visited = 1;
 		}
-		printf("visited[%d] : %d\n", i, proc->proom[i]->visited);
 	}
 }
 
 void draw_room_minimap(proc_t *proc, proom_t *proom)
 {
-	int size[2] = {proom->width * 6, proom->height * 6};
-	int pos[2] = {proom->pos1[0] * 6, proom->pos1[1] * 6};
-
 	proom->drawed = 1;
-	my_draw_rect(proc->minimap->f_minimap, pos, size, sfBlue);
+	for (int y = proom->pos1[1] + 1; y < proom->pos2[1] + 3; y++) {
+		for (int x = proom->pos1[0] + 1; x < proom->pos2[0] + 3; x++) {
+			draw_rect_room(proc, proom, x, y);
+		}
+	}
+}
+
+void make_corridors_minimap(proc_t *proc)
+{
+	sfColor white_trans = {255, 255, 255, 128};
+	int p_pos[2] =
+	{proc->gman->player.pos.x / 48, proc->gman->player.pos.y / 48};
+
+	for (int y = p_pos[1] - 1; y < p_pos[1] + 2; y++) {
+		for (int x = p_pos[0] - 1; x < p_pos[0] + 2; x++) {
+			draw_rect_corridor(proc, x, y);
+		}
+	}
 }
 
 void update_minimap(proc_t *proc)
 {
 	increment_visited(proc);
+	make_corridors_minimap(proc);
 	for (int i = 0; proc->proom[i] != NULL; i++) {
 		if (proc->proom[i]->visited && !proc->proom[i]->drawed)
 			draw_room_minimap(proc, proc->proom[i]);
 	}
+	draw_rect_player(proc);
 }

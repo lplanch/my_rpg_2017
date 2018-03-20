@@ -17,6 +17,7 @@ void init_player(gmanager_t *gman, proc_t *proc)
 	gman->player.texture = player_texture;
 	gman->player.sprite = sfSprite_create();
 	gman->player.pos = get_entry_pos(proc);
+	gman->player.last_pos = gman->player.pos;
 	gman->player.rect.left = 0;
 	gman->player.rect.top = 0;
 	gman->player.rect.width = 48;
@@ -74,6 +75,7 @@ int update_sprite(proc_t *proc)
 {
 	sfVector2f player_pos;
 
+	proc->gman->player.last_pos = proc->gman->player.pos;
 	update_player_position(proc);
 	player_pos.x = proc->gman->player.pos.x -
 	(proc->gman->player.rect.width / 2);

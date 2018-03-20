@@ -15,3 +15,14 @@ int verify_collide(char block)
 	}
 	return (0);
 }
+
+int is_wall(char block)
+{
+	char *blocks_str = "TLRVWNPAZUYHOIGJ";
+
+	for (int i = 0; blocks_str[i] != '\0'; i++) {
+		if (blocks_str[i] == block)
+			return (1);
+	}
+	return (0);
+}
