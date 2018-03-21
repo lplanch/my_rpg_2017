@@ -12,15 +12,17 @@
 typedef struct projectile
 {
 	g_object *obj;
+	sfVector2f rpos;
+	float angle;
 	float range;
 	float used;
 	int shot;
 	float dmg;
-	float ratio;
+	float dmgratio;
 	float cd;
 	char *effect;
 	float duration;
-	sfVector2f angle;
+	sfVector2f ratios;
 } proj_t;
 
 proj_t *create_projectile(char *path);

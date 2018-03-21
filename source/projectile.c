@@ -12,50 +12,40 @@
 #include "my_rpg.h"
 #include "my.h"
 
-float get_angle(sfRenderWindow *window)
-{
-	float mx = sfMouse_getPositionRenderWindow(window).x - (1920 / 2);
-	float my = sfMouse_getPositionRenderWindow(window).y - (1080 / 2);
-
-	if (my <= 0)
-		return (-acos(mx / hypot(mx, my)) * (180 / 3.14159265));
-	else
-		return (acos(mx / hypot(mx, my)) * (180 / 3.14159265));
-}
-
-sfVector2f get_ratios(sfRenderWindow *window)
-{
-	float mx = sfMouse_getPositionRenderWindow(window).x - (1920 / 2);
-	float my = sfMouse_getPositionRenderWindow(window).y - (1080 / 2);
-	sfVector2f ratio;
-
-	ratio.x = mx / hypot(mx, my);
-	ratio.y = my / hypot(mx, my);
-	return (ratio);
-}
-
 void update_projectile(proj_t *proj)
 {
-	proj->obj->pos.x += proj->angle.x * proj->obj->speed;
-	proj->obj->pos.y += proj->angle.y * proj->obj->speed;
-	proj->used -= hypot(proj->angle.x * proj->obj->speed,
-		proj->angle.y * proj->obj->speed);
+	proj->obj->pos.x += proj->ratios.x * proj->obj->speed;
+	proj->obj->pos.y += proj->ratios.y * proj->obj->speed;
+	proj->used -= hypot(proj->ratios.x * proj->obj->speed,
+		proj->ratios.y * proj->obj->speed);
 	if (proj->used <= 0)
 		proj->shot = 0;
 	sfSprite_setPosition(proj->obj->sprite, proj->obj->pos);
 }
 
-void launch_projectile(proj_t *proj, sfRenderWindow *window)
+void launch_projectile(proj_t *proj, float angle)
 {
-	proj->angle = get_ratios(window);
+	proj->ratios = get_ratios(angle);
 	proj->used = proj->range;
-	proj->obj->pos.x = 920 - proj->angle.x * proj->obj->rect.width / 2 +
-	proj->angle.y * proj->obj->rect.height / 2;
-	proj->obj->pos.y = 540 - proj->angle.y * proj->obj->rect.width / 2 -
-	proj->angle.x * proj->obj->rect.height / 2;
+	proj->obj->pos.x = 920 - proj->ratios.x * proj->obj->rect.width / 2 +
+	proj->ratios.y * proj->obj->rect.height / 2;
+	proj->obj->pos.y = 540 - proj->ratios.y * proj->obj->rect.width / 2 -
+	proj->ratios.x * proj->obj->rect.height / 2;
 	sfSprite_setPosition(proj->obj->sprite, proj->obj->pos);
-	sfSprite_setRotation(proj->obj->sprite, get_angle(window));
+	sfSprite_setRotation(proj->obj->sprite, angle);
 	proj->shot = 1;
+}
+
+void create_projectile2(proj_t *proj)
+{
+	proj->obj->pos.y = 540 - proj->obj->rect.height / 2;
+	proj->obj->pos.x = 920 - proj->obj->rect.width / 2;
+	sfSprite_setPosition(proj->obj->sprite, proj->obj->pos);
+	sfSprite_setTextureRect(proj->obj->sprite, proj->obj->rect);
+	proj->ratios = create_vector2f(0, 0);
+	proj->rpos = create_vector2f(0, 0);
+	proj->shot = 0;
+	proj->angle = 0;
 }
 
 proj_t *create_projectile(char *path)
@@ -69,32 +59,17 @@ proj_t *create_projectile(char *path)
 	proj->range = str_to_int(get_next_line(fd)) / 100;
 	proj->used = proj->range;
 	proj->dmg = str_to_int(get_next_line(fd)) / 100;
-	proj->ratio = str_to_int(get_next_line(fd)) / 100;
-	proj->cd = str_to_int(get_next_line(fd)) / 100;
+	proj->dmgratio = str_to_int(get_next_line(fd)) / 100;
+	proj->cd = str_to_int(get_next_line(fd));
+	proj->cd = proj->cd / 100;
 	proj->effect = get_next_line(fd);
 	proj->duration = str_to_int(get_next_line(fd)) / 100;
+	close(fd);
 	proj->obj->rect.width = sfTexture_getSize(sfSprite_getTexture(proj
 	->obj->sprite)).x;
 	proj->obj->rect.height = sfTexture_getSize(sfSprite_getTexture(proj
 	->obj->sprite)).y;
-	proj->obj->pos.y = 540 - proj->obj->rect.height / 2;
-	proj->obj->pos.x = 920 - proj->obj->rect.width / 2;
-	sfSprite_setPosition(proj->obj->sprite, proj->obj->pos);
-	sfSprite_setPosition(proj->obj->sprite, proj->obj->pos);
-	sfSprite_setTextureRect(proj->obj->sprite, proj->obj->rect);
-	close(fd);
-	proj->angle = create_vector2f(0, 0);
-	proj->shot = 0;
-/*	printf("width = %d, height = %d\n", proj->obj->rect.width, proj->obj->rect.height);
-	printf("speed is = %f\n", proj->obj->speed);
-	printf("range is = %f\n", proj->range);
-	printf("dmg is = %f\n", proj->dmg);
-	printf("ratio is = %f\n", proj->ratio);
-	printf("cd is = %f\n", proj->cd);
-	printf("width is = %d\n", proj->obj->rect.width);
-	printf("height is = %d\n", proj->obj->rect.height);
-	printf("effect is = %s\n", proj->effect);
-	printf("duration is = %f\n", proj->duration);*/
+	create_projectile2(proj);
 	return (proj);
 }
 

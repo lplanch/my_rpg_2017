@@ -33,6 +33,7 @@ FILES		=	source/main.c				\
 			source/custom_launch.c			\
 			source/custom_cursor.c			\
 			source/projectile.c			\
+			source/get_angles.c			\
 			source/fight.c
 
 SRCS		=	$(FILES)

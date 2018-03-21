@@ -7,6 +7,7 @@
 
 #ifndef ST_RPG_
 	#define ST_RPG_
+#include <math.h>
 #include <SFML/Audio.h>
 #include <SFML/Graphics.h>
 #include "game_object.h"
@@ -65,18 +66,37 @@ typedef struct aoe
 	float duration;
 } aoe_t;
 
-typedef struct struct_fight_archer
+typedef struct struct_archer_spells
 {
 	aoe_t barrage;
-	st_button *icons[4];
 	int kalash;
 	int current;
 	float kalashspeed;
 	proj_t *arrow[10];
 	proj_t *axe;
+	float axeangle;
 	st_anim *anim;
-	st_time t;
+	st_time kal;
+} archer_t;
+
+typedef struct main_fight
+{
+	int buffer;
+	st_button *icons[4];
+	g_object *cd[4];
+	float cdcount[4];
+	float cds[4];
+	st_time cdt;
+	archer_t arc;
 } fight_t;
+
+typedef struct fight_tree
+{
+	int passive;
+	int spell1;
+	int spell2;
+	int spell3;
+} tree_t;
 
 typedef struct struct_main_menu
 {
@@ -96,7 +116,7 @@ typedef struct struct_main_menu
 
 typedef struct struct_rpg
 {
-	fight_t fight;
+	fight_t f;
 	g_object *loading;
 	int returnv;
 	st_custom cust;
@@ -104,8 +124,10 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+sfVector2f get_ratios(float angle);
+float get_angle(sfRenderWindow *window);
 int fight_instance(st_rpg *s);
-void launch_projectile(proj_t *proj, sfRenderWindow *window);
+void launch_projectile(proj_t *proj, float angle);
 void loading(st_rpg *s);
 int cust_left_clicked(st_rpg *s, sfEvent event);
 void cust_menu_goto_name(st_rpg *s);
