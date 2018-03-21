@@ -39,6 +39,7 @@ FILES		=	src/main_proc.c					\
 			src/minimap_system/update_minimap.c		\
 			src/minimap_system/draw_minimap.c		\
 			src/minimap_system/draw_geometry/draw_rect.c	\
+			src/inventory_system/handle_inventory.c		\
 
 SRCS		=	$(FILES)
 

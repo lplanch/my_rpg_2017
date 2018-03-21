@@ -5,6 +5,9 @@
 **
 */
 
+#include "ingame_struct.h"
+
+//MINIMAP
 typedef struct framebuffer {
 	unsigned int width;
 	unsigned int height;
@@ -20,6 +23,8 @@ typedef struct minimap {
 	sfSprite *fm_sprite;
 } minimap_t;
 
+
+//MAP SYSTEM
 typedef struct proc_room
 {
 	int pos1[2];

@@ -1,0 +1,4 @@
+*.o
+README.md
+vg*
+proc
