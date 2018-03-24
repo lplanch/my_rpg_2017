@@ -72,23 +72,29 @@ typedef struct struct_archer_spells
 	int kalash;
 	int current;
 	float kalashspeed;
-	proj_t *arrow[10];
+	int kalashcount;
+	proj_t *arrow[20];
 	proj_t *axe;
 	float axeangle;
 	st_anim *anim;
 	st_time kal;
 } archer_t;
 
-typedef struct main_fight
+typedef struct struct_gunner_spells
 {
-	int buffer;
-	st_button *icons[4];
-	g_object *cd[4];
-	float cdcount[4];
-	float cds[4];
-	st_time cdt;
-	archer_t arc;
-} fight_t;
+	int auto_a;
+	int autocount;
+	float autospeed;
+	st_time t;
+	proj_t *blitz;
+	proj_t *grenade;
+	float grenadespeed;
+	st_anim *explosion;
+	float delay;
+	st_time blitzt;
+	proj_t *bullet[10];
+	int current;
+} gunner_t;
 
 typedef struct fight_tree
 {
@@ -97,6 +103,18 @@ typedef struct fight_tree
 	int spell2;
 	int spell3;
 } tree_t;
+
+typedef struct main_fight
+{
+	st_button *icons[4];
+	g_object *cd[4];
+	float cdcount[4];
+	float cds[4];
+	st_time cdt;
+	archer_t arc;
+	gunner_t gun;
+	tree_t tree;
+} fight_t;
 
 typedef struct struct_main_menu
 {
@@ -124,6 +142,46 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void gunner_update_blitz(st_rpg *s);
+void gunner_update_grenade(st_rpg *s);
+void get_cooldowns(st_rpg *s);
+void archer_auto_attack(st_rpg *s);
+void gunner_auto_attack(st_rpg *s);
+void rogue_auto_attack(st_rpg *s);
+void warrior_auto_attack(st_rpg *s);
+void gunner_update_auto_attack(st_rpg *s);
+void update_axe(st_rpg *s);
+void update_aoe_barrage(st_rpg *s);
+void update_kalash(st_rpg *s);
+void update_current_arrow(st_rpg *s);
+void destroy_class(st_rpg *s);
+void launch_spells(st_rpg *s);
+void choose_spell1_archer(st_rpg *s);
+void choose_spell2_archer(st_rpg *s);
+void choose_spell3_archer(st_rpg *s);
+void choose_spell1_gunner(st_rpg *s);
+void choose_spell2_gunner(st_rpg *s);
+void choose_spell3_gunner(st_rpg *s);
+void choose_spell1_rogue(st_rpg *s);
+void choose_spell2_rogue(st_rpg *s);
+void choose_spell3_rogue(st_rpg *s);
+void choose_spell1_warrior(st_rpg *s);
+void choose_spell2_warrior(st_rpg *s);
+void choose_spell3_warrior(st_rpg *s);
+void update_class(st_rpg *s);
+void display_class(st_rpg *s);
+void destroy_icons_cd(st_rpg *s);
+void update_cdcount_icons(st_rpg *s, int i);
+void update_icons_cd(st_rpg *s);
+void create_icons_cd(st_rpg *s);
+void create_class(st_rpg *s);
+void destroy_spells_gunner(st_rpg *s);
+void destroy_spells_archer(st_rpg *s);
+void display_icons(st_rpg *s);
+void destroy_icons(st_rpg *s);
+char *which_spell(st_rpg *s, int spell);
+char *get_spell_path(st_rpg *s, int spell);
+void create_icons(st_rpg *s);
 sfVector2f get_ratios(float angle);
 float get_angle(sfRenderWindow *window);
 int fight_instance(st_rpg *s);

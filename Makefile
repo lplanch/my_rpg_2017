@@ -34,7 +34,30 @@ FILES		=	source/main.c				\
 			source/custom_cursor.c			\
 			source/projectile.c			\
 			source/get_angles.c			\
-			source/fight.c
+			source/fight.c				\
+			source/fight_create_spells.c		\
+			source/fight_destroy_spells.c		\
+			source/fight_icons.c			\
+			source/fight_icons_cd.c			\
+			source/fight_display_class.c		\
+			source/fight_update_class.c		\
+			source/fight_auto_attacks.c		\
+			source/fight_launch_spells.c		\
+			source/fight_get_cooldowns.c		\
+			source/spells_archer_1.c		\
+			source/spells_archer_2.c		\
+			source/spells_archer_3.c		\
+			source/spells_gunner_1.c		\
+			source/spells_gunner_2.c		\
+			source/spells_gunner_3.c		\
+			source/spells_rogue_1.c			\
+			source/spells_rogue_2.c			\
+			source/spells_rogue_3.c			\
+			source/spells_warrior_1.c		\
+			source/spells_warrior_2.c		\
+			source/spells_warrior_3.c		\
+			source/update_spells_archer_1.c		\
+			source/update_spells_gunner_1.c
 
 SRCS		=	$(FILES)
 
