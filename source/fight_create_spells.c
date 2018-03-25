@@ -53,7 +53,7 @@ void create_spells_rogue(st_rpg *s)
 {
 	for (int i = 0; i != 10; i += 1)
 		s->f.rog.dagger[i] = create_projectile("projectile/Kunai");
-	s->f.rog.ultspeed = 0.15;
+	s->f.rog.ultspeed = 0.1;
 	s->f.rog.ultcount = 0;
 	s->f.rog.ulting = 0;
 	s->f.rog.current = 0;

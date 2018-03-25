@@ -24,7 +24,7 @@ void rogue_update_storm(st_rpg *s)
 		s->f.rog.dagger[s->f.rog.current]->angle);
 		s->f.rog.current += 1;
 		s->f.rog.ultcount += 1;
-		if (s->f.rog.ultcount > 29) {
+		if (s->f.rog.ultcount > 39) {
 			s->f.rog.ulting = 0;
 			s->f.rog.ultcount = 0;
 		}
