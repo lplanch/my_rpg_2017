@@ -58,6 +58,7 @@ FILES		=	source/main.c				\
 			source/spells_warrior_3.c		\
 			source/update_spells_archer_1.c		\
 			source/update_spells_gunner_1.c		\
+			source/update_spells_rogue_1.c		\
 			source/life_bar.c			\
 			source/aoe.c				\
 			source/create_circle.c			\

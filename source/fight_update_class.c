@@ -29,7 +29,9 @@ void update_gunner(st_rpg *s)
 
 void update_rogue(st_rpg *s)
 {
-
+	for (int i = 0; i != 10; i += 1)
+		update_projectile(s->f.rog.dagger[i]);
+	rogue_update_storm(s);
 }
 
 void update_warrior(st_rpg *s)

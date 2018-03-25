@@ -97,6 +97,16 @@ typedef struct struct_gunner_spells
 	int current;
 } gunner_t;
 
+typedef struct struct_rogue_spells
+{
+	proj_t *dagger[10];
+	int current;
+	int ultcount;
+	int ulting;
+	float ultspeed;
+	st_time ultt;
+} rogue_t;
+
 typedef struct fight_tree
 {
 	int passive;
@@ -120,6 +130,7 @@ typedef struct main_fight
 	float cds[4];
 	st_time cdt;
 	archer_t arc;
+	rogue_t rog;
 	gunner_t gun;
 	tree_t tree;
 } fight_t;
@@ -151,6 +162,7 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void rogue_update_storm(st_rpg *s);
 void display_projectile(sfRenderWindow *window, proj_t *proj);
 sfCircleShape *create_circle(int radius, int thickness, sfColor color);
 void launch_aoe(sfRenderWindow *window, aoe_t *aoe);

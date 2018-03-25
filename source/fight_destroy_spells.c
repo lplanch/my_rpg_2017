@@ -31,7 +31,9 @@ void destroy_spells_gunner(st_rpg *s)
 
 void destroy_spells_rogue(st_rpg *s)
 {
-
+	for (int i = 0; i != 10; i += 1)
+		destroy_projectile(s->f.rog.dagger[i]);
+	sfClock_destroy(s->f.rog.ultt.clock);
 }
 
 void destroy_spells_warrior(st_rpg *s)
