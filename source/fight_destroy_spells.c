@@ -14,8 +14,8 @@ void destroy_spells_archer(st_rpg *s)
 		destroy_projectile(s->f.arc.arrow[i]);
 	destroy_projectile(s->f.arc.axe);
 	sfClock_destroy(s->f.arc.kal.clock);
-	sfClock_destroy(s->f.arc.barrage.t.clock);
-	sfCircleShape_destroy(s->f.arc.barrage.circle);
+	destroy_aoe(s->f.arc.barrage);
+	destroy_aoe(s->f.arc.heal);
 }
 
 void destroy_spells_gunner(st_rpg *s)

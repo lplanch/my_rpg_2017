@@ -31,6 +31,7 @@ int fight_events(st_rpg *s)
                 	s->returnv = 1;
                 	destroy_class(s);
 			destroy_icons(s);
+			destroy_life_bar(s);
                 	return (1);
 		}
 	}
@@ -42,6 +43,7 @@ int fight_instance(st_rpg *s)
 	create_main_fight(s);
 	create_icons(s);
 	create_class(s);
+	create_life_bar(s);
         while (sfRenderWindow_isOpen(s->window)) {
         	if (fight_events(s))
                 	break;
@@ -51,6 +53,7 @@ int fight_instance(st_rpg *s)
 		sfRenderWindow_clear(s->window, sfWhite);
 		display_icons(s);
 		display_class(s);
+		display_life_bar(s);
         	sfRenderWindow_display(s->window);
         }
         return (s->returnv);

@@ -61,14 +61,15 @@ typedef struct aoe
 {
 	sfCircleShape *circle;
 	int shot;
-	st_anim *anim;
 	st_time t;
+	st_anim *anim;
 	float duration;
 } aoe_t;
 
 typedef struct struct_archer_spells
 {
-	aoe_t barrage;
+	aoe_t *barrage;
+	aoe_t *heal;
 	int kalash;
 	int current;
 	float kalashspeed;
@@ -104,6 +105,13 @@ typedef struct fight_tree
 	int spell3;
 } tree_t;
 
+typedef struct fight_bars
+{
+	g_object *bars;
+	g_object *life;
+	g_object *xp;
+} bars_t;
+
 typedef struct main_fight
 {
 	st_button *icons[4];
@@ -135,6 +143,7 @@ typedef struct struct_main_menu
 typedef struct struct_rpg
 {
 	fight_t f;
+	bars_t bar;
 	g_object *loading;
 	int returnv;
 	st_custom cust;
@@ -142,6 +151,17 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void display_projectile(sfRenderWindow *window, proj_t *proj);
+sfCircleShape *create_circle(int radius, int thickness, sfColor color);
+void launch_aoe(sfRenderWindow *window, aoe_t *aoe);
+void display_aoe(sfRenderWindow *window, aoe_t *aoe);
+void update_aoe(aoe_t *aoe);
+void destroy_aoe(aoe_t *aoe);
+aoe_t *create_aoe(sfCircleShape *circle, st_anim *anim, float duration);
+void update_life_bar(st_rpg *s);
+void display_life_bar(st_rpg *s);
+void destroy_life_bar(st_rpg *s);
+void create_life_bar(st_rpg *s);
 void gunner_update_blitz(st_rpg *s);
 void gunner_update_grenade(st_rpg *s);
 void get_cooldowns(st_rpg *s);

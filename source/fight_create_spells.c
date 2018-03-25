@@ -16,18 +16,16 @@ void create_spells_archer(st_rpg *s)
 	s->f.arc.axe = create_projectile("projectile/Axe");
 	s->f.arc.kal = create_st_time();
 	s->f.arc.current = 0;
-	s->f.arc.barrage.shot = 0;
-	s->f.arc.barrage.duration = 5;
-	s->f.arc.barrage.t = create_st_time();
 	s->f.arc.kalash = 0;
 	s->f.arc.axeangle = 0;
 	s->f.arc.kalashcount = 0;
 	s->f.arc.kalashspeed = 0.08;
-	s->f.arc.barrage.circle = sfCircleShape_create();
-	sfCircleShape_setRadius(s->f.arc.barrage.circle, 100);
-	sfCircleShape_setOutlineColor(s->f.arc.barrage.circle, sfRed);
-	sfCircleShape_setFillColor(s->f.arc.barrage.circle, sfTransparent);
-	sfCircleShape_setOutlineThickness(s->f.arc.barrage.circle, 5);
+	s->f.arc.barrage = create_aoe(create_circle(100, 5, sfRed),
+	create_anim(create_object("spells/0/healaoe.png", create_vector2f(0, 0),
+	create_rect(0, 0, 192, 192), 0), create_vector2i(5, 5), 0.1), 4);
+	s->f.arc.heal = create_aoe(create_circle(100, 5, sfGreen),
+	create_anim(create_object("spells/0/healaoe.png", create_vector2f(0, 0),
+	create_rect(0, 0, 192, 192), 0), create_vector2i(5, 5), 0.1), 4);
 }
 
 void create_spells_gunner(st_rpg *s)

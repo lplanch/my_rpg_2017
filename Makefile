@@ -57,7 +57,11 @@ FILES		=	source/main.c				\
 			source/spells_warrior_2.c		\
 			source/spells_warrior_3.c		\
 			source/update_spells_archer_1.c		\
-			source/update_spells_gunner_1.c
+			source/update_spells_gunner_1.c		\
+			source/life_bar.c			\
+			source/aoe.c				\
+			source/create_circle.c			\
+			source/display_projectile.c
 
 SRCS		=	$(FILES)
 
@@ -75,8 +79,8 @@ all:			$(NAME)
 
 $(NAME):	$(OBJ)
 	@echo -e '${BG_COLOR}Flags: $(LDFLAGS) $(CFLAGS)${NC}'
-	@echo -e '${RED}Create${NC}: ${GREY}./$(NAME)${NC}'
-	@make -C lib/my/
+	@echo -e '${GREEN}Create${NC}: ${GREY}./$(NAME)${NC}'
+	@make --no-print-directory -C lib/my/
 	@$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
 
 %.o:		%.c

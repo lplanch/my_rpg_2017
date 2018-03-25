@@ -33,20 +33,6 @@ void update_kalash(st_rpg *s)
 	}
 }
 
-void update_aoe_barrage(st_rpg *s)
-{
-	s->f.arc.barrage.t.time = sfClock_getElapsedTime(s
-		->f.arc.barrage.t.clock);
-	s->f.arc.barrage.t.sec = s->f.arc.barrage.t.time.microseconds /
-	1000000.0;
-	if (s->f.arc.barrage.t.sec > s->f.arc.barrage.duration &&
-		s->f.arc.barrage.shot == 1) {
-		s->f.arc.barrage.shot = 0;
-		s->f.arc.barrage.t.sec = 0;
-		sfClock_restart(s->f.arc.barrage.t.clock);
-	}
-}
-
 void update_axe(st_rpg *s)
 {
 	sfVector2f ratios;

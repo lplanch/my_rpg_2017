@@ -14,7 +14,8 @@ void update_archer(st_rpg *s)
 		update_projectile(s->f.arc.arrow[i]);
 	update_kalash(s);
 	update_axe(s);
-	update_aoe_barrage(s);
+	update_aoe(s->f.arc.barrage);
+	update_aoe(s->f.arc.heal);
 }
 
 void update_gunner(st_rpg *s)
