@@ -33,11 +33,11 @@ char *which_spell(st_rpg *s, int spell)
 	if (spell == 0)
 		return ("auto");
 	if (spell == 1)
-		return (my_strcat("m", int_to_str(s->f.tree.spell1 + 1)));
+		return (my_strcat("m", int_to_str(s->player.tree.spell1 + 1)));
 	if (spell == 2)
-		return (my_strcat("e", int_to_str(s->f.tree.spell2 + 1)));
+		return (my_strcat("e", int_to_str(s->player.tree.spell2 + 1)));
 	if (spell == 3)
-		return (my_strcat("r", int_to_str(s->f.tree.spell3 + 1)));
+		return (my_strcat("r", int_to_str(s->player.tree.spell3 + 1)));
 	return (NULL);
 }
 

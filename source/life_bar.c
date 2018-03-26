@@ -15,9 +15,17 @@ void display_life_bar(st_rpg *s)
 	sfRenderWindow_drawSprite(s->window, s->bar.xp->sprite, NULL);
 }
 
-void update_life_bar(st_rpg *s)
+void update_bars(st_rpg *s)
 {
-
+	if (s->player.stat->exp >= 100) {
+		s->player.stat->exp -= 100;
+		s->player.stat->lvl += 1;
+	}
+	s->bar.life->rect.width = 316 * s->player.stat->pva /
+	s->player.stat->pvm;
+	s->bar.xp->rect.width = 316 * s->player.stat->exp / 100;
+	sfSprite_setTextureRect(s->bar.life->sprite, s->bar.life->rect);
+	sfSprite_setTextureRect(s->bar.xp->sprite, s->bar.xp->rect);
 }
 
 void create_life_bar(st_rpg *s)

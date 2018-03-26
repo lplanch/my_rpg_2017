@@ -28,5 +28,5 @@ void choose_spell1_warrior(st_rpg *s)
 	void (*list[3])(st_rpg *s) = {warrior_rush, warrior_whirlwing,
 		warrior_estoc};
 
-	(list[s->f.tree.spell1])(s);
+	(list[s->player.tree.spell1])(s);
 }

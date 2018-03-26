@@ -15,9 +15,9 @@ void get_cooldowns_archer(st_rpg *s)
 	int cd3[2] = {20, 10};
 
 	s->f.cds[0] = 0.5;
-	s->f.cds[1] = cd1[s->f.tree.spell1];
-	s->f.cds[2] = cd2[s->f.tree.spell2];
-	s->f.cds[3] = cd3[s->f.tree.spell3];
+	s->f.cds[1] = cd1[s->player.tree.spell1];
+	s->f.cds[2] = cd2[s->player.tree.spell2];
+	s->f.cds[3] = cd3[s->player.tree.spell3];
 }
 
 void get_cooldowns_gunner(st_rpg *s)
@@ -27,9 +27,9 @@ void get_cooldowns_gunner(st_rpg *s)
 	int cd3[2] = {20, 10};
 
 	s->f.cds[0] = 1.3;
-	s->f.cds[1] = cd1[s->f.tree.spell1];
-	s->f.cds[2] = cd2[s->f.tree.spell2];
-	s->f.cds[3] = cd3[s->f.tree.spell3];
+	s->f.cds[1] = cd1[s->player.tree.spell1];
+	s->f.cds[2] = cd2[s->player.tree.spell2];
+	s->f.cds[3] = cd3[s->player.tree.spell3];
 }
 
 void get_cooldowns_rogue(st_rpg *s)
@@ -39,9 +39,9 @@ void get_cooldowns_rogue(st_rpg *s)
 	int cd3[2] = {20, 10};
 
 	s->f.cds[0] = 0.3;
-	s->f.cds[1] = cd1[s->f.tree.spell1];
-	s->f.cds[2] = cd2[s->f.tree.spell2];
-	s->f.cds[3] = cd3[s->f.tree.spell3];
+	s->f.cds[1] = cd1[s->player.tree.spell1];
+	s->f.cds[2] = cd2[s->player.tree.spell2];
+	s->f.cds[3] = cd3[s->player.tree.spell3];
 }
 
 void get_cooldowns_warrior(st_rpg *s)
@@ -51,9 +51,9 @@ void get_cooldowns_warrior(st_rpg *s)
 	int cd3[2] = {20, 10};
 
 	s->f.cds[0] = 0.3;
-	s->f.cds[1] = cd1[s->f.tree.spell1];
-	s->f.cds[2] = cd2[s->f.tree.spell2];
-	s->f.cds[3] = cd3[s->f.tree.spell3];
+	s->f.cds[1] = cd1[s->player.tree.spell1];
+	s->f.cds[2] = cd2[s->player.tree.spell2];
+	s->f.cds[3] = cd3[s->player.tree.spell3];
 }
 
 void get_cooldowns(st_rpg *s)

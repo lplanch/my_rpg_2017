@@ -1,0 +1,17 @@
+Each folder contains multiple files,
+first one contains stats :
+PVM (Max HP)
+PVA (Current HP)
+FRC (Strength)
+DEF (Defense)
+PRC (Precision)
+VIT (Speed)
+CHA (Luck)
+EXP (Experience points)
+LVL (Level)
+
+second one is the skill tree :
+Chosen passive number (0-2)
+Chosen spell number (0-2)
+Chosen spell number (0-1)
+Chosen spell number (0-1)

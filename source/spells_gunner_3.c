@@ -22,5 +22,5 @@ void choose_spell3_gunner(st_rpg *s)
 {
 	void (*list[2])(st_rpg *s) = {gunner_snipe, gunner_turret};
 
-	(list[s->f.tree.spell3])(s);
+	(list[s->player.tree.spell3])(s);
 }

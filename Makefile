@@ -62,7 +62,10 @@ FILES		=	source/main.c				\
 			source/life_bar.c			\
 			source/aoe.c				\
 			source/create_circle.c			\
-			source/display_projectile.c
+			source/display_projectile.c		\
+			source/create_stat.c			\
+			source/create_tree.c			\
+			source/heal.c
 
 SRCS		=	$(FILES)
 

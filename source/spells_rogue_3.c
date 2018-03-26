@@ -23,5 +23,5 @@ void choose_spell3_rogue(st_rpg *s)
 {
 	void (*list[2])(st_rpg *s) = {rogue_storm, rogue_blind};
 
-	(list[s->f.tree.spell3])(s);
+	(list[s->player.tree.spell3])(s);
 }

@@ -35,5 +35,5 @@ void choose_spell1_archer(st_rpg *s)
 {
 	void (*list[3])(st_rpg *s) = {archer_kalash, archer_leap, archer_salve};
 
-	(list[s->f.tree.spell1])(s);
+	(list[s->player.tree.spell1])(s);
 }

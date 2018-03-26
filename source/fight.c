@@ -15,10 +15,7 @@ void create_main_fight(st_rpg *s)
 	s->f.cdcount[1] = 0;
 	s->f.cdcount[2] = 0;
 	s->f.cdcount[3] = 0;
-	s->f.tree.passive = 0;
-	s->f.tree.spell1 = 0;
-	s->f.tree.spell2 = 0;
-	s->f.tree.spell3 = 0;
+	create_first_tree(s);
 	get_cooldowns(s);
 }
 
@@ -32,6 +29,7 @@ int fight_events(st_rpg *s)
                 	destroy_class(s);
 			destroy_icons(s);
 			destroy_life_bar(s);
+			free(s->player.stat);
                 	return (1);
 		}
 	}
@@ -40,6 +38,7 @@ int fight_events(st_rpg *s)
 
 int fight_instance(st_rpg *s)
 {
+	s->player.stat = create_first_stat();
 	create_main_fight(s);
 	create_icons(s);
 	create_class(s);
@@ -49,6 +48,7 @@ int fight_instance(st_rpg *s)
                 	break;
 		launch_spells(s);
 		update_class(s);
+		update_bars(s);
 		update_icons_cd(s);
 		sfRenderWindow_clear(s->window, sfWhite);
 		display_icons(s);

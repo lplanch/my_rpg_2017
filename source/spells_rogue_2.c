@@ -22,5 +22,5 @@ void choose_spell2_rogue(st_rpg *s)
 {
 	void (*list[2])(st_rpg *s) = {rogue_withdraw, rogue_refuge};
 
-	(list[s->f.tree.spell2])(s);
+	(list[s->player.tree.spell2])(s);
 }

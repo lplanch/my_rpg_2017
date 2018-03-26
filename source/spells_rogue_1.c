@@ -28,5 +28,5 @@ void choose_spell1_rogue(st_rpg *s)
 	void (*list[3])(st_rpg *s) = {rogue_dagger, rogue_shadowstep,
 		rogue_cloak};
 
-	(list[s->f.tree.spell1])(s);
+	(list[s->player.tree.spell1])(s);
 }

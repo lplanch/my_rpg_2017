@@ -22,5 +22,5 @@ void choose_spell3_warrior(st_rpg *s)
 {
 	void (*list[2])(st_rpg *s) = {warrior_earthquake, warrior_endure};
 
-	(list[s->f.tree.spell3])(s);
+	(list[s->player.tree.spell3])(s);
 }

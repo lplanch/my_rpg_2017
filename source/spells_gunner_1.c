@@ -15,7 +15,7 @@ void gunner_blitz(st_rpg *s)
 
 void gunner_medikit(st_rpg *s)
 {
-
+	heal(s, s->player.stat->pvm / 3);
 }
 
 void gunner_grenade(st_rpg *s)
@@ -26,8 +26,8 @@ void gunner_grenade(st_rpg *s)
 
 void choose_spell1_gunner(st_rpg *s)
 {
-	void (*list[3])(st_rpg *s) = {gunner_grenade, gunner_medikit,
-		gunner_blitz};
+	void (*list[3])(st_rpg *s) = {gunner_blitz, gunner_medikit,
+		gunner_grenade};
 
-	(list[s->f.tree.spell1])(s);
+	(list[s->player.tree.spell1])(s);
 }

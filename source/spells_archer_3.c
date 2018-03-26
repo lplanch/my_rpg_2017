@@ -25,5 +25,5 @@ void choose_spell3_archer(st_rpg *s)
 {
 	void (*list[2])(st_rpg *s) = {archer_barrage, archer_axe};
 
-	(list[s->f.tree.spell3])(s);
+	(list[s->player.tree.spell3])(s);
 }

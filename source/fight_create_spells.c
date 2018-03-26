@@ -21,7 +21,7 @@ void create_spells_archer(st_rpg *s)
 	s->f.arc.kalashcount = 0;
 	s->f.arc.kalashspeed = 0.08;
 	s->f.arc.barrage = create_aoe(create_circle(100, 5, sfRed),
-	create_anim(create_object("spells/0/barrage2.png", create_vector2f(0, 0),
+	create_anim(create_object("spells/0/barrage.png", create_vector2f(0, 0),
 	create_rect(0, 0, 192, 192), 0), create_vector2i(8, 8), 0.03), 4);
 	s->f.arc.heal = create_aoe(create_circle(100, 5, sfGreen),
 	create_anim(create_object("spells/0/healaoe.png", create_vector2f(0, 0),

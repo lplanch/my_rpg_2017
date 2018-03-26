@@ -10,6 +10,9 @@
 #include <math.h>
 #include <SFML/Audio.h>
 #include <SFML/Graphics.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdlib.h>
 #include "game_object.h"
 #include "projectile.h"
 
@@ -132,7 +135,6 @@ typedef struct main_fight
 	archer_t arc;
 	rogue_t rog;
 	gunner_t gun;
-	tree_t tree;
 } fight_t;
 
 typedef struct struct_main_menu
@@ -151,10 +153,31 @@ typedef struct struct_main_menu
 	g_object *rock2[2];
 } st_menu;
 
+typedef struct struct_stat_entity
+{
+	int pvm;
+	int pva;
+	int frc;
+	int def;
+	int prc;
+	int vit;
+	int cha;
+	int exp;
+	int lvl;
+} stat_t;
+
+typedef struct struct_player_info
+{
+	stat_t *stat;
+	int skillp;
+	tree_t tree;
+} player_t;
+
 typedef struct struct_rpg
 {
 	fight_t f;
 	bars_t bar;
+	player_t player;
 	g_object *loading;
 	int returnv;
 	st_custom cust;
@@ -162,6 +185,10 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void create_first_tree(st_rpg *s);
+stat_t *load_stat(char *path);
+stat_t *create_first_stat(void);
+void update_bars(st_rpg *s);
 void rogue_update_storm(st_rpg *s);
 void display_projectile(sfRenderWindow *window, proj_t *proj);
 sfCircleShape *create_circle(int radius, int thickness, sfColor color);

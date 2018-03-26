@@ -28,5 +28,5 @@ void choose_spell2_archer(st_rpg *s)
 {
 	void (*list[2])(st_rpg *s) = {archer_heal, archer_leaf};
 
-	(list[s->f.tree.spell2])(s);
+	(list[s->player.tree.spell2])(s);
 }

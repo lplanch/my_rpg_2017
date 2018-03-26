@@ -22,5 +22,5 @@ void choose_spell2_warrior(st_rpg *s)
 {
 	void (*list[2])(st_rpg *s) = {warrior_stance, warrior_lifesteal};
 
-	(list[s->f.tree.spell2])(s);
+	(list[s->player.tree.spell2])(s);
 }
