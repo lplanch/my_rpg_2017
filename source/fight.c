@@ -15,22 +15,21 @@ void create_main_fight(st_rpg *s)
 	s->f.cdcount[1] = 0;
 	s->f.cdcount[2] = 0;
 	s->f.cdcount[3] = 0;
-	create_first_tree(s);
 	get_cooldowns(s);
 }
 
 int fight_events(st_rpg *s)
 {
-       sfEvent event;
+	sfEvent event;
 
-       while (sfRenderWindow_pollEvent(s->window, &event)) {
-        	if (event.type == sfEvtClosed) {
-                	s->returnv = 1;
-                	destroy_class(s);
+	while (sfRenderWindow_pollEvent(s->window, &event)) {
+		if (event.type == sfEvtClosed) {
+			s->returnv = 1;
+			destroy_class(s);
 			destroy_icons(s);
 			destroy_life_bar(s);
 			free(s->player.stat);
-                	return (1);
+			return (1);
 		}
 	}
 	return (0);
@@ -38,14 +37,13 @@ int fight_events(st_rpg *s)
 
 int fight_instance(st_rpg *s)
 {
-	s->player.stat = create_first_stat();
 	create_main_fight(s);
 	create_icons(s);
 	create_class(s);
 	create_life_bar(s);
-        while (sfRenderWindow_isOpen(s->window)) {
-        	if (fight_events(s))
-                	break;
+	while (sfRenderWindow_isOpen(s->window)) {
+		if (fight_events(s))
+			break;
 		launch_spells(s);
 		update_class(s);
 		update_bars(s);
@@ -54,7 +52,7 @@ int fight_instance(st_rpg *s)
 		display_icons(s);
 		display_class(s);
 		display_life_bar(s);
-        	sfRenderWindow_display(s->window);
-        }
-        return (s->returnv);
+		sfRenderWindow_display(s->window);
+	}
+	return (s->returnv);
 }

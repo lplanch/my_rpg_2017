@@ -46,5 +46,5 @@ void destroy_class(st_rpg *s)
 	void (*list[4])(st_rpg *s) = {destroy_spells_archer,
 	destroy_spells_gunner, destroy_spells_rogue, destroy_spells_warrior};
 
-	(list[s->cust.cdata.classe])(s);
+	(list[s->player.cdata.classe])(s);
 }

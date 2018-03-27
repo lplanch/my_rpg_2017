@@ -10,19 +10,19 @@
 
 void cust_menu_interface_animation(st_rpg *s)
 {
-       sfColor grey = {96, 96, 96, 255};
+	sfColor grey = {96, 96, 96, 255};
 
-       for (int i = 0; i != cust_get_buttons(s->cust.menu); i += 1)
-              sfText_setColor(s->cust.bt[i]->text->text, grey);
-       sfText_setColor(s->cust.bt[s->cust.option]->text->text, sfWhite);
+	for (int i = 0; i != cust_get_buttons(s->cust.menu); i += 1)
+		sfText_setColor(s->cust.bt[i]->text->text, grey);
+	sfText_setColor(s->cust.bt[s->cust.option]->text->text, sfWhite);
 }
 
 int cust_left_clicked(st_rpg *s, sfEvent event)
 {
 	for (int i = 0; i != cust_maxx_buttons(s->cust.menu); i += 1) {
 		if (event.type == sfEvtMouseButtonPressed &&
-		    sfMouse_isButtonPressed(sfMouseLeft) &&
-		    mouse_in_object(s->cust.bt[i]->obj, s->window))
+		sfMouse_isButtonPressed(sfMouseLeft) &&
+		mouse_in_object(s->cust.bt[i]->obj, s->window))
 			return (1);
 	}
 	return (0);
@@ -32,7 +32,7 @@ void custom_manage_name_write(st_rpg *s, sfEvent event)
 {
 	if (event.type == sfEvtTextEntered && event.text.unicode > 30 &&
 	event.text.unicode < 127 && s->cust.pos < 12) {
-        	s->cust.cdata.name[s->cust.pos] = event.text.unicode;
+		s->cust.cdata.name[s->cust.pos] = event.text.unicode;
 		s->cust.pos += 1;
 	} if ((event.type == sfEvtKeyPressed &&
 	sfKeyboard_isKeyPressed(sfKeyBack)) && s->cust.pos > 0) {

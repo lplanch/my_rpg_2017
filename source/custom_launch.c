@@ -8,7 +8,6 @@
 #include "my_rpg.h"
 #include "my.h"
 
-
 int launch_cust_menu_sex(st_rpg *s)
 {
 	if (s->cust.option == 0)
@@ -30,6 +29,10 @@ int launch_cust_menu_classes(st_rpg *s)
 	else {
 		s->cust.cdata.classe = s->cust.option - 1;
 		custom_destroy(s);
+		s->player.cdata = s->cust.cdata;
+		s->player.stat = create_first_stat();
+		create_first_tree(s);
+		s->player.skillp = 0;
 		return (fight_instance(s));
 	}
 	return (0);

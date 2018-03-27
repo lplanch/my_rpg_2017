@@ -112,6 +112,16 @@ typedef struct struct_rogue_spells
 
 typedef struct fight_tree
 {
+	int lockp1;
+	int lockp2;
+	int lockp3;
+	int lockm1;
+	int lockm2;
+	int lockm3;
+	int locke1;
+	int locke2;
+	int lockr1;
+	int lockr2;
 	int passive;
 	int spell1;
 	int spell2;
@@ -141,6 +151,7 @@ typedef struct struct_main_menu
 {
 	sfMusic *music;
 	int menu;
+	int create;
 	st_time t;
 	int option;
 	int sens;
@@ -171,6 +182,9 @@ typedef struct struct_player_info
 	stat_t *stat;
 	int skillp;
 	tree_t tree;
+	st_cdata cdata;
+	g_object *obj;
+	g_object *weapon;
 } player_t;
 
 typedef struct struct_rpg
@@ -182,9 +196,14 @@ typedef struct struct_rpg
 	int returnv;
 	st_custom cust;
 	st_menu mainm;
+	int save;
 	sfRenderWindow *window;
 } st_rpg;
 
+void load_tree(st_rpg *s, char *path);
+void heal(st_rpg *s, int amount);
+void load_save(st_rpg *s);
+int launch_main_menu_load_slots(st_rpg *s);
 void create_first_tree(st_rpg *s);
 stat_t *load_stat(char *path);
 stat_t *create_first_stat(void);

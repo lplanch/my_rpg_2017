@@ -35,20 +35,9 @@ void gunner_update_blitz(st_rpg *s)
 	}
 }
 
-void gunner_update_grenade(st_rpg *s)
+void gunner_update_grenade_speed(st_rpg *s)
 {
-	s->f.gun.explosion->t.time = sfClock_getElapsedTime(s->f.gun.explosion->t.clock);
-	s->f.gun.explosion->t.sec = s->f.gun.explosion->t.time.microseconds / 1000000.0;
-	if (s->f.gun.explosion->t.sec >= s->f.gun.delay &&
-		s->f.gun.grenade->shot == 1) {
-		s->f.gun.explosion->obj->pos = create_vector2f(s->f.gun.grenade
-		->obj->pos.x - 50, s->f.gun.grenade->obj->pos.y - 50);
-		sfSprite_setPosition(s->f.gun.explosion->obj->sprite,
-		s->f.gun.explosion->obj->pos);
-		s->f.gun.grenade->shot = 2;
-		s->f.gun.explosion->l = 0;
-		s->f.gun.explosion->c = 0;
-	} if (s->f.gun.grenade->shot == 2) {
+	if (s->f.gun.grenade->shot == 2) {
 		clocked_animation(s->f.gun.explosion);
 		if (s->f.gun.explosion->l >= s->f.gun.explosion->ver) {
 			s->f.gun.grenade->obj->speed = s->f.gun.grenadespeed;
@@ -62,6 +51,25 @@ void gunner_update_grenade(st_rpg *s)
 		}
 		update_projectile(s->f.gun.grenade);
 	}
+}
+
+void gunner_update_grenade(st_rpg *s)
+{
+	s->f.gun.explosion->t.time = sfClock_getElapsedTime(s->f.gun.explosion
+	->t.clock);
+	s->f.gun.explosion->t.sec = s->f.gun.explosion->t.time.microseconds /
+	1000000.0;
+	if (s->f.gun.explosion->t.sec >= s->f.gun.delay &&
+		s->f.gun.grenade->shot == 1) {
+		s->f.gun.explosion->obj->pos = create_vector2f(s->f.gun.grenade
+		->obj->pos.x - 50, s->f.gun.grenade->obj->pos.y - 50);
+		sfSprite_setPosition(s->f.gun.explosion->obj->sprite,
+		s->f.gun.explosion->obj->pos);
+		s->f.gun.grenade->shot = 2;
+		s->f.gun.explosion->l = 0;
+		s->f.gun.explosion->c = 0;
+	}
+	gunner_update_grenade_speed(s);
 }
 
 void gunner_update_auto_attack(st_rpg *s)

@@ -65,7 +65,8 @@ FILES		=	source/main.c				\
 			source/display_projectile.c		\
 			source/create_stat.c			\
 			source/create_tree.c			\
-			source/heal.c
+			source/heal.c				\
+			source/load_save.c
 
 SRCS		=	$(FILES)
 

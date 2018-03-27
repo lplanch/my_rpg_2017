@@ -10,9 +10,9 @@
 
 st_time create_st_time(void)
 {
-       st_time t;
+	st_time t;
 
-       t.clock = sfClock_create();
-       t.sec = 0.0;
-       return (t);
+	t.clock = sfClock_create();
+	t.sec = 0.0;
+	return (t);
 }
