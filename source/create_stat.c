@@ -13,7 +13,7 @@ stat_t *create_first_stat(void)
 	stat_t *stat = malloc(sizeof(stat_t));
 
 	stat->pvm = 100;
-	stat->pva = 50;
+	stat->pva = 100;
 	stat->frc = 10;
 	stat->def = 10;
 	stat->prc = 10;

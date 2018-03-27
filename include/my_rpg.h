@@ -128,6 +128,19 @@ typedef struct fight_tree
 	int spell3;
 } tree_t;
 
+typedef struct struct_stat_entity
+{
+	int pvm;
+	int pva;
+	int frc;
+	int def;
+	int prc;
+	int vit;
+	int cha;
+	int exp;
+	int lvl;
+} stat_t;
+
 typedef struct fight_bars
 {
 	g_object *bars;
@@ -135,13 +148,22 @@ typedef struct fight_bars
 	g_object *xp;
 } bars_t;
 
+typedef struct enemy
+{
+	g_object *obj;
+	g_object *life;
+	stat_t *stat;
+} enemy_t;
+
 typedef struct main_fight
 {
+	enemy_t *mob;
 	st_button *icons[4];
 	g_object *cd[4];
 	float cdcount[4];
 	float cds[4];
 	st_time cdt;
+	st_time proc;
 	archer_t arc;
 	rogue_t rog;
 	gunner_t gun;
@@ -163,19 +185,6 @@ typedef struct struct_main_menu
 	g_object *rockback[2];
 	g_object *rock2[2];
 } st_menu;
-
-typedef struct struct_stat_entity
-{
-	int pvm;
-	int pva;
-	int frc;
-	int def;
-	int prc;
-	int vit;
-	int cha;
-	int exp;
-	int lvl;
-} stat_t;
 
 typedef struct struct_player_info
 {
@@ -200,6 +209,14 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void apply_projectile(proj_t *proj, enemy_t *mob);
+void projectile_damage_enemy(proj_t *proj, enemy_t *mob);
+int hitbox(g_object *attack, g_object *target);
+void update_projectiles(st_rpg *s);
+void create_mob_example(st_rpg *s);
+void update_mob_example(st_rpg *s);
+void destroy_mob_example(st_rpg *s);
+void display_mob_example(st_rpg *s);
 void load_tree(st_rpg *s, char *path);
 void heal(st_rpg *s, int amount);
 void load_save(st_rpg *s);

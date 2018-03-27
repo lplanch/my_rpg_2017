@@ -11,6 +11,7 @@
 void create_main_fight(st_rpg *s)
 {
 	s->f.cdt = create_st_time();
+	s->f.proc = create_st_time();
 	s->f.cdcount[0] = 0;
 	s->f.cdcount[1] = 0;
 	s->f.cdcount[2] = 0;
@@ -28,6 +29,8 @@ int fight_events(st_rpg *s)
 			destroy_class(s);
 			destroy_icons(s);
 			destroy_life_bar(s);
+			destroy_mob_example(s);
+			sfClock_destroy(s->f.proc.clock);
 			free(s->player.stat);
 			return (1);
 		}
@@ -41,6 +44,7 @@ int fight_instance(st_rpg *s)
 	create_icons(s);
 	create_class(s);
 	create_life_bar(s);
+	create_mob_example(s);
 	while (sfRenderWindow_isOpen(s->window)) {
 		if (fight_events(s))
 			break;
@@ -48,10 +52,13 @@ int fight_instance(st_rpg *s)
 		update_class(s);
 		update_bars(s);
 		update_icons_cd(s);
+		update_projectiles(s);
+		update_mob_example(s);
 		sfRenderWindow_clear(s->window, sfWhite);
 		display_icons(s);
 		display_class(s);
 		display_life_bar(s);
+		display_mob_example(s);
 		sfRenderWindow_display(s->window);
 	}
 	return (s->returnv);
