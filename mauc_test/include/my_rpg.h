@@ -55,6 +55,7 @@ void free_all(files_t *fi);
 void dialog_box(files_t *fi);
 void destroy_button(st_button *button);
 st_button *create_button(char *str, g_object *object, sfColor c, int size);
+int mouse_in_object(g_object *obj, sfRenderWindow *window, files_t *fi);
 
 #ifndef MY_COOK_
 #define MY_COOK_

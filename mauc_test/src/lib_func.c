@@ -28,7 +28,7 @@ int my_getnbr_i(char const *str, int i)
 	return (f);
 }
 
-char *my_strcat(char *str1, char *str2)
+char *my_strcat2(char *str1, char *str2)
 {
 	int len = my_strlen(str1);
 	int comp = 0;
@@ -59,6 +59,6 @@ char *my_strcat_dup(char *str1, char *str2)
 my_strlen(str1) + my_strlen(str2) + 2);
 
 	my_strcpy(res, str1);
-	res = my_strcat(res, str2);
+	res = my_strcat2(res, str2);
 	return (res);
 }

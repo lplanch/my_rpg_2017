@@ -99,7 +99,7 @@ typedef struct s_files
 	sfSprite *ID_sprite;
 	sfIntRect ID_player;
 	sfVector2f vect_ID_player;
-	pnj_t pnj[1];
+	pnj_t pnj[5];
 	pos_t pos[10];
 	colcircle_t colcircle[42];
 	colsquare_t colsquare[204];

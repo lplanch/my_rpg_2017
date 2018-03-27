@@ -32,6 +32,7 @@ FILES		=	main.c				\
 			src/button_generator.c		\
 			src/zone_text.c			\
 			src/create_rect.c		\
+			src/mouse_in_object.c		\
 
 SRCS		=	$(FILES)
 
