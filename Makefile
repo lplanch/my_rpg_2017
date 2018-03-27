@@ -66,7 +66,12 @@ FILES		=	source/main.c				\
 			source/create_stat.c			\
 			source/create_tree.c			\
 			source/heal.c				\
-			source/load_save.c
+			source/load_save.c			\
+			source/mob_example.c			\
+			source/hitbox.c				\
+			source/update_effects.c			\
+			source/update_projectiles.c		\
+			source/apply_damage.c
 
 SRCS		=	$(FILES)
 
