@@ -8,7 +8,7 @@
 #include "my.h"
 #include "my_rpg.h"
 
-void case_tp(files_t *fi, int nb_ID)
+int case_tp(files_t *fi, int nb_ID)
 {
 	switch (fi->testmap.layer_relief[nb_ID]) {
 		case 314:
@@ -17,31 +17,32 @@ void case_tp(files_t *fi, int nb_ID)
 			fi->square.top = 0;
 			sfSprite_setPosition(fi->sprite, fi->square2);
 			fi->camera_pos = 1;
-			break;
+			return (1);
 		case 286:
 			fi->square2.x = 3720;
-			fi->square2.y = 2900;
+			fi->square2.y = 2700;
 			fi->square.top = 144;
 			sfSprite_setPosition(fi->sprite, fi->square2);
-			fi->camera_pos = 0;
-			break;
+			return (1);
 		case 25:
 			fi->square2.x = 7218;
 			fi->square2.y = 5957;
 			fi->square.top = 144;
 			sfSprite_setPosition(fi->sprite, fi->square2);
 			fi->camera_pos = 0;
-			break;
+			return (1);
 		case 284:
 			fi->square2.x = 6591;
 			fi->square2.y = 54;
 			fi->square.top = 96;
 			sfSprite_setPosition(fi->sprite, fi->square2);
 			fi->camera_pos = 0;
-			break;
+			return (1);
 		default:
+			return (0);
 			break;
 	}
+	return (0);
 }
 
 int case_ID(files_t *fi, int nb_ID)
@@ -128,7 +129,9 @@ int collision_ID(files_t *fi)
 		if (case_ID(fi, nb_ID) == 1) {
 			return (1);
 		}
-		case_tp(fi, nb_ID);
+		if (case_tp(fi, nb_ID) == 0) {
+			fi->camera_pos = 0;
+		}
 		i++;
 	}
 	return (0);

@@ -26,7 +26,7 @@ void destroy_sprite(files_t *fi)
 	sfSprite_destroy(fi->testmap.sprite5);
 }
 
-void destroy_text(files_t *fi)
+void destroy_texture(files_t *fi)
 {
 	sfTexture_destroy(fi->texture);
 	sfTexture_destroy(fi->ID_text);
@@ -47,7 +47,7 @@ void destroy(files_t *fi)
 	sfImage_destroy(fi->testmap.testmap_prof);
 	//sfView_destroy (fi->view);
 	destroy_sprite(fi);
-	destroy_text(fi);
+	destroy_texture(fi);
 	free_all(fi);
 	sfRenderWindow_destroy(fi->window);
 }

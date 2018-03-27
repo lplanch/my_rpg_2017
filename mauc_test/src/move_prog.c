@@ -53,8 +53,8 @@ void move_ID_player(files_t *fi)
 void move(files_t *fi)
 {
 	fi->square.left += 48;
-	if (fi->square.left >= 192)
-		fi->square.left = 0;
+	if (fi->square.left >= 288)
+		fi->square.left = 144;
 }
 
 void move_ok(files_t *fi)

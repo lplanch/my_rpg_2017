@@ -16,7 +16,7 @@ void spriteset_game(files_t *fi)
 
 void squaresetup_game(files_t *fi)
 {
-	fi->square.left = 0;
+	fi->square.left = 144;
 	fi->square.top = 0;
 	fi->square.width = 48;
 	fi->square.height = 48;
@@ -30,6 +30,9 @@ void squaresetup_game(files_t *fi)
 	fi->velocity.y = 0;
 	fi->maxspeed.x = speed * 50;
 	fi->maxspeed.y = speed * 50;
+	fi->dialog_box_isopen = 0;
+	fi->nb_pnj = 0;
+	fi->pnj[0].name = "michel";
 	sfSprite_scale(fi->sprite, fi->invers);
 	sfSprite_setTextureRect(fi->sprite, fi->square);
 	sfSprite_setPosition(fi->sprite, fi->square2);
@@ -38,7 +41,7 @@ void squaresetup_game(files_t *fi)
 void characters_setup(files_t *fi)
 {
 	fi->texture =
-	sfTexture_createFromFile("car/car9.png", NULL);
+	sfTexture_createFromFile("car/hero.png", NULL);
 	fi->sprite = sfSprite_create();
 	fi->ID_text =
 	sfTexture_createFromFile("rose.jpg", NULL);

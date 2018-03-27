@@ -28,6 +28,10 @@ FILES		=	main.c				\
 			src/get_layer.c			\
 			src/free.c			\
 			src/player_movement.c		\
+			src/game_object.c		\
+			src/button_generator.c		\
+			src/zone_text.c			\
+			src/create_rect.c		\
 
 SRCS		=	$(FILES)
 

@@ -17,13 +17,13 @@ int interval(float value, float less, float max)
 
 void set_speed_zero(files_t *fi)
 {
-	if (interval(fi->speed.x, 0, speed * 2.5) == 1) {
+	if (interval(fi->speed.x, 0, speed * 2.2) == 1) {
 		fi->speed.x = 0;
-	} if (interval(fi->speed.x, -speed * 2.5, 0) == 1) {
+	} if (interval(fi->speed.x, -speed * 2.2, 0) == 1) {
 		fi->speed.x = 0;
-	} if (interval(fi->speed.y, 0, speed * 2.5) == 1) {
+	} if (interval(fi->speed.y, 0, speed * 2.2) == 1) {
 		fi->speed.y = 0;
-	} if (interval(fi->speed.y, -speed * 2.5, 0) == 1) {
+	} if (interval(fi->speed.y, -speed * 2.2, 0) == 1) {
 		fi->speed.y = 0;
 	}
 }
@@ -58,8 +58,6 @@ void make_player_position(files_t *fi)
 			move_left(fi);
 			break;
 	}
-	if (fi->speed.x != 0 || fi->speed.y != 0)
-		move(fi);
 }
 
 void update_player_position(files_t *fi)

@@ -34,11 +34,14 @@ int game(files_t *fi)
 		while (sfRenderWindow_pollEvent(fi->window, &event)) {
 			if (event.type == sfEvtClosed)
 				a = 1;
+			if (event.key.code == sfKeyD)
+				fi->dialog_box_isopen = 1;
 		}
+		if (fi->dialog_box_isopen == 1)
+			dialog_box(fi);
 		move_ok(fi);
 		update_player_position(fi);
 		move_ID_player(fi);
 		draw(fi);
-		usleep(50000);
 	}
 }

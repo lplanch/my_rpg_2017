@@ -15,15 +15,6 @@ void setup_col(files_t *fi)
 	fi->direction = 3;
 }
 
-sfVector2f create_vector2f(float x, float y)
-{
-	sfVector2f square;
-
-	square.x = x;
-	square.y = y;
-	return (square);
-}
-
 void setup_camera(files_t *fi)
 {
 	fi->view = sfView_create();

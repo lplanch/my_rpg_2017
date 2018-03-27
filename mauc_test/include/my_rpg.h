@@ -19,12 +19,13 @@
 
 #include "struct.h"
 
-static const float speed = 10;
+static const float speed = 3;
 int prog(void);
 int game(files_t *fi);
 void draw(files_t *fi);
 
 sfVector2f create_vector2f(float x, float y);
+sfIntRect create_rect(int top, int left, int width, int height);
 void characters_setup(files_t *fi);
 void setup_camera(files_t *fi);
 void setup_col(files_t *fi);
@@ -50,6 +51,10 @@ void update_player_position(files_t *fi);
 
 void free_tab(char **tab, int y);
 void free_all(files_t *fi);
+
+void dialog_box(files_t *fi);
+void destroy_button(st_button *button);
+st_button *create_button(char *str, g_object *object, sfColor c, int size);
 
 #ifndef MY_COOK_
 #define MY_COOK_

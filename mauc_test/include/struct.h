@@ -5,17 +5,32 @@
 ** struct.h
 */
 
-#include <SFML/Audio.h>
-#include <SFML/Graphics.h>
-
 #ifndef STRUCT_H_
 #define STRUCT_H_
+
+#include <SFML/Audio.h>
+#include <SFML/Graphics.h>
+#include "game_object.h"
+
+typedef struct struct_button
+{
+	t_object *text;
+	g_object *obj;
+} st_button;
+
+typedef struct s_pnj
+{
+	char *name;
+	st_button *dialog_box;
+	g_object *pnj;
+} pnj_t;
 
 typedef struct s_pos
 {
 	int x;
 	int y;
 } pos_t;
+
 typedef struct s_testmap
 {
 	int x;
@@ -66,6 +81,8 @@ typedef struct s_files
 	int nbr_colcircle;
 	int nbr_colsquare;
 	int camera_pos;
+	int dialog_box_isopen;
+	int nb_pnj;
 	sfView *view;
 	sfVector2f camera;
 	sfVector2f camera_prec;
@@ -82,6 +99,7 @@ typedef struct s_files
 	sfSprite *ID_sprite;
 	sfIntRect ID_player;
 	sfVector2f vect_ID_player;
+	pnj_t pnj[1];
 	pos_t pos[10];
 	colcircle_t colcircle[42];
 	colsquare_t colsquare[204];
