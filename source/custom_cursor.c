@@ -41,11 +41,11 @@ void get_cursor_pos(st_rpg *s)
 
 void cust_cursor_animation(st_rpg *s)
 {
-       s->cust.cursor->pos.y += s->cust.sens;
-       if (s->cust.cursor->pos.y > s->cust.cmax ||
-              s->cust.cursor->pos.y < s->cust.cmin)
-              s->cust.sens = -s->cust.sens;
-       sfSprite_setPosition(s->cust.cursor->sprite, s->cust.cursor->pos);
+	s->cust.cursor->pos.y += s->cust.sens;
+	if (s->cust.cursor->pos.y > s->cust.cmax ||
+	    s->cust.cursor->pos.y < s->cust.cmin)
+		s->cust.sens = -s->cust.sens;
+	sfSprite_setPosition(s->cust.cursor->sprite, s->cust.cursor->pos);
 }
 
 void custom_manage_cursor_events_key(st_rpg *s, sfEvent event)
@@ -74,7 +74,7 @@ void custom_manage_cursor_events_mouse(st_rpg *s)
 {
 	for (int i = 0; i != cust_get_buttons(s->cust.menu); i += 1) {
 		if (mouse_in_object(s->cust.bt[i]->obj, s->window) &&
-		    s->cust.option != i) {
+		s->cust.option != i) {
 			s->cust.option = i;
 			get_cursor_pos(s);
 		}

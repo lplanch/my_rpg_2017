@@ -32,7 +32,7 @@ void launch_aoe(sfRenderWindow *window, aoe_t *aoe)
 	aoe->anim->obj->rect.left = 0;
 	aoe->anim->obj->rect.top = 0;
 	aoe->anim->c = 0;
-        aoe->anim->l = 0;
+	aoe->anim->l = 0;
 	aoe->t.sec = 0.0;
 	aoe->shot = 1;
 }

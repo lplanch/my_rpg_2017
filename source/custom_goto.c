@@ -17,11 +17,11 @@ void cust_menu_goto_name(st_rpg *s)
 	destroy_button(s->cust.bt[1]);
 	destroy_button(s->cust.bt[2]);
 	s->cust.bt[1] = create_vbutton("Back", create_vector2f(1100, 600),
-				       grey, 70);
+	grey, 70);
 	s->cust.bt[2] = create_vbutton("Ok !", create_vector2f(1475, 600),
-				       grey, 70);
+	grey, 70);
 	s->cust.bt[3] = create_vbutton("Name", create_vector2f(1250, 400),
-				       grey, 50);
+	grey, 50);
 }
 
 void cust_menu_goto_sex(st_rpg *s)
@@ -32,9 +32,9 @@ void cust_menu_goto_sex(st_rpg *s)
 	destroy_button(s->cust.bt[1]);
 	destroy_button(s->cust.bt[2]);
 	s->cust.bt[1] = create_vbutton("Male", create_vector2f(1100, 600),
-				       grey, 70);
+	grey, 70);
 	s->cust.bt[2] = create_vbutton("Female", create_vector2f(1400, 600),
-				       grey, 70);
+	grey, 70);
 }
 
 void cust_menu_goto_classes(st_rpg *s)
@@ -46,13 +46,13 @@ void cust_menu_goto_classes(st_rpg *s)
 	destroy_button(s->cust.bt[2]);
 	destroy_button(s->cust.bt[3]);
 	s->cust.bt[1] = create_vbutton("Archer", create_vector2f(900, 600),
-				       grey, 50);
+	grey, 50);
 	s->cust.bt[2] = create_vbutton("Gunner", create_vector2f(1150, 600),
-				       grey, 50);
+	grey, 50);
 	s->cust.bt[3] = create_vbutton("Rogue", create_vector2f(1400, 600),
-				       grey, 50);
+	grey, 50);
 	s->cust.bt[4] = create_vbutton("Warrior", create_vector2f(1600, 600),
-      				       grey, 50);
+      	grey, 50);
 	get_cursor_pos_classes(s);
 }
 

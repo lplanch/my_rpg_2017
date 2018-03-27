@@ -16,6 +16,8 @@ void update_archer(st_rpg *s)
 	update_axe(s);
 	update_aoe(s->f.arc.barrage);
 	update_aoe(s->f.arc.heal);
+	if (s->f.arc.heal->shot)
+		heal(s, 1);
 }
 
 void update_gunner(st_rpg *s)
@@ -44,5 +46,5 @@ void update_class(st_rpg *s)
 	void (*list[4])(st_rpg *s) = {update_archer, update_gunner,
 		update_rogue, update_warrior};
 
-	(list[s->cust.cdata.classe])(s);
+	(list[s->player.cdata.classe])(s);
 }

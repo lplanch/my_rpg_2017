@@ -18,26 +18,26 @@ void display_cust(st_rpg *s)
 	sfRenderWindow_drawSprite(s->window, s->cust.cursor->sprite, NULL);
 	if (s->cust.chosen)
 		sfRenderWindow_drawSprite(s->window,
-			s->cust.face->sprite, NULL);
+					  s->cust.face->sprite, NULL);
 }
 
 void destroy_cust_buttons(st_rpg *s)
 {
-       int i = cust_minx_buttons(s->cust.menu);
+	int i = cust_minx_buttons(s->cust.menu);
 
-       while (i != cust_maxx_buttons(s->cust.menu) + 1) {
-              destroy_button(s->cust.bt[i]);
-              i += 1;
-       }
+	while (i != cust_maxx_buttons(s->cust.menu) + 1) {
+		destroy_button(s->cust.bt[i]);
+		i += 1;
+	}
 }
 
 void custom_destroy(st_rpg *s)
 {
-       destroy_object(s->cust.back);
-       destroy_object(s->cust.face);
-       destroy_object(s->cust.cursor);
-       destroy_object(s->cust.circle);
-       destroy_cust_buttons(s);
+	destroy_object(s->cust.back);
+	destroy_object(s->cust.face);
+	destroy_object(s->cust.cursor);
+	destroy_object(s->cust.circle);
+	destroy_cust_buttons(s);
 }
 
 void cust_initialize_buttons(st_rpg *s)

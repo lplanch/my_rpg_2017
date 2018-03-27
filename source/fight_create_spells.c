@@ -70,5 +70,5 @@ void create_class(st_rpg *s)
 	void (*list[4])(st_rpg *s) = {create_spells_archer,
 	create_spells_gunner, create_spells_rogue, create_spells_warrior};
 
-	(list[s->cust.cdata.classe])(s);
+	(list[s->player.cdata.classe])(s);
 }
