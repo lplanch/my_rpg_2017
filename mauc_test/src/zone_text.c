@@ -62,7 +62,9 @@ void event_dialog_box(files_t *fi, sfEvent event, int fd)
 {
 	if (event.type == sfEvtKeyPressed || event.type == sfEvtMouseButtonPressed) {
 		if (sfKeyboard_isKeyPressed(sfKeyReturn) ||
-		sfMouse_isButtonPressed(sfMouseLeft)) {
+		sfMouse_isButtonPressed(sfMouseLeft) &&
+		(mouse_in_object(fi->pnj[fi->nb_pnj].dialog_box->obj,
+		fi->window, fi) == 1)) {
 			if (update_dialog_box(fi, fd) == 1)
 				fi->dialog_box_isopen = 0;
 		}
@@ -71,8 +73,9 @@ void event_dialog_box(files_t *fi, sfEvent event, int fd)
 
 void dialog_box(files_t *fi)
 {
-	//char *path = my_strcat("dialog_box/", fi->pnj[fi->nb_pnj].name);
-	int fd = open("dialog_box/michel", O_RDONLY);
+	char *path = my_strcat(my_strdup("dialog_box/"),
+	my_strdup(fi->pnj[fi->nb_pnj].name));
+	int fd = open(path, O_RDONLY);
 	sfEvent event;
 
 	create_dialog_box(fi);
@@ -84,4 +87,5 @@ void dialog_box(files_t *fi)
 	}
 	destroy_dialog_box(fi);
 	close(fd);
+	free(path);
 }

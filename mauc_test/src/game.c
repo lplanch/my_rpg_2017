@@ -27,6 +27,7 @@ void draw(files_t *fi)
 
 int game(files_t *fi)
 {
+	int b = 0;
 	int a = 0;
 	sfEvent event;
 
@@ -34,8 +35,11 @@ int game(files_t *fi)
 		while (sfRenderWindow_pollEvent(fi->window, &event)) {
 			if (event.type == sfEvtClosed)
 				a = 1;
-			if (event.key.code == sfKeyD)
+			if (event.type == sfEvtKeyPressed && event.key.code == sfKeyD) {
 				fi->dialog_box_isopen = 1;
+				b = rand() % 3 + 0;
+				fi->nb_pnj = b;
+			}
 		}
 		if (fi->dialog_box_isopen == 1)
 			dialog_box(fi);
