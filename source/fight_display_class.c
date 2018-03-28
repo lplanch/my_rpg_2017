@@ -32,7 +32,7 @@ void display_gunner(st_rpg *s)
 
 void display_rogue(st_rpg *s)
 {
-	for (int i = 0; i != 10; i += 1)
+	for (int i = 0; i != 30; i += 1)
 		display_projectile(s->window, s->f.rog.dagger[i]);
 }
 

@@ -71,7 +71,8 @@ FILES		=	source/main.c				\
 			source/hitbox.c				\
 			source/update_effects.c			\
 			source/update_projectiles.c		\
-			source/apply_damage.c
+			source/apply_damage.c			\
+			source/proc_aoes.c
 
 SRCS		=	$(FILES)
 

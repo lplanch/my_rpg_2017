@@ -12,6 +12,8 @@ void rogue_storm(st_rpg *s)
 {
 	s->f.rog.ultcount = 0;
 	s->f.rog.ulting = 1;
+	s->f.rog.ultangle = 1;
+	s->f.rog.side = 0;
 }
 
 void rogue_blind(st_rpg *s)

@@ -23,19 +23,15 @@ void update_projectile_gunner(st_rpg *s)
 
 void update_projectile_rogue(st_rpg *s)
 {
-
-}
-
-void update_projectile_warrior(st_rpg *s)
-{
-
+	for (int i = 0; i != 30; i += 1)
+		apply_projectile(s->f.rog.dagger[i], s->f.mob);
 }
 
 void update_projectiles(st_rpg *s)
 {
-	void (*list[4])(st_rpg *s) = {update_projectile_archer,
-	update_projectile_gunner, update_projectile_rogue,
-	update_projectile_warrior};
+	void (*list[3])(st_rpg *s) = {update_projectile_archer,
+	update_projectile_gunner, update_projectile_rogue};
 
-	(list[s->player.cdata.classe])(s);
+	if (s->player.cdata.classe != 3)
+		(list[s->player.cdata.classe])(s);
 }

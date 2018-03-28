@@ -14,10 +14,10 @@ void update_archer(st_rpg *s)
 		update_projectile(s->f.arc.arrow[i]);
 	update_kalash(s);
 	update_axe(s);
-	update_aoe(s->f.arc.barrage);
-	update_aoe(s->f.arc.heal);
 	if (s->f.arc.heal->shot)
-		heal(s, 1);
+		clocked_animation(s->f.arc.heal->anim);
+	if (s->f.arc.barrage->shot)
+		clocked_animation(s->f.arc.barrage->anim);
 }
 
 void update_gunner(st_rpg *s)
@@ -31,7 +31,7 @@ void update_gunner(st_rpg *s)
 
 void update_rogue(st_rpg *s)
 {
-	for (int i = 0; i != 10; i += 1)
+	for (int i = 0; i != 30; i += 1)
 		update_projectile(s->f.rog.dagger[i]);
 	rogue_update_storm(s);
 }

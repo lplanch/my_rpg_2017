@@ -64,9 +64,12 @@ typedef struct aoe
 {
 	sfCircleShape *circle;
 	int shot;
-	st_time t;
 	st_anim *anim;
+	char *effect;
+	float dmg;
+	float dmgratio;
 	float duration;
+	float count;
 } aoe_t;
 
 typedef struct struct_archer_spells
@@ -102,7 +105,9 @@ typedef struct struct_gunner_spells
 
 typedef struct struct_rogue_spells
 {
-	proj_t *dagger[10];
+	proj_t *dagger[30];
+	float ultangle;
+	int side;
 	int current;
 	int ultcount;
 	int ulting;
@@ -209,6 +214,11 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void update_effects(st_rpg *s);
+void apply_aoe(aoe_t *aoe, enemy_t *mob);
+void proc_aoe(st_rpg *s, aoe_t *aoe);
+void proc_aoes(st_rpg *s);
+aoe_t *create_aoe_from_file(char *path);
 void apply_projectile(proj_t *proj, enemy_t *mob);
 void projectile_damage_enemy(proj_t *proj, enemy_t *mob);
 int hitbox(g_object *attack, g_object *target);

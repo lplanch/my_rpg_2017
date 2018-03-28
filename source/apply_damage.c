@@ -20,3 +20,8 @@ void apply_projectile(proj_t *proj, enemy_t *mob)
 		proj->shot = 0;
 	}
 }
+
+void apply_aoe(aoe_t *aoe, enemy_t *mob)
+{
+	mob->stat->pva -= aoe->dmg;
+}

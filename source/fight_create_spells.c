@@ -20,12 +20,14 @@ void create_spells_archer(st_rpg *s)
 	s->f.arc.axeangle = 0;
 	s->f.arc.kalashcount = 0;
 	s->f.arc.kalashspeed = 0.08;
-	s->f.arc.barrage = create_aoe(create_circle(100, 5, sfRed),
+	/*s->f.arc.barrage = create_aoe(create_circle(100, 5, sfRed),
 	create_anim(create_object("spells/0/barrage.png", create_vector2f(0, 0),
 	create_rect(0, 0, 192, 192), 0), create_vector2i(8, 8), 0.03), 4);
 	s->f.arc.heal = create_aoe(create_circle(100, 5, sfGreen),
 	create_anim(create_object("spells/0/healaoe.png", create_vector2f(0, 0),
-	create_rect(0, 0, 192, 192), 0), create_vector2i(5, 5), 0.1), 4);
+	create_rect(0, 0, 192, 192), 0), create_vector2i(5, 5), 0.1), 4);*/
+	s->f.arc.heal = create_aoe_from_file("spells/0/Heal");
+	s->f.arc.barrage = create_aoe_from_file("spells/0/Barrage");
 }
 
 void create_spells_gunner(st_rpg *s)
@@ -51,10 +53,12 @@ void create_spells_gunner(st_rpg *s)
 
 void create_spells_rogue(st_rpg *s)
 {
-	for (int i = 0; i != 10; i += 1)
+	for (int i = 0; i != 30; i += 1)
 		s->f.rog.dagger[i] = create_projectile("projectile/Kunai");
 	s->f.rog.ultspeed = 0.1;
+	s->f.rog.side = 0;
 	s->f.rog.ultcount = 0;
+	s->f.rog.ultangle = 1;
 	s->f.rog.ulting = 0;
 	s->f.rog.current = 0;
 	s->f.rog.ultt = create_st_time();

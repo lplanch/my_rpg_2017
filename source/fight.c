@@ -53,6 +53,7 @@ int fight_instance(st_rpg *s)
 		update_bars(s);
 		update_icons_cd(s);
 		update_projectiles(s);
+		update_effects(s);
 		update_mob_example(s);
 		sfRenderWindow_clear(s->window, sfWhite);
 		display_icons(s);
