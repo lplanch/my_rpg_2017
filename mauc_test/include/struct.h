@@ -21,6 +21,7 @@ typedef struct struct_button
 typedef struct s_pnj
 {
 	char *name;
+	st_button *name_box;
 	st_button *dialog_box;
 	g_object *pnj;
 } pnj_t;

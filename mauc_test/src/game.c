@@ -21,13 +21,13 @@ void draw(files_t *fi)
 	sfRenderWindow_drawSprite(fi->window, fi->ID_sprite, NULL);
 	sfRenderWindow_drawSprite(fi->window, fi->sprite, NULL);
 	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite4, NULL);
+	sfRenderWindow_drawSprite(fi->window, fi->pnj[0].pnj->sprite, NULL);
 	sfRenderWindow_display(fi->window);
 	usleep(1);
 }
 
 int game(files_t *fi)
 {
-	int b = 0;
 	int a = 0;
 	sfEvent event;
 
@@ -37,8 +37,7 @@ int game(files_t *fi)
 				a = 1;
 			if (event.type == sfEvtKeyPressed && event.key.code == sfKeyD) {
 				fi->dialog_box_isopen = 1;
-				b = rand() % 3 + 0;
-				fi->nb_pnj = b;
+				fi->nb_pnj = rand() % 5 + 0;
 			}
 		}
 		if (fi->dialog_box_isopen == 1)

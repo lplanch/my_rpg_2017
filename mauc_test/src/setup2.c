@@ -27,3 +27,20 @@ void setup_camera(files_t *fi)
 	sfView_setCenter(fi->view, fi->camera);
 	sfRenderWindow_setView(fi->window, fi->view);
 }
+
+void pnj_setup(files_t *fi)
+{
+	int i = 0;
+	int tot_pnj = 3;
+	sfVector2f invers;
+
+	invers.x = 2;
+	invers.y = 2;
+	while (i != tot_pnj) {
+		fi->pnj[i].pnj = create_object("car/car6.png",
+		create_vector2f(3640, 3069),
+		create_rect(96, 48, 48, 48), 0);
+		sfSprite_scale(fi->pnj[i].pnj->sprite, invers);
+		i++;
+	}
+}

@@ -31,12 +31,12 @@ void squaresetup_game(files_t *fi)
 	fi->maxspeed.x = speed * 50;
 	fi->maxspeed.y = speed * 50;
 	fi->dialog_box_isopen = 0;
-	fi->nb_pnj = 1;
+	fi->nb_pnj = 2;
 	fi->pnj[0].name = "michel";
 	fi->pnj[1].name = "samy";
 	fi->pnj[2].name = "martin";
 	fi->pnj[3].name = "bob";
-	fi->pnj[3].name = "miss";
+	fi->pnj[4].name = "miss";
 	sfSprite_scale(fi->sprite, fi->invers);
 	sfSprite_setTextureRect(fi->sprite, fi->square);
 	sfSprite_setPosition(fi->sprite, fi->square2);

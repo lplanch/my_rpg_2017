@@ -12,11 +12,13 @@ void move_allpts2(files_t *fi)
 {
 	fi->pos[6].x = fi->vect_ID_player.x + (fi->ID_player.width / 4);
 	fi->pos[6].y = fi->vect_ID_player.y;
-	fi->pos[7].x = fi->vect_ID_player.x + (fi->ID_player.width / 2) + (fi->ID_player.width / 4);
+	fi->pos[7].x = fi->vect_ID_player.x +
+	(fi->ID_player.width / 2) + (fi->ID_player.width / 4);
 	fi->pos[7].y = fi->vect_ID_player.y;
 	fi->pos[8].x = fi->vect_ID_player.x + (fi->ID_player.width / 4);
 	fi->pos[8].y = fi->vect_ID_player.y + fi->ID_player.height;
-	fi->pos[9].x = fi->vect_ID_player.x + (fi->ID_player.width / 2) + (fi->ID_player.width / 4);
+	fi->pos[9].x = fi->vect_ID_player.x +
+	(fi->ID_player.width / 2) + (fi->ID_player.width / 4);
 	fi->pos[9].y = fi->vect_ID_player.y + fi->ID_player.height;
 }
 

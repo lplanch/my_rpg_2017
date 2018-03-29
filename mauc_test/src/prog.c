@@ -12,6 +12,7 @@ sfRenderWindow* window_create(files_t *fi, char *name)
 {
 	sfVideoMode window2 = {1920, 1080, 32};
 	fi->window = sfRenderWindow_create(window2, name, sfClose, NULL);
+	sfRenderWindow_setFramerateLimit(fi->window, 120);
 	return (0);
 }
 
@@ -55,6 +56,7 @@ void destroy(files_t *fi)
 void create2(files_t *fi)
 {
 	characters_setup(fi);
+	pnj_setup(fi);
 }
 
 void create(files_t *fi)

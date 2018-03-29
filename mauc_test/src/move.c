@@ -10,13 +10,13 @@
 
 void move_camera(files_t *fi)
 {
-	if ((fi->square2.x <= 960 && fi->square2.x >= 136 && fi->square2.y >= 24 && fi->square2.y <= 3090) || (fi->square2.x <= 6719 && fi->square2.x >= 6216 && fi->square2.y >= 3709 && fi->square2.y <= 5970))
+	if ((fi->square2.x <= 960 && fi->square2.x >= 136 && fi->square2.y >= 24 && fi->square2.y <= 3100) || (fi->square2.x <= 6719 && fi->square2.x >= 6216 && fi->square2.y >= 3709 && fi->square2.y <= 5970))
 		fi->camera_pos = 2;
-	if ((fi->square2.x >= 8931 && fi->square2.x <= 9378 && fi->square2.y >= 24 && fi->square2.y <= 3090) || (fi->square2.x <= 8708 && fi->square2.x >= 7840 && fi->square2.y >= 3709 && fi->square2.y <= 5970))
+	if ((fi->square2.x >= 8931 && fi->square2.x <= 9378 && fi->square2.y >= 24 && fi->square2.y <= 3100) || (fi->square2.x <= 8708 && fi->square2.x >= 7840 && fi->square2.y >= 3709 && fi->square2.y <= 5970))
 		fi->camera_pos = 2;
 	if ((fi->square2.y <= 532 && fi->square2.y >= 24 && fi->square2.x >= 136 && fi->square2.x <= 9378) || (fi->square2.y <= 5970 && fi->square2.y >= 5597 && fi->square2.x >= 6270 && fi->square2.x <= 8708))
 		fi->camera_pos = 3;
-	if ((fi->square2.y >= 2740 && fi->square2.y <= 3095 && fi->square2.x >= 136 && fi->square2.x <= 9378) || (fi->square2.y <= 3915 && fi->square2.y >= 3709 && fi->square2.x >= 6270 && fi->square2.x <= 8708))
+	if ((fi->square2.y >= 2740 && fi->square2.y <= 3100 && fi->square2.x >= 136 && fi->square2.x <= 9378) || (fi->square2.y <= 3915 && fi->square2.y >= 3709 && fi->square2.x >= 6270 && fi->square2.x <= 8708))
 		fi->camera_pos = 3;
 	if ((fi->square2.y >= 4255 && fi->square2.y <= 4617 && fi->square2.x >= 746 && fi->square2.x <= 923))
 		fi->camera_pos = 1;

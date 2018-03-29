@@ -29,6 +29,7 @@ sfIntRect create_rect(int top, int left, int width, int height);
 void characters_setup(files_t *fi);
 void setup_camera(files_t *fi);
 void setup_col(files_t *fi);
+void pnj_setup(files_t *fi);
 
 void move(files_t *fi);
 void move_camera(files_t *fi);
