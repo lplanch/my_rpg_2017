@@ -33,7 +33,7 @@ void init_player(gmanager_t *gman, proc_t *proc)
 	sfSprite_setScale(gman->player.sprite, zoom);
 }
 
-gmanager_t *init_dungeon_game(proc_t *proc)
+gmanager_t *init_dungeon_game(proc_t *proc, gage_t *gage)
 {
 	gmanager_t *gman = malloc(sizeof(gmanager_t));
 
@@ -49,7 +49,7 @@ gmanager_t *init_dungeon_game(proc_t *proc)
 	sfView_zoom(gman->camera, 0.5);
 	sfView_setCenter(gman->camera, gman->camera_pos);
 	sfRenderWindow_setView(gman->window, gman->camera);
-	init_minimap(proc);
+	init_minimap(gage, proc);
 	gman->clock = sfClock_create();
 	gman->dt = 1.;
 	return (gman);
@@ -91,7 +91,7 @@ int update_sprite(proc_t *proc)
 
 int launch_dungeon_game(gage_t *gage)
 {
-	gage->proc->gman = init_dungeon_game(gage->proc);
+	gage->proc->gman = init_dungeon_game(gage->proc, gage);
 	while (sfRenderWindow_isOpen(gage->proc->gman->window)) {
 		verif_input_map(gage);
 		update_sprite(gage->proc);

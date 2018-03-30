@@ -20,6 +20,14 @@ static const unsigned int WIDTH = 1664;
 static const unsigned int HEIGHT = 936;
 static const char window_name[13] = "INTO THE DEEP";
 
+//INPUTS
+static const sfKeyCode key_up = sfKeyZ;
+static const sfKeyCode key_down = sfKeyS;
+static const sfKeyCode key_left = sfKeyQ;
+static const sfKeyCode key_right = sfKeyD;
+static const sfKeyCode key_map = sfKeyTab;
+static const sfKeyCode key_fast_inv = sfKeyLShift;
+
 //MAKE MAP
 proc_t *map_creation(gage_t *gage);
 void make_positions_proom(gage_t *gage, proc_t *proc);
@@ -57,7 +65,7 @@ void verify_x_movement(proc_t *proc);
 int interval(float value, float less, float max);
 
 //MINIMAP
-void init_minimap(proc_t *proc);
+void init_minimap(gage_t *gage, proc_t *proc);
 void verify_minimap(gage_t *gage);
 void update_minimap(proc_t *proc);
 void draw_rect_room(proc_t *proc, proom_t *proom, int x, int y);

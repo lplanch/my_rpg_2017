@@ -53,7 +53,7 @@ NC		=	\033[0m
 GREY		=	\033[90m
 BG_COLOR	=	\033[46m
 
-all:			$(NAME)
+all:		$(NAME)
 
 $(NAME):	$(OBJ)
 	@echo -e '${BG_COLOR}Flags: $(LDFLAGS) $(CFLAGS)${NC}'

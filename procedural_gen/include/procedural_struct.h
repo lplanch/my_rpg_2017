@@ -21,6 +21,8 @@ typedef struct minimap {
 	sfTexture *fm_texture;
 	sfSprite *fb_sprite;
 	sfSprite *fm_sprite;
+	sfFont *current_level_font;
+	sfText *current_level_text;
 } minimap_t;
 
 
@@ -94,5 +96,6 @@ typedef struct proc_var
 typedef struct game_agent
 {
 	proc_t *proc;
+	ingame_t ingame;
 	proc_var_t *pvar;
 } gage_t;

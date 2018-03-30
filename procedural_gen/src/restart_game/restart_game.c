@@ -35,6 +35,9 @@ void print_map(char **map)
 
 void init_next_level(gage_t *gage)
 {
+	char *cur_level = int_to_str(gage->pvar->current_floor);
+	char *level_string = my_strcat("Floor ", cur_level);
+
 	create_char_map_restart(gage);
 	gage->proc->smap = create_sprite_map(gage, gage->proc->map);
 	gage->proc->gman->player.pos = get_entry_pos(gage->proc);
@@ -44,6 +47,9 @@ void init_next_level(gage_t *gage)
 	gage->proc->gman->player.nbr_frame.y = 0;
 	gage->proc->gman->dt = 1;
 	reset_screen(gage->proc->minimap->f_minimap);
+	sfText_setString(gage->proc->minimap->current_level_text, level_string);
+	free(cur_level);
+	free(level_string);
 }
 
 void draw_floor_restart(gage_t *gage)

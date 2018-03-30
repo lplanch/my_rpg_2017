@@ -26,3 +26,10 @@ int is_wall(char block)
 	}
 	return (0);
 }
+
+int interval(float value, float less, float max)
+{
+	if (value > less && value < max)
+		return (1);
+	return (0);
+}
