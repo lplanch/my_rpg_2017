@@ -18,8 +18,6 @@ sfRenderWindow* window_create(files_t *fi, char *name)
 
 void destroy_sprite(files_t *fi)
 {
-	sfSprite_destroy(fi->sprite);
-	sfSprite_destroy(fi->ID_sprite);
 	sfSprite_destroy(fi->testmap.sprite);
 	sfSprite_destroy(fi->testmap.sprite2);
 	sfSprite_destroy(fi->testmap.sprite3);
@@ -29,8 +27,6 @@ void destroy_sprite(files_t *fi)
 
 void destroy_texture(files_t *fi)
 {
-	sfTexture_destroy(fi->texture);
-	sfTexture_destroy(fi->ID_text);
 	sfTexture_destroy(fi->testmap.texture);
 	sfTexture_destroy(fi->testmap.texture2);
 	sfTexture_destroy(fi->testmap.texture3);
@@ -46,9 +42,10 @@ void destroy(files_t *fi)
 	sfImage_destroy(fi->testmap.testmap_col);
 	sfImage_destroy(fi->testmap.testmap_colID);
 	sfImage_destroy(fi->testmap.testmap_prof);
-	//sfView_destroy (fi->view);
 	destroy_sprite(fi);
 	destroy_texture(fi);
+	destroy_object(fi->characters);
+	destroy_object(fi->ID_characters);
 	free_all(fi);
 	sfRenderWindow_destroy(fi->window);
 }
@@ -57,6 +54,7 @@ void create2(files_t *fi)
 {
 	characters_setup(fi);
 	pnj_setup(fi);
+	setup_variable(fi);
 }
 
 void create(files_t *fi)

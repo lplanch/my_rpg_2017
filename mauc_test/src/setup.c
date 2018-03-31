@@ -8,22 +8,8 @@
 #include "my.h"
 #include "my_rpg.h"
 
-void spriteset_game(files_t *fi)
+void setup_variable(files_t *fi)
 {
-	sfSprite_setTexture(fi->sprite, fi->texture, sfTrue);
-	sfSprite_setTexture(fi->ID_sprite, fi->ID_text, sfTrue);
-}
-
-void squaresetup_game(files_t *fi)
-{
-	fi->square.left = 144;
-	fi->square.top = 0;
-	fi->square.width = 48;
-	fi->square.height = 48;
-	fi->square2.x = 3720;
-	fi->square2.y = 1800;
-	fi->invers.x = 2;
-	fi->invers.y = 2;
 	fi->speed.x = 0;
 	fi->speed.y = 0;
 	fi->velocity.x = 0;
@@ -32,27 +18,21 @@ void squaresetup_game(files_t *fi)
 	fi->maxspeed.y = speed * 50;
 	fi->dialog_box_isopen = 0;
 	fi->nb_pnj = 2;
-	fi->pnj[0].name = "michel";
-	fi->pnj[1].name = "samy";
-	fi->pnj[2].name = "martin";
-	fi->pnj[3].name = "bob";
-	fi->pnj[4].name = "miss";
-	sfSprite_scale(fi->sprite, fi->invers);
-	sfSprite_setTextureRect(fi->sprite, fi->square);
-	sfSprite_setPosition(fi->sprite, fi->square2);
 }
 
 void characters_setup(files_t *fi)
 {
-	fi->texture =
-	sfTexture_createFromFile("car/hero.png", NULL);
-	fi->sprite = sfSprite_create();
-	fi->ID_text =
-	sfTexture_createFromFile("rose.jpg", NULL);
-	fi->ID_sprite = sfSprite_create();
-	squaresetup_game(fi);
-	spriteset_game(fi);
-	sfSprite_setTextureRect(fi->sprite, fi->square);
+	sfVector2f invers;
+
+	invers.x = 2;
+	invers.y = 2;
+	fi->characters = create_object("car/hero.png",
+	create_vector2f(3720, 1800),
+	create_rect(0, 144, 48, 48), 0);
+	sfSprite_scale(fi->characters->sprite, invers);
+	fi->ID_characters = create_object("rose.jpg",
+	create_vector2f(3720, 1800),
+	create_rect(144, 0, 48, 48), 0);
 	setup_camera(fi);
 	setup_col(fi);
 }

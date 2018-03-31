@@ -85,6 +85,8 @@ typedef struct s_files
 	int dialog_box_isopen;
 	int nb_pnj;
 	sfView *view;
+	g_object *characters;
+	g_object *ID_characters;
 	sfVector2f camera;
 	sfVector2f camera_prec;
 	sfRenderWindow *window;

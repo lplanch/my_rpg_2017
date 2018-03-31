@@ -28,6 +28,7 @@ sfVector2f create_vector2f(float x, float y);
 sfIntRect create_rect(int top, int left, int width, int height);
 void characters_setup(files_t *fi);
 void setup_camera(files_t *fi);
+void setup_variable(files_t *fi);
 void setup_col(files_t *fi);
 void pnj_setup(files_t *fi);
 
@@ -38,6 +39,7 @@ void move_up(files_t *fi);
 void move_down(files_t *fi);
 void move_right(files_t *fi);
 void move_left(files_t *fi);
+void move_allpts(files_t *fi);
 void move_ID_player(files_t *fi);
 
 int collision(files_t *fi);
