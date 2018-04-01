@@ -31,6 +31,7 @@ void setup_camera(files_t *fi);
 void setup_variable(files_t *fi);
 void setup_col(files_t *fi);
 void pnj_setup(files_t *fi);
+void get_all_pnj(files_t *fi, char *path);
 
 void move(files_t *fi);
 void move_camera(files_t *fi);

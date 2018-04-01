@@ -13,7 +13,7 @@ int my_strlengnl(char *str)
 {
 	int len = 0;
 
-	for (len; str[len] != '\0'; len++);
+	for (; str[len] != '\0'; len++);
 	return (len);
 }
 
@@ -22,7 +22,7 @@ char *my_strcatgnl(char *str1, char *str2)
 	int j = 0;
 	int i = 0;
 	char *result = malloc(sizeof(char) *
-			      (my_strlengnl(str1) + my_strlengnl(str2) + 1));
+	(my_strlengnl(str1) + my_strlengnl(str2) + 1));
 
 	if (result == NULL)
 		return (NULL);
@@ -44,9 +44,9 @@ char *increment_buff(char *result, char *buffer, char *resul)
 	int i = 0;
 
 	result[-1] = '\0';
-	for (i; result[i] != '\0'; i++)
+	for (; result[i] != '\0'; i++)
 		buffer[i] = result[i];
-	for (i; i < READ_SIZE; i++)
+	for (; i < READ_SIZE; i++)
 		buffer[i] = '\0';
 	return (resul);
 }
