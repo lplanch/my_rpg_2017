@@ -90,10 +90,6 @@ typedef struct s_files
 	sfVector2f camera;
 	sfVector2f camera_prec;
 	sfRenderWindow *window;
-	sfTexture *texture;
-	sfSprite *sprite;
-	sfIntRect square;
-	sfVector2f square2;
 	sfVector2f speed;
 	sfVector2f velocity;
 	sfVector2f invers;

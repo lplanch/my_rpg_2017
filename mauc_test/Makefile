@@ -27,6 +27,7 @@ FILES		=	main.c				\
 			src/lib_func.c			\
 			src/get_layer.c			\
 			src/free.c			\
+			src/get_pnj.c			\
 			src/player_movement.c		\
 			src/game_object.c		\
 			src/button_generator.c		\

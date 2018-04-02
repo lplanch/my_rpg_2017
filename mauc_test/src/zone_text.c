@@ -54,7 +54,7 @@ void create_dialog_box(files_t *fi)
 	float pos_x = fi->camera.x - 450;
 	float pos_y = fi->camera.y + 250;
 	float pos_text_x = pos_x + 50;
-	float pos_text_y = pos_y + 60;
+	float pos_text_y = pos_y + 70;
 
 	fi->pnj[fi->nb_pnj].dialog_box = create_button("jk",
 	create_object("dialog_box/dialog_box_obj.png",
@@ -68,7 +68,7 @@ void create_name_box(files_t *fi)
 	float pos_x = fi->camera.x - 440;
 	float pos_y = fi->camera.y + 200;
 	float pos_text_x = pos_x + 30;
-	float pos_text_y = pos_y + 24;
+	float pos_text_y = pos_y + 26;
 
 	fi->pnj[fi->nb_pnj].name_box = create_button(fi->pnj[fi->nb_pnj].name,
 	create_object("dialog_box/name_box_obj.png",

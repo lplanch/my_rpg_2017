@@ -30,7 +30,7 @@ void characters_setup(files_t *fi)
 	create_vector2f(3720, 1800),
 	create_rect(0, 144, 48, 48), 0);
 	sfSprite_scale(fi->characters->sprite, invers);
-	fi->ID_characters = create_object("rose.jpg",
+	fi->ID_characters = create_object("car/rose.jpg",
 	create_vector2f(3720, 1800),
 	create_rect(144, 0, 48, 48), 0);
 	setup_camera(fi);
