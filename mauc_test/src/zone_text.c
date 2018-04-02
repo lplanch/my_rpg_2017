@@ -24,6 +24,7 @@ void draw_dialog_box(files_t *fi)
 	//sfRenderWindow_drawSprite(fi->window, fi->ID_characters->sprite, NULL);
 	sfRenderWindow_drawSprite(fi->window, fi->characters->sprite, NULL);
 	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite4, NULL);
+	draw_pnj(fi);
 	sfRenderWindow_drawSprite(fi->window,
 	fi->pnj[fi->nb_pnj].dialog_box->obj->sprite, NULL);
 	sfRenderWindow_drawText(fi->window,

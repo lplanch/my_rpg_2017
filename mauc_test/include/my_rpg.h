@@ -23,6 +23,7 @@ static const float speed = 3;
 int prog(void);
 int game(files_t *fi);
 void draw(files_t *fi);
+void draw_pnj(files_t *fi);
 
 sfVector2f create_vector2f(float x, float y);
 sfIntRect create_rect(int top, int left, int width, int height);

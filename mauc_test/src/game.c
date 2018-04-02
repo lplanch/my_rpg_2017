@@ -8,6 +8,17 @@
 #include "my.h"
 #include "my_rpg.h"
 
+void draw_pnj(files_t *fi)
+{
+	int i = 0;
+	int nbpnj = 4;
+
+	while (i != nbpnj) {
+		sfRenderWindow_drawSprite(fi->window, fi->pnj[i].pnj->sprite, NULL);
+		i++;
+	}
+}
+
 void draw(files_t *fi)
 {
 	sfSprite_setTextureRect(fi->characters->sprite, fi->characters->rect);
@@ -20,10 +31,7 @@ void draw(files_t *fi)
 	//sfRenderWindow_drawSprite(fi->window, fi->ID_characters->sprite, NULL);
 	sfRenderWindow_drawSprite(fi->window, fi->characters->sprite, NULL);
 	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite4, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->pnj[0].pnj->sprite, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->pnj[1].pnj->sprite, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->pnj[2].pnj->sprite, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->pnj[3].pnj->sprite, NULL);
+	draw_pnj(fi);
 	sfRenderWindow_display(fi->window);
 	usleep(1);
 }
