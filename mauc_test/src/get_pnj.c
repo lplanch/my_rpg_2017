@@ -15,13 +15,13 @@ sfIntRect get_pnj_rect(int fd)
 	char *buffer = get_next_line(fd);
 
 	rect.left = my_getnbr_i(buffer, 0);
-	for (i = 0; buffer[i] != ' '; i++);
+	for (i ; buffer[i] != ' '; i++);
 	i++;
 	rect.top = my_getnbr_i(buffer, i);
-	for (i = 0; buffer[i] != ' '; i++);
+	for (i; buffer[i] != ' '; i++);
 	i++;
 	rect.width = my_getnbr_i(buffer, i);
-	for (i = 0; buffer[i] != ' '; i++);
+	for (i; buffer[i] != ' '; i++);
 	i++;
 	rect.height = my_getnbr_i(buffer, i);
 	free(buffer);
