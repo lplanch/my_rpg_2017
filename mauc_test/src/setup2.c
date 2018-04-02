@@ -28,15 +28,6 @@ void setup_camera(files_t *fi)
 	sfRenderWindow_setView(fi->window, fi->view);
 }
 
-void setup_name_pnj(files_t *fi)
-{
-	fi->pnj[0].name = "michel";
-	fi->pnj[1].name = "samy";
-	fi->pnj[2].name = "martin";
-	fi->pnj[3].name = "bob";
-	fi->pnj[4].name = "miss";
-}
-
 void pnj_setup(files_t *fi)
 {
 	int i = 0;
@@ -45,13 +36,5 @@ void pnj_setup(files_t *fi)
 
 	invers.x = 2;
 	invers.y = 2;
-	//setup_name_pnj(fi);
 	get_all_pnj(fi, "dialog_box/pnj/");
-	/*while (i != tot_pnj) {
-		fi->pnj[i].pnj = create_object("car/car6.png",
-		create_vector2f(3640, 3069),
-		create_rect(96, 48, 48, 48), 0);
-		sfSprite_scale(fi->pnj[i].pnj->sprite, invers);
-		i++;
-	}*/
 }

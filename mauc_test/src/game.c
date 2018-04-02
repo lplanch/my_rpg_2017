@@ -21,6 +21,9 @@ void draw(files_t *fi)
 	sfRenderWindow_drawSprite(fi->window, fi->characters->sprite, NULL);
 	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite4, NULL);
 	sfRenderWindow_drawSprite(fi->window, fi->pnj[0].pnj->sprite, NULL);
+	sfRenderWindow_drawSprite(fi->window, fi->pnj[1].pnj->sprite, NULL);
+	sfRenderWindow_drawSprite(fi->window, fi->pnj[2].pnj->sprite, NULL);
+	sfRenderWindow_drawSprite(fi->window, fi->pnj[3].pnj->sprite, NULL);
 	sfRenderWindow_display(fi->window);
 	usleep(1);
 }
