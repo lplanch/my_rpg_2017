@@ -45,7 +45,7 @@ void pnj_setup(files_t *fi)
 
 	invers.x = 2;
 	invers.y = 2;
-	setup_name_pnj(fi);
+	//setup_name_pnj(fi);
 	get_all_pnj(fi, "dialog_box/pnj/");
 	/*while (i != tot_pnj) {
 		fi->pnj[i].pnj = create_object("car/car6.png",

@@ -75,6 +75,5 @@ void get_all_pnj(files_t *fi, char *path)
 			i++;
 		}
 	}
-	free(path);
 	closedir(dir);
 }
