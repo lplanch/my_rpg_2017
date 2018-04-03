@@ -37,6 +37,7 @@ typedef struct s_testmap
 	int x;
 	int x2;
 	int y;
+	int **tab_tileset;
 	int *layer_background;
 	int *layer_relief;
 	int *layer_col;
@@ -95,11 +96,8 @@ typedef struct s_files
 	sfVector2f velocity;
 	sfVector2f invers;
 	sfVector2f maxspeed;
-	sfTexture *ID_text;
-	sfSprite *ID_sprite;
-	sfIntRect ID_player;
 	sfVector2f vect_ID_player;
-	pnj_t pnj[5];
+	pnj_t pnj[4];
 	pos_t pos[10];
 	colcircle_t colcircle[42];
 	colsquare_t colsquare[204];

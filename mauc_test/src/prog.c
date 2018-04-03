@@ -16,6 +16,18 @@ sfRenderWindow* window_create(files_t *fi, char *name)
 	return (0);
 }
 
+void destroy_pnj(files_t *fi)
+{
+	int i = 0;
+
+	while (i != fi->max_pnj) {
+		printf("%s\n", "aa");
+		destroy_object(fi->pnj[i].pnj);
+		free(fi->pnj[i].name);
+		i++;
+	}
+}
+
 void destroy_sprite(files_t *fi)
 {
 	sfSprite_destroy(fi->testmap.sprite);
@@ -44,6 +56,7 @@ void destroy(files_t *fi)
 	sfImage_destroy(fi->testmap.testmap_prof);
 	destroy_sprite(fi);
 	destroy_texture(fi);
+	destroy_pnj(fi);
 	destroy_object(fi->characters);
 	destroy_object(fi->ID_characters);
 	free_all(fi);

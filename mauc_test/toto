@@ -1,0 +1,89 @@
+==18925== Memcheck, a memory error detector
+==18925== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==18925== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==18925== Command: ./my_rpg
+==18925== Parent PID: 1490
+==18925== 
+==18925== Warning: noted but unhandled ioctl 0x6458 with no size/direction hints.
+==18925==    This could cause spurious value errors to appear.
+==18925==    See README_MISSING_SYSCALL_OR_IOCTL for guidance on writing a proper wrapper.
+==18925== 
+==18925== HEAP SUMMARY:
+==18925==     in use at exit: 531,109 bytes in 733 blocks
+==18925==   total heap usage: 122,582 allocs, 121,849 frees, 1,076,387,231 bytes allocated
+==18925== 
+==18925== 1 bytes in 1 blocks are definitely lost in loss record 1 of 73
+==18925==    at 0x4C2EB6B: malloc (vg_replace_malloc.c:299)
+==18925==    by 0x406F3F: get_next_line (get_next_line.c:74)
+==18925==    by 0x4055C6: get_layer (get_layer.c:63)
+==18925==    by 0x404425: create_layers (tileset.c:278)
+==18925==    by 0x4045BE: create_images (tileset.c:299)
+==18925==    by 0x4045D9: create_map (tileset.c:304)
+==18925==    by 0x403297: prog (prog.c:90)
+==18925==    by 0x4017FA: main (main.c:13)
+==18925== 
+==18925== 168 bytes in 1 blocks are definitely lost in loss record 43 of 73
+==18925==    at 0x4C2F1CA: operator new(unsigned long) (vg_replace_malloc.c:334)
+==18925==    by 0x4E5D4DF: sfView_create (in /usr/local/lib/libc_graph_prog.so)
+==18925==    by 0x4034F7: setup_camera (setup2.c:20)
+==18925==    by 0x4034A4: characters_setup (setup.c:37)
+==18925==    by 0x40317B: create2 (prog.c:68)
+==18925==    by 0x4031BF: create (prog.c:76)
+==18925==    by 0x403288: prog (prog.c:89)
+==18925==    by 0x4017FA: main (main.c:13)
+==18925== 
+==18925== 24,001 bytes in 1 blocks are definitely lost in loss record 69 of 73
+==18925==    at 0x4C2EB6B: malloc (vg_replace_malloc.c:299)
+==18925==    by 0x406CE2: my_strcat_nl (get_next_line.c:21)
+==18925==    by 0x406F87: get_next_line (get_next_line.c:81)
+==18925==    by 0x40556C: get_layer (get_layer.c:58)
+==18925==    by 0x404425: create_layers (tileset.c:278)
+==18925==    by 0x4045BE: create_images (tileset.c:299)
+==18925==    by 0x4045D9: create_map (tileset.c:304)
+==18925==    by 0x403297: prog (prog.c:90)
+==18925==    by 0x4017FA: main (main.c:13)
+==18925== 
+==18925== 48,018 bytes in 2 blocks are definitely lost in loss record 70 of 73
+==18925==    at 0x4C2EB6B: malloc (vg_replace_malloc.c:299)
+==18925==    by 0x40698B: my_calloc (my_calloc.c:12)
+==18925==    by 0x40550F: set_int (get_layer.c:48)
+==18925==    by 0x405609: get_layer (get_layer.c:71)
+==18925==    by 0x404425: create_layers (tileset.c:278)
+==18925==    by 0x4045BE: create_images (tileset.c:299)
+==18925==    by 0x4045D9: create_map (tileset.c:304)
+==18925==    by 0x403297: prog (prog.c:90)
+==18925==    by 0x4017FA: main (main.c:13)
+==18925== 
+==18925== 147,331 bytes in 3 blocks are definitely lost in loss record 72 of 73
+==18925==    at 0x4C2EB6B: malloc (vg_replace_malloc.c:299)
+==18925==    by 0x40698B: my_calloc (my_calloc.c:12)
+==18925==    by 0x404E75: my_strcat_dup (lib_func.c:58)
+==18925==    by 0x4055A8: get_layer (get_layer.c:65)
+==18925==    by 0x404425: create_layers (tileset.c:278)
+==18925==    by 0x4045BE: create_images (tileset.c:299)
+==18925==    by 0x4045D9: create_map (tileset.c:304)
+==18925==    by 0x403297: prog (prog.c:90)
+==18925==    by 0x4017FA: main (main.c:13)
+==18925== 
+==18925== 171,337 bytes in 4 blocks are definitely lost in loss record 73 of 73
+==18925==    at 0x4C2EB6B: malloc (vg_replace_malloc.c:299)
+==18925==    by 0x40698B: my_calloc (my_calloc.c:12)
+==18925==    by 0x404E75: my_strcat_dup (lib_func.c:58)
+==18925==    by 0x405591: get_layer (get_layer.c:64)
+==18925==    by 0x404425: create_layers (tileset.c:278)
+==18925==    by 0x4045BE: create_images (tileset.c:299)
+==18925==    by 0x4045D9: create_map (tileset.c:304)
+==18925==    by 0x403297: prog (prog.c:90)
+==18925==    by 0x4017FA: main (main.c:13)
+==18925== 
+==18925== LEAK SUMMARY:
+==18925==    definitely lost: 390,856 bytes in 12 blocks
+==18925==    indirectly lost: 0 bytes in 0 blocks
+==18925==      possibly lost: 0 bytes in 0 blocks
+==18925==    still reachable: 140,253 bytes in 721 blocks
+==18925==         suppressed: 0 bytes in 0 blocks
+==18925== Reachable blocks (those to which a pointer was found) are not shown.
+==18925== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==18925== 
+==18925== For counts of detected and suppressed errors, rerun with: -v
+==18925== ERROR SUMMARY: 6 errors from 6 contexts (suppressed: 0 from 0)

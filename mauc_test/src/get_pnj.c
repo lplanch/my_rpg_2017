@@ -44,6 +44,7 @@ sfVector2f get_pnj_pos(int fd)
 pnj_t get_pnj(char *name)
 {
 	char *path;
+	char *str;
 	int sp;
 	sfVector2f pos;
 	sfIntRect rect;
@@ -54,9 +55,12 @@ pnj_t get_pnj(char *name)
 	path = get_next_line(fd);
 	pos = get_pnj_pos(fd);
 	rect = get_pnj_rect(fd);
-	sp = my_getnbr_i(get_next_line(fd), 0);
+	str = get_next_line(fd);
+	sp = my_getnbr_i(str, 0);
 	pnj.pnj = create_object(path, pos, rect, sp);
 	sfSprite_scale(pnj.pnj->sprite, create_vector2f(2, 2));
+	free (path);
+	free (str);
 	return (pnj);
 }
 

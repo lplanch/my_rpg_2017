@@ -274,13 +274,13 @@ void transfer_pixel(files_t *fi)
 void create_layers(files_t *fi)
 {
 	int i = 0;
-	int **jh = get_layer("TestMap/layers");
 
-	fi->testmap.layer_background = jh[0];
-	fi->testmap.layer_relief = jh[1];
-	fi->testmap.layer_colID = jh[2];
-	fi->testmap.layer_col = jh[3];
-	fi->testmap.layer_prof = jh[4];
+	fi->testmap.tab_tileset = get_layer("TestMap/layers");
+	fi->testmap.layer_background = fi->testmap.tab_tileset[0];
+	fi->testmap.layer_relief = fi->testmap.tab_tileset[1];
+	fi->testmap.layer_colID = fi->testmap.tab_tileset[2];
+	fi->testmap.layer_col = fi->testmap.tab_tileset[3];
+	fi->testmap.layer_prof = fi->testmap.tab_tileset[4];
 }
 
 void create_images(files_t *fi)
