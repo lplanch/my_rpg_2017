@@ -17,6 +17,7 @@ void warrior_stance(st_rpg *s)
 	sfSprite_setPosition(s->f.war.shield->anim->obj->sprite,
 	create_vector2f(920 - s->f.war.shield->anim->obj->rect.width / 2,
 	540 - s->f.war.shield->anim->obj->rect.height / 2));
+	s->f.cast = 1;
 }
 
 void warrior_lifesteal(st_rpg *s)

@@ -40,9 +40,10 @@ void launch_aoe(sfRenderWindow *window, aoe_t *aoe)
 void proc_aoe(st_rpg *s, aoe_t *aoe)
 {
 	aoe->count += 0.1;
-	if (aoe->count >= aoe->duration)
+	if (aoe->count >= aoe->duration) {
 		aoe->shot = 0;
-	if (aoe->shot) {
+		s->f.cast = 0;
+	} if (aoe->shot) {
 		if (!my_strcmp(aoe->effect, "heal"))
 			heal(s, aoe->dmg);
 		if (!my_strcmp(aoe->effect, "damage"))

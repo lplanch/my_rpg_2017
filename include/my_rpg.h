@@ -195,6 +195,7 @@ typedef struct main_fight
 	g_object *cd[4];
 	float cdcount[4];
 	float cds[4];
+	int cast;
 	st_time cdt;
 	st_time proc;
 	archer_t arc;

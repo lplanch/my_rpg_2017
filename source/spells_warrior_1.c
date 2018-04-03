@@ -20,6 +20,7 @@ void warrior_whirlwing(st_rpg *s)
 
 void warrior_hasagi(st_rpg *s)
 {
+	s->f.cast = 1;
 	s->f.war.estoc = 1;
 	s->f.war.count = 0;
 	s->f.war.hpos = s->player.weapon[0]->pos;

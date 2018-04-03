@@ -27,6 +27,7 @@ void destroy_player(st_rpg *s)
 
 void create_main_fight(st_rpg *s)
 {
+	s->f.cast = 0;
 	s->f.proc = create_st_time();
 	for (int i = 0; i != 4; i += 1)
 		s->f.cdcount[i] = 0;
@@ -77,7 +78,8 @@ int fight_instance(st_rpg *s)
 	while (sfRenderWindow_isOpen(s->window)) {
 		if (fight_events(s))
 			break;
-		launch_spells(s);
+		if (!s->f.cast)
+			launch_spells(s);
 		update_pos_weapon(s);
 		update_class(s);
 		update_bars(s);
