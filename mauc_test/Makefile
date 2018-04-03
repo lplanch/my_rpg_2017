@@ -25,6 +25,8 @@ FILES		=	main.c				\
 			src/tileset.c			\
 			src/parsing.c			\
 			src/lib_func.c			\
+			src/draw.c			\
+			src/check_pnj.c			\
 			src/get_layer.c			\
 			src/free.c			\
 			src/get_pnj.c			\

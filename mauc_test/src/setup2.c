@@ -31,7 +31,6 @@ void setup_camera(files_t *fi)
 void pnj_setup(files_t *fi)
 {
 	int i = 0;
-	int tot_pnj = 3;
 	sfVector2f invers;
 
 	invers.x = 2;

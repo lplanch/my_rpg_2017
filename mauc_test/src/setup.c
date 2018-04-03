@@ -18,6 +18,7 @@ void setup_variable(files_t *fi)
 	fi->maxspeed.y = speed * 50;
 	fi->dialog_box_isopen = 0;
 	fi->nb_pnj = 2;
+	fi->max_pnj = 4;
 }
 
 void characters_setup(files_t *fi)

@@ -14,28 +14,6 @@ void destroy_dialog_box(files_t *fi)
 	destroy_button(fi->pnj[fi->nb_pnj].name_box);
 }
 
-void draw_dialog_box(files_t *fi)
-{
-	sfRenderWindow_clear(fi->window, sfBlack);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite5, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite3, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite2, NULL);
-	//sfRenderWindow_drawSprite(fi->window, fi->ID_characters->sprite, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->characters->sprite, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite4, NULL);
-	draw_pnj(fi);
-	sfRenderWindow_drawSprite(fi->window,
-	fi->pnj[fi->nb_pnj].dialog_box->obj->sprite, NULL);
-	sfRenderWindow_drawText(fi->window,
-	fi->pnj[fi->nb_pnj].dialog_box->text->text, NULL);
-	sfRenderWindow_drawSprite(fi->window,
-	fi->pnj[fi->nb_pnj].name_box->obj->sprite, NULL);
-	sfRenderWindow_drawText(fi->window,
-	fi->pnj[fi->nb_pnj].name_box->text->text, NULL);
-	sfRenderWindow_display(fi->window);
-}
-
 int update_dialog_box(files_t *fi, int fd)
 {
 	char *str = get_next_line(fd);

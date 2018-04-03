@@ -24,6 +24,8 @@ int prog(void);
 int game(files_t *fi);
 void draw(files_t *fi);
 void draw_pnj(files_t *fi);
+void draw_all(files_t *fi);
+void draw_dialog_box(files_t *fi);
 
 sfVector2f create_vector2f(float x, float y);
 sfIntRect create_rect(int top, int left, int width, int height);
@@ -47,6 +49,7 @@ void move_ID_player(files_t *fi);
 int collision(files_t *fi);
 int check_colcircle(files_t *fi, int nbr);
 int check_colsquare(files_t *fi, int nbr);
+void check_pnj(files_t *fi);
 int collision_ID(files_t *fi);
 
 int **get_layer(char *name);

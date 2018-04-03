@@ -8,34 +8,6 @@
 #include "my.h"
 #include "my_rpg.h"
 
-void draw_pnj(files_t *fi)
-{
-	int i = 0;
-	int nbpnj = 4;
-
-	while (i != nbpnj) {
-		sfRenderWindow_drawSprite(fi->window, fi->pnj[i].pnj->sprite, NULL);
-		i++;
-	}
-}
-
-void draw(files_t *fi)
-{
-	sfSprite_setTextureRect(fi->characters->sprite, fi->characters->rect);
-	sfSprite_setPosition(fi->characters->sprite, fi->characters->pos);
-	sfRenderWindow_clear(fi->window, sfBlack);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite5, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite3, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite2, NULL);
-	//sfRenderWindow_drawSprite(fi->window, fi->ID_characters->sprite, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->characters->sprite, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite4, NULL);
-	draw_pnj(fi);
-	sfRenderWindow_display(fi->window);
-	usleep(1);
-}
-
 int game(files_t *fi)
 {
 	int a = 0;
@@ -45,6 +17,9 @@ int game(files_t *fi)
 		while (sfRenderWindow_pollEvent(fi->window, &event)) {
 			if (event.type == sfEvtClosed)
 				a = 1;
+			if (event.type == sfEvtKeyPressed && event.key.code == sfKeyReturn) {
+				check_pnj(fi);
+			}
 			if (event.type == sfEvtKeyPressed && event.key.code == sfKeyD) {
 				fi->dialog_box_isopen = 1;
 				fi->nb_pnj = rand() % 5 + 0;
@@ -54,7 +29,7 @@ int game(files_t *fi)
 			dialog_box(fi);
 		move_ok(fi);
 		update_player_position(fi);
-		//move_ID_player(fi);
+		move_ID_player(fi);
 		draw(fi);
 	}
 }

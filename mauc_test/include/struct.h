@@ -84,6 +84,7 @@ typedef struct s_files
 	int camera_pos;
 	int dialog_box_isopen;
 	int nb_pnj;
+	int max_pnj;
 	sfView *view;
 	g_object *characters;
 	g_object *ID_characters;
