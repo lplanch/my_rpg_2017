@@ -21,11 +21,13 @@ int update_dialog_box(files_t *fi, int fd)
 	if (str == NULL) {
 		free(str);
 		return (1);
-	} else {
-		sfText_setString(fi->pnj[fi->nb_pnj].dialog_box->text->text, str);
-		free(str);
-		return (0);
+	} else if (!my_strcmp(str, ">")) {
+		choice_box(fi, fd);
+		str = get_next_line(fd);
 	}
+	sfText_setString(fi->pnj[fi->nb_pnj].dialog_box->text->text, str);
+	free(str);
+	return (0);
 }
 
 void create_dialog_box(files_t *fi)

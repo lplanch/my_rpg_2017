@@ -24,6 +24,9 @@ typedef struct s_pnj
 	st_button *name_box;
 	st_button *dialog_box;
 	g_object *pnj;
+	g_object *choice_box_edge[2];
+	g_object *cursor;
+	st_button **choice_box;
 } pnj_t;
 
 typedef struct s_pos
@@ -32,7 +35,7 @@ typedef struct s_pos
 	int y;
 } pos_t;
 
-typedef struct s_testmap
+typedef struct s_map
 {
 	int x;
 	int x2;
@@ -44,11 +47,11 @@ typedef struct s_testmap
 	int *layer_colID;
 	int *layer_prof;
 	sfImage *image;
-	sfImage *testmap_backgound;
-	sfImage *testmap_relief;
-	sfImage *testmap_col;
-	sfImage *testmap_colID;
-	sfImage *testmap_prof;
+	sfImage *map_backgound;
+	sfImage *map_relief;
+	sfImage *map_col;
+	sfImage *map_colID;
+	sfImage *map_prof;
 	sfSprite *sprite;
 	sfTexture *texture;
 	sfSprite *sprite2;
@@ -61,7 +64,7 @@ typedef struct s_testmap
 	sfTexture *texture5;
 	sfIntRect square;
 	sfColor color;
-} testmap_t;
+} map_t;
 
 typedef struct s_colsquare
 {
@@ -86,6 +89,7 @@ typedef struct s_files
 	int dialog_box_isopen;
 	int nb_pnj;
 	int max_pnj;
+	int choice_cursor;
 	sfView *view;
 	g_object *characters;
 	g_object *ID_characters;
@@ -101,7 +105,7 @@ typedef struct s_files
 	pos_t pos[10];
 	colcircle_t colcircle[42];
 	colsquare_t colsquare[204];
-	testmap_t testmap;
+	map_t map;
 } files_t;
 
 #endif

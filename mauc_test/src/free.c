@@ -24,8 +24,8 @@ void free_all(files_t *fi)
 	int i = 0;
 
 	while (i != 4) {
-		free (fi->testmap.tab_tileset[i]);
+		free (fi->map.tab_tileset[i]);
 		i++;
 	}
-	free (fi->testmap.tab_tileset);
+	free (fi->map.tab_tileset);
 }
