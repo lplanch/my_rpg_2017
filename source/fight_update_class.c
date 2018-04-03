@@ -38,7 +38,10 @@ void update_rogue(st_rpg *s)
 
 void update_warrior(st_rpg *s)
 {
-
+	warrior_update_auto_attack(s);
+	warrior_update_hasagi(s);
+	if (s->f.war.shield->shot)
+		clocked_animation(s->f.war.shield->anim);
 }
 
 void update_class(st_rpg *s)

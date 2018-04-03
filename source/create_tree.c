@@ -24,6 +24,7 @@ void create_first_tree(st_rpg *s)
 	s->player.tree.spell1 = 0;
 	s->player.tree.spell2 = 0;
 	s->player.tree.spell3 = 0;
+	s->player.tree.skillp = 0;
 }
 
 void load_tree(st_rpg *s, char *path)
@@ -44,5 +45,6 @@ void load_tree(st_rpg *s, char *path)
 	s->player.tree.spell1 = str_to_int(get_next_line(fd));
 	s->player.tree.spell2 = str_to_int(get_next_line(fd));
 	s->player.tree.spell3 = str_to_int(get_next_line(fd));
+	s->player.tree.skillp = str_to_int(get_next_line(fd));
 	close(fd);
 }

@@ -45,4 +45,7 @@ void load_save(st_rpg *s)
 	load_tree(s, tmp);
 	free(tmp);
 	free(path);
+	s->player.obj = create_object("images/hero.png", create_vector2f(960,
+	540), create_rect(0, 0, 48 + 144 * s->player.cdata.sex, 48), 0);
+	create_weapon(s);
 }

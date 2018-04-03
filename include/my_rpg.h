@@ -115,6 +115,33 @@ typedef struct struct_rogue_spells
 	st_time ultt;
 } rogue_t;
 
+typedef struct struct_melee_swing
+{
+	float begin;
+	float angle;
+	float count;
+	float speed;
+	int dmg;
+	int dmgratio;
+	int able;
+	int shot;
+	int sens;
+	sfVector2f scale;
+	st_time t;
+} swing_t;
+
+typedef struct struct_warrior_spells
+{
+	swing_t *auto_a;
+	proj_t *hasagi;
+	sfVector2f hpos;
+	sfVector2f hrat;
+	float hdmg;
+	aoe_t *shield;
+	int estoc;
+	float count;
+} warrior_t;
+
 typedef struct fight_tree
 {
 	int lockp1;
@@ -131,6 +158,7 @@ typedef struct fight_tree
 	int spell1;
 	int spell2;
 	int spell3;
+	int skillp;
 } tree_t;
 
 typedef struct struct_stat_entity
@@ -172,6 +200,7 @@ typedef struct main_fight
 	archer_t arc;
 	rogue_t rog;
 	gunner_t gun;
+	warrior_t war;
 } fight_t;
 
 typedef struct struct_main_menu
@@ -194,11 +223,10 @@ typedef struct struct_main_menu
 typedef struct struct_player_info
 {
 	stat_t *stat;
-	int skillp;
 	tree_t tree;
 	st_cdata cdata;
 	g_object *obj;
-	g_object *weapon;
+	g_object *weapon[2];
 } player_t;
 
 typedef struct struct_rpg
@@ -214,6 +242,13 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void warrior_update_auto_attack(st_rpg *s);
+void swing_damage_enemy(swing_t *swing, enemy_t *mob);
+swing_t *create_swing_from_file(char *path);
+void destroy_swing(swing_t *swing);
+void update_swing(st_rpg *s, swing_t *swing, g_object *obj);
+void launch_swing(sfRenderWindow *window, swing_t *swing, g_object *obj);
+void create_weapon(st_rpg *s);
 void update_effects(st_rpg *s);
 void apply_aoe(aoe_t *aoe, enemy_t *mob);
 void proc_aoe(st_rpg *s, aoe_t *aoe);

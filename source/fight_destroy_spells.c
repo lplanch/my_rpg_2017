@@ -38,7 +38,9 @@ void destroy_spells_rogue(st_rpg *s)
 
 void destroy_spells_warrior(st_rpg *s)
 {
-
+	destroy_aoe(s->f.war.shield);
+	destroy_swing(s->f.war.auto_a);
+	destroy_projectile(s->f.war.hasagi);
 }
 
 void destroy_class(st_rpg *s)

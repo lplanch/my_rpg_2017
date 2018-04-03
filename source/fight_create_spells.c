@@ -20,12 +20,6 @@ void create_spells_archer(st_rpg *s)
 	s->f.arc.axeangle = 0;
 	s->f.arc.kalashcount = 0;
 	s->f.arc.kalashspeed = 0.08;
-	/*s->f.arc.barrage = create_aoe(create_circle(100, 5, sfRed),
-	create_anim(create_object("spells/0/barrage.png", create_vector2f(0, 0),
-	create_rect(0, 0, 192, 192), 0), create_vector2i(8, 8), 0.03), 4);
-	s->f.arc.heal = create_aoe(create_circle(100, 5, sfGreen),
-	create_anim(create_object("spells/0/healaoe.png", create_vector2f(0, 0),
-	create_rect(0, 0, 192, 192), 0), create_vector2i(5, 5), 0.1), 4);*/
 	s->f.arc.heal = create_aoe_from_file("spells/0/Heal");
 	s->f.arc.barrage = create_aoe_from_file("spells/0/Barrage");
 }
@@ -66,7 +60,14 @@ void create_spells_rogue(st_rpg *s)
 
 void create_spells_warrior(st_rpg *s)
 {
-
+	s->f.war.auto_a = create_swing_from_file("spells/3/auto");
+	s->f.war.estoc = 0;
+	s->f.war.count = 0;
+	s->f.war.hdmg = 50;
+	s->f.war.shield = create_aoe_from_file("spells/3/Heal");
+	s->f.war.hasagi = create_projectile("projectile/HASAGI");
+	s->f.war.hpos = create_vector2f(0, 0);
+	s->f.war.hrat = create_vector2f(0, 0);
 }
 
 void create_class(st_rpg *s)

@@ -38,13 +38,14 @@ void display_rogue(st_rpg *s)
 
 void display_warrior(st_rpg *s)
 {
-
+	display_projectile(s->window, s->f.war.hasagi);
+	display_aoe(s->window, s->f.war.shield);
 }
 
 void display_class(st_rpg *s)
 {
 	void (*list[4])(st_rpg *s) = {display_archer, display_gunner,
-				display_rogue, display_warrior};
+	display_rogue, display_warrior};
 
 	(list[s->player.cdata.classe])(s);
 }

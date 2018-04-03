@@ -28,11 +28,8 @@ int launch_cust_menu_classes(st_rpg *s)
 		return (cust_menu_backto_main(s));
 	else {
 		s->cust.cdata.classe = s->cust.option - 1;
+		create_player_from_cust(s);
 		custom_destroy(s);
-		s->player.cdata = s->cust.cdata;
-		s->player.stat = create_first_stat();
-		create_first_tree(s);
-		s->player.skillp = 0;
 		return (fight_instance(s));
 	}
 	return (0);
