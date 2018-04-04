@@ -37,6 +37,7 @@ FILES		=	main.c				\
 			src/create_rect.c		\
 			src/choice_box.c		\
 			src/mouse_in_object.c		\
+			src/destroy.c			\
 
 SRCS		=	$(FILES)
 

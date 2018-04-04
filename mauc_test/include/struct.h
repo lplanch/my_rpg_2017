@@ -12,6 +12,13 @@
 #include <SFML/Graphics.h>
 #include "game_object.h"
 
+typedef struct s_clock
+{
+	sfClock *clock;
+	sfTime tmp;
+	float seconds;
+} clockz_t;
+
 typedef struct struct_button
 {
 	t_object *text;
@@ -90,9 +97,12 @@ typedef struct s_files
 	int nb_pnj;
 	int max_pnj;
 	int choice_cursor;
+	int loading_timer;
+	sfClock *clock;
 	sfView *view;
 	g_object *characters;
 	g_object *ID_characters;
+	g_object *loading;
 	sfVector2f camera;
 	sfVector2f camera_prec;
 	sfRenderWindow *window;
@@ -106,6 +116,7 @@ typedef struct s_files
 	colcircle_t colcircle[42];
 	colsquare_t colsquare[204];
 	map_t map;
+	clockz_t time;
 } files_t;
 
 #endif

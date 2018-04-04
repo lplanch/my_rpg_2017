@@ -22,10 +22,13 @@
 static const float speed = 3;
 int prog(void);
 int game(files_t *fi);
+void destroy(files_t *fi);
+
 void draw(files_t *fi);
 void draw_pnj(files_t *fi);
 void draw_all(files_t *fi);
 void draw_dialog_box(files_t *fi);
+void draw_loading(files_t *fi);
 void draw_choice_menu(files_t *fi, int compter);
 
 sfVector2f create_vector2f(float x, float y);
@@ -33,6 +36,7 @@ sfIntRect create_rect(int top, int left, int width, int height);
 void characters_setup(files_t *fi);
 void setup_camera(files_t *fi);
 void setup_variable(files_t *fi);
+void setup_loading(files_t *fi);
 void setup_col(files_t *fi);
 void pnj_setup(files_t *fi);
 void get_all_pnj(files_t *fi, char *path);
@@ -53,7 +57,7 @@ int check_colsquare(files_t *fi, int nbr);
 void check_pnj(files_t *fi);
 int collision_ID(files_t *fi);
 
-int **get_layer(char *name);
+int **get_layer(char *name, files_t *fi);
 void create_map(files_t *fi);
 void parsing(struct stat a, files_t *fi);
 void update_player_position(files_t *fi);

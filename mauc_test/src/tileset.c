@@ -256,6 +256,7 @@ void transfer_pixel(files_t *fi)
 
 	while (height != 100) {
 		width = 0;
+		draw_loading(fi);
 		while (width != 60) {
 			transfer_pixel_background(fi, compter, height);
 			transfer_pixel_relief(fi, compter, height);
@@ -273,9 +274,7 @@ void transfer_pixel(files_t *fi)
 
 void create_layers(files_t *fi)
 {
-	int i = 0;
-
-	fi->map.tab_tileset = get_layer("TestMap/layers");
+	fi->map.tab_tileset = get_layer("TestMap/layers", fi);
 	fi->map.layer_background = fi->map.tab_tileset[0];
 	fi->map.layer_relief = fi->map.tab_tileset[1];
 	fi->map.layer_colID = fi->map.tab_tileset[2];

@@ -8,6 +8,22 @@
 #include "my.h"
 #include "my_rpg.h"
 
+void setupclock(files_t *fi)
+{
+	fi->time.clock = sfClock_create();
+	fi->clock = sfClock_create();
+}
+
+void setup_loading(files_t *fi)
+{
+	fi->loading = create_object("loading/loading2.png",
+	create_vector2f(100, 100),
+	create_rect(0, 0, 99, 257), 0);
+	fi->loading->pos = fi->characters->pos;
+	sfSprite_setPosition(fi->loading->sprite, fi->loading->pos);
+	setupclock(fi);
+}
+
 void setup_variable(files_t *fi)
 {
 	fi->speed.x = 0;
@@ -20,6 +36,7 @@ void setup_variable(files_t *fi)
 	fi->nb_pnj = 2;
 	fi->max_pnj = 4;
 	fi->choice_cursor = 0;
+	fi->loading_timer = 0;
 }
 
 void characters_setup(files_t *fi)
@@ -28,7 +45,7 @@ void characters_setup(files_t *fi)
 
 	invers.x = 2;
 	invers.y = 2;
-	fi->characters = create_object("car/hero.png",
+	fi->characters = create_object("car/story_characters/hero.png",
 	create_vector2f(3720, 1800),
 	create_rect(0, 144, 48, 48), 0);
 	sfSprite_scale(fi->characters->sprite, invers);
