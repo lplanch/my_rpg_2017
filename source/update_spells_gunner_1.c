@@ -46,8 +46,9 @@ void gunner_update_grenade_speed(st_rpg *s)
 		}
 	} else if (s->f.gun.grenade->shot == 1) {
 		if (s->f.gun.explosion->t.sec > s->f.gun.explosion->speed &&
-			s->f.gun.grenade->obj->speed > 0.2) {
-			s->f.gun.grenade->obj->speed -= 0.2;
+			s->f.gun.grenade->obj->speed > 0) {
+			s->f.gun.grenade->obj->speed -= s->f.gun.grenade
+			->range / 4800;
 			sfClock_restart(s->f.gun.explosion->t.clock);
 		}
 		update_projectile(s->f.gun.grenade);

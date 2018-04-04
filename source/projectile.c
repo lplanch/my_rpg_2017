@@ -27,7 +27,7 @@ void launch_projectile(proj_t *proj, float angle)
 {
 	proj->ratios = get_ratios(angle);
 	proj->used = proj->range;
-	proj->obj->pos.x = 920 - proj->ratios.x * proj->obj->rect.width / 2 +
+	proj->obj->pos.x = 960 - proj->ratios.x * proj->obj->rect.width / 2 +
 	proj->ratios.y * proj->obj->rect.height / 2;
 	proj->obj->pos.y = 540 - proj->ratios.y * proj->obj->rect.width / 2 -
 	proj->ratios.x * proj->obj->rect.height / 2;
@@ -39,7 +39,7 @@ void launch_projectile(proj_t *proj, float angle)
 void create_projectile2(proj_t *proj)
 {
 	proj->obj->pos.y = 540 - proj->obj->rect.height / 2;
-	proj->obj->pos.x = 920 - proj->obj->rect.width / 2;
+	proj->obj->pos.x = 960 - proj->obj->rect.width / 2;
 	sfSprite_setPosition(proj->obj->sprite, proj->obj->pos);
 	sfSprite_setTextureRect(proj->obj->sprite, proj->obj->rect);
 	proj->ratios = create_vector2f(0, 0);
@@ -53,7 +53,7 @@ proj_t *create_projectile(char *path)
 	int fd = open(path, O_RDONLY);
 	proj_t *proj = malloc(sizeof(proj_t));
 
-	proj->obj = create_object(get_next_line(fd), create_vector2f(920,
+	proj->obj = create_object(get_next_line(fd), create_vector2f(960,
 	540), create_rect(0, 0, 0, 0), 0);
 	proj->obj->speed = str_to_int(get_next_line(fd)) / 100;
 	proj->range = str_to_int(get_next_line(fd)) / 100;
