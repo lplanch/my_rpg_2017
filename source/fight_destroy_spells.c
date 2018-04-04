@@ -20,8 +20,11 @@ void destroy_spells_archer(st_rpg *s)
 
 void destroy_spells_gunner(st_rpg *s)
 {
-	for (int i = 0; i != 10; i += 1)
+	for (int i = 0; i != 10; i += 1) {
 		destroy_projectile(s->f.gun.bullet[i]);
+		destroy_projectile(s->f.gun.ultb[i]);
+		destroy_object(s->f.gun.trait[i]);
+	}
 	sfClock_destroy(s->f.gun.t.clock);
 	sfClock_destroy(s->f.gun.blitzt.clock);
 	destroy_projectile(s->f.gun.blitz);

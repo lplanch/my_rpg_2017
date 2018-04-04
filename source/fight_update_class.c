@@ -24,9 +24,18 @@ void update_gunner(st_rpg *s)
 {
 	gunner_update_auto_attack(s);
 	gunner_update_grenade(s);
-	for (int i = 0; i != 10; i += 1)
+	for (int i = 0; i != 10; i += 1) {
 		update_projectile(s->f.gun.bullet[i]);
+		update_projectile(s->f.gun.ultb[i]);
+		if (s->f.gun.ultb[i]->shot) {
+			s->f.gun.trait[i]->rect.width += 80;
+			s->f.gun.trait[i]->rect.height -= 1;
+			sfSprite_setTextureRect(s->f.gun.trait[i]->sprite,
+			s->f.gun.trait[i]->rect);
+		}
+	}
 	gunner_update_blitz(s);
+	gunner_update_ultimate(s);
 }
 
 void update_rogue(st_rpg *s)
