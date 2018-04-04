@@ -10,7 +10,7 @@
 
 int case_tp(files_t *fi, int nb_ID)
 {
-	switch (fi->testmap.layer_relief[nb_ID]) {
+	switch (fi->map.layer_relief[nb_ID]) {
 		case 314:
 			fi->characters->pos.x = 840;
 			fi->characters->pos.y = 4284;
@@ -47,7 +47,7 @@ int case_tp(files_t *fi, int nb_ID)
 
 int case_ID(files_t *fi, int nb_ID)
 {
-	switch (fi->testmap.layer_colID[nb_ID]) {
+	switch (fi->map.layer_colID[nb_ID]) {
 		case 32:
 		case 33:
 		case 34:

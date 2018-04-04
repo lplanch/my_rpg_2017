@@ -26,6 +26,7 @@ void draw(files_t *fi);
 void draw_pnj(files_t *fi);
 void draw_all(files_t *fi);
 void draw_dialog_box(files_t *fi);
+void draw_choice_menu(files_t *fi, int compter);
 
 sfVector2f create_vector2f(float x, float y);
 sfIntRect create_rect(int top, int left, int width, int height);
@@ -61,6 +62,7 @@ void free_tab(char **tab, int y);
 void free_all(files_t *fi);
 
 void dialog_box(files_t *fi);
+void choice_box(files_t *fi, int fd);
 void destroy_button(st_button *button);
 st_button *create_button(char *str, g_object *object, sfColor c, int size);
 int mouse_in_object(g_object *obj, sfRenderWindow *window, files_t *fi);

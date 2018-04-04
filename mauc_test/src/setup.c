@@ -19,6 +19,7 @@ void setup_variable(files_t *fi)
 	fi->dialog_box_isopen = 0;
 	fi->nb_pnj = 2;
 	fi->max_pnj = 4;
+	fi->choice_cursor = 0;
 }
 
 void characters_setup(files_t *fi)

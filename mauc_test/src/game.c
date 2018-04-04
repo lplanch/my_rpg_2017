@@ -25,6 +25,8 @@ int game(files_t *fi)
 				fi->nb_pnj = rand() % 5 + 0;
 			}
 		}
+		//printf("x= %i\n", fi->pos[0].x);
+		//printf("y= %i\n", fi->pos[0].y);
 		if (fi->dialog_box_isopen == 1)
 			dialog_box(fi);
 		move_ok(fi);

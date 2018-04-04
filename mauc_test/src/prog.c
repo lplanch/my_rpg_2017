@@ -21,7 +21,6 @@ void destroy_pnj(files_t *fi)
 	int i = 0;
 
 	while (i != fi->max_pnj) {
-		printf("%s\n", "aa");
 		destroy_object(fi->pnj[i].pnj);
 		free(fi->pnj[i].name);
 		i++;
@@ -30,30 +29,30 @@ void destroy_pnj(files_t *fi)
 
 void destroy_sprite(files_t *fi)
 {
-	sfSprite_destroy(fi->testmap.sprite);
-	sfSprite_destroy(fi->testmap.sprite2);
-	sfSprite_destroy(fi->testmap.sprite3);
-	sfSprite_destroy(fi->testmap.sprite4);
-	sfSprite_destroy(fi->testmap.sprite5);
+	sfSprite_destroy(fi->map.sprite);
+	sfSprite_destroy(fi->map.sprite2);
+	sfSprite_destroy(fi->map.sprite3);
+	sfSprite_destroy(fi->map.sprite4);
+	sfSprite_destroy(fi->map.sprite5);
 }
 
 void destroy_texture(files_t *fi)
 {
-	sfTexture_destroy(fi->testmap.texture);
-	sfTexture_destroy(fi->testmap.texture2);
-	sfTexture_destroy(fi->testmap.texture3);
-	sfTexture_destroy(fi->testmap.texture4);
-	sfTexture_destroy(fi->testmap.texture5);
+	sfTexture_destroy(fi->map.texture);
+	sfTexture_destroy(fi->map.texture2);
+	sfTexture_destroy(fi->map.texture3);
+	sfTexture_destroy(fi->map.texture4);
+	sfTexture_destroy(fi->map.texture5);
 }
 
 void destroy(files_t *fi)
 {
-	sfImage_destroy(fi->testmap.image);
-	sfImage_destroy(fi->testmap.testmap_backgound);
-	sfImage_destroy(fi->testmap.testmap_relief);
-	sfImage_destroy(fi->testmap.testmap_col);
-	sfImage_destroy(fi->testmap.testmap_colID);
-	sfImage_destroy(fi->testmap.testmap_prof);
+	sfImage_destroy(fi->map.image);
+	sfImage_destroy(fi->map.map_backgound);
+	sfImage_destroy(fi->map.map_relief);
+	sfImage_destroy(fi->map.map_col);
+	sfImage_destroy(fi->map.map_colID);
+	sfImage_destroy(fi->map.map_prof);
 	destroy_sprite(fi);
 	destroy_texture(fi);
 	destroy_pnj(fi);
