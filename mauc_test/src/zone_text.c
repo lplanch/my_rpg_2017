@@ -23,6 +23,7 @@ int update_dialog_box(files_t *fi, int fd)
 		return (1);
 	} else if (!my_strcmp(str, ">")) {
 		choice_box(fi, fd);
+		free(str);
 		str = get_next_line(fd);
 	}
 	sfText_setString(fi->pnj[fi->nb_pnj].dialog_box->text->text, str);

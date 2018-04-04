@@ -8,25 +8,37 @@
 #include "my.h"
 #include "my_rpg.h"
 
+void destroy_choice_box(files_t *fi, int compter)
+{
+	int i = 0;
+
+	while (i != compter) {
+		destroy_button(fi->pnj[fi->nb_pnj].choice_box[i]);
+		i++;
+	}
+	destroy_object(fi->pnj[fi->nb_pnj].cursor);
+	destroy_object(fi->pnj[fi->nb_pnj].choice_box_edge[0]);
+	destroy_object(fi->pnj[fi->nb_pnj].choice_box_edge[1]);
+}
+
 char **remalloc_tab(char **tab, char *str)
 {
 	char **tmp = tab;
 	int i = 0;
 	int compter = 0;
 
-	while (tmp[i] != NULL) {
+	for (int j = 0; tmp[j]; j++)
 		compter++;
-		i++;
-	}
 	tab = malloc(sizeof(char *) * (compter + 2));
-	for (i = 0; tmp[i]; i++)
-		tab[i] = strdup(tmp[i]);
+	for (int j = 0; tmp[j]; j++)
+		tab[i++] = strdup(tmp[j]);
 	tab[i++] = strdup(str);
 	tab[i] = 0;
+	i = 0;
 	return (tab);
 }
 
-int create_choice_box_middle(files_t *fi, int i, char **tab)
+int create_choice_box_middle(files_t *fi, int i, char **tab, int j)
 {
 	float pos_x = fi->camera.x + 446;
 	float pos_y = fi->camera.y + 230;
@@ -34,7 +46,7 @@ int create_choice_box_middle(files_t *fi, int i, char **tab)
 	float posy = 0;
 
 	posy = pos_y - 60 - (60 * i);
-	fi->pnj[fi->nb_pnj].choice_box[i] = create_button(tab[i],
+	fi->pnj[fi->nb_pnj].choice_box[i] = create_button(tab[j],
 	create_object("dialog_box/choice_box2.png",
 	create_vector2f(pos_x, posy),
 	create_rect(0, 0, 460, 60), 0), sfWhite, 35);
@@ -45,7 +57,8 @@ int create_choice_box_middle(files_t *fi, int i, char **tab)
 
 void create_choice_box(files_t *fi, int compter, char **tab)
 {
-	int i = 0;
+	int i;
+	int j = compter - 1;
 	float pos_x = fi->camera.x + 446;
 	float pos_y = fi->camera.y + 230;
 	float posy = 0;
@@ -54,10 +67,8 @@ void create_choice_box(files_t *fi, int compter, char **tab)
 	fi->pnj[fi->nb_pnj].choice_box_edge[1] =
 	create_object("dialog_box/choice_box3.png",
 	create_vector2f(pos_x, pos_y), create_rect(0, 0, 460, 32), 0);
-	while (i != compter) {
-		posy = create_choice_box_middle(fi, i, tab);
-		i++;
-	}
+	for (i = 0; i != compter; i++, j--)
+		posy = create_choice_box_middle(fi, i, tab, j);
 	posy = pos_y - 60 - (60 * i);
 	fi->pnj[fi->nb_pnj].choice_box_edge[0] =
 	create_object("dialog_box/choice_box1.png",
@@ -107,18 +118,24 @@ int event_choice_box(files_t *fi, int compter)
 	return (a);
 }
 
-void choise_box_bouc(files_t *fi, int compter)
+void choise_box_bouc(files_t *fi, int compter, char **tab)
 {
+	int a = 0;
+	int i = 0;
+
 	while (a != 1) {
 		a = event_choice_box(fi, compter);
 		draw_choice_menu(fi, compter);
 	}
+	while (tab[i] != NULL) {
+		i++;
+	}
 	fi->choice_cursor = 0;
+	destroy_choice_box(fi, compter);
 }
 
 void choice_box(files_t *fi, int fd)
 {
-	int a = 0;
 	int i = 0;
 	int compter = 0;
 	char *str = get_next_line(fd);
@@ -134,5 +151,6 @@ void choice_box(files_t *fi, int fd)
 	}
 	compter++;
 	create_choice_box(fi, compter, tab);
-	choise_box_bouc(fi, compter);
+	choise_box_bouc(fi, compter, tab);
+	free (str);
 }
