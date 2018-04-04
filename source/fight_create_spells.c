@@ -27,9 +27,16 @@ void create_spells_archer(st_rpg *s)
 void create_spells_gunner(st_rpg *s)
 {
 	s->f.gun.current = 0;
+	s->f.gun.ultrat = create_vector2f(0, 0);
+	s->f.gun.ult = 0;
 	s->f.gun.autospeed = 0.1;
-	for (int i = 0; i != 10; i += 1)
+	for (int i = 0; i != 10; i += 1) {
 		s->f.gun.bullet[i] = create_projectile("projectile/Bullet");
+		s->f.gun.ultb[i] = create_projectile("spells/1/ultBullet");
+		s->f.gun.trait[i] = create_object("spells/1/trait.png",
+	create_vector2f(0, 0), create_rect(0, 0, 0, 10), 0);
+	}
+	s->f.gun.origin = s->f.gun.ultb[0]->dmg;
 	s->f.gun.auto_a = 0;
 	s->f.gun.blitz = create_projectile("projectile/Blitz");
 	s->f.gun.blitz->obj->rect = create_rect(0, 0, 40, 15);

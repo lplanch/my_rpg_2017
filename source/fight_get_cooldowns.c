@@ -24,7 +24,7 @@ void get_cooldowns_gunner(st_rpg *s)
 {
 	int cd1[3] = {8, 4, 6};
 	int cd2[2] = {20, 15};
-	int cd3[2] = {20, 10};
+	int cd3[2] = {3, 10};
 
 	s->f.cds[0] = 1.3;
 	s->f.cds[1] = cd1[s->player.tree.spell1];

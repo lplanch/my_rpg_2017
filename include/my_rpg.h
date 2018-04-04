@@ -101,6 +101,12 @@ typedef struct struct_gunner_spells
 	st_time blitzt;
 	proj_t *bullet[10];
 	int current;
+	int ult;
+	proj_t *ultb[10];
+	g_object *trait[10];
+	sfVector2f ultrat;
+	int dmg;
+	int origin;
 } gunner_t;
 
 typedef struct struct_rogue_spells
@@ -243,6 +249,8 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void warrior_update_hasagi(st_rpg *s);
+void gunner_update_ultimate(st_rpg *s);
 void warrior_update_auto_attack(st_rpg *s);
 void swing_damage_enemy(swing_t *swing, enemy_t *mob);
 swing_t *create_swing_from_file(char *path);

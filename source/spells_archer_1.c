@@ -29,6 +29,7 @@ void archer_kalash(st_rpg *s)
 {
 	s->f.arc.kalashcount = 0;
 	s->f.arc.kalash = 1;
+	s->f.cast = 1;
 }
 
 void choose_spell1_archer(st_rpg *s)

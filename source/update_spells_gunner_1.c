@@ -12,6 +12,7 @@ void update_current_bullet(st_rpg *s)
 {
 	s->f.gun.current += 1;
 	if (s->f.gun.current > 9) {
+		s->f.gun.ult = 0;
 		s->f.gun.auto_a = 0;
 		s->f.gun.current = 0;
 	}
@@ -72,11 +73,35 @@ void gunner_update_grenade(st_rpg *s)
 	gunner_update_grenade_speed(s);
 }
 
+void gunner_update_ultimate(st_rpg *s)
+{
+	s->f.gun.t.time = sfClock_getElapsedTime(s->f.gun.t.clock);
+	s->f.gun.t.sec = s->f.gun.t.time.microseconds / 1000000.0;
+	if (s->f.gun.t.sec > 0.1 && s->f.gun.ult == 1) {
+		for (int i = 0; i != 10; i += 1) {
+			s->f.gun.ultb[i]->dmg += s->f.gun.ultb[i]->dmgratio;
+		}
+		if (s->f.gun.ultb[0]->dmg > s->f.gun.origin * 5 ||
+			sfMouse_isButtonPressed(sfMouseLeft))
+			s->f.gun.ult = 2;
+		sfClock_restart(s->f.gun.t.clock);
+	} if (s->f.gun.t.sec > 0.1 && s->f.gun.ult == 2) {
+		launch_projectile(s->f.gun.ultb[s->f.gun.current],
+		s->f.gun.ultb[s->f.gun.current]->angle);
+		update_current_bullet(s);
+		sfClock_restart(s->f.gun.t.clock);
+		if (s->f.gun.current == 0) {
+			s->f.gun.ult = 0;
+			s->f.cast = 0;
+		}
+	}
+}
+
 void gunner_update_auto_attack(st_rpg *s)
 {
 	s->f.gun.t.time = sfClock_getElapsedTime(s->f.gun.t.clock);
 	s->f.gun.t.sec = s->f.gun.t.time.microseconds / 1000000.0;
-	if (s->f.gun.t.sec > s->f.gun.autospeed && s->f.gun.auto_a == 1) {
+	if (s->f.gun.t.sec > s->f.gun.autospeed && s->f.gun.auto_a == 2) {
 		s->f.gun.bullet[s->f.gun.current]->angle = get_angle(s->window);
 		launch_projectile(s->f.gun.bullet[s->f.gun.current],
 		s->f.gun.bullet[s->f.gun.current]->angle);

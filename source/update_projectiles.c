@@ -16,8 +16,10 @@ void update_projectile_archer(st_rpg *s)
 
 void update_projectile_gunner(st_rpg *s)
 {
-	for (int i = 0; i != 10; i += 1)
+	for (int i = 0; i != 10; i += 1) {
 		apply_projectile(s->f.gun.bullet[i], s->f.mob);
+		apply_projectile(s->f.gun.ultb[i], s->f.mob);
+	}
 	apply_projectile(s->f.gun.blitz, s->f.mob);
 }
 

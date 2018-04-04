@@ -25,6 +25,7 @@ void update_kalash(st_rpg *s)
 		s->f.arc.current += 1;
 		s->f.arc.kalashcount += 1;
 		if (s->f.arc.kalashcount > 9) {
+			s->f.cast = 0;
 			s->f.arc.kalash = 0;
 			s->f.arc.kalashcount = 0;
 		}
