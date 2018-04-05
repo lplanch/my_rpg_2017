@@ -95,6 +95,7 @@ typedef struct struct_gunner_spells
 	st_time t;
 	proj_t *blitz;
 	proj_t *grenade;
+	sfCircleShape *explo;
 	float grenadespeed;
 	st_anim *explosion;
 	float delay;
@@ -265,6 +266,7 @@ void proc_aoes(st_rpg *s);
 aoe_t *create_aoe_from_file(char *path);
 void apply_projectile(proj_t *proj, enemy_t *mob);
 void projectile_damage_enemy(proj_t *proj, enemy_t *mob);
+int circle_hitbox(sfCircleShape *circle, g_object *target);
 int hitbox(g_object *attack, g_object *target);
 void update_projectiles(st_rpg *s);
 void create_mob_example(st_rpg *s);

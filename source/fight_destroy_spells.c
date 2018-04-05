@@ -30,6 +30,7 @@ void destroy_spells_gunner(st_rpg *s)
 	destroy_projectile(s->f.gun.blitz);
 	destroy_projectile(s->f.gun.grenade);
 	destroy_anim(s->f.gun.explosion);
+	sfCircleShape_destroy(s->f.gun.explo);
 }
 
 void destroy_spells_rogue(st_rpg *s)

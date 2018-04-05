@@ -50,6 +50,9 @@ void create_spells_gunner(st_rpg *s)
 	s->f.gun.explosion = create_anim(create_object("images/explosion.png",
 	create_vector2f(0, 0), create_rect(0, 0, 100, 100), 0.2),
 	create_vector2i(9, 9), 0.002);
+	sfSprite_setScale(s->f.gun.explosion->obj->sprite,
+	create_vector2f(1.8, 1.8));
+	s->f.gun.explo = create_circle(90, 0, sfTransparent);
 }
 
 void create_spells_rogue(st_rpg *s)
