@@ -76,7 +76,8 @@ FILES		=	source/main.c				\
 			source/proc_aoes.c			\
 			source/create_weapon.c			\
 			source/update_weapon_pos.c		\
-			source/swing.c
+			source/swing.c				\
+			source/effect.c
 
 SRCS		=	$(FILES)
 

@@ -21,7 +21,9 @@ void archer_heal(st_rpg *s)
 
 void archer_leaf(st_rpg *s)
 {
-
+	s->f.arc.leaf->count = s->f.arc.leaf->duration;
+	s->f.arc.leaf->amount = 10 + s->player.stat->lvl;
+	s->player.stat->frc += s->f.arc.leaf->amount;
 }
 
 void choose_spell2_archer(st_rpg *s)

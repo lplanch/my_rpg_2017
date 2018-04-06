@@ -22,6 +22,7 @@ void create_spells_archer(st_rpg *s)
 	s->f.arc.kalashspeed = 0.08;
 	s->f.arc.heal = create_aoe_from_file("spells/0/Heal");
 	s->f.arc.barrage = create_aoe_from_file("spells/0/Barrage");
+	s->f.arc.leaf = create_effect("power", 0, 6);
 }
 
 void create_spells_gunner(st_rpg *s)

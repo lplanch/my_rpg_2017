@@ -47,7 +47,7 @@ void proc_aoe(st_rpg *s, aoe_t *aoe)
 		if (!my_strcmp(aoe->effect, "heal"))
 			heal(s, aoe->dmg);
 		if (!my_strcmp(aoe->effect, "damage"))
-			apply_aoe(aoe, s->f.mob);
+			apply_aoe(s, aoe, s->f.mob);
 	}
 }
 

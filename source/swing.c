@@ -48,7 +48,7 @@ void update_swing(st_rpg *s, swing_t *swing, g_object *obj)
 	swing->t.sec = swing->t.time.microseconds / 1000000.0;
 	if (swing->t.sec > swing->speed && swing->shot) {
 		if (hitbox(obj, s->f.mob->obj) && swing->able) {
-			swing_damage_enemy(swing, s->f.mob);
+			swing_damage_enemy(s, swing, s->f.mob);
 			swing->able = 0;
 		}
 		swing->count += 10 * swing->sens;
