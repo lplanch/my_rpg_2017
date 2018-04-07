@@ -30,9 +30,9 @@ int collision_prog(files_t *fi)
 
 int collision(files_t *fi)
 {
-	if (collision_ID(fi) == 1)
+	if (collision_id(fi) == 1)
 		return (1);
 	else {
-		 return (collision_prog(fi));
+		return (collision_prog(fi));
 	}
 }

@@ -49,14 +49,14 @@ char *rm_str_untill(char *str, char chr);
 int sum_stdarg(int i, int nb, ...);
 char *my_strcat(char *str1, char *str2);
 
-int isNumber(char *str);
+int isnumber(char *str);
 
 int file_is_empty(char *name);
 
 int is_letter(char chr);
 void my_putcharror(char chr);
 
-void printChr(char *str);
+void printchr(char *str);
 
 int str_to_int(char *str);
 char *int_to_str(int ok);

@@ -13,10 +13,10 @@ void free_tab(char **tab, int y)
 	int i = 0;
 
 	while (i != y) {
-		free (tab[i]);
+		free(tab[i]);
 		i++;
 	}
-	free (tab);
+	free(tab);
 }
 
 void free_all(files_t *fi)
@@ -24,8 +24,8 @@ void free_all(files_t *fi)
 	int i = 0;
 
 	while (i != 4) {
-		free (fi->map.tab_tileset[i]);
+		free(fi->map.tab_tileset[i]);
 		i++;
 	}
-	free (fi->map.tab_tileset);
+	free(fi->map.tab_tileset);
 }

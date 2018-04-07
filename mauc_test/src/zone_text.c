@@ -8,26 +8,48 @@
 #include "my.h"
 #include "my_rpg.h"
 
+void take_good_option(files_t *fi, int fd)
+{
+	char *str;
+
+	while ((str = get_next_line(fd)) != NULL) {
+		if (!my_strcmp(str, int_to_str(fi->var_choice))) {
+			fi->choice_cursor = 0;
+			free(str);
+			break;
+		}
+		free(str);
+	}
+	fi->pre_var = fi->var_choice;
+	fi->var_choice = fi->nb_choice_pre;
+}
+
 void destroy_dialog_box(files_t *fi)
 {
 	destroy_button(fi->pnj[fi->nb_pnj].dialog_box);
 	destroy_button(fi->pnj[fi->nb_pnj].name_box);
+	fi->var_choice = 0;
+	fi->nb_choice_pre = 0;
 }
 
 int update_dialog_box(files_t *fi, int fd)
 {
 	char *str = get_next_line(fd);
+	char *tra = int_to_str(fi->pre_var + 1);
 
-	if (str == NULL) {
+	if (str == NULL || my_strcmp(str, tra) == 0) {
 		free(str);
+		free(tra);
 		return (1);
 	} else if (!my_strcmp(str, ">")) {
 		choice_box(fi, fd);
 		free(str);
+		take_good_option(fi, fd);
 		str = get_next_line(fd);
 	}
 	sfText_setString(fi->pnj[fi->nb_pnj].dialog_box->text->text, str);
 	free(str);
+	free(tra);
 	return (0);
 }
 

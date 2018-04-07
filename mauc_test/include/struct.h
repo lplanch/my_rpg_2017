@@ -97,7 +97,11 @@ typedef struct s_files
 	int nb_pnj;
 	int max_pnj;
 	int choice_cursor;
+	int var_choice;
+	int nb_choice_pre;
 	int loading_timer;
+	int pre_var;
+	int relief;
 	sfClock *clock;
 	sfView *view;
 	g_object *characters;

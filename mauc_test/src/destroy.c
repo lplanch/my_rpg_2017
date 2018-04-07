@@ -48,8 +48,10 @@ void destroy(files_t *fi)
 	destroy_sprite(fi);
 	destroy_texture(fi);
 	destroy_pnj(fi);
+	printf("%s\n", "OKK");
 	destroy_object(fi->characters);
 	destroy_object(fi->ID_characters);
+	sfClock_destroy(fi->time.clock);
 	free_all(fi);
 	sfRenderWindow_destroy(fi->window);
 }

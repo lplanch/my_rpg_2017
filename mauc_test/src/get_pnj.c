@@ -15,7 +15,7 @@ sfIntRect get_pnj_rect(int fd)
 	char *buffer = get_next_line(fd);
 
 	rect.left = my_getnbr_i(buffer, 0);
-	for (i ; buffer[i] != ' '; i++);
+	for (i; buffer[i] != ' '; i++);
 	i++;
 	rect.top = my_getnbr_i(buffer, i);
 	for (i; buffer[i] != ' '; i++);
@@ -59,8 +59,8 @@ pnj_t get_pnj(char *name)
 	sp = my_getnbr_i(str, 0);
 	pnj.pnj = create_object(path, pos, rect, sp);
 	sfSprite_scale(pnj.pnj->sprite, create_vector2f(2, 2));
-	free (path);
-	free (str);
+	free(path);
+	free(str);
 	return (pnj);
 }
 

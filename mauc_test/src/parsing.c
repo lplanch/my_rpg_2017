@@ -75,7 +75,7 @@ void parsing2(int y, files_t *fi, char *str)
 		i++;
 		a++;
 	}
-	free (str);
+	free(str);
 	tab_to_struct(fi, tab, y);
 }
 
@@ -101,5 +101,5 @@ void parsing(struct stat a, files_t *fi)
 	}
 	str[k] = 0;
 	parsing2(y, fi, str);
-	free (buff);
+	free(buff);
 }

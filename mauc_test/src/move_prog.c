@@ -10,16 +10,22 @@
 
 void move_allpts2(files_t *fi)
 {
-	fi->pos[6].x = fi->ID_characters->pos.x + (fi->ID_characters->rect.width / 4);
+	fi->pos[6].x = fi->ID_characters->pos.x +
+	(fi->ID_characters->rect.width / 4);
 	fi->pos[6].y = fi->ID_characters->pos.y;
 	fi->pos[7].x = fi->ID_characters->pos.x +
-	(fi->ID_characters->rect.width / 2) + (fi->ID_characters->rect.width / 4);
+	(fi->ID_characters->rect.width / 2) +
+	(fi->ID_characters->rect.width / 4);
 	fi->pos[7].y = fi->ID_characters->pos.y;
-	fi->pos[8].x = fi->ID_characters->pos.x + (fi->ID_characters->rect.width / 4);
-	fi->pos[8].y = fi->ID_characters->pos.y + fi->ID_characters->rect.height;
+	fi->pos[8].x = fi->ID_characters->pos.x +
+	(fi->ID_characters->rect.width / 4);
+	fi->pos[8].y = fi->ID_characters->pos.y +
+	fi->ID_characters->rect.height;
 	fi->pos[9].x = fi->ID_characters->pos.x +
-	(fi->ID_characters->rect.width / 2) + (fi->ID_characters->rect.width / 4);
-	fi->pos[9].y = fi->ID_characters->pos.y + fi->ID_characters->rect.height;
+	(fi->ID_characters->rect.width / 2) +
+	(fi->ID_characters->rect.width / 4);
+	fi->pos[9].y = fi->ID_characters->pos.y +
+	fi->ID_characters->rect.height;
 }
 
 void move_allpts(files_t *fi)
@@ -29,26 +35,32 @@ void move_allpts(files_t *fi)
 	fi->pos[1].x = fi->ID_characters->pos.x + fi->ID_characters->rect.width;
 	fi->pos[1].y = fi->ID_characters->pos.y;
 	fi->pos[2].x = fi->ID_characters->pos.x - 5;
-	fi->pos[2].y = fi->ID_characters->pos.y + fi->ID_characters->rect.height;
+	fi->pos[2].y = fi->ID_characters->pos.y +
+	fi->ID_characters->rect.height;
 	fi->pos[3].x = fi->ID_characters->pos.x + fi->ID_characters->rect.width;
-	fi->pos[3].y = fi->ID_characters->pos.y + fi->ID_characters->rect.height;
-	fi->pos[4].x = fi->ID_characters->pos.x + (fi->ID_characters->rect.width / 2);
+	fi->pos[3].y = fi->ID_characters->pos.y +
+	fi->ID_characters->rect.height;
+	fi->pos[4].x = fi->ID_characters->pos.x +
+	(fi->ID_characters->rect.width / 2);
 	fi->pos[4].y = fi->ID_characters->pos.y;
-	fi->pos[5].x = fi->ID_characters->pos.x + (fi->ID_characters->rect.width / 2);
-	fi->pos[5].y = fi->ID_characters->pos.y + fi->ID_characters->rect.height;
+	fi->pos[5].x = fi->ID_characters->pos.x +
+	(fi->ID_characters->rect.width / 2);
+	fi->pos[5].y = fi->ID_characters->pos.y +
+	fi->ID_characters->rect.height;
 	move_allpts2(fi);
 }
 
-void move_ID_player(files_t *fi)
+void move_id_player(files_t *fi)
 {
 	fi->ID_characters->rect.left = fi->characters->rect.left;
-	fi->ID_characters->rect.top = fi->characters->rect.top ;
+	fi->ID_characters->rect.top = fi->characters->rect.top;
 	fi->ID_characters->rect.width = fi->characters->rect.width + 10;
 	fi->ID_characters->rect.height = fi->characters->rect.height - 16;
 	fi->ID_characters->pos.x = fi->characters->pos.x + 14;
 	fi->ID_characters->pos.y = fi->characters->pos.y + 66;
 	move_allpts(fi);
-	sfSprite_setTextureRect(fi->ID_characters->sprite, fi->ID_characters->rect);
+	sfSprite_setTextureRect(fi->ID_characters->sprite,
+	fi->ID_characters->rect);
 	sfSprite_setPosition(fi->ID_characters->sprite, fi->ID_characters->pos);
 }
 
@@ -70,7 +82,7 @@ void move_ok(files_t *fi)
 		fi->direction = 3;
 		fi->velocity.y = speed * 3;
 	} else
-	 	fi->velocity.y = 0;
+		fi->velocity.y = 0;
 	if (sfKeyboard_isKeyPressed(sfKeyRight) == sfTrue) {
 		fi->characters->rect.top = 96;
 		fi->direction = 2;

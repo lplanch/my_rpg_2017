@@ -49,13 +49,13 @@ void move_down(files_t *fi);
 void move_right(files_t *fi);
 void move_left(files_t *fi);
 void move_allpts(files_t *fi);
-void move_ID_player(files_t *fi);
+void move_id_player(files_t *fi);
 
 int collision(files_t *fi);
 int check_colcircle(files_t *fi, int nbr);
 int check_colsquare(files_t *fi, int nbr);
 void check_pnj(files_t *fi);
-int collision_ID(files_t *fi);
+int collision_id(files_t *fi);
 
 int **get_layer(char *name, files_t *fi);
 void create_map(files_t *fi);

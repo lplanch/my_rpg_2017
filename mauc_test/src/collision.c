@@ -11,112 +11,127 @@
 int case_tp(files_t *fi, int nb_ID)
 {
 	switch (fi->map.layer_relief[nb_ID]) {
-		case 314:
-			fi->characters->pos.x = 840;
-			fi->characters->pos.y = 4284;
-			fi->characters->rect.top = 0;
-			sfSprite_setPosition(fi->characters->sprite, fi->characters->pos);
-			fi->camera_pos = 1;
-			return (1);
-		case 286:
-			fi->characters->pos.x = 3720;
-			fi->characters->pos.y = 2700;
-			fi->characters->rect.top = 144;
-			sfSprite_setPosition(fi->characters->sprite, fi->characters->pos);
-			return (1);
-		case 25:
-			fi->characters->pos.x = 7218;
-			fi->characters->pos.y = 5957;
-			fi->characters->rect.top = 144;
-			sfSprite_setPosition(fi->characters->sprite, fi->characters->pos);
-			fi->camera_pos = 0;
-			return (1);
-		case 284:
-			fi->characters->pos.x = 6591;
-			fi->characters->pos.y = 54;
-			fi->characters->rect.top = 96;
-			sfSprite_setPosition(fi->characters->sprite, fi->characters->pos);
-			fi->camera_pos = 0;
-			return (1);
-		default:
-			return (0);
-			break;
+	case 314:
+		fi->characters->pos.x = 840;
+		fi->characters->pos.y = 4284;
+		fi->characters->rect.top = 0;
+		sfSprite_setPosition(fi->characters->sprite, fi->characters->pos);
+		fi->camera_pos = 1;
+		return (1);
+	case 286:
+		fi->characters->pos.x = 3720;
+		fi->characters->pos.y = 2700;
+		fi->characters->rect.top = 144;
+		sfSprite_setPosition(fi->characters->sprite, fi->characters->pos);
+		return (1);
+	case 25:
+		fi->characters->pos.x = 7218;
+		fi->characters->pos.y = 5957;
+		fi->characters->rect.top = 144;
+		sfSprite_setPosition(fi->characters->sprite, fi->characters->pos);
+		fi->camera_pos = 0;
+		return (1);
+	case 284:
+		fi->characters->pos.x = 6591;
+		fi->characters->pos.y = 54;
+		fi->characters->rect.top = 96;
+		sfSprite_setPosition(fi->characters->sprite, fi->characters->pos);
+		fi->camera_pos = 0;
+		return (1);
+	default:
+		return (0);
+		break;
 	}
 	return (0);
 }
 
-int case_ID(files_t *fi, int nb_ID)
+int case_id(files_t *fi, int nb_ID)
 {
 	switch (fi->map.layer_colID[nb_ID]) {
-		case 32:
-		case 33:
-		case 34:
-		case 35:
-		case 36:
-		case 37:
-		case 42:
-		case 43:
-		case 44:
-		case 45:
-		case 46:
-		case 47:
-		case 48:
-		case 49:
-		case 50:
-		case 51:
-		case 63:
-		case 64:
-		case 65:
-		case 66:
-		case 67:
-		case 68:
-		case 73:
-		case 74:
-		case 75:
-		case 76:
-		case 77:
-		case 78:
-		case 79:
-		case 80:
-		case 81:
-		case 82:
-		case 156:
-		case 157:
-		case 158:
-		case 159:
-		case 168:
-		case 169:
-		case 170:
-		case 171:
-		case 173:
-		case 174:
-		case 175:
-		case 176:
-		case 177:
-		case 178:
-		case 187:
-		case 188:
-		case 189:
-		case 190:
-		case 199:
-		case 200:
-		case 201:
-		case 202:
-		case 204:
-		case 205:
-		case 206:
-		case 207:
-		case 208:
-		case 209:
-			return (1);
-			break;
-		default:
-			return (0);
-			break;
+	case 32:
+	case 33:
+	case 34:
+	case 35:
+	case 36:
+	case 37:
+	case 42:
+	case 43:
+	case 44:
+	case 45:
+	case 46:
+	case 47:
+	case 48:
+	case 49:
+	case 50:
+	case 51:
+	case 63:
+	case 64:
+	case 65:
+	case 66:
+	case 67:
+	case 68:
+	case 73:
+	case 74:
+	case 75:
+	case 76:
+	case 77:
+	case 78:
+	case 79:
+	case 80:
+	case 81:
+	case 82:
+	case 156:
+	case 157:
+	case 158:
+	case 159:
+	case 168:
+	case 169:
+	case 170:
+	case 171:
+	case 173:
+	case 174:
+	case 175:
+	case 176:
+	case 177:
+	case 178:
+	case 187:
+	case 188:
+	case 189:
+	case 190:
+	case 199:
+	case 200:
+	case 201:
+	case 202:
+	case 204:
+	case 205:
+	case 206:
+	case 207:
+	case 208:
+	case 209:
+		return (1);
+		break;
+	default:
+		return (0);
+		break;
 	}
 }
 
-int collision_ID(files_t *fi)
+void case_relief(files_t *fi, int nb_ID)
+{
+	switch (fi->map.layer_relief[nb_ID]) {
+	case 435:
+		fi->relief = 2;
+		break;
+	case 436:
+		fi->relief = 1;
+		break;
+	default:
+		fi->relief = 0;
+		break;
+	}
+}
+
+int collision_id(files_t *fi)
 {
 	int i = 0;
 	int size_cube = 5 * 32;
@@ -126,12 +141,13 @@ int collision_ID(files_t *fi)
 
 	while (i != 10) {
 		nb_ID = 60 * ((fi->pos[i].y / size_cube)) + fi->pos[i].x / size_cube;
-		if (case_ID(fi, nb_ID) == 1) {
+		if (case_id(fi, nb_ID) == 1) {
 			return (1);
 		}
 		if (case_tp(fi, nb_ID) == 0) {
 			fi->camera_pos = 0;
 		}
+		case_relief(fi, nb_ID);
 		i++;
 	}
 	return (0);
@@ -143,9 +159,11 @@ int check_colsquare(files_t *fi, int nbr)
 
 	while (i != 10) {
 		if (fi->pos[i].x > fi->colsquare[nbr].pos.x &&
-		fi->pos[i].x < (fi->colsquare[nbr].pos.x + fi->colsquare[nbr].width) &&
+		fi->pos[i].x < (fi->colsquare[nbr].pos.x +
+		fi->colsquare[nbr].width) &&
 		fi->pos[i].y > fi->colsquare[nbr].pos.y &&
-		fi->pos[i].y < (fi->colsquare[nbr].pos.y + fi->colsquare[nbr].height)) {
+		fi->pos[i].y < (fi->colsquare[nbr].pos.y +
+		fi->colsquare[nbr].height)) {
 			return (1);
 		} else {
 			i++;
@@ -156,7 +174,7 @@ int check_colsquare(files_t *fi, int nbr)
 
 int check_colcircle(files_t *fi, int nbr)
 {
- 	float distance_pt_center = 0;
+	float distance_pt_center = 0;
 	int i = 0;
 
 	while (i != 10) {
