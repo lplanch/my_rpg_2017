@@ -51,7 +51,7 @@ void set_int(int **end, char *all, int i, int a)
 	}
 }
 
-int **get_layer(char *name)
+int **get_layer(char *name, files_t *fi)
 {
 	int fd = open(name, O_RDONLY);
 	char *buffer;
@@ -61,6 +61,7 @@ int **get_layer(char *name)
 	int i = 0;
 
 	while ((buffer = get_next_line(fd)) != NULL) {
+		draw_loading(fi);
 		all = my_strcat_dup(all, "\n");
 		all = my_strcat_dup(all, buffer);
 		a++;
