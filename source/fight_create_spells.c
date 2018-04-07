@@ -67,6 +67,9 @@ void create_spells_rogue(st_rpg *s)
 	s->f.rog.ulting = 0;
 	s->f.rog.current = 0;
 	s->f.rog.ultt = create_st_time();
+	s->f.rog.dance = create_projectile("spells/2/Kunai");
+	s->f.rog.auto_a[0] = create_swing_from_file("spells/2/auto");
+	s->f.rog.auto_a[1] = create_swing_from_file("spells/2/auto");
 }
 
 void create_spells_warrior(st_rpg *s)

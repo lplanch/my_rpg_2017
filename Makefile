@@ -30,6 +30,7 @@ FILES		=	source/main.c				\
 			source/custom_get_buttons.c		\
 			source/custom_base.c			\
 			source/custom_goto.c			\
+			source/custom_to_player.c		\
 			source/custom_launch.c			\
 			source/custom_cursor.c			\
 			source/projectile.c			\
@@ -77,7 +78,9 @@ FILES		=	source/main.c				\
 			source/create_weapon.c			\
 			source/update_weapon_pos.c		\
 			source/swing.c				\
-			source/effect.c
+			source/effect.c				\
+			source/proc_effects.c			\
+			source/player.c
 
 SRCS		=	$(FILES)
 

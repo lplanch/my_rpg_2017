@@ -11,8 +11,9 @@
 void proc_effect_archer(st_rpg *s)
 {
 	proc_effect(s->f.arc.leaf);
-	if (s->f.arc.leaf->count <= 0) {
-		s->f.player.stat->frc -= s->f.arc.leaf.amount;
+	if (s->f.arc.leaf->count <= 0 && s->f.arc.leaf->amount != 0) {
+		s->player.stat->frc -= s->f.arc.leaf->amount;
+		s->f.arc.leaf->amount = 0;
 	}
 }
 
@@ -28,8 +29,7 @@ void proc_effect_rogue(st_rpg *s)
 
 void proc_effect_warrior(st_rpg *s)
 {
-	//proc_effect(s, s->f.war.shield);
-	//apply_projectile(s->f.war.hasagi, s->f.mob);
+
 }
 
 void proc_effects(st_rpg *s)

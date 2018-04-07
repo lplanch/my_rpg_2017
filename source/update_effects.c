@@ -14,7 +14,7 @@ void update_effects(st_rpg *s)
 	s->f.proc.sec = s->f.proc.time.microseconds / 1000000.0;
 	if (s->f.proc.sec > 0.1) {
 		proc_aoes(s);
-		proc_effect(s);
+		proc_effects(s);
 		sfClock_restart(s->f.proc.clock);
 	}
 }

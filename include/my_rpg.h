@@ -119,18 +119,6 @@ typedef struct struct_gunner_spells
 	int origin;
 } gunner_t;
 
-typedef struct struct_rogue_spells
-{
-	proj_t *dagger[30];
-	float ultangle;
-	int side;
-	int current;
-	int ultcount;
-	int ulting;
-	float ultspeed;
-	st_time ultt;
-} rogue_t;
-
 typedef struct struct_melee_swing
 {
 	float begin;
@@ -145,6 +133,20 @@ typedef struct struct_melee_swing
 	sfVector2f scale;
 	st_time t;
 } swing_t;
+
+typedef struct struct_rogue_spells
+{
+	proj_t *dagger[30];
+	float ultangle;
+	int side;
+	int current;
+	int ultcount;
+	int ulting;
+	float ultspeed;
+	st_time ultt;
+	proj_t *dance;
+	swing_t *auto_a[2];
+} rogue_t;
 
 typedef struct struct_warrior_spells
 {
@@ -259,6 +261,15 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void update_pos_weapon(st_rpg *s);
+void destroy_player(st_rpg *s);
+int check_double_class(st_rpg *s);
+void display_player(st_rpg *s);
+void create_player_from_cust(st_rpg *s);
+void proc_effects(st_rpg *s);
+void proc_effect(effect_t *effect);
+void destroy_effect(effect_t *effect);
+effect_t *create_effect(char *type, int amount, float duration);
 void warrior_update_hasagi(st_rpg *s);
 void gunner_update_ultimate(st_rpg *s);
 void warrior_update_auto_attack(st_rpg *s);

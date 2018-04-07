@@ -10,7 +10,6 @@
 
 void destroy_effect(effect_t *effect)
 {
-	free(effect->type);
 	free(effect);
 }
 

@@ -27,6 +27,7 @@ void update_projectile_rogue(st_rpg *s)
 {
 	for (int i = 0; i != 30; i += 1)
 		apply_projectile(s, s->f.rog.dagger[i], s->f.mob);
+	apply_projectile(s, s->f.rog.dance, s->f.mob);
 }
 
 void update_projectiles(st_rpg *s)

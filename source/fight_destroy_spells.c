@@ -16,6 +16,7 @@ void destroy_spells_archer(st_rpg *s)
 	sfClock_destroy(s->f.arc.kal.clock);
 	destroy_aoe(s->f.arc.barrage);
 	destroy_aoe(s->f.arc.heal);
+	destroy_effect(s->f.arc.leaf);
 }
 
 void destroy_spells_gunner(st_rpg *s)
@@ -38,6 +39,9 @@ void destroy_spells_rogue(st_rpg *s)
 	for (int i = 0; i != 30; i += 1)
 		destroy_projectile(s->f.rog.dagger[i]);
 	sfClock_destroy(s->f.rog.ultt.clock);
+	destroy_projectile(s->f.rog.dance);
+	destroy_swing(s->f.rog.auto_a[0]);
+	destroy_swing(s->f.rog.auto_a[1]);
 }
 
 void destroy_spells_warrior(st_rpg *s)
