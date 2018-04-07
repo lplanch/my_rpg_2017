@@ -20,10 +20,10 @@ void create_first_tree(st_rpg *s)
 	s->player.tree.locke2 = 0;
 	s->player.tree.lockr1 = 0;
 	s->player.tree.lockr2 = 0;
-	s->player.tree.passive = 0;
-	s->player.tree.spell1 = 0;
-	s->player.tree.spell2 = 0;
-	s->player.tree.spell3 = 0;
+	s->player.tree.passive = 3;
+	s->player.tree.spell1 = 3;
+	s->player.tree.spell2 = 3;
+	s->player.tree.spell3 = 3;
 	s->player.tree.skillp = 0;
 }
 

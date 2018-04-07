@@ -12,6 +12,7 @@ void proc_aoe_archer(st_rpg *s)
 {
 	proc_aoe(s, s->f.arc.heal);
 	proc_aoe(s, s->f.arc.barrage);
+	apply_projectile(s, s->f.arc.axe, s->f.mob);
 }
 
 void proc_aoe_gunner(st_rpg *s)

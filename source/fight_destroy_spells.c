@@ -10,8 +10,9 @@
 
 void destroy_spells_archer(st_rpg *s)
 {
-	for (int i = 0; i != 20; i += 1)
+	for (int i = 0; i != 20; i += 1) {
 		destroy_projectile(s->f.arc.arrow[i]);
+	}
 	destroy_projectile(s->f.arc.axe);
 	sfClock_destroy(s->f.arc.kal.clock);
 	destroy_aoe(s->f.arc.barrage);

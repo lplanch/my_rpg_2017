@@ -58,6 +58,7 @@ int launch_main_menu_load_slots(st_rpg *s)
 		main_menu_goto_saves(s);
 	else {
 		s->save = s->mainm.option + 1;
+		loading(s);
 		destroy_main_menu(s);
 		load_save(s);
 		return (fight_instance(s));

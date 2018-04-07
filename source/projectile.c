@@ -76,6 +76,5 @@ proj_t *create_projectile(char *path)
 void destroy_projectile(proj_t *proj)
 {
 	destroy_object(proj->obj);
-	free(proj->effect);
 	free(proj);
 }

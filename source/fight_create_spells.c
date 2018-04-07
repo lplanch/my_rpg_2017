@@ -12,6 +12,15 @@ void create_spells_archer(st_rpg *s)
 {
 	for (int i = 0; i != 20; i += 1) {
 		s->f.arc.arrow[i] = create_projectile("projectile/Arrow");
+		if (s->player.tree.passive == 0) {
+			s->f.arc.arrow[i]->dmg += s->f.arc.arrow[i]->dmg * 0.1;
+			s->f.arc.arrow[i]->obj->speed += s->f.arc.arrow[i]
+			->obj->speed * 0.5;
+		} if (s->player.tree.passive == 1)
+			s->f.arc.arrow[i]->effect = "slow";
+		if (s->player.tree.passive == 2) {
+			//s->player->obj->speed += s->player->obj->speed * 0.2;
+		}
 	}
 	s->f.arc.axe = create_projectile("projectile/Axe");
 	s->f.arc.kal = create_st_time();
