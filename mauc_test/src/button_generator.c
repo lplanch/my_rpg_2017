@@ -13,7 +13,7 @@ st_button *create_button(char *str, g_object *object, sfColor c, int size)
 {
        st_button *button = malloc(sizeof(st_button));
 
-       button->text = create_text(str, object->pos, "images/button.ttf");
+       button->text = create_text(str, object->pos, "dialog_box/mangati.ttf");
        button->obj = object;
 	sfText_setColor(button->text->text, c);
        sfText_setCharacterSize(button->text->text, size);
@@ -24,7 +24,7 @@ st_button *create_vbutton(char *str, sfVector2f pos, sfColor c, int size)
 {
        st_button *button = malloc(sizeof(st_button));
 
-       button->text = create_text(str, pos, "images/button.ttf");
+       button->text = create_text(str, pos, "images/button3.otf");
        button->obj = create_object("images/void.png", pos,
        create_rect(0, 0, 0, size), 0);
 	sfText_setColor(button->text->text, c);

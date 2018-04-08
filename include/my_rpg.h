@@ -72,10 +72,19 @@ typedef struct aoe
 	float count;
 } aoe_t;
 
+typedef struct effect
+{
+	float duration;
+	float count;
+	char *type;
+	int amount;
+} effect_t;
+
 typedef struct struct_archer_spells
 {
 	aoe_t *barrage;
 	aoe_t *heal;
+	effect_t *leaf;
 	int kalash;
 	int current;
 	float kalashspeed;
@@ -95,13 +104,35 @@ typedef struct struct_gunner_spells
 	st_time t;
 	proj_t *blitz;
 	proj_t *grenade;
+	sfCircleShape *explo;
 	float grenadespeed;
 	st_anim *explosion;
 	float delay;
 	st_time blitzt;
 	proj_t *bullet[10];
 	int current;
+	int ult;
+	proj_t *ultb[10];
+	g_object *trait[10];
+	sfVector2f ultrat;
+	int dmg;
+	int origin;
 } gunner_t;
+
+typedef struct struct_melee_swing
+{
+	float begin;
+	float angle;
+	float count;
+	float speed;
+	int dmg;
+	int dmgratio;
+	int able;
+	int shot;
+	int sens;
+	sfVector2f scale;
+	st_time t;
+} swing_t;
 
 typedef struct struct_rogue_spells
 {
@@ -113,7 +144,21 @@ typedef struct struct_rogue_spells
 	int ulting;
 	float ultspeed;
 	st_time ultt;
+	proj_t *dance;
+	swing_t *auto_a[2];
 } rogue_t;
+
+typedef struct struct_warrior_spells
+{
+	swing_t *auto_a;
+	proj_t *hasagi;
+	sfVector2f hpos;
+	sfVector2f hrat;
+	float hdmg;
+	aoe_t *shield;
+	int estoc;
+	float count;
+} warrior_t;
 
 typedef struct fight_tree
 {
@@ -131,6 +176,7 @@ typedef struct fight_tree
 	int spell1;
 	int spell2;
 	int spell3;
+	int skillp;
 } tree_t;
 
 typedef struct struct_stat_entity
@@ -167,11 +213,13 @@ typedef struct main_fight
 	g_object *cd[4];
 	float cdcount[4];
 	float cds[4];
+	int cast;
 	st_time cdt;
 	st_time proc;
 	archer_t arc;
 	rogue_t rog;
 	gunner_t gun;
+	warrior_t war;
 } fight_t;
 
 typedef struct struct_main_menu
@@ -194,11 +242,10 @@ typedef struct struct_main_menu
 typedef struct struct_player_info
 {
 	stat_t *stat;
-	int skillp;
 	tree_t tree;
 	st_cdata cdata;
 	g_object *obj;
-	g_object *weapon;
+	g_object *weapon[2];
 } player_t;
 
 typedef struct struct_rpg
@@ -214,13 +261,32 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void update_pos_weapon(st_rpg *s);
+void destroy_player(st_rpg *s);
+int check_double_class(st_rpg *s);
+void display_player(st_rpg *s);
+void create_player_from_cust(st_rpg *s);
+void proc_effects(st_rpg *s);
+void proc_effect(effect_t *effect);
+void destroy_effect(effect_t *effect);
+effect_t *create_effect(char *type, int amount, float duration);
+void warrior_update_hasagi(st_rpg *s);
+void gunner_update_ultimate(st_rpg *s);
+void warrior_update_auto_attack(st_rpg *s);
+void swing_damage_enemy(st_rpg *s, swing_t *swing, enemy_t *mob);
+swing_t *create_swing_from_file(char *path);
+void destroy_swing(swing_t *swing);
+void update_swing(st_rpg *s, swing_t *swing, g_object *obj);
+void launch_swing(sfRenderWindow *window, swing_t *swing, g_object *obj);
+void create_weapon(st_rpg *s);
 void update_effects(st_rpg *s);
-void apply_aoe(aoe_t *aoe, enemy_t *mob);
+void apply_aoe(st_rpg *s, aoe_t *aoe, enemy_t *mob);
 void proc_aoe(st_rpg *s, aoe_t *aoe);
 void proc_aoes(st_rpg *s);
 aoe_t *create_aoe_from_file(char *path);
-void apply_projectile(proj_t *proj, enemy_t *mob);
-void projectile_damage_enemy(proj_t *proj, enemy_t *mob);
+void apply_projectile(st_rpg *s, proj_t *proj, enemy_t *mob);
+void projectile_damage_enemy(st_rpg *s, proj_t *proj, enemy_t *mob);
+int circle_hitbox(sfCircleShape *circle, g_object *target);
 int hitbox(g_object *attack, g_object *target);
 void update_projectiles(st_rpg *s);
 void create_mob_example(st_rpg *s);

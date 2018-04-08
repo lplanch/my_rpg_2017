@@ -14,27 +14,6 @@ void destroy_dialog_box(files_t *fi)
 	destroy_button(fi->pnj[fi->nb_pnj].name_box);
 }
 
-void draw_dialog_box(files_t *fi)
-{
-	sfRenderWindow_clear(fi->window, sfBlack);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite5, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite3, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite2, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->ID_sprite, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->sprite, NULL);
-	sfRenderWindow_drawSprite(fi->window, fi->testmap.sprite4, NULL);
-	sfRenderWindow_drawSprite(fi->window,
-	fi->pnj[fi->nb_pnj].dialog_box->obj->sprite, NULL);
-	sfRenderWindow_drawText(fi->window,
-	fi->pnj[fi->nb_pnj].dialog_box->text->text, NULL);
-	sfRenderWindow_drawSprite(fi->window,
-	fi->pnj[fi->nb_pnj].name_box->obj->sprite, NULL);
-	sfRenderWindow_drawText(fi->window,
-	fi->pnj[fi->nb_pnj].name_box->text->text, NULL);
-	sfRenderWindow_display(fi->window);
-}
-
 int update_dialog_box(files_t *fi, int fd)
 {
 	char *str = get_next_line(fd);
@@ -42,11 +21,14 @@ int update_dialog_box(files_t *fi, int fd)
 	if (str == NULL) {
 		free(str);
 		return (1);
-	} else {
-		sfText_setString(fi->pnj[fi->nb_pnj].dialog_box->text->text, str);
+	} else if (!my_strcmp(str, ">")) {
+		choice_box(fi, fd);
 		free(str);
-		return (0);
+		str = get_next_line(fd);
 	}
+	sfText_setString(fi->pnj[fi->nb_pnj].dialog_box->text->text, str);
+	free(str);
+	return (0);
 }
 
 void create_dialog_box(files_t *fi)
@@ -54,7 +36,7 @@ void create_dialog_box(files_t *fi)
 	float pos_x = fi->camera.x - 450;
 	float pos_y = fi->camera.y + 250;
 	float pos_text_x = pos_x + 50;
-	float pos_text_y = pos_y + 60;
+	float pos_text_y = pos_y + 70;
 
 	fi->pnj[fi->nb_pnj].dialog_box = create_button("jk",
 	create_object("dialog_box/dialog_box_obj.png",
@@ -68,7 +50,7 @@ void create_name_box(files_t *fi)
 	float pos_x = fi->camera.x - 440;
 	float pos_y = fi->camera.y + 200;
 	float pos_text_x = pos_x + 30;
-	float pos_text_y = pos_y + 24;
+	float pos_text_y = pos_y + 26;
 
 	fi->pnj[fi->nb_pnj].name_box = create_button(fi->pnj[fi->nb_pnj].name,
 	create_object("dialog_box/name_box_obj.png",
@@ -92,7 +74,7 @@ void event_dialog_box(files_t *fi, sfEvent event, int fd)
 
 void dialog_box(files_t *fi)
 {
-	char *path = my_strcat(my_strdup("dialog_box/text"),
+	char *path = my_strcat(my_strdup("dialog_box/text/"),
 	my_strdup(fi->pnj[fi->nb_pnj].name));
 	int fd = open(path, O_RDONLY);
 	sfEvent event;

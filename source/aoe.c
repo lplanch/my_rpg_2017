@@ -40,13 +40,14 @@ void launch_aoe(sfRenderWindow *window, aoe_t *aoe)
 void proc_aoe(st_rpg *s, aoe_t *aoe)
 {
 	aoe->count += 0.1;
-	if (aoe->count >= aoe->duration)
+	if (aoe->count >= aoe->duration) {
 		aoe->shot = 0;
-	if (aoe->shot) {
+		s->f.cast = 0;
+	} if (aoe->shot && circle_hitbox(aoe->circle, s->f.mob->obj)) {
 		if (!my_strcmp(aoe->effect, "heal"))
 			heal(s, aoe->dmg);
 		if (!my_strcmp(aoe->effect, "damage"))
-			apply_aoe(aoe, s->f.mob);
+			apply_aoe(s, aoe, s->f.mob);
 	}
 }
 
@@ -66,9 +67,9 @@ aoe_t *create_aoe_from_file(char *path)
 	str_to_int(get_next_line(fd))), str_to_int(get_next_line(fd)));
 	aoe->anim->speed = aoe->anim->speed / 100;
 	aoe->anim->width = sfTexture_getSize(sfSprite_getTexture(aoe->anim->obj
-		->sprite)).x / aoe->anim->hor;
+	->sprite)).x / aoe->anim->hor;
 	aoe->anim->height = sfTexture_getSize(sfSprite_getTexture(aoe->anim->obj
-		->sprite)).y / aoe->anim->ver;
+	->sprite)).y / aoe->anim->ver;
 	aoe->anim->obj->rect.width = aoe->anim->width;
 	aoe->anim->obj->rect.height = aoe->anim->height;
 	aoe->shot = 0;
@@ -76,7 +77,7 @@ aoe_t *create_aoe_from_file(char *path)
 	aoe->effect = get_next_line(fd);
 	aoe->dmg = str_to_int(get_next_line(fd));
 	aoe->dmgratio = str_to_int(get_next_line(fd));
-	aoe->duration = str_to_int(get_next_line(fd));
+	aoe->duration = str_to_int(get_next_line(fd)) / 100;
 	close(fd);
 	return (aoe);
 }

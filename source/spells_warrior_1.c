@@ -18,15 +18,21 @@ void warrior_whirlwing(st_rpg *s)
 
 }
 
-void warrior_estoc(st_rpg *s)
+void warrior_hasagi(st_rpg *s)
 {
-
+	s->f.cast = 1;
+	s->f.war.estoc = 1;
+	s->f.war.count = 0;
+	s->f.war.hpos = s->player.weapon[0]->pos;
+	s->f.war.hrat = get_ratios(get_angle(s->window));
+	s->f.war.hpos.x -= s->f.war.hrat.x * 50;
+	s->f.war.hpos.y -= s->f.war.hrat.y * 50;
 }
 
 void choose_spell1_warrior(st_rpg *s)
 {
 	void (*list[3])(st_rpg *s) = {warrior_rush, warrior_whirlwing,
-		warrior_estoc};
+		warrior_hasagi};
 
 	(list[s->player.tree.spell1])(s);
 }

@@ -56,7 +56,7 @@ void my_strcpy(char *dest, char *src)
 char *my_strcat_dup(char *str1, char *str2)
 {
 	char *res = my_calloc(sizeof(char) *
-my_strlen(str1) + my_strlen(str2) + 2);
+	my_strlen(str1) + my_strlen(str2) + 2);
 
 	my_strcpy(res, str1);
 	res = my_strcat2(res, str2);

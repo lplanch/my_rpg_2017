@@ -11,20 +11,23 @@
 void update_projectile_archer(st_rpg *s)
 {
 	for (int i = 0; i != 20; i += 1)
-		apply_projectile(s->f.arc.arrow[i], s->f.mob);
+		apply_projectile(s, s->f.arc.arrow[i], s->f.mob);
 }
 
 void update_projectile_gunner(st_rpg *s)
 {
-	for (int i = 0; i != 10; i += 1)
-		apply_projectile(s->f.gun.bullet[i], s->f.mob);
-	apply_projectile(s->f.gun.blitz, s->f.mob);
+	for (int i = 0; i != 10; i += 1) {
+		apply_projectile(s, s->f.gun.bullet[i], s->f.mob);
+		apply_projectile(s, s->f.gun.ultb[i], s->f.mob);
+	}
+	apply_projectile(s, s->f.gun.blitz, s->f.mob);
 }
 
 void update_projectile_rogue(st_rpg *s)
 {
 	for (int i = 0; i != 30; i += 1)
-		apply_projectile(s->f.rog.dagger[i], s->f.mob);
+		apply_projectile(s, s->f.rog.dagger[i], s->f.mob);
+	apply_projectile(s, s->f.rog.dance, s->f.mob);
 }
 
 void update_projectiles(st_rpg *s)

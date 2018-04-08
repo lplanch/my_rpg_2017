@@ -25,10 +25,11 @@ void gunner_auto_attack(st_rpg *s)
 
 void rogue_auto_attack(st_rpg *s)
 {
-
+	launch_swing(s->window, s->f.rog.auto_a[0], s->player.weapon[0]);
 }
 
 void warrior_auto_attack(st_rpg *s)
 {
-
+	launch_swing(s->window, s->f.war.auto_a, s->player.weapon[0]);
+	s->f.cast = 1;
 }

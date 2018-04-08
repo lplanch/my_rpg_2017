@@ -19,8 +19,13 @@ void display_archer(st_rpg *s)
 
 void display_gunner(st_rpg *s)
 {
-	for (int i = 0; i != 10; i += 1)
+	for (int i = 0; i != 10; i += 1) {
 		display_projectile(s->window, s->f.gun.bullet[i]);
+		display_projectile(s->window, s->f.gun.ultb[i]);
+		if (s->f.gun.ultb[i]->shot)
+			sfRenderWindow_drawSprite(s->window,
+				s->f.gun.trait[i]->sprite, NULL);
+	}
 	display_projectile(s->window, s->f.gun.blitz);
 	if (s->f.gun.grenade->shot == 1)
 		display_projectile(s->window, s->f.gun.grenade);
@@ -34,17 +39,19 @@ void display_rogue(st_rpg *s)
 {
 	for (int i = 0; i != 30; i += 1)
 		display_projectile(s->window, s->f.rog.dagger[i]);
+	display_projectile(s->window, s->f.rog.dance);
 }
 
 void display_warrior(st_rpg *s)
 {
-
+	display_projectile(s->window, s->f.war.hasagi);
+	display_aoe(s->window, s->f.war.shield);
 }
 
 void display_class(st_rpg *s)
 {
 	void (*list[4])(st_rpg *s) = {display_archer, display_gunner,
-				display_rogue, display_warrior};
+	display_rogue, display_warrior};
 
 	(list[s->player.cdata.classe])(s);
 }

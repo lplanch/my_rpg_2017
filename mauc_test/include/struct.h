@@ -12,6 +12,13 @@
 #include <SFML/Graphics.h>
 #include "game_object.h"
 
+typedef struct s_clock
+{
+	sfClock *clock;
+	sfTime tmp;
+	float seconds;
+} clockz_t;
+
 typedef struct struct_button
 {
 	t_object *text;
@@ -24,6 +31,9 @@ typedef struct s_pnj
 	st_button *name_box;
 	st_button *dialog_box;
 	g_object *pnj;
+	g_object *choice_box_edge[2];
+	g_object *cursor;
+	st_button **choice_box;
 } pnj_t;
 
 typedef struct s_pos
@@ -32,22 +42,23 @@ typedef struct s_pos
 	int y;
 } pos_t;
 
-typedef struct s_testmap
+typedef struct s_map
 {
 	int x;
 	int x2;
 	int y;
+	int **tab_tileset;
 	int *layer_background;
 	int *layer_relief;
 	int *layer_col;
 	int *layer_colID;
 	int *layer_prof;
 	sfImage *image;
-	sfImage *testmap_backgound;
-	sfImage *testmap_relief;
-	sfImage *testmap_col;
-	sfImage *testmap_colID;
-	sfImage *testmap_prof;
+	sfImage *map_backgound;
+	sfImage *map_relief;
+	sfImage *map_col;
+	sfImage *map_colID;
+	sfImage *map_prof;
 	sfSprite *sprite;
 	sfTexture *texture;
 	sfSprite *sprite2;
@@ -60,7 +71,7 @@ typedef struct s_testmap
 	sfTexture *texture5;
 	sfIntRect square;
 	sfColor color;
-} testmap_t;
+} map_t;
 
 typedef struct s_colsquare
 {
@@ -84,27 +95,28 @@ typedef struct s_files
 	int camera_pos;
 	int dialog_box_isopen;
 	int nb_pnj;
+	int max_pnj;
+	int choice_cursor;
+	int loading_timer;
+	sfClock *clock;
 	sfView *view;
+	g_object *characters;
+	g_object *ID_characters;
+	g_object *loading;
 	sfVector2f camera;
 	sfVector2f camera_prec;
 	sfRenderWindow *window;
-	sfTexture *texture;
-	sfSprite *sprite;
-	sfIntRect square;
-	sfVector2f square2;
 	sfVector2f speed;
 	sfVector2f velocity;
 	sfVector2f invers;
 	sfVector2f maxspeed;
-	sfTexture *ID_text;
-	sfSprite *ID_sprite;
-	sfIntRect ID_player;
 	sfVector2f vect_ID_player;
-	pnj_t pnj[5];
+	pnj_t pnj[4];
 	pos_t pos[10];
 	colcircle_t colcircle[42];
 	colsquare_t colsquare[204];
-	testmap_t testmap;
+	map_t map;
+	clockz_t time;
 } files_t;
 
 #endif

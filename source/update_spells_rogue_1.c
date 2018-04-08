@@ -13,8 +13,7 @@ void update_current_dagger(st_rpg *s)
 	if (s->f.rog.ultcount > 100) {
 		s->f.rog.ulting = 0;
 		s->f.rog.ultcount = 0;
-	}
-	if (s->f.rog.current > 29)
+	} if (s->f.rog.current > 29)
 		s->f.rog.current = 0;
 }
 

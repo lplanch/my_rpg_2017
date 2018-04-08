@@ -21,9 +21,11 @@ void free_tab(char **tab, int y)
 
 void free_all(files_t *fi)
 {
-	free (fi->testmap.layer_background);
-	free (fi->testmap.layer_relief);
-	free (fi->testmap.layer_colID);
-	free (fi->testmap.layer_col);
-	free (fi->testmap.layer_prof);
+	int i = 0;
+
+	while (i != 4) {
+		free (fi->map.tab_tileset[i]);
+		i++;
+	}
+	free (fi->map.tab_tileset);
 }
