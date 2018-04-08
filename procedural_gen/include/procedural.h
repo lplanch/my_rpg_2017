@@ -26,6 +26,7 @@ static const sfKeyCode key_down = sfKeyS;
 static const sfKeyCode key_left = sfKeyQ;
 static const sfKeyCode key_right = sfKeyD;
 static const sfKeyCode key_map = sfKeyTab;
+static const sfKeyCode key_inv = sfKeyI;
 static const sfKeyCode key_fast_inv = sfKeyLShift;
 
 //MAKE MAP
@@ -72,6 +73,9 @@ void draw_rect_room(proc_t *proc, proom_t *proom, int x, int y);
 void draw_rect_corridor(proc_t *proc, int x, int y);
 void draw_rect_player(proc_t *proc);
 
+//INIT MAP
+gmanager_t *init_dungeon_game(proc_t *proc, gage_t *gage);
+
 //FRAMEBUFFER
 framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
 void my_fill_screen(framebuffer_t *buffer, sfColor color);
@@ -80,6 +84,7 @@ void fill_minimap_screen(framebuffer_t *buffer, sfColor color);
 void reset_screen(framebuffer_t *buffer);
 void my_draw_rect(framebuffer_t *buff, int pos[2], int size[2], sfColor color);
 void my_draw_f_rect(framebuffer_t *buff, int pos[2], int size[2], int diag[4]);
+void my_draw_vrect(framebuffer_t *buff, int pos[2], int size[2], sfColor color);
 
 //CREATE BLOCKS
 int is_ground(char chr);
@@ -115,3 +120,10 @@ void free_gage_game(gage_t *gage);
 void next_level_screen(gage_t *gage);
 void fade_in_text(sfRenderWindow *window, sfText *text);
 void fade_out_text(sfRenderWindow *window, sfText *text);
+
+//INVENTORY
+ingame_t *create_ingame_player(void);
+void clear_inventory_slot(item_t *slot);
+void add_inventory_slot(item_t *first_slot);
+void remove_inventory_slot(item_t *first_slot);
+void verify_inventory(gmanager_t *gman);

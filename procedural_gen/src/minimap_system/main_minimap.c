@@ -64,7 +64,7 @@ void draw_minimap(proc_t *proc)
 	sfSprite_setPosition(proc->minimap->fb_sprite, player_pos_b);
 	sfSprite_setPosition(proc->minimap->fm_sprite, player_pos_m);
 	sfRenderWindow_drawSprite(
-	proc->gman->window, proc->minimap->fb_sprite,NULL);
+	proc->gman->window, proc->minimap->fb_sprite, NULL);
 	sfRenderWindow_drawSprite(
 	proc->gman->window, proc->minimap->fm_sprite, NULL);
 	sfRenderWindow_drawText(

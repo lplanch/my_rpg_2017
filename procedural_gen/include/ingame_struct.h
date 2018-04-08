@@ -5,20 +5,32 @@
 ** file to stock all struct about game
 */
 
+typedef struct framebuffer {
+	unsigned int width;
+	unsigned int height;
+	sfUint8 *pixels;
+} framebuffer_t;
+
 //INVENTORY
 typedef struct inventory_item
 {
+	sfSprite *sprite;
 	unsigned int id;
 	unsigned int stacks;
-	item_t *next;
+	unsigned int pos;
+	struct inventory_item *next;
 } item_t;
 
 typedef struct ingame_inventory_manager
 {
+	framebuffer_t *background;
+	sfTexture *btexture;
+	sfSprite *bsprite;
 	unsigned int size;
 	unsigned int money;
 	item_t *first_slot;
 	item_t *armor;
+	item_t *weapon;
 } ing_inv_t;
 
 //PLAYER INGAME STATUS
@@ -48,5 +60,5 @@ typedef struct ingame_player
 typedef struct ingame_struct
 {
 	ing_player_t player;
-	ing_inv_t inventory;
+	ing_inv_t inv;
 } ingame_t;

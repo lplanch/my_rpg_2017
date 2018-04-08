@@ -8,11 +8,6 @@
 #include "ingame_struct.h"
 
 //MINIMAP
-typedef struct framebuffer {
-	unsigned int width;
-	unsigned int height;
-	sfUint8 *pixels;
-} framebuffer_t;
 
 typedef struct minimap {
 	framebuffer_t *f_background;
@@ -63,6 +58,7 @@ typedef struct game_manager
 	sfRenderWindow *window;
 	sfView *camera;
 	player_t player;
+	ingame_t *ing;
 	sfVector2f camera_pos;
 	sfClock *clock;
 	sfTime time;

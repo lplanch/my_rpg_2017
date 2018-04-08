@@ -24,6 +24,18 @@ void my_draw_rect(framebuffer_t *buff, int pos[2], int size[2], sfColor color)
 	}
 }
 
+void my_draw_vrect(framebuffer_t *buff, int pos[2], int size[2], sfColor color)
+{
+	for (int x = pos[0]; x < pos[0] + size[0]; x++)
+		my_put_pixel(buff, x, pos[1], color);
+	for (int x = pos[0]; x < pos[0] + size[0]; x++)
+		my_put_pixel(buff, x, pos[1] + size[1] - 1, color);
+	for (int y = pos[1]; y < pos[1] + size[1]; y++)
+		my_put_pixel(buff, pos[0], y, color);
+	for (int y = pos[1]; y < pos[1] + size[1]; y++)
+		my_put_pixel(buff, pos[0] + size[0] - 1, y, color);
+}
+
 void my_draw_f_rect(framebuffer_t *buff, int pos[2], int size[2], int diag[4])
 {
 	sfColor white_trans = {255, 255, 255, 128};
