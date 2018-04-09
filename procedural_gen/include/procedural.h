@@ -85,6 +85,10 @@ void reset_screen(framebuffer_t *buffer);
 void my_draw_rect(framebuffer_t *buff, int pos[2], int size[2], sfColor color);
 void my_draw_f_rect(framebuffer_t *buff, int pos[2], int size[2], int diag[4]);
 void my_draw_vrect(framebuffer_t *buff, int pos[2], int size[2], sfColor color);
+void my_draw_line(framebuffer_t *b, int pos1[2], int pos2[2], sfColor c);
+void my_draw_octan(framebuffer_t *buffer, int r, int pos[2], sfColor color);
+void my_draw_circle(framebuffer_t *buffer, int pos[2], int r, sfColor c);
+void my_draw_circle_filled(framebuffer_t *b, int pos[2], int r, sfColor c);
 
 //CREATE BLOCKS
 int is_ground(char chr);

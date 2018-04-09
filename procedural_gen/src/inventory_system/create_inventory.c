@@ -8,7 +8,7 @@
 #include "my.h"
 #include "../../include/procedural.h"
 
-void draw_inventory_boxes(framebuffer_t *buffer)
+void fill_inventory_boxes(framebuffer_t *buffer)
 {
 	sfColor bla = {50, 50, 57, 180};
 
@@ -24,6 +24,8 @@ void draw_inventory_boxes(framebuffer_t *buffer)
 		my_draw_vrect(buffer, (int[2]){WIDTH / 2.5 / 4.5 * 3.5 + i,
 		HEIGHT / 2.5 / 3.5 * 2 + i}, (int[2]){WIDTH / 2.5 / 4.5 - i * 2,
 		HEIGHT / 2.5 / 3.5 * 1.5 - i * 2}, bla);
+		my_draw_circle(buffer, (int[2]){WIDTH / 2.5 / 4.5 * 4,
+		HEIGHT / 2.5 / 3.5 * 2.75}, HEIGHT / 2.5 / 7 + i, bla);
 	}
 }
 
