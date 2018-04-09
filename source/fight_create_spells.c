@@ -22,6 +22,7 @@ void create_spells_archer(st_rpg *s)
 	s->f.arc.kalashspeed = 0.08;
 	s->f.arc.heal = create_aoe_from_file("spells/0/Heal");
 	s->f.arc.barrage = create_aoe_from_file("spells/0/Barrage");
+	s->f.arc.leaf = create_effect("power", 0, 6);
 }
 
 void create_spells_gunner(st_rpg *s)
@@ -50,6 +51,9 @@ void create_spells_gunner(st_rpg *s)
 	s->f.gun.explosion = create_anim(create_object("images/explosion.png",
 	create_vector2f(0, 0), create_rect(0, 0, 100, 100), 0.2),
 	create_vector2i(9, 9), 0.002);
+	sfSprite_setScale(s->f.gun.explosion->obj->sprite,
+	create_vector2f(1.8, 1.8));
+	s->f.gun.explo = create_circle(90, 0, sfTransparent);
 }
 
 void create_spells_rogue(st_rpg *s)
@@ -63,6 +67,9 @@ void create_spells_rogue(st_rpg *s)
 	s->f.rog.ulting = 0;
 	s->f.rog.current = 0;
 	s->f.rog.ultt = create_st_time();
+	s->f.rog.dance = create_projectile("spells/2/Kunai");
+	s->f.rog.auto_a[0] = create_swing_from_file("spells/2/auto");
+	s->f.rog.auto_a[1] = create_swing_from_file("spells/2/auto");
 }
 
 void create_spells_warrior(st_rpg *s)

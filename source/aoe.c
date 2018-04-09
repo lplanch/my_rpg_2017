@@ -43,11 +43,11 @@ void proc_aoe(st_rpg *s, aoe_t *aoe)
 	if (aoe->count >= aoe->duration) {
 		aoe->shot = 0;
 		s->f.cast = 0;
-	} if (aoe->shot) {
+	} if (aoe->shot && circle_hitbox(aoe->circle, s->f.mob->obj)) {
 		if (!my_strcmp(aoe->effect, "heal"))
 			heal(s, aoe->dmg);
 		if (!my_strcmp(aoe->effect, "damage"))
-			apply_aoe(aoe, s->f.mob);
+			apply_aoe(s, aoe, s->f.mob);
 	}
 }
 

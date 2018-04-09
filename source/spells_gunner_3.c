@@ -22,7 +22,7 @@ void gunner_ult(st_rpg *s)
 		s->f.gun.ultb[i]->angle);
 		sfSprite_setPosition(s->f.gun.trait[i]->sprite,
 		create_vector2f(960 + 10 * s->f.gun.ultrat.x, 540 +
-		10 * s->f.gun.ultrat.x));
+		10 * s->f.gun.ultrat.y));
 		s->f.gun.trait[i]->rect.width = 0;
 		s->f.gun.trait[i]->rect.height = 10;
 		sfSprite_setTextureRect(s->f.gun.trait[i]->sprite,

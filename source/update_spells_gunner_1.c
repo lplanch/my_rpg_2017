@@ -46,8 +46,9 @@ void gunner_update_grenade_speed(st_rpg *s)
 		}
 	} else if (s->f.gun.grenade->shot == 1) {
 		if (s->f.gun.explosion->t.sec > s->f.gun.explosion->speed &&
-			s->f.gun.grenade->obj->speed > 0.2) {
-			s->f.gun.grenade->obj->speed -= 0.2;
+			s->f.gun.grenade->obj->speed > 0) {
+			s->f.gun.grenade->obj->speed -= s->f.gun.grenade
+			->range / 4800;
 			sfClock_restart(s->f.gun.explosion->t.clock);
 		}
 		update_projectile(s->f.gun.grenade);
@@ -63,12 +64,17 @@ void gunner_update_grenade(st_rpg *s)
 	if (s->f.gun.explosion->t.sec >= s->f.gun.delay &&
 		s->f.gun.grenade->shot == 1) {
 		s->f.gun.explosion->obj->pos = create_vector2f(s->f.gun.grenade
-		->obj->pos.x - 50, s->f.gun.grenade->obj->pos.y - 50);
+		->obj->pos.x - 50 * 1.8,
+		s->f.gun.grenade->obj->pos.y - 50 * 1.8);
 		sfSprite_setPosition(s->f.gun.explosion->obj->sprite,
+		s->f.gun.explosion->obj->pos);
+		sfCircleShape_setPosition(s->f.gun.explo,
 		s->f.gun.explosion->obj->pos);
 		s->f.gun.grenade->shot = 2;
 		s->f.gun.explosion->l = 0;
 		s->f.gun.explosion->c = 0;
+		if (circle_hitbox(s->f.gun.explo, s->f.mob->obj))
+			s->f.mob->stat->pva -= 70 + 15 * s->player.stat->lvl;
 	}
 	gunner_update_grenade_speed(s);
 }

@@ -49,8 +49,13 @@ void make_corridors_minimap(proc_t *proc)
 
 void update_minimap(proc_t *proc)
 {
+	sfVector2f text_center =
+	{proc->gman->player.pos.x - (12 * 2),
+	proc->gman->player.pos.y - HEIGHT / 5.5};
+
 	increment_visited(proc);
 	make_corridors_minimap(proc);
+	sfText_setPosition(proc->minimap->current_level_text, text_center);
 	for (int i = 0; proc->proom[i] != NULL; i++) {
 		if (proc->proom[i]->visited && !proc->proom[i]->drawed)
 			draw_room_minimap(proc, proc->proom[i]);

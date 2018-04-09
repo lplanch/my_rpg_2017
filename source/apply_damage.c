@@ -8,29 +8,30 @@
 #include "my_rpg.h"
 #include "my.h"
 
-void projectile_damage_enemy(proj_t *proj, enemy_t *mob)
+void projectile_damage_enemy(st_rpg *s, proj_t *proj, enemy_t *mob)
 {
-	mob->stat->pva -= proj->dmg;
+	mob->stat->pva -= proj->dmg + s->player.stat->frc * proj->dmgratio;
 }
 
-void swing_damage_enemy(swing_t *swing, enemy_t *mob)
+void swing_damage_enemy(st_rpg *s, swing_t *swing, enemy_t *mob)
 {
-	mob->stat->pva -= swing->dmg;
+	mob->stat->pva -= swing->dmg + s->player.stat->frc * swing->dmgratio;
 }
 
-void apply_projectile(proj_t *proj, enemy_t *mob)
+void apply_projectile(st_rpg *s, proj_t *proj, enemy_t *mob)
 {
 	if (hitbox(proj->obj, mob->obj) && proj->shot) {
-		projectile_damage_enemy(proj, mob);
-		proj->shot = 0;
 		if (!my_strcmp(proj->effect, "pierce")) {
-			projectile_damage_enemy(proj, mob);
+			projectile_damage_enemy(s, proj, mob);
 			proj->shot = 1;
+		} else {
+			projectile_damage_enemy(s, proj, mob);
+			proj->shot = 0;
 		}
 	}
 }
 
-void apply_aoe(aoe_t *aoe, enemy_t *mob)
+void apply_aoe(st_rpg *s, aoe_t *aoe, enemy_t *mob)
 {
-	mob->stat->pva -= aoe->dmg;
+	mob->stat->pva -= aoe->dmg + s->player.stat->frc * aoe->dmgratio;
 }

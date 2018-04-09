@@ -10,10 +10,10 @@
 
 void verify_y_movement(proc_t *proc)
 {
-	if (sfKeyboard_isKeyPressed(sfKeyZ) == sfTrue) {
+	if (sfKeyboard_isKeyPressed(key_up) == sfTrue) {
 		if (proc->gman->player.nbr_frame.y > -10)
 			proc->gman->player.nbr_frame.y -= 1;
-	} else if (sfKeyboard_isKeyPressed(sfKeyS) == sfTrue) {
+	} else if (sfKeyboard_isKeyPressed(key_down) == sfTrue) {
 		if (proc->gman->player.nbr_frame.y < 10)
 			proc->gman->player.nbr_frame.y += 1;
 	} else {
@@ -26,10 +26,10 @@ void verify_y_movement(proc_t *proc)
 
 void verify_x_movement(proc_t *proc)
 {
-	if (sfKeyboard_isKeyPressed(sfKeyQ) == sfTrue) {
+	if (sfKeyboard_isKeyPressed(key_left) == sfTrue) {
 		if (proc->gman->player.nbr_frame.x > -10)
 			proc->gman->player.nbr_frame.x -= 1;
-	} else if (sfKeyboard_isKeyPressed(sfKeyD) == sfTrue) {
+	} else if (sfKeyboard_isKeyPressed(key_right) == sfTrue) {
 		if (proc->gman->player.nbr_frame.x < 10)
 			proc->gman->player.nbr_frame.x += 1;
 	} else {
@@ -38,13 +38,6 @@ void verify_x_movement(proc_t *proc)
 		else if (proc->gman->player.nbr_frame.x < 0)
 			proc->gman->player.nbr_frame.x += 1;
 	}
-}
-
-int interval(float value, float less, float max)
-{
-	if (value > less && value < max)
-		return (1);
-	return (0);
 }
 
 void verify_collide_map(proc_t *proc)
