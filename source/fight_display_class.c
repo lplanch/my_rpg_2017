@@ -29,10 +29,12 @@ void display_gunner(st_rpg *s)
 	display_projectile(s->window, s->f.gun.blitz);
 	if (s->f.gun.grenade->shot == 1)
 		display_projectile(s->window, s->f.gun.grenade);
-	if (s->f.gun.grenade->shot == 2) {
+	if (s->f.gun.grenade->shot == 2)
 		sfRenderWindow_drawSprite(s->window,
 			s->f.gun.explosion->obj->sprite, NULL);
-	}
+	if (s->f.gun.bullet[9]->shot == 2)
+		sfRenderWindow_drawSprite(s->window,
+		s->f.gun.expbullet->obj->sprite, NULL);
 }
 
 void display_rogue(st_rpg *s)

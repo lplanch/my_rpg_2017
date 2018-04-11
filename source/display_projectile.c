@@ -10,7 +10,7 @@
 
 void display_projectile(sfRenderWindow *window, proj_t *proj)
 {
-	if (proj->shot) {
+	if (proj->shot == 1) {
 		sfRenderWindow_drawSprite(window, proj->obj->sprite, NULL);
 	}
 }

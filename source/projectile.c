@@ -18,7 +18,7 @@ void update_projectile(proj_t *proj)
 	proj->obj->pos.y += proj->ratios.y * proj->obj->speed;
 	proj->used -= hypot(proj->ratios.x * proj->obj->speed,
 	proj->ratios.y * proj->obj->speed);
-	if (proj->used <= 0)
+	if (proj->used <= 0 && proj->shot != 2)
 		proj->shot = 0;
 	sfSprite_setPosition(proj->obj->sprite, proj->obj->pos);
 }

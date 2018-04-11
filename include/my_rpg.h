@@ -107,6 +107,8 @@ typedef struct struct_gunner_spells
 	sfCircleShape *explo;
 	float grenadespeed;
 	st_anim *explosion;
+	st_anim *expbullet;
+	sfCircleShape *expbt;
 	float delay;
 	st_time blitzt;
 	proj_t *bullet[10];
@@ -139,6 +141,7 @@ typedef struct struct_rogue_spells
 	proj_t *dagger[30];
 	float ultangle;
 	int side;
+	int auto_bool;
 	int current;
 	int ultcount;
 	int ulting;
@@ -253,6 +256,7 @@ typedef struct struct_rpg
 	fight_t f;
 	bars_t bar;
 	player_t player;
+	g_object *center;
 	g_object *loading;
 	int returnv;
 	st_custom cust;

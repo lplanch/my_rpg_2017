@@ -42,6 +42,13 @@ void create_spells_gunner(st_rpg *s)
 	s->f.gun.autospeed = 0.1;
 	for (int i = 0; i != 10; i += 1) {
 		s->f.gun.bullet[i] = create_projectile("projectile/Bullet");
+		if (s->player.tree.passive == 0)
+			s->f.gun.bullet[i]->range += s->f.gun.bullet[i]
+			->range * 0.3;
+		else if (s->player.tree.passive == 2 && i == 9) {
+			destroy_projectile(s->f.gun.bullet[i]);
+			s->f.gun.bullet[i] = create_projectile("spells/1/xblt");
+		}
 		s->f.gun.ultb[i] = create_projectile("spells/1/ultBullet");
 		s->f.gun.trait[i] = create_object("spells/1/trait.png",
 	create_vector2f(0, 0), create_rect(0, 0, 0, 10), 0);
@@ -62,7 +69,11 @@ void create_spells_gunner(st_rpg *s)
 	create_vector2i(9, 9), 0.002);
 	sfSprite_setScale(s->f.gun.explosion->obj->sprite,
 	create_vector2f(1.8, 1.8));
+	s->f.gun.expbullet = create_anim(create_object("images/explosion.png",
+	create_vector2f(0, 0), create_rect(0, 0, 100, 100), 0.2),
+	create_vector2i(9, 9), 0.002);
 	s->f.gun.explo = create_circle(90, 0, sfTransparent);
+	s->f.gun.expbt = create_circle(50, 0, sfTransparent);
 }
 
 void create_spells_rogue(st_rpg *s)
@@ -74,11 +85,13 @@ void create_spells_rogue(st_rpg *s)
 	s->f.rog.ultcount = 0;
 	s->f.rog.ultangle = 1;
 	s->f.rog.ulting = 0;
+	s->f.rog.auto_bool = 0;
 	s->f.rog.current = 0;
 	s->f.rog.ultt = create_st_time();
 	s->f.rog.dance = create_projectile("spells/2/Kunai");
 	s->f.rog.auto_a[0] = create_swing_from_file("spells/2/auto");
-	s->f.rog.auto_a[1] = create_swing_from_file("spells/2/auto");
+	s->f.rog.auto_a[0]->sens = -s->f.rog.auto_a[0]->sens;
+	s->f.rog.auto_a[1] = create_swing_from_file("spells/2/auto2");
 }
 
 void create_spells_warrior(st_rpg *s)
