@@ -19,7 +19,8 @@ void setup_loading(files_t *fi)
 	fi->loading = create_object("loading/loading2.png",
 	create_vector2f(100, 100),
 	create_rect(0, 0, 99, 257), 0);
-	fi->loading->pos = fi->characters->pos;
+	fi->loading->pos.x = fi->characters->pos.x - 60;
+	fi->loading->pos.y = fi->characters->pos.y - 170;
 	sfSprite_setPosition(fi->loading->sprite, fi->loading->pos);
 	setupclock(fi);
 }
@@ -36,7 +37,11 @@ void setup_variable(files_t *fi)
 	fi->nb_pnj = 2;
 	fi->max_pnj = 4;
 	fi->choice_cursor = 0;
+	fi->var_choice = 0;
+	fi->nb_choice_pre = 0;
 	fi->loading_timer = 0;
+	fi->pre_var = 0;
+	fi->relief = 0;
 }
 
 void characters_setup(files_t *fi)

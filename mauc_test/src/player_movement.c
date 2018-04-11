@@ -45,18 +45,18 @@ void decrement_speed(files_t *fi)
 void make_player_position(files_t *fi)
 {
 	switch (fi->direction) {
-		case 1:
-			move_up(fi);
-			break;
-		case 2:
-			move_right(fi);
-			break;
-		case 3:
-			move_down(fi);
-			break;
-		case 4:
-			move_left(fi);
-			break;
+	case 1:
+		move_up(fi);
+		break;
+	case 2:
+		move_right(fi);
+		break;
+	case 3:
+		move_down(fi);
+		break;
+	case 4:
+		move_left(fi);
+		break;
 	}
 }
 

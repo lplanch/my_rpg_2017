@@ -32,7 +32,6 @@ void create(files_t *fi)
 
 int prog(void)
 {
-	int o = 0;
 	files_t fi;
 	struct stat a;
 

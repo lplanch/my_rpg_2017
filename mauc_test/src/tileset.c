@@ -8,21 +8,21 @@
 #include "my.h"
 #include "my_rpg.h"
 
-void ok5(files_t *fi, int col, int c, int l)
+void ok5(files_t *fi, int col, int c, int p)
 {
 	int x = 0;
 	int compter = (col / 31);
 	int y = compter * 32;
 
 	while (c != 32) {
-		l = 0;
+		p = 0;
 		fi->map.x = fi->map.x2;
 		x = (col - compter * 31) * 32 - 32;
-		while (l != 32) {
+		while (p != 32) {
 			fi->map.color = sfImage_getPixel(fi->map.image, x, y);
 			sfImage_setPixel(fi->map.map_relief, fi->map.x,
 			fi->map.y, fi->map.color);
-			l++;
+			p++;
 			x++;
 			fi->map.x++;
 		}
@@ -32,21 +32,21 @@ void ok5(files_t *fi, int col, int c, int l)
 	}
 }
 
-void ok4(files_t *fi, int col, int c, int l)
+void ok4(files_t *fi, int col, int c, int p)
 {
 	int x = 0;
 	int compter = (col / 31);
 	int y = compter * 32;
 
 	while (c != 32) {
-		l = 0;
+		p = 0;
 		fi->map.x = fi->map.x2;
 		x = (col - compter * 31) * 32 - 32;
-		while (l != 32) {
+		while (p != 32) {
 			fi->map.color = sfImage_getPixel(fi->map.image, x, y);
 			sfImage_setPixel(fi->map.map_prof, fi->map.x,
 			fi->map.y, fi->map.color);
-			l++;
+			p++;
 			x++;
 			fi->map.x++;
 		}
@@ -56,21 +56,21 @@ void ok4(files_t *fi, int col, int c, int l)
 	}
 }
 
-void ok3(files_t *fi, int col, int c, int l)
+void ok3(files_t *fi, int col, int c, int p)
 {
 	int x = 0;
 	int compter = (col / 31);
 	int y = compter * 32;
 
 	while (c != 32) {
-		l = 0;
+		p = 0;
 		fi->map.x = fi->map.x2;
 		x = (col - compter * 31) * 32 - 32;
-		while (l != 32) {
+		while (p != 32) {
 			fi->map.color = sfImage_getPixel(fi->map.image, x, y);
 			sfImage_setPixel(fi->map.map_colID, fi->map.x,
 			fi->map.y, fi->map.color);
-			l++;
+			p++;
 			x++;
 			fi->map.x++;
 		}
@@ -80,21 +80,21 @@ void ok3(files_t *fi, int col, int c, int l)
 	}
 }
 
-void ok2(files_t *fi, int col, int c, int l)
+void ok2(files_t *fi, int col, int c, int p)
 {
 	int x = 0;
 	int compter = (col / 31);
 	int y = compter * 32;
 
 	while (c != 32) {
-		l = 0;
+		p = 0;
 		fi->map.x = fi->map.x2;
 		x = (col - compter * 31) * 32 - 32;
-		while (l != 32) {
+		while (p != 32) {
 			fi->map.color = sfImage_getPixel(fi->map.image, x, y);
 			sfImage_setPixel(fi->map.map_col, fi->map.x,
 			fi->map.y, fi->map.color);
-			l++;
+			p++;
 			x++;
 			fi->map.x++;
 		}
@@ -104,21 +104,21 @@ void ok2(files_t *fi, int col, int c, int l)
 	}
 }
 
-void ok(files_t *fi, int col, int c, int l)
+void ok(files_t *fi, int col, int c, int p)
 {
 	int x = 0;
 	int compter = (col / 31);
 	int y = compter * 32;
 
 	while (c != 32) {
-		l = 0;
+		p = 0;
 		fi->map.x = fi->map.x2;
 		x = (col - compter * 31) * 32 - 32;
-		while (l != 32) {
+		while (p != 32) {
 			fi->map.color = sfImage_getPixel(fi->map.image, x, y);
 			sfImage_setPixel(fi->map.map_backgound, fi->map.x,
 			fi->map.y, fi->map.color);
-			l++;
+			p++;
 			x++;
 			fi->map.x++;
 		}
@@ -167,7 +167,7 @@ void set_col(files_t *fi)
 	sfSprite_setTexture(fi->map.sprite2, fi->map.texture2, sfTrue);
 }
 
-void set_colID(files_t *fi)
+void set_colid(files_t *fi)
 {
 	sfVector2f invers;
 
@@ -196,56 +196,56 @@ void set_prof(files_t *fi)
 void transfer_pixel_background(files_t *fi, int compter, int height)
 {
 	int c = 0;
-	int l = 0;
+	int p = 0;
 
 	if (fi->map.layer_background[compter] > 0) {
 		fi->map.y = height * 32;
-		ok(fi, fi->map.layer_background[compter], c, l);
+		ok(fi, fi->map.layer_background[compter], c, p);
 	}
 }
 
 void transfer_pixel_relief(files_t *fi, int compter, int height)
 {
 	int c = 0;
-	int l = 0;
+	int p = 0;
 
 	if (fi->map.layer_relief[compter] == 0)
 		fi->map.layer_relief[compter] = 93;
 	fi->map.y = height * 32;
-	ok5(fi, fi->map.layer_relief[compter], c, l);
+	ok5(fi, fi->map.layer_relief[compter], c, p);
 }
 
 void transfer_pixel_col(files_t *fi, int compter, int height)
 {
 	int c = 0;
-	int l = 0;
+	int p = 0;
 
 	if (fi->map.layer_col[compter] == 0)
 		fi->map.layer_col[compter] = 93;
 	fi->map.y = height * 32;
-	ok2(fi, fi->map.layer_col[compter], c, l);
+	ok2(fi, fi->map.layer_col[compter], c, p);
 }
 
-void transfer_pixel_colID(files_t *fi, int compter, int height)
+void transfer_pixel_colid(files_t *fi, int compter, int height)
 {
 	int c = 0;
-	int l = 0;
+	int p = 0;
 
 	if (fi->map.layer_colID[compter] == 0)
 		fi->map.layer_colID[compter] = 93;
 	fi->map.y = height * 32;
-	ok3(fi, fi->map.layer_colID[compter], c, l);
+	ok3(fi, fi->map.layer_colID[compter], c, p);
 }
 
 void transfer_pixel_prof(files_t *fi, int compter, int height)
 {
 	int c = 0;
-	int l = 0;
+	int p = 0;
 
 	if (fi->map.layer_prof[compter] == 0)
 		fi->map.layer_prof[compter] = 93;
 	fi->map.y = height * 32;
-	ok4(fi, fi->map.layer_prof[compter], c, l);
+	ok4(fi, fi->map.layer_prof[compter], c, p);
 }
 
 void transfer_pixel(files_t *fi)
@@ -261,7 +261,7 @@ void transfer_pixel(files_t *fi)
 			transfer_pixel_background(fi, compter, height);
 			transfer_pixel_relief(fi, compter, height);
 			transfer_pixel_col(fi, compter, height);
-			transfer_pixel_colID(fi, compter, height);
+			transfer_pixel_colid(fi, compter, height);
 			transfer_pixel_prof(fi, compter, height);
 			fi->map.x2 += 32;
 			width++;
@@ -305,6 +305,6 @@ void create_map(files_t *fi)
 	set_background(fi);
 	set_relief(fi);
 	set_col(fi);
-	set_colID(fi);
+	set_colid(fi);
 	set_prof(fi);
 }

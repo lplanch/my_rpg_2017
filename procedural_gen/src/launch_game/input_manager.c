@@ -10,7 +10,7 @@
 
 void verify_other_input(sfEvent event, gage_t *gage)
 {
-	 if (event.type == sfEvtKeyPressed && event.key.code == sfKeyP) {
+	if (event.type == sfEvtKeyPressed && event.key.code == sfKeyP) {
 		sfView_zoom(gage->proc->gman->camera, 0.9);
 		sfRenderWindow_setView(gage->proc->gman->window,
 		gage->proc->gman->camera);

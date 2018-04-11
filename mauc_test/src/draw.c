@@ -19,7 +19,8 @@ void draw_loading(files_t *fi)
 			fi->loading->rect.left += 99;
 		sfSprite_setTextureRect(fi->loading->sprite, fi->loading->rect);
 		sfRenderWindow_clear(fi->window, sfBlack);
-		sfRenderWindow_drawSprite(fi->window, fi->loading->sprite, NULL);
+		sfRenderWindow_drawSprite(fi->window, fi->loading->sprite,
+		NULL);
 		sfRenderWindow_display(fi->window);
 		sfClock_restart(fi->time.clock);
 	}
@@ -74,7 +75,8 @@ void draw_pnj(files_t *fi)
 	int nbpnj = 4;
 
 	while (i != nbpnj) {
-		sfRenderWindow_drawSprite(fi->window, fi->pnj[i].pnj->sprite, NULL);
+		sfRenderWindow_drawSprite(fi->window,
+		fi->pnj[i].pnj->sprite, NULL);
 		i++;
 	}
 }

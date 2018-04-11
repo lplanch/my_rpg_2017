@@ -27,7 +27,7 @@ proc_var_t *make_proc_variables(void)
 	pvar->min_room_s = 9;
 	pvar->nbr_rooms = 18;
 	pvar->current_floor = 0;
-	pvar->max_floor = 1;
+	pvar->max_floor = 10;
 	pvar->background.r = 20;
 	pvar->background.g = 11;
 	pvar->background.b = 40;

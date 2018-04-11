@@ -33,7 +33,7 @@ char *my_strcat2(char *str1, char *str2)
 	int len = my_strlen(str1);
 	int comp = 0;
 
-	while(str2[comp] != '\0') {
+	while (str2[comp] != '\0') {
 		str1[len] = str2[comp];
 		len++;
 		comp++;

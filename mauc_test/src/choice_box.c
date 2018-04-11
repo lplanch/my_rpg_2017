@@ -82,6 +82,7 @@ void up_cursor(files_t *fi)
 {
 	if (fi->choice_cursor > 0) {
 		fi->pnj[fi->nb_pnj].cursor->pos.y -= 60;
+		fi->var_choice--;
 		fi->choice_cursor--;
 	}
 	sfSprite_setPosition(fi->pnj[fi->nb_pnj].cursor->sprite,
@@ -92,10 +93,28 @@ void down_cursor(files_t *fi, int compter)
 {
 	if (fi->choice_cursor < compter - 1) {
 		fi->pnj[fi->nb_pnj].cursor->pos.y += 60;
+		fi->var_choice++;
 		fi->choice_cursor++;
 	}
 	sfSprite_setPosition(fi->pnj[fi->nb_pnj].cursor->sprite,
 	fi->pnj[fi->nb_pnj].cursor->pos);
+}
+
+int event_keyreturn(files_t *fi, int a, int compter, sfEvent event)
+{
+	if (event.type == sfEvtKeyPressed ||
+	event.type == sfEvtMouseButtonPressed) {
+		if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
+			a++;
+		} if (sfKeyboard_isKeyPressed(sfKeyUp) ||
+		sfKeyboard_isKeyPressed(sfKeyZ)) {
+			up_cursor(fi);
+		} if (sfKeyboard_isKeyPressed(sfKeyDown) ||
+		sfKeyboard_isKeyPressed(sfKeyS)) {
+			down_cursor(fi, compter);
+		}
+	}
+	return (a);
 }
 
 int event_choice_box(files_t *fi, int compter)
@@ -104,16 +123,7 @@ int event_choice_box(files_t *fi, int compter)
 	sfEvent event;
 
 	while (sfRenderWindow_pollEvent(fi->window, &event)) {
-		if (event.type == sfEvtKeyPressed || event.type == sfEvtMouseButtonPressed) {
-			if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
-				a++;
-			} if (sfKeyboard_isKeyPressed(sfKeyUp) || sfKeyboard_isKeyPressed(sfKeyZ)) {
-				up_cursor(fi);
-			} if (sfKeyboard_isKeyPressed(sfKeyDown) ||
-			sfKeyboard_isKeyPressed(sfKeyS)) {
-				down_cursor(fi, compter);
-			}
-		}
+		a = event_keyreturn(fi, a, compter, event);
 	}
 	return (a);
 }
@@ -130,7 +140,6 @@ void choise_box_bouc(files_t *fi, int compter, char **tab)
 	while (tab[i] != NULL) {
 		i++;
 	}
-	fi->choice_cursor = 0;
 	destroy_choice_box(fi, compter);
 }
 
@@ -143,6 +152,7 @@ void choice_box(files_t *fi, int fd)
 
 	tab = remalloc_tab(tab, str);
 	while (1) {
+		free(str);
 		str = get_next_line(fd);
 		if (my_strcmp(str, "<") == 0)
 			break;
@@ -152,5 +162,7 @@ void choice_box(files_t *fi, int fd)
 	compter++;
 	create_choice_box(fi, compter, tab);
 	choise_box_bouc(fi, compter, tab);
-	free (str);
+	fi->choice_cursor = 0;
+	fi->nb_choice_pre = compter;
+	free(str);
 }

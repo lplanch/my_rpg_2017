@@ -8,6 +8,16 @@
 #include "my.h"
 #include "my_rpg.h"
 
+void game_update(files_t *fi)
+{
+	if (fi->dialog_box_isopen == 1)
+		dialog_box(fi);
+	move_ok(fi);
+	update_player_position(fi);
+	move_id_player(fi);
+	draw(fi);
+}
+
 int game(files_t *fi)
 {
 	int a = 0;
@@ -17,21 +27,16 @@ int game(files_t *fi)
 		while (sfRenderWindow_pollEvent(fi->window, &event)) {
 			if (event.type == sfEvtClosed)
 				a = 1;
-			if (event.type == sfEvtKeyPressed && event.key.code == sfKeyReturn) {
+			if (event.type == sfEvtKeyPressed && event.key.code ==
+			sfKeyReturn) {
 				check_pnj(fi);
 			}
-			if (event.type == sfEvtKeyPressed && event.key.code == sfKeyD) {
+			if (event.type == sfEvtKeyPressed && event.key.code ==
+			sfKeyD) {
 				fi->dialog_box_isopen = 1;
 				fi->nb_pnj = rand() % 5 + 0;
 			}
 		}
-		//printf("x= %i\n", fi->pos[0].x);
-		//printf("y= %i\n", fi->pos[0].y);
-		if (fi->dialog_box_isopen == 1)
-			dialog_box(fi);
-		move_ok(fi);
-		update_player_position(fi);
-		move_ID_player(fi);
-		draw(fi);
+		game_update(fi);
 	}
 }

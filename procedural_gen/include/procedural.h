@@ -20,6 +20,15 @@ static const unsigned int WIDTH = 1664;
 static const unsigned int HEIGHT = 936;
 static const char window_name[13] = "INTO THE DEEP";
 
+//INPUTS
+static const sfKeyCode key_up = sfKeyZ;
+static const sfKeyCode key_down = sfKeyS;
+static const sfKeyCode key_left = sfKeyQ;
+static const sfKeyCode key_right = sfKeyD;
+static const sfKeyCode key_map = sfKeyTab;
+static const sfKeyCode key_inv = sfKeyI;
+static const sfKeyCode key_fast_inv = sfKeyLShift;
+
 //MAKE MAP
 proc_t *map_creation(gage_t *gage);
 void make_positions_proom(gage_t *gage, proc_t *proc);
@@ -57,12 +66,15 @@ void verify_x_movement(proc_t *proc);
 int interval(float value, float less, float max);
 
 //MINIMAP
-void init_minimap(proc_t *proc);
+void init_minimap(gage_t *gage, proc_t *proc);
 void verify_minimap(gage_t *gage);
 void update_minimap(proc_t *proc);
 void draw_rect_room(proc_t *proc, proom_t *proom, int x, int y);
 void draw_rect_corridor(proc_t *proc, int x, int y);
 void draw_rect_player(proc_t *proc);
+
+//INIT MAP
+gmanager_t *init_dungeon_game(proc_t *proc, gage_t *gage);
 
 //FRAMEBUFFER
 framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
@@ -72,6 +84,11 @@ void fill_minimap_screen(framebuffer_t *buffer, sfColor color);
 void reset_screen(framebuffer_t *buffer);
 void my_draw_rect(framebuffer_t *buff, int pos[2], int size[2], sfColor color);
 void my_draw_f_rect(framebuffer_t *buff, int pos[2], int size[2], int diag[4]);
+void my_draw_vrect(framebuffer_t *buff, int pos[2], int size[2], sfColor color);
+void my_draw_line(framebuffer_t *b, int pos1[2], int pos2[2], sfColor c);
+void my_draw_octan(framebuffer_t *buffer, int r, int pos[2], sfColor color);
+void my_draw_circle(framebuffer_t *buffer, int pos[2], int r, sfColor c);
+void my_draw_circle_filled(framebuffer_t *b, int pos[2], int r, sfColor c);
 
 //CREATE BLOCKS
 int is_ground(char chr);
@@ -107,3 +124,10 @@ void free_gage_game(gage_t *gage);
 void next_level_screen(gage_t *gage);
 void fade_in_text(sfRenderWindow *window, sfText *text);
 void fade_out_text(sfRenderWindow *window, sfText *text);
+
+//INVENTORY
+ingame_t *create_ingame_player(void);
+void clear_inventory_slot(item_t *slot);
+void add_inventory_slot(item_t *first_slot);
+void remove_inventory_slot(item_t *first_slot);
+void verify_inventory(gmanager_t *gman);
