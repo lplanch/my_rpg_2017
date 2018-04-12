@@ -38,7 +38,7 @@ void get_cooldowns_rogue(st_rpg *s)
 	int cd2[2] = {20, 15};
 	int cd3[2] = {20, 10};
 
-	s->f.cds[0] = 0.3;
+	s->f.cds[0] = 0.6;
 	s->f.cds[1] = cd1[s->player.tree.spell1];
 	s->f.cds[2] = cd2[s->player.tree.spell2];
 	s->f.cds[3] = cd3[s->player.tree.spell3];

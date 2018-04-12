@@ -58,8 +58,6 @@ void update_swing(st_rpg *s, swing_t *swing, g_object *obj)
 		if (abs(swing->count) >= swing->angle) {
 			s->f.cast = 0;
 			swing->shot = 0;
-			swing->sens = -swing->sens;
-			swing->begin += 180;
 		}
 		sfClock_restart(swing->t.clock);
 	}

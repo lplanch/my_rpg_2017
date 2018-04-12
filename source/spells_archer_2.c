@@ -12,10 +12,10 @@ void archer_heal(st_rpg *s)
 {
 	launch_aoe(s->window, s->f.arc.heal);
 	sfCircleShape_setPosition(s->f.arc.heal->circle,
-	create_vector2f(920 - sfCircleShape_getRadius(s->f.arc.heal->circle),
+	create_vector2f(960 - sfCircleShape_getRadius(s->f.arc.heal->circle),
 	540 - sfCircleShape_getRadius(s->f.arc.heal->circle)));
 	sfSprite_setPosition(s->f.arc.heal->anim->obj->sprite,
-	create_vector2f(920 - s->f.arc.heal->anim->obj->rect.width / 2,
+	create_vector2f(960 - s->f.arc.heal->anim->obj->rect.width / 2,
 	540 - s->f.arc.heal->anim->obj->rect.height / 2));
 }
 

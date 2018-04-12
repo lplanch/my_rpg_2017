@@ -22,7 +22,7 @@ void proc_aoe_gunner(st_rpg *s)
 
 void proc_aoe_rogue(st_rpg *s)
 {
-
+	proc_aoe(s, s->f.rog.zone);
 }
 
 void proc_aoe_warrior(st_rpg *s)

@@ -24,7 +24,8 @@ void proc_effect_gunner(st_rpg *s)
 
 void proc_effect_rogue(st_rpg *s)
 {
-
+	if (s->f.rog.vanish > 0)
+		s->f.rog.vanish -= 0.1;
 }
 
 void proc_effect_warrior(st_rpg *s)

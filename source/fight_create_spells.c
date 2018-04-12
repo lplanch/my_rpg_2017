@@ -85,6 +85,7 @@ void create_spells_rogue(st_rpg *s)
 	s->f.rog.ultcount = 0;
 	s->f.rog.ultangle = 1;
 	s->f.rog.ulting = 0;
+	s->f.rog.vanish = 0;
 	s->f.rog.auto_bool = 0;
 	s->f.rog.current = 0;
 	s->f.rog.ultt = create_st_time();
@@ -92,6 +93,7 @@ void create_spells_rogue(st_rpg *s)
 	s->f.rog.auto_a[0] = create_swing_from_file("spells/2/auto");
 	s->f.rog.auto_a[0]->sens = -s->f.rog.auto_a[0]->sens;
 	s->f.rog.auto_a[1] = create_swing_from_file("spells/2/auto2");
+	s->f.rog.zone = create_aoe_from_file("spells/2/Zone");
 }
 
 void create_spells_warrior(st_rpg *s)

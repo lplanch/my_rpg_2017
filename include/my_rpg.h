@@ -139,6 +139,8 @@ typedef struct struct_melee_swing
 typedef struct struct_rogue_spells
 {
 	proj_t *dagger[30];
+	aoe_t *zone;
+	float vanish;
 	float ultangle;
 	int side;
 	int auto_bool;
@@ -265,6 +267,11 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void handle_invulnerability_lifesteal(st_rpg *s, float amount, char *effect);
+void handle_explosive(st_rpg *s, proj_t *proj);
+void handle_bounce(proj_t *proj);
+void handle_pierce(proj_t *proj);
+void rogue_update_auto_attack(st_rpg *s);
 void update_pos_weapon(st_rpg *s);
 void destroy_player(st_rpg *s);
 int check_double_class(st_rpg *s);

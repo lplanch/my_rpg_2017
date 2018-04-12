@@ -42,6 +42,7 @@ void display_rogue(st_rpg *s)
 	for (int i = 0; i != 30; i += 1)
 		display_projectile(s->window, s->f.rog.dagger[i]);
 	display_projectile(s->window, s->f.rog.dance);
+	display_aoe(s->window, s->f.rog.zone);
 }
 
 void display_warrior(st_rpg *s)
