@@ -148,6 +148,12 @@ typedef struct struct_rogue_spells
 	int ultcount;
 	int ulting;
 	float ultspeed;
+	int bstab;
+	float bcount;
+	st_button *backstab;
+	sfVector2f bpos[2];
+	sfVector2f brat;
+	float bdmg;
 	st_time ultt;
 	proj_t *dance;
 	swing_t *auto_a[2];
@@ -267,6 +273,7 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void rogue_backstab(st_rpg *s);
 void handle_invulnerability_lifesteal(st_rpg *s, float amount, char *effect);
 void handle_explosive(st_rpg *s, proj_t *proj);
 void handle_bounce(proj_t *proj);

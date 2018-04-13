@@ -43,8 +43,9 @@ int hitbox(g_object *attack, g_object *target)
 	get_object_ends(attack, coord1);
 	get_object_ends(target, coord2);
 
-	if (check_inside_target(coord1, coord2))
+	if (check_inside_target(coord1, coord2)) {
 		return (1);
+	}
 	return (0);
 }
 

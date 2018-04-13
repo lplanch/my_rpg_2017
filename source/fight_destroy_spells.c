@@ -35,6 +35,7 @@ void destroy_spells_gunner(st_rpg *s)
 	destroy_anim(s->f.gun.expbullet);
 	sfCircleShape_destroy(s->f.gun.explo);
 	sfCircleShape_destroy(s->f.gun.expbt);
+	destroy_button(s->f.rog.backstab);
 }
 
 void destroy_spells_rogue(st_rpg *s)

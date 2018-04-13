@@ -10,7 +10,7 @@
 
 void rogue_withdraw(st_rpg *s)
 {
-
+	heal(s, s->player.stat->pvm / 4);
 }
 
 void rogue_zone(st_rpg *s)

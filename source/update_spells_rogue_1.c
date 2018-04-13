@@ -37,8 +37,37 @@ void rogue_update_storm(st_rpg *s)
 	}
 }
 
+void rogue_update_backstab(st_rpg *s)
+{
+	s->f.rog.bcount += 14;
+	s->f.rog.bpos[0].x += s->f.rog.brat.x * 10;
+	s->f.rog.bpos[0].y += s->f.rog.brat.y * 10;
+	sfSprite_setPosition(s->player.weapon[0]->sprite,
+	s->f.rog.bpos[0]);
+	sfSprite_setScale(s->player.weapon[0]->sprite,
+	create_vector2f(1, 1));
+	s->f.rog.bpos[1].x += s->f.rog.brat.x * 10;
+	s->f.rog.bpos[1].y += s->f.rog.brat.y * 10;
+	sfSprite_setPosition(s->player.weapon[1]->sprite,
+	s->f.rog.bpos[1]);
+	sfSprite_setScale(s->player.weapon[1]->sprite,
+	create_vector2f(1, 1));
+	s->player.weapon[0]->pos = s->f.rog.bpos[0];
+	s->player.weapon[1]->pos = s->f.rog.bpos[1];
+	if (hitbox(s->player.weapon[0], s->f.mob->obj)) {
+		s->f.mob->stat->pva -= s->f.rog.bdmg;
+	} if (s->f.rog.bcount >= 100) {
+		s->f.cast = 0;
+		s->f.rog.bstab = 0;
+	}
+}
+
 void rogue_update_auto_attack(st_rpg *s)
 {
+	if (s->f.rog.bstab == 1) {
+		rogue_update_backstab(s);
+		return;
+	}
 	update_swing(s, s->f.rog.auto_a[0], s->player.weapon[0]);
 	update_swing(s, s->f.rog.auto_a[1], s->player.weapon[1]);
 	if (s->f.rog.auto_bool == 1 && s->f.rog.auto_a[0]->shot == 0) {
