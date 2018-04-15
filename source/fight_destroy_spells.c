@@ -53,6 +53,7 @@ void destroy_spells_warrior(st_rpg *s)
 {
 	destroy_aoe(s->f.war.shield);
 	destroy_swing(s->f.war.auto_a);
+	destroy_swing(s->f.war.whirl);
 	destroy_projectile(s->f.war.hasagi);
 }
 

@@ -103,11 +103,15 @@ void create_spells_rogue(st_rpg *s)
 	s->f.rog.bpos[1] = create_vector2f(0, 0);
 	s->f.rog.brat = create_vector2f(0, 0);
 	s->f.rog.bcount = 0;
+	if (s->player.tree.passive == 1) {
+		s->player.stat->frc += 0.1 * s->player.stat->frc;
+	}
 }
 
 void create_spells_warrior(st_rpg *s)
 {
 	s->f.war.auto_a = create_swing_from_file("spells/3/auto");
+	s->f.war.whirl = create_swing_from_file("spells/3/whirlwing");
 	s->f.war.estoc = 0;
 	s->f.war.count = 0;
 	s->f.war.hdmg = 50;

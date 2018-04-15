@@ -51,7 +51,12 @@ void update_rogue(st_rpg *s)
 
 void update_warrior(st_rpg *s)
 {
-	warrior_update_auto_attack(s);
+	update_swing(s, s->f.war.auto_a, s->player.weapon[0]);
+	update_swing(s, s->f.war.whirl, s->player.weapon[0]);
+	if (s->f.war.whirl->shot)
+		sfSprite_setRotation(s->player.weapon[0]->sprite, s->f.war.whirl->count);
+	if (s->f.war.whirl->able == 0 && s->f.war.whirl->shot == 1)
+		s->f.war.whirl->able = 1;
 	warrior_update_hasagi(s);
 	if (s->f.war.shield->shot)
 		clocked_animation(s->f.war.shield->anim);

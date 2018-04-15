@@ -8,11 +8,6 @@
 #include "my_rpg.h"
 #include "my.h"
 
-void warrior_update_auto_attack(st_rpg *s)
-{
-	update_swing(s, s->f.war.auto_a, s->player.weapon[0]);
-}
-
 void warrior_update_hasagi_estoc(st_rpg *s)
 {
 	s->f.war.hpos.x += s->f.war.hrat.x * 10;

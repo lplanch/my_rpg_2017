@@ -162,6 +162,7 @@ typedef struct struct_rogue_spells
 typedef struct struct_warrior_spells
 {
 	swing_t *auto_a;
+	swing_t *whirl;
 	proj_t *hasagi;
 	sfVector2f hpos;
 	sfVector2f hrat;

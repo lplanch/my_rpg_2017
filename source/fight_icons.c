@@ -17,6 +17,10 @@ void display_icons(st_rpg *s)
 			NULL);
 		sfRenderWindow_drawText(s->window,
 			s->f.icons[i]->text->text, NULL);
+	} if (s->player.cdata.classe == 2 && s->player.tree.passive == 2) {
+		if (s->f.rog.vanish > 0) {
+
+		}
 	}
 }
 
