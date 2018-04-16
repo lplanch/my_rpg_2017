@@ -41,3 +41,45 @@ stat_t *load_stat(char *path)
 	close(fd);
 	return (stat);
 }
+
+void save_stat_2(int fd, stat_t *stat)
+{
+	char *value = int_to_str(stat->vit);
+
+	write_a_value(fd, value, my_strlen(value));
+	free(value);
+	value = int_to_str(stat->cha);
+	write_a_value(fd, value, my_strlen(value));
+	free(value);
+	value = int_to_str(stat->exp);
+	write_a_value(fd, value, my_strlen(value));
+	free(value);
+	value = int_to_str(stat->lvl);
+	write_a_value(fd, value, my_strlen(value));
+	free(value);
+}
+
+void save_stat(stat_t *stat, char *path)
+{
+	char *path_stat = my_strcat(path, "stat");
+	int fd = open(path_stat, O_WRONLY | O_TRUNC | O_CREAT);
+	char *value = int_to_str(stat->pvm);
+
+	write_a_value(fd, value, my_strlen(value));
+	free(value);
+	value = int_to_str(stat->pva);
+	write_a_value(fd, value, my_strlen(value));
+	free(value);
+	value = int_to_str(stat->frc);
+	write_a_value(fd, value, my_strlen(value));
+	free(value);
+	value = int_to_str(stat->def);
+	write_a_value(fd, value, my_strlen(value));
+	free(value);
+	value = int_to_str(stat->prc);
+	write_a_value(fd, value, my_strlen(value));
+	free(value);
+	save_stat_2(fd, stat);
+	close(fd);
+	free(path_stat);
+}
