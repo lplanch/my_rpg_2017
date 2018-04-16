@@ -18,8 +18,10 @@ int get_max_buttons(st_rpg *s)
 void destroy_main_menu(st_rpg *s)
 {
 	destroy_object(s->mainm.first);
+	destroy_object(s->mainm.guy);
 	destroy_object(s->mainm.rope);
 	destroy_object(s->mainm.cursor);
+	destroy_object(s->mainm.title);
 	for (int i = 0; i != get_max_buttons(s) + 1; i += 1)
 		destroy_button(s->mainm.button[i]);
 	for (int i = 0; i != 2; i += 1) {
@@ -28,6 +30,7 @@ void destroy_main_menu(st_rpg *s)
 		destroy_object(s->mainm.abyss[i]);
 	}
 	sfClock_destroy(s->mainm.t.clock);
+	sfMusic_destroy(s->mainm.music);
 }
 
 void initialize_menu_interface(st_rpg *s)
@@ -37,6 +40,8 @@ void initialize_menu_interface(st_rpg *s)
 	s->mainm.menu = 0;
 	s->mainm.sens = 1;
 	s->mainm.option = 0;
+	s->mainm.music = sfMusic_createFromFile("audio/menu.ogg");
+	sfMusic_play(s->mainm.music);
 	s->mainm.cursor = create_object("images/cursor.png",
 	create_vector2f(700, 500), create_rect(0, 0, 100, 116), 2);
 	s->mainm.button[0] = create_vbutton("Play", create_vector2f(800, 500),
@@ -45,7 +50,11 @@ void initialize_menu_interface(st_rpg *s)
 	create_vector2f(800, 620), grey, 100);
 	s->mainm.button[2] = create_vbutton("Quit", create_vector2f(800, 740),
 	grey, 100);
-//       s->mainm.music = sfMusic_createFromFile("audio/menu.ogg");
+	s->mainm.guy = create_object("images/menu/guy.png", create_vector2f(212,
+	-600), create_rect(0, 0, 234, 307), 0);
+	s->mainm.title = create_object("images/menu/title.png",
+	create_vector2f(558, -300), create_rect(0, 0, 804, 67), 0);
+	sfSprite_setScale(s->mainm.guy->sprite, create_vector2f(2, 2));
 }
 
 void initialize_menu(st_rpg *s)

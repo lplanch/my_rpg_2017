@@ -18,6 +18,7 @@ void display_menu_background(st_rpg *s)
 	sfRenderWindow_drawSprite(s->window, s->mainm.rockback[1]->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->mainm.first->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->mainm.rope->sprite, NULL);
+	sfRenderWindow_drawSprite(s->window, s->mainm.guy->sprite, NULL);
 }
 
 int event_main_menu_cutscene(st_rpg *s)
