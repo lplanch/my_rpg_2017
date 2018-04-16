@@ -32,8 +32,8 @@ void save_game(st_rpg *s)
 {
 	char *path = get_save_path(s);
 
-	save_cust(s->palyer.cdata, path);
-	save_stat(s->palyer.stat, path);
+	save_cust(s->player.cdata, path);
+	save_stat(s->player.stat, path);
 	save_tree(s->player.tree, path);
 	free(path);
 }

@@ -81,7 +81,8 @@ FILES		=	source/main.c				\
 			source/effect.c				\
 			source/proc_effects.c			\
 			source/player.c				\
-			source/projectile_effects.c
+			source/projectile_effects.c		\
+			source/write_save.c
 
 SRCS		=	$(FILES)
 

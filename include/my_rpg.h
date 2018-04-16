@@ -249,6 +249,8 @@ typedef struct struct_main_menu
 	g_object *abyss[2];
 	g_object *rockback[2];
 	g_object *rock2[2];
+	g_object *guy;
+	g_object *title;
 } st_menu;
 
 typedef struct struct_player_info

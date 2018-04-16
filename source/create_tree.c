@@ -66,7 +66,7 @@ void save_tree_2(int fd, tree_t tree)
 	write_a_value(fd, &value, 1);
 	value = tree.spell3 + 48;
 	write_a_value(fd, &value, 1);
-	value = tree.spellp + 48;
+	value = tree.skillp + 48;
 	write_a_value(fd, &value, 1);
 }
 
