@@ -48,3 +48,48 @@ void load_tree(st_rpg *s, char *path)
 	s->player.tree.skillp = str_to_int(get_next_line(fd));
 	close(fd);
 }
+
+void save_tree_2(int fd, tree_t tree)
+{
+	char value = tree.locke2 + 48;
+
+	write_a_value(fd, &value, 1);
+	value = tree.lockr1 + 48;
+	write_a_value(fd, &value, 1);
+	value = tree.lockr2 + 48;
+	write_a_value(fd, &value, 1);
+	value = tree.passive + 48;
+	write_a_value(fd, &value, 1);
+	value = tree.spell1 + 48;
+	write_a_value(fd, &value, 1);
+	value = tree.spell2 + 48;
+	write_a_value(fd, &value, 1);
+	value = tree.spell3 + 48;
+	write_a_value(fd, &value, 1);
+	value = tree.spellp + 48;
+	write_a_value(fd, &value, 1);
+}
+
+void save_tree(tree_t tree, char *path)
+{
+	char *path_tree = my_strcat(path, "tree");
+	int fd = open(path, O_WRONLY | O_TRUNC | O_CREAT);
+	char value = tree.lockp1 + 48;
+
+	write_a_value(fd, &value, 1);
+	value = tree.lockp2 + 48;
+	write_a_value(fd, &value, 1);
+	value = tree.lockp3 + 48;
+	write_a_value(fd, &value, 1);
+	value = tree.lockm1 + 48;
+	write_a_value(fd, &value, 1);
+	value = tree.lockm2 + 48;
+	write_a_value(fd, &value, 1);
+	value = tree.lockm3 + 48;
+	write_a_value(fd, &value, 1);
+	value = tree.locke1 + 48;
+	write_a_value(fd, &value, 1);
+	save_tree_2(fd, tree);
+	close(fd);
+	free(path_tree);
+}

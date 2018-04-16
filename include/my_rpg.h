@@ -274,6 +274,10 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void save_stat(stat_t *stat, char *path);
+void save_game(st_rpg *s);
+void write_a_value(int fd, char *value, int len);
+void save_tree(tree_t tree, char *path);
 void rogue_backstab(st_rpg *s);
 void handle_invulnerability_lifesteal(st_rpg *s, float amount, char *effect);
 void handle_explosive(st_rpg *s, proj_t *proj);
