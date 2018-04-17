@@ -38,6 +38,7 @@ void custom_destroy(st_rpg *s)
 	destroy_object(s->cust.cursor);
 	destroy_object(s->cust.circle);
 	destroy_cust_buttons(s);
+	free(s->cust.cdata.name);
 }
 
 void cust_initialize_buttons(st_rpg *s)

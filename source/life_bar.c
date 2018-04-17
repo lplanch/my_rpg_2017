@@ -30,9 +30,12 @@ void update_bars(st_rpg *s)
 	s->bar.xp->rect.width = 316 * s->player.stat->exp / 100;
 	sfSprite_setTextureRect(s->bar.life->sprite, s->bar.life->rect);
 	sfSprite_setTextureRect(s->bar.xp->sprite, s->bar.xp->rect);
-	sfText_setString(s->bar.values[0]->text, int_to_str(s->player.stat->lvl));
-	sfText_setString(s->bar.values[1]->text, int_to_str(s->player.stat->pva));
-	sfText_setString(s->bar.values[2]->text, int_to_str(s->player.stat->exp));
+	sfText_setString(s->bar.values[0]->text,
+	int_to_str(s->player.stat->lvl));
+	sfText_setString(s->bar.values[1]->text,
+	int_to_str(s->player.stat->pva));
+	sfText_setString(s->bar.values[2]->text,
+	int_to_str(s->player.stat->exp));
 }
 
 void create_life_bar(st_rpg *s)
@@ -45,10 +48,13 @@ void create_life_bar(st_rpg *s)
 	s->bar.xp = create_object("images/xp.png",
 	create_vector2f(s->bar.life->pos.x, s->bar.bars->pos.y + 47),
 	create_rect(0, 0, 316, 18), 0);
-	s->bar.values[0] = create_text("0", create_vector2f(67, 67), "images/bars.otf");
-	s->bar.values[1] = create_text("0", create_vector2f(125, 60), "images/bars.otf");
+	s->bar.values[0] = create_text("0", create_vector2f(67, 67),
+	"images/bars.otf");
+	s->bar.values[1] = create_text("0", create_vector2f(125, 60),
+	"images/bars.otf");
 	sfText_setCharacterSize(s->bar.values[1]->text, 14);
-	s->bar.values[2] = create_text("0", create_vector2f(125, 88), "images/bars.otf");
+	s->bar.values[2] = create_text("0", create_vector2f(125, 88),
+	"images/bars.otf");
 	sfText_setCharacterSize(s->bar.values[2]->text, 14);
 }
 
