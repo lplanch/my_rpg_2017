@@ -24,6 +24,7 @@ int fight_events(st_rpg *s)
 	sfEvent event;
 
 	while (sfRenderWindow_pollEvent(s->window, &event)) {
+		update_menu_stat_mouse_over(s);
 		if (event.type == sfEvtClosed) {
 			s->returnv = 1;
 			destroy_class(s);
@@ -51,6 +52,10 @@ int fight_instance(st_rpg *s)
 			break;
 		if (!s->f.cast)
 			launch_spells(s);
+		if (sfKeyboard_isKeyPressed(sfKeyO) && s->statm.shot == 0)
+			generate_status_menu(s);
+		if (sfKeyboard_isKeyPressed(sfKeyP) && s->statm.shot == 1)
+			destroy_status_menu(s);
 		update_pos_weapon(s);
 		update_class(s);
 		update_bars(s);
@@ -65,6 +70,7 @@ int fight_instance(st_rpg *s)
 		display_class(s);
 		display_icons(s);
 		display_life_bar(s);
+		display_status_menu(s);
 		sfRenderWindow_display(s->window);
 	}
 	return (s->returnv);

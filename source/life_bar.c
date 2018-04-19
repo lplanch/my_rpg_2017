@@ -49,12 +49,12 @@ void create_life_bar(st_rpg *s)
 	create_vector2f(s->bar.life->pos.x, s->bar.bars->pos.y + 47),
 	create_rect(0, 0, 316, 18), 0);
 	s->bar.values[0] = create_text("0", create_vector2f(67, 67),
-	"images/bars.otf");
+	"fonts/bars.otf");
 	s->bar.values[1] = create_text("0", create_vector2f(125, 60),
-	"images/bars.otf");
+	"fonts/bars.otf");
 	sfText_setCharacterSize(s->bar.values[1]->text, 14);
 	s->bar.values[2] = create_text("0", create_vector2f(125, 88),
-	"images/bars.otf");
+	"fonts/bars.otf");
 	sfText_setCharacterSize(s->bar.values[2]->text, 14);
 }
 

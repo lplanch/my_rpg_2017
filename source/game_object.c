@@ -10,8 +10,8 @@
 
 void destroy_object(g_object *object)
 {
-	sfSprite_destroy(object->sprite);
 	sfTexture_destroy(object->texture);
+	sfSprite_destroy(object->sprite);
 	free(object);
 }
 

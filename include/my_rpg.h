@@ -235,6 +235,19 @@ typedef struct main_fight
 	warrior_t war;
 } fight_t;
 
+typedef struct struct_status_menu
+{
+	int shot;
+	int show;
+	g_object *window;
+	g_object *face;
+	st_button *classe;
+	st_button *stats[6];
+	t_object *lvl;
+	t_object *exp;
+	t_object *name;
+} status_menu_t;
+
 typedef struct struct_main_menu
 {
 	sfMusic *music;
@@ -268,6 +281,7 @@ typedef struct struct_rpg
 	fight_t f;
 	bars_t bar;
 	player_t player;
+	status_menu_t statm;
 	g_object *center;
 	g_object *loading;
 	int returnv;
@@ -277,6 +291,11 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void update_menu_stat_mouse_over(st_rpg *s);
+void destroy_status_menu(st_rpg *s);
+void display_status_menu(st_rpg *s);
+void generate_status_menu(st_rpg *s);
+void display_button(sfRenderWindow *window, st_button *button);
 char *get_save_path(st_rpg *s);
 void save_stat(stat_t *stat, char *path);
 void save_game(st_rpg *s);
