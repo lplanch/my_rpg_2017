@@ -1,3 +1,10 @@
+# @Author: Mauc
+# @Date:   2018-04-18T16:04:02+02:00
+# @Last modified by:   Mauc
+# @Last modified time: 2018-04-18T16:10:49+02:00
+
+
+
 ##
 ## EPITECH PROJECT, 2017
 ## Makefile
@@ -16,26 +23,35 @@ LDFLAGS		+=	-L lib/my/ -lmy -l c_graph_prog -lm
 FILES		=	main.c				\
 			src/collision.c			\
 			src/collision_prog.c		\
+			src/collision_id.c		\
 			src/game.c			\
 			src/move.c			\
 			src/move_prog.c			\
 			src/prog.c			\
 			src/setup.c			\
 			src/setup2.c			\
+			src/remalloc_tab.c		\
 			src/tileset.c			\
+			src/set_pixeltoimage.c		\
 			src/parsing.c			\
 			src/lib_func.c			\
 			src/draw.c			\
 			src/check_pnj.c			\
+			src/zone_text_create.c		\
 			src/get_layer.c			\
 			src/free.c			\
 			src/get_pnj.c			\
+			src/transfer_pixel.c		\
+			src/transfer_pixel_all.c	\
 			src/player_movement.c		\
+			src/draw_dialog.c		\
 			src/game_object.c		\
 			src/button_generator.c		\
 			src/zone_text.c			\
 			src/create_rect.c		\
 			src/choice_box.c		\
+			src/choicebox_create_event.c	\
+			src/setpixel_to_image.c		\
 			src/mouse_in_object.c		\
 			src/destroy.c			\
 

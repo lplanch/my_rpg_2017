@@ -8,6 +8,17 @@
 #include "my.h"
 #include "my_rpg.h"
 
+void free_tab_withnull(char **tab)
+{
+	int i = 0;
+
+	while (tab[i] != NULL) {
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
+
 void free_tab(char **tab, int y)
 {
 	int i = 0;
