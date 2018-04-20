@@ -59,6 +59,10 @@ void move_left(files_t *fi);
 void move_allpts(files_t *fi);
 void move_id_player(files_t *fi);
 
+int my_getnbr_i(char const *str, int i);
+int is_num(char a);
+char *my_strcat_dup(char *str1, char *str2);
+
 int collision(files_t *fi);
 int case_id(files_t *fi, int nb_ID);
 int case_tp(files_t *fi, int nb_ID);

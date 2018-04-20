@@ -45,4 +45,5 @@ int game(files_t *fi)
 		}
 		game_update(fi);
 	}
+	return (0);
 }

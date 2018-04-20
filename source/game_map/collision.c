@@ -28,8 +28,6 @@ int collision_id(files_t *fi)
 	int i = 0;
 	int size_cube = 5 * 32;
 	int nb_ID = 0;
-	int x = fi->pos[i].x / size_cube;
-	int y = fi->pos[i].y / size_cube;
 
 	while (i != 10) {
 		nb_ID = 60 * ((fi->pos[i].y / size_cube))

@@ -60,9 +60,9 @@ void event_dialog_box(files_t *fi, sfEvent event, int fd)
 	if (event.type == sfEvtKeyPressed ||
 	event.type == sfEvtMouseButtonPressed) {
 		if (sfKeyboard_isKeyPressed(sfKeyReturn) ||
-		sfMouse_isButtonPressed(sfMouseLeft) &&
+		(sfMouse_isButtonPressed(sfMouseLeft) &&
 		(mouse_in_object_dialogbox(fi->pnj[fi->nb_pnj].dialog_box->obj,
-		fi->window, fi) == 1)) {
+		fi->window, fi) == 1))) {
 			open_or_no(fi, fd);
 		}
 	}

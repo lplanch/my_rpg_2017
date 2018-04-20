@@ -21,7 +21,7 @@ void create_layers(files_t *fi)
 void create_images(files_t *fi)
 {
 	fi->map.x2 = 0;
-	fi->map.image = sfImage_createFromFile("TestMap/gg.png");
+	fi->map.image = sfImage_createFromFile("map_preset/gg.png");
 	fi->map.map_backgound = sfImage_create(1920, 3200);
 	fi->map.map_relief = sfImage_create(1920, 3200);
 	fi->map.map_col = sfImage_create(1920, 3200);

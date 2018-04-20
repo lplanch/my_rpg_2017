@@ -16,7 +16,7 @@ void setupclock(files_t *fi)
 
 void setup_loading(files_t *fi)
 {
-	fi->loading = create_object("loading/loading.png",
+	fi->loading = create_object("images/loading.png",
 	create_vector2f(100, 100),
 	create_rect(0, 0, 99, 257), 0);
 	fi->loading->pos.x = fi->characters->pos.x - 60;
@@ -50,7 +50,7 @@ void characters_setup(files_t *fi)
 
 	invers.x = 2;
 	invers.y = 2;
-	fi->characters = create_object("car/story_characters/hero.png",
+	fi->characters = create_object("images/car/story_characters/hero.png",
 	create_vector2f(3720, 1800),
 	create_rect(0, 144, 48, 48), 0);
 	sfSprite_scale(fi->characters->sprite, invers);

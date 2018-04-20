@@ -40,7 +40,6 @@ int check_buff(char *buff, int i, int y)
 
 void parsing(struct stat a, files_t *fi)
 {
-	int i = 0;
 	int y = 0;
 	int k = 0;
 	int len = 0;

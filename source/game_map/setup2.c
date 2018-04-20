@@ -30,10 +30,5 @@ void setup_camera(files_t *fi)
 
 void pnj_setup(files_t *fi)
 {
-	int i = 0;
-	sfVector2f invers;
-
-	invers.x = 2;
-	invers.y = 2;
 	get_all_pnj(fi, "dialog_box/pnj/");
 }

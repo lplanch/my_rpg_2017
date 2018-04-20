@@ -62,7 +62,6 @@ void choise_box_bouc(files_t *fi, int compter, char **tab)
 
 void choice_box(files_t *fi, int fd)
 {
-	int i = 0;
 	int compter = 0;
 	char *str = get_next_line(fd);
 	char **tab = my_calloc(sizeof(char*) * 1);
