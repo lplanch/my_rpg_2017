@@ -8,6 +8,7 @@
 #include <SFML/Graphics.h>
 #include "my.h"
 #include "game_object.h"
+#include "my_rpg.h"
 
 int mouse_in_object_dialogbox(g_object *obj,
 sfRenderWindow *window, st_rpg *s)
