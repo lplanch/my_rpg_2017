@@ -18,7 +18,6 @@
 #include <SFML/Graphics.h>
 
 #include "my_rpg.h"
-#include "struct.h"
 
 static const float speed = 3;
 int prog(st_rpg *s);
