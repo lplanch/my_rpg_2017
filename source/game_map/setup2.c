@@ -30,5 +30,5 @@ void setup_camera(st_rpg *s)
 
 void pnj_setup(st_rpg *s)
 {
-	get_all_pnj(s, "dialog_box/pnj/");
+	get_all_pnj(s, "images/dialog_box/pnj/");
 }

@@ -10,7 +10,7 @@
 
 void create_layers(st_rpg *s)
 {
-	s->fi->map.tab_tileset = get_layer("TestMap/layers", s);
+	s->fi->map.tab_tileset = get_layer("map_preset/layers", s);
 	s->fi->map.layer_background = s->fi->map.tab_tileset[0];
 	s->fi->map.layer_relief = s->fi->map.tab_tileset[1];
 	s->fi->map.layer_colID = s->fi->map.tab_tileset[2];
