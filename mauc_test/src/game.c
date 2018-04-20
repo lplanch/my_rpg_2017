@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "my_rpg.h"
+#include "game_map.h"
 
 void game_update(files_t *fi)
 {

@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "my_rpg.h"
+#include "game_map.h"
 
 int collision_prog(files_t *fi)
 {

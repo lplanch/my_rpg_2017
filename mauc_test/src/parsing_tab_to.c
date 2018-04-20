@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "my_rpg.h"
+#include "game_map.h"
 
 int tab_circle(char **tab, int i, files_t *fi, int circle)
 {

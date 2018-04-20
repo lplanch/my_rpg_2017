@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "my_rpg.h"
+#include "game_map.h"
 
 int case_tp(files_t *fi, int nb_ID)
 {

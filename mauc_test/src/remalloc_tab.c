@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "my_rpg.h"
+#include "game_map.h"
 
 char **remalloc_tab(char **tab, char *str)
 {

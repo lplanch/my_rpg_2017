@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "my_rpg.h"
+#include "game_map.h"
 
 void setupclock(files_t *fi)
 {
@@ -16,7 +16,7 @@ void setupclock(files_t *fi)
 
 void setup_loading(files_t *fi)
 {
-	fi->loading = create_object("loading/loading2.png",
+	fi->loading = create_object("loading/loading.png",
 	create_vector2f(100, 100),
 	create_rect(0, 0, 99, 257), 0);
 	fi->loading->pos.x = fi->characters->pos.x - 60;

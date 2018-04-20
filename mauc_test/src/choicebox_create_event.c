@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "my_rpg.h"
+#include "game_map.h"
 
 int create_choice_box_middle(files_t *fi, int i, char **tab, int j)
 {

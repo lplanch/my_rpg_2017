@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "my_rpg.h"
+#include "game_map.h"
 
 void check_pnj_withpos(files_t *fi, int j, int i)
 {

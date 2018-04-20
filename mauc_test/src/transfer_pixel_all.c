@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "my_rpg.h"
+#include "game_map.h"
 
 void transfer_pixel_background(files_t *fi, int compter, int height)
 {

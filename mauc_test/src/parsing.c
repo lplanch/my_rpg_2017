@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "my_rpg.h"
+#include "game_map.h"
 
 void parsing_step(int y, files_t *fi, char *str)
 {

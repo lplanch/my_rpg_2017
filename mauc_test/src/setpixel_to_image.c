@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "my_rpg.h"
+#include "game_map.h"
 
 void setpixel_to_image_relief(files_t *fi, int col, int c, int p)
 {

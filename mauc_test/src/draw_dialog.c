@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "my_rpg.h"
+#include "game_map.h"
 
 void draw_choice_menu_text(files_t *fi, int compter)
 {

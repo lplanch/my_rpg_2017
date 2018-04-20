@@ -54,7 +54,7 @@ FILES		=	main.c				\
 			src/choice_box.c		\
 			src/choicebox_create_event.c	\
 			src/setpixel_to_image.c		\
-			src/mouse_in_object.c		\
+			src/mouse_in_object_dialogbox.c	\
 			src/destroy.c			\
 
 SRCS		=	$(FILES)

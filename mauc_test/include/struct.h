@@ -19,12 +19,6 @@ typedef struct s_clock
 	float seconds;
 } clockz_t;
 
-typedef struct struct_button
-{
-	t_object *text;
-	g_object *obj;
-} st_button;
-
 typedef struct s_pnj
 {
 	char *name;

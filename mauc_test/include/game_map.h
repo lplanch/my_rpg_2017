@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2017
-** my_rpg.h
+** game_map.h
 ** File description:
 ** .h file to stock all functions from our screensaver librairy
 */
@@ -40,8 +40,6 @@ int event_choice_box(files_t *fi, int compter);
 void up_cursor(files_t *fi);
 void down_cursor(files_t *fi, int compter);
 
-sfVector2f create_vector2f(float x, float y);
-sfIntRect create_rect(int top, int left, int width, int height);
 void characters_setup(files_t *fi);
 void setup_camera(files_t *fi);
 void setup_variable(files_t *fi);
@@ -82,9 +80,8 @@ void free_tab_withnull(char **tab);
 
 void dialog_box(files_t *fi);
 void choice_box(files_t *fi, int fd);
-void destroy_button(st_button *button);
-st_button *create_button(char *str, g_object *object, sfColor c, int size);
-int mouse_in_object(g_object *obj, sfRenderWindow *window, files_t *fi);
+int mouse_in_object_dialogbox(g_object *obj,
+sfRenderWindow *window, files_t *fi);
 
 void transfer_pixel(files_t *fi);
 void transfer_pixel_prof(files_t *fi, int compter, int height);

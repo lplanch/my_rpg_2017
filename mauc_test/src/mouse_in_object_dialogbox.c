@@ -9,7 +9,8 @@
 #include "game_object.h"
 #include "struct.h"
 
-int mouse_in_object(g_object *obj, sfRenderWindow *window, files_t *fi)
+int mouse_in_object_dialogbox(g_object *obj,
+sfRenderWindow *window, files_t *fi)
 {
 	int v = fi->camera.x - 960;
 	int w = fi->camera.y - 540;

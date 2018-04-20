@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "my_rpg.h"
+#include "game_map.h"
 
 sfRenderWindow* window_create(files_t *fi, char *name)
 {
