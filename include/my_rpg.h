@@ -288,6 +288,7 @@ typedef struct struct_rpg
 	st_custom cust;
 	st_menu mainm;
 	int save;
+	files_t fi;
 	sfRenderWindow *window;
 } st_rpg;
 

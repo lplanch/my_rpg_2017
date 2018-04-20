@@ -44,17 +44,13 @@ void setup_variable(files_t *fi)
 	fi->relief = 0;
 }
 
-void characters_setup(files_t *fi)
+void characters_setup(st_rpg *s)
 {
-	sfVector2f invers;
-
-	invers.x = 2;
-	invers.y = 2;
-	fi->characters = create_object("images/car/story_characters/hero.png",
+	s->fi->character = create_object("images/car/story_characters/hero.png",
 	create_vector2f(3720, 1800),
 	create_rect(0, 144, 48, 48), 0);
-	sfSprite_scale(fi->characters->sprite, invers);
-	fi->ID_characters = create_object("car/rose.jpg",
+	sfSprite_scale(s->fi->character->sprite, create_vector2f(2, 2));
+	fi->ID_character = create_object("car/rose.jpg",
 	create_vector2f(3720, 1800),
 	create_rect(144, 0, 48, 48), 0);
 	setup_camera(fi);

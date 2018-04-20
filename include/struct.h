@@ -99,8 +99,8 @@ typedef struct s_files
 	int relief;
 	sfClock *clock;
 	sfView *view;
-	g_object *characters;
-	g_object *ID_characters;
+	g_object *character;
+	g_object *ID_character;
 	g_object *loading;
 	sfVector2f camera;
 	sfVector2f camera_prec;
