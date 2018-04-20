@@ -13,12 +13,6 @@
 #include "my_rpg.h"
 #include "game_object.h"
 
-typedef struct struct_button
-{
-	t_object *text;
-	g_object *obj;
-} st_button;
-
 typedef struct s_clock
 {
 	sfClock *clock;

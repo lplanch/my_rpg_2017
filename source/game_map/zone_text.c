@@ -38,7 +38,7 @@ int update_dialog_box(st_rpg *s, int fd)
 		free(tra);
 		return (1);
 	} else if (!my_strcmp(str, ">")) {
-		choice_box(fi, fd);
+		choice_box(s, fd);
 		free(str);
 		take_good_option(s, fd);
 		str = get_next_line(fd);
@@ -62,7 +62,7 @@ void event_dialog_box(st_rpg *s, sfEvent event, int fd)
 		if (sfKeyboard_isKeyPressed(sfKeyReturn) ||
 		(sfMouse_isButtonPressed(sfMouseLeft) &&
 		(mouse_in_object_dialogbox(s->fi->pnj[s->fi->nb_pnj].dialog_box->obj,
-		s->fi->window, fi) == 1))) {
+		s->fi->window, s) == 1))) {
 			open_or_no(s, fd);
 		}
 	}

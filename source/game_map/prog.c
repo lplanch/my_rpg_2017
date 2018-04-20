@@ -10,7 +10,7 @@
 
 void create(st_rpg *s)
 {
-	characters_setup(s);
+	character_setup(s);
 	pnj_setup(s);
 	setup_variable(s);
 	setup_loading(s);
@@ -23,9 +23,9 @@ int prog(st_rpg *s)
 	create(s);
 	parsing(a, s);
 	create_map(s);
-	while (sfRenderWindow_isOpen(fi.window)) {
+	while (sfRenderWindow_isOpen(s->window)) {
 		game(s);
-		sfRenderWindow_close(fi.window);
+		sfRenderWindow_close(s->window);
 	}
 	destroy(s);
 	return (0);

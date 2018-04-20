@@ -48,8 +48,8 @@ void destroy(st_rpg *s)
 	destroy_sprite(s);
 	destroy_texture(s);
 	destroy_pnj(s);
-	destroy_object(fi->characters);
-	destroy_object(fi->ID_characters);
+	destroy_object(fi->character);
+	destroy_object(fi->ID_character);
 	destroy_object(fi->loading);
 	sfClock_destroy(fi->time.clock);
 	sfClock_destroy(fi->clock);

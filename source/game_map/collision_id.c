@@ -12,34 +12,34 @@ int case_tp(st_rpg *s, int nb_ID)
 {
 	switch (s->fi->map.layer_relief[nb_ID]) {
 	case 314:
-		s->fi->characters->pos.x = 840;
-		s->fi->characters->pos.y = 4284;
-		s->fi->characters->rect.top = 0;
-		sfSprite_setPosition(s->fi->characters->sprite,
-		s->fi->characters->pos);
+		s->fi->character->pos.x = 840;
+		s->fi->character->pos.y = 4284;
+		s->fi->character->rect.top = 0;
+		sfSprite_setPosition(s->fi->character->sprite,
+		s->fi->character->pos);
 		s->fi->camera_pos = 1;
 		return (1);
 	case 286:
-		s->fi->characters->pos.x = 3720;
-		s->fi->characters->pos.y = 2700;
-		s->fi->characters->rect.top = 144;
-		sfSprite_setPosition(s->fi->characters->sprite,
-		s->fi->characters->pos);
+		s->fi->character->pos.x = 3720;
+		s->fi->character->pos.y = 2700;
+		s->fi->character->rect.top = 144;
+		sfSprite_setPosition(s->fi->character->sprite,
+		s->fi->character->pos);
 		return (1);
 	case 25:
-		s->fi->characters->pos.x = 7218;
-		s->fi->characters->pos.y = 5957;
-		s->fi->characters->rect.top = 144;
-		sfSprite_setPosition(s->fi->characters->sprite,
-		s->fi->characters->pos);
+		s->fi->character->pos.x = 7218;
+		s->fi->character->pos.y = 5957;
+		s->fi->character->rect.top = 144;
+		sfSprite_setPosition(s->fi->character->sprite,
+		s->fi->character->pos);
 		s->fi->camera_pos = 0;
 		return (1);
 	case 284:
-		s->fi->characters->pos.x = 6591;
-		s->fi->characters->pos.y = 54;
-		s->fi->characters->rect.top = 96;
-		sfSprite_setPosition(s->fi->characters->sprite,
-		s->fi->characters->pos);
+		s->fi->character->pos.x = 6591;
+		s->fi->character->pos.y = 54;
+		s->fi->character->rect.top = 96;
+		sfSprite_setPosition(s->fi->character->sprite,
+		s->fi->character->pos);
 		s->fi->camera_pos = 0;
 		return (1);
 	default:

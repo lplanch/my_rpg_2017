@@ -17,6 +17,12 @@
 #include "projectile.h"
 #include "struct.h"
 
+typedef struct struct_button
+{
+	t_object *text;
+	g_object *obj;
+} st_button;
+
 typedef struct struct_animation
 {
 	int height;
@@ -283,7 +289,7 @@ typedef struct struct_rpg
 	st_custom cust;
 	st_menu mainm;
 	int save;
-	files_t fi;
+	files_t *fi;
 	sfRenderWindow *window;
 } st_rpg;
 

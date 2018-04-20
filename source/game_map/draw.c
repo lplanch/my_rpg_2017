@@ -40,15 +40,15 @@ void draw_pnj(st_rpg *s)
 
 void draw_all(st_rpg *s)
 {
-	sfSprite_setTextureRect(s->fi->characters->sprite, s->fi->characters->rect);
-	sfSprite_setPosition(s->fi->characters->sprite, s->fi->characters->pos);
+	sfSprite_setTextureRect(s->fi->character->sprite, s->fi->character->rect);
+	sfSprite_setPosition(s->fi->character->sprite, s->fi->character->pos);
 	sfRenderWindow_clear(s->fi->window, sfBlack);
 	sfRenderWindow_drawSprite(s->fi->window, s->fi->map.sprite, NULL);
 	sfRenderWindow_drawSprite(s->fi->window, s->fi->map.sprite5, NULL);
 	sfRenderWindow_drawSprite(s->fi->window, s->fi->map.sprite3, NULL);
 	sfRenderWindow_drawSprite(s->fi->window, s->fi->map.sprite2, NULL);
-	//sfRenderWindow_drawSprite(s->fi->window, s->fi->ID_characters->sprite, NULL)
-	sfRenderWindow_drawSprite(s->fi->window, s->fi->characters->sprite, NULL);
+	//sfRenderWindow_drawSprite(s->fi->window, s->fi->ID_character->sprite, NULL)
+	sfRenderWindow_drawSprite(s->fi->window, s->fi->character->sprite, NULL);
 	draw_pnj(s);
 	sfRenderWindow_drawSprite(s->fi->window, s->fi->map.sprite4, NULL);
 }

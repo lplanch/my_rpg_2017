@@ -19,8 +19,8 @@ void setup_loading(st_rpg *s)
 	s->fi->loading = create_object("images/loading.png",
 	create_vector2f(100, 100),
 	create_rect(0, 0, 99, 257), 0);
-	s->fi->loading->pos.x = s->fi->characters->pos.x - 60;
-	s->fi->loading->pos.y = s->fi->characters->pos.y - 170;
+	s->fi->loading->pos.x = s->fi->character->pos.x - 60;
+	s->fi->loading->pos.y = s->fi->character->pos.y - 170;
 	sfSprite_setPosition(s->fi->loading->sprite, s->fi->loading->pos);
 	setupclock(s);
 }
@@ -44,9 +44,9 @@ void setup_variable(st_rpg *s)
 	s->fi->relief = 0;
 }
 
-void characters_setup(st_rpg *s)
+void character_setup(st_rpg *s)
 {
-	s->fi->character = create_object("images/car/story_characters/hero.png",
+	s->fi->character = create_object("images/car/story_character/hero.png",
 	create_vector2f(3720, 1800),
 	create_rect(0, 144, 48, 48), 0);
 	sfSprite_scale(s->fi->character->sprite, create_vector2f(2, 2));

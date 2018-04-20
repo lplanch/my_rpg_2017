@@ -11,10 +11,10 @@
 void check_pnj_withpos(st_rpg *s, int j, int i)
 {
 	if (s->fi->pos[j].x < (s->fi->pnj[i].pnj->pos.x +
-	s->fi->ID_characters->rect.width + 14)
+	s->fi->ID_character->rect.width + 14)
 	&& (s->fi->pos[j].x > s->fi->pnj[i].pnj->pos.x + 14)
 	&& (s->fi->pos[j].y < s->fi->pnj[i].pnj->pos.y +
-	s->fi->ID_characters->rect.height + 66)
+	s->fi->ID_character->rect.height + 66)
 	&& (s->fi->pos[j].y > s->fi->pnj[i].pnj->pos.y + 66)) {
 		s->fi->dialog_box_isopen = 1;
 		s->fi->nb_pnj = i;

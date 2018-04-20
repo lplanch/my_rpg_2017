@@ -21,7 +21,7 @@
 #include "struct.h"
 
 static const float speed = 3;
-int prog(void);
+int prog(st_rpg *s);
 int game(st_rpg *s);
 void destroy(st_rpg *s);
 void destroy_dialog_box(st_rpg *s);
@@ -41,7 +41,7 @@ int event_choice_box(st_rpg *s, int compter);
 void up_cursor(st_rpg *s);
 void down_cursor(st_rpg *s, int compter);
 
-void characters_setup(st_rpg *s);
+void character_setup(st_rpg *s);
 void setup_camera(st_rpg *s);
 void setup_variable(st_rpg *s);
 void setup_loading(st_rpg *s);
