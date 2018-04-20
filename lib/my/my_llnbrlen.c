@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2017
 ** my_nbrlen.c
 ** File description:
 ** count nbr of chr of an int

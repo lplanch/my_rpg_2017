@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2017
 ** my_tbl_rm.c
 ** File description:
 ** remove a string from a table

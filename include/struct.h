@@ -10,6 +10,7 @@
 
 #include <SFML/Audio.h>
 #include <SFML/Graphics.h>
+#include "my_rpg.h"
 #include "game_object.h"
 
 typedef struct s_clock

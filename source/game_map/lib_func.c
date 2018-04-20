@@ -42,7 +42,7 @@ char *my_strcat2(char *str1, char *str2)
 	return (str1);
 }
 
-void my_strcpy(char *dest, char *src)
+void my_strcpy2(char *dest, char *src)
 {
 	int comp = 0;
 
@@ -58,7 +58,7 @@ char *my_strcat_dup(char *str1, char *str2)
 	char *res = my_calloc(sizeof(char) *
 	my_strlen(str1) + my_strlen(str2) + 2);
 
-	my_strcpy(res, str1);
+	my_strcpy2(res, str1);
 	res = my_strcat2(res, str2);
 	return (res);
 }

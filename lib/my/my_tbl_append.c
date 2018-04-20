@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2017
 ** my_tbl_append.c
 ** File description:
 ** append a char to a tbl

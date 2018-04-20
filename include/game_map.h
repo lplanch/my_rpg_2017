@@ -17,6 +17,7 @@
 #include <SFML/Audio.h>
 #include <SFML/Graphics.h>
 
+#include "my_rpg.h"
 #include "struct.h"
 
 static const float speed = 3;

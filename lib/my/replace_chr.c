@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2017
 ** replace_chr.c
 ** File description:
 ** replace a character with another

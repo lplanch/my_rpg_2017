@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2017
 ** free_tbl.c
 ** File description:
 ** function to free a table who end with NULL value

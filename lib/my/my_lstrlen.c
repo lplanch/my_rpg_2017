@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2017
 ** my_lstrlen.c
 ** File description:
 ** count chars from a str untill char == arg

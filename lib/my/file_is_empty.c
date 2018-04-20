@@ -5,6 +5,9 @@
 ** verify if a file is empty
 */
 
+#include <unistd.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include "my.h"
 
 int file_is_empty(char *name)
