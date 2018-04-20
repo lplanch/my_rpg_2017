@@ -33,7 +33,8 @@ void create_choice_box(files_t *fi, int compter, char **tab)
 	float pos_y = fi->camera.y + 230;
 	float posy = 0;
 
-	fi->pnj[fi->nb_pnj].choice_box = malloc(sizeof(st_button) * compter + 4);
+	fi->pnj[fi->nb_pnj].choice_box =
+	malloc(sizeof(st_button) * compter + 4);
 	fi->pnj[fi->nb_pnj].choice_box_edge[1] =
 	create_object("dialog_box/choice_box3.png",
 	create_vector2f(pos_x, pos_y), create_rect(0, 0, 460, 32), 0);

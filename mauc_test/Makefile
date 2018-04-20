@@ -32,12 +32,14 @@ FILES		=	main.c				\
 			src/setup2.c			\
 			src/remalloc_tab.c		\
 			src/tileset.c			\
+			src/parsing_tab_to.c		\
 			src/set_pixeltoimage.c		\
 			src/parsing.c			\
 			src/lib_func.c			\
 			src/draw.c			\
 			src/check_pnj.c			\
 			src/zone_text_create.c		\
+			src/check_pos_camera.c		\
 			src/get_layer.c			\
 			src/free.c			\
 			src/get_pnj.c			\

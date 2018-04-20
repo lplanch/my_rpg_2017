@@ -15,27 +15,31 @@ int case_tp(files_t *fi, int nb_ID)
 		fi->characters->pos.x = 840;
 		fi->characters->pos.y = 4284;
 		fi->characters->rect.top = 0;
-		sfSprite_setPosition(fi->characters->sprite, fi->characters->pos);
+		sfSprite_setPosition(fi->characters->sprite,
+		fi->characters->pos);
 		fi->camera_pos = 1;
 		return (1);
 	case 286:
 		fi->characters->pos.x = 3720;
 		fi->characters->pos.y = 2700;
 		fi->characters->rect.top = 144;
-		sfSprite_setPosition(fi->characters->sprite, fi->characters->pos);
+		sfSprite_setPosition(fi->characters->sprite,
+		fi->characters->pos);
 		return (1);
 	case 25:
 		fi->characters->pos.x = 7218;
 		fi->characters->pos.y = 5957;
 		fi->characters->rect.top = 144;
-		sfSprite_setPosition(fi->characters->sprite, fi->characters->pos);
+		sfSprite_setPosition(fi->characters->sprite,
+		fi->characters->pos);
 		fi->camera_pos = 0;
 		return (1);
 	case 284:
 		fi->characters->pos.x = 6591;
 		fi->characters->pos.y = 54;
 		fi->characters->rect.top = 96;
-		sfSprite_setPosition(fi->characters->sprite, fi->characters->pos);
+		sfSprite_setPosition(fi->characters->sprite,
+		fi->characters->pos);
 		fi->camera_pos = 0;
 		return (1);
 	default:

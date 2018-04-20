@@ -32,7 +32,8 @@ int collision_id(files_t *fi)
 	int y = fi->pos[i].y / size_cube;
 
 	while (i != 10) {
-		nb_ID = 60 * ((fi->pos[i].y / size_cube)) + fi->pos[i].x / size_cube;
+		nb_ID = 60 * ((fi->pos[i].y / size_cube))
+		+ fi->pos[i].x / size_cube;
 		if (case_id(fi, nb_ID) == 1) {
 			return (1);
 		}

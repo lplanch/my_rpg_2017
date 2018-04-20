@@ -14,7 +14,8 @@ void set_background(files_t *fi)
 
 	invers.x = 5;
 	invers.y = 5;
-	fi->map.texture = sfTexture_createFromImage(fi->map.map_backgound, NULL);
+	fi->map.texture =
+	sfTexture_createFromImage(fi->map.map_backgound, NULL);
 	fi->map.sprite = sfSprite_create();
 	sfSprite_scale(fi->map.sprite, invers);
 	sfSprite_setTextureRect(fi->map.sprite, fi->map.square);

@@ -28,14 +28,6 @@ void take_good_option(files_t *fi, int fd)
 	fi->var_choice = fi->nb_choice_pre;
 }
 
-void destroy_dialog_box(files_t *fi)
-{
-	destroy_button(fi->pnj[fi->nb_pnj].dialog_box);
-	destroy_button(fi->pnj[fi->nb_pnj].name_box);
-	fi->var_choice = 0;
-	fi->nb_choice_pre = 0;
-}
-
 int update_dialog_box(files_t *fi, int fd)
 {
 	char *str = get_next_line(fd);
@@ -57,15 +49,21 @@ int update_dialog_box(files_t *fi, int fd)
 	return (0);
 }
 
+void open_or_no(files_t *fi, int fd)
+{
+	if (update_dialog_box(fi, fd) == 1)
+		fi->dialog_box_isopen = 0;
+}
+
 void event_dialog_box(files_t *fi, sfEvent event, int fd)
 {
-	if (event.type == sfEvtKeyPressed || event.type == sfEvtMouseButtonPressed) {
+	if (event.type == sfEvtKeyPressed ||
+	event.type == sfEvtMouseButtonPressed) {
 		if (sfKeyboard_isKeyPressed(sfKeyReturn) ||
 		sfMouse_isButtonPressed(sfMouseLeft) &&
 		(mouse_in_object(fi->pnj[fi->nb_pnj].dialog_box->obj,
 		fi->window, fi) == 1)) {
-			if (update_dialog_box(fi, fd) == 1)
-				fi->dialog_box_isopen = 0;
+			open_or_no(fi, fd);
 		}
 	}
 }

@@ -23,7 +23,11 @@ static const float speed = 3;
 int prog(void);
 int game(files_t *fi);
 void destroy(files_t *fi);
+void destroy_dialog_box(files_t *fi);
 char **remalloc_tab(char **tab, char *str);
+
+void check_pos_camera_x(files_t *fi);
+void check_pos_camera_y(files_t *fi);
 
 void draw(files_t *fi);
 void draw_pnj(files_t *fi);
@@ -88,6 +92,10 @@ void transfer_pixel_colid(files_t *fi, int compter, int height);
 void transfer_pixel_col(files_t *fi, int compter, int height);
 void transfer_pixel_relief(files_t *fi, int compter, int height);
 void transfer_pixel_background(files_t *fi, int compter, int height);
+
+void tab_to_struct(files_t *fi, char **tab, int y);
+int tab_square(char **tab, int i, files_t *fi, int square);
+int tab_circle(char **tab, int i, files_t *fi, int circle);
 
 void setpixel_to_image_background(files_t *fi, int col, int c, int p);
 void setpixel_to_image_col(files_t *fi, int col, int c, int p);

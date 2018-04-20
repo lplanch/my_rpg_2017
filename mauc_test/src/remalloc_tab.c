@@ -16,7 +16,6 @@ char **remalloc_tab(char **tab, char *str)
 
 	for (int j = 0; tmp[j]; j++)
 		compter++;
-	//free_tab_withnull(tab);
 	tab = malloc(sizeof(char *) * (compter + 2));
 	for (int j = 0; tmp[j]; j++)
 		tab[i++] = strdup(tmp[j]);

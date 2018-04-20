@@ -18,6 +18,22 @@ void game_update(files_t *fi)
 	draw(fi);
 }
 
+int event_game(sfEvent event, int a, files_t *fi)
+{
+	if (event.type == sfEvtClosed)
+		a = 1;
+	if (event.type == sfEvtKeyPressed && event.key.code ==
+	sfKeyReturn) {
+		check_pnj(fi);
+	}
+	if (event.type == sfEvtKeyPressed && event.key.code ==
+	sfKeyD) {
+		fi->dialog_box_isopen = 1;
+		fi->nb_pnj = rand() % 5 + 0;
+	}
+	return (a);
+}
+
 int game(files_t *fi)
 {
 	int a = 0;
@@ -25,17 +41,7 @@ int game(files_t *fi)
 
 	while (a == 0) {
 		while (sfRenderWindow_pollEvent(fi->window, &event)) {
-			if (event.type == sfEvtClosed)
-				a = 1;
-			if (event.type == sfEvtKeyPressed && event.key.code ==
-			sfKeyReturn) {
-				check_pnj(fi);
-			}
-			if (event.type == sfEvtKeyPressed && event.key.code ==
-			sfKeyD) {
-				fi->dialog_box_isopen = 1;
-				fi->nb_pnj = rand() % 5 + 0;
-			}
+			a = event_game(event, a, fi);
 		}
 		game_update(fi);
 	}
