@@ -113,7 +113,6 @@ typedef struct s_files
 	g_object *loading;
 	sfVector2f camera;
 	sfVector2f camera_prec;
-	sfRenderWindow *window;
 	sfVector2f speed;
 	sfVector2f velocity;
 	sfVector2f invers;

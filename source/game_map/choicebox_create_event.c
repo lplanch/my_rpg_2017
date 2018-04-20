@@ -71,7 +71,7 @@ int event_choice_box(st_rpg *s, int compter)
 	int a = 0;
 	sfEvent event;
 
-	while (sfRenderWindow_pollEvent(s->fi->window, &event)) {
+	while (sfRenderWindow_pollEvent(s->window, &event)) {
 		a = event_keyreturn(s, a, compter, event);
 	}
 	return (a);

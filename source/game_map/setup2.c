@@ -18,14 +18,14 @@ void setup_col(st_rpg *s)
 void setup_camera(st_rpg *s)
 {
 	s->fi->view = sfView_create();
-	s->fi->view = sfRenderWindow_getDefaultView(s->fi->window);
+	s->fi->view = sfRenderWindow_getDefaultView(s->window);
 	s->fi->camera.x = s->fi->character->pos.x;
 	s->fi->camera.y = s->fi->character->pos.y;
 	s->fi->camera_prec.x = s->fi->character->pos.x;
 	s->fi->camera_prec.y = s->fi->character->pos.y;
 	s->fi->camera_pos = 0;
 	sfView_setCenter(s->fi->view, s->fi->camera);
-	sfRenderWindow_setView(s->fi->window, s->fi->view);
+	sfRenderWindow_setView(s->window, s->fi->view);
 }
 
 void pnj_setup(st_rpg *s)

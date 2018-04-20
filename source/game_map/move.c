@@ -33,7 +33,7 @@ void move_camera(st_rpg *s)
 		break;
 	}
 	sfView_setCenter(s->fi->view, s->fi->camera);
-	sfRenderWindow_setView(s->fi->window, s->fi->view);
+	sfRenderWindow_setView(s->window, s->fi->view);
 }
 
 void move_up(st_rpg *s)

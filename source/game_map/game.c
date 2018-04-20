@@ -40,7 +40,7 @@ int game(st_rpg *s)
 	sfEvent event;
 
 	while (a == 0) {
-		while (sfRenderWindow_pollEvent(s->fi->window, &event)) {
+		while (sfRenderWindow_pollEvent(s->window, &event)) {
 			a = event_game(event, a, s);
 		}
 		game_update(s);

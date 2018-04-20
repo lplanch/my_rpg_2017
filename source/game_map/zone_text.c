@@ -62,7 +62,7 @@ void event_dialog_box(st_rpg *s, sfEvent event, int fd)
 		if (sfKeyboard_isKeyPressed(sfKeyReturn) ||
 		(sfMouse_isButtonPressed(sfMouseLeft) &&
 		(mouse_in_object_dialogbox(s->fi->pnj[s->fi->nb_pnj].dialog_box->obj,
-		s->fi->window, s) == 1))) {
+		s->window, s) == 1))) {
 			open_or_no(s, fd);
 		}
 	}
@@ -82,7 +82,7 @@ void dialog_box(st_rpg *s)
 	create_name_box(s);
 	update_dialog_box(s, fd);
 	while (s->fi->dialog_box_isopen == 1) {
-		while (sfRenderWindow_pollEvent(s->fi->window, &event))
+		while (sfRenderWindow_pollEvent(s->window, &event))
 			event_dialog_box(s, event, fd);
 		draw_dialog_box(s);
 	}
