@@ -8,28 +8,28 @@
 #include "my.h"
 #include "game_map.h"
 
-void check_pnj_withpos(files_t *fi, int j, int i)
+void check_pnj_withpos(st_rpg *s, int j, int i)
 {
-	if (fi->pos[j].x < (fi->pnj[i].pnj->pos.x +
-	fi->ID_characters->rect.width + 14)
-	&& (fi->pos[j].x > fi->pnj[i].pnj->pos.x + 14)
-	&& (fi->pos[j].y < fi->pnj[i].pnj->pos.y +
-	fi->ID_characters->rect.height + 66)
-	&& (fi->pos[j].y > fi->pnj[i].pnj->pos.y + 66)) {
-		fi->dialog_box_isopen = 1;
-		fi->nb_pnj = i;
+	if (s->fi->pos[j].x < (s->fi->pnj[i].pnj->pos.x +
+	s->fi->ID_characters->rect.width + 14)
+	&& (s->fi->pos[j].x > s->fi->pnj[i].pnj->pos.x + 14)
+	&& (s->fi->pos[j].y < s->fi->pnj[i].pnj->pos.y +
+	s->fi->ID_characters->rect.height + 66)
+	&& (s->fi->pos[j].y > s->fi->pnj[i].pnj->pos.y + 66)) {
+		s->fi->dialog_box_isopen = 1;
+		s->fi->nb_pnj = i;
 	}
 }
 
-void check_pnj(files_t *fi)
+void check_pnj(st_rpg *s)
 {
 	int i = 0;
 	int j = 0;
 
-	while (i != fi->max_pnj) {
+	while (i != s->fi->max_pnj) {
 		j = 0;
 		while (j != 10) {
-			check_pnj_withpos(fi, j, i);
+			check_pnj_withpos(s, j, i);
 			j++;
 		}
 		i++;

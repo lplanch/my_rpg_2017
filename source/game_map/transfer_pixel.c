@@ -8,7 +8,7 @@
 #include "my.h"
 #include "game_map.h"
 
-void transfer_pixel(files_t *fi)
+void transfer_pixel(st_rpg *s)
 {
 	int width = 0;
 	int height = 0;
@@ -16,18 +16,18 @@ void transfer_pixel(files_t *fi)
 
 	while (height != 100) {
 		width = 0;
-		draw_loading(fi);
+		draw_loading(s);
 		while (width != 60) {
-			transfer_pixel_background(fi, compter, height);
-			transfer_pixel_relief(fi, compter, height);
-			transfer_pixel_col(fi, compter, height);
-			transfer_pixel_colid(fi, compter, height);
-			transfer_pixel_prof(fi, compter, height);
-			fi->map.x2 += 32;
+			transfer_pixel_background(s, compter, height);
+			transfer_pixel_relief(s, compter, height);
+			transfer_pixel_col(s, compter, height);
+			transfer_pixel_colid(s, compter, height);
+			transfer_pixel_prof(s, compter, height);
+			s->fi->map.x2 += 32;
 			width++;
 			compter++;
 		}
-		fi->map.x2 = 0;
+		s->fi->map.x2 = 0;
 		height++;
 	}
 }

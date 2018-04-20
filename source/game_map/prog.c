@@ -10,10 +10,10 @@
 
 void create(st_rpg *s)
 {
-	characters_setup(fi);
-	pnj_setup(fi);
-	setup_variable(fi);
-	setup_loading(fi);
+	characters_setup(s);
+	pnj_setup(s);
+	setup_variable(s);
+	setup_loading(s);
 }
 
 int prog(st_rpg *s)
@@ -21,12 +21,12 @@ int prog(st_rpg *s)
 	struct stat a;
 
 	create(s);
-	parsing(a, &fi);
-	create_map(&fi);
+	parsing(a, s);
+	create_map(s);
 	while (sfRenderWindow_isOpen(fi.window)) {
-		game(&fi);
+		game(s);
 		sfRenderWindow_close(fi.window);
 	}
-	destroy(&fi);
+	destroy(s);
 	return (0);
 }

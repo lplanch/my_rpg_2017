@@ -8,27 +8,27 @@
 #include "my.h"
 #include "game_map.h"
 
-void setup_col(files_t *fi)
+void setup_col(st_rpg *s)
 {
-	fi->nbr_colcircle = 42;
-	fi->nbr_colsquare = 204;
-	fi->direction = 3;
+	s->fi->nbr_colcircle = 42;
+	s->fi->nbr_colsquare = 204;
+	s->fi->direction = 3;
 }
 
-void setup_camera(files_t *fi)
+void setup_camera(st_rpg *s)
 {
-	fi->view = sfView_create();
-	fi->view = sfRenderWindow_getDefaultView(fi->window);
-	fi->camera.x = fi->characters->pos.x;
-	fi->camera.y = fi->characters->pos.y;
-	fi->camera_prec.x = fi->characters->pos.x;
-	fi->camera_prec.y = fi->characters->pos.y;
-	fi->camera_pos = 0;
-	sfView_setCenter(fi->view, fi->camera);
-	sfRenderWindow_setView(fi->window, fi->view);
+	s->fi->view = sfView_create();
+	s->fi->view = sfRenderWindow_getDefaultView(s->fi->window);
+	s->fi->camera.x = s->fi->characters->pos.x;
+	s->fi->camera.y = s->fi->characters->pos.y;
+	s->fi->camera_prec.x = s->fi->characters->pos.x;
+	s->fi->camera_prec.y = s->fi->characters->pos.y;
+	s->fi->camera_pos = 0;
+	sfView_setCenter(s->fi->view, s->fi->camera);
+	sfRenderWindow_setView(s->fi->window, s->fi->view);
 }
 
-void pnj_setup(files_t *fi)
+void pnj_setup(st_rpg *s)
 {
 	get_all_pnj(fi, "dialog_box/pnj/");
 }

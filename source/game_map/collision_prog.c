@@ -8,19 +8,19 @@
 #include "my.h"
 #include "game_map.h"
 
-int collision_prog(files_t *fi)
+int collision_prog(st_rpg *s)
 {
 	int nbr = 0;
 
-	while (nbr < fi->nbr_colcircle) {
-		if (check_colcircle(fi, nbr) == 1) {
+	while (nbr < s->fi->nbr_colcircle) {
+		if (check_colcircle(s, nbr) == 1) {
 			return (1);
 		} else
 			nbr++;
 	}
 	nbr = 0;
-	while (nbr < fi->nbr_colsquare) {
-		if (check_colsquare(fi, nbr) == 1) {
+	while (nbr < s->fi->nbr_colsquare) {
+		if (check_colsquare(s, nbr) == 1) {
 			return (1);
 		} else
 			nbr++;
@@ -28,11 +28,11 @@ int collision_prog(files_t *fi)
 	return (0);
 }
 
-int collision(files_t *fi)
+int collision(st_rpg *s)
 {
-	if (collision_id(fi) == 1)
+	if (collision_id(s) == 1)
 		return (1);
 	else {
-		return (collision_prog(fi));
+		return (collision_prog(s));
 	}
 }

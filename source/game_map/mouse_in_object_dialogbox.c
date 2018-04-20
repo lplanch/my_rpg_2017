@@ -10,10 +10,10 @@
 #include "struct.h"
 
 int mouse_in_object_dialogbox(g_object *obj,
-sfRenderWindow *window, files_t *fi)
+sfRenderWindow *window, st_rpg *s)
 {
-	int v = fi->camera.x - 960;
-	int w = fi->camera.y - 540;
+	int v = s->fi->camera.x - 960;
+	int w = s->fi->camera.y - 540;
 	int mx = sfMouse_getPositionRenderWindow(window).x + v;
 	int my = sfMouse_getPositionRenderWindow(window).y + w;
 	int posx = obj->pos.x;

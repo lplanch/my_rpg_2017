@@ -8,7 +8,7 @@
 #include "my.h"
 #include "game_map.h"
 
-void parsing_step(int y, files_t *fi, char *str)
+void parsing_step(int y, st_rpg *s, char *str)
 {
 	int i = 0;
 	int x = 0;
@@ -28,7 +28,7 @@ void parsing_step(int y, files_t *fi, char *str)
 		a++;
 	}
 	free(str);
-	tab_to_struct(fi, tab, y);
+	tab_to_struct(s, tab, y);
 }
 
 int check_buff(char *buff, int i, int y)
@@ -38,12 +38,12 @@ int check_buff(char *buff, int i, int y)
 	return (y);
 }
 
-void parsing(struct stat a, files_t *fi)
+void parsing(struct stat a, st_rpg *s)
 {
 	int y = 0;
 	int k = 0;
 	int len = 0;
-	int file = open("TestMap/parsing", O_RDONLY);
+	int file = open("map_preset/parsing", O_RDONLY);
 	char *buff = my_calloc(sizeof(char) * a.st_size + 1);
 	char *str = my_calloc(sizeof(char) * a.st_size + 1);
 
@@ -57,6 +57,6 @@ void parsing(struct stat a, files_t *fi)
 		}
 	}
 	str[k] = 0;
-	parsing_step(y, fi, str);
+	parsing_step(y, s, str);
 	free(buff);
 }

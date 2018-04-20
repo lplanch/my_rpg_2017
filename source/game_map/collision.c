@@ -8,53 +8,53 @@
 #include "my.h"
 #include "game_map.h"
 
-void case_relief(files_t *fi, int nb_ID)
+void case_relief(st_rpg *s, int nb_ID)
 {
-	switch (fi->map.layer_relief[nb_ID]) {
+	switch (s->fi->map.layer_relief[nb_ID]) {
 	case 435:
-		fi->relief = 2;
+		s->fi->relief = 2;
 		break;
 	case 436:
-		fi->relief = 1;
+		s->fi->relief = 1;
 		break;
 	default:
-		fi->relief = 0;
+		s->fi->relief = 0;
 		break;
 	}
 }
 
-int collision_id(files_t *fi)
+int collision_id(st_rpg *s)
 {
 	int i = 0;
 	int size_cube = 5 * 32;
 	int nb_ID = 0;
 
 	while (i != 10) {
-		nb_ID = 60 * ((fi->pos[i].y / size_cube))
-		+ fi->pos[i].x / size_cube;
-		if (case_id(fi, nb_ID) == 1) {
+		nb_ID = 60 * ((s->fi->pos[i].y / size_cube))
+		+ s->fi->pos[i].x / size_cube;
+		if (case_id(s, nb_ID) == 1) {
 			return (1);
 		}
-		if (case_tp(fi, nb_ID) == 0) {
-			fi->camera_pos = 0;
+		if (case_tp(s, nb_ID) == 0) {
+			s->fi->camera_pos = 0;
 		}
-		case_relief(fi, nb_ID);
+		case_relief(s, nb_ID);
 		i++;
 	}
 	return (0);
 }
 
-int check_colsquare(files_t *fi, int nbr)
+int check_colsquare(st_rpg *s, int nbr)
 {
 	int i = 0;
 
 	while (i != 10) {
-		if (fi->pos[i].x > fi->colsquare[nbr].pos.x &&
-		fi->pos[i].x < (fi->colsquare[nbr].pos.x +
-		fi->colsquare[nbr].width) &&
-		fi->pos[i].y > fi->colsquare[nbr].pos.y &&
-		fi->pos[i].y < (fi->colsquare[nbr].pos.y +
-		fi->colsquare[nbr].height)) {
+		if (s->fi->pos[i].x > s->fi->colsquare[nbr].pos.x &&
+		s->fi->pos[i].x < (s->fi->colsquare[nbr].pos.x +
+		s->fi->colsquare[nbr].width) &&
+		s->fi->pos[i].y > s->fi->colsquare[nbr].pos.y &&
+		s->fi->pos[i].y < (s->fi->colsquare[nbr].pos.y +
+		s->fi->colsquare[nbr].height)) {
 			return (1);
 		} else {
 			i++;
@@ -63,16 +63,16 @@ int check_colsquare(files_t *fi, int nbr)
 	return (0);
 }
 
-int check_colcircle(files_t *fi, int nbr)
+int check_colcircle(st_rpg *s, int nbr)
 {
 	float distance_pt_center = 0;
 	int i = 0;
 
 	while (i != 10) {
-		distance_pt_center = sqrt(powf((fi->pos[i].x
-		- fi->colcircle[nbr].center_circle_x), 2) + powf(((fi->pos[i].y)
-		- fi->colcircle[nbr].center_circle_y), 2));
-		if (distance_pt_center <= fi->colcircle[nbr].rayon_circle) {
+		distance_pt_center = sqrt(powf((s->fi->pos[i].x
+		- s->fi->colcircle[nbr].center_circle_x), 2) + powf(((s->fi->pos[i].y)
+		- s->fi->colcircle[nbr].center_circle_y), 2));
+		if (distance_pt_center <= s->fi->colcircle[nbr].rayon_circle) {
 			return (1);
 		} else
 			i++;

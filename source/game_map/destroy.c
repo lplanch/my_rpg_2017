@@ -8,7 +8,7 @@
 #include "my.h"
 #include "game_map.h"
 
-void destroy_pnj(files_t *fi)
+void destroy_pnj(st_rpg *s)
 {
 	int i = 0;
 
@@ -19,7 +19,7 @@ void destroy_pnj(files_t *fi)
 	}
 }
 
-void destroy_sprite(files_t *fi)
+void destroy_sprite(st_rpg *s)
 {
 	sfSprite_destroy(fi->map.sprite);
 	sfSprite_destroy(fi->map.sprite2);
@@ -28,7 +28,7 @@ void destroy_sprite(files_t *fi)
 	sfSprite_destroy(fi->map.sprite5);
 }
 
-void destroy_texture(files_t *fi)
+void destroy_texture(st_rpg *s)
 {
 	sfTexture_destroy(fi->map.texture);
 	sfTexture_destroy(fi->map.texture2);
@@ -37,7 +37,7 @@ void destroy_texture(files_t *fi)
 	sfTexture_destroy(fi->map.texture5);
 }
 
-void destroy(files_t *fi)
+void destroy(st_rpg *s)
 {
 	sfImage_destroy(fi->map.image);
 	sfImage_destroy(fi->map.map_backgound);
@@ -45,14 +45,14 @@ void destroy(files_t *fi)
 	sfImage_destroy(fi->map.map_col);
 	sfImage_destroy(fi->map.map_colID);
 	sfImage_destroy(fi->map.map_prof);
-	destroy_sprite(fi);
-	destroy_texture(fi);
-	destroy_pnj(fi);
+	destroy_sprite(s);
+	destroy_texture(s);
+	destroy_pnj(s);
 	destroy_object(fi->characters);
 	destroy_object(fi->ID_characters);
 	destroy_object(fi->loading);
 	sfClock_destroy(fi->time.clock);
 	sfClock_destroy(fi->clock);
-	free_all(fi);
+	free_all(s);
 	sfRenderWindow_destroy(fi->window);
 }

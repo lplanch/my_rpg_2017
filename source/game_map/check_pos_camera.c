@@ -8,37 +8,37 @@
 #include "my.h"
 #include "game_map.h"
 
-void check_pos_camera_y(files_t *fi)
+void check_pos_camera_y(st_rpg *s)
 {
-	if ((fi->characters->pos.y <= 532 && fi->characters->pos.y >= 24 &&
-		fi->characters->pos.x >= 136 && fi->characters->pos.x <= 9378)
-		|| (fi->characters->pos.y <= 5970 &&
-		fi->characters->pos.y >= 5597 && fi->characters->pos.x >= 6270
-		&& fi->characters->pos.x <= 8708))
-		fi->camera_pos = 3;
-	if ((fi->characters->pos.y >= 2740 && fi->characters->pos.y <= 3167 &&
-		fi->characters->pos.x >= 136 && fi->characters->pos.x <= 9378)
-		|| (fi->characters->pos.y <= 3915 &&
-		fi->characters->pos.y >= 3709 && fi->characters->pos.x >= 6270
-		&& fi->characters->pos.x <= 8708))
-		fi->camera_pos = 3;
-	if ((fi->characters->pos.y >= 4255 && fi->characters->pos.y <= 4617 &&
-		fi->characters->pos.x >= 746 && fi->characters->pos.x <= 923))
-		fi->camera_pos = 1;
+	if ((s->fi->characters->pos.y <= 532 && s->fi->characters->pos.y >= 24 &&
+		s->fi->characters->pos.x >= 136 && s->fi->characters->pos.x <= 9378)
+		|| (s->fi->characters->pos.y <= 5970 &&
+		s->fi->characters->pos.y >= 5597 && s->fi->characters->pos.x >= 6270
+		&& s->fi->characters->pos.x <= 8708))
+		s->fi->camera_pos = 3;
+	if ((s->fi->characters->pos.y >= 2740 && s->fi->characters->pos.y <= 3167 &&
+		s->fi->characters->pos.x >= 136 && s->fi->characters->pos.x <= 9378)
+		|| (s->fi->characters->pos.y <= 3915 &&
+		s->fi->characters->pos.y >= 3709 && s->fi->characters->pos.x >= 6270
+		&& s->fi->characters->pos.x <= 8708))
+		s->fi->camera_pos = 3;
+	if ((s->fi->characters->pos.y >= 4255 && s->fi->characters->pos.y <= 4617 &&
+		s->fi->characters->pos.x >= 746 && s->fi->characters->pos.x <= 923))
+		s->fi->camera_pos = 1;
 }
 
-void check_pos_camera_x(files_t *fi)
+void check_pos_camera_x(st_rpg *s)
 {
-	if ((fi->characters->pos.x <= 960 && fi->characters->pos.x >= 136 &&
-		fi->characters->pos.y >= 24 && fi->characters->pos.y <= 3167) ||
-		(fi->characters->pos.x <= 6719 && fi->characters->pos.x >= 6216
-		&& fi->characters->pos.y >= 3709 &&
-		fi->characters->pos.y <= 5970))
-		fi->camera_pos = 2;
-	if ((fi->characters->pos.x >= 8634 && fi->characters->pos.x <= 9378 &&
-		fi->characters->pos.y >= 24 && fi->characters->pos.y <= 3167) ||
-		(fi->characters->pos.x <= 8708 && fi->characters->pos.x >= 7840
-		&& fi->characters->pos.y >= 3709 &&
-		fi->characters->pos.y <= 5970))
-		fi->camera_pos = 2;
+	if ((s->fi->characters->pos.x <= 960 && s->fi->characters->pos.x >= 136 &&
+		s->fi->characters->pos.y >= 24 && s->fi->characters->pos.y <= 3167) ||
+		(s->fi->characters->pos.x <= 6719 && s->fi->characters->pos.x >= 6216
+		&& s->fi->characters->pos.y >= 3709 &&
+		s->fi->characters->pos.y <= 5970))
+		s->fi->camera_pos = 2;
+	if ((s->fi->characters->pos.x >= 8634 && s->fi->characters->pos.x <= 9378 &&
+		s->fi->characters->pos.y >= 24 && s->fi->characters->pos.y <= 3167) ||
+		(s->fi->characters->pos.x <= 8708 && s->fi->characters->pos.x >= 7840
+		&& s->fi->characters->pos.y >= 3709 &&
+		s->fi->characters->pos.y <= 5970))
+		s->fi->camera_pos = 2;
 }

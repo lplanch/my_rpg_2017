@@ -67,7 +67,7 @@ pnj_t get_pnj(char *name)
 	return (pnj);
 }
 
-void get_all_pnj(files_t *fi, char *path)
+void get_all_pnj(st_rpg *s, char *path)
 {
 	DIR *dir = opendir(path);
 	struct dirent *entry;
@@ -77,7 +77,7 @@ void get_all_pnj(files_t *fi, char *path)
 	while ((entry = readdir(dir)) != 0) {
 		if (entry->d_name[0] != '.') {
 			name = my_strcat_dup(path, entry->d_name);
-			fi->pnj[i] = get_pnj(name);
+			s->fi->pnj[i] = get_pnj(name);
 			free(name);
 			i++;
 		}

@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include "game_object.h"
 #include "projectile.h"
+#include "struct.h"
 
 typedef struct struct_animation
 {
@@ -28,12 +29,6 @@ typedef struct struct_animation
 	int ver;
 	float speed;
 } st_anim;
-
-typedef struct struct_button
-{
-	t_object *text;
-	g_object *obj;
-} st_button;
 
 typedef struct custom_data
 {

@@ -30,13 +30,13 @@ void free_tab(char **tab, int y)
 	free(tab);
 }
 
-void free_all(files_t *fi)
+void free_all(st_rpg *s)
 {
 	int i = 0;
 
 	while (i != 4) {
-		free(fi->map.tab_tileset[i]);
+		free(s->fi->map.tab_tileset[i]);
 		i++;
 	}
-	free(fi->map.tab_tileset);
+	free(s->fi->map.tab_tileset);
 }

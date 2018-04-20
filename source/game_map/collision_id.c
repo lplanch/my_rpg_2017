@@ -8,39 +8,39 @@
 #include "my.h"
 #include "game_map.h"
 
-int case_tp(files_t *fi, int nb_ID)
+int case_tp(st_rpg *s, int nb_ID)
 {
-	switch (fi->map.layer_relief[nb_ID]) {
+	switch (s->fi->map.layer_relief[nb_ID]) {
 	case 314:
-		fi->characters->pos.x = 840;
-		fi->characters->pos.y = 4284;
-		fi->characters->rect.top = 0;
-		sfSprite_setPosition(fi->characters->sprite,
-		fi->characters->pos);
-		fi->camera_pos = 1;
+		s->fi->characters->pos.x = 840;
+		s->fi->characters->pos.y = 4284;
+		s->fi->characters->rect.top = 0;
+		sfSprite_setPosition(s->fi->characters->sprite,
+		s->fi->characters->pos);
+		s->fi->camera_pos = 1;
 		return (1);
 	case 286:
-		fi->characters->pos.x = 3720;
-		fi->characters->pos.y = 2700;
-		fi->characters->rect.top = 144;
-		sfSprite_setPosition(fi->characters->sprite,
-		fi->characters->pos);
+		s->fi->characters->pos.x = 3720;
+		s->fi->characters->pos.y = 2700;
+		s->fi->characters->rect.top = 144;
+		sfSprite_setPosition(s->fi->characters->sprite,
+		s->fi->characters->pos);
 		return (1);
 	case 25:
-		fi->characters->pos.x = 7218;
-		fi->characters->pos.y = 5957;
-		fi->characters->rect.top = 144;
-		sfSprite_setPosition(fi->characters->sprite,
-		fi->characters->pos);
-		fi->camera_pos = 0;
+		s->fi->characters->pos.x = 7218;
+		s->fi->characters->pos.y = 5957;
+		s->fi->characters->rect.top = 144;
+		sfSprite_setPosition(s->fi->characters->sprite,
+		s->fi->characters->pos);
+		s->fi->camera_pos = 0;
 		return (1);
 	case 284:
-		fi->characters->pos.x = 6591;
-		fi->characters->pos.y = 54;
-		fi->characters->rect.top = 96;
-		sfSprite_setPosition(fi->characters->sprite,
-		fi->characters->pos);
-		fi->camera_pos = 0;
+		s->fi->characters->pos.x = 6591;
+		s->fi->characters->pos.y = 54;
+		s->fi->characters->rect.top = 96;
+		sfSprite_setPosition(s->fi->characters->sprite,
+		s->fi->characters->pos);
+		s->fi->camera_pos = 0;
 		return (1);
 	default:
 		return (0);
@@ -49,9 +49,9 @@ int case_tp(files_t *fi, int nb_ID)
 	return (0);
 }
 
-int case_id(files_t *fi, int nb_ID)
+int case_id(st_rpg *s, int nb_ID)
 {
-	switch (fi->map.layer_colID[nb_ID]) {
+	switch (s->fi->map.layer_colID[nb_ID]) {
 	case 32:
 	case 33:
 	case 34:

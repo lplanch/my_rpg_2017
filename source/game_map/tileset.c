@@ -8,39 +8,39 @@
 #include "my.h"
 #include "game_map.h"
 
-void create_layers(files_t *fi)
+void create_layers(st_rpg *s)
 {
-	fi->map.tab_tileset = get_layer("TestMap/layers", fi);
-	fi->map.layer_background = fi->map.tab_tileset[0];
-	fi->map.layer_relief = fi->map.tab_tileset[1];
-	fi->map.layer_colID = fi->map.tab_tileset[2];
-	fi->map.layer_col = fi->map.tab_tileset[3];
-	fi->map.layer_prof = fi->map.tab_tileset[4];
+	s->fi->map.tab_tileset = get_layer("TestMap/layers", fi);
+	s->fi->map.layer_background = s->fi->map.tab_tileset[0];
+	s->fi->map.layer_relief = s->fi->map.tab_tileset[1];
+	s->fi->map.layer_colID = s->fi->map.tab_tileset[2];
+	s->fi->map.layer_col = s->fi->map.tab_tileset[3];
+	s->fi->map.layer_prof = s->fi->map.tab_tileset[4];
 }
 
-void create_images(files_t *fi)
+void create_images(st_rpg *s)
 {
-	fi->map.x2 = 0;
-	fi->map.image = sfImage_createFromFile("map_preset/gg.png");
-	fi->map.map_backgound = sfImage_create(1920, 3200);
-	fi->map.map_relief = sfImage_create(1920, 3200);
-	fi->map.map_col = sfImage_create(1920, 3200);
-	fi->map.map_colID = sfImage_create(1920, 3200);
-	fi->map.map_prof = sfImage_create(1920, 3200);
-	fi->map.square.left = 0;
-	fi->map.square.top = 0;
-	fi->map.square.height = 640;
-	fi->map.square.width = 640;
-	create_layers(fi);
+	s->fi->map.x2 = 0;
+	s->fi->map.image = sfImage_createFromFile("map_preset/gg.png");
+	s->fi->map.map_backgound = sfImage_create(1920, 3200);
+	s->fi->map.map_relief = sfImage_create(1920, 3200);
+	s->fi->map.map_col = sfImage_create(1920, 3200);
+	s->fi->map.map_colID = sfImage_create(1920, 3200);
+	s->fi->map.map_prof = sfImage_create(1920, 3200);
+	s->fi->map.square.left = 0;
+	s->fi->map.square.top = 0;
+	s->fi->map.square.height = 640;
+	s->fi->map.square.width = 640;
+	create_layers(s);
 }
 
-void create_map(files_t *fi)
+void create_map(st_rpg *s)
 {
-	create_images(fi);
-	transfer_pixel(fi);
-	set_background(fi);
-	set_relief(fi);
-	set_col(fi);
-	set_colid(fi);
-	set_prof(fi);
+	create_images(s);
+	transfer_pixel(s);
+	set_background(s);
+	set_relief(s);
+	set_col(s);
+	set_colid(s);
+	set_prof(s);
 }
