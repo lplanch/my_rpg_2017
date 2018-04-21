@@ -46,7 +46,7 @@ void setup_variable(st_rpg *s)
 
 void character_setup(st_rpg *s)
 {
-	s->fi->character = create_object("images/story_character/hero.png",
+	s->fi->character = create_object("images/story_characters/hero.png",
 	create_vector2f(3720, 1800),
 	create_rect(0, 144, 48, 48), 0);
 	sfSprite_scale(s->fi->character->sprite, create_vector2f(2, 2));

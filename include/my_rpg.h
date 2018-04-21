@@ -396,6 +396,7 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+int prog(st_rpg *s);
 void update_menu_stat_mouse_over(st_rpg *s);
 void destroy_status_menu(st_rpg *s);
 void display_status_menu(st_rpg *s);

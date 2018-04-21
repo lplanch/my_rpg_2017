@@ -20,7 +20,7 @@
 #include "my_rpg.h"
 
 static const float speed = 3;
-int prog(st_rpg *s);
+
 int game(st_rpg *s);
 void destroy(st_rpg *s);
 void destroy_dialog_box(st_rpg *s);
