@@ -20,6 +20,8 @@ int prog(st_rpg *s)
 {
 	struct stat a;
 
+	if (stat("TestMap/parsing", &a) == -1)
+		return (0);
 	create(s);
 	parsing(a, s);
 	create_map(s);

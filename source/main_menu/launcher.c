@@ -61,7 +61,7 @@ int launch_main_menu_load_slots(st_rpg *s)
 		loading(s);
 		destroy_main_menu(s);
 		load_save(s);
-		return (fight_instance(s));
+		return (prog(s));
 	}
 	return (0);
 }
