@@ -46,10 +46,11 @@ char *get_stat_string(int i)
 	return ("SAMY");
 }
 
+void 
+
 void update_menu_stat_mouse_over(st_rpg *s)
 {
 	int i = 0;
-	int none = 0;
 
 	if (s->statm.shot == 1 && s->statm.show == 6) {
 		for (i = 0; i != 6; i += 1) {
@@ -57,8 +58,10 @@ void update_menu_stat_mouse_over(st_rpg *s)
 				s->statm.show = i;
 		}
 		if (s->statm.show != 6) {
+			temp = get_stat_string(s->statm.show);
 			sfText_setString(s->statm.stats[s->statm.show]->text
-			->text, get_stat_string(s->statm.show));
+			->text, temp);
+			free(temp);
 		}
 	} else if (s->statm.shot == 1 && s->statm.show != 6) {
 		if (!mouse_in_object(s->statm.stats[s->statm.show]->obj,
