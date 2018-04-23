@@ -36,6 +36,7 @@ void draw_dialog_box(st_rpg *s);
 void draw_loading(st_rpg *s);
 void draw_choice_menu(st_rpg *s, int compter);
 
+int event_game(st_rpg *s);
 int event_choice_box(st_rpg *s, int compter);
 void up_cursor(st_rpg *s);
 void down_cursor(st_rpg *s, int compter);

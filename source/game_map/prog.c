@@ -26,9 +26,9 @@ int prog(st_rpg *s)
 	parsing(a, s);
 	create_map(s);
 	while (sfRenderWindow_isOpen(s->window)) {
-		game(s);
-		sfRenderWindow_close(s->window);
+		if (event_game(s))
+			return (1);
+		game_update(s);
 	}
-	destroy(s);
-	return (1);
+	return (0);
 }
