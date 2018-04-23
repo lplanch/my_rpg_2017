@@ -32,12 +32,14 @@ void move_allpts(st_rpg *s)
 {
 	s->fi->pos[0].x = s->fi->ID_character->pos.x - 5;
 	s->fi->pos[0].y = s->fi->ID_character->pos.y;
-	s->fi->pos[1].x = s->fi->ID_character->pos.x + s->fi->ID_character->rect.width;
+	s->fi->pos[1].x = s->fi->ID_character->pos.x +
+	s->fi->ID_character->rect.width;
 	s->fi->pos[1].y = s->fi->ID_character->pos.y;
 	s->fi->pos[2].x = s->fi->ID_character->pos.x - 5;
 	s->fi->pos[2].y = s->fi->ID_character->pos.y +
 	s->fi->ID_character->rect.height;
-	s->fi->pos[3].x = s->fi->ID_character->pos.x + s->fi->ID_character->rect.width;
+	s->fi->pos[3].x = s->fi->ID_character->pos.x +
+	s->fi->ID_character->rect.width;
 	s->fi->pos[3].y = s->fi->ID_character->pos.y +
 	s->fi->ID_character->rect.height;
 	s->fi->pos[4].x = s->fi->ID_character->pos.x +
@@ -61,7 +63,8 @@ void move_id_player(st_rpg *s)
 	move_allpts(s);
 	sfSprite_setTextureRect(s->fi->ID_character->sprite,
 	s->fi->ID_character->rect);
-	sfSprite_setPosition(s->fi->ID_character->sprite, s->fi->ID_character->pos);
+	sfSprite_setPosition(s->fi->ID_character->sprite,
+	s->fi->ID_character->pos);
 }
 
 void move(st_rpg *s)

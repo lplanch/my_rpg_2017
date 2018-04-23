@@ -30,7 +30,7 @@ int check_inside_target(sfVector2f *coord1, sfVector2f *coord2)
 {
 	for (int i = 0; i != 4; i += 1) {
 		if (coord1[i].x > coord2[0].x && coord1[i].x < coord2[1].x &&
-		coord1[i].y > coord2[0].y && coord1[i].y < coord2[2].y)
+			coord1[i].y > coord2[0].y && coord1[i].y < coord2[2].y)
 			return (1);
 	}
 	return (0);
@@ -61,7 +61,7 @@ int circle_hitbox(sfCircleShape *circle, g_object *target)
 	get_object_ends(target, coord1);
 	for (int i = 0; i != 4; i += 1) {
 		if (sqrt(powf(coord1[i].x - center.x, 2) + powf(coord1[i].y
-		- center.y, 2)) <= radius)
+			- center.y, 2)) <= radius)
 			in += 1;
 	}
 	if (in >= 2)

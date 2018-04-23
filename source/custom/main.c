@@ -21,8 +21,8 @@ int cust_left_clicked(st_rpg *s, sfEvent event)
 {
 	for (int i = 0; i != cust_maxx_buttons(s->cust.menu); i += 1) {
 		if (event.type == sfEvtMouseButtonPressed &&
-		sfMouse_isButtonPressed(sfMouseLeft) &&
-		mouse_in_object(s->cust.bt[i]->obj, s->window))
+			sfMouse_isButtonPressed(sfMouseLeft) &&
+			mouse_in_object(s->cust.bt[i]->obj, s->window))
 			return (1);
 	}
 	return (0);
@@ -73,12 +73,13 @@ int custom_main(st_rpg *s)
 	while (sfRenderWindow_isOpen(s->window)) {
 		if (custom_event(s))
 			break;
-	s->cust.face->rect.left = 100 * s->cust.cdata.sex;
-	sfSprite_setTextureRect(s->cust.face->sprite, s->cust.face->rect);
-	cust_cursor_animation(s);
-	cust_menu_interface_animation(s);
-	display_cust(s);
-	sfRenderWindow_display(s->window);
+		s->cust.face->rect.left = 100 * s->cust.cdata.sex;
+		sfSprite_setTextureRect(s->cust.face->sprite,
+		s->cust.face->rect);
+		cust_cursor_animation(s);
+		cust_menu_interface_animation(s);
+		display_cust(s);
+		sfRenderWindow_display(s->window);
 	}
 	return (s->returnv);
 }

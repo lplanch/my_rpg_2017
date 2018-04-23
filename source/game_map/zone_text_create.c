@@ -38,7 +38,8 @@ void create_name_box(st_rpg *s)
 	float pos_text_x = pos_x + 30;
 	float pos_text_y = pos_y + 26;
 
-	s->fi->pnj[s->fi->nb_pnj].name_box = create_button(s->fi->pnj[s->fi->nb_pnj].name,
+	s->fi->pnj[s->fi->nb_pnj].name_box =
+	create_button(s->fi->pnj[s->fi->nb_pnj].name,
 	create_object("images/dialog_box/name_box_obj.png",
 	create_vector2f(pos_x, pos_y), create_rect(0, 0, 162, 76), 0),
 	sfWhite, 20);

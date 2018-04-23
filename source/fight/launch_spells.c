@@ -11,7 +11,7 @@
 void launch_auto_attack(st_rpg *s)
 {
 	void (*list[4])(st_rpg *s) = {archer_auto_attack, gunner_auto_attack,
-	rogue_auto_attack, warrior_auto_attack};
+		rogue_auto_attack, warrior_auto_attack};
 
 	(list[s->player.cdata.classe])(s);
 }
@@ -19,7 +19,8 @@ void launch_auto_attack(st_rpg *s)
 void launch_spell1(st_rpg *s)
 {
 	void (*list[4])(st_rpg *s) = {choose_spell1_archer,
-	choose_spell1_gunner, choose_spell1_rogue, choose_spell1_warrior};
+		choose_spell1_gunner, choose_spell1_rogue,
+		choose_spell1_warrior};
 
 	(list[s->player.cdata.classe])(s);
 }
@@ -27,7 +28,8 @@ void launch_spell1(st_rpg *s)
 void launch_spell2(st_rpg *s)
 {
 	void (*list[4])(st_rpg *s) = {choose_spell2_archer,
-	choose_spell2_gunner, choose_spell2_rogue, choose_spell2_warrior};
+		choose_spell2_gunner, choose_spell2_rogue,
+		choose_spell2_warrior};
 
 	(list[s->player.cdata.classe])(s);
 }
@@ -35,7 +37,8 @@ void launch_spell2(st_rpg *s)
 void launch_spell3(st_rpg *s)
 {
 	void (*list[4])(st_rpg *s) = {choose_spell3_archer,
-	choose_spell3_gunner, choose_spell3_rogue, choose_spell3_warrior};
+		choose_spell3_gunner, choose_spell3_rogue,
+		choose_spell3_warrior};
 
 	(list[s->player.cdata.classe])(s);
 }

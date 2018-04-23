@@ -12,11 +12,11 @@ void display_icons(st_rpg *s)
 {
 	for (int i = 0; i != 4; i += 1) {
 		sfRenderWindow_drawSprite(s->window,
-			s->f.icons[i]->obj->sprite, NULL);
+		s->f.icons[i]->obj->sprite, NULL);
 		sfRenderWindow_drawSprite(s->window, s->f.cd[i]->sprite,
-			NULL);
+		NULL);
 		sfRenderWindow_drawText(s->window,
-			s->f.icons[i]->text->text, NULL);
+		s->f.icons[i]->text->text, NULL);
 	} if (s->player.cdata.classe == 2 && s->player.tree.passive == 2) {
 		if (s->f.rog.vanish > 0) {
 

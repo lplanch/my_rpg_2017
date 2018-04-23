@@ -26,7 +26,7 @@ st_anim *create_anim(g_object *obj, sfVector2i max, float speed)
 	anim->ver = max.y;
 	anim->speed = speed;
 	anim->c = 0;
-	anim->l = 0;
+	anim->li = 0;
 	return (anim);
 }
 
@@ -34,16 +34,16 @@ void clocked_animation(st_anim *anim)
 {
 	anim->t.time = sfClock_getElapsedTime(anim->t.clock);
 	anim->t.sec = anim->t.time.microseconds / 1000000.0;
-	if (anim->t.sec > anim->speed && anim->l < anim->ver) {
+	if (anim->t.sec > anim->speed && anim->li < anim->ver) {
 		anim->c += 1;
 		if (anim->c == anim->hor) {
 			anim->c = 0;
-			anim->l += 1;
+			anim->li += 1;
 		}
 		anim->t.sec = 0;
 		sfClock_restart(anim->t.clock);
 		anim->obj->rect.left = anim->c * anim->width;
-		anim->obj->rect.top = anim->l * anim->height;
+		anim->obj->rect.top = anim->li * anim->height;
 		sfSprite_setTextureRect(anim->obj->sprite, anim->obj->rect);
 	}
 }

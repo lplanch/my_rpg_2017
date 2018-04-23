@@ -51,7 +51,7 @@ void create_spells_gunner(st_rpg *s)
 		}
 		s->f.gun.ultb[i] = create_projectile("spells/1/ultBullet");
 		s->f.gun.trait[i] = create_object("spells/1/trait.png",
-	create_vector2f(0, 0), create_rect(0, 0, 0, 10), 0);
+		create_vector2f(0, 0), create_rect(0, 0, 0, 10), 0);
 	}
 	s->f.gun.origin = s->f.gun.ultb[0]->dmg;
 	s->f.gun.auto_a = 0;
@@ -124,7 +124,8 @@ void create_spells_warrior(st_rpg *s)
 void create_class(st_rpg *s)
 {
 	void (*list[4])(st_rpg *s) = {create_spells_archer,
-	create_spells_gunner, create_spells_rogue, create_spells_warrior};
+		create_spells_gunner, create_spells_rogue,
+		create_spells_warrior};
 
 	(list[s->player.cdata.classe])(s);
 }

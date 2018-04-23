@@ -29,7 +29,8 @@ void rogue_auto_attack(st_rpg *s)
 		s->f.rog.vanish = 0;
 		rogue_backstab(s);
 	} else {
-		launch_swing(s->window, s->f.rog.auto_a[0], s->player.weapon[0]);
+		launch_swing(s->window, s->f.rog.auto_a[0],
+		s->player.weapon[0]);
 		s->f.cast = 1;
 		s->f.rog.auto_bool = 1;
 	}

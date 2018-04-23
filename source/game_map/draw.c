@@ -17,7 +17,8 @@ void draw_loading(st_rpg *s)
 			s->fi->loading->rect.left = 0;
 		else
 			s->fi->loading->rect.left += 99;
-		sfSprite_setTextureRect(s->fi->loading->sprite, s->fi->loading->rect);
+		sfSprite_setTextureRect(s->fi->loading->sprite,
+		s->fi->loading->rect);
 		sfRenderWindow_clear(s->window, sfBlack);
 		sfRenderWindow_drawSprite(s->window, s->fi->loading->sprite,
 		NULL);
@@ -40,14 +41,14 @@ void draw_pnj(st_rpg *s)
 
 void draw_all(st_rpg *s)
 {
-	sfSprite_setTextureRect(s->fi->character->sprite, s->fi->character->rect);
+	sfSprite_setTextureRect(s->fi->character->sprite,
+	s->fi->character->rect);
 	sfSprite_setPosition(s->fi->character->sprite, s->fi->character->pos);
 	sfRenderWindow_clear(s->window, sfBlack);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite5, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite3, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite2, NULL);
-	//sfRenderWindow_drawSprite(s->window, s->fi->ID_character->sprite, NULL)
 	sfRenderWindow_drawSprite(s->window, s->fi->character->sprite, NULL);
 	draw_pnj(s);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite4, NULL);

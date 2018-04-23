@@ -52,7 +52,7 @@ void cust_menu_goto_classes(st_rpg *s)
 	s->cust.bt[3] = create_vbutton("Rogue", create_vector2f(1400, 600),
 	grey, 50);
 	s->cust.bt[4] = create_vbutton("Warrior", create_vector2f(1600, 600),
-      	grey, 50);
+	grey, 50);
 	get_cursor_pos_classes(s);
 }
 

@@ -33,7 +33,7 @@ void update_projectile_rogue(st_rpg *s)
 void update_projectiles(st_rpg *s)
 {
 	void (*list[3])(st_rpg *s) = {update_projectile_archer,
-	update_projectile_gunner, update_projectile_rogue};
+		update_projectile_gunner, update_projectile_rogue};
 
 	if (s->player.cdata.classe != 3)
 		(list[s->player.cdata.classe])(s);

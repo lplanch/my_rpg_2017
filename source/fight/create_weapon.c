@@ -39,7 +39,8 @@ void warrior_create_weapon(st_rpg *s)
 void create_weapon(st_rpg *s)
 {
 	void (*list[4])(st_rpg *s) = {archer_create_weapon,
-	gunner_create_weapon, rogue_create_weapon, warrior_create_weapon};
+		gunner_create_weapon, rogue_create_weapon,
+		warrior_create_weapon};
 
 	(list[s->player.cdata.classe])(s);
 }

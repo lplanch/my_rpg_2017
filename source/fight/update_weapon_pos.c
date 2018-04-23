@@ -30,8 +30,8 @@ void rogue_update_pos_weapon(st_rpg *s)
 			s->player.weapon[i]->pos = create_vector2f(960 + 47 *
 			ratios.y, 540 - 47 * ratios.x);
 			if (i == 1)
-			s->player.weapon[i]->pos = create_vector2f(960 - 33 *
-			ratios.y, 540 + 33 * ratios.x);
+				s->player.weapon[i]->pos = create_vector2f(960
+				- 33 * ratios.y, 540 + 33 * ratios.x);
 			sfSprite_setPosition(s->player.weapon[i]->sprite,
 			s->player.weapon[i]->pos);
 		}
@@ -57,8 +57,8 @@ void warrior_update_pos_weapon(st_rpg *s)
 void update_pos_weapon(st_rpg *s)
 {
 	void (*list[4])(st_rpg *s) = {archer_update_pos_weapon,
-	gunner_update_pos_weapon, rogue_update_pos_weapon,
-	warrior_update_pos_weapon};
+		gunner_update_pos_weapon, rogue_update_pos_weapon,
+		warrior_update_pos_weapon};
 
 	(list[s->player.cdata.classe])(s);
 }

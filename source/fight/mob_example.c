@@ -32,10 +32,11 @@ void update_mob_example(st_rpg *s)
 	if (s->f.mob->stat->pva <= 0) {
 		s->f.mob->stat->pva = s->f.mob->stat->pvm;
 		s->f.mob->obj->pos = create_vector2f(100 + rand() % 1720,
-	100 + rand() % 880);
+		100 + rand() % 880);
 		sfSprite_setPosition(s->f.mob->obj->sprite, s->f.mob->obj->pos);
 		sfSprite_setPosition(s->f.mob->life->sprite,
-	create_vector2f(s->f.mob->obj->pos.x, s->f.mob->obj->pos.y - 20));
+		create_vector2f(s->f.mob->obj->pos.x,
+		s->f.mob->obj->pos.y - 20));
 	}
 	s->f.mob->life->rect.width = 50 * s->f.mob->stat->pva /
 	s->f.mob->stat->pvm;
