@@ -56,7 +56,7 @@ void main_menu_goto_saves(st_rpg *s)
 	if (s->mainm.option == 3) {
 		s->mainm.cursor->pos.y = 740;
 		sfSprite_setPosition(s->mainm.cursor->sprite,
-				s->mainm.cursor->pos);
+		s->mainm.cursor->pos);
 		s->mainm.option = 2;
 	}
 }

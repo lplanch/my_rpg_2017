@@ -71,7 +71,8 @@ void rogue_update_auto_attack(st_rpg *s)
 	update_swing(s, s->f.rog.auto_a[0], s->player.weapon[0]);
 	update_swing(s, s->f.rog.auto_a[1], s->player.weapon[1]);
 	if (s->f.rog.auto_bool == 1 && s->f.rog.auto_a[0]->shot == 0) {
-		launch_swing(s->window, s->f.rog.auto_a[1], s->player.weapon[1]);
+		launch_swing(s->window, s->f.rog.auto_a[1],
+		s->player.weapon[1]);
 		s->f.rog.auto_bool = 2;
 		s->f.cast = 1;
 	} if (s->f.rog.auto_bool == 2 && s->f.rog.auto_a[1]->shot == 0) {

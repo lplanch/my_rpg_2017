@@ -6,7 +6,7 @@
 */
 
 #ifndef ST_RPG_
-	#define ST_RPG_
+#define ST_RPG_
 #include <math.h>
 #include <SFML/Audio.h>
 #include <SFML/Graphics.h>
@@ -131,7 +131,7 @@ typedef struct struct_animation
 	int height;
 	int width;
 	int c;
-	int l;
+	int li;
 	g_object *obj;
 	st_time t;
 	int hor;

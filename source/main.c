@@ -24,8 +24,8 @@ int main(void)
 
 	s.window = sfRenderWindow_create(mode, "RPG", sfDefaultStyle, NULL);
 	sfRenderWindow_setFramerateLimit(s.window, 60);
-	s.loading = create_object("images/Loading.png",
-	create_vector2f(1600, 800), create_rect(0, 0, 400, 100), 0);
+	s.loading = create_object("images/loading.png",
+	create_vector2f(900, 338), create_rect(0, 0, 99, 257), 0);
 	s.statm.shot = 0;
 	s.statm.show = 6;
 	main_menu(&s);

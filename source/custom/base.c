@@ -14,11 +14,11 @@ void display_cust(st_rpg *s)
 	sfRenderWindow_drawSprite(s->window, s->cust.circle->sprite, NULL);
 	for (int i = 0; i != cust_get_buttons(s->cust.menu); i += 1)
 		sfRenderWindow_drawText(s->window,
-					s->cust.bt[i]->text->text, NULL);
+		s->cust.bt[i]->text->text, NULL);
 	sfRenderWindow_drawSprite(s->window, s->cust.cursor->sprite, NULL);
 	if (s->cust.chosen)
 		sfRenderWindow_drawSprite(s->window,
-					  s->cust.face->sprite, NULL);
+		s->cust.face->sprite, NULL);
 }
 
 void destroy_cust_buttons(st_rpg *s)

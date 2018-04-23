@@ -19,7 +19,7 @@ void handle_explosive(st_rpg *s, proj_t *proj)
 		sfCircleShape_setPosition(s->f.gun.expbt,
 		s->f.gun.expbullet->obj->pos);
 		s->f.gun.bullet[9]->shot = 2;
-		s->f.gun.expbullet->l = 0;
+		s->f.gun.expbullet->li = 0;
 		s->f.gun.expbullet->c = 0;
 		if (circle_hitbox(s->f.gun.expbt, s->f.mob->obj)) {
 			s->f.mob->stat->pva -= 70 + 15 * s->player.stat->lvl;

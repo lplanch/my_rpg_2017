@@ -34,7 +34,7 @@ void proc_aoe_warrior(st_rpg *s)
 void proc_aoes(st_rpg *s)
 {
 	void (*list[4])(st_rpg *s) = {proc_aoe_archer,
-	proc_aoe_gunner, proc_aoe_rogue, proc_aoe_warrior};
+		proc_aoe_gunner, proc_aoe_rogue, proc_aoe_warrior};
 
 	(list[s->player.cdata.classe])(s);
 }

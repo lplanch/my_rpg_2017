@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
 ** setup.c
-** s->file description:
-** setup s->file for my_rpg
+** File description:
+** setup file for my_rpg
 */
 
 #include "my.h"

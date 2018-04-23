@@ -11,17 +11,17 @@
 char *get_stat_value(st_rpg *s, int i)
 {
 	switch (i) {
-		case 0 :
+	case 0 :
 		return (int_to_str(s->player.stat->pvm));
-		case 1 :
+	case 1 :
 		return (int_to_str(s->player.stat->frc));
-		case 2 :
+	case 2 :
 		return (int_to_str(s->player.stat->def));
-		case 3 :
+	case 3 :
 		return (int_to_str(s->player.stat->prc));
-		case 4 :
+	case 4 :
 		return (int_to_str(s->player.stat->vit));
-		case 5 :
+	case 5 :
 		return (int_to_str(s->player.stat->cha));
 	}
 	return (NULL);
@@ -30,17 +30,17 @@ char *get_stat_value(st_rpg *s, int i)
 char *get_stat_string(int i)
 {
 	switch (i) {
-		case 0 :
+	case 0 :
 		return ("Max Health");
-		case 1 :
+	case 1 :
 		return ("Strength");
-		case 2 :
+	case 2 :
 		return ("Resistance");
-		case 3 :
+	case 3 :
 		return ("Precision");
-		case 4 :
+	case 4 :
 		return ("Speed");
-		case 5 :
+	case 5 :
 		return ("Chance");
 	}
 	return ("SAMY");
@@ -65,7 +65,7 @@ void update_menu_stat_mouse_over(st_rpg *s)
 		}
 	} else if (s->statm.shot == 1 && s->statm.show != 6) {
 		if (!mouse_in_object(s->statm.stats[s->statm.show]->obj,
-			s->window)) {
+		s->window)) {
 			sfText_setString(s->statm.stats[s->statm.show]->text
 			->text, get_stat_value(s, s->statm.show));
 			s->statm.show = 6;
@@ -76,13 +76,13 @@ void update_menu_stat_mouse_over(st_rpg *s)
 char *get_class_string(int i)
 {
 	switch (i) {
-		case 0 :
+	case 0 :
 		return ("Archer");
-		case 1 :
+	case 1 :
 		return ("Gunner");
-		case 2 :
+	case 2 :
 		return ("Rogue");
-		case 3 :
+	case 3 :
 		return ("Warrior");
 	}
 	return (NULL);
@@ -127,8 +127,8 @@ void generate_status_menu(st_rpg *s)
 	s->statm.window = create_object("images/pause_window.png",
 	create_vector2f(1490, 30), create_rect(0, 0, 400, 600), 0);
 	s->statm.face = create_object("images/heroface.png",
-	create_vector2f(1500, 40), create_rect(0, s->player.cdata.sex * 100, 100,
-	100), 0);
+	create_vector2f(1500, 40),
+	create_rect(0, s->player.cdata.sex * 100, 100, 100), 0);
 	s->statm.name = create_text(s->player.cdata.name, create_vector2f(1620,
 	50), "fonts/button.ttf");
 	s->statm.lvl = create_text(my_strcat("Level ", int_to_str(s->player.stat

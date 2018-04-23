@@ -69,10 +69,11 @@ void initialize_menu(st_rpg *s)
 		s->mainm.abyss[i] = create_object("images/menu/abyss2.png",
 		create_vector2f(300 + 1400 * i , 5712 * i),
 		create_rect(0, 0, 1920, 5712), 2);
-	s->mainm.rockback[i] = create_object("images/menu/RockCave.png",
-	create_vector2f(0, 2936 * i), create_rect(0, 0, 1920, 2936), 6);
-	s->mainm.rock2[i] = create_object("images/menu/rock3.png",
-	create_vector2f(110, 2236 * i), create_rect(0, 0, 1920, 2236), 4);
+		s->mainm.rockback[i] = create_object("images/menu/RockCave.png",
+		create_vector2f(0, 2936 * i), create_rect(0, 0, 1920, 2936), 6);
+		s->mainm.rock2[i] = create_object("images/menu/rock3.png",
+		create_vector2f(110, 2236 * i),
+		create_rect(0, 0, 1920, 2236), 4);
 	}
 	sfSprite_setScale(s->mainm.abyss[1]->sprite, create_vector2f(-1, 1));
 	s->mainm.t.sec = 0.0;
@@ -88,8 +89,8 @@ int left_clicked_on_buttons(st_rpg *s, sfEvent event)
 		max += 1;
 	for (int i = 0; i != max; i += 1) {
 		if (event.type == sfEvtMouseButtonPressed &&
-		    sfMouse_isButtonPressed(sfMouseLeft) &&
-		    mouse_in_object(s->mainm.button[i]->obj, s->window))
+			sfMouse_isButtonPressed(sfMouseLeft) &&
+			mouse_in_object(s->mainm.button[i]->obj, s->window))
 			return (1);
 	}
 	return (0);

@@ -59,7 +59,8 @@ void get_cooldowns_warrior(st_rpg *s)
 void get_cooldowns(st_rpg *s)
 {
 	void (*list[4])(st_rpg *s) = {get_cooldowns_archer,
-	get_cooldowns_gunner, get_cooldowns_rogue, get_cooldowns_warrior};
+		get_cooldowns_gunner, get_cooldowns_rogue,
+		get_cooldowns_warrior};
 
 	(list[s->player.cdata.classe])(s);
 }

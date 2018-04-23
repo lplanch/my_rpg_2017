@@ -14,7 +14,8 @@ int tab_circle(char **tab, int i, st_rpg *s, int circle)
 	((str_to_int(tab[i]) / 100) / 2) * 5;
 	i++;
 	s->fi->colcircle[circle].center_circle_x =
-	((str_to_int(tab[i]) / 100) * 5) + s->fi->colcircle[circle].rayon_circle;
+	((str_to_int(tab[i]) / 100) * 5) +
+	s->fi->colcircle[circle].rayon_circle;
 	i++;
 	s->fi->colcircle[circle].center_circle_y =
 	((str_to_int(tab[i]) / 100) * 5)+ s->fi->colcircle[circle].rayon_circle;

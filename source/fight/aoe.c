@@ -31,7 +31,7 @@ void launch_aoe(sfRenderWindow *window, aoe_t *aoe)
 	aoe->anim->obj->rect.left = 0;
 	aoe->anim->obj->rect.top = 0;
 	aoe->anim->c = 0;
-	aoe->anim->l = 0;
+	aoe->anim->li = 0;
 	aoe->shot = 1;
 	aoe->count = 0;
 	sfClock_restart(aoe->anim->t.clock);
@@ -58,8 +58,8 @@ aoe_t *create_aoe_from_file(char *path)
 	aoe_t *aoe = malloc(sizeof(aoe_t));
 	int fd = open(path, O_RDONLY);
 	sfColor color = {str_to_int(get_next_line(fd)),
-	str_to_int(get_next_line(fd)), str_to_int(get_next_line(fd)),
-	str_to_int(get_next_line(fd))};
+		str_to_int(get_next_line(fd)), str_to_int(get_next_line(fd)),
+		str_to_int(get_next_line(fd))};
 
 	aoe->circle = create_circle(str_to_int(get_next_line(fd)),
 	str_to_int(get_next_line(fd)), color);

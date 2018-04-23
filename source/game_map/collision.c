@@ -70,7 +70,8 @@ int check_colcircle(st_rpg *s, int nbr)
 
 	while (i != 10) {
 		distance_pt_center = sqrt(powf((s->fi->pos[i].x
-		- s->fi->colcircle[nbr].center_circle_x), 2) + powf(((s->fi->pos[i].y)
+		- s->fi->colcircle[nbr].center_circle_x), 2) +
+		powf(((s->fi->pos[i].y)
 		- s->fi->colcircle[nbr].center_circle_y), 2));
 		if (distance_pt_center <= s->fi->colcircle[nbr].rayon_circle) {
 			return (1);

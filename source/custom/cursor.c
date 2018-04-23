@@ -27,7 +27,8 @@ void get_cursor_pos(st_rpg *s)
 			s->cust.cursor->pos.x = 1345;
 			s->cust.cursor->pos.y = 495;
 		} else {
-			s->cust.cursor->pos.x = 1180 + 330 * (s->cust.option - 1);
+			s->cust.cursor->pos.x = 1180 + 330 *
+			(s->cust.option - 1);
 			s->cust.cursor->pos.y = 710;
 		}
 		s->cust.rot = -90;
@@ -43,7 +44,7 @@ void cust_cursor_animation(st_rpg *s)
 {
 	s->cust.cursor->pos.y += s->cust.sens;
 	if (s->cust.cursor->pos.y > s->cust.cmax ||
-	    s->cust.cursor->pos.y < s->cust.cmin)
+		s->cust.cursor->pos.y < s->cust.cmin)
 		s->cust.sens = -s->cust.sens;
 	sfSprite_setPosition(s->cust.cursor->sprite, s->cust.cursor->pos);
 }
@@ -55,16 +56,19 @@ void custom_manage_cursor_events_key(st_rpg *s, sfEvent event)
 
 	if (event.type == sfEvtKeyPressed) {
 		if (s->cust.option == 3 && (sfKeyboard_isKeyPressed(sfKeyS) ||
-		sfKeyboard_isKeyPressed(sfKeyDown)))
+			sfKeyboard_isKeyPressed(sfKeyDown)))
 			s->cust.option = 1;
 		if (s->cust.menu == 2 && (sfKeyboard_isKeyPressed(sfKeyZ) ||
-		sfKeyboard_isKeyPressed(sfKeyUp)) && s->cust.option != 3)
+			sfKeyboard_isKeyPressed(sfKeyUp)) &&
+			s->cust.option != 3)
 			s->cust.option = 3;
 		if ((sfKeyboard_isKeyPressed(sfKeyQ) ||
-		sfKeyboard_isKeyPressed(sfKeyLeft)) && s->cust.option > minx)
+			sfKeyboard_isKeyPressed(sfKeyLeft)) &&
+			s->cust.option > minx)
 			s->cust.option -= 1;
 		if ((sfKeyboard_isKeyPressed(sfKeyD) ||
-		sfKeyboard_isKeyPressed(sfKeyRight)) && s->cust.option < maxx)
+			sfKeyboard_isKeyPressed(sfKeyRight)) &&
+			s->cust.option < maxx)
 			s->cust.option += 1;
 		get_cursor_pos(s);
 	}

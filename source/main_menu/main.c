@@ -10,9 +10,12 @@
 
 void display_main_menu_interface(st_rpg *s)
 {
-	sfRenderWindow_drawText(s->window, s->mainm.button[0]->text->text, NULL);
-	sfRenderWindow_drawText(s->window, s->mainm.button[1]->text->text, NULL);
-	sfRenderWindow_drawText(s->window, s->mainm.button[2]->text->text, NULL);
+	sfRenderWindow_drawText(s->window,
+	s->mainm.button[0]->text->text, NULL);
+	sfRenderWindow_drawText(s->window,
+	s->mainm.button[1]->text->text, NULL);
+	sfRenderWindow_drawText(s->window,
+	s->mainm.button[2]->text->text, NULL);
 	sfRenderWindow_drawSprite(s->window, s->mainm.cursor->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->mainm.title->sprite, NULL);
 	if (s->mainm.menu > 2) {
@@ -42,12 +45,12 @@ void main_menu_update_downward(st_rpg *s)
 {
 	if (sfSprite_getPosition(s->mainm.guy->sprite).y < 200)
 		sfSprite_setPosition(s->mainm.guy->sprite,
-	create_vector2f(sfSprite_getPosition(s->mainm.guy->sprite).x,
-	sfSprite_getPosition(s->mainm.guy->sprite).y + 10));
+		create_vector2f(sfSprite_getPosition(s->mainm.guy->sprite).x,
+		sfSprite_getPosition(s->mainm.guy->sprite).y + 10));
 	if (sfSprite_getPosition(s->mainm.title->sprite).y < 100)
 		sfSprite_setPosition(s->mainm.title->sprite,
-	create_vector2f(sfSprite_getPosition(s->mainm.title->sprite).x,
-	sfSprite_getPosition(s->mainm.title->sprite).y + 10));
+		create_vector2f(sfSprite_getPosition(s->mainm.title->sprite).x,
+		sfSprite_getPosition(s->mainm.title->sprite).y + 10));
 }
 
 int main_menu(st_rpg *s)
