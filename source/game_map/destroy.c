@@ -54,5 +54,4 @@ void destroy(st_rpg *s)
 	sfClock_destroy(s->fi->time.clock);
 	sfClock_destroy(s->fi->clock);
 	free_all(s);
-	sfRenderWindow_destroy(s->window);
 }

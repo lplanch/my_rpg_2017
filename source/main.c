@@ -19,7 +19,7 @@ void loading(st_rpg *s)
 
 int main(void)
 {
-	st_rpg s;
+	st_rpg s =  {0};
 	sfVideoMode mode = {1920, 1080, 32};
 
 	s.window = sfRenderWindow_create(mode, "RPG", sfDefaultStyle, NULL);

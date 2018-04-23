@@ -46,6 +46,8 @@ void setup_variable(st_rpg *s)
 
 void character_setup(st_rpg *s)
 {
+	s->fi = malloc(sizeof(*(s->fi)));
+	*s->fi = (files_t) {0};
 	s->fi->character = create_object("images/story_characters/hero.png",
 	create_vector2f(3720, 1800),
 	create_rect(0, 144, 48, 48), 0);

@@ -20,7 +20,7 @@ int prog(st_rpg *s)
 {
 	struct stat a;
 
-	if (stat("TestMap/parsing", &a) == -1)
+	if (stat("map_preset/parsing", &a) == -1)
 		return (0);
 	create(s);
 	parsing(a, s);
@@ -30,5 +30,5 @@ int prog(st_rpg *s)
 		sfRenderWindow_close(s->window);
 	}
 	destroy(s);
-	return (0);
+	return (1);
 }
