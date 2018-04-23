@@ -11,10 +11,10 @@
 int launch_main_menu_saves(st_rpg *s)
 {
 	if (s->mainm.option == 2)
-		main_menu_goto_main(s);
+		main_menu_togo_main(s);
 	else {
 		s->mainm.create = s->mainm.option;
-		main_menu_goto_slots(s);
+		main_menu_togo_slots(s);
 	}
 	return (0);
 }
@@ -22,7 +22,7 @@ int launch_main_menu_saves(st_rpg *s)
 int launch_main_menu_options(st_rpg *s)
 {
 	if (s->mainm.option == 2) {
-		main_menu_goto_main(s);
+		main_menu_togo_main(s);
 	}
 	return (0);
 }
@@ -30,9 +30,9 @@ int launch_main_menu_options(st_rpg *s)
 int launch_main_menu_main(st_rpg *s)
 {
 	if (s->mainm.option == 0) {
-		main_menu_goto_saves(s);
+		main_menu_togo_saves(s);
 	} if (s->mainm.option == 1) {
-		main_menu_goto_options(s);
+		main_menu_togo_options(s);
 	} else if (s->mainm.option == 2) {
 		destroy_main_menu(s);
 		return (1);
@@ -43,7 +43,7 @@ int launch_main_menu_main(st_rpg *s)
 int launch_main_menu_create_slots(st_rpg *s)
 {
 	if (s->mainm.option == 3)
-		main_menu_goto_saves(s);
+		main_menu_togo_saves(s);
 	else {
 		s->save = s->mainm.option + 1;
 		destroy_main_menu(s);
@@ -55,7 +55,7 @@ int launch_main_menu_create_slots(st_rpg *s)
 int launch_main_menu_load_slots(st_rpg *s)
 {
 	if (s->mainm.option == 3)
-		main_menu_goto_saves(s);
+		main_menu_togo_saves(s);
 	else {
 		s->save = s->mainm.option + 1;
 		loading(s);

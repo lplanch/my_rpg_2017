@@ -48,12 +48,12 @@ char *rm_str_untill(char *str, char chr);
 int sum_stdarg(int i, int nb, ...);
 char *my_strcat(char *str1, char *str2);
 
-int isNumber(char *str);
+int is_number(char *str);
 
 int is_letter(char chr);
 void my_putcharror(char chr);
 
-void printChr(char *str);
+void printchr(char *str);
 
 int str_to_int(char *str);
 
@@ -81,7 +81,6 @@ int recu_power(int nb, int p, int i);
 int my_compute_power_rec(int nb, int p);
 
 char *my_revstr(char *str);
-char **my_sort_params(char **table);
 int count_nbr_str(char **table);
 int my_strcmp(char const *s1, char const *s2);
 

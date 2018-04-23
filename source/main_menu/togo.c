@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "my_rpg.h"
 
-void main_menu_goto_main(st_rpg *s)
+void main_menu_togo_main(st_rpg *s)
 {
 	sfColor grey = {96, 96, 96, 255};
 
@@ -23,7 +23,7 @@ void main_menu_goto_main(st_rpg *s)
 	grey, 100);
 }
 
-void main_menu_goto_slots(st_rpg *s)
+void main_menu_togo_slots(st_rpg *s)
 {
 	sfColor grey = {96, 96, 96, 255};
 
@@ -40,7 +40,7 @@ void main_menu_goto_slots(st_rpg *s)
 	s->mainm.menu = 3 + s->mainm.option;
 }
 
-void main_menu_goto_saves(st_rpg *s)
+void main_menu_togo_saves(st_rpg *s)
 {
 	sfColor grey = {96, 96, 96, 255};
 
@@ -61,7 +61,7 @@ void main_menu_goto_saves(st_rpg *s)
 	}
 }
 
-void main_menu_goto_options(st_rpg *s)
+void main_menu_togo_options(st_rpg *s)
 {
 	sfColor grey = {96, 96, 96, 255};
 

@@ -8,7 +8,7 @@
 #include "my_rpg.h"
 #include "my.h"
 
-void cust_menu_goto_name(st_rpg *s)
+void cust_menu_togo_name(st_rpg *s)
 {
 	sfColor grey = {96, 96, 96, 255};
 
@@ -24,7 +24,7 @@ void cust_menu_goto_name(st_rpg *s)
 	grey, 50);
 }
 
-void cust_menu_goto_sex(st_rpg *s)
+void cust_menu_togo_sex(st_rpg *s)
 {
 	sfColor grey = {96, 96, 96, 255};
 
@@ -37,7 +37,7 @@ void cust_menu_goto_sex(st_rpg *s)
 	grey, 70);
 }
 
-void cust_menu_goto_classes(st_rpg *s)
+void cust_menu_togo_classes(st_rpg *s)
 {
 	sfColor grey = {96, 96, 96, 255};
 

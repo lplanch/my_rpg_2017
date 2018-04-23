@@ -23,14 +23,14 @@ FILES		=	source/main.c					\
 			source/graphic/get_angles.c			\
 			source/main_menu/main.c				\
 			source/main_menu/cutscene.c			\
-			source/main_menu/goto.c				\
+			source/main_menu/togo.c				\
 			source/main_menu/launcher.c			\
 			source/main_menu/base.c				\
 			source/main_menu/events.c			\
 			source/custom/main.c				\
 			source/custom/get_buttons.c			\
 			source/custom/base.c				\
-			source/custom/goto.c				\
+			source/custom/togo.c				\
 			source/custom/to_player.c			\
 			source/custom/launch.c				\
 			source/custom/cursor.c				\
