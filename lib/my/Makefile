@@ -20,7 +20,6 @@ FILES		=	my_putchar.c		\
 			my_calloc.c		\
 			my_revstr.c		\
 			my_strcmp.c		\
-			my_sort_params.c	\
 			my_strdup.c		\
 			my_tbldup.c		\
 			my_strminimalize.c	\

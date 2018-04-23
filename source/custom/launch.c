@@ -17,7 +17,7 @@ int launch_cust_menu_sex(st_rpg *s)
 			s->cust.cdata.sex = 0;
 		else
 			s->cust.cdata.sex = 1;
-		cust_menu_goto_name(s);
+		cust_menu_togo_name(s);
 	}
 	return (0);
 }
@@ -41,9 +41,9 @@ int launch_cust_menu_name(st_rpg *s)
 		return (cust_menu_backto_main(s));
 	else {
 		if (s->cust.option == 1)
-			cust_menu_goto_sex(s);
+			cust_menu_togo_sex(s);
 		else if (s->cust.option == 2)
-			cust_menu_goto_classes(s);
+			cust_menu_togo_classes(s);
 	}
 	return (0);
 }
