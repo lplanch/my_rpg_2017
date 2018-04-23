@@ -46,7 +46,11 @@ char *get_stat_string(int i)
 	return ("SAMY");
 }
 
-void 
+void my_set_string(sfText *text, char *str)
+{
+	sfText_setString(text, str);
+	free(str);
+}
 
 void update_menu_stat_mouse_over(st_rpg *s)
 {
@@ -58,15 +62,13 @@ void update_menu_stat_mouse_over(st_rpg *s)
 				s->statm.show = i;
 		}
 		if (s->statm.show != 6) {
-			temp = get_stat_string(s->statm.show);
 			sfText_setString(s->statm.stats[s->statm.show]->text
-			->text, temp);
-			free(temp);
+			->text, get_stat_string(s->statm.show));
 		}
 	} else if (s->statm.shot == 1 && s->statm.show != 6) {
 		if (!mouse_in_object(s->statm.stats[s->statm.show]->obj,
 		s->window)) {
-			sfText_setString(s->statm.stats[s->statm.show]->text
+			my_set_string(s->statm.stats[s->statm.show]->text
 			->text, get_stat_value(s, s->statm.show));
 			s->statm.show = 6;
 		}
@@ -123,6 +125,7 @@ void display_status_menu(st_rpg *s)
 void generate_status_menu(st_rpg *s)
 {
 	s->statm.shot = 1;
+	char *temp;
 
 	s->statm.window = create_object("images/pause_window.png",
 	create_vector2f(1490, 30), create_rect(0, 0, 400, 600), 0);
@@ -131,10 +134,14 @@ void generate_status_menu(st_rpg *s)
 	create_rect(0, s->player.cdata.sex * 100, 100, 100), 0);
 	s->statm.name = create_text(s->player.cdata.name, create_vector2f(1620,
 	50), "fonts/button.ttf");
-	s->statm.lvl = create_text(my_strcat("Level ", int_to_str(s->player.stat
-	->lvl)), create_vector2f(1525, 150), "fonts/button.ttf");
-	s->statm.exp = create_text(my_strcat(int_to_str(s->player.stat
-	->exp), " / 100 XP"), create_vector2f(1525, 200), "fonts/button.ttf");
+	temp = int_to_str(s->player.stat->lvl);
+	s->statm.lvl = create_text(my_strcat("Level ", temp),
+	create_vector2f(1525, 150), "fonts/button.ttf");
+	free(temp);
+	temp = int_to_str(s->player.stat->exp);
+	s->statm.exp = create_text(my_strcat(temp, " / 100 XP"),
+	create_vector2f(1525, 200), "fonts/button.ttf");
+	free(temp);
 	s->statm.classe = create_button(get_class_string(s
 	->player.cdata.classe), create_object("images/pictoclass.png",
 	create_vector2f(1620, 100), create_rect(0, 32 * s->player.cdata.classe,
@@ -147,8 +154,10 @@ void generate_status_menu(st_rpg *s)
 		sfText_setPosition(s->statm.stats[i]->text->text,
 		create_vector2f(1590, 300 + i * 50));
 		sfFont_destroy(s->statm.stats[i]->text->font);
+		s->statm.stats[i]->text->font =
+		sfFont_createFromFile("fonts/bars.otf");
 		sfText_setFont(s->statm.stats[i]->text->text,
-		sfFont_createFromFile("fonts/bars.otf"));
+		s->statm.stats[i]->text->font);
 	}
 	sfText_setPosition(s->statm.classe->text->text,
 	create_vector2f(1660, 100));

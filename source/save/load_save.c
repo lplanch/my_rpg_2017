@@ -10,10 +10,13 @@
 
 char *get_save_path(st_rpg *s)
 {
+	char *tmp2;
 	char *tmp;
 	char *str;
 
-	tmp = my_strcat("saves/", int_to_str(s->save));
+	tmp2 = int_to_str(s->save);
+	tmp = my_strcat("saves/", tmp2);
+	free(tmp2);
 	str = my_strcat(tmp, "/");
 	free(tmp);
 	return (str);
