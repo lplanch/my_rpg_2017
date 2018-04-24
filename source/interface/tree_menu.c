@@ -19,10 +19,10 @@ void destroy_tree_menu(st_rpg *s)
 	free_tbl(s->treem.spells);
 	for (int i = 0; i != 10; i += 1) {
 		destroy_object(s->treem.lock[i]);
-		if (i != 2) {
+		if (i < 2) {
 			destroy_object(s->treem.e[i]);
 			destroy_object(s->treem.r[i]);
-		} if (i != 3) {
+		} if (i < 3) {
 			destroy_object(s->treem.m2[i]);
 			destroy_object(s->treem.pas[i]);
 		}
@@ -191,7 +191,7 @@ void generate_tree_menu(st_rpg *s)
 	create_vector2f(1555, 45));
 	temp = int_to_str(s->player.tree.skillp);
 	s->treem.skillp = create_text(my_strcat("SP : ", temp),
-	create_vector2f(1700, 45), "fonts/button.ttf");
+	create_vector2f(1720, 45), "fonts/button.ttf");
 	free(temp);
 	for (int i = 0; i != 4; i += 1) {
 		s->treem.select[i] = create_object("images/select.png",
