@@ -48,6 +48,7 @@ void setup_loading(st_rpg *s);
 void setup_col(st_rpg *s);
 void pnj_setup(st_rpg *s);
 void get_all_pnj(st_rpg *s, char *path);
+void game_update(st_rpg *s);
 
 void move(st_rpg *s);
 void move_camera(st_rpg *s);
@@ -110,6 +111,11 @@ void set_colid(st_rpg *s);
 void set_col(st_rpg *s);
 void set_relief(st_rpg *s);
 void set_background(st_rpg *s);
+
+void create_farm_quests(char *buffer, quests_list_t *quests_list);
+void create_kill_quests(char *buffer, quests_list_t *quests_list);
+void create_go_quests(char *buffer, quests_list_t *quests_list);
+void create_speak_quests(char *buffer, quests_list_t *quests_list);
 
 #ifndef MY_COOK_
 #define MY_COOK_

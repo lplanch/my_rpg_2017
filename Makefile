@@ -115,7 +115,9 @@ FILES		=	source/main.c					\
 			source/game_map/choicebox_create_event.c	\
 			source/game_map/setpixel_to_image.c		\
 			source/game_map/mouse_in_object_dialogbox.c	\
-			source/game_map/destroy.c
+			source/game_map/destroy.c			\
+			source/quests/create_difquests.c		\
+			source/quests/get_quests.c
 
 SRCS		=	$(FILES)
 

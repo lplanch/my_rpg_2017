@@ -27,8 +27,3 @@ void setup_camera(st_rpg *s)
 	sfView_setCenter(s->fi->view, s->fi->camera);
 	sfRenderWindow_setView(s->window, s->fi->view);
 }
-
-void pnj_setup(st_rpg *s)
-{
-	get_all_pnj(s, "images/dialog_box/pnj/");
-}

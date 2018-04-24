@@ -77,6 +77,53 @@ typedef struct s_map
 	sfColor color;
 } map_t;
 
+typedef struct s_rewards
+{
+	char **objects;
+	int money;
+	int xp;
+} rewards_t;
+
+typedef struct s_farm_quests
+{
+	char *name_item;
+	int nbr_item;
+} farm_quests_t;
+
+typedef struct s_kill_quests
+{
+	char *name_kill;
+	int nbr_kill;
+} kill_quests_t;
+
+typedef struct s_go_quests
+{
+	char *name_place;
+} go_quests_t;
+
+typedef struct s_speak_quests
+{
+	char *name_character;
+} speak_quests_t;
+
+typedef struct s_quests_list
+{
+	int type;
+	farm_quests_t farm_quests;
+	kill_quests_t kill_quests;
+	go_quests_t go_quests;
+	speak_quests_t speak_quests;
+	struct s_quests_list *next;
+} quests_list_t;
+
+typedef struct s_quests
+{
+	char *title;
+	int nbr_quests;
+	rewards_t rewards;
+	quests_list_t *quests_list;
+} quests_t;
+
 typedef struct s_colsquare
 {
 	pos_t pos;
@@ -108,6 +155,7 @@ typedef struct s_files
 	int relief;
 	sfClock *clock;
 	sfView *view;
+	quests_t **quests;
 	g_object *character;
 	g_object *ID_character;
 	g_object *loading;
@@ -560,5 +608,7 @@ int main_menu_cutscene(st_rpg *s);
 sfIntRect create_rect(int top, int left, int width, int height);
 sfVector2f create_vector2f(float x, float y);
 sfVector2i create_vector2i(int x, int y);
+
+void get_all_quest(st_rpg *s, char *path);
 
 #endif
