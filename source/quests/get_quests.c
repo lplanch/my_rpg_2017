@@ -114,6 +114,7 @@ int *get_all_type(char *buffer)
 		}
 	}
 	type[j] = 666;
+	free(buffer);
 	return (type);
 }
 
@@ -141,6 +142,7 @@ quests_list_t *get_next_quests(quests_list_t *quests_list, int fd, int i, int si
 		get_type_and_create_quests(buffer, quests_list);
 		quests_list->next = malloc(sizeof(quests_list_t));
 		get_next_quests(quests_list->next, fd, i, size);
+		free(buffer);
 	}
 	return (quests_list);
 }
@@ -155,6 +157,7 @@ quests_t *get_quests(char *name)
 	quests->title = get_next_line(fd);
 	buffer = get_next_line(fd);
 	get_rewards(buffer, quests);
+	free(buffer);
 	quests->nbr_quests = str_to_int(get_next_line(fd));
 	quests->quests_list = malloc(sizeof(quests_list_t));
 	quests->quests_list = get_next_quests(quests->quests_list, fd, i, quests->nbr_quests);
