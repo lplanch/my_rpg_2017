@@ -29,6 +29,9 @@ int event_game(st_rpg *s)
 		} if (event.type == sfEvtKeyPressed && event.key.code ==
 		sfKeyReturn) {
 			check_pnj(s);
+		} if (event.type == sfEvtKeyPressed && event.key.code ==
+		sfKeyD) {
+			check_quests(s);
 		}
 	}
 	return (0);

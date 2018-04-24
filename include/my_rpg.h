@@ -120,6 +120,7 @@ typedef struct s_quests
 {
 	char *title;
 	int nbr_quests;
+	int status;
 	rewards_t rewards;
 	quests_list_t *quests_list;
 } quests_t;
@@ -623,7 +624,5 @@ int main_menu_cutscene(st_rpg *s);
 sfIntRect create_rect(int top, int left, int width, int height);
 sfVector2f create_vector2f(float x, float y);
 sfVector2i create_vector2i(int x, int y);
-
-void get_all_quest(st_rpg *s, char *path);
 
 #endif

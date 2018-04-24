@@ -116,6 +116,11 @@ void create_farm_quests(char *buffer, quests_list_t *quests_list);
 void create_kill_quests(char *buffer, quests_list_t *quests_list);
 void create_go_quests(char *buffer, quests_list_t *quests_list);
 void create_speak_quests(char *buffer, quests_list_t *quests_list);
+void get_all_quests(st_rpg *s, char *path);
+quests_t *get_quests(char *name);
+void get_rewards(char *buffer, quests_t *quests);
+void display_all(st_rpg *s, int size);
+void check_quests(st_rpg *s);
 
 #ifndef MY_COOK_
 #define MY_COOK_
