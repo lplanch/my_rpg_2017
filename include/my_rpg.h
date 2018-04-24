@@ -326,16 +326,7 @@ typedef struct struct_warrior_spells
 
 typedef struct fight_tree
 {
-	int lockp1;
-	int lockp2;
-	int lockp3;
-	int lockm1;
-	int lockm2;
-	int lockm3;
-	int locke1;
-	int locke2;
-	int lockr1;
-	int lockr2;
+	int lock[10];
 	int passive;
 	int spell1;
 	int spell2;
@@ -400,6 +391,20 @@ typedef struct struct_status_menu
 	t_object *name;
 } status_menu_t;
 
+typedef struct status_tree_menu
+{
+	int shot;
+	g_object *window;
+	st_button *classe;
+	t_object *skillp;
+	g_object *pas[3];
+	g_object *m2[3];
+	g_object *e[2];
+	g_object *r[2];
+	g_object *select[4];
+	g_object *lock[10];
+} tree_menu_t;
+
 typedef struct struct_main_menu
 {
 	sfMusic *music;
@@ -434,6 +439,7 @@ typedef struct struct_rpg
 	bars_t bar;
 	player_t player;
 	status_menu_t statm;
+	tree_menu_t treem;
 	g_object *center;
 	g_object *loading;
 	int returnv;
@@ -444,6 +450,12 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void game_update(st_rpg *s);
+void update_tree_menu(st_rpg *s);
+char *get_class_string(int i);
+void generate_tree_menu(st_rpg *s);
+void destroy_tree_menu(st_rpg *s);
+void display_tree_menu(st_rpg *s);
 int prog(st_rpg *s);
 void update_menu_stat_mouse_over(st_rpg *s);
 void destroy_status_menu(st_rpg *s);
