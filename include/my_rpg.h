@@ -393,6 +393,7 @@ typedef struct struct_status_menu
 
 typedef struct status_tree_menu
 {
+	char **spells;
 	int shot;
 	g_object *window;
 	st_button *classe;
@@ -403,6 +404,9 @@ typedef struct status_tree_menu
 	g_object *r[2];
 	g_object *select[4];
 	g_object *lock[10];
+	t_object *spname;
+	t_object *desc;
+	t_object *lockstage;
 } tree_menu_t;
 
 typedef struct struct_main_menu

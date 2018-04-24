@@ -14,14 +14,21 @@ void destroy_tree_menu(st_rpg *s)
 	destroy_object(s->treem.window);
 	destroy_button(s->treem.classe);
 	destroy_text(s->treem.skillp);
-	for (int i = 0; i != 3; i += 1) {
-		if (i != 2) {
+	destroy_text(s->treem.spname);
+	destroy_text(s->treem.desc);
+	free_tbl(s->treem.spells);
+	for (int i = 0; i != 10; i += 1) {
+		destroy_object(s->treem.lock[i]);
+		if (i < 2) {
 			destroy_object(s->treem.e[i]);
 			destroy_object(s->treem.r[i]);
+		} if (i < 3) {
+			destroy_object(s->treem.m2[i]);
+			destroy_object(s->treem.pas[i]);
 		}
-		destroy_object(s->treem.m2[i]);
-		destroy_object(s->treem.pas[i]);
 	}
+	for (int i = 0; i != 4; i += 1)
+		destroy_object(s->treem.select[i]);
 }
 
 void display_object(sfRenderWindow *window, g_object *object)
@@ -34,21 +41,22 @@ void display_tree_menu(st_rpg *s)
 	if (s->treem.shot == 1) {
 		sfRenderWindow_drawSprite(s->window, s->treem.window->sprite,
 		NULL);
-		sfRenderWindow_drawText(s->window, s->treem.skillp->text,
-		NULL);
+		sfRenderWindow_drawText(s->window, s->treem.skillp->text, NULL);
+		sfRenderWindow_drawText(s->window, s->treem.spname->text, NULL);
+		sfRenderWindow_drawText(s->window, s->treem.desc->text, NULL);
 		display_button(s->window, s->treem.classe);
 		for (int i = 0; i != 10; i += 1) {
-			if (i != 2) {
+			if (i < 2) {
 				display_object(s->window, s->treem.e[i]);
 				display_object(s->window, s->treem.r[i]);
-			} if (i != 3) {
+			} if (i < 3) {
 				display_object(s->window, s->treem.m2[i]);
 				display_object(s->window, s->treem.pas[i]);
-			} if (i != 4)
-				display_object(s->window, s->treem.select[i]);
-			if (s->player.tree.lock[i])
+			} if (s->player.tree.lock[i])
 				display_object(s->window, s->treem.lock[i]);
 		}
+		for (int i = 0; i != 4; i += 1)
+			display_object(s->window, s->treem.select[i]);
 	}
 }
 
@@ -118,17 +126,42 @@ void update_tree_pos(st_rpg *s)
 	}
 }
 
+char **get_spnames(st_rpg *s)
+{
+	char *tmp = int_to_str(s->player.cdata.classe);
+	char **tab = malloc(sizeof(char *) * 21);
+	char *str = my_strcat("spells/", tmp);
+	int fd;
+
+	free(tmp);
+	tmp = my_strcat(str, "/names");
+	free(str);
+	fd = open(tmp, O_RDONLY);
+	for (int i = 0; i != 20; i += 1)
+		tab[i] = get_next_line(fd);
+	tab[20] = NULL;
+	return (tab);
+}
+
+void tree_proceed(st_rpg *s, int lock)
+{
+	sfText_setString(s->treem.spname->text, s->treem.spells[lock * 2]);
+	sfText_setString(s->treem.desc->text, s->treem.spells[lock * 2 + 1]);
+	if (s->player.tree.lock[lock]) {
+	}
+}
+
 void update_tree_mouse(st_rpg *s, int i)
 {
 	if (mouse_in_object(s->treem.pas[i], s->window))
-		s->player.tree.passive = i;
+		tree_proceed(s, i);
 	if (mouse_in_object(s->treem.m2[i], s->window))
-		s->player.tree.spell1 = i;
+		tree_proceed(s, i + 3);
 	if (i != 2) {
 		if (mouse_in_object(s->treem.e[i], s->window))
-			s->player.tree.spell2 = i;
+			tree_proceed(s, i + 6);
 		if (mouse_in_object(s->treem.r[i], s->window))
-			s->player.tree.spell3 = i;
+			tree_proceed(s, i + 8);
 	}
 }
 
@@ -147,6 +180,7 @@ void generate_tree_menu(st_rpg *s)
 	char *temp;
 
 	s->treem.shot = 1;
+	s->treem.spells = get_spnames(s);
 	s->treem.window = create_object("images/pause_window.png",
 	create_vector2f(1490, 30), create_rect(0, 0, 400, 600), 0);
 	s->treem.classe = create_button(get_class_string(s
@@ -157,7 +191,7 @@ void generate_tree_menu(st_rpg *s)
 	create_vector2f(1555, 45));
 	temp = int_to_str(s->player.tree.skillp);
 	s->treem.skillp = create_text(my_strcat("SP : ", temp),
-	create_vector2f(1700, 45), "fonts/button.ttf");
+	create_vector2f(1720, 45), "fonts/button.ttf");
 	free(temp);
 	for (int i = 0; i != 4; i += 1) {
 		s->treem.select[i] = create_object("images/select.png",
@@ -191,4 +225,10 @@ void generate_tree_menu(st_rpg *s)
 		create_vector2f(0.5, 0.5));
 	}
 	tree_set_rects(s);
+	s->treem.spname = create_text("NAME",
+	create_vector2f(1520, 450), "fonts/button.ttf");
+	sfText_setCharacterSize(s->treem.spname->text, 20);
+	s->treem.desc = create_text("DESCRIPTION",
+	create_vector2f(1520, 490), "fonts/button.ttf");
+	sfText_setCharacterSize(s->treem.desc->text, 16);
 }
