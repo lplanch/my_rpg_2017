@@ -25,7 +25,8 @@ int fight_events(st_rpg *s)
 
 	while (sfRenderWindow_pollEvent(s->window, &event)) {
 		update_menu_stat_mouse_over(s);
-		update_tree_menu(s);
+		if (event.type == sfEvtMouseButtonPressed)
+			update_tree_menu(s);
 		if (event.type == sfEvtClosed) {
 			s->returnv = 1;
 			destroy_class(s);

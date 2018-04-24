@@ -14,8 +14,8 @@ void destroy_tree_menu(st_rpg *s)
 	destroy_object(s->treem.window);
 	destroy_button(s->treem.classe);
 	destroy_text(s->treem.skillp);
-	destroy_text(s->treem.spname);
-	destroy_text(s->treem.desc);
+	for (int i = 0; i != 4; i += 1)
+		destroy_text(s->treem.sp[i]);
 	free_tbl(s->treem.spells);
 	for (int i = 0; i != 10; i += 1) {
 		destroy_object(s->treem.lock[i]);
@@ -42,8 +42,14 @@ void display_tree_menu(st_rpg *s)
 		sfRenderWindow_drawSprite(s->window, s->treem.window->sprite,
 		NULL);
 		sfRenderWindow_drawText(s->window, s->treem.skillp->text, NULL);
-		sfRenderWindow_drawText(s->window, s->treem.spname->text, NULL);
-		sfRenderWindow_drawText(s->window, s->treem.desc->text, NULL);
+		for (int i = 0; i != 3; i += 1) {
+			if (s->treem.status != -1)
+				sfRenderWindow_drawText(s->window,
+				s->treem.sp[i]->text, NULL);
+		}
+		if (s->player.tree.lock[s->treem.status])
+			sfRenderWindow_drawText(s->window,
+			s->treem.sp[3]->text, NULL);
 		display_button(s->window, s->treem.classe);
 		for (int i = 0; i != 10; i += 1) {
 			if (i < 2) {
@@ -126,7 +132,7 @@ void update_tree_pos(st_rpg *s)
 	}
 }
 
-char **get_spnames(st_rpg *s)
+char **get_spinfo(st_rpg *s)
 {
 	char *tmp = int_to_str(s->player.cdata.classe);
 	char **tab = malloc(sizeof(char *) * 21);
@@ -143,11 +149,69 @@ char **get_spnames(st_rpg *s)
 	return (tab);
 }
 
+void reset_sp(st_rpg *s)
+{
+	char *temp;
+
+	destroy_text(s->treem.skillp);
+	temp = int_to_str(s->player.tree.skillp);
+	s->treem.skillp = create_text(my_strcat("SP : ", temp),
+	create_vector2f(1720, 45), "fonts/button.ttf");
+	free(temp);
+}
+
+int get_price(int lock)
+{
+	int price = lock / 3 + 2;
+
+	if (lock > 6)
+		price = (lock - 6) / 2 + 4;
+	return (price);
+}
+
+char *unlock_line_price(int lock)
+{
+	char *tmp;
+	char *tmp2;
+
+	tmp = int_to_str(get_price(lock));
+	tmp2 = my_strcat("Locked :unlock for ", tmp);
+	free(tmp);
+	tmp = my_strcat(tmp2, " SP");
+	free(tmp2);
+	return (tmp);
+}
+
+void select_spell(st_rpg *s, int lock)
+{
+	sfText_setString(s->treem.sp[2]->text, "Unlocked");
+	sfText_setColor(s->treem.sp[2]->text, sfGreen);
+	if (lock >= 0 && lock <= 2)
+		s->player.tree.passive = lock;
+	if (lock >= 3 && lock <= 5)
+		s->player.tree.spell1 = lock - 3;
+	if (lock == 6 || lock == 7)
+		s->player.tree.spell2 = lock - 6;
+	if (lock == 8 || lock == 9)
+		s->player.tree.spell3 = lock - 8;
+}
+
 void tree_proceed(st_rpg *s, int lock)
 {
-	sfText_setString(s->treem.spname->text, s->treem.spells[lock * 2]);
-	sfText_setString(s->treem.desc->text, s->treem.spells[lock * 2 + 1]);
-	if (s->player.tree.lock[lock]) {
+	sfText_setString(s->treem.sp[0]->text, s->treem.spells[lock * 2]);
+	sfText_setString(s->treem.sp[1]->text, s->treem.spells[lock * 2 + 1]);
+	if (s->treem.status == lock &&
+		s->player.tree.skillp >= get_price(lock)) {
+		s->player.tree.lock[lock] = 0;
+		s->player.tree.skillp -= get_price(lock);
+		reset_sp(s);
+		select_spell(s, lock);
+	} else if (s->player.tree.lock[lock]) {
+		s->treem.status = lock;
+		sfText_setString(s->treem.sp[2]->text, unlock_line_price(lock));
+		sfText_setColor(s->treem.sp[2]->text, sfRed);
+	} else {
+		select_spell(s, lock);
 	}
 }
 
@@ -180,7 +244,8 @@ void generate_tree_menu(st_rpg *s)
 	char *temp;
 
 	s->treem.shot = 1;
-	s->treem.spells = get_spnames(s);
+	s->treem.status = -1;
+	s->treem.spells = get_spinfo(s);
 	s->treem.window = create_object("images/pause_window.png",
 	create_vector2f(1490, 30), create_rect(0, 0, 400, 600), 0);
 	s->treem.classe = create_button(get_class_string(s
@@ -225,10 +290,16 @@ void generate_tree_menu(st_rpg *s)
 		create_vector2f(0.5, 0.5));
 	}
 	tree_set_rects(s);
-	s->treem.spname = create_text("NAME",
+	s->treem.sp[0] = create_text("NAME",
 	create_vector2f(1520, 450), "fonts/button.ttf");
-	sfText_setCharacterSize(s->treem.spname->text, 20);
-	s->treem.desc = create_text("DESCRIPTION",
-	create_vector2f(1520, 490), "fonts/button.ttf");
-	sfText_setCharacterSize(s->treem.desc->text, 16);
+	sfText_setCharacterSize(s->treem.sp[0]->text, 20);
+	s->treem.sp[1] = create_text("DESCRIPTION",
+	create_vector2f(1520, 480), "fonts/button.ttf");
+	sfText_setCharacterSize(s->treem.sp[1]->text, 16);
+	s->treem.sp[2] = create_text("LOCKSTAGE",
+	create_vector2f(1520, 510), "fonts/button.ttf");
+	sfText_setCharacterSize(s->treem.sp[2]->text, 25);
+	s->treem.sp[3] = create_text("Click again to Unlock",
+	create_vector2f(1520, 550), "fonts/button.ttf");
+	sfText_setCharacterSize(s->treem.sp[3]->text, 20);
 }
