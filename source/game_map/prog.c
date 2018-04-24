@@ -11,9 +11,10 @@
 void create(st_rpg *s)
 {
 	character_setup(s);
-	pnj_setup(s);
+	get_all_pnj(s, "images/dialog_box/pnj/");
 	setup_variable(s);
 	setup_loading(s);
+	get_all_quest(s, "source/quests/quests_info/");
 }
 
 int prog(st_rpg *s)
