@@ -118,6 +118,9 @@ FILES		=	source/main.c					\
 			source/game_map/mouse_in_object_dialogbox.c	\
 			source/game_map/destroy.c			\
 			source/quests/create_difquests.c		\
+			source/quests/get_quests_rewards.c		\
+			source/quests/display_quest_with_printf.c	\
+			source/quests/get_all_quests.c			\
 			source/quests/get_quests.c
 
 SRCS		=	$(FILES)
