@@ -120,6 +120,7 @@ void get_all_quests(st_rpg *s, char *path);
 quests_t *get_quests(char *name);
 void get_rewards(char *buffer, quests_t *quests);
 void display_all(st_rpg *s, int size);
+void check_quests(st_rpg *s);
 
 #ifndef MY_COOK_
 #define MY_COOK_

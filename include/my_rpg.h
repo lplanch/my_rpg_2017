@@ -120,6 +120,7 @@ typedef struct s_quests
 {
 	char *title;
 	int nbr_quests;
+	int status;
 	rewards_t rewards;
 	quests_list_t *quests_list;
 } quests_t;

@@ -68,6 +68,7 @@ quests_t *get_quests(char *name)
 	char *buffer = NULL;
 	quests_t *quests = malloc(sizeof(quests_t));
 
+	quests->status = 0;
 	quests->title = get_next_line(fd);
 	buffer = get_next_line(fd);
 	get_rewards(buffer, quests);

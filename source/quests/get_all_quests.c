@@ -30,7 +30,7 @@ void get_all_quests(st_rpg *s, char *path)
 	int i = 0;
 	int size = take_nbr_quests(path);
 
-	s->fi->quests = malloc(sizeof(quests_t) * size);
+	s->fi->quests = malloc(sizeof(quests_t) * size + 1);
 	for (int i = 0; i != size; i++) {
 		s->fi->quests[i] = malloc(sizeof(quests_t));
 	} while ((entry = readdir(dir)) != 0) {
@@ -41,6 +41,7 @@ void get_all_quests(st_rpg *s, char *path)
 			i++;
 		}
 	}
-	display_all(s, size);
+	s->fi->quests[i] = NULL;
+	//display_all(s, size);
 	closedir(dir);
 }
