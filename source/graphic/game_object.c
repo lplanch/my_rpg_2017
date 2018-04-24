@@ -35,6 +35,11 @@ t_object *create_text(char *str, sfVector2f pos, char *font)
 	return (text);
 }
 
+void display_object(sfRenderWindow *window, g_object *object)
+{
+	sfRenderWindow_drawSprite(window, object->sprite, NULL);
+}
+
 g_object *create_object(char *path, sfVector2f pos, sfIntRect rect, float sp)
 {
 	g_object *object = malloc(sizeof(g_object));

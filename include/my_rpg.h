@@ -454,6 +454,14 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+char *get_tree_path(st_rpg *s, int spell, int number);
+void select_spell(st_rpg *s, int lock);
+char **get_spinfo(st_rpg *s);
+void tree_set_rects(st_rpg *s);
+void update_tree_pos(st_rpg *s);
+void generate_tree_menu(st_rpg *s);
+void tree_proceed(st_rpg *s, int lock);
+void display_object(sfRenderWindow *window, g_object *object);
 void game_update(st_rpg *s);
 void update_tree_menu(st_rpg *s);
 char *get_class_string(int i);

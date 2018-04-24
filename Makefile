@@ -79,6 +79,9 @@ FILES		=	source/main.c					\
 			source/interface/life_bar.c			\
 			source/interface/status_menu.c			\
 			source/interface/tree_menu.c			\
+			source/interface/update_tree.c			\
+			source/interface/tree_proceed.c			\
+			source/interface/generate_tree_menu.c		\
 			source/interface/button_generator.c		\
 			source/save/create_stat.c			\
 			source/save/create_tree.c			\

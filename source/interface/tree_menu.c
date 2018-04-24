@@ -31,9 +31,20 @@ void destroy_tree_menu(st_rpg *s)
 		destroy_object(s->treem.select[i]);
 }
 
-void display_object(sfRenderWindow *window, g_object *object)
+void display_tree_menu2(st_rpg *s)
 {
-	sfRenderWindow_drawSprite(window, object->sprite, NULL);
+	for (int i = 0; i != 10; i += 1) {
+		if (i < 2) {
+			display_object(s->window, s->treem.e[i]);
+			display_object(s->window, s->treem.r[i]);
+		} if (i < 3) {
+			display_object(s->window, s->treem.m2[i]);
+			display_object(s->window, s->treem.pas[i]);
+		} if (s->player.tree.lock[i])
+			display_object(s->window, s->treem.lock[i]);
+	}
+	for (int i = 0; i != 4; i += 1)
+		display_object(s->window, s->treem.select[i]);
 }
 
 void display_tree_menu(st_rpg *s)
@@ -51,18 +62,7 @@ void display_tree_menu(st_rpg *s)
 			sfRenderWindow_drawText(s->window,
 			s->treem.sp[3]->text, NULL);
 		display_button(s->window, s->treem.classe);
-		for (int i = 0; i != 10; i += 1) {
-			if (i < 2) {
-				display_object(s->window, s->treem.e[i]);
-				display_object(s->window, s->treem.r[i]);
-			} if (i < 3) {
-				display_object(s->window, s->treem.m2[i]);
-				display_object(s->window, s->treem.pas[i]);
-			} if (s->player.tree.lock[i])
-				display_object(s->window, s->treem.lock[i]);
-		}
-		for (int i = 0; i != 4; i += 1)
-			display_object(s->window, s->treem.select[i]);
+		display_tree_menu2(s);
 	}
 }
 
@@ -96,210 +96,4 @@ char *get_tree_path(st_rpg *s, int spell, int number)
 	free(tmp2);
 	str = my_strcat(tmp, ".png");
 	return (str);
-}
-
-void tree_set_rects(st_rpg *s)
-{
-	for (int i = 0; i != 3; i += 1) {
-		s->treem.pas[i]->rect = create_rect(0, 0, 64, 64);
-		s->treem.m2[i]->rect = create_rect(0, 0, 64, 64);
-		if (i != 2) {
-			s->treem.e[i]->rect = create_rect(0, 0, 64, 64);
-			s->treem.r[i]->rect = create_rect(0, 0, 64, 64);
-		}
-	}
-}
-
-void update_tree_pos(st_rpg *s)
-{
-	sfSprite_setPosition(s->treem.select[0]->sprite,
-	create_vector2f(1535 + s->player.tree.passive * 125, 90));
-	sfSprite_setPosition(s->treem.select[1]->sprite,
-	create_vector2f(1535 + s->player.tree.spell1 * 125, 180));
-	sfSprite_setPosition(s->treem.select[2]->sprite,
-	create_vector2f(1596 + s->player.tree.spell2 * 124, 270));
-	sfSprite_setPosition(s->treem.select[3]->sprite,
-	create_vector2f(1596 + s->player.tree.spell3 * 124, 360));
-	for (int i = 0, dec = 0, m = 3, d = 0; i != 10; i += 1) {
-		if (i > 5) {
-			d = 61;
-			m = 2;
-			dec = -90;
-		}
-		sfSprite_setPosition(s->treem.lock[i]->sprite,
-		create_vector2f(1535 + d + (i % m) * 125 + 13,
-		90 + (i / m) * 90 + dec + 13));
-	}
-}
-
-char **get_spinfo(st_rpg *s)
-{
-	char *tmp = int_to_str(s->player.cdata.classe);
-	char **tab = malloc(sizeof(char *) * 21);
-	char *str = my_strcat("spells/", tmp);
-	int fd;
-
-	free(tmp);
-	tmp = my_strcat(str, "/names");
-	free(str);
-	fd = open(tmp, O_RDONLY);
-	for (int i = 0; i != 20; i += 1)
-		tab[i] = get_next_line(fd);
-	tab[20] = NULL;
-	return (tab);
-}
-
-void reset_sp(st_rpg *s)
-{
-	char *temp;
-
-	destroy_text(s->treem.skillp);
-	temp = int_to_str(s->player.tree.skillp);
-	s->treem.skillp = create_text(my_strcat("SP : ", temp),
-	create_vector2f(1720, 45), "fonts/button.ttf");
-	free(temp);
-}
-
-int get_price(int lock)
-{
-	int price = lock / 3 + 2;
-
-	if (lock > 6)
-		price = (lock - 6) / 2 + 4;
-	return (price);
-}
-
-char *unlock_line_price(int lock)
-{
-	char *tmp;
-	char *tmp2;
-
-	tmp = int_to_str(get_price(lock));
-	tmp2 = my_strcat("Locked :unlock for ", tmp);
-	free(tmp);
-	tmp = my_strcat(tmp2, " SP");
-	free(tmp2);
-	return (tmp);
-}
-
-void select_spell(st_rpg *s, int lock)
-{
-	sfText_setString(s->treem.sp[2]->text, "Unlocked");
-	sfText_setColor(s->treem.sp[2]->text, sfGreen);
-	if (lock >= 0 && lock <= 2)
-		s->player.tree.passive = lock;
-	if (lock >= 3 && lock <= 5)
-		s->player.tree.spell1 = lock - 3;
-	if (lock == 6 || lock == 7)
-		s->player.tree.spell2 = lock - 6;
-	if (lock == 8 || lock == 9)
-		s->player.tree.spell3 = lock - 8;
-}
-
-void tree_proceed(st_rpg *s, int lock)
-{
-	sfText_setString(s->treem.sp[0]->text, s->treem.spells[lock * 2]);
-	sfText_setString(s->treem.sp[1]->text, s->treem.spells[lock * 2 + 1]);
-	if (s->treem.status == lock &&
-		s->player.tree.skillp >= get_price(lock)) {
-		s->player.tree.lock[lock] = 0;
-		s->player.tree.skillp -= get_price(lock);
-		reset_sp(s);
-		select_spell(s, lock);
-	} else if (s->player.tree.lock[lock]) {
-		s->treem.status = lock;
-		sfText_setString(s->treem.sp[2]->text, unlock_line_price(lock));
-		sfText_setColor(s->treem.sp[2]->text, sfRed);
-	} else {
-		select_spell(s, lock);
-	}
-}
-
-void update_tree_mouse(st_rpg *s, int i)
-{
-	if (mouse_in_object(s->treem.pas[i], s->window))
-		tree_proceed(s, i);
-	if (mouse_in_object(s->treem.m2[i], s->window))
-		tree_proceed(s, i + 3);
-	if (i != 2) {
-		if (mouse_in_object(s->treem.e[i], s->window))
-			tree_proceed(s, i + 6);
-		if (mouse_in_object(s->treem.r[i], s->window))
-			tree_proceed(s, i + 8);
-	}
-}
-
-void update_tree_menu(st_rpg *s)
-{
-	if (s->treem.shot == 1 && sfMouse_isButtonPressed(sfMouseLeft)) {
-		for (int i = 0; i != 3; i += 1) {
-			update_tree_mouse(s, i);
-		}
-		update_tree_pos(s);
-	}
-}
-
-void generate_tree_menu(st_rpg *s)
-{
-	char *temp;
-
-	s->treem.shot = 1;
-	s->treem.status = -1;
-	s->treem.spells = get_spinfo(s);
-	s->treem.window = create_object("images/pause_window.png",
-	create_vector2f(1490, 30), create_rect(0, 0, 400, 600), 0);
-	s->treem.classe = create_button(get_class_string(s
-	->player.cdata.classe), create_object("images/pictoclass.png",
-	create_vector2f(1510, 45), create_rect(0, 32 * s->player.cdata.classe,
-	32, 32), 0), sfWhite, 30);
-	sfText_setPosition(s->treem.classe->text->text,
-	create_vector2f(1555, 45));
-	temp = int_to_str(s->player.tree.skillp);
-	s->treem.skillp = create_text(my_strcat("SP : ", temp),
-	create_vector2f(1720, 45), "fonts/button.ttf");
-	free(temp);
-	for (int i = 0; i != 4; i += 1) {
-		s->treem.select[i] = create_object("images/select.png",
-		create_vector2f(0, 0), create_rect(0, 0, 64, 64), 0);
-	} for (int i = 0; i != 10; i += 1)
-		s->treem.lock[i] = create_object("images/lock.png",
-		create_vector2f(0, 0), create_rect(0, 0, 38, 38), 0);
-	update_tree_pos(s);
-	for (int i = 0; i != 3; i += 1) {
-		if (i != 2) {
-			s->treem.e[i] = create_object(get_tree_path(s, 2, i + 1),
-			create_vector2f(1596 + i * 124, 270),
-			create_rect(0, 0, 128, 128), 0);
-			sfSprite_setScale(s->treem.e[i]->sprite,
-			create_vector2f(0.5, 0.5));
-			s->treem.r[i] = create_object(get_tree_path(s, 3, i + 1),
-			create_vector2f(1596 + i * 124, 360),
-			create_rect(0, 0, 128, 128), 0);
-			sfSprite_setScale(s->treem.r[i]->sprite,
-			create_vector2f(0.5, 0.5));
-		}
-		s->treem.pas[i] = create_object(get_tree_path(s, 0, i + 1),
-		create_vector2f(1535 + i * 125, 90),
-		create_rect(0, 0, 128, 128), 0);
-		sfSprite_setScale(s->treem.pas[i]->sprite,
-		create_vector2f(0.5, 0.5));
-		s->treem.m2[i] = create_object(get_tree_path(s, 1, i + 1),
-		create_vector2f(1535 + i * 125, 180),
-		create_rect(0, 0, 128, 128), 0);
-		sfSprite_setScale(s->treem.m2[i]->sprite,
-		create_vector2f(0.5, 0.5));
-	}
-	tree_set_rects(s);
-	s->treem.sp[0] = create_text("NAME",
-	create_vector2f(1520, 450), "fonts/button.ttf");
-	sfText_setCharacterSize(s->treem.sp[0]->text, 20);
-	s->treem.sp[1] = create_text("DESCRIPTION",
-	create_vector2f(1520, 480), "fonts/button.ttf");
-	sfText_setCharacterSize(s->treem.sp[1]->text, 16);
-	s->treem.sp[2] = create_text("LOCKSTAGE",
-	create_vector2f(1520, 510), "fonts/button.ttf");
-	sfText_setCharacterSize(s->treem.sp[2]->text, 25);
-	s->treem.sp[3] = create_text("Click again to Unlock",
-	create_vector2f(1520, 550), "fonts/button.ttf");
-	sfText_setCharacterSize(s->treem.sp[3]->text, 20);
 }
