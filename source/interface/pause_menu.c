@@ -44,14 +44,6 @@ void which_update(st_rpg *s)
 		update_tree_menu(s);
 }
 
-/*void cursor_animation_pause(st_rpg *s, int min, int max)
-{
-	s->pausm.cursor->pos.x += s->pausm.sens;
-	if (s->pausm.cursor->pos.x > max || s->pausm.cursor->pos.x < min)
-		s->pausm.sens = -s->pausm.sens;
-	sfSprite_setPosition(s->pausm.cursor->sprite, s->pausm.cursor->pos);
-}*/
-
 void generate_pause_menu(st_rpg *s)
 {
 	generate_tree_menu(s);

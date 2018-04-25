@@ -464,6 +464,8 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void update_cursor_pos_pause(st_rpg *s);
+void set_colors_pause(st_rpg *s);
 void which_update(st_rpg *s);
 void display_fight(st_rpg *s);
 void cursor_animation_pause(st_rpg *s, int min, int max);

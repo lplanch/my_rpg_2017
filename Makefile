@@ -83,6 +83,7 @@ FILES		=	source/main.c					\
 			source/interface/pause_menu.c			\
 			source/interface/pause_main.c			\
 			source/interface/pause_launch.c			\
+			source/interface/pause_design.c			\
 			source/interface/tree_proceed.c			\
 			source/interface/generate_tree_menu.c		\
 			source/interface/button_generator.c		\
