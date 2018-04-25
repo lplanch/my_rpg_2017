@@ -52,6 +52,18 @@ int launch_pause_menu(st_rpg *s, sfEvent event)
 	return (0);
 }
 
+int go_back(st_rpg *s)
+{
+	if (!s->pausm.menu) {
+		destroy_pause_menu(s);
+		s->returnv = 0;
+		return (1);
+	} else {
+		s->pausm.menu = 0;
+		return (0);
+	}
+}
+
 int event_pause_menu(st_rpg *s)
 {
 	sfEvent event;
@@ -64,6 +76,9 @@ int event_pause_menu(st_rpg *s)
 			s->returnv = 1;
 			destroy_pause_menu(s);
 			return (1);
+		} if (event.type == sfEvtKeyPressed &&
+			(sfKeyboard_isKeyPressed(sfKeyEscape))) {
+			return (go_back(s));
 		} if (launch_pause_menu(s, event)) {
 			s->returnv = 1;
 			return (1);
@@ -77,7 +92,7 @@ int pause_main(st_rpg *s)
 	generate_pause_menu(s);
 	while (sfRenderWindow_isOpen(s->window)) {
 		if (event_pause_menu(s))
-			return (1);
+			return (s->returnv);
 		display_fight(s);
 		set_colors_pause(s);
 		update_cursor_pos_pause(s);

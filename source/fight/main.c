@@ -24,7 +24,8 @@ int fight_events(st_rpg *s)
 	sfEvent event;
 
 	while (sfRenderWindow_pollEvent(s->window, &event)) {
-		if (sfKeyboard_isKeyPressed(sfKeyEscape))
+		if (event.type == sfEvtKeyPressed &&
+			sfKeyboard_isKeyPressed(sfKeyEscape))
 			return (pause_main(s));
 		if (event.type == sfEvtClosed) {
 			s->returnv = 1;
