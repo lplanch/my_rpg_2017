@@ -77,7 +77,7 @@ void update_tree_mouse(st_rpg *s, int i)
 
 void update_tree_menu(st_rpg *s)
 {
-	if (s->treem.shot == 1 && sfMouse_isButtonPressed(sfMouseLeft)) {
+	if (sfMouse_isButtonPressed(sfMouseLeft)) {
 		for (int i = 0; i != 3; i += 1) {
 			update_tree_mouse(s, i);
 		}

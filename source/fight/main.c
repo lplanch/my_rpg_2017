@@ -24,9 +24,8 @@ int fight_events(st_rpg *s)
 	sfEvent event;
 
 	while (sfRenderWindow_pollEvent(s->window, &event)) {
-		update_menu_stat_mouse_over(s);
-		if (event.type == sfEvtMouseButtonPressed)
-			update_tree_menu(s);
+		if (sfKeyboard_isKeyPressed(sfKeyEscape))
+			return (pause_main(s));
 		if (event.type == sfEvtClosed) {
 			s->returnv = 1;
 			destroy_class(s);
@@ -42,6 +41,17 @@ int fight_events(st_rpg *s)
 	return (0);
 }
 
+void display_fight(st_rpg *s)
+{
+	sfRenderWindow_clear(s->window, sfWhite);
+	sfRenderWindow_drawSprite(s->window, s->center->sprite, NULL);
+	display_mob_example(s);
+	display_player(s);
+	display_class(s);
+	display_icons(s);
+	display_life_bar(s);
+}
+
 int fight_instance(st_rpg *s)
 {
 	create_main_fight(s);
@@ -54,10 +64,6 @@ int fight_instance(st_rpg *s)
 			break;
 		if (!s->f.cast)
 			launch_spells(s);
-		if (sfKeyboard_isKeyPressed(sfKeyO) && s->treem.shot == 0)
-			generate_tree_menu(s);
-		if (sfKeyboard_isKeyPressed(sfKeyP) && s->treem.shot == 1)
-			destroy_tree_menu(s);
 		update_pos_weapon(s);
 		update_class(s);
 		update_bars(s);
@@ -65,15 +71,7 @@ int fight_instance(st_rpg *s)
 		update_projectiles(s);
 		update_effects(s);
 		update_mob_example(s);
-		sfRenderWindow_clear(s->window, sfWhite);
-		sfRenderWindow_drawSprite(s->window, s->center->sprite, NULL);
-		display_mob_example(s);
-		display_player(s);
-		display_class(s);
-		display_icons(s);
-		display_life_bar(s);
-		display_tree_menu(s);
-		display_status_menu(s);
+		display_fight(s);
 		sfRenderWindow_display(s->window);
 	}
 	return (s->returnv);

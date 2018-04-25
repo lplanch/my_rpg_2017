@@ -381,7 +381,6 @@ typedef struct main_fight
 
 typedef struct struct_status_menu
 {
-	int shot;
 	int show;
 	g_object *window;
 	g_object *face;
@@ -395,7 +394,6 @@ typedef struct struct_status_menu
 typedef struct status_tree_menu
 {
 	char **spells;
-	int shot;
 	int status;
 	g_object *window;
 	st_button *classe;
@@ -428,6 +426,17 @@ typedef struct struct_main_menu
 	g_object *title;
 } st_menu;
 
+typedef struct struct_pause_menu
+{
+	int sens;
+	int menu;
+	int option;
+	st_button *title;
+	st_button *button[5];
+	g_object *cursor;
+	g_object *window;
+} pause_menu_t;
+
 typedef struct struct_player_info
 {
 	stat_t *stat;
@@ -444,6 +453,7 @@ typedef struct struct_rpg
 	player_t player;
 	status_menu_t statm;
 	tree_menu_t treem;
+	pause_menu_t pausm;
 	g_object *center;
 	g_object *loading;
 	int returnv;
@@ -454,6 +464,18 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void which_update(st_rpg *s);
+void display_fight(st_rpg *s);
+void cursor_animation_pause(st_rpg *s, int min, int max);
+void update_status_menu(st_rpg *s);
+int pause_main(st_rpg *s);
+void which_display(st_rpg *s);
+int left_clicked_on_pause(st_rpg *s, sfEvent event);
+int which_pause_menu(st_rpg *s);
+void update_pause_menu(st_rpg *s);
+void display_pause_menu(st_rpg *s);
+void destroy_pause_menu(st_rpg *s);
+void generate_pause_menu(st_rpg *s);
 char *get_tree_path(st_rpg *s, int spell, int number);
 void select_spell(st_rpg *s, int lock);
 char **get_spinfo(st_rpg *s);

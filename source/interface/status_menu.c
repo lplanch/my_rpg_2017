@@ -52,11 +52,11 @@ void my_set_string(sfText *text, char *str)
 	free(str);
 }
 
-void update_menu_stat_mouse_over(st_rpg *s)
+void update_status_menu(st_rpg *s)
 {
 	int i = 0;
 
-	if (s->statm.shot == 1 && s->statm.show == 6) {
+	if (s->statm.show == 6) {
 		for (i = 0; i != 6; i += 1) {
 			if (mouse_in_object(s->statm.stats[i]->obj, s->window))
 				s->statm.show = i;
@@ -65,7 +65,7 @@ void update_menu_stat_mouse_over(st_rpg *s)
 			sfText_setString(s->statm.stats[s->statm.show]->text
 			->text, get_stat_string(s->statm.show));
 		}
-	} else if (s->statm.shot == 1 && s->statm.show != 6) {
+	} else if (s->statm.show != 6) {
 		if (!mouse_in_object(s->statm.stats[s->statm.show]->obj,
 		s->window)) {
 			my_set_string(s->statm.stats[s->statm.show]->text
@@ -92,7 +92,6 @@ char *get_class_string(int i)
 
 void destroy_status_menu(st_rpg *s)
 {
-	s->statm.shot = 0;
 	destroy_object(s->statm.window);
 	destroy_object(s->statm.face);
 	destroy_button(s->statm.classe);
@@ -106,25 +105,18 @@ void destroy_status_menu(st_rpg *s)
 
 void display_status_menu(st_rpg *s)
 {
-	if (s->statm.shot == 1) {
-		sfRenderWindow_drawSprite(s->window, s->statm.window->sprite,
-		NULL);
-		sfRenderWindow_drawSprite(s->window, s->statm.face->sprite,
-		NULL);
-		sfRenderWindow_drawText(s->window, s->statm.name->text,
-		NULL);
-		sfRenderWindow_drawText(s->window, s->statm.lvl->text, NULL);
-		sfRenderWindow_drawText(s->window, s->statm.exp->text, NULL);
-		display_button(s->window, s->statm.classe);
-		for (int i = 0; i != 6; i += 1) {
-			display_button(s->window, s->statm.stats[i]);
-		}
-	}
+	sfRenderWindow_drawSprite(s->window, s->statm.window->sprite, NULL);
+	sfRenderWindow_drawSprite(s->window, s->statm.face->sprite, NULL);
+	sfRenderWindow_drawText(s->window, s->statm.name->text, NULL);
+	sfRenderWindow_drawText(s->window, s->statm.lvl->text, NULL);
+	sfRenderWindow_drawText(s->window, s->statm.exp->text, NULL);
+	display_button(s->window, s->statm.classe);
+	for (int i = 0; i != 6; i += 1)
+		display_button(s->window, s->statm.stats[i]);
 }
 
 void generate_status_menu(st_rpg *s)
 {
-	s->statm.shot = 1;
 	char *temp;
 
 	s->statm.window = create_object("images/pause_window.png",

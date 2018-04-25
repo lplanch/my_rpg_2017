@@ -10,7 +10,6 @@
 
 void destroy_tree_menu(st_rpg *s)
 {
-	s->treem.shot = 0;
 	destroy_object(s->treem.window);
 	destroy_button(s->treem.classe);
 	destroy_text(s->treem.skillp);
@@ -49,21 +48,18 @@ void display_tree_menu2(st_rpg *s)
 
 void display_tree_menu(st_rpg *s)
 {
-	if (s->treem.shot == 1) {
-		sfRenderWindow_drawSprite(s->window, s->treem.window->sprite,
-		NULL);
-		sfRenderWindow_drawText(s->window, s->treem.skillp->text, NULL);
-		for (int i = 0; i != 3; i += 1) {
-			if (s->treem.status != -1)
-				sfRenderWindow_drawText(s->window,
-				s->treem.sp[i]->text, NULL);
-		}
-		if (s->player.tree.lock[s->treem.status])
+	sfRenderWindow_drawSprite(s->window, s->treem.window->sprite, NULL);
+	sfRenderWindow_drawText(s->window, s->treem.skillp->text, NULL);
+	for (int i = 0; i != 3; i += 1) {
+		if (s->treem.status != -1)
 			sfRenderWindow_drawText(s->window,
-			s->treem.sp[3]->text, NULL);
-		display_button(s->window, s->treem.classe);
-		display_tree_menu2(s);
+			s->treem.sp[i]->text, NULL);
 	}
+	if (s->player.tree.lock[s->treem.status])
+		sfRenderWindow_drawText(s->window,
+		s->treem.sp[3]->text, NULL);
+	display_button(s->window, s->treem.classe);
+	display_tree_menu2(s);
 }
 
 char *get_spell_char(int i)

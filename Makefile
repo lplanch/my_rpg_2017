@@ -80,6 +80,9 @@ FILES		=	source/main.c					\
 			source/interface/status_menu.c			\
 			source/interface/tree_menu.c			\
 			source/interface/update_tree.c			\
+			source/interface/pause_menu.c			\
+			source/interface/pause_main.c			\
+			source/interface/pause_launch.c			\
 			source/interface/tree_proceed.c			\
 			source/interface/generate_tree_menu.c		\
 			source/interface/button_generator.c		\
