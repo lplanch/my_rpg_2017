@@ -15,6 +15,7 @@ void game_update(st_rpg *s)
 	move_ok(s);
 	update_player_position(s);
 	move_id_player(s);
+	move_infos_box(s);
 	draw(s);
 }
 
@@ -32,7 +33,11 @@ int event_game(st_rpg *s)
 		} if (event.type == sfEvtKeyPressed && event.key.code ==
 		sfKeyD) {
 			check_quests(s);
-		}
+		} if (mouse_in_object_quest_box(s->fi->quests_box.quests_box->obj, s->window, s) == 1) {
+			update_quests_box_des(s);
+			s->fi->quests_box.status = 1;
+		} else
+			s->fi->quests_box.status = 0;
 	}
 	return (0);
 }

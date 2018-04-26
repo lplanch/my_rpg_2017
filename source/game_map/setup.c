@@ -42,6 +42,20 @@ void setup_variable(st_rpg *s)
 	s->fi->loading_timer = 0;
 	s->fi->pre_var = 0;
 	s->fi->relief = 0;
+	s->fi->quests_box.status = 0;
+	s->fi->quests_box.nb_quests = 0;
+}
+
+void setup_quests_box(st_rpg *s)
+{
+	s->fi->quests_box.quests_box = create_button("Quests\nok",
+	create_object("images/quests/quests_box1.png",
+	create_vector2f(0, 0), create_rect(0, 0, 404, 72), 0),
+	sfBlack, 20);
+	s->fi->quests_box.quests_des = create_button("Quests",
+	create_object("images/quests/quests_des.png",
+	create_vector2f(0, 0), create_rect(0, 0, 302, 409), 0),
+	sfBlack, 20);
 }
 
 void character_setup(st_rpg *s)
@@ -57,4 +71,5 @@ void character_setup(st_rpg *s)
 	create_rect(144, 0, 48, 48), 0);
 	setup_camera(s);
 	setup_col(s);
+	setup_quests_box(s);
 }
