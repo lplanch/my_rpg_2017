@@ -40,8 +40,8 @@ void destroy_texture(st_rpg *s)
 void destroy_quests(st_rpg *s)
 {
 	for (int i = 0; s->fi->quests[i] != NULL; i++) {
-		free (s->fi->quests[i]->title);
-		free (s->fi->quests[i]->path);
+		free(s->fi->quests[i]->title);
+		free(s->fi->quests[i]->path);
 	}
 	destroy_button(s->fi->quests_box.quests_box);
 	destroy_button(s->fi->quests_box.quests_des);

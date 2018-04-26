@@ -54,22 +54,27 @@ void setup_quests_box(st_rpg *s)
 	create_vector2f(0, 0), create_rect(0, 0, 404, 72), 0),
 	sfBlack, 20);
 	sfFont_destroy(s->fi->quests_box.quests_box->text->font);
-	s->fi->quests_box.quests_box->text->font = sfFont_createFromFile("ressources/fonts/quests.otf");
-	sfText_setFont(s->fi->quests_box.quests_box->text->text, s->fi->quests_box.quests_box->text->font);
+	s->fi->quests_box.quests_box->text->font =
+	sfFont_createFromFile("ressources/fonts/quests.otf");
+	sfText_setFont(s->fi->quests_box.quests_box->text->text,
+	s->fi->quests_box.quests_box->text->font);
 	s->fi->quests_box.quests_des = create_button("Quests",
 	create_object("ressources/images/quests/quests_des.png",
 	create_vector2f(0, 0), create_rect(0, 0, 302, 409), 0),
 	sfBlack, 40);
 	sfFont_destroy(s->fi->quests_box.quests_des->text->font);
-	s->fi->quests_box.quests_des->text->font = sfFont_createFromFile("ressources/fonts/quests2.otf");
-	sfText_setFont(s->fi->quests_box.quests_des->text->text, s->fi->quests_box.quests_des->text->font);
+	s->fi->quests_box.quests_des->text->font =
+	sfFont_createFromFile("ressources/fonts/quests2.otf");
+	sfText_setFont(s->fi->quests_box.quests_des->text->text,
+	s->fi->quests_box.quests_des->text->font);
 }
 
 void character_setup(st_rpg *s)
 {
 	s->fi = malloc(sizeof(*(s->fi)));
 	*s->fi = (files_t) {0};
-	s->fi->character = create_object("ressources/images/story_characters/hero.png",
+	s->fi->character =
+	create_object("ressources/images/story_characters/hero.png",
 	create_vector2f(3720, 1800),
 	create_rect(0, 144, 48, 48), 0);
 	sfSprite_scale(s->fi->character->sprite, create_vector2f(2, 2));
