@@ -8,7 +8,7 @@
 #include "my.h"
 #include "procedural.h"
 
-void draw_map_block(gage_t *gage, proc_t *proc, int y)
+void draw_map_block(proc_t *proc, int y)
 {
 	for (int x = 0; proc->map[y][x] != '\0'; x++) {
 		if (proc->smap[y][x] != NULL) {
@@ -21,7 +21,7 @@ void draw_map_block(gage_t *gage, proc_t *proc, int y)
 int draw_sprites_map(gage_t *gage, proc_t *proc)
 {
 	for (int y = 0; proc->map[y] != NULL; y++) {
-		draw_map_block(gage, proc, y);
+		draw_map_block(proc, y);
 	}
 	sfRenderWindow_drawSprite(proc->gman->window,
 	proc->gman->player.sprite, NULL);
@@ -51,14 +51,14 @@ int update_sprite(proc_t *proc)
 
 int launch_dungeon_game(gage_t *gage)
 {
-	gage->proc->gman = init_dungeon_game(gage->proc, gage);
-	while (sfRenderWindow_isOpen(gage->proc->gman->window)) {
+	gage->proc.gman = init_dungeon_game(&gage->proc, gage);
+	while (sfRenderWindow_isOpen(gage->proc.gman->window)) {
 		verif_input_map(gage);
-		update_sprite(gage->proc);
-		sfRenderWindow_clear(gage->proc->gman->window,
-		gage->pvar->background);
-		draw_sprites_map(gage, gage->proc);
-		sfRenderWindow_display(gage->proc->gman->window);
+		update_sprite(&gage->proc);
+		sfRenderWindow_clear(gage->proc.gman->window,
+		gage->pvar.background);
+		draw_sprites_map(gage, &gage->proc);
+		sfRenderWindow_display(gage->proc.gman->window);
 		verify_exit_player(gage);
 	}
 	free_gage_game(gage);

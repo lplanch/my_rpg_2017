@@ -29,14 +29,13 @@ void draw_room_minimap(proc_t *proc, proom_t *proom)
 	proom->drawed = 1;
 	for (int y = proom->pos1[1] + 1; y < proom->pos2[1] + 3; y++) {
 		for (int x = proom->pos1[0] + 1; x < proom->pos2[0] + 3; x++) {
-			draw_rect_room(proc, proom, x, y);
+			draw_rect_room(proc, x, y);
 		}
 	}
 }
 
 void make_corridors_minimap(proc_t *proc)
 {
-	sfColor white_trans = {255, 255, 255, 128};
 	int p_pos[2] =
 	{proc->gman->player.pos.x / 48, proc->gman->player.pos.y / 48};
 

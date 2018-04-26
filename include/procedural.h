@@ -30,9 +30,9 @@ static const sfKeyCode key_inv = sfKeyLShift;
 static const sfMouseButton key_fast_inv = sfMouseMiddle;
 
 //MAKE MAP
-proc_t *map_creation(gage_t *gage);
+void map_creation(gage_t *gage);
 void make_positions_proom(gage_t *gage, proc_t *proc);
-void make_holes(proom_t *proom, char **map, int i);
+void make_holes(proom_t *proom, char **map);
 void make_map_better(char **map);
 void increment_proc_struct(proc_var_t *pvar, proc_t *proc);
 char **border_map(proc_var_t *pvar, char **map);
@@ -69,7 +69,7 @@ int interval(float value, float less, float max);
 void init_minimap(gage_t *gage, proc_t *proc);
 void verify_minimap(gage_t *gage);
 void update_minimap(proc_t *proc);
-void draw_rect_room(proc_t *proc, proom_t *proom, int x, int y);
+void draw_rect_room(proc_t *proc, int x, int y);
 void draw_rect_corridor(proc_t *proc, int x, int y);
 void draw_rect_player(proc_t *proc);
 

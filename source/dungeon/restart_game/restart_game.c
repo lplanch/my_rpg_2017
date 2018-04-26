@@ -10,16 +10,16 @@
 
 void create_char_map_restart(gage_t *gage)
 {
-	increment_proc_struct(gage->pvar, gage->proc);
-	make_positions_proom(gage, gage->proc);
-	for (int i = 0; gage->proc->proom[i] != NULL; i++) {
-		make_holes(gage->proc->proom[i], gage->proc->map, i);
+	increment_proc_struct(&gage->pvar, &gage->proc);
+	make_positions_proom(gage, &gage->proc);
+	for (int i = 0; gage->proc.proom[i] != NULL; i++) {
+		make_holes(gage->proc.proom[i], gage->proc.map);
 	}
-	gage->proc->map = border_map(gage->pvar, gage->proc->map);
-	create_entry(gage->proc);
-	create_leave(gage->proc);
-	make_map_better(gage->proc->map);
-	print_map(gage->proc->map);
+	gage->proc.map = border_map(&gage->pvar, gage->proc.map);
+	create_entry(&gage->proc);
+	create_leave(&gage->proc);
+	make_map_better(gage->proc.map);
+	print_map(gage->proc.map);
 }
 
 void print_map(char **map)
@@ -35,27 +35,27 @@ void print_map(char **map)
 
 void init_next_level(gage_t *gage)
 {
-	char *cur_level = int_to_str(gage->pvar->current_floor);
+	char *cur_level = int_to_str(gage->pvar.current_floor);
 	char *level_string = my_strcat("Floor ", cur_level);
 
 	create_char_map_restart(gage);
-	gage->proc->smap = create_sprite_map(gage, gage->proc->map);
-	gage->proc->gman->player.pos = get_entry_pos(gage->proc);
-	gage->proc->gman->player.acceleration.x = 0;
-	gage->proc->gman->player.acceleration.y = 0;
-	gage->proc->gman->player.nbr_frame.x = 0;
-	gage->proc->gman->player.nbr_frame.y = 0;
-	gage->proc->gman->dt = 1;
-	reset_screen(gage->proc->minimap->f_minimap);
-	sfText_setString(gage->proc->minimap->current_level_text, level_string);
+	gage->proc.smap = create_sprite_map(gage, gage->proc.map);
+	gage->proc.gman->player.pos = get_entry_pos(&gage->proc);
+	gage->proc.gman->player.acceleration.x = 0;
+	gage->proc.gman->player.acceleration.y = 0;
+	gage->proc.gman->player.nbr_frame.x = 0;
+	gage->proc.gman->player.nbr_frame.y = 0;
+	gage->proc.gman->dt = 1;
+	reset_screen(gage->proc.minimap->f_minimap);
+	sfText_setString(gage->proc.minimap->current_level_text, level_string);
 	free(cur_level);
 	free(level_string);
 }
 
 void draw_floor_restart(gage_t *gage)
 {
-	sfVector2f screen_center = gage->proc->gman->camera_pos;
-	char *cur_level = int_to_str(gage->pvar->current_floor);
+	sfVector2f screen_center = gage->proc.gman->camera_pos;
+	char *cur_level = int_to_str(gage->pvar.current_floor);
 	char *level_string = my_strcat("Floor ", cur_level);
 	sfFont *font = sfFont_createFromFile("ressources/OpenSans.ttf");
 	sfText *next_level = sfText_create();
@@ -66,9 +66,9 @@ void draw_floor_restart(gage_t *gage)
 	sfText_setFont(next_level, font);
 	sfText_setCharacterSize(next_level, 24);
 	sfText_setPosition(next_level, screen_center);
-	fade_in_text(gage->proc->gman->window, next_level);
+	fade_in_text(gage->proc.gman->window, next_level);
 	init_next_level(gage);
-	fade_out_text(gage->proc->gman->window, next_level);
+	fade_out_text(gage->proc.gman->window, next_level);
 	sfText_destroy(next_level);
 	sfFont_destroy(font);
 	free(cur_level);
@@ -77,13 +77,13 @@ void draw_floor_restart(gage_t *gage)
 
 void next_level_screen(gage_t *gage)
 {
-	free_dungeon(gage->proc);
-	if (gage->pvar->current_floor < gage->pvar->max_floor) {
-		gage->pvar->current_floor += 1;
-	} else if (gage->pvar->current_floor < gage->pvar->max_floor) {
-		gage->pvar->current_floor -= 1;
+	free_dungeon(&gage->proc);
+	if (gage->pvar.current_floor < gage->pvar.max_floor) {
+		gage->pvar.current_floor += 1;
+	} else if (gage->pvar.current_floor < gage->pvar.max_floor) {
+		gage->pvar.current_floor -= 1;
 	} else {
-		sfRenderWindow_close(gage->proc->gman->window);
+		sfRenderWindow_close(gage->proc.gman->window);
 		return;
 	}
 	draw_floor_restart(gage);

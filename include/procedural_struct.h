@@ -91,7 +91,7 @@ typedef struct proc_var
 
 typedef struct game_agent
 {
-	proc_t *proc;
+	proc_t proc;
 	ingame_t ingame;
-	proc_var_t *pvar;
+	proc_var_t pvar;
 } gage_t;

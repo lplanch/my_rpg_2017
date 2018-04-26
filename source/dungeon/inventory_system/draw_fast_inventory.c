@@ -10,7 +10,7 @@
 
 void set_created_position(gmanager_t *gman)
 {
-	sfVector2f mouse_pos;
+	sfVector2f mouse_pos = {0, 0};
 
 	if (gman->ing->finv.created == 0) {
 		mouse_pos.x -= WIDTH / 4 + HEIGHT / 16 + 20;
@@ -27,7 +27,7 @@ void set_created_position(gmanager_t *gman)
 
 void draw_fast_inventory_background(gmanager_t *gman)
 {
-	sfVector2f pos_screen;
+	sfVector2f pos_screen = {0, 0};
 
 	set_created_position(gman);
 	pos_screen = gman->ing->finv.created_pos;

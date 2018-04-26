@@ -56,7 +56,7 @@ void create_inventory_var(ingame_t *ing)
 	ing->inv.size = 10;
 	ing->inv.money = 0;
 	ing->inv.first_slot = create_first_slot();
-	for (int i = 0; i < ing->inv.size; i++)
+	for (unsigned int i = 0; i < ing->inv.size; i++)
 		add_inventory_slot(ing->inv.first_slot);
 	ing->inv.armor = create_first_slot();
 	ing->inv.weapon = create_first_slot();

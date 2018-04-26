@@ -8,7 +8,7 @@
 #include "my.h"
 #include "procedural.h"
 
-void init_window(gmanager_t *gman, proc_t *proc)
+void init_window(gmanager_t *gman)
 {
 	gman->mode.width = WIDTH;
 	gman->mode.height = HEIGHT;
@@ -38,7 +38,7 @@ void init_player(gmanager_t *gman, proc_t *proc)
 	sfSprite_setScale(gman->player.sprite, zoom);
 }
 
-void init_player_movement(gmanager_t *gman, proc_t *proc)
+void init_player_movement(gmanager_t *gman)
 {
 	gman->player.acceleration.x = 0;
 	gman->player.acceleration.y = 0;
@@ -47,7 +47,7 @@ void init_player_movement(gmanager_t *gman, proc_t *proc)
 	gman->player.nbr_frame.y = 0;
 }
 
-void init_player_camera(gmanager_t *gman, proc_t *proc)
+void init_player_camera(gmanager_t *gman)
 {
 	gman->camera_pos = gman->player.pos;
 	gman->camera = sfRenderWindow_getDefaultView(gman->window);
@@ -60,10 +60,10 @@ gmanager_t *init_dungeon_game(proc_t *proc, gage_t *gage)
 {
 	gmanager_t *gman = malloc(sizeof(gmanager_t));
 
-	init_window(gman, proc);
+	init_window(gman);
 	init_player(gman, proc);
-	init_player_movement(gman, proc);
-	init_player_camera(gman, proc);
+	init_player_movement(gman);
+	init_player_camera(gman);
 	init_minimap(gage, proc);
 	gman->ing = create_ingame_player();
 	gman->clock = sfClock_create();
