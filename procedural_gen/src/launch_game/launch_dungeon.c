@@ -8,15 +8,20 @@
 #include "my.h"
 #include "procedural.h"
 
+void draw_map_block(gage_t *gage, proc_t *proc, int y)
+{
+	for (int x = 0; proc->map[y][x] != '\0'; x++) {
+		if (proc->smap[y][x] != NULL) {
+			sfRenderWindow_drawSprite(proc->gman->window,
+			proc->smap[y][x]->sprite, NULL);
+		}
+	}
+}
+
 int draw_sprites_map(gage_t *gage, proc_t *proc)
 {
 	for (int y = 0; proc->map[y] != NULL; y++) {
-		for (int x = 0; proc->map[y][x] != '\0'; x++) {
-			if (proc->smap[y][x] != NULL) {
-				sfRenderWindow_drawSprite(proc->gman->window,
-				proc->smap[y][x]->sprite, NULL);
-			}
-		}
+		draw_map_block(gage, proc, y);
 	}
 	sfRenderWindow_drawSprite(proc->gman->window,
 	proc->gman->player.sprite, NULL);

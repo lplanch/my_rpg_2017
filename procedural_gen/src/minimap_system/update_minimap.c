@@ -51,7 +51,7 @@ void update_minimap(proc_t *proc)
 {
 	sfVector2f text_center =
 	{proc->gman->player.pos.x - (12 * 2),
-	proc->gman->player.pos.y - HEIGHT / 5.5};
+		proc->gman->player.pos.y - HEIGHT / 5.5};
 
 	increment_visited(proc);
 	make_corridors_minimap(proc);

@@ -22,10 +22,10 @@ void fill_inventory_background(framebuffer_t *buffer)
 		(int[2]){WIDTH / 2.5 / 4 * 3 + i, 0 + i},
 		(int[2]){WIDTH / 2.5 / 4 - i * 2, HEIGHT / 2.5 - i * 2}, bla);
 		my_draw_vrect(buffer, (int[2]){WIDTH / 2.5 / 4.5 * 3.5 + i,
-		HEIGHT / 2.5 / 3.5 * 2 + i}, (int[2]){WIDTH / 2.5 / 4.5 - i * 2,
-		HEIGHT / 2.5 / 3.5 * 1.5 - i * 2}, bla);
+			HEIGHT / 2.5 / 3.5 * 2 + i}, (int[2]){WIDTH / 2.5 /
+			4.5 - i * 2, HEIGHT / 2.5 / 3.5 * 1.5 - i * 2}, bla);
 		my_draw_circle(buffer, (int[2]){WIDTH / 2.5 / 4.5 * 4,
-		HEIGHT / 2.5 / 3.5 * 2.75}, HEIGHT / 2.5 / 7 + i, bla);
+			HEIGHT / 2.5 / 3.5 * 2.75}, HEIGHT / 2.5 / 7 + i, bla);
 	}
 }
 

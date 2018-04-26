@@ -17,38 +17,6 @@ int count_rooms(proom_t **proom)
 	return (res);
 }
 
-sfVector2f get_entry_pos(proc_t *proc)
-{
-	sfVector2f result = {0, 0};
-
-	for (int y = 0; proc->map[y] != NULL; y++) {
-		for (int x = 0; proc->map[y][x] != '\0'; x++) {
-			if (proc->map[y][x] == 'E' || proc->map[y][x] == 'B') {
-				result.y = y * 48;
-				result.x = x * 48;
-				return (result);
-			}
-		}
-	}
-	return (result);
-}
-
-sfVector2f get_exit_pos(proc_t *proc)
-{
-	sfVector2f result = {0, 0};
-
-	for (int y = 0; proc->map[y] != NULL; y++) {
-		for (int x = 0; proc->map[y][x] != '\0'; x++) {
-			if (proc->map[y][x] == 'S' || proc->map[y][x] == 'B') {
-				result.y = y * 48;
-				result.x = x * 48;
-				return (result);
-			}
-		}
-	}
-	return (result);
-}
-
 void create_entry(proc_t *proc)
 {
 	int room = rand() % count_rooms(proc->proom);

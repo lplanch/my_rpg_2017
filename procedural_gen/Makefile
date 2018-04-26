@@ -20,6 +20,7 @@ FILES		=	src/main_proc.c					\
 			src/make_array/mandatory_blocks.c		\
 			src/make_array/make_map_better.c		\
 			src/make_array/make_map_border.c		\
+			src/make_array/get_blocks_positions.c		\
 			src/make_sprite_map/main_draw_map.c		\
 			src/make_sprite_map/create_blocks.c		\
 			src/make_sprite_map/create_blocks_corner.c	\

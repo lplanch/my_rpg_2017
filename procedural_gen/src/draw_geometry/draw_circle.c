@@ -12,7 +12,8 @@ void my_draw_line(framebuffer_t *b, int pos1[2], int pos2[2], sfColor c)
 {
 	float cx = pos2[0] - pos1[0];
 	float cy = pos2[0] - pos1[1];
-	float ix, iy = 0;
+	float ix = 0;
+	float iy = 0;
 	unsigned int max = 0;
 
 	if (my_abs(cx) > my_abs(cy))

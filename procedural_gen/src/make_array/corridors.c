@@ -47,20 +47,20 @@ int many_around(char **map, int x, int y)
 
 void make_corridors(proc_t *proc, int length)
 {
-	int pcenter[2];
-	int ncenter[2];
+	int p_cen[2];
+	int n_cen[2];
 
 	if (length > 1) {
-		pcenter[0] = proc->proom[length - 2]->center[0];
-		pcenter[1] = proc->proom[length - 2]->center[1];
-		ncenter[0] = proc->proom[length - 1]->center[0];
-		ncenter[1] = proc->proom[length - 1]->center[1];
+		p_cen[0] = proc->proom[length - 2]->center[0];
+		p_cen[1] = proc->proom[length - 2]->center[1];
+		n_cen[0] = proc->proom[length - 1]->center[0];
+		n_cen[1] = proc->proom[length - 1]->center[1];
 		if (rand() % 2 == 1) {
-			h_corridor(proc->map, pcenter[0], ncenter[0], pcenter[1]);
-			v_corridor(proc->map, pcenter[1], ncenter[1], ncenter[0]);
+			h_corridor(proc->map, p_cen[0], n_cen[0], p_cen[1]);
+			v_corridor(proc->map, p_cen[1], n_cen[1], n_cen[0]);
 		} else {
-			v_corridor(proc->map, pcenter[1], ncenter[1], pcenter[0]);
-			h_corridor(proc->map, pcenter[0], ncenter[0], ncenter[1]);
+			v_corridor(proc->map, p_cen[1], n_cen[1], p_cen[0]);
+			h_corridor(proc->map, p_cen[0], n_cen[0], n_cen[1]);
 		}
 	}
 }

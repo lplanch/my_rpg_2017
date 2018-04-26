@@ -18,7 +18,7 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)
 	buffer->height = height;
 	buffer->pixels = malloc(width * height * (bitsPerPixel / 8));
 	for (int i = 0; i < (width * height * (bitsPerPixel / 8)); i++)
-                buffer->pixels[i] = 255;
+		buffer->pixels[i] = 255;
 	return (buffer);
 }
 
