@@ -10,11 +10,11 @@
 #include "game_object.h"
 #include "my_rpg.h"
 
-int mouse_in_object_dialogbox(g_object *obj,
+int mouse_in_object_quest_box(g_object *obj,
 sfRenderWindow *window, st_rpg *s)
 {
 	int v = s->fi->camera.x - 960;
-	int w = s->fi->camera.y - 540;
+	int w = s->fi->camera.y - 510;
 	int mx = sfMouse_getPositionRenderWindow(window).x + v;
 	int my = sfMouse_getPositionRenderWindow(window).y + w;
 	int posx = obj->pos.x;
@@ -23,9 +23,7 @@ sfRenderWindow *window, st_rpg *s)
 	int height = obj->rect.height;
 
 	if (mx > posx && mx < posx + width) {
-		printf("%s\n", "j");
 		if (my > posy && my < posy + height) {
-			printf("%s\n", "m");
 			return (1);
 		}
 	}

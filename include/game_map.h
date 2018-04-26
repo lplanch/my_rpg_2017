@@ -59,6 +59,7 @@ void move_right(st_rpg *s);
 void move_left(st_rpg *s);
 void move_allpts(st_rpg *s);
 void move_id_player(st_rpg *s);
+void move_infos_box(st_rpg *s);
 
 int my_getnbr_i(char const *str, int i);
 int is_num(char a);
@@ -87,6 +88,8 @@ void free_tab_withnull(char **tab);
 void dialog_box(st_rpg *s);
 void choice_box(st_rpg *s, int fd);
 int mouse_in_object_dialogbox(g_object *obj,
+sfRenderWindow *window, st_rpg *s);
+int mouse_in_object_quest_box(g_object *obj,
 sfRenderWindow *window, st_rpg *s);
 
 void transfer_pixel(st_rpg *s);
@@ -121,6 +124,7 @@ quests_t *get_quests(char *name);
 void get_rewards(char *buffer, quests_t *quests);
 void display_all(st_rpg *s, int size);
 void check_quests(st_rpg *s);
+void update_quests_box_des(st_rpg *s);
 
 #ifndef MY_COOK_
 #define MY_COOK_

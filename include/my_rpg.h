@@ -119,8 +119,10 @@ typedef struct s_quests_list
 typedef struct s_quests
 {
 	char *title;
+	char *path;
 	int nbr_quests;
 	int status;
+
 	rewards_t rewards;
 	quests_list_t *quests_list;
 } quests_t;
@@ -131,6 +133,14 @@ typedef struct s_colsquare
 	int width;
 	int height;
 } colsquare_t;
+
+typedef struct s_quests_box
+{
+	int nb_quests;
+	int status;
+	st_button *quests_box;
+	st_button *quests_des;
+} quests_box_t;
 
 typedef struct s_colcircle
 {
@@ -160,6 +170,7 @@ typedef struct s_files
 	g_object *character;
 	g_object *ID_character;
 	g_object *loading;
+	quests_box_t quests_box;
 	sfVector2f camera;
 	sfVector2f camera_prec;
 	sfVector2f speed;

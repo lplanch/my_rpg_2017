@@ -70,6 +70,7 @@ quests_t *get_quests(char *name)
 
 	quests->status = 0;
 	quests->title = get_next_line(fd);
+	quests->path = get_next_line(fd);
 	buffer = get_next_line(fd);
 	get_rewards(buffer, quests);
 	free(buffer);
