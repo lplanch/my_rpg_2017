@@ -126,6 +126,7 @@ FILES		=	source/main.c					\
 			source/game_map/choicebox_create_event.c	\
 			source/game_map/setpixel_to_image.c		\
 			source/game_map/mouse_in_object_dialogbox.c	\
+			source/game_map/create_music.c			\
 			source/game_map/mouse_in_object_quest_box.c	\
 			source/game_map/destroy.c			\
 			source/game_map/move_infos.c			\

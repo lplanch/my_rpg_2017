@@ -65,6 +65,8 @@ int my_getnbr_i(char const *str, int i);
 int is_num(char a);
 char *my_strcat_dup(char *str1, char *str2);
 
+sfMusic *create_music(float volume, char *path);
+
 int collision(st_rpg *s);
 int case_id(st_rpg *s, int nb_ID);
 int case_tp(st_rpg *s, int nb_ID);
