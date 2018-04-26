@@ -476,6 +476,10 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void my_set_string(sfText *text, char *str);
+char *get_stat_string(int i);
+char *get_stat_value(st_rpg *s, int i);
+void update_status_menu(st_rpg *s);
 void display_locked_spells(st_rpg *s);
 void display_locked_spells_cd(st_rpg *s);
 void update_cursor_pos_pause(st_rpg *s);

@@ -79,6 +79,7 @@ FILES		=	source/main.c					\
 			source/spells/update_warrior_1.c		\
 			source/interface/life_bar.c			\
 			source/interface/status_menu.c			\
+			source/interface/status_info.c			\
 			source/interface/tree_menu.c			\
 			source/interface/update_tree.c			\
 			source/interface/pause_menu.c			\

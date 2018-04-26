@@ -22,7 +22,7 @@ int main(void)
 	st_rpg s =  {0};
 	sfVideoMode mode = {1920, 1080, 32};
 
-	s.window = sfRenderWindow_create(mode, "RPG", sfDefaultStyle, NULL);
+	s.window = sfRenderWindow_create(mode, "RPG", sfClose, NULL);
 	sfRenderWindow_setFramerateLimit(s.window, 60);
 	s.loading = create_object("images/loading.png",
 	create_vector2f(900, 338), create_rect(0, 0, 99, 257), 0);

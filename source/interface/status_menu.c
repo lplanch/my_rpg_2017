@@ -8,73 +8,6 @@
 #include "my_rpg.h"
 #include "my.h"
 
-char *get_stat_value(st_rpg *s, int i)
-{
-	switch (i) {
-	case 0 :
-		return (int_to_str(s->player.stat->pvm));
-	case 1 :
-		return (int_to_str(s->player.stat->frc));
-	case 2 :
-		return (int_to_str(s->player.stat->def));
-	case 3 :
-		return (int_to_str(s->player.stat->prc));
-	case 4 :
-		return (int_to_str(s->player.stat->vit));
-	case 5 :
-		return (int_to_str(s->player.stat->cha));
-	}
-	return (NULL);
-}
-
-char *get_stat_string(int i)
-{
-	switch (i) {
-	case 0 :
-		return ("Max Health");
-	case 1 :
-		return ("Strength");
-	case 2 :
-		return ("Resistance");
-	case 3 :
-		return ("Precision");
-	case 4 :
-		return ("Speed");
-	case 5 :
-		return ("Chance");
-	}
-	return ("SAMY");
-}
-
-void my_set_string(sfText *text, char *str)
-{
-	sfText_setString(text, str);
-	free(str);
-}
-
-void update_status_menu(st_rpg *s)
-{
-	int i = 0;
-
-	if (s->statm.show == 6) {
-		for (i = 0; i != 6; i += 1) {
-			if (mouse_in_object(s->statm.stats[i]->obj, s->window))
-				s->statm.show = i;
-		}
-		if (s->statm.show != 6) {
-			sfText_setString(s->statm.stats[s->statm.show]->text
-			->text, get_stat_string(s->statm.show));
-		}
-	} else if (s->statm.show != 6) {
-		if (!mouse_in_object(s->statm.stats[s->statm.show]->obj,
-		s->window)) {
-			my_set_string(s->statm.stats[s->statm.show]->text
-			->text, get_stat_value(s, s->statm.show));
-			s->statm.show = 6;
-		}
-	}
-}
-
 char *get_class_string(int i)
 {
 	switch (i) {
@@ -115,25 +48,8 @@ void display_status_menu(st_rpg *s)
 		display_button(s->window, s->statm.stats[i]);
 }
 
-void generate_status_menu(st_rpg *s)
+void generate_status_info(st_rpg *s)
 {
-	char *temp;
-
-	s->statm.window = create_object("images/pause_window.png",
-	create_vector2f(1490, 30), create_rect(0, 0, 400, 600), 0);
-	s->statm.face = create_object("images/heroface.png",
-	create_vector2f(1500, 40),
-	create_rect(0, s->player.cdata.sex * 100, 100, 100), 0);
-	s->statm.name = create_text(s->player.cdata.name, create_vector2f(1620,
-	50), "fonts/button.ttf");
-	temp = int_to_str(s->player.stat->lvl);
-	s->statm.lvl = create_text(my_strcat("Level ", temp),
-	create_vector2f(1525, 150), "fonts/button.ttf");
-	free(temp);
-	temp = int_to_str(s->player.stat->exp);
-	s->statm.exp = create_text(my_strcat(temp, " / 100 XP"),
-	create_vector2f(1525, 200), "fonts/button.ttf");
-	free(temp);
 	s->statm.classe = create_button(get_class_string(s
 	->player.cdata.classe), create_object("images/pictoclass.png",
 	create_vector2f(1620, 100), create_rect(0, 32 * s->player.cdata.classe,
@@ -153,4 +69,26 @@ void generate_status_menu(st_rpg *s)
 	}
 	sfText_setPosition(s->statm.classe->text->text,
 	create_vector2f(1660, 100));
+}
+
+void generate_status_menu(st_rpg *s)
+{
+	char *temp;
+
+	s->statm.window = create_object("images/pause_window.png",
+	create_vector2f(1490, 30), create_rect(0, 0, 400, 600), 0);
+	s->statm.face = create_object("images/heroface.png",
+	create_vector2f(1500, 40),
+	create_rect(0, s->player.cdata.sex * 100, 100, 100), 0);
+	s->statm.name = create_text(s->player.cdata.name, create_vector2f(1620,
+	50), "fonts/button.ttf");
+	temp = int_to_str(s->player.stat->lvl);
+	s->statm.lvl = create_text(my_strcat("Level ", temp),
+	create_vector2f(1525, 150), "fonts/button.ttf");
+	free(temp);
+	temp = int_to_str(s->player.stat->exp);
+	s->statm.exp = create_text(my_strcat(temp, " / 100 XP"),
+	create_vector2f(1525, 200), "fonts/button.ttf");
+	free(temp);
+	generate_status_info(s);
 }
