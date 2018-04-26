@@ -20,13 +20,13 @@ void create_main_fight(st_rpg *s)
 {
 	s->f.cast = 0;
 	s->f.proc = create_st_time();
-	s->center = create_object("images/center.png", create_vector2f(959,
+	s->center = create_object("ressources/images/center.png", create_vector2f(959,
 	539), create_rect(0, 0, 2, 2), 0);
 	for (int i = 0; i != 4; i += 1)
 		s->f.cdcount[i] = 0;
 	get_cooldowns(s);
 	for (int i = 0; i != 3; i += 1)
-		s->f.locks[i] = create_object("images/lock.png",
+		s->f.locks[i] = create_object("ressources/images/lock.png",
 		create_vector2f(320 + 100 * i, 820),
 		create_rect(0, 0, 38, 38), 0);
 }

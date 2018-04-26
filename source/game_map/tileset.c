@@ -10,7 +10,7 @@
 
 void create_layers(st_rpg *s)
 {
-	s->fi->map.tab_tileset = get_layer("map_preset/layers", s);
+	s->fi->map.tab_tileset = get_layer("ressources/map_preset/layers", s);
 	s->fi->map.layer_background = s->fi->map.tab_tileset[0];
 	s->fi->map.layer_relief = s->fi->map.tab_tileset[1];
 	s->fi->map.layer_colID = s->fi->map.tab_tileset[2];
@@ -21,7 +21,7 @@ void create_layers(st_rpg *s)
 void create_images(st_rpg *s)
 {
 	s->fi->map.x2 = 0;
-	s->fi->map.image = sfImage_createFromFile("map_preset/gg.png");
+	s->fi->map.image = sfImage_createFromFile("ressources/map_preset/gg.png");
 	s->fi->map.map_backgound = sfImage_create(1920, 3200);
 	s->fi->map.map_relief = sfImage_create(1920, 3200);
 	s->fi->map.map_col = sfImage_create(1920, 3200);

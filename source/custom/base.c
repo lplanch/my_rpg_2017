@@ -51,7 +51,8 @@ void cust_initialize_buttons(st_rpg *s)
 	grey, 70);
 	s->cust.bt[2] = create_vbutton("Female", create_vector2f(1400, 600),
 	grey, 70);
-	s->cust.face = create_object("images/heroface.png", create_vector2f(450,
+	s->cust.face = create_object("ressources/images/heroface.png",
+	create_vector2f(450,
 	500), create_rect(0, 0, 100, 100), 0);
 	sfSprite_setScale(s->cust.face->sprite, create_vector2f(2, 2));
 	s->cust.chosen = 0;
@@ -69,12 +70,12 @@ void create_st_custom(st_rpg *s)
 	s->cust.option = 1;
 	s->cust.cmin = 710;
 	s->cust.cmax = 715;
-	s->cust.circle = create_object("images/cust/circle.png",
+	s->cust.circle = create_object("ressources/images/cust/circle.png",
 	create_vector2f(300, 600), create_rect(0, 0, 520, 170), 0);
-	s->cust.back = create_object("images/cust/bg.png",
+	s->cust.back = create_object("ressources/images/cust/bg.png",
 	create_vector2f(0, 0), create_rect(0, 0, 1920, 1080), 0);
 	cust_initialize_buttons(s);
-	s->cust.cursor = create_object("images/cursor.png",
+	s->cust.cursor = create_object("ressources/images/cursor.png",
 	create_vector2f(1180, 710), create_rect(0, 0, 150, 150), 0);
 	sfSprite_setScale(s->cust.cursor->sprite, create_vector2f(0.5, 0.5));
 	sfSprite_setRotation(s->cust.cursor->sprite, -90);

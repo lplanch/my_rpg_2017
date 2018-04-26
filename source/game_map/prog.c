@@ -11,17 +11,17 @@
 void create(st_rpg *s)
 {
 	character_setup(s);
-	get_all_pnj(s, "images/dialog_box/pnj/");
+	get_all_pnj(s, "ressources/images/dialog_box/pnj/");
 	setup_variable(s);
 	setup_loading(s);
-	get_all_quests(s, "quests/quests_info/");
+	get_all_quests(s, "ressources/quests/quests_info/");
 }
 
 int prog(st_rpg *s)
 {
 	struct stat a;
 
-	if (stat("map_preset/parsing", &a) == -1)
+	if (stat("ressources/map_preset/parsing", &a) == -1)
 		return (0);
 	create(s);
 	parsing(a, s);

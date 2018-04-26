@@ -17,7 +17,7 @@ int create_choice_box_middle(st_rpg *s, int i, char **tab, int j)
 
 	posy = pos_y - 60 - (60 * i);
 	s->fi->pnj[s->fi->nb_pnj].choice_box[i] = create_button(tab[j],
-	create_object("images/dialog_box/choice_box2.png",
+	create_object("ressources/images/dialog_box/choice_box2.png",
 	create_vector2f(pos_x, posy),
 	create_rect(0, 0, 460, 60), 0), sfWhite, 35);
 	sfText_setPosition(s->fi->pnj[s->fi->nb_pnj].choice_box[i]->text->text,
@@ -36,16 +36,16 @@ void create_choice_box(st_rpg *s, int compter, char **tab)
 	s->fi->pnj[s->fi->nb_pnj].choice_box =
 	malloc(sizeof(st_button) * compter + 4);
 	s->fi->pnj[s->fi->nb_pnj].choice_box_edge[1] =
-	create_object("images/dialog_box/choice_box3.png",
+	create_object("ressources/images/dialog_box/choice_box3.png",
 	create_vector2f(pos_x, pos_y), create_rect(0, 0, 460, 32), 0);
 	for (i = 0; i != compter; i++, j--)
 		posy = create_choice_box_middle(s, i, tab, j);
 	posy = pos_y - 60 - (60 * i);
 	s->fi->pnj[s->fi->nb_pnj].choice_box_edge[0] =
-	create_object("images/dialog_box/choice_box1.png",
+	create_object("ressources/images/dialog_box/choice_box1.png",
 	create_vector2f(pos_x, posy + 28), create_rect(0, 0, 460, 32), 0);
 	s->fi->pnj[s->fi->nb_pnj].cursor =
-	create_object("images/dialog_box/cursor.png",
+	create_object("ressources/images/dialog_box/cursor.png",
 	create_vector2f(pos_x + 38, posy + 77), create_rect(0, 0, 24, 24), 0);
 }
 

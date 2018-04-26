@@ -40,9 +40,9 @@ void initialize_menu_interface(st_rpg *s)
 	s->mainm.menu = 0;
 	s->mainm.sens = 1;
 	s->mainm.option = 0;
-	s->mainm.music = sfMusic_createFromFile("audio/menu.ogg");
+	s->mainm.music = sfMusic_createFromFile("ressources/audio/menu.ogg");
 	sfMusic_play(s->mainm.music);
-	s->mainm.cursor = create_object("images/cursor.png",
+	s->mainm.cursor = create_object("ressources/images/cursor.png",
 	create_vector2f(700, 500), create_rect(0, 0, 100, 116), 2);
 	s->mainm.button[0] = create_vbutton("Play", create_vector2f(800, 500),
 	grey, 100);
@@ -50,9 +50,9 @@ void initialize_menu_interface(st_rpg *s)
 	create_vector2f(800, 620), grey, 100);
 	s->mainm.button[2] = create_vbutton("Quit", create_vector2f(800, 740),
 	grey, 100);
-	s->mainm.guy = create_object("images/menu/guy.png", create_vector2f(212,
+	s->mainm.guy = create_object("ressources/images/menu/guy.png", create_vector2f(212,
 	-600), create_rect(0, 0, 234, 307), 0);
-	s->mainm.title = create_object("images/menu/title.png",
+	s->mainm.title = create_object("ressources/images/menu/title.png",
 	create_vector2f(558, -300), create_rect(0, 0, 804, 67), 0);
 	sfSprite_setScale(s->mainm.guy->sprite, create_vector2f(2, 2));
 }
@@ -61,17 +61,17 @@ void initialize_menu(st_rpg *s)
 {
 	s->returnv = 0;
 	s->mainm.create = 0;
-	s->mainm.first = create_object("images/menu/first.png",
+	s->mainm.first = create_object("ressources/images/menu/first.png",
 	create_vector2f(0, 0), create_rect(0, 0, 1920, 1080), 6);
-	s->mainm.rope = create_object("images/menu/ropesheet.png",
+	s->mainm.rope = create_object("ressources/images/menu/ropesheet.png",
 	create_vector2f(200, 0), create_rect(0, 0, 72, 1080), 0);
 	for (int i = 0; i != 2; i += 1) {
-		s->mainm.abyss[i] = create_object("images/menu/abyss2.png",
+		s->mainm.abyss[i] = create_object("ressources/images/menu/abyss2.png",
 		create_vector2f(300 + 1400 * i , 5712 * i),
 		create_rect(0, 0, 1920, 5712), 2);
-		s->mainm.rockback[i] = create_object("images/menu/RockCave.png",
+		s->mainm.rockback[i] = create_object("ressources/images/menu/RockCave.png",
 		create_vector2f(0, 2936 * i), create_rect(0, 0, 1920, 2936), 6);
-		s->mainm.rock2[i] = create_object("images/menu/rock3.png",
+		s->mainm.rock2[i] = create_object("ressources/images/menu/rock3.png",
 		create_vector2f(110, 2236 * i),
 		create_rect(0, 0, 1920, 2236), 4);
 	}
