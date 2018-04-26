@@ -39,6 +39,20 @@ void draw_pnj(st_rpg *s)
 	}
 }
 
+void draw_quests(st_rpg *s)
+{
+	sfRenderWindow_drawSprite(s->window,
+	s->fi->quests_box.quests_box->obj->sprite, NULL);
+	sfRenderWindow_drawText(s->window,
+	s->fi->quests_box.quests_box->text->text, NULL);
+	if (s->fi->quests_box.status == 1) {
+		sfRenderWindow_drawSprite(s->window,
+		s->fi->quests_box.quests_des->obj->sprite, NULL);
+		sfRenderWindow_drawText(s->window,
+		s->fi->quests_box.quests_des->text->text, NULL);
+	}
+}
+
 void draw_all(st_rpg *s)
 {
 	sfSprite_setTextureRect(s->fi->character->sprite,
@@ -52,12 +66,7 @@ void draw_all(st_rpg *s)
 	sfRenderWindow_drawSprite(s->window, s->fi->character->sprite, NULL);
 	draw_pnj(s);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite4, NULL);
-	sfRenderWindow_drawSprite(s->window, s->fi->quests_box.quests_box->obj->sprite, NULL);
-	sfRenderWindow_drawText(s->window, s->fi->quests_box.quests_box->text->text, NULL);
-	if (s->fi->quests_box.status == 1) {
-		sfRenderWindow_drawSprite(s->window, s->fi->quests_box.quests_des->obj->sprite, NULL);
-		sfRenderWindow_drawText(s->window, s->fi->quests_box.quests_des->text->text, NULL);
-	}
+	draw_quests(s);
 }
 
 void draw(st_rpg *s)

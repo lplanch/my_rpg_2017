@@ -8,7 +8,8 @@
 #include "my.h"
 #include "game_map.h"
 
-void move_infos_box_des(st_rpg *s, sfVector2f pos_quests_des, sfVector2f pos_quests_des_text)
+void move_infos_box_des(st_rpg *s, sfVector2f pos_quests_des,
+sfVector2f pos_quests_des_text)
 {
 	s->fi->quests_box.quests_des->obj->pos = pos_quests_des;
 	sfSprite_setPosition(s->fi->quests_box.quests_des->obj->sprite,
