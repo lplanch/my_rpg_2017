@@ -1,11 +1,12 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2017
 ** my_putchar
 ** File description:
 ** print a character
 */
 
-#include "my.h"
+#include <unistd.h>
+#include "../../include/my.h"
 
 void my_putchar(char c)
 {

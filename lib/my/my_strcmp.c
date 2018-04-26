@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2017
 ** my_strcmp
 ** File description:
 ** task 05

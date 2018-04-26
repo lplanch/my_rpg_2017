@@ -1,70 +1,42 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2017
 ** int_to_str.c
 ** File description:
-** change an int into string
+** int_to_str.c
 */
 
 #include "my.h"
 
-int get_upper_nbr(int nbr)
+int my_nblen(int nb)
 {
-	int dis = 1;
+	int i = 0;
 
-	while (dis <= nbr) {
-		dis = dis * 10;
+	while (nb != 0) {
+		nb = nb / 10;
+		i++;
 	}
-	return (dis);
+	return (i);
 }
 
-int count_chr_nbr(int nbr)
+char *int_to_str(int ok)
 {
-	int dis = 1;
-	int res = 0;
+	int i = my_nblen(ok);
+	char *str = malloc(sizeof(char) * i + 2);
 
-	while (dis <= nbr) {
-		dis = dis * 10;
-		res += 1;
+	str[i + 1] = '\0';
+	str[i] = '\0';
+	i = i - 1;
+	if (ok == 0)
+		str[0] = '0';
+	if (ok < 0) {
+		str[0] = '-';
+		ok = ok * -1;
+		i--;
 	}
-	return (res);
-}
-
-void is_nbr_neg(int *nbr, int *is_neg)
-{
-	if (*nbr < 0) {
-		*nbr = *nbr * -1;
-		*is_neg = 1;
+	while (ok != 0) {
+		str[i] = ok % 10 + 48;
+		ok = ok / 10;
+		i--;
 	}
-}
-
-void increment_neg(char *result, int *iter, int is_neg)
-{
-	if (is_neg == 1) {
-		*iter += 1;
-		result[0] = '-';
-	}
-}
-
-char *int_to_str(int nbr)
-{
-	char *result;
-	int is_neg = 0;
-	int iter = 0;
-	int dis = 1;
-
-	if (nbr == 0) {
-		result = my_calloc(sizeof(char) * 2);
-		result[0] = '0';
-		return (result);
-	}
-	is_nbr_neg(&nbr, &is_neg);
-	result = my_calloc(sizeof(char) * (count_chr_nbr(nbr) + is_neg + 1));
-	dis = get_upper_nbr(nbr);
-	increment_neg(result, &iter, is_neg);
-	while (dis > 1) {
-		result[iter] = (nbr % dis) / (dis / 10) + 48;
-		iter += 1;
-		dis = dis / 10;
-	}
-	return (result);
+	return (str);
 }

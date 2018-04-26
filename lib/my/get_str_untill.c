@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2017
 ** get_str_untill.c
 ** File description:
 ** get str untill the chr given

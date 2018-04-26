@@ -28,5 +28,5 @@ void display_player(st_rpg *s)
 	sfRenderWindow_drawSprite(s->window, s->player.weapon[0]->sprite, NULL);
 	if (check_double_class(s))
 		sfRenderWindow_drawSprite(s->window, s->player.weapon[1]
-	->sprite, NULL);
+		->sprite, NULL);
 }

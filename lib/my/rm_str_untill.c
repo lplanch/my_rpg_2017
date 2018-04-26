@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2017
 ** rm_str_untill.c
 ** File description:
 ** remove since start of string untill reached chr

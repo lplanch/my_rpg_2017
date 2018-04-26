@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2017
 ** my_tbldup.c
 ** File description:
 ** file to stock all functions about setting env

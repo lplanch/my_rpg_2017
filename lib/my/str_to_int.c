@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2017
 ** str_to_int.c
 ** File description:
 ** convert a string to int

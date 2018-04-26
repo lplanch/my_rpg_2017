@@ -1,5 +1,5 @@
 ##
-## EPITECH PROJECT, 2018
+## EPITECH PROJECT, 2017
 ## Makefile
 ## File description:
 ## Makefile
@@ -20,12 +20,12 @@ FILES		=	my_putchar.c		\
 			my_calloc.c		\
 			my_revstr.c		\
 			my_strcmp.c		\
-			my_sort_params.c	\
 			my_strdup.c		\
 			my_tbldup.c		\
 			my_strminimalize.c	\
 			is_number.c		\
 			str_to_int.c		\
+			int_to_str.c		\
 			my_abs.c		\
 			my_compute_power_rec.c	\
 			replace_chr.c		\
@@ -44,8 +44,8 @@ FILES		=	my_putchar.c		\
 			is_letter.c		\
 			my_putcharror.c		\
 			get_next_line.c		\
+			file_is_empty.c		\
 			count_chr_tbl.c		\
-			int_to_str.c		\
 			my_strcpy.c		\
 			re_alloc.c
 
@@ -71,7 +71,7 @@ $(NAME):	$(OBJ)
 	@ar rc $(NAME) $(OBJ)
 
 %.o:		%.c
-	@echo -e '${GREEN} [ OK ]${NC} LibBuild $<'
+	@echo -e '${GREEN} [ OK ]${NC} Build $<'
 	@$(CC) -o $@ -c $< $(LDFLAGS) $(CFLAGS)
 
 clean:

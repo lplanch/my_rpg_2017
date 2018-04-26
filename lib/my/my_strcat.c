@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2017
 ** my_strcat.c
 ** File description:
 ** my str cat assemble 2 char *
