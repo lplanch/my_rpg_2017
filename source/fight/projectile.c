@@ -38,6 +38,10 @@ void launch_projectile(proj_t *proj, float angle)
 
 void create_projectile2(proj_t *proj)
 {
+	proj->obj->rect.width = sfTexture_getSize(sfSprite_getTexture(proj
+	->obj->sprite)).x;
+	proj->obj->rect.height = sfTexture_getSize(sfSprite_getTexture(proj
+	->obj->sprite)).y;
 	proj->obj->pos.y = 540 - proj->obj->rect.height / 2;
 	proj->obj->pos.x = 960 - proj->obj->rect.width / 2;
 	sfSprite_setPosition(proj->obj->sprite, proj->obj->pos);
@@ -65,10 +69,6 @@ proj_t *create_projectile(char *path)
 	proj->effect = get_next_line(fd);
 	proj->duration = str_to_int(get_next_line(fd)) / 100;
 	close(fd);
-	proj->obj->rect.width = sfTexture_getSize(sfSprite_getTexture(proj
-	->obj->sprite)).x;
-	proj->obj->rect.height = sfTexture_getSize(sfSprite_getTexture(proj
-	->obj->sprite)).y;
 	create_projectile2(proj);
 	return (proj);
 }

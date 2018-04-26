@@ -71,7 +71,7 @@ void event_dialog_box(st_rpg *s, sfEvent event, int fd)
 
 void dialog_box(st_rpg *s)
 {
-	char *un = my_strdup("images/dialog_box/text/");
+	char *un = my_strdup("ressources/images/dialog_box/text/");
 	char *deux = my_strdup(s->fi->pnj[s->fi->nb_pnj].name);
 	char *path = my_strcat(un, deux);
 	free(un);

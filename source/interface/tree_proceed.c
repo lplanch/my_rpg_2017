@@ -15,7 +15,7 @@ void reset_sp(st_rpg *s)
 	destroy_text(s->treem.skillp);
 	temp = int_to_str(s->player.tree.skillp);
 	s->treem.skillp = create_text(my_strcat("SP : ", temp),
-	create_vector2f(1720, 45), "fonts/button.ttf");
+	create_vector2f(1720, 45), "ressources/fonts/button.ttf");
 	free(temp);
 }
 

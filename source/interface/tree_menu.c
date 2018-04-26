@@ -89,7 +89,7 @@ char *get_tree_path(st_rpg *s, int spell, int number)
 {
 	char *tmp;
 	char *tmp2 = int_to_str(number);
-	char *str = my_strcat("spells/", int_to_str(s->player.cdata.classe));
+	char *str = my_strcat("ressources/spells/", int_to_str(s->player.cdata.classe));
 
 	tmp = my_strcat(str, "/");
 	free(str);

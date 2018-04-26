@@ -16,6 +16,12 @@
 #include "game_object.h"
 #include "projectile.h"
 
+typedef struct struct_music
+{
+	sfMusic *music;
+	int volume;
+} st_music;
+
 typedef struct struct_button
 {
 	t_object *text;
@@ -184,6 +190,7 @@ typedef struct s_files
 	colsquare_t colsquare[204];
 	map_t map;
 	clockz_t time;
+	st_music music;
 } files_t;
 
 typedef struct struct_animation

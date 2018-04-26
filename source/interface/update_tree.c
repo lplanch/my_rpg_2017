@@ -12,7 +12,7 @@ char **get_spinfo(st_rpg *s)
 {
 	char *tmp = int_to_str(s->player.cdata.classe);
 	char **tab = malloc(sizeof(char *) * 21);
-	char *str = my_strcat("spells/", tmp);
+	char *str = my_strcat("ressources/spells/", tmp);
 	int fd;
 
 	free(tmp);

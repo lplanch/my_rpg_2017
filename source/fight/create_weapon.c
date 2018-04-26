@@ -10,29 +10,29 @@
 
 void archer_create_weapon(st_rpg *s)
 {
-	s->player.weapon[0] = create_object("images/bow.png",
+	s->player.weapon[0] = create_object("ressources/images/bow.png",
 	create_vector2f(960, 540), create_rect(0, 0, 6, 46), 0);
 }
 
 void gunner_create_weapon(st_rpg *s)
 {
-	s->player.weapon[0] = create_object("images/gun.png",
+	s->player.weapon[0] = create_object("ressources/images/gun.png",
 	create_vector2f(960, 540), create_rect(0, 0, 23, 15), 0);
-	s->player.weapon[1] = create_object("images/gun.png",
+	s->player.weapon[1] = create_object("ressources/images/gun.png",
 	create_vector2f(960, 540), create_rect(0, 0, 23, 15), 0);
 }
 
 void rogue_create_weapon(st_rpg *s)
 {
-	s->player.weapon[0] = create_object("images/dagger.png",
+	s->player.weapon[0] = create_object("ressources/images/dagger.png",
 	create_vector2f(960, 540), create_rect(0, 0, 80, 13), 0);
-	s->player.weapon[1] = create_object("images/dagger.png",
+	s->player.weapon[1] = create_object("ressources/images/dagger.png",
 	create_vector2f(960, 540), create_rect(0, 0, 80, 13), 0);
 }
 
 void warrior_create_weapon(st_rpg *s)
 {
-	s->player.weapon[0] = create_object("images/greatsword.png",
+	s->player.weapon[0] = create_object("ressources/images/greatsword.png",
 	create_vector2f(960, 540), create_rect(0, 0, 93, 21), 0);
 }
 

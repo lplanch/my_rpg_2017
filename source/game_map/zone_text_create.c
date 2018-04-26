@@ -24,7 +24,7 @@ void create_dialog_box(st_rpg *s)
 	float pos_text_y = pos_y + 70;
 
 	s->fi->pnj[s->fi->nb_pnj].dialog_box = create_button("jk",
-	create_object("images/dialog_box/dialog_box_obj.png",
+	create_object("ressources/images/dialog_box/dialog_box_obj.png",
 	create_vector2f(pos_x, pos_y), create_rect(0, 0, 908, 185), 0),
 	sfWhite, 35);
 	sfText_setPosition(s->fi->pnj[s->fi->nb_pnj].dialog_box->text->text,
@@ -40,7 +40,7 @@ void create_name_box(st_rpg *s)
 
 	s->fi->pnj[s->fi->nb_pnj].name_box =
 	create_button(s->fi->pnj[s->fi->nb_pnj].name,
-	create_object("images/dialog_box/name_box_obj.png",
+	create_object("ressources/images/dialog_box/name_box_obj.png",
 	create_vector2f(pos_x, pos_y), create_rect(0, 0, 162, 76), 0),
 	sfWhite, 20);
 	sfText_setPosition(s->fi->pnj[s->fi->nb_pnj].name_box->text->text,

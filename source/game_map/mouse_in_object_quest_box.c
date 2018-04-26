@@ -14,7 +14,7 @@ int mouse_in_object_quest_box(g_object *obj,
 sfRenderWindow *window, st_rpg *s)
 {
 	int v = s->fi->camera.x - 960;
-	int w = s->fi->camera.y - 510;
+	int w = s->fi->camera.y - 540;
 	int mx = sfMouse_getPositionRenderWindow(window).x + v;
 	int my = sfMouse_getPositionRenderWindow(window).y + w;
 	int posx = obj->pos.x;

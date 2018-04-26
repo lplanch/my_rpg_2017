@@ -52,12 +52,12 @@ void generate_pause_menu(st_rpg *s)
 	s->pausm.menu = 0;
 	s->statm.show = 6;
 	s->pausm.sens = 1;
-	s->pausm.window = create_object("images/pause_window.png",
+	s->pausm.window = create_object("ressources/images/pause_window.png",
 	create_vector2f(1490, 30), create_rect(0, 0, 400, 600), 0);
-	s->pausm.cursor = create_object("images/dialog_box/cursor.png",
+	s->pausm.cursor = create_object("ressources/images/dialog_box/cursor.png",
 	create_vector2f(1500, 30), create_rect(0, 0, 24, 24), 0);
 	s->pausm.title = create_button("Pause Menu",
-	create_object("images/menu/tc.png", create_vector2f(1540, 35),
+	create_object("ressources/images/menu/tc.png", create_vector2f(1540, 35),
 	create_rect(0, 0, 300, 50), 0), sfWhite, 35);
 	sfText_setPosition(s->pausm.title->text->text,
 	create_vector2f(1572, 38));

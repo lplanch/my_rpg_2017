@@ -51,19 +51,19 @@ void display_status_menu(st_rpg *s)
 void generate_status_info(st_rpg *s)
 {
 	s->statm.classe = create_button(get_class_string(s
-	->player.cdata.classe), create_object("images/pictoclass.png",
+	->player.cdata.classe), create_object("ressources/images/pictoclass.png",
 	create_vector2f(1620, 100), create_rect(0, 32 * s->player.cdata.classe,
 	32, 32), 0), sfWhite, 30);
 	for (int i = 0; i != 6; i += 1) {
 		s->statm.stats[i] = create_button(get_stat_value(s, i),
-		create_object("images/pictostat.png",
+		create_object("ressources/images/pictostat.png",
 		create_vector2f(1540, 300 + i * 50), create_rect(0, i * 32, 32,
 		32), 0), sfWhite, 30);
 		sfText_setPosition(s->statm.stats[i]->text->text,
 		create_vector2f(1590, 300 + i * 50));
 		sfFont_destroy(s->statm.stats[i]->text->font);
 		s->statm.stats[i]->text->font =
-		sfFont_createFromFile("fonts/bars.otf");
+		sfFont_createFromFile("ressources/fonts/bars.otf");
 		sfText_setFont(s->statm.stats[i]->text->text,
 		s->statm.stats[i]->text->font);
 	}
@@ -75,20 +75,20 @@ void generate_status_menu(st_rpg *s)
 {
 	char *temp;
 
-	s->statm.window = create_object("images/pause_window.png",
+	s->statm.window = create_object("ressources/images/pause_window.png",
 	create_vector2f(1490, 30), create_rect(0, 0, 400, 600), 0);
-	s->statm.face = create_object("images/heroface.png",
+	s->statm.face = create_object("ressources/images/heroface.png",
 	create_vector2f(1500, 40),
 	create_rect(0, s->player.cdata.sex * 100, 100, 100), 0);
 	s->statm.name = create_text(s->player.cdata.name, create_vector2f(1620,
-	50), "fonts/button.ttf");
+	50), "ressources/fonts/button.ttf");
 	temp = int_to_str(s->player.stat->lvl);
 	s->statm.lvl = create_text(my_strcat("Level ", temp),
-	create_vector2f(1525, 150), "fonts/button.ttf");
+	create_vector2f(1525, 150), "ressources/fonts/button.ttf");
 	free(temp);
 	temp = int_to_str(s->player.stat->exp);
 	s->statm.exp = create_text(my_strcat(temp, " / 100 XP"),
-	create_vector2f(1525, 200), "fonts/button.ttf");
+	create_vector2f(1525, 200), "ressources/fonts/button.ttf");
 	free(temp);
 	generate_status_info(s);
 }

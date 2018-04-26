@@ -40,21 +40,21 @@ void update_bars(st_rpg *s)
 
 void create_life_bar(st_rpg *s)
 {
-	s->bar.bars = create_object("images/bars.png", create_vector2f(40, 40),
+	s->bar.bars = create_object("ressources/images/bars.png", create_vector2f(40, 40),
 	create_rect(0, 0, 408, 82), 0);
-	s->bar.life = create_object("images/life.png",
+	s->bar.life = create_object("ressources/images/life.png",
 	create_vector2f(s->bar.bars->pos.x + 82, s->bar.bars->pos.y + 18),
 	create_rect(0, 0, 316, 18), 0);
-	s->bar.xp = create_object("images/xp.png",
+	s->bar.xp = create_object("ressources/images/xp.png",
 	create_vector2f(s->bar.life->pos.x, s->bar.bars->pos.y + 47),
 	create_rect(0, 0, 316, 18), 0);
 	s->bar.values[0] = create_text("0", create_vector2f(67, 67),
-	"fonts/bars.otf");
+	"ressources/fonts/bars.otf");
 	s->bar.values[1] = create_text("0", create_vector2f(125, 60),
-	"fonts/bars.otf");
+	"ressources/fonts/bars.otf");
 	sfText_setCharacterSize(s->bar.values[1]->text, 14);
 	s->bar.values[2] = create_text("0", create_vector2f(125, 88),
-	"fonts/bars.otf");
+	"ressources/fonts/bars.otf");
 	sfText_setCharacterSize(s->bar.values[2]->text, 14);
 }
 

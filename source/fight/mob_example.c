@@ -11,9 +11,9 @@
 void create_mob_example(st_rpg *s)
 {
 	s->f.mob = malloc(sizeof(enemy_t));
-	s->f.mob->obj = create_object("images/enemy.png", create_vector2f(980,
+	s->f.mob->obj = create_object("ressources/images/enemy.png", create_vector2f(980,
 	500), create_rect(0, 0, 58, 89), 0);
-	s->f.mob->life = create_object("images/minibar.png",
+	s->f.mob->life = create_object("ressources/images/minibar.png",
 	create_vector2f(s->f.mob->obj->pos.x, s->f.mob->obj->pos.y - 20),
 	create_rect(0, 0, 50, 10), 0);
 	s->f.mob->stat = create_first_stat();
