@@ -122,6 +122,7 @@ FILES		=	source/main.c					\
 			source/game_map/draw_dialog.c			\
 			source/game_map/zone_text.c			\
 			source/game_map/choice_box.c			\
+			source/game_map/choice_box_quit.c			\
 			source/game_map/choicebox_create_event.c	\
 			source/game_map/setpixel_to_image.c		\
 			source/game_map/mouse_in_object_dialogbox.c	\

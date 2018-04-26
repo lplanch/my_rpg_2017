@@ -86,7 +86,9 @@ void free_all(st_rpg *s);
 void free_tab_withnull(char **tab);
 
 void dialog_box(st_rpg *s);
-void choice_box(st_rpg *s, int fd);
+int choice_box(st_rpg *s, int fd);
+void choice_box_quit(st_rpg *s, char **tab, char *str, int compter);
+int choice_box_check_quit(st_rpg *s, char **tab, char *str, int compter);
 int mouse_in_object_dialogbox(g_object *obj,
 sfRenderWindow *window, st_rpg *s);
 int mouse_in_object_quest_box(g_object *obj,
