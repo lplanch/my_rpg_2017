@@ -46,10 +46,6 @@ typedef struct player_manager
 	sfSprite *sprite;
 	sfIntRect rect;
 	sfVector2f pos;
-	sfVector2f last_pos;
-	int max_speed;
-	sfVector2i nbr_frame;
-	sfVector2f acceleration;
 } player_t;
 
 typedef struct game_manager
@@ -86,10 +82,3 @@ typedef struct proc_var
 	int max_floor;
 	sfColor background;
 } proc_var_t;
-
-typedef struct game_agent
-{
-	proc_t *proc;
-	ingame_t ingame;
-	proc_var_t *pvar;
-} gage_t;

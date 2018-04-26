@@ -42,30 +42,6 @@ typedef struct ingame_inventory_manager
 	item_t *weapon;
 } ing_inv_t;
 
-//PLAYER INGAME STATUS
-typedef struct ingame_player_status
-{
-	unsigned int healing;
-	unsigned int poison;
-	unsigned int stun;
-	unsigned int acceleration;
-	unsigned int invincible;
-	unsigned int vanish;
-} ing_status_t;
-
-//PLAYER INGAME MANAGER
-typedef struct ingame_player
-{
-	unsigned int hpm;
-	unsigned int exp;
-	unsigned int level;
-	ing_status_t status;
-	unsigned int attack;
-	unsigned int armor;
-	unsigned int luck;
-	unsigned int speed;
-} ing_player_t;
-
 typedef struct ingame_struct
 {
 	ing_player_t player;

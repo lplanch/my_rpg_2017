@@ -465,11 +465,14 @@ typedef struct struct_player_info
 	st_cdata cdata;
 	g_object *obj;
 	g_object *weapon[2];
+	sfVector2f last_pos;
+	sfVector2i nbr_frame;
+	sfVector2f acceleration;
 } player_t;
 
 typedef struct struct_rpg
 {
-	proc_t *proc;
+	proc_t proc;
 	ing_inv_t inv;
 	ing_finv_t finv;
 	fight_t f;
