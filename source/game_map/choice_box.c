@@ -57,10 +57,9 @@ void choise_box_bouc(st_rpg *s, int compter, char **tab)
 		i++;
 	}
 	destroy_choice_box(s, compter);
-	s->fi->choice_cursor = 0;
 }
 
-void choice_box(st_rpg *s, int fd)
+int choice_box(st_rpg *s, int fd)
 {
 	int compter = 0;
 	char *str = get_next_line(fd);
@@ -78,7 +77,5 @@ void choice_box(st_rpg *s, int fd)
 	compter++;
 	create_choice_box(s, compter, tab);
 	choise_box_bouc(s, compter, tab);
-	s->fi->nb_choice_pre = compter;
-	free_tab_withnull(tab);
-	free(str);
+	return (choice_box_check_quit(s, tab, str, compter));
 }

@@ -10,7 +10,8 @@
 
 void update_quests_box_des(st_rpg *s)
 {
-	int file = open(s->fi->quests[s->fi->quests_box.nb_quests]->path, O_RDONLY);
+	int file = open(s->fi->quests[s->fi->quests_box.nb_quests]->path,
+	O_RDONLY);
 	char buffer[51] = {'\0'};
 	char *str = NULL;
 	char *temp = NULL;
@@ -24,11 +25,12 @@ void update_quests_box_des(st_rpg *s)
 		str = temp;
 	}
 	sfText_setString(s->fi->quests_box.quests_des->text->text, str);
+	close(file);
 }
 
 void check_quests(st_rpg *s)
 {
-	s->fi->quests[1]->status = 1;
+	s->fi->quests[0]->status = 1;
 	for (int i = 0; s->fi->quests[i] != NULL; i++) {
 		if (s->fi->quests[i]->status == 1) {
 			s->fi->quests_box.nb_quests = i;
