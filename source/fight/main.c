@@ -8,6 +8,14 @@
 #include "my_rpg.h"
 #include "my.h"
 
+void destroy_main_fight(st_rpg *s)
+{
+	for (int i = 0; i != 3; i += 1)
+		destroy_object(s->f.locks[i]);
+	sfClock_destroy(s->f.proc.clock);
+	destroy_object(s->center);
+}
+
 void create_main_fight(st_rpg *s)
 {
 	s->f.cast = 0;
@@ -17,6 +25,10 @@ void create_main_fight(st_rpg *s)
 	for (int i = 0; i != 4; i += 1)
 		s->f.cdcount[i] = 0;
 	get_cooldowns(s);
+	for (int i = 0; i != 3; i += 1)
+		s->f.locks[i] = create_object("images/lock.png",
+		create_vector2f(320 + 100 * i, 820),
+		create_rect(0, 0, 38, 38), 0);
 }
 
 int fight_events(st_rpg *s)
@@ -33,9 +45,8 @@ int fight_events(st_rpg *s)
 			destroy_icons(s);
 			destroy_life_bar(s);
 			destroy_mob_example(s);
-			sfClock_destroy(s->f.proc.clock);
 			destroy_player(s);
-			destroy_object(s->center);
+			destroy_main_fight(s);
 			return (1);
 		}
 	}

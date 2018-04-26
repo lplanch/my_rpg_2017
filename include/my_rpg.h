@@ -368,6 +368,7 @@ typedef struct main_fight
 	enemy_t *mob;
 	st_button *icons[4];
 	g_object *cd[4];
+	g_object *locks[3];
 	float cdcount[4];
 	float cds[4];
 	int cast;

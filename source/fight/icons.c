@@ -8,8 +8,35 @@
 #include "my_rpg.h"
 #include "my.h"
 
+void display_locked_spells_cd(st_rpg *s)
+{
+	if (s->player.tree.lock[s->player.tree.spell1 + 3])
+		sfSprite_setTextureRect(s->f.cd[1]->sprite, create_rect(0, 0,
+		sfSprite_getTextureRect(s->f.cd[1]->sprite).height,
+		sfSprite_getTextureRect(s->f.cd[1]->sprite).height));
+	if (s->player.tree.lock[s->player.tree.spell2 + 6])
+		sfSprite_setTextureRect(s->f.cd[2]->sprite, create_rect(0, 0,
+		sfSprite_getTextureRect(s->f.cd[2]->sprite).height,
+		sfSprite_getTextureRect(s->f.cd[2]->sprite).height));
+	if (s->player.tree.lock[s->player.tree.spell3 + 8])
+		sfSprite_setTextureRect(s->f.cd[3]->sprite, create_rect(0, 0,
+		sfSprite_getTextureRect(s->f.cd[3]->sprite).height,
+		sfSprite_getTextureRect(s->f.cd[3]->sprite).height));
+}
+
+void display_locked_spells(st_rpg *s)
+{
+	if (s->player.tree.lock[s->player.tree.spell1 + 3])
+		display_object(s->window, s->f.locks[0]);
+	if (s->player.tree.lock[s->player.tree.spell2 + 6])
+		display_object(s->window, s->f.locks[1]);
+	if (s->player.tree.lock[s->player.tree.spell3 + 8])
+		display_object(s->window, s->f.locks[2]);
+}
+
 void display_icons(st_rpg *s)
 {
+	display_locked_spells_cd(s);
 	for (int i = 0; i != 4; i += 1) {
 		sfRenderWindow_drawSprite(s->window,
 		s->f.icons[i]->obj->sprite, NULL);
@@ -19,9 +46,10 @@ void display_icons(st_rpg *s)
 		s->f.icons[i]->text->text, NULL);
 	} if (s->player.cdata.classe == 2 && s->player.tree.passive == 2) {
 		if (s->f.rog.vanish > 0) {
-
+			display_button(s->window, s->f.rog.backstab);
 		}
 	}
+	display_locked_spells(s);
 }
 
 void destroy_icons(st_rpg *s)

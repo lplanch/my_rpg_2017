@@ -42,8 +42,16 @@ void display_tree_menu2(st_rpg *s)
 		} if (s->player.tree.lock[i])
 			display_object(s->window, s->treem.lock[i]);
 	}
-	for (int i = 0; i != 4; i += 1)
-		display_object(s->window, s->treem.select[i]);
+	if (!s->player.tree.lock[0] || !s->player.tree.lock[1]
+		|| !s->player.tree.lock[2])
+		display_object(s->window, s->treem.select[0]);
+	if (!s->player.tree.lock[3] || !s->player.tree.lock[4]
+		|| !s->player.tree.lock[5])
+		display_object(s->window, s->treem.select[1]);
+	if (!s->player.tree.lock[6] || !s->player.tree.lock[7])
+		display_object(s->window, s->treem.select[2]);
+	if (!s->player.tree.lock[8] || !s->player.tree.lock[9])
+		display_object(s->window, s->treem.select[3]);
 }
 
 void display_tree_menu(st_rpg *s)
