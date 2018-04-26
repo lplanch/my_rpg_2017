@@ -8,7 +8,7 @@
 #include "my_rpg.h"
 #include "my.h"
 
-void generate_tree_menu4(st_rpg *s)
+void generate_tree_menu_mouse(st_rpg *s)
 {
 	for (int i = 0; i != 3; i += 1) {
 		s->treem.pas[i] = create_object(get_tree_path(s, 0, i + 1),
@@ -25,7 +25,7 @@ void generate_tree_menu4(st_rpg *s)
 	tree_set_rects(s);
 }
 
-void generate_tree_menu3(st_rpg *s)
+void generate_tree_menu_spell(st_rpg *s)
 {
 	for (int i = 0; i != 10; i += 1)
 		s->treem.lock[i] = create_object("images/lock.png",
@@ -45,7 +45,7 @@ void generate_tree_menu3(st_rpg *s)
 	}
 }
 
-void generate_tree_menu2(st_rpg *s)
+void generate_tree_menu_pas(st_rpg *s)
 {
 	char *temp;
 
@@ -71,9 +71,9 @@ void generate_tree_menu2(st_rpg *s)
 
 void generate_tree_menu(st_rpg *s)
 {
-	generate_tree_menu2(s);
-	generate_tree_menu3(s);
-	generate_tree_menu4(s);
+	generate_tree_menu_pas(s);
+	generate_tree_menu_spell(s);
+	generate_tree_menu_mouse(s);
 	s->treem.sp[0] = create_text("NAME",
 	create_vector2f(1520, 450), "fonts/button.ttf");
 	sfText_setCharacterSize(s->treem.sp[0]->text, 20);

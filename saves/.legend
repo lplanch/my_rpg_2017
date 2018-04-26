@@ -18,7 +18,7 @@ name (character string)
 third one is the skill tree :
 lockstate of passive1 (0-1)
 lockstate of passive2 (0-1)
-lockstate of passive1 (0-1)
+lockstate of passive3 (0-1)
 lockstate of spell1-1 (0-1)
 lockstate of spell1-2 (0-1)
 lockstate of spell1-3 (0-1)
