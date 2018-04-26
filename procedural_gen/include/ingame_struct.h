@@ -21,6 +21,15 @@ typedef struct inventory_item
 	struct inventory_item *next;
 } item_t;
 
+typedef struct fast_inventory
+{
+	sfTexture *texture;
+	sfSprite *sprite;
+	sfIntRect rect;
+	sfVector2f created_pos;
+	int created;
+} ing_finv_t;
+
 typedef struct ingame_inventory_manager
 {
 	framebuffer_t *background;
@@ -61,4 +70,5 @@ typedef struct ingame_struct
 {
 	ing_player_t player;
 	ing_inv_t inv;
+	ing_finv_t finv;
 } ingame_t;

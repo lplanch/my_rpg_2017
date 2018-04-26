@@ -26,8 +26,8 @@ static const sfKeyCode key_down = sfKeyS;
 static const sfKeyCode key_left = sfKeyQ;
 static const sfKeyCode key_right = sfKeyD;
 static const sfKeyCode key_map = sfKeyTab;
-static const sfKeyCode key_inv = sfKeyI;
-static const sfKeyCode key_fast_inv = sfKeyLShift;
+static const sfKeyCode key_inv = sfKeyLShift;
+static const sfMouseButton key_fast_inv = sfMouseMiddle;
 
 //MAKE MAP
 proc_t *map_creation(gage_t *gage);
@@ -130,4 +130,6 @@ ingame_t *create_ingame_player(void);
 void clear_inventory_slot(item_t *slot);
 void add_inventory_slot(item_t *first_slot);
 void remove_inventory_slot(item_t *first_slot);
+void create_fast_inventory_screen(ingame_t *ing);
 void verify_inventory(gmanager_t *gman);
+void verify_fast_inventory(gmanager_t *gman);

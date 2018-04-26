@@ -27,7 +27,7 @@ void draw_inventory(gmanager_t *gman)
 
 void verify_inventory(gmanager_t *gman)
 {
-	if (sfKeyboard_isKeyPressed(key_inv) == sfTrue) {
+	if (sfKeyboard_isKeyPressed(key_inv)) {
 		draw_inventory(gman);
 	}
 }
