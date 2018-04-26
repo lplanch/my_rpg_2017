@@ -132,7 +132,6 @@ FILES		=	source/main.c					\
 			source/game_map/move_infos.c			\
 			source/quests/create_difquests.c		\
 			source/quests/get_quests_rewards.c		\
-			source/quests/display_quest_with_printf.c	\
 			source/quests/get_all_quests.c			\
 			source/quests/check_quests.c			\
 			source/quests/get_quests.c			\
