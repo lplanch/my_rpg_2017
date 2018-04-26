@@ -79,7 +79,7 @@ void create_name_box(st_rpg *s);
 int **get_layer(char *name, st_rpg *s);
 void create_map(st_rpg *s);
 void parsing(struct stat a, st_rpg *s);
-void update_player_position(st_rpg *s);
+void update_player_position_village(st_rpg *s);
 
 void free_tab(char **tab, int y);
 void free_all(st_rpg *s);

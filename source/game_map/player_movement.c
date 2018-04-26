@@ -8,7 +8,7 @@
 #include "my.h"
 #include "game_map.h"
 
-int interval(float value, float less, float max)
+int interval_float(float value, float less, float max)
 {
 	if (value > less && value < max)
 		return (1);
@@ -17,13 +17,13 @@ int interval(float value, float less, float max)
 
 void set_speed_zero(st_rpg *s)
 {
-	if (interval(s->fi->speed.x, 0, speed * 2.2) == 1) {
+	if (interval_float(s->fi->speed.x, 0, speed * 2.2) == 1) {
 		s->fi->speed.x = 0;
-	} if (interval(s->fi->speed.x, -speed * 2.2, 0) == 1) {
+	} if (interval_float(s->fi->speed.x, -speed * 2.2, 0) == 1) {
 		s->fi->speed.x = 0;
-	} if (interval(s->fi->speed.y, 0, speed * 2.2) == 1) {
+	} if (interval_float(s->fi->speed.y, 0, speed * 2.2) == 1) {
 		s->fi->speed.y = 0;
-	} if (interval(s->fi->speed.y, -speed * 2.2, 0) == 1) {
+	} if (interval_float(s->fi->speed.y, -speed * 2.2, 0) == 1) {
 		s->fi->speed.y = 0;
 	}
 }
@@ -60,7 +60,7 @@ void make_player_position(st_rpg *s)
 	}
 }
 
-void update_player_position(st_rpg *s)
+void update_player_position_village(st_rpg *s)
 {
 	s->fi->speed.y += s->fi->velocity.y;
 	s->fi->speed.x += s->fi->velocity.x;

@@ -13,7 +13,7 @@ void game_update(st_rpg *s)
 	if (s->fi->dialog_box_isopen == 1)
 		dialog_box(s);
 	move_ok(s);
-	update_player_position(s);
+	update_player_position_village(s);
 	move_id_player(s);
 	move_infos_box(s);
 	draw(s);
