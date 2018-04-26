@@ -15,6 +15,8 @@
 #include <stdlib.h>
 #include "game_object.h"
 #include "projectile.h"
+#include "ingame_struct.h"
+#include "procedural_struct.h"
 
 typedef struct struct_music
 {
@@ -467,6 +469,9 @@ typedef struct struct_player_info
 
 typedef struct struct_rpg
 {
+	proc_t *proc;
+	ing_inv_t inv;
+	ing_finv_t finv;
 	fight_t f;
 	bars_t bar;
 	player_t player;

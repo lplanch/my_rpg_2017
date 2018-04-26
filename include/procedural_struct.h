@@ -57,8 +57,6 @@ typedef struct game_manager
 	sfVideoMode mode;
 	sfRenderWindow *window;
 	sfView *camera;
-	player_t player;
-	ingame_t *ing;
 	sfVector2f camera_pos;
 	sfClock *clock;
 	sfTime time;
@@ -91,7 +89,7 @@ typedef struct proc_var
 
 typedef struct game_agent
 {
-	proc_t proc;
+	proc_t *proc;
 	ingame_t ingame;
-	proc_var_t pvar;
+	proc_var_t *pvar;
 } gage_t;
