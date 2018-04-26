@@ -43,7 +43,7 @@ void parsing(struct stat a, st_rpg *s)
 	int y = 0;
 	int k = 0;
 	int len = 0;
-	int file = open("map_preset/parsing", O_RDONLY);
+	int file = open("ressources/map_preset/parsing", O_RDONLY);
 	char *buff = my_calloc(sizeof(char) * a.st_size + 1);
 	char *str = my_calloc(sizeof(char) * a.st_size + 1);
 
