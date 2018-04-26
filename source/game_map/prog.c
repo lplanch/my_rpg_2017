@@ -31,7 +31,7 @@ int prog(st_rpg *s)
 			return (1);
 		game_update(s);
 		if (sfMusic_getStatus(s->fi->music.music) == 0)
-				sfMusic_play(s->fi->music.music);
+			sfMusic_play(s->fi->music.music);
 	}
 	return (0);
 }

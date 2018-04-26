@@ -33,7 +33,8 @@ int event_game(st_rpg *s)
 		} if (event.type == sfEvtKeyPressed && event.key.code ==
 		sfKeyD) {
 			check_quests(s);
-		} if (mouse_in_object_quest_box(s->fi->quests_box.quests_box->obj, s->window, s) == 1) {
+		} if (mouse_in_object_quest_box(s->fi
+		->quests_box.quests_box->obj, s->window, s) == 1) {
 			update_quests_box_des(s);
 			s->fi->quests_box.status = 1;
 		} else
