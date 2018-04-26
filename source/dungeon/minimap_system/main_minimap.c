@@ -30,7 +30,7 @@ void init_minimap_framebuffers(minimap_t *minimap)
 
 void init_minimap(gage_t *gage, proc_t *proc)
 {
-	char *cur_level = int_to_str(gage->pvar->current_floor);
+	char *cur_level = int_to_str(gage->pvar.current_floor);
 	char *level_string = my_strcat("Floor ", cur_level);
 	sfColor trans_white = {255, 255, 255, 128};
 
@@ -74,6 +74,6 @@ void draw_minimap(proc_t *proc)
 void verify_minimap(gage_t *gage)
 {
 	if (sfKeyboard_isKeyPressed(key_map) == sfTrue) {
-		draw_minimap(gage->proc);
+		draw_minimap(&gage->proc);
 	}
 }

@@ -51,10 +51,9 @@ void free_dungeon(proc_t *proc)
 
 void free_gage_game(gage_t *gage)
 {
-	sfTexture_destroy(gage->proc->gman->player.texture);
-	sfSprite_destroy(gage->proc->gman->player.sprite);
-	sfRenderWindow_destroy(gage->proc->gman->window);
-	sfClock_destroy(gage->proc->gman->clock);
-	free(gage->proc->gman);
-	free(gage->proc);
+	sfTexture_destroy(gage->proc.gman->player.texture);
+	sfSprite_destroy(gage->proc.gman->player.sprite);
+	sfRenderWindow_destroy(gage->proc.gman->window);
+	sfClock_destroy(gage->proc.gman->clock);
+	free(gage->proc.gman);
 }

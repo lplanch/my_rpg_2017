@@ -24,7 +24,7 @@ void my_draw_line(framebuffer_t *b, int pos1[2], int pos2[2], sfColor c)
 	iy = cy / (float)max;
 	cx = pos1[0];
 	cy = pos1[1];
-	for (int i = 0; i < max; i++) {
+	for (unsigned int i = 0; i < max; i++) {
 		cx = cx + ix;
 		cy = cy + iy;
 		my_put_pixel(b, (int)cx, (int)cy, c);

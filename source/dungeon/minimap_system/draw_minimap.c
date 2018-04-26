@@ -8,7 +8,7 @@
 #include "my.h"
 #include "procedural.h"
 
-void draw_rect_room(proc_t *proc, proom_t *proom, int x, int y)
+void draw_rect_room(proc_t *proc, int x, int y)
 {
 	sfColor white_trans = {255, 255, 255, 128};
 	sfColor red_trans = {183, 0, 0, 128};

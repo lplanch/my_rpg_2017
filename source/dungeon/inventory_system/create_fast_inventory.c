@@ -10,8 +10,6 @@
 
 void create_fast_inventory_screen(ingame_t *ing)
 {
-	int finv_size = HEIGHT / 4;
-
 	ing->finv.rect.width = 160;
 	ing->finv.rect.height = 160;
 	ing->finv.rect.left = 0;

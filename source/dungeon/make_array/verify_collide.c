@@ -53,9 +53,9 @@ void make_positions_proom(gage_t *gage, proc_t *proc)
 	int iter = 0;
 	int fail;
 
-	for (int i = 0; i < gage->pvar->nbr_rooms; i++) {
+	for (unsigned int i = 0; i < gage->pvar.nbr_rooms; i++) {
 		fail = 0;
-		temp_proom = new_room(gage->pvar);
+		temp_proom = new_room(&gage->pvar);
 		verify_intersect(temp_proom, proc, iter, &fail);
 		if (!fail) {
 			proc->proom[iter] = temp_proom;
@@ -67,7 +67,7 @@ void make_positions_proom(gage_t *gage, proc_t *proc)
 	}
 }
 
-void make_holes(proom_t *proom, char **map, int i)
+void make_holes(proom_t *proom, char **map)
 {
 	for (int y = proom->pos1[1]; y < proom->pos2[1]; y++) {
 		for (int x = proom->pos1[0]; x < proom->pos2[0]; x++) {
