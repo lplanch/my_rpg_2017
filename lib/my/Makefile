@@ -38,6 +38,7 @@ FILES		=	my_putchar.c		\
 			get_str_untill.c	\
 			my_strchr.c		\
 			my_putstrror.c		\
+			my_sort_params.c	\
 			my_tbl_append.c		\
 			my_tbl_rm.c		\
 			rm_str_untill.c		\
