@@ -37,6 +37,16 @@ void destroy_texture(st_rpg *s)
 	sfTexture_destroy(s->fi->map.texture5);
 }
 
+void destroy_quests(st_rpg *s)
+{
+	for (int i = 0; s->fi->quests[i] != NULL; i++) {
+		free (s->fi->quests[i]->title);
+		free (s->fi->quests[i]->path);
+	}
+	destroy_button(s->fi->quests_box.quests_box);
+	destroy_button(s->fi->quests_box.quests_des);
+}
+
 void destroy(st_rpg *s)
 {
 	sfImage_destroy(s->fi->map.image);
@@ -48,6 +58,7 @@ void destroy(st_rpg *s)
 	destroy_sprite(s);
 	destroy_texture(s);
 	destroy_pnj(s);
+	destroy_quests(s);
 	destroy_object(s->fi->character);
 	destroy_object(s->fi->ID_character);
 	destroy_object(s->fi->loading);

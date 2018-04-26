@@ -29,7 +29,6 @@ void get_all_quests_plus(st_rpg *s, char **tab, int i)
 		s->fi->quests[i] = get_quests(tab[i]);
 	}
 	s->fi->quests[i] = NULL;
-	//display_all(s, size);
 }
 
 void get_all_quests(st_rpg *s, char *path)
