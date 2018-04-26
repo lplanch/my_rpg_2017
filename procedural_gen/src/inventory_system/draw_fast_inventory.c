@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "../../include/procedural.h"
+#include "procedural.h"
 
 void set_created_position(gmanager_t *gman)
 {

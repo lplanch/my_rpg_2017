@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "../../include/procedural.h"
+#include "procedural.h"
 
 void fade_in_text(sfRenderWindow *window, sfText *text)
 {

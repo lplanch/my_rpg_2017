@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "../../include/procedural.h"
+#include "procedural.h"
 
 int draw_sprites_map(gage_t *gage, proc_t *proc)
 {

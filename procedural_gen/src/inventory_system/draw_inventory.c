@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "../../include/procedural.h"
+#include "procedural.h"
 
 void draw_inventory_background(gmanager_t *gman)
 {

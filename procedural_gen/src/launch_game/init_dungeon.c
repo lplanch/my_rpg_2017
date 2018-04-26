@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "../../include/procedural.h"
+#include "procedural.h"
 
 void init_window(gmanager_t *gman, proc_t *proc)
 {

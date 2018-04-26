@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "../../include/procedural.h"
+#include "procedural.h"
 
 void my_draw_line(framebuffer_t *b, int pos1[2], int pos2[2], sfColor c)
 {
