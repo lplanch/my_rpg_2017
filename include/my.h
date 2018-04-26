@@ -68,6 +68,8 @@ int count_lines(char **tbl);
 int count_chr(char *str, char chr);
 int count_chr_tbl(char **tbl, char chr);
 
+char **my_sort_params(char **table);
+
 char *get_next_line(int fd);
 char *int_to_str(int nbr);
 
