@@ -8,6 +8,15 @@
 #include "my.h"
 #include "game_map.h"
 
+void move_infos_box_des(st_rpg *s, sfVector2f pos_quests_des, sfVector2f pos_quests_des_text)
+{
+	sfSprite_setPosition(s->fi->quests_box.quests_des->obj->sprite,
+	s->fi->quests_box.quests_des->obj->pos);
+	s->fi->quests_box.quests_des->text->pos = pos_quests_des_text;
+	sfText_setPosition(s->fi->quests_box.quests_des->text->text,
+	s->fi->quests_box.quests_des->text->pos);
+}
+
 void move_infos_box(st_rpg *s)
 {
 	sfVector2f pos_quests_box = create_vector2f(s->fi->camera.x - 960, s->fi->camera.y - 510);
@@ -21,11 +30,6 @@ void move_infos_box(st_rpg *s)
 	s->fi->quests_box.quests_box->text->pos = pos_quests_box_text;
 	sfText_setPosition(s->fi->quests_box.quests_box->text->text,
 	s->fi->quests_box.quests_box->text->pos);
-
 	s->fi->quests_box.quests_des->obj->pos = pos_quests_des;
-	sfSprite_setPosition(s->fi->quests_box.quests_des->obj->sprite,
-	s->fi->quests_box.quests_des->obj->pos);
-	s->fi->quests_box.quests_des->text->pos = pos_quests_des_text;
-	sfText_setPosition(s->fi->quests_box.quests_des->text->text,
-	s->fi->quests_box.quests_des->text->pos);
+	move_infos_box_des(s, pos_quests_des, pos_quests_des_text);
 }
