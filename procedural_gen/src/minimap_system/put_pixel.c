@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "../../include/procedural.h"
+#include "procedural.h"
 
 framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)
 {
@@ -26,7 +26,7 @@ void my_put_pixel(framebuffer_t *buffer, int x, int y, sfColor color)
 {
 	int a = 0;
 
-	if (x < 0 || WIDTH <= x || y < 0 || HEIGHT <= y)
+	if (x < 0 || buffer->width <= x || y < 0 || buffer->height <= y)
 		return;
 	a = (y * buffer->width + x) * 4;
 	buffer->pixels[a] = color.r;

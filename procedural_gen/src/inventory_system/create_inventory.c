@@ -6,9 +6,9 @@
 */
 
 #include "my.h"
-#include "../../include/procedural.h"
+#include "procedural.h"
 
-void fill_inventory_boxes(framebuffer_t *buffer)
+void fill_inventory_background(framebuffer_t *buffer)
 {
 	sfColor bla = {50, 50, 57, 180};
 
@@ -38,7 +38,7 @@ void create_inventory_screen(ingame_t *ing)
 	ing->inv.bsprite = sfSprite_create();
 	sfSprite_setTexture(ing->inv.bsprite, ing->inv.btexture, sfTrue);
 	fill_minimap_screen(ing->inv.background, sfTGrey);
-	fill_inventory_boxes(ing->inv.background);
+	fill_inventory_background(ing->inv.background);
 }
 
 item_t *create_first_slot(void)
@@ -68,5 +68,6 @@ ingame_t *create_ingame_player(void)
 
 	create_inventory_screen(ing);
 	create_inventory_var(ing);
+	create_fast_inventory_screen(ing);
 	return (ing);
 }

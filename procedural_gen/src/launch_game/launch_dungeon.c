@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "../../include/procedural.h"
+#include "procedural.h"
 
 int draw_sprites_map(gage_t *gage, proc_t *proc)
 {
@@ -22,6 +22,7 @@ int draw_sprites_map(gage_t *gage, proc_t *proc)
 	proc->gman->player.sprite, NULL);
 	verify_minimap(gage);
 	verify_inventory(proc->gman);
+	verify_fast_inventory(proc->gman);
 	return (1);
 }
 

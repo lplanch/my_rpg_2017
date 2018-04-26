@@ -10,6 +10,7 @@
 
 void display_icons(st_rpg *s)
 {
+	display_locked_spells_cd(s);
 	for (int i = 0; i != 4; i += 1) {
 		sfRenderWindow_drawSprite(s->window,
 		s->f.icons[i]->obj->sprite, NULL);
@@ -19,9 +20,10 @@ void display_icons(st_rpg *s)
 		s->f.icons[i]->text->text, NULL);
 	} if (s->player.cdata.classe == 2 && s->player.tree.passive == 2) {
 		if (s->f.rog.vanish > 0) {
-
+			display_button(s->window, s->f.rog.backstab);
 		}
 	}
+	display_locked_spells(s);
 }
 
 void destroy_icons(st_rpg *s)

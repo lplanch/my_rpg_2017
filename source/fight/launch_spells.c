@@ -48,13 +48,16 @@ void launch_spells(st_rpg *s)
 	if (sfMouse_isButtonPressed(sfMouseLeft) && s->f.cdcount[0] <= 0) {
 		s->f.cdcount[0] = s->f.cds[0];
 		launch_auto_attack(s);
-	} if (sfMouse_isButtonPressed(sfMouseRight) && s->f.cdcount[1] <= 0) {
+	} if (sfMouse_isButtonPressed(sfMouseRight) && s->f.cdcount[1] <= 0 &&
+	!s->player.tree.lock[s->player.tree.spell1 + 3]) {
 		s->f.cdcount[1] = s->f.cds[1];
 		launch_spell1(s);
-	} if (sfKeyboard_isKeyPressed(sfKeyE) && s->f.cdcount[2] <= 0) {
+	} if (sfKeyboard_isKeyPressed(sfKeyE) && s->f.cdcount[2] <= 0 &&
+	!s->player.tree.lock[s->player.tree.spell2 + 6]) {
 		s->f.cdcount[2] = s->f.cds[2];
 		launch_spell2(s);
-	} if (sfKeyboard_isKeyPressed(sfKeyR) && s->f.cdcount[3] <= 0) {
+	} if (sfKeyboard_isKeyPressed(sfKeyR) && s->f.cdcount[3] <= 0 &&
+	!s->player.tree.lock[s->player.tree.spell3 + 8]) {
 		s->f.cdcount[3] = s->f.cds[3];
 		launch_spell3(s);
 	}

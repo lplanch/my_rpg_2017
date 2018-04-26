@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "../../include/procedural.h"
+#include "procedural.h"
 
 void draw_inventory_background(gmanager_t *gman)
 {
@@ -27,7 +27,7 @@ void draw_inventory(gmanager_t *gman)
 
 void verify_inventory(gmanager_t *gman)
 {
-	if (sfKeyboard_isKeyPressed(key_inv) == sfTrue) {
+	if (sfKeyboard_isKeyPressed(key_inv)) {
 		draw_inventory(gman);
 	}
 }

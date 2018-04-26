@@ -8,6 +8,14 @@
 #include "my_rpg.h"
 #include "my.h"
 
+void destroy_main_fight(st_rpg *s)
+{
+	for (int i = 0; i != 3; i += 1)
+		destroy_object(s->f.locks[i]);
+	sfClock_destroy(s->f.proc.clock);
+	destroy_object(s->center);
+}
+
 void create_main_fight(st_rpg *s)
 {
 	s->f.cast = 0;
@@ -17,6 +25,10 @@ void create_main_fight(st_rpg *s)
 	for (int i = 0; i != 4; i += 1)
 		s->f.cdcount[i] = 0;
 	get_cooldowns(s);
+	for (int i = 0; i != 3; i += 1)
+		s->f.locks[i] = create_object("images/lock.png",
+		create_vector2f(320 + 100 * i, 820),
+		create_rect(0, 0, 38, 38), 0);
 }
 
 int fight_events(st_rpg *s)
@@ -24,22 +36,32 @@ int fight_events(st_rpg *s)
 	sfEvent event;
 
 	while (sfRenderWindow_pollEvent(s->window, &event)) {
-		update_menu_stat_mouse_over(s);
-		if (event.type == sfEvtMouseButtonPressed)
-			update_tree_menu(s);
+		if (event.type == sfEvtKeyPressed &&
+			sfKeyboard_isKeyPressed(sfKeyEscape))
+			return (pause_main(s));
 		if (event.type == sfEvtClosed) {
 			s->returnv = 1;
 			destroy_class(s);
 			destroy_icons(s);
 			destroy_life_bar(s);
 			destroy_mob_example(s);
-			sfClock_destroy(s->f.proc.clock);
 			destroy_player(s);
-			destroy_object(s->center);
+			destroy_main_fight(s);
 			return (1);
 		}
 	}
 	return (0);
+}
+
+void display_fight(st_rpg *s)
+{
+	sfRenderWindow_clear(s->window, sfWhite);
+	sfRenderWindow_drawSprite(s->window, s->center->sprite, NULL);
+	display_mob_example(s);
+	display_player(s);
+	display_class(s);
+	display_icons(s);
+	display_life_bar(s);
 }
 
 int fight_instance(st_rpg *s)
@@ -54,10 +76,6 @@ int fight_instance(st_rpg *s)
 			break;
 		if (!s->f.cast)
 			launch_spells(s);
-		if (sfKeyboard_isKeyPressed(sfKeyO) && s->treem.shot == 0)
-			generate_tree_menu(s);
-		if (sfKeyboard_isKeyPressed(sfKeyP) && s->treem.shot == 1)
-			destroy_tree_menu(s);
 		update_pos_weapon(s);
 		update_class(s);
 		update_bars(s);
@@ -65,15 +83,7 @@ int fight_instance(st_rpg *s)
 		update_projectiles(s);
 		update_effects(s);
 		update_mob_example(s);
-		sfRenderWindow_clear(s->window, sfWhite);
-		sfRenderWindow_drawSprite(s->window, s->center->sprite, NULL);
-		display_mob_example(s);
-		display_player(s);
-		display_class(s);
-		display_icons(s);
-		display_life_bar(s);
-		display_tree_menu(s);
-		display_status_menu(s);
+		display_fight(s);
 		sfRenderWindow_display(s->window);
 	}
 	return (s->returnv);

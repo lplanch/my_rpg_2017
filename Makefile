@@ -44,6 +44,7 @@ FILES		=	source/main.c					\
 			source/fight/update_class.c			\
 			source/fight/auto_attacks.c			\
 			source/fight/launch_spells.c			\
+			source/fight/locked_spells.c			\
 			source/fight/get_cooldowns.c			\
 			source/fight/aoe.c				\
 			source/fight/display_projectile.c		\
@@ -80,6 +81,10 @@ FILES		=	source/main.c					\
 			source/interface/status_menu.c			\
 			source/interface/tree_menu.c			\
 			source/interface/update_tree.c			\
+			source/interface/pause_menu.c			\
+			source/interface/pause_main.c			\
+			source/interface/pause_launch.c			\
+			source/interface/pause_design.c			\
 			source/interface/tree_proceed.c			\
 			source/interface/generate_tree_menu.c		\
 			source/interface/button_generator.c		\

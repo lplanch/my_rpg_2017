@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "../../include/procedural.h"
+#include "procedural.h"
 
 void draw_rect_room(proc_t *proc, proom_t *proom, int x, int y)
 {

@@ -44,6 +44,8 @@ FILES		=	src/main_proc.c					\
 			src/inventory_system/handle_inventory.c		\
 			src/inventory_system/draw_inventory.c		\
 			src/inventory_system/create_inventory.c		\
+			src/inventory_system/create_fast_inventory.c	\
+			src/inventory_system/draw_fast_inventory.c	\
 
 SRCS		=	$(FILES)
 

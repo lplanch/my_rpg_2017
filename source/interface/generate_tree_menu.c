@@ -49,7 +49,6 @@ void generate_tree_menu2(st_rpg *s)
 {
 	char *temp;
 
-	s->treem.shot = 1;
 	s->treem.status = -1;
 	s->treem.spells = get_spinfo(s);
 	s->treem.window = create_object("images/pause_window.png",

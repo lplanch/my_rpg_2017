@@ -26,8 +26,6 @@ int main(void)
 	sfRenderWindow_setFramerateLimit(s.window, 60);
 	s.loading = create_object("images/loading.png",
 	create_vector2f(900, 338), create_rect(0, 0, 99, 257), 0);
-	s.statm.shot = 0;
-	s.statm.show = 6;
 	main_menu(&s);
 	destroy_object(s.loading);
 	sfRenderWindow_destroy(s.window);
