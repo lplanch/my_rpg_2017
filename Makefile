@@ -122,7 +122,7 @@ FILES		=	source/main.c					\
 			source/game_map/draw_dialog.c			\
 			source/game_map/zone_text.c			\
 			source/game_map/choice_box.c			\
-			source/game_map/choice_box_quit.c			\
+			source/game_map/choice_box_quit.c		\
 			source/game_map/choicebox_create_event.c	\
 			source/game_map/setpixel_to_image.c		\
 			source/game_map/mouse_in_object_dialogbox.c	\
@@ -134,7 +134,41 @@ FILES		=	source/main.c					\
 			source/quests/display_quest_with_printf.c	\
 			source/quests/get_all_quests.c			\
 			source/quests/check_quests.c			\
-			source/quests/get_quests.c
+			source/quests/get_quests.c			\
+			source/dungeon/main_proc.c					\
+			source/dungeon/make_array/map_creation.c			\
+			source/dungeon/make_array/verify_collide.c			\
+			source/dungeon/make_array/corridors.c			\
+			source/dungeon/make_array/mandatory_blocks.c		\
+			source/dungeon/make_array/make_map_better.c		\
+			source/dungeon/make_array/make_map_border.c		\
+			source/dungeon/make_array/get_blocks_positions.c		\
+			source/dungeon/make_sprite_map/main_draw_map.c		\
+			source/dungeon/make_sprite_map/create_blocks.c		\
+			source/dungeon/make_sprite_map/create_blocks_corner.c	\
+			source/dungeon/make_sprite_map/create_blocks_icorner.c	\
+			source/dungeon/make_sprite_map/create_blocks_deadlock.c	\
+			source/dungeon/launch_game/launch_dungeon.c		\
+			source/dungeon/launch_game/camera_manager.c		\
+			source/dungeon/launch_game/input_manager.c			\
+			source/dungeon/launch_game/player_movement.c		\
+			source/dungeon/launch_game/free_dungeon.c			\
+			source/dungeon/launch_game/verify_collisions.c		\
+			source/dungeon/launch_game/init_dungeon.c			\
+			source/dungeon/restart_game/restart_game.c			\
+			source/dungeon/restart_game/text_anims.c			\
+			source/dungeon/minimap_system/main_minimap.c		\
+			source/dungeon/minimap_system/fill_screen.c		\
+			source/dungeon/minimap_system/put_pixel.c			\
+			source/dungeon/minimap_system/update_minimap.c		\
+			source/dungeon/minimap_system/draw_minimap.c		\
+			source/dungeon/draw_geometry/draw_rect.c			\
+			source/dungeon/draw_geometry/draw_circle.c			\
+			source/dungeon/inventory_system/handle_inventory.c		\
+			source/dungeon/inventory_system/draw_inventory.c		\
+			source/dungeon/inventory_system/create_inventory.c		\
+			source/dungeon/inventory_system/create_fast_inventory.c	\
+			source/dungeon/inventory_system/draw_fast_inventory.c
 
 SRCS		=	$(FILES)
 
