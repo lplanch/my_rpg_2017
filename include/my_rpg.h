@@ -465,6 +465,8 @@ typedef struct struct_rpg
 	sfRenderWindow *window;
 } st_rpg;
 
+void display_locked_spells(st_rpg *s);
+void display_locked_spells_cd(st_rpg *s);
 void update_cursor_pos_pause(st_rpg *s);
 void set_colors_pause(st_rpg *s);
 void which_update(st_rpg *s);
