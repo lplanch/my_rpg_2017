@@ -35,7 +35,7 @@ proc_var_t *make_proc_variables(void)
 	return (pvar);
 }
 
-int main(int ac, char **av)
+/*int main(int ac, char **av)
 {
 	gage_t *gage = malloc(sizeof(gage_t));
 
@@ -44,8 +44,7 @@ int main(int ac, char **av)
 		print_help();
 	} else if (ac == 1) {
 		gage->proc = map_creation(gage);
-		draw_map(gage);
 		free(gage->pvar);
 	}
 	free(gage);
-}
+}*/
