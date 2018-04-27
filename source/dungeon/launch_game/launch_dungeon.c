@@ -35,6 +35,8 @@ int update_sprite(st_rpg *rpg)
 
 	rpg->player.last_pos = rpg->player.obj->pos;
 	update_player_position(rpg);
+	rpg->origin.x = rpg->player.obj->pos.x - WIDTH / 4;
+	rpg->origin.y = rpg->player.obj->pos.y - HEIGHT / 4;
 	player_pos.x = rpg->player.obj->pos.x -
 	(rpg->player.obj->rect.width / 2);
 	player_pos.y = rpg->player.obj->pos.y -
