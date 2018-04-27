@@ -45,7 +45,7 @@ void setup_variable(st_rpg *s)
 	s->fi->quests_box.status = 0;
 	s->fi->quests_box.nb_quests = 0;
 	s->fi->music.music =
-	create_music(50, "ressources/audio/music_camp.ogg");
+	create_music(50, "ressources/audio/music_map_village.ogg");
 }
 
 void setup_quests_box(st_rpg *s)
