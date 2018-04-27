@@ -37,6 +37,9 @@ FILES		=	source/main.c					\
 			source/fight/main.c				\
 			source/fight/projectile.c			\
 			source/fight/create_spells.c			\
+			source/fight/create_spells_archer.c		\
+			source/fight/create_spells_gunner.c		\
+			source/fight/create_spells_rogue.c		\
 			source/fight/destroy_spells.c			\
 			source/fight/icons.c				\
 			source/fight/icons_cd.c				\
