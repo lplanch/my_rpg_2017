@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
 void my_draw_rect(framebuffer_t *buff, int pos[2], int size[2], sfColor color)
 {

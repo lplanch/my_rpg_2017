@@ -13,25 +13,21 @@ int intersect(proom_t *r1, proom_t *r2)
 	if (r1->pos1[0] <= r2->pos2[0] && r1->pos2[0] >= r2->pos1[0]
 	&& r1->pos1[1] <= r2->pos2[1] && r1->pos2[1] >= r2->pos1[1]) {
 		return (1);
-	} else {
-		return (0);
 	}
+	return (0);
 }
 
-void verify_intersect(proom_t *temp_proom, proc_t *proc, int iter, int *fail)
+int verify_intersect(proom_t *temp_proom, proc_t *proc, int iter)
 {
 	for (int i = 0; i < iter; i++) {
-		if (intersect(temp_proom, proc->proom[i])) {
-			*fail = 1;
-			break;
-		}
+		if (intersect(temp_proom, &proc->proom[i]))
+			return (1);
 	}
+	return (0);
 }
 
-proom_t *new_room(proc_var_t *pvar)
+void new_room(proc_var_t *pvar, proom_t *proom)
 {
-	proom_t *proom = malloc(sizeof(proom_t));
-
 	proom->width = pvar->min_room_s + (rand() %
 	(pvar->max_room_s - pvar->min_room_s + 1));
 	proom->height = pvar->min_room_s + (rand() %
@@ -44,27 +40,23 @@ proom_t *new_room(proc_var_t *pvar)
 	proom->center[1] = floor((proom->pos1[1] + proom->pos2[1]) / 2);
 	proom->visited = 0;
 	proom->drawed = 0;
-	return (proom);
+	proom->last = 0;
 }
 
-void make_positions_proom(gage_t *gage, proc_t *proc)
+void make_positions_proom(proc_t *proc)
 {
-	proom_t *temp_proom;
+	proom_t temp_proom;
 	int iter = 0;
-	int fail;
 
-	for (unsigned int i = 0; i < gage->pvar.nbr_rooms; i++) {
-		fail = 0;
-		temp_proom = new_room(&gage->pvar);
-		verify_intersect(temp_proom, proc, iter, &fail);
-		if (!fail) {
+	for (unsigned int i = 0; i < proc->pvar.nbr_rooms; i++) {
+		new_room(&proc->pvar, &temp_proom);
+		if (verify_intersect(&temp_proom, proc, iter)) {
 			proc->proom[iter] = temp_proom;
 			iter += 1;
 			make_corridors(proc, iter);
-		} else {
-			free(temp_proom);
 		}
 	}
+	proc->proom[iter].last = 1;
 }
 
 void make_holes(proom_t *proom, char **map)

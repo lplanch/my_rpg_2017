@@ -6,17 +6,17 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
-void create_fast_inventory_screen(ingame_t *ing)
+void create_fast_inventory_screen(ing_finv_t *finv)
 {
-	ing->finv.rect.width = 160;
-	ing->finv.rect.height = 160;
-	ing->finv.rect.left = 0;
-	ing->finv.rect.top = 0;
-	ing->finv.sprite = sfSprite_create();
-	ing->finv.texture =
+	finv->rect.width = 160;
+	finv->rect.height = 160;
+	finv->rect.left = 0;
+	finv->rect.top = 0;
+	finv->sprite = sfSprite_create();
+	finv->texture =
 	sfTexture_createFromFile("ressources/fast_inv.png", NULL);
-	sfSprite_setTextureRect(ing->finv.sprite, ing->finv.rect);
-	sfSprite_setTexture(ing->finv.sprite, ing->finv.texture, sfTrue);
+	sfSprite_setTextureRect(finv->sprite, finv->rect);
+	sfSprite_setTexture(finv->sprite, finv->texture, sfTrue);
 }

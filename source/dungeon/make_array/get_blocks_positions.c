@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
 sfVector2f verify_entry_pos(proc_t *proc, int y, int x)
 {

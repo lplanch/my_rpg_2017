@@ -6,67 +6,33 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
-void init_window(gmanager_t *gman)
+void init_player_movement(player_t *player)
 {
-	gman->mode.width = WIDTH;
-	gman->mode.height = HEIGHT;
-	gman->mode.bitsPerPixel = 32;
-	gman->window = sfRenderWindow_create(gman->mode, window_name, sfClose,
-	NULL);
-	sfRenderWindow_setFramerateLimit(gman->window, 120);
+	player->acceleration.x = 0;
+	player->acceleration.y = 0;
+	player->max_speed = 200;
+	player->nbr_frame.x = 0;
+	player->nbr_frame.y = 0;
 }
 
-void init_player(gmanager_t *gman, proc_t *proc)
+void init_player_camera(st_rpg *rpg)
 {
-	sfVector2f zoom = {1, 1};
-	sfTexture *player_texture = sfTexture_createFromFile(
-	"ressources/car2.png", NULL);
-
-	gman->player.texture = player_texture;
-	gman->player.sprite = sfSprite_create();
-	gman->player.pos = get_entry_pos(proc);
-	gman->player.last_pos = gman->player.pos;
-	gman->player.rect.left = 0;
-	gman->player.rect.top = 0;
-	gman->player.rect.width = 48;
-	gman->player.rect.height = 48;
-	sfSprite_setTexture(gman->player.sprite, player_texture, sfTrue);
-	sfSprite_setTextureRect(gman->player.sprite, gman->player.rect);
-	sfSprite_setPosition(gman->player.sprite, gman->player.pos);
-	sfSprite_setScale(gman->player.sprite, zoom);
+	rpg->proc.gman.camera_pos = rpg->player.obj->pos;
+	rpg->proc.gman.camera =
+	sfView_copy(sfRenderWindow_getDefaultView(rpg->window));
+	sfView_zoom(rpg->proc.gman.camera, 0.5);
+	sfView_setCenter(rpg->proc.gman.camera, rpg->proc.gman.camera_pos);
+	sfRenderWindow_setView(rpg->window, rpg->proc.gman.camera);
 }
 
-void init_player_movement(gmanager_t *gman)
+void init_dungeon_game(st_rpg *rpg)
 {
-	gman->player.acceleration.x = 0;
-	gman->player.acceleration.y = 0;
-	gman->player.max_speed = 200;
-	gman->player.nbr_frame.x = 0;
-	gman->player.nbr_frame.y = 0;
-}
-
-void init_player_camera(gmanager_t *gman)
-{
-	gman->camera_pos = gman->player.pos;
-	gman->camera = sfRenderWindow_getDefaultView(gman->window);
-	sfView_zoom(gman->camera, 0.5);
-	sfView_setCenter(gman->camera, gman->camera_pos);
-	sfRenderWindow_setView(gman->window, gman->camera);
-}
-
-gmanager_t *init_dungeon_game(proc_t *proc, gage_t *gage)
-{
-	gmanager_t *gman = malloc(sizeof(gmanager_t));
-
-	init_window(gman);
-	init_player(gman, proc);
-	init_player_movement(gman);
-	init_player_camera(gman);
-	init_minimap(gage, proc);
-	gman->ing = create_ingame_player();
-	gman->clock = sfClock_create();
-	gman->dt = 1.;
-	return (gman);
+	init_player_movement(&rpg->player);
+	init_player_camera(rpg);
+	init_minimap(&rpg->proc);
+	create_ingame_inventory(rpg);
+	rpg->proc.gman.clock = sfClock_create();
+	rpg->proc.gman.dt = 1.;
 }

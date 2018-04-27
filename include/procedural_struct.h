@@ -5,7 +5,10 @@
 **
 */
 
-#include "ingame_struct.h"
+#ifndef PROC_STRUCT_H_
+#define PROC_STRUCT_H_
+
+#include "my_rpg.h"
 
 //MINIMAP
 
@@ -31,6 +34,7 @@ typedef struct proc_room
 	int center[2];
 	int visited;
 	int drawed;
+	int last;
 } proom_t;
 
 typedef struct map_sprite
@@ -40,35 +44,14 @@ typedef struct map_sprite
 	sfIntRect rect;
 } smap_t;
 
-typedef struct player_manager
-{
-	sfTexture *texture;
-	sfSprite *sprite;
-	sfIntRect rect;
-	sfVector2f pos;
-} player_t;
-
 typedef struct game_manager
 {
-	sfVideoMode mode;
-	sfRenderWindow *window;
 	sfView *camera;
 	sfVector2f camera_pos;
 	sfClock *clock;
 	sfTime time;
 	float dt;
 } gmanager_t;
-
-typedef struct proc_gen
-{
-	gmanager_t *gman;
-	proom_t **proom;
-	smap_t ***smap;
-	minimap_t *minimap;
-	char **map;
-	sfTexture *blocks_texture;
-	unsigned int current_floor;
-} proc_t;
 
 typedef struct proc_var
 {
@@ -82,3 +65,17 @@ typedef struct proc_var
 	int max_floor;
 	sfColor background;
 } proc_var_t;
+
+typedef struct proc_gen
+{
+	proc_var_t pvar;
+	gmanager_t gman;
+	proom_t *proom;
+	smap_t **smap;
+	minimap_t minimap;
+	char **map;
+	sfTexture *blocks_texture;
+	unsigned int current_floor;
+} proc_t;
+
+#endif

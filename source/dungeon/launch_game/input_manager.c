@@ -6,48 +6,41 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
-void verify_other_input(sfEvent event, gage_t *gage)
+void verify_other_input(sfEvent event, st_rpg *rpg)
 {
 	if (event.type == sfEvtKeyPressed && event.key.code == sfKeyP) {
-		sfView_zoom(gage->proc.gman->camera, 0.9);
-		sfRenderWindow_setView(gage->proc.gman->window,
-		gage->proc.gman->camera);
+		sfView_zoom(rpg->proc.gman.camera, 0.9);
+		sfRenderWindow_setView(rpg->window, rpg->proc.gman.camera);
 	} if (event.type == sfEvtKeyPressed && event.key.code == sfKeyM) {
-		sfView_zoom(gage->proc.gman->camera, 1.1);
-		sfRenderWindow_setView(gage->proc.gman->window,
-		gage->proc.gman->camera);
+		sfView_zoom(rpg->proc.gman.camera, 1.1);
+		sfRenderWindow_setView(rpg->window, rpg->proc.gman.camera);
 	}
 }
 
-void verif_movement_input(proc_t *proc)
-{
-	verify_y_movement(proc);
-	verify_x_movement(proc);
-}
-
-int verif_input_map(gage_t *gage)
+int verif_input_map(st_rpg *rpg)
 {
 	sfEvent event;
 
-	verif_movement_input(&gage->proc);
-	while (sfRenderWindow_pollEvent(gage->proc.gman->window, &event)) {
+	verify_y_movement(rpg);
+	verify_x_movement(rpg);
+	while (sfRenderWindow_pollEvent(rpg->window, &event)) {
 		if (event.type == sfEvtClosed)
-			sfRenderWindow_close(gage->proc.gman->window);
-		verify_other_input(event, gage);
+			sfRenderWindow_close(rpg->window);
+		verify_other_input(event, rpg);
 	}
 	return (0);
 }
 
-void verify_exit_player(gage_t *gage)
+int verify_exit_player(st_rpg *rpg)
 {
-	int px = gage->proc.gman->player.pos.x / 48;
-	int py = gage->proc.gman->player.pos.y / 48;
-	int ex = get_exit_pos(&gage->proc).x / 48;
-	int ey = get_exit_pos(&gage->proc).y / 48;
+	int px = rpg->player.obj->pos.x / 48;
+	int py = rpg->player.obj->pos.y / 48;
+	int ex = get_exit_pos(&rpg->proc).x / 48;
+	int ey = get_exit_pos(&rpg->proc).y / 48;
 
-	if (px == ex && py == ey) {
-		next_level_screen(gage);
-	}
+	if (px == ex && py == ey)
+		return (next_level_screen(rpg));
+	return (0);
 }

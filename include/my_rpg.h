@@ -13,6 +13,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdlib.h>
+
 #include "game_object.h"
 #include "projectile.h"
 #include "ingame_struct.h"
@@ -465,6 +466,7 @@ typedef struct struct_player_info
 	st_cdata cdata;
 	g_object *obj;
 	g_object *weapon[2];
+	int max_speed;
 	sfVector2f last_pos;
 	sfVector2i nbr_frame;
 	sfVector2f acceleration;
@@ -490,6 +492,8 @@ typedef struct struct_rpg
 	files_t *fi;
 	sfRenderWindow *window;
 } st_rpg;
+
+#include "procedural.h"
 
 void my_set_string(sfText *text, char *str);
 char *get_stat_string(int i);

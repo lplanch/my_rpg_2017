@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
 void clear_inventory_slot(item_t *slot)
 {

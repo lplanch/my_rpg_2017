@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
 void fill_inventory_background(framebuffer_t *buffer)
 {
@@ -29,16 +29,16 @@ void fill_inventory_background(framebuffer_t *buffer)
 	}
 }
 
-void create_inventory_screen(ingame_t *ing)
+void create_inventory_screen(ing_inv_t *inv)
 {
 	sfColor sfTGrey = {80, 80, 87, 180};
 
-	ing->inv.background = framebuffer_create(WIDTH / 2.5, HEIGHT / 2.5);
-	ing->inv.btexture = sfTexture_create(WIDTH / 2.5, HEIGHT / 2.5);
-	ing->inv.bsprite = sfSprite_create();
-	sfSprite_setTexture(ing->inv.bsprite, ing->inv.btexture, sfTrue);
-	fill_minimap_screen(ing->inv.background, sfTGrey);
-	fill_inventory_background(ing->inv.background);
+	inv->background = framebuffer_create(WIDTH / 2.5, HEIGHT / 2.5);
+	inv->btexture = sfTexture_create(WIDTH / 2.5, HEIGHT / 2.5);
+	inv->bsprite = sfSprite_create();
+	sfSprite_setTexture(inv->bsprite, inv->btexture, sfTrue);
+	fill_minimap_screen(inv->background, sfTGrey);
+	fill_inventory_background(inv->background);
 }
 
 item_t *create_first_slot(void)
@@ -51,23 +51,20 @@ item_t *create_first_slot(void)
 	return (slot);
 }
 
-void create_inventory_var(ingame_t *ing)
+void create_inventory_var(ing_inv_t *inv)
 {
-	ing->inv.size = 10;
-	ing->inv.money = 0;
-	ing->inv.first_slot = create_first_slot();
-	for (unsigned int i = 0; i < ing->inv.size; i++)
-		add_inventory_slot(ing->inv.first_slot);
-	ing->inv.armor = create_first_slot();
-	ing->inv.weapon = create_first_slot();
+	inv->size = 10;
+	inv->money = 0;
+	inv->first_slot = create_first_slot();
+	for (unsigned int i = 0; i < inv->size; i++)
+		add_inventory_slot(inv->first_slot);
+	inv->armor = create_first_slot();
+	inv->weapon = create_first_slot();
 }
 
-ingame_t *create_ingame_player(void)
+void create_ingame_inventory(st_rpg *rpg)
 {
-	ingame_t *ing = malloc(sizeof(ingame_t));
-
-	create_inventory_screen(ing);
-	create_inventory_var(ing);
-	create_fast_inventory_screen(ing);
-	return (ing);
+	create_inventory_screen(&rpg->inv);
+	create_inventory_var(&rpg->inv);
+	create_fast_inventory_screen(&rpg->finv);
 }

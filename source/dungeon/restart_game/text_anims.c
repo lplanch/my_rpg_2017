@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
 void fade_in_text(sfRenderWindow *window, sfText *text)
 {

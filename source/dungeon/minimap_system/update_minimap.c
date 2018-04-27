@@ -6,20 +6,20 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
-void increment_visited(proc_t *proc)
+void increment_visited(st_rpg *rpg)
 {
-	int posx = proc->gman->player.pos.x / 48;
-	int posy = proc->gman->player.pos.y / 48;
+	int posx = rpg->player.obj->pos.x / 48;
+	int posy = rpg->player.obj->pos.y / 48;
 
-	for (int i = 0; proc->proom[i] != NULL; i++) {
-		if (proc->proom[i]->visited == 0 &&
-		interval(posx, proc->proom[i]->pos1[0] + 1,
-		proc->proom[i]->pos2[0] + 2) &&
-		interval(posy, proc->proom[i]->pos1[1] + 1,
-		proc->proom[i]->pos2[1] + 2)) {
-			proc->proom[i]->visited = 1;
+	for (int i = 0; rpg->proc.proom[i].last == 0; i++) {
+		if (rpg->proc.proom[i].visited == 0 &&
+		interval(posx, rpg->proc.proom[i].pos1[0] + 1,
+		rpg->proc.proom[i].pos2[0] + 2) &&
+		interval(posy, rpg->proc.proom[i].pos1[1] + 1,
+		rpg->proc.proom[i].pos2[1] + 2)) {
+			rpg->proc.proom[i].visited = 1;
 		}
 	}
 }
@@ -34,30 +34,30 @@ void draw_room_minimap(proc_t *proc, proom_t *proom)
 	}
 }
 
-void make_corridors_minimap(proc_t *proc)
+void make_corridors_minimap(st_rpg *rpg)
 {
 	int p_pos[2] =
-	{proc->gman->player.pos.x / 48, proc->gman->player.pos.y / 48};
+	{rpg->player.obj->pos.x / 48, rpg->player.obj->pos.y / 48};
 
 	for (int y = p_pos[1] - 1; y < p_pos[1] + 2; y++) {
 		for (int x = p_pos[0] - 1; x < p_pos[0] + 2; x++) {
-			draw_rect_corridor(proc, x, y);
+			draw_rect_corridor(&rpg->proc, x, y);
 		}
 	}
 }
 
-void update_minimap(proc_t *proc)
+void update_minimap(st_rpg *rpg)
 {
 	sfVector2f text_center =
-	{proc->gman->player.pos.x - (12 * 2),
-		proc->gman->player.pos.y - HEIGHT / 5.5};
+	{rpg->player.obj->pos.x - (12 * 2),
+		rpg->player.obj->pos.y - HEIGHT / 5.5};
 
-	increment_visited(proc);
-	make_corridors_minimap(proc);
-	sfText_setPosition(proc->minimap->current_level_text, text_center);
-	for (int i = 0; proc->proom[i] != NULL; i++) {
-		if (proc->proom[i]->visited && !proc->proom[i]->drawed)
-			draw_room_minimap(proc, proc->proom[i]);
+	increment_visited(rpg);
+	make_corridors_minimap(rpg);
+	sfText_setPosition(rpg->proc.minimap.current_level_text, text_center);
+	for (int i = 0; rpg->proc.proom[i].last == 0; i++) {
+		if (rpg->proc.proom[i].visited && !rpg->proc.proom[i].drawed)
+			draw_room_minimap(&rpg->proc, &rpg->proc.proom[i]);
 	}
-	draw_rect_player(proc);
+	draw_rect_player(rpg);
 }

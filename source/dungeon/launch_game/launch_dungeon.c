@@ -6,61 +6,59 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
-void draw_map_block(proc_t *proc, int y)
+void draw_map_block(st_rpg *rpg, int y)
 {
-	for (int x = 0; proc->map[y][x] != '\0'; x++) {
-		if (proc->smap[y][x] != NULL) {
-			sfRenderWindow_drawSprite(proc->gman->window,
-			proc->smap[y][x]->sprite, NULL);
+	for (int x = 0; rpg->proc.map[y][x] != '\0'; x++) {
+		if (rpg->proc.smap[y][x].sprite != NULL) {
+			sfRenderWindow_drawSprite(rpg->window,
+			rpg->proc.smap[y][x].sprite, NULL);
 		}
 	}
 }
 
-int draw_sprites_map(gage_t *gage, proc_t *proc)
+int draw_sprites_map(st_rpg *rpg)
 {
-	for (int y = 0; proc->map[y] != NULL; y++) {
-		draw_map_block(proc, y);
-	}
-	sfRenderWindow_drawSprite(proc->gman->window,
-	proc->gman->player.sprite, NULL);
-	verify_minimap(gage);
-	verify_inventory(proc->gman);
-	verify_fast_inventory(proc->gman);
+	for (int y = 0; rpg->proc.map[y] != NULL; y++)
+		draw_map_block(rpg, y);
+	sfRenderWindow_drawSprite(rpg->window, rpg->player.obj->sprite, NULL);
+	verify_minimap(rpg);
+	verify_inventory(rpg);
+	verify_fast_inventory(rpg);
 	return (1);
 }
 
-int update_sprite(proc_t *proc)
+int update_sprite(st_rpg *rpg)
 {
 	sfVector2f player_pos;
 
-	proc->gman->player.last_pos = proc->gman->player.pos;
-	update_player_position(proc);
-	player_pos.x = proc->gman->player.pos.x -
-	(proc->gman->player.rect.width / 2);
-	player_pos.y = proc->gman->player.pos.y -
-	(proc->gman->player.rect.height / 2);
-	sfSprite_setPosition(proc->gman->player.sprite, player_pos);
-	update_camera_position(proc);
-	update_minimap(proc);
-	proc->gman->time = sfClock_restart(proc->gman->clock);
-	proc->gman->dt = sfTime_asSeconds(proc->gman->time);
+	rpg->player.last_pos = rpg->player.obj->pos;
+	update_player_position(rpg);
+	player_pos.x = rpg->player.obj->pos.x -
+	(rpg->player.obj->rect.width / 2);
+	player_pos.y = rpg->player.obj->pos.y -
+	(rpg->player.obj->rect.height / 2);
+	sfSprite_setPosition(rpg->player.obj->sprite, player_pos);
+	update_camera_position(rpg);
+	update_minimap(rpg);
+	rpg->proc.gman.time = sfClock_restart(rpg->proc.gman.clock);
+	rpg->proc.gman.dt = sfTime_asSeconds(rpg->proc.gman.time);
 	return (1);
 }
 
-int launch_dungeon_game(gage_t *gage)
+int launch_dungeon_game(st_rpg *rpg)
 {
-	gage->proc.gman = init_dungeon_game(&gage->proc, gage);
-	while (sfRenderWindow_isOpen(gage->proc.gman->window)) {
-		verif_input_map(gage);
-		update_sprite(&gage->proc);
-		sfRenderWindow_clear(gage->proc.gman->window,
-		gage->pvar.background);
-		draw_sprites_map(gage, &gage->proc);
-		sfRenderWindow_display(gage->proc.gman->window);
-		verify_exit_player(gage);
+	int done = 0;
+
+	init_dungeon_game(rpg);
+	while (!done) {
+		verif_input_map(rpg);
+		update_sprite(rpg);
+		sfRenderWindow_clear(rpg->window, rpg->proc.pvar.background);
+		draw_sprites_map(rpg);
+		sfRenderWindow_display(rpg->window);
+		done = verify_exit_player(rpg);
 	}
-	free_gage_game(gage);
 	return (1);
 }

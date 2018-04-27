@@ -6,47 +6,47 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
-void set_created_position(gmanager_t *gman)
+void set_created_position(st_rpg *rpg)
 {
 	sfVector2f mouse_pos = {0, 0};
 
-	if (gman->ing->finv.created == 0) {
+	if (rpg->finv.created == 0) {
 		mouse_pos.x -= WIDTH / 4 + HEIGHT / 16 + 20;
 		mouse_pos.y -= HEIGHT / 4 + HEIGHT / 16 + 20;
 		mouse_pos.x +=
-		sfMouse_getPositionRenderWindow(gman->window).x / 2;
+		sfMouse_getPositionRenderWindow(rpg->window).x / 2;
 		mouse_pos.y +=
-		sfMouse_getPositionRenderWindow(gman->window).y / 2;
-		gman->ing->finv.created_pos.x = mouse_pos.x;
-		gman->ing->finv.created_pos.y = mouse_pos.y;
+		sfMouse_getPositionRenderWindow(rpg->window).y / 2;
+		rpg->finv.created_pos.x = mouse_pos.x;
+		rpg->finv.created_pos.y = mouse_pos.y;
 	}
-	gman->ing->finv.created = 1;
+	rpg->finv.created = 1;
 }
 
-void draw_fast_inventory_background(gmanager_t *gman)
+void draw_fast_inventory_background(st_rpg *rpg)
 {
 	sfVector2f pos_screen = {0, 0};
 
-	set_created_position(gman);
-	pos_screen = gman->ing->finv.created_pos;
-	pos_screen.x += gman->player.pos.x;
-	pos_screen.y += gman->player.pos.y;
-	sfSprite_setPosition(gman->ing->finv.sprite, pos_screen);
-	sfRenderWindow_drawSprite(gman->window, gman->ing->finv.sprite, NULL);
+	set_created_position(rpg);
+	pos_screen = rpg->finv.created_pos;
+	pos_screen.x += rpg->player.obj->pos.x;
+	pos_screen.y += rpg->player.obj->pos.y;
+	sfSprite_setPosition(rpg->finv.sprite, pos_screen);
+	sfRenderWindow_drawSprite(rpg->window, rpg->finv.sprite, NULL);
 }
 
-void draw_fast_inventory(gmanager_t *gman)
+void draw_fast_inventory(st_rpg *rpg)
 {
-	draw_fast_inventory_background(gman);
+	draw_fast_inventory_background(rpg);
 }
 
-void verify_fast_inventory(gmanager_t *gman)
+void verify_fast_inventory(st_rpg *rpg)
 {
 	if (sfMouse_isButtonPressed(key_fast_inv)) {
-		draw_fast_inventory(gman);
+		draw_fast_inventory(rpg);
 	} else {
-		gman->ing->finv.created = 0;
+		rpg->finv.created = 0;
 	}
 }

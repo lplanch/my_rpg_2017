@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
 void h_corridor(char **map, int x1, int x2, int y)
 {
@@ -51,10 +51,10 @@ void make_corridors(proc_t *proc, int length)
 	int n_cen[2];
 
 	if (length > 1) {
-		p_cen[0] = proc->proom[length - 2]->center[0];
-		p_cen[1] = proc->proom[length - 2]->center[1];
-		n_cen[0] = proc->proom[length - 1]->center[0];
-		n_cen[1] = proc->proom[length - 1]->center[1];
+		p_cen[0] = proc->proom[length - 2].center[0];
+		p_cen[1] = proc->proom[length - 2].center[1];
+		n_cen[0] = proc->proom[length - 1].center[0];
+		n_cen[1] = proc->proom[length - 1].center[1];
 		if (rand() % 2 == 1) {
 			h_corridor(proc->map, p_cen[0], n_cen[0], p_cen[1]);
 			v_corridor(proc->map, p_cen[1], n_cen[1], n_cen[0]);

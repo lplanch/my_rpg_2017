@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
 void make_proc_variables(proc_var_t *pvar)
 {
@@ -24,12 +24,11 @@ void make_proc_variables(proc_var_t *pvar)
 	pvar->background.a = 255;
 }
 
-int launch_dungeon(void)
+int launch_dungeon(st_rpg *rpg)
 {
-	gage_t gage;
-
-	make_proc_variables(&gage.pvar);
-	map_creation(&gage);
-	draw_map(&gage);
+	make_proc_variables(&rpg->proc.pvar);
+	map_creation(&rpg->proc);
+	rpg->proc.smap = create_sprite_map(&rpg->proc, rpg->proc.map);
+	launch_dungeon_game(rpg);
 	return (0);
 }

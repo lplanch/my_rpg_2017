@@ -5,6 +5,9 @@
 ** file to stock all struct about game
 */
 
+#ifndef ING_STRUCT_H_
+#define ING_STRUCT_H_
+
 typedef struct framebuffer {
 	unsigned int width;
 	unsigned int height;
@@ -42,9 +45,4 @@ typedef struct ingame_inventory_manager
 	item_t *weapon;
 } ing_inv_t;
 
-typedef struct ingame_struct
-{
-	ing_player_t player;
-	ing_inv_t inv;
-	ing_finv_t finv;
-} ingame_t;
+#endif

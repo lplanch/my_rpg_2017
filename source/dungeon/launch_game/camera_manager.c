@@ -6,12 +6,12 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
-void update_camera_position(proc_t *proc)
+void update_camera_position(st_rpg *rpg)
 {
-	proc->gman->camera_pos.x = proc->gman->player.pos.x;
-	proc->gman->camera_pos.y = proc->gman->player.pos.y;
-	sfView_setCenter(proc->gman->camera, proc->gman->camera_pos);
-	sfRenderWindow_setView(proc->gman->window, proc->gman->camera);
+	rpg->proc.gman.camera_pos.x = rpg->player.obj->pos.x;
+	rpg->proc.gman.camera_pos.y = rpg->player.obj->pos.y;
+	sfView_setCenter(rpg->proc.gman.camera, rpg->proc.gman.camera_pos);
+	sfRenderWindow_setView(rpg->window, rpg->proc.gman.camera);
 }

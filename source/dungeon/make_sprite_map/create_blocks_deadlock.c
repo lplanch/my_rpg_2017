@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
 void make_deadlock_top_block(sfTexture *blocks, smap_t *smap)
 {

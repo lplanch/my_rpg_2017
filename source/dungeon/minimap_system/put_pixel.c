@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
 framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)
 {

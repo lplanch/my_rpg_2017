@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "procedural.h"
+#include "my_rpg.h"
 
 void my_fill_screen(framebuffer_t *buffer, sfColor color)
 {
