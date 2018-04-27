@@ -43,11 +43,11 @@ void verify_x_movement(st_rpg *rpg)
 void verify_collide_map(st_rpg *rpg)
 {
 	int tempy[2] = {(rpg->player.obj->pos.y +
-	(rpg->player.acceleration.y * rpg->proc.gman.dt)) / 48,
-	(rpg->player.obj->pos.x) / 48};
+		(rpg->player.acceleration.y * rpg->proc.gman.dt)) / 48,
+		(rpg->player.obj->pos.x) / 48};
 	int tempx[2] = {(rpg->player.obj->pos.y) / 48,
-	(rpg->player.obj->pos.x +
-	(rpg->player.acceleration.x * rpg->proc.gman.dt)) / 48};
+		(rpg->player.obj->pos.x +
+		(rpg->player.acceleration.x * rpg->proc.gman.dt)) / 48};
 
 	if (verify_collide(rpg->proc.map[tempy[0]][tempy[1]])) {
 		rpg->player.obj->pos.y +=
