@@ -19,6 +19,9 @@
 #include "ingame_struct.h"
 #include "procedural_struct.h"
 
+#define WIDTH (1920)
+#define HEIGHT (1080)
+
 typedef struct struct_music
 {
 	sfMusic *music;
@@ -483,6 +486,7 @@ typedef struct struct_rpg
 	status_menu_t statm;
 	tree_menu_t treem;
 	pause_menu_t pausm;
+	sfVector2f origin;
 	g_object *center;
 	g_object *loading;
 	int returnv;

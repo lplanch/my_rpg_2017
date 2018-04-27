@@ -76,6 +76,8 @@ void move(st_rpg *s)
 
 void move_ok(st_rpg *s)
 {
+	sfVector2f player_pos;
+
 	if (sfKeyboard_isKeyPressed(sfKeyUp) == sfTrue) {
 		s->fi->character->rect.top = 144;
 		s->fi->direction = 1;
@@ -96,4 +98,9 @@ void move_ok(st_rpg *s)
 		s->fi->velocity.x = -speed * 3;
 	} else
 		s->fi->velocity.x = 0;
+	if (sfKeyboard_isKeyPressed(sfKeyI) == sfTrue) {
+		player_pos = s->player.obj->pos;
+		launch_dungeon(s);
+		s->player.obj->pos = player_pos;
+	}
 }
