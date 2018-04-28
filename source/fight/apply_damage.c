@@ -24,7 +24,7 @@ void apply_projectile(st_rpg *s, proj_t *proj, enemy_t *mob)
 		projectile_damage_enemy(s, proj, mob);
 		proj->shot = 0;
 		handle_pierce(proj);
-		handle_bounce(proj);
+		handle_bounce(s, proj);
 		handle_explosive(s, proj);
 	}
 }

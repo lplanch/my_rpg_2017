@@ -13,7 +13,7 @@ void rogue_backstab(st_rpg *s)
 	s->f.cast = 1;
 	s->f.rog.bstab = 1;
 	s->f.rog.bcount = 0;
-	s->f.rog.brat = get_ratios(get_angle(s->window));
+	s->f.rog.brat = get_ratios(get_angle(s, s->window));
 	s->f.rog.bpos[0] = s->player.weapon[0]->pos = create_vector2f(960 + 27 *
 	s->f.rog.brat.y, 540 - 27 * s->f.rog.brat.x);
 	s->f.rog.bpos[1] = s->player.weapon[1]->pos = create_vector2f(960 + 13 *
@@ -26,7 +26,7 @@ void rogue_backstab(st_rpg *s)
 
 void rogue_dance(st_rpg *s)
 {
-	launch_projectile(s->f.rog.dance, get_angle(s->window));
+	launch_projectile(s, s->f.rog.dance, get_angle(s, s->window));
 }
 
 void rogue_shadowstep(st_rpg *s)

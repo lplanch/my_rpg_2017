@@ -34,12 +34,13 @@ void destroy_swing(swing_t *swing)
 	free(swing);
 }
 
-void launch_swing(sfRenderWindow *window, swing_t *swing, g_object *obj)
+void launch_swing(st_rpg *s, swing_t *swing, g_object *obj)
 {
 	swing->able = 1;
 	swing->shot = 1;
 	swing->count = 0;
-	sfSprite_setRotation(obj->sprite, get_angle(window) + swing->begin);
+	sfSprite_setRotation(obj->sprite, get_angle(s, s->window) +
+	swing->begin);
 }
 
 void update_swing(st_rpg *s, swing_t *swing, g_object *obj)

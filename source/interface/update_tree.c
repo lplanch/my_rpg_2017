@@ -41,14 +41,16 @@ void tree_set_rects(st_rpg *s)
 
 void update_tree_pos(st_rpg *s)
 {
+	int x = s->origin.x + 1535;
+
 	sfSprite_setPosition(s->treem.select[0]->sprite,
-	create_vector2f(1535 + s->player.tree.passive * 125, 90));
+	create_vector2f(x + s->player.tree.passive * 125, s->origin.y + 90));
 	sfSprite_setPosition(s->treem.select[1]->sprite,
-	create_vector2f(1535 + s->player.tree.spell1 * 125, 180));
+	create_vector2f(x + s->player.tree.spell1 * 125, s->origin.y + 180));
 	sfSprite_setPosition(s->treem.select[2]->sprite,
-	create_vector2f(1596 + s->player.tree.spell2 * 124, 270));
+	create_vector2f(x + 61 + s->player.tree.spell2 * 124, s->origin.y + 270));
 	sfSprite_setPosition(s->treem.select[3]->sprite,
-	create_vector2f(1596 + s->player.tree.spell3 * 124, 360));
+	create_vector2f(x + 61 + 1596 + s->player.tree.spell3 * 124, s->origin.y + 360));
 	for (int i = 0, dec = 0, m = 3, d = 0; i != 10; i += 1) {
 		if (i > 5) {
 			d = 61;
@@ -56,7 +58,7 @@ void update_tree_pos(st_rpg *s)
 			dec = -90;
 		}
 		sfSprite_setPosition(s->treem.lock[i]->sprite,
-		create_vector2f(1535 + d + (i % m) * 125 + 13,
+		create_vector2f(x + d + (i % m) * 125 + 13, s->origin.y +
 		90 + (i / m) * 90 + dec + 13));
 	}
 }

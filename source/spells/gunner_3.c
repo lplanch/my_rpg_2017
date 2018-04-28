@@ -10,7 +10,7 @@
 
 void gunner_ult(st_rpg *s)
 {
-	float angle = get_angle(s->window);
+	float angle = get_angle(s, s->window);
 
 	s->f.gun.ultrat = get_ratios(angle);
 	s->f.gun.ult = 1;
@@ -21,7 +21,8 @@ void gunner_ult(st_rpg *s)
 		sfSprite_setRotation(s->f.gun.trait[i]->sprite,
 		s->f.gun.ultb[i]->angle);
 		sfSprite_setPosition(s->f.gun.trait[i]->sprite,
-		create_vector2f(960 + 10 * s->f.gun.ultrat.x, 540 +
+		create_vector2f(s->origin.x + 960 + 10 * s->f.gun.ultrat.x,
+			s->origin.y + 540 +
 		10 * s->f.gun.ultrat.y));
 		s->f.gun.trait[i]->rect.width = 0;
 		s->f.gun.trait[i]->rect.height = 10;

@@ -22,7 +22,7 @@ int choice_box_check_quit(st_rpg *s, char **tab, char *str, int compter)
 		choice_box_quit(s, tab, str, compter);
 		sfView_setCenter(s->fi->view, create_vector2f(960, 540));
 		sfRenderWindow_setView(s->window, s->fi->view);
-		return (fight_instance(s));
+		return (dungeon_loop(s));
 	}
 	choice_box_quit(s, tab, str, compter);
 	return (0);

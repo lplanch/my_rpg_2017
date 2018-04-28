@@ -15,7 +15,7 @@ void warrior_rush(st_rpg *s)
 
 void warrior_whirlwing(st_rpg *s)
 {
-	launch_swing(s->window, s->f.war.whirl, s->player.weapon[0]);
+	launch_swing(s, s->f.war.whirl, s->player.weapon[0]);
 	s->f.cast = 1;
 }
 
@@ -25,7 +25,7 @@ void warrior_hasagi(st_rpg *s)
 	s->f.war.estoc = 1;
 	s->f.war.count = 0;
 	s->f.war.hpos = s->player.weapon[0]->pos;
-	s->f.war.hrat = get_ratios(get_angle(s->window));
+	s->f.war.hrat = get_ratios(get_angle(s, s->window));
 	s->f.war.hpos.x -= s->f.war.hrat.x * 50;
 	s->f.war.hpos.y -= s->f.war.hrat.y * 50;
 }
