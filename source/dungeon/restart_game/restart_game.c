@@ -77,9 +77,11 @@ void draw_floor_restart(st_rpg *rpg)
 int next_level_screen(st_rpg *rpg)
 {
 	free_dungeon(&rpg->proc);
-	if (rpg->proc.pvar.current_floor < rpg->proc.pvar.max_floor) {
+	if (rpg->proc.pvar.current_floor < rpg->proc.pvar.max_floor &&
+		rpg->proc.pvar.max_floor > 0) {
 		rpg->proc.pvar.current_floor += 1;
-	} else if (rpg->proc.pvar.current_floor < rpg->proc.pvar.max_floor) {
+	} else if (rpg->proc.pvar.current_floor < rpg->proc.pvar.max_floor &&
+		rpg->proc.pvar.max_floor < 0) {
 		rpg->proc.pvar.current_floor -= 1;
 	} else
 		return (1);
