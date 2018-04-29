@@ -11,32 +11,32 @@
 void verify_y_movement(st_rpg *rpg)
 {
 	if (sfKeyboard_isKeyPressed(key_up) == sfTrue) {
-		if (rpg->player.nbr_frame.y > -10)
-			rpg->player.nbr_frame.y -= 1;
+		if (rpg->player.nbr_frame.y > -20)
+			rpg->player.nbr_frame.y -= 2;
 	} else if (sfKeyboard_isKeyPressed(key_down) == sfTrue) {
-		if (rpg->player.nbr_frame.y < 10)
-			rpg->player.nbr_frame.y += 1;
+		if (rpg->player.nbr_frame.y < 20)
+			rpg->player.nbr_frame.y += 2;
 	} else {
 		if (rpg->player.nbr_frame.y > 0)
-			rpg->player.nbr_frame.y -= 1;
+			rpg->player.nbr_frame.y -= 2;
 		else if (rpg->player.nbr_frame.y < 0)
-			rpg->player.nbr_frame.y += 1;
+			rpg->player.nbr_frame.y += 2;
 	}
 }
 
 void verify_x_movement(st_rpg *rpg)
 {
 	if (sfKeyboard_isKeyPressed(key_left) == sfTrue) {
-		if (rpg->player.nbr_frame.x > -10)
-			rpg->player.nbr_frame.x -= 1;
+		if (rpg->player.nbr_frame.x > -20)
+			rpg->player.nbr_frame.x -= 2;
 	} else if (sfKeyboard_isKeyPressed(key_right) == sfTrue) {
-		if (rpg->player.nbr_frame.x < 10)
-			rpg->player.nbr_frame.x += 1;
+		if (rpg->player.nbr_frame.x < 20)
+			rpg->player.nbr_frame.x += 2;
 	} else {
 		if (rpg->player.nbr_frame.x > 0)
-			rpg->player.nbr_frame.x -= 1;
+			rpg->player.nbr_frame.x -= 2;
 		else if (rpg->player.nbr_frame.x < 0)
-			rpg->player.nbr_frame.x += 1;
+			rpg->player.nbr_frame.x += 2;
 	}
 }
 

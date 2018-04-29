@@ -60,9 +60,13 @@ int dungeon_events(st_rpg *s)
 	verify_y_movement(s);
 	while (sfRenderWindow_pollEvent(s->window, &event)) {
 		if (event.type == sfEvtKeyPressed &&
-			sfKeyboard_isKeyPressed(sfKeyEscape))
+			sfKeyboard_isKeyPressed(sfKeyEscape)) {
+			s->player.acceleration.x = 0;
+			s->player.acceleration.y = 0;
+			s->player.nbr_frame.x = 0;
+			s->player.nbr_frame.y = 0;
 			return (pause_main(s));
-		if (event.type == sfEvtClosed) {
+		} if (event.type == sfEvtClosed) {
 			s->returnv = 1;
 			destroy_dungeon_loop(s);
 			return (1);
