@@ -10,6 +10,8 @@
 
 void make_icorner_topleft_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
+
 	smap->sprite = sfSprite_create();
 	smap->rect.left = 144;
 	smap->rect.top = 288;
@@ -18,10 +20,13 @@ void make_icorner_topleft_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
 
 void make_icorner_topright_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
+
 	smap->sprite = sfSprite_create();
 	smap->rect.left = 96;
 	smap->rect.top = 288;
@@ -30,10 +35,13 @@ void make_icorner_topright_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
 
 void make_icorner_botleft_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
+
 	smap->sprite = sfSprite_create();
 	smap->rect.left = 48;
 	smap->rect.top = 288;
@@ -42,10 +50,13 @@ void make_icorner_botleft_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
 
 void make_icorner_botright_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
+
 	smap->sprite = sfSprite_create();
 	smap->rect.left = 0;
 	smap->rect.top = 288;
@@ -54,4 +65,5 @@ void make_icorner_botright_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }

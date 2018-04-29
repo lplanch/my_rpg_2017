@@ -35,10 +35,10 @@ int verif_input_map(st_rpg *rpg)
 
 int verify_exit_player(st_rpg *rpg)
 {
-	int px = rpg->player.obj->pos.x / 48;
-	int py = rpg->player.obj->pos.y / 48;
-	int ex = get_exit_pos(&rpg->proc).x / 48;
-	int ey = get_exit_pos(&rpg->proc).y / 48;
+	int px = rpg->player.obj->pos.x / 96;
+	int py = rpg->player.obj->pos.y / 96;
+	int ex = get_exit_pos(&rpg->proc).x / 96;
+	int ey = get_exit_pos(&rpg->proc).y / 96;
 
 	if (px == ex && py == ey)
 		return (next_level_screen(rpg));

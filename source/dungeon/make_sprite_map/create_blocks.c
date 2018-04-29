@@ -10,6 +10,7 @@
 
 void make_ground_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
 	int random = rand() % 16;
 
 	smap->sprite = sfSprite_create();
@@ -27,10 +28,12 @@ void make_ground_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
 
 void make_leftright_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
 	int random = rand() % 3;
 
 	smap->sprite = sfSprite_create();
@@ -46,10 +49,13 @@ void make_leftright_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
 
 void make_exit_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
+
 	smap->sprite = sfSprite_create();
 	smap->rect.left = 144;
 	smap->rect.top = 336;
@@ -58,10 +64,12 @@ void make_exit_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
 
 void make_top_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
 	int random = rand() % 3;
 
 	smap->sprite = sfSprite_create();
@@ -77,10 +85,12 @@ void make_top_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
 
 void make_bot_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
 	int random = rand() % 3;
 
 	smap->sprite = sfSprite_create();
@@ -96,4 +106,5 @@ void make_bot_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
