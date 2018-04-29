@@ -139,6 +139,8 @@ FILES		=	source/main.c					\
 			source/quests/check_quests.c			\
 			source/quests/get_quests.c			\
 			source/dungeon/main_proc.c					\
+			source/dungeon/update_origin/icons.c					\
+			source/dungeon/update_origin/life_bar.c					\
 			source/dungeon/make_array/map_creation.c			\
 			source/dungeon/make_array/verify_collide.c			\
 			source/dungeon/make_array/corridors.c			\

@@ -498,6 +498,9 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void origin_spells(st_rpg *s);
+void create_main_fight(st_rpg *s);
+void make_proc_variables(proc_var_t *pvar);
 int draw_sprites_map(st_rpg *rpg);
 int update_sprite(st_rpg *rpg);
 int verify_exit_player(st_rpg *rpg);
