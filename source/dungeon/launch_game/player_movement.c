@@ -42,17 +42,23 @@ void verify_x_movement(st_rpg *rpg)
 
 void verify_collide_map(st_rpg *rpg)
 {
-	int tempy[2] = {(rpg->player.obj->pos.y +
-		(rpg->player.acceleration.y * rpg->proc.gman.dt)) / 96,
-		(rpg->player.obj->pos.x) / 96};
-	int tempx[2] = {(rpg->player.obj->pos.y) / 96,
-		(rpg->player.obj->pos.x +
-		(rpg->player.acceleration.x * rpg->proc.gman.dt)) / 96};
+	int py = (rpg->player.obj->pos.y + 36 +
+		(rpg->player.acceleration.y * rpg->proc.gman.dt)) / 96;
+	int my = (rpg->player.obj->pos.y +
+		(rpg->player.acceleration.y * rpg->proc.gman.dt)) / 96;
+	int yx = (rpg->player.obj->pos.x) / 96;
+	int px = (rpg->player.obj->pos.x + 24 +
+	(rpg->player.acceleration.x * rpg->proc.gman.dt)) / 96;
+	int mx = (rpg->player.obj->pos.x - 24 +
+	(rpg->player.acceleration.x * rpg->proc.gman.dt)) / 96;
+	int xy = (rpg->player.obj->pos.y) / 96;
 
-	if (verify_collide(rpg->proc.map[tempy[0]][tempy[1]])) {
+	if (verify_collide(rpg->proc.map[py][yx]) &&
+		verify_collide(rpg->proc.map[my][yx])) {
 		rpg->player.obj->pos.y +=
 		rpg->player.acceleration.y * rpg->proc.gman.dt;
-	} if (verify_collide(rpg->proc.map[tempx[0]][tempx[1]])) {
+	} if (verify_collide(rpg->proc.map[xy][mx]) &&
+		verify_collide(rpg->proc.map[xy][px])) {
 		rpg->player.obj->pos.x +=
 		rpg->player.acceleration.x * rpg->proc.gman.dt;
 	}
