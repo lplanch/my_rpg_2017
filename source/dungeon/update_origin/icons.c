@@ -14,6 +14,6 @@ void origin_icons(st_rpg *s)
 	int y = s->origin.y + 800;
 
 	for (int i = 0; i != 4; i += 1)
-		sfSprite_setPosition(s->f.icons[i]->sprite,
+		sfSprite_setPosition(s->f.icons[i]->obj->sprite,
 		create_vector2f(x + i * 100, y));
 }
