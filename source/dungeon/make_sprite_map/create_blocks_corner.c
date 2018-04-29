@@ -10,6 +10,8 @@
 
 void make_corner_topleft_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
+
 	smap->sprite = sfSprite_create();
 	smap->rect.left = 0;
 	smap->rect.top = 288;
@@ -18,10 +20,13 @@ void make_corner_topleft_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
 
 void make_corner_topright_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
+
 	smap->sprite = sfSprite_create();
 	smap->rect.left = 48;
 	smap->rect.top = 288;
@@ -30,10 +35,13 @@ void make_corner_topright_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
 
 void make_corner_botleft_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
+
 	smap->sprite = sfSprite_create();
 	smap->rect.left = 0;
 	smap->rect.top = 144;
@@ -42,10 +50,13 @@ void make_corner_botleft_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
 
 void make_corner_botright_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
+
 	smap->sprite = sfSprite_create();
 	smap->rect.left = 48;
 	smap->rect.top = 144;
@@ -54,4 +65,5 @@ void make_corner_botright_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }

@@ -23,7 +23,6 @@ void init_player_camera(st_rpg *rpg)
 	rpg->proc.gman.camera_pos = rpg->player.obj->pos;
 	rpg->proc.gman.camera =
 	sfView_copy(sfRenderWindow_getDefaultView(rpg->window));
-	sfView_zoom(rpg->proc.gman.camera, 0.5);
 	sfView_setCenter(rpg->proc.gman.camera, rpg->proc.gman.camera_pos);
 	sfRenderWindow_setView(rpg->window, rpg->proc.gman.camera);
 }

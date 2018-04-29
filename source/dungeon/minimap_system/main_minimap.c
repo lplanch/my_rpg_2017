@@ -11,17 +11,17 @@
 void init_minimap_framebuffers(minimap_t *minimap)
 {
 	minimap->f_background =
-	framebuffer_create(WIDTH / 2.5, HEIGHT / 2.5);
+	framebuffer_create(WIDTH / 1.5, HEIGHT / 1.5);
 	minimap->fb_texture =
-	sfTexture_create(WIDTH / 2.5, HEIGHT / 2.5);
+	sfTexture_create(WIDTH / 1.5, HEIGHT / 1.5);
 	minimap->fb_sprite = sfSprite_create();
 	sfSprite_setTexture(
 	minimap->fb_sprite, minimap->fb_texture, sfTrue);
 	fill_minimap_screen(minimap->f_background, sfBlack);
 	minimap->f_minimap =
-	framebuffer_create(WIDTH / 3, HEIGHT / 3);
+	framebuffer_create(WIDTH / 1.7, HEIGHT / 1.7);
 	minimap->fm_texture =
-	sfTexture_create(WIDTH / 3, HEIGHT / 3);
+	sfTexture_create(WIDTH / 1.7, HEIGHT / 1.7);
 	minimap->fm_sprite = sfSprite_create();
 	sfSprite_setTexture(
 	minimap->fm_sprite, minimap->fm_texture, sfTrue);
@@ -41,7 +41,7 @@ void init_minimap(proc_t *proc)
 	sfText_setFont(proc->minimap.current_level_text,
 	proc->minimap.current_level_font);
 	sfText_setColor(proc->minimap.current_level_text, trans_white);
-	sfText_setCharacterSize(proc->minimap.current_level_text, 12);
+	sfText_setCharacterSize(proc->minimap.current_level_text, 26);
 	init_minimap_framebuffers(&proc->minimap);
 	free(cur_level);
 	free(level_string);
@@ -52,15 +52,15 @@ void draw_minimap(st_rpg *rpg)
 	sfVector2f player_pos_b = rpg->player.obj->pos;
 	sfVector2f player_pos_m = rpg->player.obj->pos;
 
-	player_pos_b.x -= WIDTH / 5;
-	player_pos_b.y -= HEIGHT / 5;
-	player_pos_m.x -= WIDTH / 6;
-	player_pos_m.y -= HEIGHT / 6;
+	player_pos_b.x -= WIDTH / 3;
+	player_pos_b.y -= HEIGHT / 3;
+	player_pos_m.x -= WIDTH / 3.4;
+	player_pos_m.y -= HEIGHT / 3.4;
 	sfTexture_updateFromPixels(rpg->proc.minimap.fb_texture,
-	rpg->proc.minimap.f_background->pixels, WIDTH / 2.5,
-	HEIGHT / 2.5, 0, 0);
+	rpg->proc.minimap.f_background->pixels, WIDTH / 1.5,
+	HEIGHT / 1.5, 0, 0);
 	sfTexture_updateFromPixels(rpg->proc.minimap.fm_texture,
-	rpg->proc.minimap.f_minimap->pixels, WIDTH / 3, HEIGHT / 3, 0, 0);
+	rpg->proc.minimap.f_minimap->pixels, WIDTH / 1.7, HEIGHT / 1.7, 0, 0);
 	sfSprite_setPosition(rpg->proc.minimap.fb_sprite, player_pos_b);
 	sfSprite_setPosition(rpg->proc.minimap.fm_sprite, player_pos_m);
 	sfRenderWindow_drawSprite(
