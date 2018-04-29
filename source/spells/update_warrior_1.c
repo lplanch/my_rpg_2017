@@ -24,8 +24,8 @@ void warrior_update_hasagi_estoc(st_rpg *s)
 	} if (s->f.war.count >= 100 || s->f.war.estoc == 2) {
 		s->f.cast = 0;
 		s->f.war.estoc = 2;
-		s->f.war.hasagi->angle = get_angle(s->window);
-		launch_projectile(s->f.war.hasagi,
+		s->f.war.hasagi->angle = get_angle(s, s->window);
+		launch_projectile(s, s->f.war.hasagi,
 		s->f.war.hasagi->angle);
 	}
 }

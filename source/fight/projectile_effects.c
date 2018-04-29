@@ -27,13 +27,13 @@ void handle_explosive(st_rpg *s, proj_t *proj)
 	}
 }
 
-void handle_bounce(proj_t *proj)
+void handle_bounce(st_rpg *s, proj_t *proj)
 {
 	sfVector2f pos = proj->obj->pos;
 
 	if (!my_strcmp(proj->effect, "bounce")) {
 		proj->shot = 1;
-		launch_projectile(proj, rand() % 360);
+		launch_projectile(s, proj, rand() % 360);
 		proj->obj->pos = pos;
 	}
 }

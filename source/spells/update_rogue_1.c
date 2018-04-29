@@ -25,7 +25,7 @@ void rogue_update_storm(st_rpg *s)
 		for (int i = 0; i != 2; i += 1) {
 			s->f.rog.dagger[s->f.rog.current]->angle = i * 180 +
 			s->f.rog.ultangle + s->f.rog.side % 2 * 90;
-			launch_projectile(s->f.rog.dagger[s->f.rog.current],
+			launch_projectile(s, s->f.rog.dagger[s->f.rog.current],
 			s->f.rog.dagger[s->f.rog.current]->angle);
 			s->f.rog.current += 1;
 			s->f.rog.ultcount += 1;
@@ -71,7 +71,7 @@ void rogue_update_auto_attack(st_rpg *s)
 	update_swing(s, s->f.rog.auto_a[0], s->player.weapon[0]);
 	update_swing(s, s->f.rog.auto_a[1], s->player.weapon[1]);
 	if (s->f.rog.auto_bool == 1 && s->f.rog.auto_a[0]->shot == 0) {
-		launch_swing(s->window, s->f.rog.auto_a[1],
+		launch_swing(s, s->f.rog.auto_a[1],
 		s->player.weapon[1]);
 		s->f.rog.auto_bool = 2;
 		s->f.cast = 1;
