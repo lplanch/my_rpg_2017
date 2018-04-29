@@ -35,7 +35,8 @@ void destroy_dungeon_loop(st_rpg *s)
 
 void update_origin(st_rpg *s)
 {
-	origin_life_bar();
+	origin_life_bar(s);
+	origin_icons(s);
 }
 
 void update_dungeon_loop(st_rpg *s)
@@ -47,6 +48,7 @@ void update_dungeon_loop(st_rpg *s)
 	update_projectiles(s);
 	update_effects(s);
 	update_mob_example(s);
+	update_origin(s);
 	update_sprite(s);
 }
 
