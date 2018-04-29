@@ -11,8 +11,8 @@
 void verify_entry_pos(proc_t *proc, int y, int x, sfVector2f *result)
 {
 	if (proc->map[y][x] == 'E' || proc->map[y][x] == 'B') {
-		result->y = y * 48;
-		result->x = x * 48;
+		result->y = y * 96;
+		result->x = x * 96;
 	}
 }
 
@@ -30,8 +30,8 @@ sfVector2f get_entry_pos(proc_t *proc)
 void verify_exit_pos(proc_t *proc, int y, int x, sfVector2f *result)
 {
 	if (proc->map[y][x] == 'S' || proc->map[y][x] == 'B') {
-		result->y = y * 48;
-		result->x = x * 48;
+		result->y = y * 96;
+		result->x = x * 96;
 	}
 }
 
