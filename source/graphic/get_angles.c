@@ -10,10 +10,10 @@
 
 float get_angle(st_rpg *s, sfRenderWindow *window)
 {
-	float mx = sfMouse_getPositionRenderWindow(window).x -
-	(s->origin.x + 960);
-	float my = sfMouse_getPositionRenderWindow(window).y -
-	(s->origin.y + 540);
+	float mx = s->player.obj->pos.x - 960 +
+	sfMouse_getPositionRenderWindow(window).x;
+	float my = s->player.obj->pos.y - 960 +
+	sfMouse_getPositionRenderWindow(window).y;
 
 	if (my <= 0) {
 		return (-acos(mx / hypot(mx, my)) * (180 / 3.14159265));
