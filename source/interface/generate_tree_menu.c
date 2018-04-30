@@ -76,7 +76,7 @@ void generate_tree_menu_pas(st_rpg *s)
 
 void generate_tree_menu(st_rpg *s)
 {
-	int x = s->origin.x + x;
+	int x = s->origin.x;
 	int y = s->origin.y;
 
 	generate_tree_menu_pas(s);
