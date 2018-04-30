@@ -8,7 +8,7 @@
 #include "my.h"
 #include "my_rpg.h"
 
-int verify_collide(char block)
+int vcollide(char block)
 {
 	if (block == ' ' || block == 'E' || block == 'S' || block == 'B') {
 		return (1);
