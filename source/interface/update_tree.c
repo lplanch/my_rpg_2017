@@ -50,7 +50,7 @@ void update_tree_pos(st_rpg *s)
 	sfSprite_setPosition(s->treem.select[2]->sprite,
 	create_vector2f(x + 61 + s->player.tree.spell2 * 124, s->origin.y + 270));
 	sfSprite_setPosition(s->treem.select[3]->sprite,
-	create_vector2f(x + 61 + 1596 + s->player.tree.spell3 * 124, s->origin.y + 360));
+	create_vector2f(x + 61 + s->player.tree.spell3 * 124, s->origin.y + 360));
 	for (int i = 0, dec = 0, m = 3, d = 0; i != 10; i += 1) {
 		if (i > 5) {
 			d = 61;
