@@ -506,6 +506,7 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void stop_player(st_rpg *s);
 int orientation_from_mouse(st_rpg *s);
 void player_animation(st_rpg *s);
 void create_player(st_rpg *s);

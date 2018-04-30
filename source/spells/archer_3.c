@@ -11,6 +11,8 @@
 void archer_barrage(st_rpg *s)
 {
 	launch_aoe(s, s->f.arc.barrage);
+	stop_player(s);
+	s->f.cast = 2;
 }
 
 void archer_axe(st_rpg *s)

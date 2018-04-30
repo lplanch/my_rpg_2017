@@ -18,6 +18,11 @@ void update_archer(st_rpg *s)
 		clocked_animation(s->f.arc.heal->anim);
 	if (s->f.arc.barrage->shot)
 		clocked_animation(s->f.arc.barrage->anim);
+	if (s->f.arc.barrage->anim->li > s->f.arc.barrage->anim->ver) {
+		s->f.arc.barrage->anim->li = 0;
+		s->f.cast = 0;
+	}
+
 }
 
 void update_gunner(st_rpg *s)

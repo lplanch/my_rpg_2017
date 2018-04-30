@@ -14,7 +14,8 @@ void gunner_ult(st_rpg *s)
 
 	s->f.gun.ultrat = get_ratios(angle);
 	s->f.gun.ult = 1;
-	s->f.cast = 1;
+	s->f.cast = 2;
+	stop_player(s);
 	for (int i = 0; i != 10; i += 1) {
 		s->f.gun.ultb[i]->dmg = s->f.gun.origin;
 		s->f.gun.ultb[i]->angle = angle + 30 - i * 6;
