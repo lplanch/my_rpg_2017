@@ -180,6 +180,9 @@ typedef struct s_files
 	sfView *view;
 	quests_t **quests;
 	g_object *character;
+	sfVector2f last_pos;
+	sfVector2i nbr_frame;
+	sfVector2f acceleration;
 	g_object *ID_character;
 	g_object *loading;
 	quests_box_t quests_box;
