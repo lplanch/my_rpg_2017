@@ -38,6 +38,7 @@ void create_spells_warrior(st_rpg *s)
 	s->f.war.hasagi = create_projectile("ressources/proj/HASAGI");
 	s->f.war.hpos = create_vector2f(0, 0);
 	s->f.war.hrat = create_vector2f(0, 0);
+	s->f.war.endure = create_effect("invulnerable", 2000000, 5);
 }
 
 void create_class(st_rpg *s)

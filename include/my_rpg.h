@@ -350,6 +350,7 @@ typedef struct struct_warrior_spells
 	aoe_t *shield;
 	int estoc;
 	float count;
+	effect_t *endure;
 } warrior_t;
 
 typedef struct fight_tree

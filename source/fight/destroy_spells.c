@@ -55,6 +55,7 @@ void destroy_spells_warrior(st_rpg *s)
 	destroy_swing(s->f.war.auto_a);
 	destroy_swing(s->f.war.whirl);
 	destroy_projectile(s->f.war.hasagi);
+	destroy_effect(s->f.war.endure);
 }
 
 void destroy_class(st_rpg *s)

@@ -30,7 +30,9 @@ void proc_effect_rogue(st_rpg *s)
 
 void proc_effect_warrior(st_rpg *s)
 {
-
+	proc_effect(s->f.war.endure);
+	if (s->f.war.endure->count <= 0 && s->f.war.endure->amount != 0)
+		s->player.stat->def -= s->f.war.endure->amount;
 }
 
 void proc_effects(st_rpg *s)

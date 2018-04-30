@@ -10,6 +10,8 @@
 
 void warrior_stance(st_rpg *s)
 {
+	s->f.cast = 2;
+	stop_player(s);
 	launch_aoe(s, s->f.war.shield);
 	sfCircleShape_setPosition(s->f.war.shield->circle,
 	create_vector2f(s->origin.x + 960 - sfCircleShape_getRadius(s
@@ -19,7 +21,6 @@ void warrior_stance(st_rpg *s)
 	create_vector2f(s->origin.x + 960 - s->f.war.shield->anim->obj
 	->rect.width / 2,
 	s->origin.y + 540 - s->f.war.shield->anim->obj->rect.height / 2));
-	s->f.cast = 1;
 }
 
 void warrior_lifesteal(st_rpg *s)

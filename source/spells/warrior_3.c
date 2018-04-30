@@ -15,7 +15,8 @@ void warrior_earthquake(st_rpg *s)
 
 void warrior_endure(st_rpg *s)
 {
-
+	s->f.war.endure->count = s->f.war.endure->duration;
+	s->player.stat->def += s->f.war.endure->amount;
 }
 
 void choose_spell3_warrior(st_rpg *s)
