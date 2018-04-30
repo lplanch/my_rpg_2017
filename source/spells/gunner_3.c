@@ -10,7 +10,7 @@
 
 void gunner_ult(st_rpg *s)
 {
-	float angle = get_angle(s, s->window);
+	float angle = get_angle(s);
 
 	s->f.gun.ultrat = get_ratios(angle);
 	s->f.gun.ult = 1;

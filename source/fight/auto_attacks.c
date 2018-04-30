@@ -10,7 +10,7 @@
 
 void archer_auto_attack(st_rpg *s)
 {
-	s->f.arc.arrow[s->f.arc.current]->angle = get_angle(s, s->window);
+	s->f.arc.arrow[s->f.arc.current]->angle = get_angle(s);
 	launch_projectile(s, s->f.arc.arrow[s->f.arc.current],
 	s->f.arc.arrow[s->f.arc.current]->angle);
 	s->f.arc.current += 1;

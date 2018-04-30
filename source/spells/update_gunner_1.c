@@ -108,8 +108,7 @@ void gunner_update_auto_attack(st_rpg *s)
 	s->f.gun.t.time = sfClock_getElapsedTime(s->f.gun.t.clock);
 	s->f.gun.t.sec = s->f.gun.t.time.microseconds / 1000000.0;
 	if (s->f.gun.t.sec > s->f.gun.autospeed && s->f.gun.auto_a == 1) {
-		s->f.gun.bullet[s->f.gun.current]->angle = get_angle(s,
-		s->window);
+		s->f.gun.bullet[s->f.gun.current]->angle = get_angle(s);
 		launch_projectile(s, s->f.gun.bullet[s->f.gun.current],
 		s->f.gun.bullet[s->f.gun.current]->angle);
 		update_current_bullet(s);

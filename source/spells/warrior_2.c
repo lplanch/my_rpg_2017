@@ -10,7 +10,7 @@
 
 void warrior_stance(st_rpg *s)
 {
-	launch_aoe(s->window, s->f.war.shield);
+	launch_aoe(s, s->f.war.shield);
 	sfCircleShape_setPosition(s->f.war.shield->circle,
 	create_vector2f(s->origin.x + 960 - sfCircleShape_getRadius(s
 	->f.war.shield->circle),

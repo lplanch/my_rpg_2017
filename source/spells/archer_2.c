@@ -10,7 +10,7 @@
 
 void archer_heal(st_rpg *s)
 {
-	launch_aoe(s->window, s->f.arc.heal);
+	launch_aoe(s, s->f.arc.heal);
 	sfCircleShape_setPosition(s->f.arc.heal->circle,
 	create_vector2f(s->origin.x + 960 - sfCircleShape_getRadius(s
 	->f.arc.heal->circle),

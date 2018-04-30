@@ -39,7 +39,7 @@ void launch_swing(st_rpg *s, swing_t *swing, g_object *obj)
 	swing->able = 1;
 	swing->shot = 1;
 	swing->count = 0;
-	sfSprite_setRotation(obj->sprite, get_angle(s, s->window) +
+	sfSprite_setRotation(obj->sprite, get_angle(s) +
 	swing->begin);
 }
 
