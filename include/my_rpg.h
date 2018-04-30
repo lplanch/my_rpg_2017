@@ -499,6 +499,7 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+int mouse_in_origin(st_rpg *s, g_object *obj);
 int dungeon_loop(st_rpg *s);
 void verify_other_input(sfEvent event, st_rpg *rpg);
 void origin_life_bar(st_rpg *s);

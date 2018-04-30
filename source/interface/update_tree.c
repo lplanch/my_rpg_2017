@@ -65,14 +65,14 @@ void update_tree_pos(st_rpg *s)
 
 void update_tree_mouse(st_rpg *s, int i)
 {
-	if (mouse_in_object(s->treem.pas[i], s->window))
+	if (mouse_in_origin(s, s->treem.pas[i]))
 		tree_proceed(s, i);
-	if (mouse_in_object(s->treem.m2[i], s->window))
+	if (mouse_in_origin(s, s->treem.m2[i]))
 		tree_proceed(s, i + 3);
 	if (i != 2) {
-		if (mouse_in_object(s->treem.e[i], s->window))
+		if (mouse_in_origin(s, s->treem.e[i]))
 			tree_proceed(s, i + 6);
-		if (mouse_in_object(s->treem.r[i], s->window))
+		if (mouse_in_origin(s, s->treem.r[i]))
 			tree_proceed(s, i + 8);
 	}
 }
