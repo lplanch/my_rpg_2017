@@ -20,6 +20,7 @@ void create_dungeon_loop(st_rpg *s)
 	create_class(s);
 	create_life_bar(s);
 	create_mob_example(s);
+	create_player(s);
 }
 
 void destroy_dungeon_loop(st_rpg *s)
@@ -50,6 +51,7 @@ void update_dungeon_loop(st_rpg *s)
 	update_mob_example(s);
 	update_origin(s);
 	update_sprite(s);
+	player_animation(s);
 }
 
 int dungeon_events(st_rpg *s)

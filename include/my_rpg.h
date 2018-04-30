@@ -470,6 +470,10 @@ typedef struct struct_player_info
 	g_object *obj;
 	g_object *weapon[2];
 	int max_speed;
+	float animspeed;
+	int animcol;
+	int animsens;
+	st_time t;
 	sfVector2f last_pos;
 	sfVector2i nbr_frame;
 	sfVector2f acceleration;
@@ -499,6 +503,9 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+int orientation_from_mouse(st_rpg *s);
+void player_animation(st_rpg *s);
+void create_player(st_rpg *s);
 int mouse_in_origin(st_rpg *s, g_object *obj);
 int dungeon_loop(st_rpg *s);
 void verify_other_input(sfEvent event, st_rpg *rpg);
