@@ -17,9 +17,9 @@ void archer_create_weapon(st_rpg *s)
 void gunner_create_weapon(st_rpg *s)
 {
 	s->player.weapon[0] = create_object("ressources/images/gun.png",
-	create_vector2f(960, 540), create_rect(0, 0, 23, 15), 0);
+	create_vector2f(960, 540), create_rect(0, 0, 12, 11), 0);
 	s->player.weapon[1] = create_object("ressources/images/gun.png",
-	create_vector2f(960, 540), create_rect(0, 0, 23, 15), 0);
+	create_vector2f(960, 540), create_rect(0, 0, 12, 11), 0);
 }
 
 void rogue_create_weapon(st_rpg *s)
