@@ -76,6 +76,8 @@ void move(st_rpg *s)
 
 void move_ok(st_rpg *s)
 {
+	sfVector2f player_pos;
+
 	if (sfKeyboard_isKeyPressed(sfKeyUp) == sfTrue) {
 		s->fi->character->rect.top = 144;
 		s->fi->direction = 1;

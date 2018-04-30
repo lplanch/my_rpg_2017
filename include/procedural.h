@@ -18,11 +18,6 @@
 #define MIN(a, b) ((a < b)? a : b)
 #define MAX(a, b) ((a > b)? a : b)
 
-//GAME MANAGE
-static const unsigned int WIDTH = 1664;
-static const unsigned int HEIGHT = 936;
-static const char window_name[13] = "INTO THE DEEP";
-
 //INPUTS
 static const sfKeyCode key_up = sfKeyZ;
 static const sfKeyCode key_down = sfKeyS;

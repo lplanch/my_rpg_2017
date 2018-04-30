@@ -64,21 +64,24 @@ char *get_spell_path(st_rpg *s, int spell)
 
 void create_icons(st_rpg *s)
 {
+	int x = s->origin.x;
+	int y = s->origin.y + 800;
+
 	s->f.icons[0] = create_button("M1",
 	create_object(get_spell_path(s, 0),
-	create_vector2f(200, 800), create_rect(0, 0, 128, 128), 0), sfWhite,
+	create_vector2f(x + 200, y), create_rect(0, 0, 128, 128), 0), sfWhite,
 	25);
 	s->f.icons[1] = create_button("M2",
 	create_object(get_spell_path(s, 1),
-	create_vector2f(300, 800), create_rect(0, 0, 128, 128), 0), sfWhite,
+	create_vector2f(x + 300, y), create_rect(0, 0, 128, 128), 0), sfWhite,
 	25);
 	s->f.icons[2] = create_button("E",
 	create_object(get_spell_path(s, 2),
-	create_vector2f(400, 800), create_rect(0, 0, 128, 128), 0), sfWhite,
+	create_vector2f(x + 400, y), create_rect(0, 0, 128, 128), 0), sfWhite,
 	25);
 	s->f.icons[3] = create_button("R",
 	create_object(get_spell_path(s, 3),
-	create_vector2f(500, 800), create_rect(0, 0, 128, 128), 0), sfWhite,
+	create_vector2f(x + 500, y), create_rect(0, 0, 128, 128), 0), sfWhite,
 	25);
 	create_icons_cd(s);
 }

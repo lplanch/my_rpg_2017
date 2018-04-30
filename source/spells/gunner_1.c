@@ -10,7 +10,7 @@
 
 void gunner_blitz(st_rpg *s)
 {
-	launch_projectile(s->f.gun.blitz, get_angle(s->window));
+	launch_projectile(s, s->f.gun.blitz, get_angle(s, s->window));
 }
 
 void gunner_medikit(st_rpg *s)
@@ -23,9 +23,10 @@ void gunner_grenade(st_rpg *s)
 	int mx = sfMouse_getPositionRenderWindow(s->window).x;
 	int my = sfMouse_getPositionRenderWindow(s->window).y;
 
-	s->f.gun.grenade->range = hypot(abs(mx - 960), abs(my - 540));
+	s->f.gun.grenade->range = hypot(abs(mx - s->origin.x + 960),
+	abs(my - s->origin.y + 540));
 	s->f.gun.grenade->obj->speed = s->f.gun.grenade->range / 50;
-	launch_projectile(s->f.gun.grenade, get_angle(s->window));
+	launch_projectile(s, s->f.gun.grenade, get_angle(s, s->window));
 	sfClock_restart(s->f.gun.explosion->t.clock);
 }
 

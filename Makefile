@@ -139,6 +139,8 @@ FILES		=	source/main.c					\
 			source/quests/check_quests.c			\
 			source/quests/get_quests.c			\
 			source/dungeon/main_proc.c					\
+			source/dungeon/update_origin/icons.c					\
+			source/dungeon/update_origin/life_bar.c					\
 			source/dungeon/make_array/map_creation.c			\
 			source/dungeon/make_array/verify_collide.c			\
 			source/dungeon/make_array/corridors.c			\
@@ -152,6 +154,7 @@ FILES		=	source/main.c					\
 			source/dungeon/make_sprite_map/create_blocks_icorner.c	\
 			source/dungeon/make_sprite_map/create_blocks_deadlock.c	\
 			source/dungeon/launch_game/launch_dungeon.c		\
+			source/dungeon/launch_game/dungeon_loop.c		\
 			source/dungeon/launch_game/camera_manager.c		\
 			source/dungeon/launch_game/input_manager.c			\
 			source/dungeon/launch_game/player_movement.c		\

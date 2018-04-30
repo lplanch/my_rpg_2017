@@ -19,6 +19,9 @@
 #include "ingame_struct.h"
 #include "procedural_struct.h"
 
+#define WIDTH (1920)
+#define HEIGHT (1080)
+
 typedef struct struct_music
 {
 	sfMusic *music;
@@ -483,7 +486,7 @@ typedef struct struct_rpg
 	status_menu_t statm;
 	tree_menu_t treem;
 	pause_menu_t pausm;
-	g_object *center;
+	sfVector2f origin;
 	g_object *loading;
 	int returnv;
 	st_custom cust;
@@ -495,6 +498,20 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void origin_icons(st_rpg *s);
+void origin_spells(st_rpg *s);
+void create_main_fight(st_rpg *s);
+void make_proc_variables(proc_var_t *pvar);
+int draw_sprites_map(st_rpg *rpg);
+int update_sprite(st_rpg *rpg);
+int verify_exit_player(st_rpg *rpg);
+void create_gunner_second(st_rpg *s);
+void create_gunner_explosions(st_rpg *s);
+void create_gunner_bullets(st_rpg *s);
+void create_archer_passive(st_rpg *s);
+void create_archer_projectiles(st_rpg *s);
+void create_rogue_autos(st_rpg *s);
+void create_rogue_daggers(st_rpg *s);
 void my_set_string(sfText *text, char *str);
 char *get_stat_string(int i);
 char *get_stat_value(st_rpg *s, int i);
@@ -543,7 +560,7 @@ void save_tree(tree_t tree, char *path);
 void rogue_backstab(st_rpg *s);
 void handle_invulnerability_lifesteal(st_rpg *s, float amount, char *effect);
 void handle_explosive(st_rpg *s, proj_t *proj);
-void handle_bounce(proj_t *proj);
+void handle_bounce(st_rpg *s, proj_t *proj);
 void handle_pierce(proj_t *proj);
 void rogue_update_auto_attack(st_rpg *s);
 void update_pos_weapon(st_rpg *s);
@@ -562,7 +579,7 @@ void swing_damage_enemy(st_rpg *s, swing_t *swing, enemy_t *mob);
 swing_t *create_swing_from_file(char *path);
 void destroy_swing(swing_t *swing);
 void update_swing(st_rpg *s, swing_t *swing, g_object *obj);
-void launch_swing(sfRenderWindow *window, swing_t *swing, g_object *obj);
+void launch_swing(st_rpg *s, swing_t *swing, g_object *obj);
 void create_weapon(st_rpg *s);
 void update_effects(st_rpg *s);
 void apply_aoe(st_rpg *s, aoe_t *aoe, enemy_t *mob);
@@ -639,9 +656,9 @@ char *which_spell(st_rpg *s, int spell);
 char *get_spell_path(st_rpg *s, int spell);
 void create_icons(st_rpg *s);
 sfVector2f get_ratios(float angle);
-float get_angle(sfRenderWindow *window);
+float get_angle(st_rpg *s, sfRenderWindow *window);
 int fight_instance(st_rpg *s);
-void launch_projectile(proj_t *proj, float angle);
+void launch_projectile(st_rpg *s, proj_t *proj, float angle);
 void loading(st_rpg *s);
 int cust_left_clicked(st_rpg *s, sfEvent event);
 void cust_menu_togo_name(st_rpg *s);

@@ -36,6 +36,7 @@ st_cdata load_cdata(char *path)
 
 void load_save(st_rpg *s)
 {
+	sfVector2f scale = {2, 2};
 	char *path = get_save_path(s);
 	char *tmp = my_strcat(path, "stat");
 
@@ -48,7 +49,9 @@ void load_save(st_rpg *s)
 	load_tree(s, tmp);
 	free(tmp);
 	free(path);
-	s->player.obj = create_object("ressources/images/hero.png", create_vector2f(960,
+	s->player.obj = create_object("ressources/images/hero.png",
+	create_vector2f(960,
 	540), create_rect(0, 0, 48 + 144 * s->player.cdata.sex, 48), 0);
+	sfSprite_scale(s->player.obj->sprite, scale);
 	create_weapon(s);
 }

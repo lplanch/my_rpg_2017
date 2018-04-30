@@ -18,7 +18,7 @@ void setup_col(st_rpg *s)
 void setup_camera(st_rpg *s)
 {
 	s->fi->view = sfView_create();
-	s->fi->view = sfRenderWindow_getDefaultView(s->window);
+	s->fi->view = sfView_copy(sfRenderWindow_getDefaultView(s->window));
 	s->fi->camera.x = s->fi->character->pos.x;
 	s->fi->camera.y = s->fi->character->pos.y;
 	s->fi->camera_prec.x = s->fi->character->pos.x;

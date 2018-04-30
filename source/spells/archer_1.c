@@ -11,9 +11,10 @@
 void archer_salve(st_rpg *s)
 {
 	for (int i = -3; i != 4; i += 1) {
-		s->f.arc.arrow[s->f.arc.current]->angle = get_angle(s->window) +
+		s->f.arc.arrow[s->f.arc.current]->angle = get_angle(s,
+		s->window) +
 		i * 5;
-		launch_projectile(s->f.arc.arrow[s->f.arc.current],
+		launch_projectile(s, s->f.arc.arrow[s->f.arc.current],
 		s->f.arc.arrow[s->f.arc.current]->angle);
 		s->f.arc.current += 1;
 		update_current_arrow(s);

@@ -10,6 +10,8 @@
 
 void make_deadlock_top_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
+
 	smap->sprite = sfSprite_create();
 	smap->rect.left = 48;
 	smap->rect.top = 240;
@@ -18,10 +20,13 @@ void make_deadlock_top_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
 
 void make_deadlock_bot_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
+
 	smap->sprite = sfSprite_create();
 	smap->rect.left = 0;
 	smap->rect.top = 240;
@@ -30,10 +35,13 @@ void make_deadlock_bot_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
 
 void make_deadlock_left_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
+
 	smap->sprite = sfSprite_create();
 	smap->rect.left = 144;
 	smap->rect.top = 240;
@@ -42,10 +50,13 @@ void make_deadlock_left_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
 
 void make_deadlock_right_block(sfTexture *blocks, smap_t *smap)
 {
+	sfVector2f scale = {2, 2};
+
 	smap->sprite = sfSprite_create();
 	smap->rect.left = 96;
 	smap->rect.top = 240;
@@ -54,6 +65,7 @@ void make_deadlock_right_block(sfTexture *blocks, smap_t *smap)
 	sfSprite_setTexture(smap->sprite, blocks, sfTrue);
 	sfSprite_setTextureRect(smap->sprite, smap->rect);
 	sfSprite_setPosition(smap->sprite, smap->pos);
+	sfSprite_setScale(smap->sprite, scale);
 }
 
 int is_ground(char chr)

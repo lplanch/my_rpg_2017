@@ -19,8 +19,9 @@ void update_kalash(st_rpg *s)
 	s->f.arc.kal.time = sfClock_getElapsedTime(s->f.arc.kal.clock);
 	s->f.arc.kal.sec = s->f.arc.kal.time.microseconds / 1000000.0;
 	if (s->f.arc.kal.sec > s->f.arc.kalashspeed && s->f.arc.kalash == 1) {
-		s->f.arc.arrow[s->f.arc.current]->angle = get_angle(s->window);
-		launch_projectile(s->f.arc.arrow[s->f.arc.current],
+		s->f.arc.arrow[s->f.arc.current]->angle = get_angle(s,
+		s->window);
+		launch_projectile(s, s->f.arc.arrow[s->f.arc.current],
 		s->f.arc.arrow[s->f.arc.current]->angle);
 		s->f.arc.current += 1;
 		s->f.arc.kalashcount += 1;

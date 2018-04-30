@@ -35,10 +35,12 @@ int update_sprite(st_rpg *rpg)
 
 	rpg->player.last_pos = rpg->player.obj->pos;
 	update_player_position(rpg);
+	rpg->origin.x = rpg->player.obj->pos.x - WIDTH / 2;
+	rpg->origin.y = rpg->player.obj->pos.y - HEIGHT / 2;
 	player_pos.x = rpg->player.obj->pos.x -
-	(rpg->player.obj->rect.width / 2);
+	(rpg->player.obj->rect.width);
 	player_pos.y = rpg->player.obj->pos.y -
-	(rpg->player.obj->rect.height / 2);
+	(rpg->player.obj->rect.height);
 	sfSprite_setPosition(rpg->player.obj->sprite, player_pos);
 	update_camera_position(rpg);
 	update_minimap(rpg);

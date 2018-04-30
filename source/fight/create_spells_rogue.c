@@ -33,7 +33,8 @@ void create_rogue_autos(st_rpg *s)
 	s->f.rog.bstab = 0;
 	s->f.rog.bdmg = s->f.rog.auto_a[0]->dmg * 3;
 	s->f.rog.backstab = create_button("M1",
-	create_object("ressources/spells/2/auto2.png", create_vector2f(200, 800),
+	create_object("ressources/spells/2/auto2.png",
+	create_vector2f(s->origin.x + 200, s->origin.y + 800),
 	create_rect(0, 0, 128, 128), 0), sfWhite, 25);
 	s->f.rog.bpos[0] = create_vector2f(0, 0);
 	s->f.rog.bpos[1] = create_vector2f(0, 0);

@@ -13,15 +13,12 @@ void destroy_main_fight(st_rpg *s)
 	for (int i = 0; i != 3; i += 1)
 		destroy_object(s->f.locks[i]);
 	sfClock_destroy(s->f.proc.clock);
-	destroy_object(s->center);
 }
 
 void create_main_fight(st_rpg *s)
 {
 	s->f.cast = 0;
 	s->f.proc = create_st_time();
-	s->center = create_object("ressources/images/center.png", create_vector2f(959,
-	539), create_rect(0, 0, 2, 2), 0);
 	for (int i = 0; i != 4; i += 1)
 		s->f.cdcount[i] = 0;
 	get_cooldowns(s);
@@ -55,8 +52,8 @@ int fight_events(st_rpg *s)
 
 void display_fight(st_rpg *s)
 {
-	sfRenderWindow_clear(s->window, sfWhite);
-	sfRenderWindow_drawSprite(s->window, s->center->sprite, NULL);
+	sfRenderWindow_clear(s->window, s->proc.pvar.background);
+	draw_sprites_map(s);
 	display_mob_example(s);
 	display_player(s);
 	display_class(s);

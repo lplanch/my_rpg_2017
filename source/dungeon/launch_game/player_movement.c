@@ -11,48 +11,54 @@
 void verify_y_movement(st_rpg *rpg)
 {
 	if (sfKeyboard_isKeyPressed(key_up) == sfTrue) {
-		if (rpg->player.nbr_frame.y > -10)
-			rpg->player.nbr_frame.y -= 1;
+		if (rpg->player.nbr_frame.y > -20)
+			rpg->player.nbr_frame.y -= 2;
 	} else if (sfKeyboard_isKeyPressed(key_down) == sfTrue) {
-		if (rpg->player.nbr_frame.y < 10)
-			rpg->player.nbr_frame.y += 1;
+		if (rpg->player.nbr_frame.y < 20)
+			rpg->player.nbr_frame.y += 2;
 	} else {
 		if (rpg->player.nbr_frame.y > 0)
-			rpg->player.nbr_frame.y -= 1;
+			rpg->player.nbr_frame.y -= 2;
 		else if (rpg->player.nbr_frame.y < 0)
-			rpg->player.nbr_frame.y += 1;
+			rpg->player.nbr_frame.y += 2;
 	}
 }
 
 void verify_x_movement(st_rpg *rpg)
 {
 	if (sfKeyboard_isKeyPressed(key_left) == sfTrue) {
-		if (rpg->player.nbr_frame.x > -10)
-			rpg->player.nbr_frame.x -= 1;
+		if (rpg->player.nbr_frame.x > -20)
+			rpg->player.nbr_frame.x -= 2;
 	} else if (sfKeyboard_isKeyPressed(key_right) == sfTrue) {
-		if (rpg->player.nbr_frame.x < 10)
-			rpg->player.nbr_frame.x += 1;
+		if (rpg->player.nbr_frame.x < 20)
+			rpg->player.nbr_frame.x += 2;
 	} else {
 		if (rpg->player.nbr_frame.x > 0)
-			rpg->player.nbr_frame.x -= 1;
+			rpg->player.nbr_frame.x -= 2;
 		else if (rpg->player.nbr_frame.x < 0)
-			rpg->player.nbr_frame.x += 1;
+			rpg->player.nbr_frame.x += 2;
 	}
 }
 
 void verify_collide_map(st_rpg *rpg)
 {
-	int tempy[2] = {(rpg->player.obj->pos.y +
-	(rpg->player.acceleration.y * rpg->proc.gman.dt)) / 48,
-	(rpg->player.obj->pos.x) / 48};
-	int tempx[2] = {(rpg->player.obj->pos.y) / 48,
-	(rpg->player.obj->pos.x +
-	(rpg->player.acceleration.x * rpg->proc.gman.dt)) / 48};
+	int py = (rpg->player.obj->pos.y + 36 +
+		(rpg->player.acceleration.y * rpg->proc.gman.dt)) / 96;
+	int my = (rpg->player.obj->pos.y +
+		(rpg->player.acceleration.y * rpg->proc.gman.dt)) / 96;
+	int yx = (rpg->player.obj->pos.x) / 96;
+	int px = (rpg->player.obj->pos.x + 24 +
+	(rpg->player.acceleration.x * rpg->proc.gman.dt)) / 96;
+	int mx = (rpg->player.obj->pos.x - 24 +
+	(rpg->player.acceleration.x * rpg->proc.gman.dt)) / 96;
+	int xy = (rpg->player.obj->pos.y) / 96;
 
-	if (verify_collide(rpg->proc.map[tempy[0]][tempy[1]])) {
+	if (verify_collide(rpg->proc.map[py][yx]) &&
+		verify_collide(rpg->proc.map[my][yx])) {
 		rpg->player.obj->pos.y +=
 		rpg->player.acceleration.y * rpg->proc.gman.dt;
-	} if (verify_collide(rpg->proc.map[tempx[0]][tempx[1]])) {
+	} if (verify_collide(rpg->proc.map[xy][mx]) &&
+		verify_collide(rpg->proc.map[xy][px])) {
 		rpg->player.obj->pos.x +=
 		rpg->player.acceleration.x * rpg->proc.gman.dt;
 	}

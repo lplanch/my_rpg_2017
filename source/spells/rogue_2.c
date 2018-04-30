@@ -17,11 +17,13 @@ void rogue_zone(st_rpg *s)
 {
 	launch_aoe(s->window, s->f.rog.zone);
 	sfCircleShape_setPosition(s->f.rog.zone->circle,
-	create_vector2f(960 - sfCircleShape_getRadius(s->f.rog.zone->circle),
-	540 - sfCircleShape_getRadius(s->f.rog.zone->circle)));
+	create_vector2f(s->origin.x + 960 - sfCircleShape_getRadius(s
+	->f.rog.zone->circle),
+	s->origin.y + 540 - sfCircleShape_getRadius(s->f.rog.zone->circle)));
 	sfSprite_setPosition(s->f.rog.zone->anim->obj->sprite,
-	create_vector2f(960 - s->f.rog.zone->anim->obj->rect.width / 2,
-	540 - s->f.rog.zone->anim->obj->rect.height / 2));
+	create_vector2f(s->origin.x + 960 - s->f.rog.zone->anim->obj
+	->rect.width / 2,
+	s->origin.y + 540 - s->f.rog.zone->anim->obj->rect.height / 2));
 	s->f.rog.vanish += 5;
 }
 

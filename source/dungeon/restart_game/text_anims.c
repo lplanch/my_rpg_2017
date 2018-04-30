@@ -14,7 +14,7 @@ void fade_in_text(sfRenderWindow *window, sfText *text)
 
 	anim_color.a = 0;
 	while (anim_color.a < 255) {
-		anim_color.a += 1;
+		anim_color.a += 3;
 		sfRenderWindow_clear(window, sfBlack);
 		sfText_setColor(text, anim_color);
 		sfRenderWindow_drawText(window, text, NULL);
@@ -27,7 +27,7 @@ void fade_out_text(sfRenderWindow *window, sfText *text)
 	sfColor anim_color = sfWhite;
 
 	while (anim_color.a > 0) {
-		anim_color.a -= 1;
+		anim_color.a -= 3;
 		sfRenderWindow_clear(window, sfBlack);
 		sfText_setColor(text, anim_color);
 		sfRenderWindow_drawText(window, text, NULL);

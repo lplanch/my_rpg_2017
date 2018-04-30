@@ -15,10 +15,11 @@ void archer_barrage(st_rpg *s)
 
 void archer_axe(st_rpg *s)
 {
-	s->f.arc.axe->rpos = create_vector2f(920, 540);
-	s->f.arc.axe->angle = get_angle(s->window);
+	s->f.arc.axe->rpos = create_vector2f(s->origin.x + 960,
+	s->origin.y + 540);
+	s->f.arc.axe->angle = get_angle(s, s->window);
 	s->f.arc.axeangle = s->f.arc.axe->angle - 70;
-	launch_projectile(s->f.arc.axe, s->f.arc.axe->angle - 70);
+	launch_projectile(s, s->f.arc.axe, s->f.arc.axe->angle - 70);
 }
 
 void choose_spell3_archer(st_rpg *s)

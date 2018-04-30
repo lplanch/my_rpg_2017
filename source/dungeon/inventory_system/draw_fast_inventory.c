@@ -13,12 +13,12 @@ void set_created_position(st_rpg *rpg)
 	sfVector2f mouse_pos = {0, 0};
 
 	if (rpg->finv.created == 0) {
-		mouse_pos.x -= WIDTH / 4 + HEIGHT / 16 + 20;
-		mouse_pos.y -= HEIGHT / 4 + HEIGHT / 16 + 20;
+		mouse_pos.x -= WIDTH / 2 + HEIGHT / 8 + 20;
+		mouse_pos.y -= HEIGHT / 2 + HEIGHT / 8 + 20;
 		mouse_pos.x +=
-		sfMouse_getPositionRenderWindow(rpg->window).x / 2;
+		sfMouse_getPositionRenderWindow(rpg->window).x;
 		mouse_pos.y +=
-		sfMouse_getPositionRenderWindow(rpg->window).y / 2;
+		sfMouse_getPositionRenderWindow(rpg->window).y;
 		rpg->finv.created_pos.x = mouse_pos.x;
 		rpg->finv.created_pos.y = mouse_pos.y;
 	}

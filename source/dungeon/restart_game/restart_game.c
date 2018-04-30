@@ -59,11 +59,11 @@ void draw_floor_restart(st_rpg *rpg)
 	sfFont *font = sfFont_createFromFile("ressources/OpenSans.ttf");
 	sfText *next_level = sfText_create();
 
-	screen_center.y -= 12;
-	screen_center.x -= (my_strlen(level_string) * 12) / 2;
+	screen_center.y -= 25;
+	screen_center.x -= (my_strlen(level_string) * 25) / 2;
 	sfText_setString(next_level, level_string);
 	sfText_setFont(next_level, font);
-	sfText_setCharacterSize(next_level, 24);
+	sfText_setCharacterSize(next_level, 50);
 	sfText_setPosition(next_level, screen_center);
 	fade_in_text(rpg->window, next_level);
 	init_next_level(rpg);
@@ -77,9 +77,11 @@ void draw_floor_restart(st_rpg *rpg)
 int next_level_screen(st_rpg *rpg)
 {
 	free_dungeon(&rpg->proc);
-	if (rpg->proc.pvar.current_floor < rpg->proc.pvar.max_floor) {
+	if (rpg->proc.pvar.current_floor < rpg->proc.pvar.max_floor &&
+		rpg->proc.pvar.max_floor > 0) {
 		rpg->proc.pvar.current_floor += 1;
-	} else if (rpg->proc.pvar.current_floor < rpg->proc.pvar.max_floor) {
+	} else if (rpg->proc.pvar.current_floor < rpg->proc.pvar.max_floor &&
+		rpg->proc.pvar.max_floor < 0) {
 		rpg->proc.pvar.current_floor -= 1;
 	} else
 		return (1);
