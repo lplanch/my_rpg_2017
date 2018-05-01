@@ -57,6 +57,7 @@ void destroy_spells_warrior(st_rpg *s)
 	destroy_projectile(s->f.war.hasagi);
 	destroy_effect(s->f.war.endure);
 	destroy_effect(s->f.war.lifesteal);
+	destroy_effect(s->f.war.destroyer);
 }
 
 void destroy_class(st_rpg *s)

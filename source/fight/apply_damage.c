@@ -13,7 +13,7 @@ void projectile_damage_enemy(st_rpg *s, proj_t *proj, enemy_t *mob)
 	float amount = proj->dmg + s->player.stat->frc * proj->dmgratio;
 
 	mob->stat->pva -= amount;
-	handle_status(s, amount);
+	handle_status(s, amount, mob);
 }
 
 void swing_damage_enemy(st_rpg *s, swing_t *swing, enemy_t *mob)
@@ -21,7 +21,7 @@ void swing_damage_enemy(st_rpg *s, swing_t *swing, enemy_t *mob)
 	float amount = swing->dmg + s->player.stat->frc * swing->dmgratio;
 
 	mob->stat->pva -= amount;
-	handle_status(s, amount);
+	handle_status(s, amount, mob);
 }
 
 void apply_projectile(st_rpg *s, proj_t *proj, enemy_t *mob)
@@ -34,7 +34,7 @@ void apply_projectile(st_rpg *s, proj_t *proj, enemy_t *mob)
 		handle_pierce(proj);
 		handle_bounce(s, proj);
 		handle_explosive(s, proj);
-		handle_status(s, amount);
+		handle_status(s, amount, mob);
 	}
 }
 
@@ -43,5 +43,5 @@ void apply_aoe(st_rpg *s, aoe_t *aoe, enemy_t *mob)
 	float amount = aoe->dmg + s->player.stat->frc * aoe->dmgratio;
 
 	mob->stat->pva -= amount;
-	handle_status(s, amount);
+	handle_status(s, amount, mob);
 }

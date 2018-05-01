@@ -40,6 +40,7 @@ void create_spells_warrior(st_rpg *s)
 	s->f.war.hrat = create_vector2f(0, 0);
 	s->f.war.endure = create_effect("invulnerable", 0, 5);
 	s->f.war.lifesteal = create_effect("lifesteal", 20, 5);
+	s->f.war.destroyer = create_effect("destroyer", 0, 5);
 }
 
 void create_class(st_rpg *s)

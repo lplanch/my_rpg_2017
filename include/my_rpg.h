@@ -352,6 +352,7 @@ typedef struct struct_warrior_spells
 	float count;
 	effect_t *endure;
 	effect_t *lifesteal;
+	effect_t *destroyer;
 } warrior_t;
 
 typedef struct fight_tree
@@ -508,7 +509,7 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
-void handle_status(st_rpg *s, float amount);
+void handle_status(st_rpg *s, float amount, enemy_t *mob);
 void stop_player(st_rpg *s);
 int orientation_from_mouse(st_rpg *s);
 void player_animation(st_rpg *s);
