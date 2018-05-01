@@ -61,5 +61,6 @@ void create_gunner_second(st_rpg *s)
 	s->f.gun.blitzt = create_st_time();
 	s->f.gun.delay = 0.8;
 	s->f.gun.grenade = create_projectile("ressources/proj/Grenade");
+	s->f.gun.net = create_projectile("ressources/proj/Net");
 	s->f.gun.grenadespeed = s->f.gun.grenade->obj->speed;
 }

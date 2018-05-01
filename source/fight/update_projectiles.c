@@ -21,6 +21,7 @@ void update_projectile_gunner(st_rpg *s)
 		apply_projectile(s, s->f.gun.ultb[i], s->f.mob);
 	}
 	apply_projectile(s, s->f.gun.blitz, s->f.mob);
+	apply_projectile(s, s->f.gun.net, s->f.mob);
 }
 
 void update_projectile_rogue(st_rpg *s)

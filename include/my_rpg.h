@@ -284,6 +284,7 @@ typedef struct struct_gunner_spells
 	st_time t;
 	proj_t *blitz;
 	proj_t *grenade;
+	proj_t *net;
 	sfCircleShape *explo;
 	float grenadespeed;
 	st_anim *explosion;

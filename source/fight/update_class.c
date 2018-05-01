@@ -39,6 +39,7 @@ void update_gunner(st_rpg *s)
 			s->f.gun.trait[i]->rect);
 		}
 	}
+	update_projectile(s->f.gun.net);
 	gunner_update_blitz(s);
 	gunner_update_ultimate(s);
 }

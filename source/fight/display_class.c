@@ -27,6 +27,7 @@ void display_gunner(st_rpg *s)
 			s->f.gun.trait[i]->sprite, NULL);
 	}
 	display_projectile(s->window, s->f.gun.blitz);
+	display_projectile(s->window, s->f.gun.net);
 	if (s->f.gun.grenade->shot == 1)
 		display_projectile(s->window, s->f.gun.grenade);
 	if (s->f.gun.grenade->shot == 2)
