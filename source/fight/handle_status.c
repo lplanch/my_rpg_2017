@@ -8,8 +8,14 @@
 #include "my_rpg.h"
 #include "my.h"
 
-void handle_lifesteal(st_rpg *s, float amount, char *effect)
+void handle_lifesteal(st_rpg *s, float amount, effect_t *effect)
 {
-	if (!my_strcmp(effect, "lifesteal"))
-		heal(s, amount);
+	if (effect->count > 0)
+		heal(s, amount * effect->amount / 100);
+}
+
+void handle_status(st_rpg *s, float amount)
+{
+	if (s->player.cdata.classe == 3)
+		handle_lifesteal(s, amount, s->f.war.lifesteal);
 }
