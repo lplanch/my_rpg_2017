@@ -70,6 +70,8 @@ void update_warrior(st_rpg *s)
 	warrior_update_hasagi(s);
 	if (s->f.war.shield->shot)
 		clocked_animation(s->f.war.shield->anim);
+	sfSprite_setPosition(s->f.war.paricon->sprite,
+	create_vector2f(s->origin.x + 125, s->origin.y + 108));
 }
 
 void update_class(st_rpg *s)
