@@ -12,8 +12,8 @@ int case_tp(st_rpg *s, int nb_ID)
 {
 	switch (s->fi->map.layer_relief[nb_ID]) {
 	case 314:
-		s->fi->character->pos.x = 840;
-		s->fi->character->pos.y = 4284;
+		s->fi->character->pos.x = 3707;
+		s->fi->character->pos.y = 3492;
 		s->fi->character->rect.top = 0;
 		sfSprite_setPosition(s->fi->character->sprite,
 		s->fi->character->pos);

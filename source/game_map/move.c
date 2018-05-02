@@ -18,8 +18,8 @@ void move_camera(st_rpg *s)
 		s->fi->camera_prec = s->fi->camera;
 		break;
 	case 1:
-		s->fi->camera.x = 870;
-		s->fi->camera.y = 4862;
+		s->fi->camera.x = 3717;
+		s->fi->camera.y = 4086;
 		break;
 	case 2:
 		s->fi->camera.x = s->fi->camera_prec.x;
