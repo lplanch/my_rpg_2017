@@ -50,6 +50,7 @@ FILES		=	source/main.c					\
 			source/fight/locked_spells.c			\
 			source/fight/get_cooldowns.c			\
 			source/fight/aoe.c				\
+			source/fight/dash.c				\
 			source/fight/display_projectile.c		\
 			source/fight/heal.c				\
 			source/fight/handle_status.c			\

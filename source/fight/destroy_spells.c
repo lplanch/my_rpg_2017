@@ -18,6 +18,7 @@ void destroy_spells_archer(st_rpg *s)
 	destroy_aoe(s->f.arc.barrage);
 	destroy_aoe(s->f.arc.heal);
 	destroy_effect(s->f.arc.leaf);
+	destroy_dash(s->f.arc.leap);
 }
 
 void destroy_spells_gunner(st_rpg *s)
@@ -39,6 +40,7 @@ void destroy_spells_gunner(st_rpg *s)
 	sfCircleShape_destroy(s->f.gun.explo);
 	sfCircleShape_destroy(s->f.gun.expbt);
 	destroy_effect(s->f.gun.rush);
+	destroy_dash(s->f.gun.jump);
 }
 
 void destroy_spells_rogue(st_rpg *s)
@@ -52,6 +54,7 @@ void destroy_spells_rogue(st_rpg *s)
 	destroy_aoe(s->f.rog.zone);
 	destroy_aoe(s->f.rog.flash);
 	destroy_button(s->f.rog.backstab);
+	destroy_dash(s->f.rog.tp);
 }
 
 void destroy_spells_warrior(st_rpg *s)
@@ -65,6 +68,8 @@ void destroy_spells_warrior(st_rpg *s)
 	destroy_effect(s->f.war.destroyer);
 	destroy_effect(s->f.war.parade);
 	destroy_object(s->f.war.paricon);
+	destroy_dash(s->f.war.rush);
+	destroy_dash(s->f.war.ultd);
 }
 
 void destroy_class(st_rpg *s)

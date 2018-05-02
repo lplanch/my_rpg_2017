@@ -10,7 +10,7 @@
 
 void warrior_rush(st_rpg *s)
 {
-
+	launch_dash(s, s->f.war.rush);
 }
 
 void warrior_whirlwing(st_rpg *s)

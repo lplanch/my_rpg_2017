@@ -10,7 +10,7 @@
 
 void warrior_earthquake(st_rpg *s)
 {
-
+	launch_dash(s, s->f.war.ultd);
 }
 
 void warrior_endure(st_rpg *s)

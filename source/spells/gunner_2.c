@@ -16,7 +16,7 @@ void gunner_net(st_rpg *s)
 
 void gunner_jump(st_rpg *s)
 {
-
+	launch_dash(s, s->f.gun.jump);
 }
 
 void choose_spell2_gunner(st_rpg *s)

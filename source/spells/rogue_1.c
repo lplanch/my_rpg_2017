@@ -33,7 +33,7 @@ void rogue_dance(st_rpg *s)
 
 void rogue_shadowstep(st_rpg *s)
 {
-
+	launch_dash(s, s->f.rog.tp);
 }
 
 void rogue_cloak(st_rpg *s)

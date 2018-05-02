@@ -63,6 +63,7 @@ void create_gunner_second(st_rpg *s)
 	s->f.gun.grenade = create_projectile("ressources/proj/Grenade");
 	s->f.gun.net = create_projectile("ressources/proj/Net");
 	s->f.gun.grenadespeed = s->f.gun.grenade->obj->speed;
+	s->f.gun.jump = create_dash(80, 900);
 }
 
 void create_gunner_ults(st_rpg *s)

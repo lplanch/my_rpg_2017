@@ -28,6 +28,7 @@ void create_rogue_daggers(st_rpg *s)
 	s->f.rog.zone = create_aoe_from_file("ressources/spells/2/Zone");
 	s->f.rog.flash = create_aoe_from_file("ressources/spells/2/Flash");
 	s->f.rog.fscale = 1;
+	s->f.rog.tp = create_dash(2000, 2000);
 }
 
 void create_rogue_autos(st_rpg *s)

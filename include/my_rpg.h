@@ -260,11 +260,21 @@ typedef struct effect
 	int amount;
 } effect_t;
 
+typedef struct struct_dash
+{
+	float speed;
+	int on;
+	sfVector2f ratios;
+	float range;
+	float count;
+} dash_t;
+
 typedef struct struct_archer_spells
 {
 	aoe_t *barrage;
 	aoe_t *heal;
 	effect_t *leaf;
+	dash_t *leap;
 	int kalash;
 	int current;
 	float kalashspeed;
@@ -289,6 +299,7 @@ typedef struct struct_gunner_spells
 	proj_t *blitz;
 	proj_t *grenade;
 	proj_t *net;
+	dash_t *jump;
 	sfCircleShape *explo;
 	float grenadespeed;
 	st_anim *explosion;
@@ -345,6 +356,7 @@ typedef struct struct_rogue_spells
 	float bdmg;
 	st_time ultt;
 	proj_t *dance;
+	dash_t *tp;
 	swing_t *auto_a[2];
 	sfIntRect ultr;
 } rogue_t;
@@ -360,6 +372,8 @@ typedef struct struct_warrior_spells
 	aoe_t *shield;
 	int estoc;
 	float count;
+	dash_t *rush;
+	dash_t *ultd;
 	effect_t *endure;
 	effect_t *lifesteal;
 	effect_t *destroyer;
@@ -521,6 +535,11 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void rogue_update_flash(st_rpg *s);
+void destroy_dash(dash_t *dash);
+void update_dash(st_rpg *s, dash_t *dash);
+void launch_dash(st_rpg *s, dash_t *dash);
+dash_t *create_dash(float speed, float range);
 void gunner_update_flamet(st_rpg *s);
 void handle_status(st_rpg *s, float amount, enemy_t *mob);
 void stop_player(st_rpg *s);

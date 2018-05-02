@@ -14,6 +14,7 @@ void update_archer(st_rpg *s)
 		update_projectile(s->f.arc.arrow[i]);
 	update_kalash(s);
 	update_axe(s);
+	update_dash(s, s->f.arc.leap);
 	if (s->f.arc.heal->shot)
 		clocked_animation(s->f.arc.heal->anim);
 	if (s->f.arc.barrage->shot)
@@ -44,6 +45,7 @@ void update_gunner(st_rpg *s)
 	gunner_update_blitz(s);
 	gunner_update_ultimate(s);
 	gunner_update_flamet(s);
+	update_dash(s, s->f.gun.jump);
 }
 
 void update_rogue(st_rpg *s)
@@ -53,6 +55,7 @@ void update_rogue(st_rpg *s)
 	rogue_update_storm(s);
 	update_projectile(s->f.rog.dance);
 	rogue_update_auto_attack(s);
+	update_dash(s, s->f.rog.tp);
 	if (s->f.rog.flash->shot)
 		rogue_update_flash(s);
 	if (s->f.rog.zone->shot)
@@ -73,6 +76,9 @@ void update_warrior(st_rpg *s)
 		clocked_animation(s->f.war.shield->anim);
 	sfSprite_setPosition(s->f.war.paricon->sprite,
 	create_vector2f(s->origin.x + 125, s->origin.y + 108));
+	update_dash(s, s->f.war.ultd);
+	update_dash(s, s->f.war.rush);
+
 }
 
 void update_class(st_rpg *s)

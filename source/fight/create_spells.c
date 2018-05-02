@@ -47,6 +47,8 @@ void create_spells_warrior(st_rpg *s)
 	s->f.war.paricon = create_object("ressources/images/pictostat.png",
 	create_vector2f(s->origin.x + 125, s->origin.y + 88),
 	create_rect(0, 64, 32, 32), 0);
+	s->f.war.rush = create_dash(60, 3000);
+	s->f.war.ultd = create_dash(60, 600);
 }
 
 void create_class(st_rpg *s)

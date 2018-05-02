@@ -22,7 +22,7 @@ void archer_salve(st_rpg *s)
 
 void archer_leap(st_rpg *s)
 {
-
+	launch_dash(s, s->f.arc.leap);
 }
 
 void archer_kalash(st_rpg *s)
