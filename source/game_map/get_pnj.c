@@ -64,6 +64,7 @@ pnj_t get_pnj(char *name)
 	sfSprite_scale(pnj.pnj->sprite, create_vector2f(2, 2));
 	free(path);
 	free(str);
+	close(fd);
 	return (pnj);
 }
 
