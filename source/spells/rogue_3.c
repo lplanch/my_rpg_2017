@@ -14,6 +14,7 @@ void rogue_storm(st_rpg *s)
 	s->f.rog.ulting = 1;
 	s->f.rog.ultangle = 1;
 	s->f.rog.side = 0;
+	s->f.panim = 1;
 }
 
 void rogue_blind(st_rpg *s)

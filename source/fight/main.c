@@ -18,8 +18,7 @@ void destroy_main_fight(st_rpg *s)
 void create_main_fight(st_rpg *s)
 {
 	s->f.cast = 0;
-	//s->center = create_object("ressources/images/center.png",
-	//create_vector2f(0, 0), create_rect(0, 0, 2, 2), 0);
+	s->f.panim = 0;
 	s->f.proc = create_st_time();
 	for (int i = 0; i != 4; i += 1)
 		s->f.cdcount[i] = 0;

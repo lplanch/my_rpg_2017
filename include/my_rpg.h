@@ -344,6 +344,7 @@ typedef struct struct_rogue_spells
 	st_time ultt;
 	proj_t *dance;
 	swing_t *auto_a[2];
+	sfIntRect ultr;
 } rogue_t;
 
 typedef struct struct_warrior_spells
@@ -411,6 +412,7 @@ typedef struct main_fight
 	float cdcount[4];
 	float cds[4];
 	int cast;
+	int panim;
 	st_time cdt;
 	st_time proc;
 	archer_t arc;
@@ -507,7 +509,6 @@ typedef struct struct_rpg
 	pause_menu_t pausm;
 	sfVector2f origin;
 	g_object *loading;
-	g_object *center;
 	int returnv;
 	st_custom cust;
 	st_menu mainm;

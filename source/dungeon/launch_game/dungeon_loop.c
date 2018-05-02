@@ -43,7 +43,6 @@ void update_origin(st_rpg *s)
 void update_dungeon_loop(st_rpg *s)
 {
 	update_pos_weapon(s);
-	update_class(s);
 	update_bars(s);
 	update_icons_cd(s);
 	update_projectiles(s);
@@ -51,7 +50,9 @@ void update_dungeon_loop(st_rpg *s)
 	update_mob_example(s);
 	update_origin(s);
 	update_sprite(s);
-	player_animation(s);
+	if (!s->f.panim)
+		player_animation(s);
+	update_class(s);
 }
 
 void stop_player(st_rpg *s)

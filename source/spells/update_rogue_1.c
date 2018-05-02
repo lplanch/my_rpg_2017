@@ -11,10 +11,32 @@
 void update_current_dagger(st_rpg *s)
 {
 	if (s->f.rog.ultcount > 100) {
+		s->f.panim = 0;
 		s->f.rog.ulting = 0;
 		s->f.rog.ultcount = 0;
 	} if (s->f.rog.current > 29)
 		s->f.rog.current = 0;
+}
+
+void change_side_player(st_rpg *s)
+{
+	switch (s->f.rog.ultr.top)
+	{
+		case 0 :
+			s->f.rog.ultr.top = 48;
+			break;
+		case 48 :
+			s->f.rog.ultr.top = 144;
+			break;
+		case 144 :
+			s->f.rog.ultr.top = 96;
+			break;
+		case 96 :
+			s->f.rog.ultr.top = 0;
+			break;
+	}
+	s->player.obj->rect = s->f.rog.ultr;
+	sfSprite_setTextureRect(s->player.obj->sprite, s->player.obj->rect);
 }
 
 void rogue_update_storm(st_rpg *s)
@@ -31,6 +53,7 @@ void rogue_update_storm(st_rpg *s)
 			s->f.rog.ultcount += 1;
 			update_current_dagger(s);
 		}
+		change_side_player(s);
 		s->f.rog.side += 3;
 		s->f.rog.ultangle += s->f.rog.side;
 		sfClock_restart(s->f.rog.ultt.clock);
