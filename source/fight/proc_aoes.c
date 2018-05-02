@@ -15,11 +15,6 @@ void proc_aoe_archer(st_rpg *s)
 	apply_projectile(s, s->f.arc.axe, s->f.mob);
 }
 
-void proc_aoe_gunner(st_rpg *s)
-{
-
-}
-
 void proc_aoe_rogue(st_rpg *s)
 {
 	proc_aoe(s, s->f.rog.zone);
@@ -34,7 +29,8 @@ void proc_aoe_warrior(st_rpg *s)
 void proc_aoes(st_rpg *s)
 {
 	void (*list[4])(st_rpg *s) = {proc_aoe_archer,
-		proc_aoe_gunner, proc_aoe_rogue, proc_aoe_warrior};
+		proc_aoe_rogue, proc_aoe_rogue, proc_aoe_warrior};
 
-	(list[s->player.cdata.classe])(s);
+	if (s->player.cdata.classe != 1)
+		(list[s->player.cdata.classe])(s);
 }

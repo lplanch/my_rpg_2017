@@ -19,7 +19,11 @@ void proc_effect_archer(st_rpg *s)
 
 void proc_effect_gunner(st_rpg *s)
 {
-
+	proc_effect(s->f.gun.rush);
+	if (s->f.gun.rush->count <= 0 && s->f.gun.rush->amount != 0) {
+		s->player.obj->speed -= s->f.gun.rush->amount;
+		s->f.gun.rush->amount = 0;
+	}
 }
 
 void proc_effect_rogue(st_rpg *s)

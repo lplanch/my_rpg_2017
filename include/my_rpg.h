@@ -301,6 +301,7 @@ typedef struct struct_gunner_spells
 	int ult;
 	proj_t *ultb[10];
 	proj_t *flame[100];
+	effect_t *rush;
 	g_object *trait[10];
 	sfVector2f ultrat;
 	int dmg;

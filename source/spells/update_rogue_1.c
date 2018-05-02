@@ -48,8 +48,7 @@ void rogue_update_backstab(st_rpg *s)
 	create_vector2f(1, 1));
 	s->f.rog.bpos[1].x += s->f.rog.brat.x * 10;
 	s->f.rog.bpos[1].y += s->f.rog.brat.y * 10;
-	sfSprite_setPosition(s->player.weapon[1]->sprite,
-	s->f.rog.bpos[1]);
+	sfSprite_setPosition(s->player.weapon[1]->sprite, s->f.rog.bpos[1]);
 	sfSprite_setScale(s->player.weapon[1]->sprite,
 	create_vector2f(1, 1));
 	s->player.weapon[0]->pos = s->f.rog.bpos[0];

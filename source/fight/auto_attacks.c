@@ -25,7 +25,8 @@ void gunner_auto_attack(st_rpg *s)
 
 void rogue_auto_attack(st_rpg *s)
 {
-	if (s->f.rog.vanish > 0 && s->player.tree.passive == 2) {
+	if (s->f.rog.vanish > 0 && s->player.tree.passive == 2 &&
+		!s->player.tree.lock[2]) {
 		s->f.rog.vanish = 0;
 		rogue_backstab(s);
 	} else {
