@@ -53,6 +53,7 @@ void display_warrior(st_rpg *s)
 {
 	display_projectile(s->window, s->f.war.hasagi);
 	display_aoe(s->window, s->f.war.shield);
+	display_aoe(s->window, s->f.war.crack);
 	if (s->f.war.parade->amount == 1)
 		display_object(s->window, s->f.war.paricon);
 }

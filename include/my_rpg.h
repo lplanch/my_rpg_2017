@@ -370,6 +370,7 @@ typedef struct struct_warrior_spells
 	sfVector2f hrat;
 	float hdmg;
 	aoe_t *shield;
+	aoe_t *crack;
 	int estoc;
 	float count;
 	dash_t *rush;

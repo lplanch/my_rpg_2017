@@ -23,6 +23,7 @@ void proc_aoe_rogue(st_rpg *s)
 
 void proc_aoe_warrior(st_rpg *s)
 {
+	proc_aoe(s, s->f.war.crack);
 	proc_aoe(s, s->f.war.shield);
 	apply_projectile(s, s->f.war.hasagi, s->f.mob);
 }

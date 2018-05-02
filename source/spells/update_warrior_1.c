@@ -39,3 +39,27 @@ void warrior_update_hasagi(st_rpg *s)
 	if (!s->f.war.hasagi->shot && s->f.war.estoc == 2)
 		s->f.war.estoc = 0;
 }
+
+void warrior_update_quake(st_rpg *s)
+{
+	if (s->f.war.ultd->on) {
+	s->f.war.ultd->count -= s->f.war.ultd->speed;
+		if (s->f.war.ultd->count <= 0) {
+			launch_aoe(s, s->f.war.crack);
+			sfCircleShape_setPosition(s->f.war.crack->circle,
+			create_vector2f(s->origin.x + 960 -
+			sfCircleShape_getRadius(s->f.war.crack->circle),
+			s->origin.y + 540 - sfCircleShape_getRadius(s
+			->f.war.crack->circle)));
+			sfSprite_setTextureRect(s->f.war.crack->anim->obj
+			->sprite, create_rect(0, 0, 250, 250));
+			sfSprite_setPosition(s->f.war.crack->anim->obj->sprite,
+			create_vector2f(s->origin.x + 960 - s->f.war.crack
+			->anim->obj->rect.width / 2, s->origin.y + 540 -
+			s->f.war.crack->anim->obj->rect.height / 2));
+			stop_player(s);
+			s->f.cast = 0;
+			s->f.war.ultd->on = 0;
+		}
+	}
+}

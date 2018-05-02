@@ -76,7 +76,7 @@ void update_warrior(st_rpg *s)
 		clocked_animation(s->f.war.shield->anim);
 	sfSprite_setPosition(s->f.war.paricon->sprite,
 	create_vector2f(s->origin.x + 125, s->origin.y + 108));
-	update_dash(s, s->f.war.ultd);
+	warrior_update_quake(s);
 	update_dash(s, s->f.war.rush);
 
 }
