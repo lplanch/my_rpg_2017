@@ -14,10 +14,12 @@ void rogue_backstab(st_rpg *s)
 	s->f.rog.bstab = 1;
 	s->f.rog.bcount = 0;
 	s->f.rog.brat = get_ratios(get_angle(s));
-	s->f.rog.bpos[0] = s->player.weapon[0]->pos = create_vector2f(960 + 27 *
-	s->f.rog.brat.y, 540 - 27 * s->f.rog.brat.x);
-	s->f.rog.bpos[1] = s->player.weapon[1]->pos = create_vector2f(960 + 13 *
-	s->f.rog.brat.y, 540 - 13 * s->f.rog.brat.x);
+	s->f.rog.bpos[0] = s->player.weapon[0]->pos = create_vector2f(
+	s->origin.x + 960 + 27 * s->f.rog.brat.y,
+	s->origin.y + 540 - 27 * s->f.rog.brat.x);
+	s->f.rog.bpos[1] = s->player.weapon[1]->pos = create_vector2f(
+	s->origin.x + 960 + 13 * s->f.rog.brat.y,
+	s->origin.y + 540 - 13 * s->f.rog.brat.x);
 	s->f.rog.bpos[0].x -= s->f.rog.brat.x * 50;
 	s->f.rog.bpos[0].y -= s->f.rog.brat.y * 50;
 	s->f.rog.bpos[1].x -= s->f.rog.brat.x * 50;
@@ -37,7 +39,8 @@ void rogue_shadowstep(st_rpg *s)
 void rogue_cloak(st_rpg *s)
 {
 	s->f.rog.vanish += 4;
-	launch_swing(s, s->f.rog.cloak, s->player.weapon[0]);
+	launch_swing(s, s->f.rog.auto_a[0], s->player.weapon[0]);
+	launch_swing(s, s->f.rog.auto_a[1], s->player.weapon[1]);
 	s->f.cast = 1;
 }
 

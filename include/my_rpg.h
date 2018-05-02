@@ -344,7 +344,6 @@ typedef struct struct_rogue_spells
 	st_time ultt;
 	proj_t *dance;
 	swing_t *auto_a[2];
-	swing_t *cloak;
 } rogue_t;
 
 typedef struct struct_warrior_spells

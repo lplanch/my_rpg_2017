@@ -49,7 +49,6 @@ void destroy_spells_rogue(st_rpg *s)
 	destroy_projectile(s->f.rog.dance);
 	destroy_swing(s->f.rog.auto_a[0]);
 	destroy_swing(s->f.rog.auto_a[1]);
-	destroy_swing(s->f.rog.cloak);
 	destroy_aoe(s->f.rog.zone);
 	destroy_button(s->f.rog.backstab);
 }

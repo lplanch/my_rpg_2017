@@ -54,7 +54,6 @@ void update_rogue(st_rpg *s)
 	rogue_update_storm(s);
 	update_projectile(s->f.rog.dance);
 	rogue_update_auto_attack(s);
-	update_swing(s, s->f.rog.cloak, s->player.weapon[0]);
 	if (s->f.rog.zone->shot)
 		clocked_animation(s->f.rog.zone->anim);
 }
