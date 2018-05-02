@@ -64,5 +64,6 @@ void destroy(st_rpg *s)
 	destroy_object(s->fi->loading);
 	sfClock_destroy(s->fi->time.clock);
 	sfClock_destroy(s->fi->clock);
+	sfMusic_destroy(s->fi->music.music);
 	free_all(s);
 }
