@@ -59,4 +59,5 @@ void parsing(struct stat a, st_rpg *s)
 	str[k] = 0;
 	parsing_step(y, s, str);
 	free(buff);
+	close(file);
 }

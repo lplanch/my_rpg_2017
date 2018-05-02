@@ -22,7 +22,7 @@ void create_images(st_rpg *s)
 {
 	s->fi->map.x2 = 0;
 	s->fi->map.image =
-	sfImage_createFromFile("ressources/map_preset/gg.png");
+	sfImage_createFromFile("ressources/map_preset/map_tileset.png");
 	s->fi->map.map_backgound = sfImage_create(1920, 3200);
 	s->fi->map.map_relief = sfImage_create(1920, 3200);
 	s->fi->map.map_col = sfImage_create(1920, 3200);

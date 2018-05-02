@@ -196,7 +196,7 @@ typedef struct s_files
 	pnj_t pnj[4];
 	pos_t pos[10];
 	colcircle_t colcircle[42];
-	colsquare_t colsquare[204];
+	colsquare_t colsquare[411];
 	map_t map;
 	clockz_t time;
 	st_music music;

@@ -45,7 +45,7 @@ void setup_variable(st_rpg *s)
 	s->fi->quests_box.status = 0;
 	s->fi->quests_box.nb_quests = 0;
 	s->fi->music.music =
-	create_music(50, "ressources/audio/music_camp.ogg");
+	create_music(50, "ressources/audio/music_map_village.ogg");
 }
 
 void setup_quests_box(st_rpg *s)
@@ -76,11 +76,11 @@ void character_setup(st_rpg *s)
 	*s->fi = (files_t) {0};
 	s->fi->character =
 	create_object("ressources/images/story_characters/hero.png",
-	create_vector2f(3720, 1800),
+	create_vector2f(2500, 10947),
 	create_rect(0, 144, 48, 48), 0);
 	sfSprite_scale(s->fi->character->sprite, create_vector2f(2, 2));
 	s->fi->ID_character = create_object("ressources/images/rose.jpg",
-	create_vector2f(3720, 1800),
+	create_vector2f(5489, 6900),
 	create_rect(144, 0, 48, 48), 0);
 	setup_camera(s);
 	setup_col(s);

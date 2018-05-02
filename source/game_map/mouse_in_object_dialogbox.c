@@ -23,9 +23,7 @@ sfRenderWindow *window, st_rpg *s)
 	int height = obj->rect.height;
 
 	if (mx > posx && mx < posx + width) {
-		printf("%s\n", "j");
 		if (my > posy && my < posy + height) {
-			printf("%s\n", "m");
 			return (1);
 		}
 	}
