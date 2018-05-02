@@ -11,7 +11,7 @@
 void setup_col(st_rpg *s)
 {
 	s->fi->nbr_colcircle = 42;
-	s->fi->nbr_colsquare = 411;
+	s->fi->nbr_colsquare = 412;
 	s->fi->direction = 3;
 }
 

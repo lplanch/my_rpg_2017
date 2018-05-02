@@ -55,7 +55,6 @@ int check_colsquare(st_rpg *s, int nbr)
 		s->fi->pos[i].y > s->fi->colsquare[nbr].pos.y &&
 		s->fi->pos[i].y < (s->fi->colsquare[nbr].pos.y +
 		s->fi->colsquare[nbr].height)) {
-			//printf("nbr= %d\n", nbr);
 			return (1);
 		} else {
 			i++;
