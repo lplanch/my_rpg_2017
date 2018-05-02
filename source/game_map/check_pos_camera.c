@@ -23,9 +23,9 @@ void check_pos_camera_y(st_rpg *s)
 		s->fi->character->pos.x >= 6270 &&
 		s->fi->character->pos.x <= 8708))
 		s->fi->camera_pos = 3;
-	if ((s->fi->character->pos.y >= 4255 && s->fi->character->pos.y
-		<= 4617 && s->fi->character->pos.x >= 746 &&
-		s->fi->character->pos.x <= 923))
+	if ((s->fi->character->pos.y >= 3400 && s->fi->character->pos.y
+		<= 3900 && s->fi->character->pos.x >= 3526 &&
+		s->fi->character->pos.x <= 3900))
 		s->fi->camera_pos = 1;
 }
 

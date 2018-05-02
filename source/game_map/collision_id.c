@@ -12,8 +12,8 @@ int case_tp(st_rpg *s, int nb_ID)
 {
 	switch (s->fi->map.layer_relief[nb_ID]) {
 	case 314:
-		s->fi->character->pos.x = 840;
-		s->fi->character->pos.y = 4284;
+		s->fi->character->pos.x = 3707;
+		s->fi->character->pos.y = 3492;
 		s->fi->character->rect.top = 0;
 		sfSprite_setPosition(s->fi->character->sprite,
 		s->fi->character->pos);
@@ -27,16 +27,16 @@ int case_tp(st_rpg *s, int nb_ID)
 		s->fi->character->pos);
 		return (1);
 	case 25:
-		s->fi->character->pos.x = 7218;
-		s->fi->character->pos.y = 5957;
+		s->fi->character->pos.x = 7246;
+		s->fi->character->pos.y = 5552;
 		s->fi->character->rect.top = 144;
 		sfSprite_setPosition(s->fi->character->sprite,
 		s->fi->character->pos);
 		s->fi->camera_pos = 0;
 		return (1);
 	case 284:
-		s->fi->character->pos.x = 6591;
-		s->fi->character->pos.y = 54;
+		s->fi->character->pos.x = 7191;
+		s->fi->character->pos.y = 561;
 		s->fi->character->rect.top = 96;
 		sfSprite_setPosition(s->fi->character->sprite,
 		s->fi->character->pos);
