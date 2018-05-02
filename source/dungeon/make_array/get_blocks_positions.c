@@ -11,8 +11,8 @@
 void verify_entry_pos(proc_t *proc, int y, int x, sfVector2f *result)
 {
 	if (proc->map[y][x] == 'E' || proc->map[y][x] == 'B') {
-		result->y = y * 96;
-		result->x = x * 96;
+		result->y = y * 96 + 48;
+		result->x = x * 96 + 48;
 	}
 }
 

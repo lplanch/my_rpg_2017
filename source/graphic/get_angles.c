@@ -8,10 +8,10 @@
 #include "my_rpg.h"
 #include "my.h"
 
-float get_angle(st_rpg *s, sfRenderWindow *window)
+float get_angle(st_rpg *s)
 {
-	float mx = sfMouse_getPositionRenderWindow(window).x - 960;
-	float my = sfMouse_getPositionRenderWindow(window).y - 540;
+	float mx = sfMouse_getPositionRenderWindow(s->window).x - 960;
+	float my = sfMouse_getPositionRenderWindow(s->window).y - 540;
 
 	if (my <= 0) {
 		return (-acos(mx / hypot(mx, my)) * (180 / 3.14159265));

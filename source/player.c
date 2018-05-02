@@ -23,6 +23,14 @@ int check_double_class(st_rpg *s)
 	return (0);
 }
 
+void create_player(st_rpg *s)
+{
+	s->player.animcol = 1;
+	s->player.animsens = 1;
+	s->player.animspeed = 0.2;
+	s->player.t = create_st_time();
+}
+
 void display_player(st_rpg *s)
 {
 	sfRenderWindow_drawSprite(s->window, s->player.weapon[0]->sprite, NULL);

@@ -15,7 +15,7 @@ void rogue_withdraw(st_rpg *s)
 
 void rogue_zone(st_rpg *s)
 {
-	launch_aoe(s->window, s->f.rog.zone);
+	launch_aoe(s, s->f.rog.zone);
 	sfCircleShape_setPosition(s->f.rog.zone->circle,
 	create_vector2f(s->origin.x + 960 - sfCircleShape_getRadius(s
 	->f.rog.zone->circle),

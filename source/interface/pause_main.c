@@ -15,7 +15,7 @@ int left_clicked_on_pause(st_rpg *s, sfEvent event)
 	for (int i = 0; i != max; i += 1) {
 		if (event.type == sfEvtMouseButtonPressed &&
 			sfMouse_isButtonPressed(sfMouseLeft) &&
-			mouse_in_object(s->pausm.button[i]->obj, s->window))
+			mouse_in_origin(s, s->pausm.button[i]->obj))
 			return (1);
 	}
 	return (0);
@@ -36,7 +36,7 @@ void pause_menu_manage_cursor_events(st_rpg *s, sfEvent event)
 			s->pausm.option -= 1;
 	}
 	for (int i = 0; i != max; i += 1) {
-		if (mouse_in_object(s->pausm.button[i]->obj, s->window))
+		if (mouse_in_origin(s, s->pausm.button[i]->obj))
 			s->pausm.option = i;
 	}
 }

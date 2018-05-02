@@ -180,6 +180,9 @@ typedef struct s_files
 	sfView *view;
 	quests_t **quests;
 	g_object *character;
+	sfVector2f last_pos;
+	sfVector2i nbr_frame;
+	sfVector2f acceleration;
 	g_object *ID_character;
 	g_object *loading;
 	quests_box_t quests_box;
@@ -276,11 +279,16 @@ typedef struct struct_archer_spells
 typedef struct struct_gunner_spells
 {
 	int auto_a;
+	int flamet;
+	float flamestay;
+	int cflame;
+	float cdiminution;
 	int autocount;
 	float autospeed;
 	st_time t;
 	proj_t *blitz;
 	proj_t *grenade;
+	proj_t *net;
 	sfCircleShape *explo;
 	float grenadespeed;
 	st_anim *explosion;
@@ -292,6 +300,7 @@ typedef struct struct_gunner_spells
 	int current;
 	int ult;
 	proj_t *ultb[10];
+	proj_t *flame[100];
 	g_object *trait[10];
 	sfVector2f ultrat;
 	int dmg;
@@ -347,6 +356,9 @@ typedef struct struct_warrior_spells
 	aoe_t *shield;
 	int estoc;
 	float count;
+	effect_t *endure;
+	effect_t *lifesteal;
+	effect_t *destroyer;
 } warrior_t;
 
 typedef struct fight_tree
@@ -470,6 +482,10 @@ typedef struct struct_player_info
 	g_object *obj;
 	g_object *weapon[2];
 	int max_speed;
+	float animspeed;
+	int animcol;
+	int animsens;
+	st_time t;
 	sfVector2f last_pos;
 	sfVector2i nbr_frame;
 	sfVector2f acceleration;
@@ -488,6 +504,7 @@ typedef struct struct_rpg
 	pause_menu_t pausm;
 	sfVector2f origin;
 	g_object *loading;
+	g_object *center;
 	int returnv;
 	st_custom cust;
 	st_menu mainm;
@@ -498,6 +515,16 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void handle_status(st_rpg *s, float amount, enemy_t *mob);
+void stop_player(st_rpg *s);
+int orientation_from_mouse(st_rpg *s);
+void player_animation(st_rpg *s);
+void create_player(st_rpg *s);
+int mouse_in_origin(st_rpg *s, g_object *obj);
+int dungeon_loop(st_rpg *s);
+void verify_other_input(sfEvent event, st_rpg *rpg);
+void origin_life_bar(st_rpg *s);
+void destroy_main_fight(st_rpg *s);
 void origin_icons(st_rpg *s);
 void origin_spells(st_rpg *s);
 void create_main_fight(st_rpg *s);
@@ -606,7 +633,7 @@ void update_bars(st_rpg *s);
 void rogue_update_storm(st_rpg *s);
 void display_projectile(sfRenderWindow *window, proj_t *proj);
 sfCircleShape *create_circle(int radius, int thickness, sfColor color);
-void launch_aoe(sfRenderWindow *window, aoe_t *aoe);
+void launch_aoe(st_rpg *s, aoe_t *aoe);
 void display_aoe(sfRenderWindow *window, aoe_t *aoe);
 void update_aoe(aoe_t *aoe);
 void destroy_aoe(aoe_t *aoe);
@@ -656,7 +683,7 @@ char *which_spell(st_rpg *s, int spell);
 char *get_spell_path(st_rpg *s, int spell);
 void create_icons(st_rpg *s);
 sfVector2f get_ratios(float angle);
-float get_angle(st_rpg *s, sfRenderWindow *window);
+float get_angle(st_rpg *s);
 int fight_instance(st_rpg *s);
 void launch_projectile(st_rpg *s, proj_t *proj, float angle);
 void loading(st_rpg *s);

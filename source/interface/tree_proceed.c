@@ -72,5 +72,6 @@ void tree_proceed(st_rpg *s, int lock)
 		sfText_setColor(s->treem.sp[2]->text, sfRed);
 	} else {
 		select_spell(s, lock);
+		s->treem.status = lock;
 	}
 }

@@ -16,17 +16,19 @@ void display_aoe(sfRenderWindow *window, aoe_t *aoe)
 	}
 }
 
-void launch_aoe(sfRenderWindow *window, aoe_t *aoe)
+void launch_aoe(st_rpg *s, aoe_t *aoe)
 {
 	sfCircleShape_setPosition(aoe->circle,
-	create_vector2f(sfMouse_getPositionRenderWindow(window).x -
-	sfCircleShape_getRadius(aoe->circle),
-	sfMouse_getPositionRenderWindow(window).y -
+	create_vector2f(s->origin.x +
+	sfMouse_getPositionRenderWindow(s->window).x -
+	sfCircleShape_getRadius(aoe->circle), s->origin.y +
+	sfMouse_getPositionRenderWindow(s->window).y -
 	sfCircleShape_getRadius(aoe->circle)));
 	sfSprite_setPosition(aoe->anim->obj->sprite,
-	create_vector2f(sfMouse_getPositionRenderWindow(window).x -
-	aoe->anim->obj->rect.width / 2,
-	sfMouse_getPositionRenderWindow(window).y -
+	create_vector2f(s->origin.x +
+	sfMouse_getPositionRenderWindow(s->window).x -
+	aoe->anim->obj->rect.width / 2, s->origin.y +
+	sfMouse_getPositionRenderWindow(s->window).y -
 	aoe->anim->obj->rect.height / 2));
 	aoe->anim->obj->rect.left = 0;
 	aoe->anim->obj->rect.top = 0;
@@ -39,10 +41,12 @@ void launch_aoe(sfRenderWindow *window, aoe_t *aoe)
 
 void proc_aoe(st_rpg *s, aoe_t *aoe)
 {
-	aoe->count += 0.1;
+	if (aoe->shot)
+		aoe->count += 0.1;
 	if (aoe->count >= aoe->duration) {
 		aoe->shot = 0;
 		s->f.cast = 0;
+		aoe->count = 0;
 	} if (aoe->shot && (circle_hitbox(aoe->circle, s->f.mob->obj) ||
 	(circle_hitbox(aoe->circle, s->player.weapon[0]) && !my_strcmp(aoe
 	->effect, "heal")))) {

@@ -18,12 +18,19 @@ void update_archer(st_rpg *s)
 		clocked_animation(s->f.arc.heal->anim);
 	if (s->f.arc.barrage->shot)
 		clocked_animation(s->f.arc.barrage->anim);
+	if (s->f.arc.barrage->anim->li > s->f.arc.barrage->anim->ver) {
+		s->f.arc.barrage->anim->li = 0;
+		s->f.cast = 0;
+	}
+
 }
 
 void update_gunner(st_rpg *s)
 {
 	gunner_update_auto_attack(s);
 	gunner_update_grenade(s);
+	for (int i = 0; i != 100; i += 1)
+		update_projectile(s->f.gun.flame[i]);
 	for (int i = 0; i != 10; i += 1) {
 		update_projectile(s->f.gun.bullet[i]);
 		update_projectile(s->f.gun.ultb[i]);
@@ -34,8 +41,10 @@ void update_gunner(st_rpg *s)
 			s->f.gun.trait[i]->rect);
 		}
 	}
+	update_projectile(s->f.gun.net);
 	gunner_update_blitz(s);
 	gunner_update_ultimate(s);
+	gunner_update_flamet(s);
 }
 
 void update_rogue(st_rpg *s)

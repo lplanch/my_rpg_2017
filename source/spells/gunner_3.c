@@ -10,11 +10,12 @@
 
 void gunner_ult(st_rpg *s)
 {
-	float angle = get_angle(s, s->window);
+	float angle = get_angle(s);
 
 	s->f.gun.ultrat = get_ratios(angle);
 	s->f.gun.ult = 1;
-	s->f.cast = 1;
+	s->f.cast = 2;
+	stop_player(s);
 	for (int i = 0; i != 10; i += 1) {
 		s->f.gun.ultb[i]->dmg = s->f.gun.origin;
 		s->f.gun.ultb[i]->angle = angle + 30 - i * 6;
@@ -31,14 +32,20 @@ void gunner_ult(st_rpg *s)
 	}
 }
 
-void gunner_turret(st_rpg *s)
+void gunner_flamethrower(st_rpg *s)
 {
-
+	s->f.gun.cflame = 0;
+	s->f.gun.flamet = 1;
+	s->f.cast = 1;
+	s->f.gun.flamestay = 4;
+	for (int i = 0; i != 100; i += 1)
+		s->f.gun.flame[i]->obj->speed = s->f.gun.cdiminution;
+	sfClock_restart(s->f.gun.t.clock);
 }
 
 void choose_spell3_gunner(st_rpg *s)
 {
-	void (*list[2])(st_rpg *s) = {gunner_ult, gunner_turret};
+	void (*list[2])(st_rpg *s) = {gunner_ult, gunner_flamethrower};
 
 	(list[s->player.tree.spell3])(s);
 }

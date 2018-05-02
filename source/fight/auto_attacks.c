@@ -10,7 +10,7 @@
 
 void archer_auto_attack(st_rpg *s)
 {
-	s->f.arc.arrow[s->f.arc.current]->angle = get_angle(s, s->window);
+	s->f.arc.arrow[s->f.arc.current]->angle = get_angle(s);
 	launch_projectile(s, s->f.arc.arrow[s->f.arc.current],
 	s->f.arc.arrow[s->f.arc.current]->angle);
 	s->f.arc.current += 1;
@@ -38,6 +38,8 @@ void rogue_auto_attack(st_rpg *s)
 
 void warrior_auto_attack(st_rpg *s)
 {
+	s->f.war.auto_a->sens = -s->f.war.auto_a->sens;
+	s->f.war.auto_a->begin = -s->f.war.auto_a->begin;
 	launch_swing(s, s->f.war.auto_a, s->player.weapon[0]);
 	s->f.cast = 1;
 }

@@ -58,7 +58,7 @@ void update_status_menu(st_rpg *s)
 
 	if (s->statm.show == 6) {
 		for (i = 0; i != 6; i += 1) {
-			if (mouse_in_object(s->statm.stats[i]->obj, s->window))
+			if (mouse_in_origin(s, s->statm.stats[i]->obj))
 				s->statm.show = i;
 		}
 		if (s->statm.show != 6) {
@@ -66,8 +66,7 @@ void update_status_menu(st_rpg *s)
 			->text, get_stat_string(s->statm.show));
 		}
 	} else if (s->statm.show != 6) {
-		if (!mouse_in_object(s->statm.stats[s->statm.show]->obj,
-		s->window)) {
+		if (!mouse_in_origin(s, s->statm.stats[s->statm.show]->obj)) {
 			my_set_string(s->statm.stats[s->statm.show]->text
 			->text, get_stat_value(s, s->statm.show));
 			s->statm.show = 6;

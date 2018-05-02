@@ -63,10 +63,11 @@ void generate_tree_menu_pas(st_rpg *s)
 	s->origin.y + 45), create_rect(0, 32 * s->player.cdata.classe,
 	32, 32), 0), sfWhite, 30);
 	sfText_setPosition(s->treem.classe->text->text,
-	create_vector2f(1555, 45));
+	create_vector2f(s->origin.x + 1555, s->origin.y + 45));
 	temp = int_to_str(s->player.tree.skillp);
 	s->treem.skillp = create_text(my_strcat("SP : ", temp),
-	create_vector2f(1720, 45), "ressources/fonts/button.ttf");
+	create_vector2f(s->origin.x + 1720, s->origin.y + 45),
+	"ressources/fonts/button.ttf");
 	free(temp);
 	for (int i = 0; i != 4; i += 1) {
 		s->treem.select[i] = create_object("ressources/images/select.png",
@@ -76,7 +77,7 @@ void generate_tree_menu_pas(st_rpg *s)
 
 void generate_tree_menu(st_rpg *s)
 {
-	int x = s->origin.x + x;
+	int x = s->origin.x + 1510;
 	int y = s->origin.y;
 
 	generate_tree_menu_pas(s);
@@ -91,7 +92,7 @@ void generate_tree_menu(st_rpg *s)
 	s->treem.sp[2] = create_text("LOCKSTAGE",
 	create_vector2f(x, y + 510), "ressources/fonts/button.ttf");
 	sfText_setCharacterSize(s->treem.sp[2]->text, 25);
-	s->treem.sp[3] = create_text("Click again to Unlock",
+	s->treem.sp[3] = create_text("Choose a spell !",
 	create_vector2f(x, y + 550), "ressources/fonts/button.ttf");
 	sfText_setCharacterSize(s->treem.sp[3]->text, 20);
 }

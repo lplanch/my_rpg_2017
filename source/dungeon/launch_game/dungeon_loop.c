@@ -20,6 +20,7 @@ void create_dungeon_loop(st_rpg *s)
 	create_class(s);
 	create_life_bar(s);
 	create_mob_example(s);
+	create_player(s);
 }
 
 void destroy_dungeon_loop(st_rpg *s)
@@ -50,21 +51,29 @@ void update_dungeon_loop(st_rpg *s)
 	update_mob_example(s);
 	update_origin(s);
 	update_sprite(s);
+	player_animation(s);
+}
+
+void stop_player(st_rpg *s)
+{
+	s->player.acceleration.x = 0;
+	s->player.acceleration.y = 0;
+	s->player.nbr_frame.x = 0;
+	s->player.nbr_frame.y = 0;
 }
 
 int dungeon_events(st_rpg *s)
 {
 	sfEvent event;
 
+	if (s->f.cast != 2) {
 	verify_x_movement(s);
 	verify_y_movement(s);
+	}
 	while (sfRenderWindow_pollEvent(s->window, &event)) {
 		if (event.type == sfEvtKeyPressed &&
 			sfKeyboard_isKeyPressed(sfKeyEscape)) {
-			s->player.acceleration.x = 0;
-			s->player.acceleration.y = 0;
-			s->player.nbr_frame.x = 0;
-			s->player.nbr_frame.y = 0;
+			stop_player(s);
 			return (pause_main(s));
 		} if (event.type == sfEvtClosed) {
 			s->returnv = 1;

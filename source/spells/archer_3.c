@@ -10,14 +10,16 @@
 
 void archer_barrage(st_rpg *s)
 {
-	launch_aoe(s->window, s->f.arc.barrage);
+	launch_aoe(s, s->f.arc.barrage);
+	stop_player(s);
+	s->f.cast = 2;
 }
 
 void archer_axe(st_rpg *s)
 {
 	s->f.arc.axe->rpos = create_vector2f(s->origin.x + 960,
 	s->origin.y + 540);
-	s->f.arc.axe->angle = get_angle(s, s->window);
+	s->f.arc.axe->angle = get_angle(s);
 	s->f.arc.axeangle = s->f.arc.axe->angle - 70;
 	launch_projectile(s, s->f.arc.axe, s->f.arc.axe->angle - 70);
 }

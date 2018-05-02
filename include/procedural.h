@@ -50,7 +50,7 @@ void create_leave(proc_t *proc);
 sfVector2f get_entry_pos(proc_t *proc);
 sfVector2f get_exit_pos(proc_t *proc);
 int verify_exit_player(st_rpg *rpg);
-int verify_collide(char block);
+int vcollide(char block);
 int is_wall(char block);
 
 //CREATE SPRITE MAP
