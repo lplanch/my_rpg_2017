@@ -19,6 +19,8 @@ void display_archer(st_rpg *s)
 
 void display_gunner(st_rpg *s)
 {
+	for (int i = 99; i != -1; i -= 1)
+		display_projectile(s->window, s->f.gun.flame[i]);
 	for (int i = 0; i != 10; i += 1) {
 		display_projectile(s->window, s->f.gun.bullet[i]);
 		display_projectile(s->window, s->f.gun.ultb[i]);

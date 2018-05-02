@@ -29,6 +29,8 @@ void update_gunner(st_rpg *s)
 {
 	gunner_update_auto_attack(s);
 	gunner_update_grenade(s);
+	for (int i = 0; i != 100; i += 1)
+		update_projectile(s->f.gun.flame[i]);
 	for (int i = 0; i != 10; i += 1) {
 		update_projectile(s->f.gun.bullet[i]);
 		update_projectile(s->f.gun.ultb[i]);
@@ -42,6 +44,7 @@ void update_gunner(st_rpg *s)
 	update_projectile(s->f.gun.net);
 	gunner_update_blitz(s);
 	gunner_update_ultimate(s);
+	gunner_update_flamet(s);
 }
 
 void update_rogue(st_rpg *s)

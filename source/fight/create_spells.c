@@ -19,6 +19,7 @@ void create_spells_gunner(st_rpg *s)
 	create_gunner_bullets(s);
 	create_gunner_second(s);
 	create_gunner_explosions(s);
+	create_gunner_ults(s);
 }
 
 void create_spells_rogue(st_rpg *s)

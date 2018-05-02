@@ -64,3 +64,17 @@ void create_gunner_second(st_rpg *s)
 	s->f.gun.net = create_projectile("ressources/proj/Net");
 	s->f.gun.grenadespeed = s->f.gun.grenade->obj->speed;
 }
+
+void create_gunner_ults(st_rpg *s)
+{
+	for (int i = 0; i != 100; i += 1) {
+		s->f.gun.flame[i] = create_projectile("ressources/proj/Flame");
+		s->f.gun.flame[i]->obj->rect.height = 30;
+		sfSprite_setTextureRect(s->f.gun.flame[i]->obj->sprite,
+		s->f.gun.flame[i]->obj->rect);
+	}
+	s->f.gun.flamet = 0;
+	s->f.gun.flamestay = 0;
+	s->f.gun.cflame = 0;
+	s->f.gun.cdiminution = s->f.gun.flame[0]->obj->speed;
+}

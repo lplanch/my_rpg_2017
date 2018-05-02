@@ -279,6 +279,10 @@ typedef struct struct_archer_spells
 typedef struct struct_gunner_spells
 {
 	int auto_a;
+	int flamet;
+	float flamestay;
+	int cflame;
+	float cdiminution;
 	int autocount;
 	float autospeed;
 	st_time t;
@@ -296,6 +300,7 @@ typedef struct struct_gunner_spells
 	int current;
 	int ult;
 	proj_t *ultb[10];
+	proj_t *flame[100];
 	g_object *trait[10];
 	sfVector2f ultrat;
 	int dmg;
