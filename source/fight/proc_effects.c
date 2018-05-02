@@ -40,6 +40,13 @@ void proc_effect_warrior(st_rpg *s)
 		s->f.war.destroyer->amount != 0) {
 		s->player.stat->frc -= s->f.war.destroyer->amount;
 		s->f.war.destroyer->amount = 0;
+	} if (s->f.war.parade->amount == 0 && s->player.tree.passive == 0 &&
+		!s->player.tree.lock[0]) {
+		proc_effect(s->f.war.parade);
+		if (s->f.war.parade->count <= 0) {
+			s->f.war.parade->count = 5;
+			s->f.war.parade->amount = 1;
+		}
 	}
 }
 

@@ -61,6 +61,8 @@ void destroy_spells_warrior(st_rpg *s)
 	destroy_effect(s->f.war.endure);
 	destroy_effect(s->f.war.lifesteal);
 	destroy_effect(s->f.war.destroyer);
+	destroy_effect(s->f.war.parade);
+	destroy_object(s->f.war.paricon);
 }
 
 void destroy_class(st_rpg *s)

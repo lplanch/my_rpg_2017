@@ -359,6 +359,8 @@ typedef struct struct_warrior_spells
 	effect_t *endure;
 	effect_t *lifesteal;
 	effect_t *destroyer;
+	effect_t *parade;
+	g_object *paricon;
 } warrior_t;
 
 typedef struct fight_tree
@@ -515,6 +517,7 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void gunner_update_flamet(st_rpg *s);
 void handle_status(st_rpg *s, float amount, enemy_t *mob);
 void stop_player(st_rpg *s);
 int orientation_from_mouse(st_rpg *s);
@@ -532,6 +535,7 @@ void make_proc_variables(proc_var_t *pvar);
 int draw_sprites_map(st_rpg *rpg);
 int update_sprite(st_rpg *rpg);
 int verify_exit_player(st_rpg *rpg);
+void create_gunner_ults(st_rpg *s);
 void create_gunner_second(st_rpg *s);
 void create_gunner_explosions(st_rpg *s);
 void create_gunner_bullets(st_rpg *s);
