@@ -27,16 +27,16 @@ int case_tp(st_rpg *s, int nb_ID)
 		s->fi->character->pos);
 		return (1);
 	case 25:
-		s->fi->character->pos.x = 7218;
-		s->fi->character->pos.y = 5957;
+		s->fi->character->pos.x = 7246;
+		s->fi->character->pos.y = 5552;
 		s->fi->character->rect.top = 144;
 		sfSprite_setPosition(s->fi->character->sprite,
 		s->fi->character->pos);
 		s->fi->camera_pos = 0;
 		return (1);
 	case 284:
-		s->fi->character->pos.x = 6591;
-		s->fi->character->pos.y = 54;
+		s->fi->character->pos.x = 7191;
+		s->fi->character->pos.y = 561;
 		s->fi->character->rect.top = 96;
 		sfSprite_setPosition(s->fi->character->sprite,
 		s->fi->character->pos);
