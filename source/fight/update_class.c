@@ -22,7 +22,6 @@ void update_archer(st_rpg *s)
 		s->f.arc.barrage->anim->li = 0;
 		s->f.cast = 0;
 	}
-
 }
 
 void update_gunner(st_rpg *s)
@@ -54,8 +53,10 @@ void update_rogue(st_rpg *s)
 	rogue_update_storm(s);
 	update_projectile(s->f.rog.dance);
 	rogue_update_auto_attack(s);
+	if (s->f.rog.flash->shot)
+		rogue_update_flash(s);
 	if (s->f.rog.zone->shot)
-		clocked_animation(s->f.rog.zone->anim);
+		clocked_animation(s->f.rog.flash->anim);
 }
 
 void update_warrior(st_rpg *s)

@@ -327,6 +327,8 @@ typedef struct struct_rogue_spells
 {
 	proj_t *dagger[30];
 	aoe_t *zone;
+	aoe_t *flash;
+	float fscale;
 	float vanish;
 	float ultangle;
 	int side;

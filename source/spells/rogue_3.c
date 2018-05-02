@@ -19,7 +19,18 @@ void rogue_storm(st_rpg *s)
 
 void rogue_blind(st_rpg *s)
 {
-
+	launch_aoe(s, s->f.rog.flash);
+	sfCircleShape_setPosition(s->f.rog.flash->circle,
+	create_vector2f(s->origin.x + 960 - sfCircleShape_getRadius(s
+	->f.rog.flash->circle),
+	s->origin.y + 540 - sfCircleShape_getRadius(s->f.rog.flash->circle)));
+	sfSprite_setPosition(s->f.rog.flash->anim->obj->sprite,
+	create_vector2f(s->origin.x + 960 - s->f.rog.flash->anim->obj
+	->rect.width / 2,
+	s->origin.y + 540 - s->f.rog.flash->anim->obj->rect.height / 2));
+	s->f.rog.fscale = 1;
+	sfSprite_setScale(s->f.rog.flash->anim->obj->sprite,
+	create_vector2f(s->f.rog.fscale, s->f.rog.fscale));
 }
 
 void choose_spell3_rogue(st_rpg *s)

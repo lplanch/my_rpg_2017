@@ -18,6 +18,43 @@ void update_current_dagger(st_rpg *s)
 		s->f.rog.current = 0;
 }
 
+void rogue_update_flash2(st_rpg *s)
+{
+	s->f.rog.flash->anim->t.sec = 0;
+	sfClock_restart(s->f.rog.flash->anim->t.clock);
+	s->f.rog.flash->anim->obj->rect.left = s->f.rog.flash->anim->c
+	* s->f.rog.flash->anim->width;
+	s->f.rog.flash->anim->obj->rect.top = s->f.rog.flash->anim->li
+	* s->f.rog.flash->anim->height;
+	s->f.rog.fscale += 1;
+	sfSprite_setScale(s->f.rog.flash->anim->obj->sprite,
+	create_vector2f(s->f.rog.fscale, s->f.rog.fscale));
+	sfSprite_setPosition(s->f.rog.flash->anim->obj->sprite,
+	create_vector2f(
+	sfSprite_getPosition(s->f.rog.flash->anim->obj->sprite).x - 96,
+	sfSprite_getPosition(s->f.rog.flash->anim->obj->sprite).y -
+	96));
+	sfSprite_setTextureRect(s->f.rog.flash->anim->obj->sprite,
+	s->f.rog.flash->anim->obj->rect);
+}
+
+void rogue_update_flash(st_rpg *s)
+{
+	s->f.rog.flash->anim->t.time = sfClock_getElapsedTime(s->f.rog.flash
+	->anim->t.clock);
+	s->f.rog.flash->anim->t.sec = s->f.rog.flash->anim->t.time.microseconds
+	/ 1000000.0;
+	if (s->f.rog.flash->anim->t.sec > s->f.rog.flash->anim->speed &&
+		s->f.rog.flash->anim->li < s->f.rog.flash->anim->ver) {
+		s->f.rog.flash->anim->c += 1;
+		if (s->f.rog.flash->anim->c == s->f.rog.flash->anim->hor) {
+			s->f.rog.flash->anim->c = 0;
+			s->f.rog.flash->anim->li += 1;
+		}
+		rogue_update_flash2(s);
+	}
+}
+
 void change_side_player(st_rpg *s)
 {
 	switch (s->f.rog.ultr.top)
