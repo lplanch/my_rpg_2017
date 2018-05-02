@@ -67,6 +67,7 @@ void create_gunner_second(st_rpg *s)
 
 void create_gunner_ults(st_rpg *s)
 {
+	s->f.gun.rush = create_effect("speed", s->player.obj->speed / 2, 3);
 	for (int i = 0; i != 100; i += 1) {
 		s->f.gun.flame[i] = create_projectile("ressources/proj/Flame");
 		s->f.gun.flame[i]->obj->rect.height = 30;

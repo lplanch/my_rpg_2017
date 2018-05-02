@@ -36,7 +36,9 @@ void rogue_shadowstep(st_rpg *s)
 
 void rogue_cloak(st_rpg *s)
 {
-
+	s->f.rog.vanish += 4;
+	launch_swing(s, s->f.rog.cloak, s->player.weapon[0]);
+	s->f.cast = 1;
 }
 
 void choose_spell1_rogue(st_rpg *s)

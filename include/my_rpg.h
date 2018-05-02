@@ -301,6 +301,7 @@ typedef struct struct_gunner_spells
 	int ult;
 	proj_t *ultb[10];
 	proj_t *flame[100];
+	effect_t *rush;
 	g_object *trait[10];
 	sfVector2f ultrat;
 	int dmg;
@@ -343,6 +344,7 @@ typedef struct struct_rogue_spells
 	st_time ultt;
 	proj_t *dance;
 	swing_t *auto_a[2];
+	swing_t *cloak;
 } rogue_t;
 
 typedef struct struct_warrior_spells

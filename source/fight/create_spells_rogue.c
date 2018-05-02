@@ -43,4 +43,5 @@ void create_rogue_autos(st_rpg *s)
 	if (s->player.tree.passive == 1) {
 		s->player.stat->frc += 0.1 * s->player.stat->frc;
 	}
+	s->f.rog.cloak = create_swing_from_file("ressources/spells/2/Cloak");
 }
