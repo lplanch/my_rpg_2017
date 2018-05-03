@@ -40,6 +40,18 @@ void warrior_update_hasagi(st_rpg *s)
 		s->f.war.estoc = 0;
 }
 
+void warrior_update_rush(st_rpg *s)
+{
+	if (s->f.war.rush->on) {
+		s->f.war.rush->count -= s->f.war.rush->speed;
+		if (s->f.war.rush->count <= 0) {
+			stop_player(s);
+			s->f.cast = 0;
+			s->f.war.rush->on = 0;
+		}
+	}
+}
+
 void warrior_update_quake(st_rpg *s)
 {
 	if (s->f.war.ultd->on) {

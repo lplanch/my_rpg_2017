@@ -536,6 +536,8 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void warrior_update_quake(st_rpg *s);
+void warrior_update_rush(st_rpg *s);
 void rogue_update_flash(st_rpg *s);
 void destroy_dash(dash_t *dash);
 void update_dash(st_rpg *s, dash_t *dash);
