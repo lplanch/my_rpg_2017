@@ -41,11 +41,13 @@ void update_gunner(st_rpg *s)
 			s->f.gun.trait[i]->rect);
 		}
 	}
+	clocked_animation(s->f.gun.boots);
 	update_projectile(s->f.gun.net);
 	gunner_update_blitz(s);
 	gunner_update_ultimate(s);
 	gunner_update_flamet(s);
 	update_dash(s, s->f.gun.jump);
+	s->f.gun.jump->speed -= 1;
 }
 
 void update_rogue(st_rpg *s)

@@ -35,6 +35,7 @@ void display_gunner(st_rpg *s)
 	if (s->f.gun.grenade->shot == 2)
 		sfRenderWindow_drawSprite(s->window,
 		s->f.gun.explosion->obj->sprite, NULL);
+	sfRenderWindow_drawSprite(s->window, s->f.gun.boots->obj->sprite, NULL);
 	if (s->f.gun.bullet[9]->shot == 2)
 		sfRenderWindow_drawSprite(s->window,
 		s->f.gun.expbullet->obj->sprite, NULL);

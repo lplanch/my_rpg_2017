@@ -301,6 +301,7 @@ typedef struct struct_gunner_spells
 	proj_t *net;
 	dash_t *jump;
 	sfCircleShape *explo;
+	st_anim *boots;
 	float grenadespeed;
 	st_anim *explosion;
 	st_anim *expbullet;

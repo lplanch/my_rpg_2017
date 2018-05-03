@@ -16,6 +16,18 @@ void gunner_net(st_rpg *s)
 
 void gunner_jump(st_rpg *s)
 {
+	s->f.gun.explosion->obj->pos = create_vector2f(s->player.obj->pos.x
+	- 50 * 1.8,
+	s->player.obj->pos.y - 50 * 1.8);
+	sfCircleShape_setPosition(s->f.gun.explo,
+	s->f.gun.explosion->obj->pos);
+	sfSprite_setPosition(s->f.gun.boots->obj->sprite,
+	s->f.gun.explosion->obj->pos);
+	if (circle_hitbox(s->f.gun.explo, s->f.mob->obj))
+		s->f.mob->stat->pva -= 70 + 15 * s->player.stat->lvl;
+	s->f.gun.boots->li = 0;
+	s->f.gun.boots->c = 0;
+	s->f.gun.jump->speed = 80;
 	launch_dash(s, s->f.gun.jump);
 }
 

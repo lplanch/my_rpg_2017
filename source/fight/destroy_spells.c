@@ -36,6 +36,7 @@ void destroy_spells_gunner(st_rpg *s)
 	destroy_projectile(s->f.gun.grenade);
 	destroy_projectile(s->f.gun.net);
 	destroy_anim(s->f.gun.explosion);
+	destroy_anim(s->f.gun.boots);
 	destroy_anim(s->f.gun.expbullet);
 	sfCircleShape_destroy(s->f.gun.explo);
 	sfCircleShape_destroy(s->f.gun.expbt);
