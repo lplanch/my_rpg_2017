@@ -43,7 +43,7 @@ void tab_to_struct(st_rpg *s, char **tab, int y)
 	int square = 0;
 	int i = 0;
 
-	while (compter != 454) {
+	while (compter != 512) {
 		if (my_strcmp("yes", tab[i]) == 0) {
 			i++;
 			i = tab_circle(tab, i, s, circle);

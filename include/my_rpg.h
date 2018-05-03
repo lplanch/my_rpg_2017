@@ -134,7 +134,6 @@ typedef struct s_quests
 	char *path;
 	int nbr_quests;
 	int status;
-
 	rewards_t rewards;
 	quests_list_t *quests_list;
 } quests_t;
@@ -196,7 +195,7 @@ typedef struct s_files
 	pnj_t pnj[4];
 	pos_t pos[10];
 	colcircle_t colcircle[42];
-	colsquare_t colsquare[412];
+	colsquare_t colsquare[470];
 	map_t map;
 	clockz_t time;
 	st_music music;

@@ -32,11 +32,11 @@ int collision_id(st_rpg *s)
 	while (i != 10) {
 		nb_ID = 60 * ((s->fi->pos[i].y / size_cube))
 		+ s->fi->pos[i].x / size_cube;
-		if (case_id(s, nb_ID) == 1) {
-			return (1);
-		}
 		if (case_tp(s, nb_ID) == 0) {
 			s->fi->camera_pos = 0;
+		}
+		if (case_id(s, nb_ID) == 1) {
+			return (1);
 		}
 		case_relief(s, nb_ID);
 		i++;
