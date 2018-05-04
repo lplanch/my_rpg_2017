@@ -79,8 +79,7 @@ void update_warrior(st_rpg *s)
 	sfSprite_setPosition(s->f.war.paricon->sprite,
 	create_vector2f(s->origin.x + 125, s->origin.y + 108));
 	warrior_update_quake(s);
-	update_dash(s, s->f.war.rush);
-
+	warrior_update_rush(s);
 }
 
 void update_class(st_rpg *s)
