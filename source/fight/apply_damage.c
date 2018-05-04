@@ -24,17 +24,21 @@ void swing_damage_enemy(st_rpg *s, swing_t *swing, enemy_t *mob)
 	handle_status(s, amount, mob);
 }
 
-void apply_projectile(st_rpg *s, proj_t *proj, enemy_t *mob)
+void apply_projectile(st_rpg *s, proj_t *proj, enemy_t **mob)
 {
 	float amount = proj->dmg + s->player.stat->frc * proj->dmgratio;
+	int i = 0;
 
-	if (hitbox(proj->obj, mob->obj) && proj->shot) {
-		projectile_damage_enemy(s, proj, mob);
-		proj->shot = 0;
-		handle_pierce(proj);
-		handle_bounce(s, proj);
-		handle_explosive(s, proj);
-		handle_status(s, amount, mob);
+	while (i != 10) {
+		if (hitbox(proj->obj, mob[i]->obj) && proj->shot) {
+			projectile_damage_enemy(s, proj, mob[i]);
+			proj->shot = 0;
+			handle_pierce(proj);
+			handle_bounce(s, proj);
+			handle_explosive(s, proj);
+			handle_status(s, amount, mob[i]);
+		}
+		i += 1;
 	}
 }
 

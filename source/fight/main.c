@@ -42,7 +42,6 @@ int fight_events(st_rpg *s)
 			destroy_class(s);
 			destroy_icons(s);
 			destroy_life_bar(s);
-			destroy_mob_example(s);
 			destroy_player(s);
 			destroy_main_fight(s);
 			return (1);
@@ -55,11 +54,11 @@ void display_fight(st_rpg *s)
 {
 	sfRenderWindow_clear(s->window, s->proc.pvar.background);
 	draw_sprites_map(s);
-	display_mob_example(s);
 	display_player(s);
 	display_class(s);
 	display_icons(s);
 	display_life_bar(s);
+	display_enemies(s);
 }
 
 int fight_instance(st_rpg *s)
@@ -68,7 +67,6 @@ int fight_instance(st_rpg *s)
 	create_icons(s);
 	create_class(s);
 	create_life_bar(s);
-	create_mob_example(s);
 	while (sfRenderWindow_isOpen(s->window)) {
 		if (fight_events(s))
 			break;
@@ -80,7 +78,6 @@ int fight_instance(st_rpg *s)
 		update_icons_cd(s);
 		update_projectiles(s);
 		update_effects(s);
-		update_mob_example(s);
 		display_fight(s);
 		sfRenderWindow_display(s->window);
 	}

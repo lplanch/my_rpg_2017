@@ -97,6 +97,15 @@ void rogue_update_storm(st_rpg *s)
 	}
 }
 
+void proc_backstab(st_rpg *s)
+{
+	for (int i = 0; i != 10; i += 1) {
+		if (hitbox(s->player.weapon[0], s->f.mob[i]->obj)) {
+			s->f.mob[i]->stat->pva -= s->f.rog.bdmg;
+		}
+	}
+}
+
 void rogue_update_backstab(st_rpg *s)
 {
 	s->f.rog.bcount += 14;
@@ -113,9 +122,8 @@ void rogue_update_backstab(st_rpg *s)
 	create_vector2f(1, 1));
 	s->player.weapon[0]->pos = s->f.rog.bpos[0];
 	s->player.weapon[1]->pos = s->f.rog.bpos[1];
-	if (hitbox(s->player.weapon[0], s->f.mob->obj)) {
-		s->f.mob->stat->pva -= s->f.rog.bdmg;
-	} if (s->f.rog.bcount >= 100) {
+	proc_backstab(s);
+	if (s->f.rog.bcount >= 100) {
 		s->f.cast = 0;
 		s->f.rog.bstab = 0;
 	}

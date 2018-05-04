@@ -23,8 +23,10 @@ void gunner_jump(st_rpg *s)
 	s->f.gun.explosion->obj->pos);
 	sfSprite_setPosition(s->f.gun.boots->obj->sprite,
 	s->f.gun.explosion->obj->pos);
-	if (circle_hitbox(s->f.gun.explo, s->f.mob->obj))
-		s->f.mob->stat->pva -= 70 + 15 * s->player.stat->lvl;
+	for (int i = 0; i != 10; i += 1) {
+		if (circle_hitbox(s->f.gun.explo, s->f.mob[i]->obj))
+			s->f.mob[i]->stat->pva -= 70 + 15 * s->player.stat->lvl;
+	}
 	s->f.gun.boots->li = 0;
 	s->f.gun.boots->c = 0;
 	s->f.gun.jump->speed = 80;

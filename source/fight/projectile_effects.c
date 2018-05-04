@@ -8,6 +8,15 @@
 #include "my_rpg.h"
 #include "my.h"
 
+void explosive_proc(st_rpg *s)
+{
+	for (int i = 0; i != 10; i += 1) {
+		if (circle_hitbox(s->f.gun.expbt, s->f.mob[i]->obj)) {
+			s->f.mob[i]->stat->pva -= 40 + 10 * s->player.stat->lvl;
+		}
+	}
+}
+
 void handle_explosive(st_rpg *s, proj_t *proj)
 {
 	if (!my_strcmp(proj->effect, "explosive")) {
@@ -21,9 +30,7 @@ void handle_explosive(st_rpg *s, proj_t *proj)
 		s->f.gun.bullet[9]->shot = 2;
 		s->f.gun.expbullet->li = 0;
 		s->f.gun.expbullet->c = 0;
-		if (circle_hitbox(s->f.gun.expbt, s->f.mob->obj)) {
-			s->f.mob->stat->pva -= 70 + 15 * s->player.stat->lvl;
-		}
+		explosive_proc(s);
 	}
 }
 

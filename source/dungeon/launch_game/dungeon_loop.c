@@ -19,8 +19,8 @@ void create_dungeon_loop(st_rpg *s)
 	create_icons(s);
 	create_class(s);
 	create_life_bar(s);
-	create_mob_example(s);
 	create_player(s);
+	generate_enemies(s);
 }
 
 void destroy_dungeon_loop(st_rpg *s)
@@ -28,7 +28,7 @@ void destroy_dungeon_loop(st_rpg *s)
 	destroy_class(s);
 	destroy_icons(s);
 	destroy_life_bar(s);
-	destroy_mob_example(s);
+	destroy_enemies(s);
 	destroy_player(s);
 	destroy_main_fight(s);
 	free_dungeon(&s->proc);
@@ -47,7 +47,7 @@ void update_dungeon_loop(st_rpg *s)
 	update_icons_cd(s);
 	update_projectiles(s);
 	update_effects(s);
-	update_mob_example(s);
+	update_enemies(s);
 	update_origin(s);
 	update_sprite(s);
 	if (!s->f.panim)

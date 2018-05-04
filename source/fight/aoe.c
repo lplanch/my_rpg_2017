@@ -47,13 +47,16 @@ void proc_aoe(st_rpg *s, aoe_t *aoe)
 		aoe->shot = 0;
 		s->f.cast = 0;
 		aoe->count = 0;
-	} if (aoe->shot && (circle_hitbox(aoe->circle, s->f.mob->obj) ||
-	(circle_hitbox(aoe->circle, s->player.weapon[0]) && !my_strcmp(aoe
-	->effect, "heal")))) {
-		if (!my_strcmp(aoe->effect, "heal"))
-			heal(s, aoe->dmg);
-		if (!my_strcmp(aoe->effect, "damage"))
-			apply_aoe(s, aoe, s->f.mob);
+	}
+	for (int i = 0; i != 10; i += 1) {
+		if (aoe->shot && (circle_hitbox(aoe->circle, s->f.mob[i]->obj)
+		|| (circle_hitbox(aoe->circle, s->player.weapon[0]) &&
+		!my_strcmp(aoe->effect, "heal")))) {
+			if (!my_strcmp(aoe->effect, "heal"))
+				heal(s, aoe->dmg);
+			if (!my_strcmp(aoe->effect, "damage"))
+				apply_aoe(s, aoe, s->f.mob[i]);
+		}
 	}
 }
 

@@ -54,8 +54,10 @@ FILES		=	source/main.c					\
 			source/fight/display_projectile.c		\
 			source/fight/heal.c				\
 			source/fight/handle_status.c			\
-			source/fight/mob_example.c			\
 			source/fight/hitbox.c				\
+			source/fight/enemy.c				\
+			source/fight/generate_enemy.c			\
+			source/fight/base_enemies.c			\
 			source/fight/update_effects.c			\
 			source/fight/update_projectiles.c		\
 			source/fight/apply_damage.c			\

@@ -55,6 +55,14 @@ void gunner_update_grenade_speed(st_rpg *s)
 	}
 }
 
+void proc_grenade(st_rpg *s)
+{
+	for (int i = 0; i != 10; i += 1) {
+		if (circle_hitbox(s->f.gun.explo, s->f.mob[i]->obj))
+			s->f.mob[i]->stat->pva -= 70 + 15 * s->player.stat->lvl;
+	}
+}
+
 void gunner_update_grenade(st_rpg *s)
 {
 	s->f.gun.explosion->t.time = sfClock_getElapsedTime(s->f.gun.explosion
@@ -73,8 +81,7 @@ void gunner_update_grenade(st_rpg *s)
 		s->f.gun.grenade->shot = 2;
 		s->f.gun.explosion->li = 0;
 		s->f.gun.explosion->c = 0;
-		if (circle_hitbox(s->f.gun.explo, s->f.mob->obj))
-			s->f.mob->stat->pva -= 70 + 15 * s->player.stat->lvl;
+		proc_grenade(s);
 	}
 	gunner_update_grenade_speed(s);
 }

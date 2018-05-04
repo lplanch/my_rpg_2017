@@ -8,6 +8,17 @@
 #include "my_rpg.h"
 #include "my.h"
 
+void proc_estoc(st_rpg *s)
+{
+	for (int i = 0; i != 10; i += 1) {
+		if (hitbox(s->player.weapon[0], s->f.mob[i]->obj)) {
+			s->f.mob[i]->stat->pva -= s->f.war.hdmg;
+			s->f.war.estoc = 2;
+			s->f.cast = 0;
+		}
+	}
+}
+
 void warrior_update_hasagi_estoc(st_rpg *s)
 {
 	s->f.war.hpos.x += s->f.war.hrat.x * 10;
@@ -17,11 +28,8 @@ void warrior_update_hasagi_estoc(st_rpg *s)
 	s->f.war.hpos);
 	sfSprite_setScale(s->player.weapon[0]->sprite,
 	create_vector2f(1, 1));
-	if (hitbox(s->player.weapon[0], s->f.mob->obj)) {
-		s->f.mob->stat->pva -= s->f.war.hdmg;
-		s->f.war.estoc = 2;
-		s->f.cast = 0;
-	} if (s->f.war.count >= 100 || s->f.war.estoc == 2) {
+	proc_estoc(s);
+	if (s->f.war.count >= 100 || s->f.war.estoc == 2) {
 		s->f.cast = 0;
 		s->f.war.estoc = 2;
 		s->f.war.hasagi->angle = get_angle(s);
@@ -40,10 +48,21 @@ void warrior_update_hasagi(st_rpg *s)
 		s->f.war.estoc = 0;
 }
 
+void proc_rush(st_rpg *s)
+{
+	for (int i = 0; i != 10; i += 1) {
+		if (hitbox(s->player.obj, s->f.mob[i]->obj)) {
+			s->f.mob[i]->stat->pva -= 20 + s->player.stat->frc * 2;
+			s->f.war.rush->count = 0;
+		}
+	}
+}
+
 void warrior_update_rush(st_rpg *s)
 {
 	if (s->f.war.rush->on) {
 		s->f.war.rush->count -= s->f.war.rush->speed;
+		proc_rush(s);
 		if (s->f.war.rush->count <= 0) {
 			stop_player(s);
 			s->f.cast = 0;

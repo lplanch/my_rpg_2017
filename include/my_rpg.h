@@ -415,6 +415,15 @@ typedef struct fight_bars
 
 typedef struct enemy
 {
+	float dot;
+	float stun;
+	float cd;
+	float cdcount;
+	int cast;
+	int alive;
+	int type;
+	int spell1;
+	int spell2;
 	g_object *obj;
 	g_object *life;
 	stat_t *stat;
@@ -422,7 +431,7 @@ typedef struct enemy
 
 typedef struct main_fight
 {
-	enemy_t *mob;
+	enemy_t **mob;
 	st_button *icons[4];
 	g_object *cd[4];
 	g_object *locks[3];
@@ -536,6 +545,13 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void update_life_bars_enemies(st_rpg *s);
+void destroy_enemies(st_rpg *s);
+void update_enemies(st_rpg *s);
+void destroy_enemy(enemy_t *enemy);
+void display_enemies(st_rpg *s);
+void generate_enemies(st_rpg *s);
+enemy_t *generate_enemy(char *str);
 void warrior_update_quake(st_rpg *s);
 void warrior_update_rush(st_rpg *s);
 void rogue_update_flash(st_rpg *s);
@@ -643,7 +659,7 @@ void apply_aoe(st_rpg *s, aoe_t *aoe, enemy_t *mob);
 void proc_aoe(st_rpg *s, aoe_t *aoe);
 void proc_aoes(st_rpg *s);
 aoe_t *create_aoe_from_file(char *path);
-void apply_projectile(st_rpg *s, proj_t *proj, enemy_t *mob);
+void apply_projectile(st_rpg *s, proj_t *proj, enemy_t **mob);
 void projectile_damage_enemy(st_rpg *s, proj_t *proj, enemy_t *mob);
 int circle_hitbox(sfCircleShape *circle, g_object *target);
 int hitbox(g_object *attack, g_object *target);
