@@ -85,6 +85,8 @@ int next_level_screen(st_rpg *rpg)
 		rpg->proc.pvar.current_floor -= 1;
 	} else
 		return (1);
+	destroy_enemies(rpg);
 	draw_floor_restart(rpg);
+	generate_enemies(rpg);
 	return (0);
 }
