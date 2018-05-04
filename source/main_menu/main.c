@@ -17,7 +17,8 @@ void display_main_menu_interface(st_rpg *s)
 	sfRenderWindow_drawText(s->window,
 	s->mainm.button[2]->text->text, NULL);
 	sfRenderWindow_drawSprite(s->window, s->mainm.cursor->sprite, NULL);
-	sfRenderWindow_drawSprite(s->window, s->mainm.title->sprite, NULL);
+	sfRenderWindow_drawSprite(s->window, s->mainm.title->sprite,
+	&s->mainm.shader.state);
 	if (s->mainm.menu > 2) {
 		sfRenderWindow_drawText(s->window,
 		s->mainm.button[3]->text->text, NULL);
@@ -65,6 +66,7 @@ int main_menu(st_rpg *s)
 		main_menu_update_downward(s);
 		cursor_animation(s, 690, 710);
 		main_menu_interface_animation(s);
+		shader_move(s);
 		display_menu_background(s);
 		display_main_menu_interface(s);
 		sfRenderWindow_display(s->window);

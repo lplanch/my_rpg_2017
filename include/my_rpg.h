@@ -447,6 +447,13 @@ typedef struct main_fight
 	warrior_t war;
 } fight_t;
 
+typedef struct s_shader
+{
+	sfShader *shader;
+	sfRenderStates state;
+	st_time time;
+} shader_t;
+
 typedef struct struct_status_menu
 {
 	int show;
@@ -492,6 +499,7 @@ typedef struct struct_main_menu
 	g_object *rock2[2];
 	g_object *guy;
 	g_object *title;
+	shader_t shader;
 } st_menu;
 
 typedef struct struct_pause_menu
@@ -783,5 +791,7 @@ int main_menu_cutscene(st_rpg *s);
 sfIntRect create_rect(int top, int left, int width, int height);
 sfVector2f create_vector2f(float x, float y);
 sfVector2i create_vector2i(int x, int y);
+void shader_move(st_rpg *s);
+void init_menu_shader(st_rpg *s);
 
 #endif
