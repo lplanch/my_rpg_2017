@@ -11,12 +11,12 @@ float adj(ivec2 v)
 		gl_TexCoord[0].y + float(step.y) * v.y)).a);
 }
 
-float aura(float n)
+float aura(int n)
 {
 	float f = adj(ivec2(1, 0));
 
-	for (float x = -n; x < n; x++)
-	    for (float y = -n; y < n; y++)
+	for (int x = -n; x < n; x++)
+	    for (int y = -n; y < n; y++)
 
 	    	f = max(adj(ivec2(x, y)), f);
 
@@ -26,13 +26,13 @@ float aura(float n)
 void main()
 {
   	vec4 pixel = texture2D(texture, gl_TexCoord[0].xy);
+	vec4 color = gl_TexCoord[0];
 	if (pixel.a < 1)
 	{
-		float f = aura(mod(2.99 * time, 3));
-		pixel.r = mod(time, pixel.r) + gl_TexCoord[0].x;
-		pixel.g = mod(time, pixel.g) + gl_TexCoord[0].x;
-		pixel.b = mod(time, pixel.b) + gl_TexCoord[0].x;
-		gl_FragColor = vec4(pixel.rgb, f);
+		float f = aura(5);
+		color.x = mod(time, 1);
+		color.z = mod(-time, 1);
+		gl_FragColor = vec4(color.xyz, f);
 	}
 	else
 		gl_FragColor = pixel;

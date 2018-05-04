@@ -11,7 +11,7 @@ CC		=	cc
 
 CFLAGS		+=	-g -Iinclude -W -Wall -Wextra
 
-LDFLAGS		+=	-L lib/my/ -lmy -l c_graph_prog -lm
+LDFLAGS		+=	-L lib/my/ -lmy -l c_graph_prog -lm -fdiagnostics-color=always
 
 FILES		=	source/main.c					\
 			source/graphic/create_rect.c			\
@@ -27,6 +27,7 @@ FILES		=	source/main.c					\
 			source/main_menu/launcher.c			\
 			source/main_menu/base.c				\
 			source/main_menu/events.c			\
+			source/main_menu/shader.c			\
 			source/custom/main.c				\
 			source/custom/get_buttons.c			\
 			source/custom/base.c				\
