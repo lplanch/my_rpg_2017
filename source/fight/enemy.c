@@ -22,6 +22,10 @@ void update_enemies(st_rpg *s)
 void generate_enemies(st_rpg *s)
 {
 	s->f.mob = malloc(sizeof(enemy_t) * 10);
-	for (int i = 0; i != 10; i += 1)
+	for (int i = 0; i != 10; i += 1) {
 		s->f.mob[i] = generate_enemy("ressources/enemies/Fanatic");
+		s->f.mob[i]->obj->pos = create_ennemy_position(s);
+		sfSprite_setPosition(s->f.mob[i]->obj->sprite,
+		s->f.mob[i]->obj->pos);
+	}
 }
