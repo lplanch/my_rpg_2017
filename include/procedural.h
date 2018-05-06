@@ -38,6 +38,7 @@ void make_map_better(char **map);
 void increment_proc_struct(proc_var_t *pvar, proc_t *proc);
 char **border_map(proc_var_t *pvar, char **map);
 void print_map(char **map);
+int count_rooms(proom_t *proom);
 
 //CORRIDORS
 void v_corridor(char **map, int y1, int y2, int x);

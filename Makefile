@@ -180,7 +180,7 @@ FILES		=	source/main.c					\
 			source/dungeon/inventory_system/create_inventory.c		\
 			source/dungeon/inventory_system/create_fast_inventory.c		\
 			source/dungeon/inventory_system/draw_fast_inventory.c		\
-			sources/dungeon/npc/ennemies_dungeon.c				\
+			source/dungeon/npc/ennemies_dungeon.c				\
 
 SRCS		=	$(FILES)
 
