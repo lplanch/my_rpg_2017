@@ -61,8 +61,9 @@ typedef struct proc_var
 	unsigned int max_room_s;
 	unsigned int min_room_s;
 	unsigned int nbr_rooms;
-	unsigned int min_ennemies;
-	unsigned int max_ennemies;
+	unsigned int min_enemies;
+	unsigned int max_enemies;
+	int enemy_nbr;
 	int current_floor;
 	int max_floor;
 	sfColor background;

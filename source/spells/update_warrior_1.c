@@ -10,8 +10,9 @@
 
 void proc_estoc(st_rpg *s)
 {
-	for (int i = 0; i != 10; i += 1) {
-		if (hitbox(s->player.weapon[0], s->f.mob[i]->obj)) {
+	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
+		if (hitbox(s->player.weapon[0], s->f.mob[i]->obj) &&
+		s->f.mob[i]->alive) {
 			s->f.mob[i]->stat->pva -= s->f.war.hdmg;
 			s->f.war.estoc = 2;
 			s->f.cast = 0;
@@ -50,8 +51,9 @@ void warrior_update_hasagi(st_rpg *s)
 
 void proc_rush(st_rpg *s)
 {
-	for (int i = 0; i != 10; i += 1) {
-		if (hitbox(s->player.obj, s->f.mob[i]->obj)) {
+	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
+		if (hitbox(s->player.obj, s->f.mob[i]->obj) &&
+		s->f.mob[i]->alive) {
 			s->f.mob[i]->stat->pva -= 20 + s->player.stat->frc * 2;
 			s->f.war.rush->count = 0;
 		}

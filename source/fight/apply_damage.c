@@ -29,8 +29,9 @@ void apply_projectile(st_rpg *s, proj_t *proj, enemy_t **mob)
 	float amount = proj->dmg + s->player.stat->frc / 7 * proj->dmgratio;
 	int i = 0;
 
-	while (i != 10) {
-		if (hitbox(proj->obj, mob[i]->obj) && proj->shot) {
+	while (i != s->proc.pvar.enemy_nbr) {
+		if (hitbox(proj->obj, mob[i]->obj) && proj->shot &&
+		mob[i]->alive) {
 			projectile_damage_enemy(s, proj, mob[i]);
 			proj->shot = 0;
 			handle_pierce(proj);

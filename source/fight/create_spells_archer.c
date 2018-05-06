@@ -19,7 +19,7 @@ void create_archer_passive(st_rpg *s)
 		} if (s->player.tree.passive == 1)
 			s->f.arc.arrow[i]->effect = "slow";
 		if (s->player.tree.passive == 2) {
-			//s->player->obj->speed += s->player->obj->speed * 0.2;
+			s->player.max_speed += s->player.max_speed * 0.2;
 		}
 	}
 }

@@ -22,8 +22,8 @@ void make_proc_variables(proc_var_t *pvar)
 	pvar->background.g = 11;
 	pvar->background.b = 40;
 	pvar->background.a = 255;
-	pvar->min_ennemies = 3;
-	pvar->max_ennemies = 9;
+	pvar->min_enemies = 3;
+	pvar->max_enemies = 9;
 }
 
 int launch_dungeon(st_rpg *rpg)

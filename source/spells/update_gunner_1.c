@@ -57,8 +57,9 @@ void gunner_update_grenade_speed(st_rpg *s)
 
 void proc_grenade(st_rpg *s)
 {
-	for (int i = 0; i != 10; i += 1) {
-		if (circle_hitbox(s->f.gun.explo, s->f.mob[i]->obj))
+	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
+		if (circle_hitbox(s->f.gun.explo, s->f.mob[i]->obj) &&
+		s->f.mob[i]->alive)
 			s->f.mob[i]->stat->pva -= 70 + 15 * s->player.stat->lvl;
 	}
 }

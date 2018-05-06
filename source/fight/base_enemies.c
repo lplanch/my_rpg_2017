@@ -19,7 +19,7 @@ void destroy_enemy(enemy_t *enemy)
 void update_life_bars_enemies(st_rpg *s)
 {
 
-	for (int i = 0; i != 10; i += 1) {
+	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
 		if (s->f.mob[i]->stat->pva <= 0)
 			s->f.mob[i]->alive = 0;
 		sfSprite_setPosition(s->f.mob[i]->life->sprite,
@@ -34,7 +34,7 @@ void update_life_bars_enemies(st_rpg *s)
 
 void display_enemies(st_rpg *s)
 {
-	for (int i = 0; i != 10; i += 1) {
+	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
 		if (s->f.mob[i]->alive) {
 			sfRenderWindow_drawSprite(s->window,
 			s->f.mob[i]->obj->sprite, NULL);
