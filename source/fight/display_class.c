@@ -39,6 +39,7 @@ void display_gunner(st_rpg *s)
 	if (s->f.gun.bullet[9]->shot == 2)
 		sfRenderWindow_drawSprite(s->window,
 		s->f.gun.expbullet->obj->sprite, NULL);
+	display_particle(s->f.gun.partf, s->window);
 }
 
 void display_rogue(st_rpg *s)

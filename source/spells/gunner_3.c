@@ -41,6 +41,7 @@ void gunner_flamethrower(st_rpg *s)
 	for (int i = 0; i != 100; i += 1)
 		s->f.gun.flame[i]->obj->speed = s->f.gun.cdiminution;
 	sfClock_restart(s->f.gun.t.clock);
+	launch_particle(s->f.gun.partf, s->player.obj->pos, get_angle(s));
 }
 
 void choose_spell3_gunner(st_rpg *s)

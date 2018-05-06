@@ -42,6 +42,7 @@ void destroy_spells_gunner(st_rpg *s)
 	sfCircleShape_destroy(s->f.gun.expbt);
 	destroy_effect(s->f.gun.rush);
 	destroy_dash(s->f.gun.jump);
+	destroy_particle(s->f.gun.partf);
 }
 
 void destroy_spells_rogue(st_rpg *s)

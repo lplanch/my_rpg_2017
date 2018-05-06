@@ -14,6 +14,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
+#include "particle.h"
 #include "game_object.h"
 #include "projectile.h"
 #include "ingame_struct.h"
@@ -317,6 +318,7 @@ typedef struct struct_gunner_spells
 	sfVector2f ultrat;
 	int dmg;
 	int origin;
+	particle_t *partf;
 } gunner_t;
 
 typedef struct struct_melee_swing
@@ -547,12 +549,21 @@ typedef struct struct_rpg
 	st_custom cust;
 	st_menu mainm;
 	int save;
+	st_time partime;
 	files_t *fi;
 	sfRenderWindow *window;
 } st_rpg;
 
 #include "procedural.h"
 
+void update_particles(st_rpg *s);
+void update_particles_class(st_rpg *s, float dt);
+void destroy_particle(particle_t *part);
+void display_particle(particle_t *part, sfRenderWindow *window);
+void set_particle(particle_t *part, uint id, sfVector2f pos, sfColor color);
+void launch_particle(particle_t *part, sfVector2f pos, float angle);
+void update_particle(particle_t *part, float dt);
+particle_t *create_particle(char *str);
 void update_life_bars_enemies(st_rpg *s);
 void destroy_enemies(st_rpg *s);
 void update_enemies(st_rpg *s);
