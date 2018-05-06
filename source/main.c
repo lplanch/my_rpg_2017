@@ -17,17 +17,29 @@ void loading(st_rpg *s)
 	sfRenderWindow_display(s->window);
 }
 
+void create_main(st_rpg *s)
+{
+	sfVideoMode mode = {1920, 1080, 32};
+	s->window = sfRenderWindow_create(mode, "RPG", sfClose, NULL);
+	sfRenderWindow_setFramerateLimit(s->window, 60);
+	s->loading = create_object("ressources/images/loading.png",
+	create_vector2f(900, 338), create_rect(0, 0, 99, 257), 0);
+	s->partime = create_st_time();
+}
+
+void destroy_main(st_rpg *s)
+{
+	sfClock_destroy(s->partime.clock);
+	destroy_object(s->loading);
+	sfRenderWindow_destroy(s->window);
+}
+
 int main(void)
 {
-	st_rpg s = {0};
-	sfVideoMode mode = {1920, 1080, 32};
+	st_rpg s;
 
-	s.window = sfRenderWindow_create(mode, "RPG", sfClose, NULL);
-	sfRenderWindow_setFramerateLimit(s.window, 60);
-	s.loading = create_object("ressources/images/loading.png",
-	create_vector2f(900, 338), create_rect(0, 0, 99, 257), 0);
+	create_main(&s);
 	main_menu(&s);
-	destroy_object(s.loading);
-	sfRenderWindow_destroy(s.window);
+	destroy_main(&s);
 	return (0);
 }

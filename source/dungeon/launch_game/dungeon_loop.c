@@ -53,6 +53,7 @@ void update_dungeon_loop(st_rpg *s)
 	if (!s->f.panim)
 		player_animation(s);
 	update_class(s);
+	update_particles(s);
 }
 
 void stop_player(st_rpg *s)

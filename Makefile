@@ -14,6 +14,8 @@ CFLAGS		+=	-g -Iinclude -W -Wall -Wextra
 LDFLAGS		+=	-L lib/my/ -lmy -l c_graph_prog -lm -fdiagnostics-color=always
 
 FILES		=	source/main.c					\
+			source/graphic/create_particle.c		\
+			source/graphic/particle.c			\
 			source/graphic/create_rect.c			\
 			source/graphic/game_object.c			\
 			source/graphic/mouse_in_object.c		\
@@ -61,6 +63,8 @@ FILES		=	source/main.c					\
 			source/fight/base_enemies.c			\
 			source/fight/update_effects.c			\
 			source/fight/update_projectiles.c		\
+			source/fight/update_particles.c			\
+			source/fight/update_particles_class.c		\
 			source/fight/apply_damage.c			\
 			source/fight/proc_aoes.c			\
 			source/fight/create_weapon.c			\
