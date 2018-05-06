@@ -38,6 +38,7 @@ void make_map_better(char **map);
 void increment_proc_struct(proc_var_t *pvar, proc_t *proc);
 char **border_map(proc_var_t *pvar, char **map);
 void print_map(char **map);
+int count_rooms(proom_t *proom);
 
 //CORRIDORS
 void v_corridor(char **map, int y1, int y2, int x);
@@ -132,5 +133,9 @@ void remove_inventory_slot(item_t *first_slot);
 void create_fast_inventory_screen(ing_finv_t *finv);
 void verify_inventory(st_rpg *rpg);
 void verify_fast_inventory(st_rpg *rpg);
+
+//NPC
+//ENNEMIES
+sfVector2f create_ennemy_position(st_rpg *rpg);
 
 #endif
