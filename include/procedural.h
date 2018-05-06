@@ -133,4 +133,8 @@ void create_fast_inventory_screen(ing_finv_t *finv);
 void verify_inventory(st_rpg *rpg);
 void verify_fast_inventory(st_rpg *rpg);
 
+//NPC
+//ENNEMIES
+sfVector2f create_ennemy_position(st_rpg *rpg);
+
 #endif
