@@ -26,6 +26,9 @@ int launch_pause_menu_main(st_rpg *s)
 		case 1 :
 			s->pausm.menu = 2;
 			break;
+		case 2 :
+			save_game(s);
+			break;
 		case 3 :
 			destroy_pause_menu(s);
 			s->mainm.option = 0;
