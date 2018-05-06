@@ -20,6 +20,7 @@ void create_dungeon_loop(st_rpg *s)
 	create_class(s);
 	create_life_bar(s);
 	create_player(s);
+	create_weapon(s);
 	generate_enemies(s);
 }
 

@@ -13,7 +13,7 @@ void explosive_proc(st_rpg *s)
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
 		if (circle_hitbox(s->f.gun.expbt, s->f.mob[i]->obj) &&
 		s->f.mob[i]->alive) {
-			s->f.mob[i]->stat->pva -= 40 + 10 * s->player.stat->lvl;
+			s->f.mob[i]->stat->pva -= 20 + 10 * s->player.stat->lvl;
 		}
 	}
 }

@@ -53,5 +53,4 @@ void load_save(st_rpg *s)
 	create_vector2f(960,
 	540), create_rect(0, 0, 48 + 144 * s->player.cdata.sex, 48), 0);
 	sfSprite_scale(s->player.obj->sprite, scale);
-	create_weapon(s);
 }
