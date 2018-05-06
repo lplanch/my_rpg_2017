@@ -15,7 +15,7 @@ sfVector2f create_ennemy_position(st_rpg *rpg)
 	(rand() % (rpg->proc.proom[room].width - 4)) + 2;
 	int posy = rpg->proc.proom[room].pos1[1] +
 	(rand() % (rpg->proc.proom[room].height - 4)) + 2;
-	sfVector2f result = {posy * 96 + 48, posx * 96 + 48};
+	sfVector2f result = {posx * 96 + 48, posy * 96 + 48};
 
 	return (result);
 }
