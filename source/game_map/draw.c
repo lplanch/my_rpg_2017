@@ -30,7 +30,7 @@ void draw_loading(st_rpg *s)
 void draw_pnj(st_rpg *s)
 {
 	int i = 0;
-	int nbpnj = 4;
+	int nbpnj = 14;
 
 	while (i != nbpnj) {
 		sfRenderWindow_drawSprite(s->window,

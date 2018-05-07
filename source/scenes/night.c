@@ -15,7 +15,7 @@ void night_scene(st_rpg *s)
 	g_object *background;
 	g_object *moon;
 
-	background = create_object("ressources/images/scenes/background_night.png",
+	background = create_object("ressources/images/scenes/background_night2.png",
 	create_vector2f(posx, posy), create_rect(0, 0, 1920, 1080), 0);
 	moon = create_object("ressources/images/scenes/moon.png",
 	create_vector2f(posx + 1000, posy), create_rect(0, 0, 315, 310), 0);

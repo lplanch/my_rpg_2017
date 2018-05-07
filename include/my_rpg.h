@@ -197,10 +197,10 @@ typedef struct s_files
 	sfVector2f invers;
 	sfVector2f maxspeed;
 	sfVector2f vect_ID_player;
-	pnj_t pnj[4];
+	pnj_t pnj[14];
 	pos_t pos[10];
 	colcircle_t colcircle[42];
-	colsquare_t colsquare[470];
+	colsquare_t colsquare[473];
 	map_t map;
 	clockz_t time;
 	st_music music;

@@ -51,24 +51,24 @@ int case_tp(st_rpg *s, int nb_ID)
 		s->fi->camera_pos = 0;
 		return (1);
 	case 91:
-		s->fi->character->pos.x = 8676;
-		s->fi->character->pos.y = 7092;
+		s->fi->character->pos.x = 8792;
+		s->fi->character->pos.y = 6969;
 		s->fi->character->rect.top = 0;
 		sfSprite_setPosition(s->fi->character->sprite,
 		s->fi->character->pos);
 		s->fi->camera_pos = 0;
 		return (1);
 	case 121:
-		s->fi->character->pos.x = 8676;
-		s->fi->character->pos.y = 9107;
+		s->fi->character->pos.x = 8550;
+		s->fi->character->pos.y = 9049;
 		s->fi->character->rect.top = 0;
 		sfSprite_setPosition(s->fi->character->sprite,
 		s->fi->character->pos);
 		s->fi->camera_pos = 0;
 		return (1);
 	case 123:
-		s->fi->character->pos.x = 7551;
-		s->fi->character->pos.y = 9107;
+		s->fi->character->pos.x = 7443;
+		s->fi->character->pos.y = 9094;
 		s->fi->character->rect.top = 0;
 		sfSprite_setPosition(s->fi->character->sprite,
 		s->fi->character->pos);
@@ -83,24 +83,24 @@ int case_tp(st_rpg *s, int nb_ID)
 		s->fi->camera_pos = 0;
 		return (1);
 	case 92:
-		s->fi->character->pos.x = 5956;
-		s->fi->character->pos.y = 7053;
+		s->fi->character->pos.x = 5847;
+		s->fi->character->pos.y = 6969;
 		s->fi->character->rect.top = 0;
 		sfSprite_setPosition(s->fi->character->sprite,
 		s->fi->character->pos);
 		s->fi->camera_pos = 0;
 		return (1);
 	case 120:
-		s->fi->character->pos.x = 4981;
-		s->fi->character->pos.y = 7053;
+		s->fi->character->pos.x = 5116;
+		s->fi->character->pos.y = 6969;
 		s->fi->character->rect.top = 0;
 		sfSprite_setPosition(s->fi->character->sprite,
 		s->fi->character->pos);
 		s->fi->camera_pos = 0;
 		return (1);
 	case 122:
-		s->fi->character->pos.x = 4360;
-		s->fi->character->pos.y = 7053;
+		s->fi->character->pos.x = 4472;
+		s->fi->character->pos.y = 6969;
 		s->fi->character->rect.top = 0;
 		sfSprite_setPosition(s->fi->character->sprite,
 		s->fi->character->pos);
