@@ -576,6 +576,7 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void rogue_update_shadowstep(st_rpg *s);
 void destroy_dungeon_shader(st_rpg *s);
 void display_player_shade(st_rpg *s);
 void set_shader(st_rpg *s);

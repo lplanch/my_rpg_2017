@@ -28,9 +28,6 @@ void check_pnj_for_quests(st_rpg *s)
 {
 	if (s->fi->quests[0]->status == 1 &&
 	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "samy") == 0) {
-		s->fi->quests[0]->status = 2;
-		sfText_setString(s->fi->text_finish_quests->text,
-		"Quests 1 complete!");
-		s->fi->var_for_quests = 255;
+		quests_1(s);
 	}
 }

@@ -8,19 +8,10 @@
 #include "my.h"
 #include "game_map.h"
 
-void ok_mimoune(st_rpg *s)
-{
-	for (int i = 0; s->fi->quests[i] != NULL; i++) {
-		if (s->fi->quests[i]->status == 1) {
-			s->fi->quests[i]->status = 2;
-		}
-	}
-}
-
 void game_update(st_rpg *s)
 {
 	if (s->fi->dialog_box_isopen == 1)
-		dialog_box(s);
+		dialog_box(s, my_strdup(s->fi->pnj[s->fi->nb_pnj].name));
 	move_ok(s);
 	update_player_position_village(s);
 	move_id_player(s);
@@ -40,9 +31,6 @@ int event_game(st_rpg *s)
 		} if (event.type == sfEvtKeyPressed && event.key.code ==
 		sfKeyReturn) {
 			check_pnj(s);
-		} if (event.type == sfEvtKeyPressed && event.key.code ==
-		sfKeyD) {
-			ok_mimoune(s);
 		} if (mouse_in_object_quest_box(s->fi
 		->quests_box.quests_box->obj, s->window, s) == 1) {
 			update_quests_box_des(s);
