@@ -33,7 +33,7 @@ int prog(st_rpg *s)
 	parsing(a, s);
 	create_map(s);
 	while (sfRenderWindow_isOpen(s->window)) {
-		if (event_game(s))
+		if (event_game(s) || s->fi->return_value == 1)
 			return (1);
 		game_update(s);
 		if (sfMusic_getStatus(s->fi->music.music) == 0)

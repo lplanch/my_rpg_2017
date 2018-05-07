@@ -30,8 +30,9 @@ void wake_up(st_rpg *s)
 	set_texturerect_top(s->fi->character, 144);
 }
 
-void after_quests1(st_rpg *s)
+void after_quests(st_rpg *s)
 {
+	night_scene(s);
 	s->fi->pnj[2].pnj->rect =
 	set_texturerect_top(s->fi->pnj[2].pnj, 193);
 	s->fi->pnj[0].pnj->rect =
@@ -49,6 +50,7 @@ void after_quests1(st_rpg *s)
 	sfSprite_setPosition(s->fi->pnj[0].pnj->sprite, s->fi->pnj[0].pnj->pos);
 	sfSprite_setPosition(s->fi->character->sprite, s->fi->character->pos);
 	wake_up(s);
+	s->fi->return_value = 0;
 }
 
 void quests_1(st_rpg *s)
