@@ -12,8 +12,11 @@ void display_archer(st_rpg *s)
 {
 	display_aoe(s->window, s->f.arc.barrage);
 	display_aoe(s->window, s->f.arc.heal);
-	for (int i = 0; i != 20; i += 1)
+	for (int i = 0; i != 20; i += 1) {
 		display_projectile(s->window, s->f.arc.arrow[i]);
+		if (s->f.arc.arrow[i]->shot)
+			display_particle(s->f.arc.parta[i], s->window);
+	}
 	display_projectile(s->window, s->f.arc.axe);
 }
 
