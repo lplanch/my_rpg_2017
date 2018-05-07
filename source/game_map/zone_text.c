@@ -70,17 +70,15 @@ void event_dialog_box(st_rpg *s, sfEvent event, int fd)
 	}
 }
 
-void dialog_box(st_rpg *s)
+void dialog_box(st_rpg *s, char *deux)
 {
 	char *un = my_strdup("ressources/images/dialog_box/text/");
-	char *deux = my_strdup(s->fi->pnj[s->fi->nb_pnj].name);
 	char *path = my_strcat(un, deux);
 	int fd = open(path, O_RDONLY);
 	sfEvent event;
 
-	check_pnj_for_quests(s);
 	free(un);
-	free(deux);
+	check_pnj_for_quests(s);
 	create_dialog_box(s);
 	create_name_box(s);
 	update_dialog_box(s, fd);

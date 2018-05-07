@@ -130,6 +130,7 @@ FILES		=	source/main.c					\
 			source/game_map/get_pnj.c			\
 			source/game_map/transfer_pixel.c		\
 			source/game_map/transfer_pixel_all.c		\
+			source/game_map/move_pnj.c			\
 			source/game_map/player_movement.c		\
 			source/game_map/draw_dialog.c			\
 			source/game_map/zone_text.c			\

@@ -63,8 +63,8 @@ void draw_all(st_rpg *s)
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite5, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite3, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite2, NULL);
-	sfRenderWindow_drawSprite(s->window, s->fi->character->sprite, NULL);
 	draw_pnj(s);
+	sfRenderWindow_drawSprite(s->window, s->fi->character->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite4, NULL);
 	draw_quests(s);
 	print_text_finish_quests(s);
