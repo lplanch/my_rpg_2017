@@ -57,7 +57,7 @@ void save_tree_2(int fd, tree_t tree)
 void save_tree(tree_t tree, char *path)
 {
 	char *path_tree = my_strcat(path, "tree");
-	int fd = open(path, O_WRONLY | O_TRUNC | O_CREAT);
+	int fd = open(path_tree, O_WRONLY | O_TRUNC | O_CREAT);
 	char value = tree.lock[0] + 48;
 
 	write_a_value(fd, &value, 1);
