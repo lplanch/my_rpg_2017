@@ -28,10 +28,10 @@ int check_double_class(st_rpg *s)
 void create_player(st_rpg *s)
 {
 	sfVector2f scale = {2, 2};
-
+	
 	s->player.obj = create_object("ressources/images/hero.png",
-	create_vector2f(960,
-	540), create_rect(0, 0, 48 + 144 * s->player.cdata.sex, 48), 0);
+	create_vector2f(960, 540),
+	create_rect(0, 0 + 150 * s->player.cdata.sex, 48, 48), 0);
 	sfSprite_scale(s->player.obj->sprite, scale);
 	s->player.animcol = 1;
 	s->player.animsens = 1;

@@ -8,6 +8,31 @@
 #include "my.h"
 #include "game_map.h"
 
+void set_all_before_quests(st_rpg *s, int i)
+{
+	while (i >= 0) {
+		s->fi->quests[i]->status = 3;
+		i--;
+	}
+}
+
+void check_status_for_finish_quests(st_rpg *s, int i)
+{
+	s->fi->quests[i]->status = 3;
+	if (s->fi->quests[i + 1] != NULL)
+		s->fi->quests[i + 1]->status = 1;
+}
+
+void check_status_quests(st_rpg *s)
+{
+	for (int i = 0; s->fi->quests[i] != NULL; i++) {
+		if (s->fi->quests[i]->status == 2)
+			check_status_for_finish_quests(s, i);
+		if (s->fi->quests[i]->status == 3)
+			set_all_before_quests(s, i);
+	}
+}
+
 void update_quests_box_des(st_rpg *s)
 {
 	int file = open(s->fi->quests[s->fi->quests_box.nb_quests]->path,
@@ -30,7 +55,7 @@ void update_quests_box_des(st_rpg *s)
 
 void check_quests(st_rpg *s)
 {
-	s->fi->quests[0]->status = 1;
+	check_status_quests(s);
 	for (int i = 0; s->fi->quests[i] != NULL; i++) {
 		if (s->fi->quests[i]->status == 1) {
 			s->fi->quests_box.nb_quests = i;

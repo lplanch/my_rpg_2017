@@ -8,37 +8,17 @@
 #include "my.h"
 #include "my_rpg.h"
 
-void fill_inventory_background(framebuffer_t *buffer)
-{
-	sfColor bla = {50, 50, 57, 180};
-
-	for (int i = 0; i < 5; i++) {
-		my_draw_vrect(buffer, (int[2]){0 + i, 0 + i},
-		(int[2]){WIDTH / 2.5 - i * 2, HEIGHT / 2.5 - i * 2}, bla);
-		my_draw_vrect(buffer,
-		(int[2]){WIDTH / 2.5 / 4.5 * 3.5 + i, 0 + i},
-		(int[2]){WIDTH / 2.5 / 4.5 - i * 2, HEIGHT / 2.5 - i * 2}, bla);
-		my_draw_vrect(buffer,
-		(int[2]){WIDTH / 2.5 / 4 * 3 + i, 0 + i},
-		(int[2]){WIDTH / 2.5 / 4 - i * 2, HEIGHT / 2.5 - i * 2}, bla);
-		my_draw_vrect(buffer, (int[2]){WIDTH / 2.5 / 4.5 * 3.5 + i,
-			HEIGHT / 2.5 / 3.5 * 2 + i}, (int[2]){WIDTH / 2.5 /
-			4.5 - i * 2, HEIGHT / 2.5 / 3.5 * 1.5 - i * 2}, bla);
-		my_draw_circle(buffer, (int[2]){WIDTH / 2.5 / 4.5 * 4,
-			HEIGHT / 2.5 / 3.5 * 2.75}, HEIGHT / 2.5 / 7 + i, bla);
-	}
-}
-
 void create_inventory_screen(ing_inv_t *inv)
 {
-	sfColor sfTGrey = {80, 80, 87, 180};
-
-	inv->background = framebuffer_create(WIDTH / 2.5, HEIGHT / 2.5);
-	inv->btexture = sfTexture_create(WIDTH / 2.5, HEIGHT / 2.5);
-	inv->bsprite = sfSprite_create();
-	sfSprite_setTexture(inv->bsprite, inv->btexture, sfTrue);
-	fill_minimap_screen(inv->background, sfTGrey);
-	fill_inventory_background(inv->background);
+	inv->texture =
+	sfTexture_createFromFile("ressources/inventory.png", NULL);
+	inv->sprite = sfSprite_create();
+	inv->rect.width = 1500;
+	inv->rect.height = 800;
+	inv->rect.left = 0;
+	inv->rect.top = 0;
+	sfSprite_setTextureRect(inv->sprite, inv->rect);
+	sfSprite_setTexture(inv->sprite, inv->texture, sfTrue);
 }
 
 item_t *create_first_slot(void)

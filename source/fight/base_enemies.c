@@ -13,7 +13,6 @@ void destroy_enemy(enemy_t *enemy)
 	free(enemy->stat);
 	destroy_object(enemy->life);
 	destroy_object(enemy->obj);
-	free(enemy);
 }
 
 void update_life_bars_enemies(st_rpg *s)
@@ -34,7 +33,7 @@ void update_life_bars_enemies(st_rpg *s)
 
 void display_enemies(st_rpg *s)
 {
-	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
+	for (int i = 0; i < s->proc.pvar.enemy_nbr; i ++) {
 		if (s->f.mob[i]->alive) {
 			sfRenderWindow_drawSprite(s->window,
 			s->f.mob[i]->obj->sprite, NULL);
