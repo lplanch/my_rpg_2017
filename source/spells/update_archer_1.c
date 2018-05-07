@@ -22,6 +22,7 @@ void update_kalash(st_rpg *s)
 		s->f.arc.arrow[s->f.arc.current]->angle = get_angle(s);
 		launch_projectile(s, s->f.arc.arrow[s->f.arc.current],
 		s->f.arc.arrow[s->f.arc.current]->angle);
+		sfMusic_play(s->f.arc.l_click);
 		launch_particle(s->f.arc.parta[s->f.arc.current],
 		s->player.obj->pos, get_angle(s));
 		s->f.arc.current += 1;
