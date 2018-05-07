@@ -22,6 +22,7 @@ void create_dungeon_loop(st_rpg *s)
 	create_class(s);
 	create_life_bar(s);
 	generate_enemies(s);
+	set_shader(s);
 }
 
 void destroy_dungeon_loop(st_rpg *s)
@@ -32,6 +33,7 @@ void destroy_dungeon_loop(st_rpg *s)
 	destroy_enemies(s);
 	destroy_player(s);
 	destroy_main_fight(s);
+	destroy_dungeon_shader(s);
 	free_dungeon(&s->proc);
 }
 

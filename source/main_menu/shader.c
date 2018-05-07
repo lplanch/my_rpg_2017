@@ -7,17 +7,6 @@
 
 #include "my_rpg.h"
 
-void init_menu_shader(st_rpg *s)
-{
-	s->mainm.shader.shader = sfShader_createFromFile(
-		"shader/simple.vert", "shader/rainbow.frag");
-	s->mainm.shader.state.shader = s->mainm.shader.shader;
-	s->mainm.shader.state.blendMode = sfBlendAlpha;
-	s->mainm.shader.state.transform = sfTransform_Identity;
-	s->mainm.shader.state.texture = NULL;
-	s->mainm.shader.time = create_st_time();
-}
-
 void shader_move(st_rpg *s)
 {
 	s->mainm.shader.time.time =
