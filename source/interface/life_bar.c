@@ -21,10 +21,8 @@ void display_life_bar(st_rpg *s)
 
 void update_bars(st_rpg *s)
 {
-	if (s->player.stat->exp >= 100) {
-		s->player.stat->exp -= 100;
-		s->player.stat->lvl += 1;
-	}
+	if (s->player.stat->exp >= 100)
+		set_level_up(s);
 	s->bar.life->rect.width = 316 * s->player.stat->pva /
 	s->player.stat->pvm;
 	s->bar.xp->rect.width = 316 * s->player.stat->exp / 100;

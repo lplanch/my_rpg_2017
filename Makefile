@@ -63,6 +63,7 @@ FILES		=	source/main.c					\
 			source/fight/handle_status.c			\
 			source/fight/hitbox.c				\
 			source/fight/enemy.c				\
+			source/fight/loot_enemy.c				\
 			source/fight/generate_enemy.c			\
 			source/fight/base_enemies.c			\
 			source/fight/update_effects.c			\
@@ -71,6 +72,7 @@ FILES		=	source/main.c					\
 			source/fight/update_particles_class.c		\
 			source/fight/apply_damage.c			\
 			source/fight/proc_aoes.c			\
+			source/fight/levelup.c				\
 			source/fight/create_weapon.c			\
 			source/fight/update_weapon_pos.c		\
 			source/fight/swing.c				\
@@ -94,6 +96,7 @@ FILES		=	source/main.c					\
 			source/spells/update_rogue_1.c			\
 			source/spells/update_warrior_1.c		\
 			source/interface/life_bar.c			\
+			source/interface/main_particles.c			\
 			source/interface/status_menu.c			\
 			source/interface/status_info.c			\
 			source/interface/tree_menu.c			\

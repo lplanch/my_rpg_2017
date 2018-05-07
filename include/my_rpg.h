@@ -582,6 +582,12 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void loot_enemy(st_rpg *s);
+void set_level_up(st_rpg *s);
+void destroy_main_particles(st_rpg *s);
+void update_main_particles(st_rpg *s, float dt);
+void display_main_particles(st_rpg *s);
+void create_main_particles(st_rpg *s);
 void create_dmg_show(st_rpg *s);
 void destroy_dmg_show(st_rpg *s);
 void launch_dmg_show(st_rpg *s, float amount, g_object *obj);
