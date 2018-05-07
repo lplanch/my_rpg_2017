@@ -426,8 +426,8 @@ typedef struct fight_bars
 
 typedef struct enemy
 {
-	float dot;
-	float stun;
+	effect_t *poison;
+	effect_t *stun;
 	float cd;
 	float cdcount;
 	int cast;
