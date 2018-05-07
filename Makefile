@@ -21,6 +21,7 @@ FILES		=	source/main.c					\
 			source/graphic/mouse_in_object.c		\
 			source/graphic/create_circle.c			\
 			source/graphic/st_time.c			\
+			source/graphic/create_shader.c			\
 			source/graphic/animation.c			\
 			source/graphic/get_angles.c			\
 			source/main_menu/main.c				\
@@ -54,6 +55,8 @@ FILES		=	source/main.c					\
 			source/fight/get_cooldowns.c			\
 			source/fight/aoe.c				\
 			source/fight/dash.c				\
+			source/fight/diplay_player_shader.c		\
+			source/fight/set_shader.c			\
 			source/fight/display_projectile.c		\
 			source/fight/heal.c				\
 			source/fight/handle_status.c			\

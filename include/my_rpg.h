@@ -573,7 +573,9 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
-void set_shader(st_rpg *s)
+void destroy_dungeon_shader(st_rpg *s);
+void display_player_shade(st_rpg *s);
+void set_shader(st_rpg *s);
 shader_t create_shader(char *frag, int is_clock);
 void destroy_shader(shader_t *shader);
 void display_dungeon(st_rpg *s);
