@@ -10,8 +10,8 @@
 
 void create_fast_inventory_screen(ing_finv_t *finv)
 {
-	finv->rect.width = 160;
-	finv->rect.height = 160;
+	finv->rect.width = 230;
+	finv->rect.height = 230;
 	finv->rect.left = 0;
 	finv->rect.top = 0;
 	finv->sprite = sfSprite_create();

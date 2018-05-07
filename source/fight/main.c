@@ -53,7 +53,6 @@ int fight_events(st_rpg *s)
 void display_fight(st_rpg *s)
 {
 	sfRenderWindow_clear(s->window, s->proc.pvar.background);
-	draw_sprites_map(s);
 	display_player(s);
 	display_enemies(s);
 	display_class(s);

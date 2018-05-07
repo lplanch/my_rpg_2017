@@ -30,7 +30,8 @@ int launch_cust_menu_classes(st_rpg *s)
 		s->cust.cdata.classe = s->cust.option - 1;
 		create_player_from_cust(s);
 		custom_destroy(s);
-		return (fight_instance(s));
+		create_player(s);
+		return (prog(s));
 	}
 	return (0);
 }

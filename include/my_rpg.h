@@ -535,8 +535,14 @@ typedef struct struct_player_info
 	sfVector2f acceleration;
 } player_t;
 
+typedef struct particle_all
+{
+	particle_t *lvlup;
+} all_part_t;
+
 typedef struct struct_rpg
 {
+	all_part_t part;
 	proc_t proc;
 	ing_inv_t inv;
 	ing_finv_t finv;
@@ -559,6 +565,8 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void display_dungeon(st_rpg *s);
+void draw_map_block(st_rpg *rpg, int y);
 void update_particles(st_rpg *s);
 void update_particles_class(st_rpg *s, float dt);
 void destroy_particle(particle_t *part);
