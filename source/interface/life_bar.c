@@ -13,10 +13,9 @@ void display_life_bar(st_rpg *s)
 	sfRenderWindow_drawSprite(s->window, s->bar.bars->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->bar.life->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->bar.xp->sprite, NULL);
-	for (int i = 0; i != 3; i += 1) {
+	for (int i = 0; i != 3; i += 1)
 		sfRenderWindow_drawText(s->window, s->bar.values[i]->text,
 		NULL);
-	}
 }
 
 void update_bars(st_rpg *s)
