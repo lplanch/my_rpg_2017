@@ -570,6 +570,7 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void rogue_update_shadowstep(st_rpg *s);
 void display_dungeon(st_rpg *s);
 void draw_map_block(st_rpg *rpg, int y);
 void update_particles(st_rpg *s);
