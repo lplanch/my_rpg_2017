@@ -23,6 +23,7 @@ void create_dungeon_loop(st_rpg *s)
 	create_dmg_show(s);
 	create_life_bar(s);
 	generate_enemies(s);
+	create_main_particles(s);
 	set_shader(s);
 }
 
@@ -36,6 +37,7 @@ void destroy_dungeon_loop(st_rpg *s)
 	destroy_player(s);
 	destroy_main_fight(s);
 	destroy_dungeon_shader(s);
+	destroy_main_particles(s);
 	free_dungeon(&s->proc);
 }
 
@@ -81,6 +83,7 @@ void display_dungeon(st_rpg *s)
 	display_icons(s);
 	display_life_bar(s);
 	display_dmg_show(s);
+	display_main_particles(s);
 	verify_minimap(s);
 	verify_inventory(s);
 	verify_fast_inventory(s);

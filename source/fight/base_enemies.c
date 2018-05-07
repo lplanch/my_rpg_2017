@@ -17,10 +17,12 @@ void destroy_enemy(enemy_t *enemy)
 
 void update_life_bars_enemies(st_rpg *s)
 {
-
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
-		if (s->f.mob[i]->stat->pva <= 0)
+		if (s->f.mob[i]->stat->pva <= 0) {
+			s->f.mob[i]->stat->pva = s->f.mob[i]->stat->pvm;
 			s->f.mob[i]->alive = 0;
+			loot_enemy(s);
+		}
 		sfSprite_setPosition(s->f.mob[i]->life->sprite,
 		create_vector2f(s->f.mob[i]->obj->pos.x,
 		s->f.mob[i]->obj->pos.y - 20));

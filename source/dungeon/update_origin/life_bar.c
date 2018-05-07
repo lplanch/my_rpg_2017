@@ -18,7 +18,7 @@ void origin_life_bar(st_rpg *s)
 	sfSprite_setPosition(s->bar.life->sprite, create_vector2f(x + 122,
 	y + 58));
 	sfSprite_setPosition(s->bar.xp->sprite, create_vector2f(x + 122,
-	y + 105));
+	y + 85));
 	sfText_setPosition(s->bar.values[0]->text, create_vector2f(x + 67,
 	y + 67));
 	sfText_setPosition(s->bar.values[1]->text, create_vector2f(x + 125,
