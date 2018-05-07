@@ -20,6 +20,7 @@ void create_dungeon_loop(st_rpg *s)
 	create_main_fight(s);
 	create_icons(s);
 	create_class(s);
+	create_dmg_show(s);
 	create_life_bar(s);
 	generate_enemies(s);
 	set_shader(s);
@@ -27,6 +28,7 @@ void create_dungeon_loop(st_rpg *s)
 
 void destroy_dungeon_loop(st_rpg *s)
 {
+	create_dmg_show(s);
 	destroy_class(s);
 	destroy_icons(s);
 	destroy_life_bar(s);
@@ -45,6 +47,7 @@ void update_origin(st_rpg *s)
 
 void update_dungeon_loop(st_rpg *s)
 {
+	update_dmg_show(s);
 	update_pos_weapon(s);
 	update_bars(s);
 	update_icons_cd(s);
@@ -77,6 +80,7 @@ void display_dungeon(st_rpg *s)
 	display_class(s);
 	display_icons(s);
 	display_life_bar(s);
+	display_dmg_show(s);
 	verify_minimap(s);
 	verify_inventory(s);
 	verify_fast_inventory(s);

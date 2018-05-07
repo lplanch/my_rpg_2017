@@ -468,6 +468,9 @@ typedef struct main_fight
 	gunner_t gun;
 	warrior_t war;
 	f_shader_t shade;
+	t_object *dmg[50];
+	int dmgshot[50];
+	int cdmg;
 } fight_t;
 
 typedef struct struct_status_menu
@@ -576,6 +579,11 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void create_dmg_show(st_rpg *s);
+void destroy_dmg_show(st_rpg *s);
+void launch_dmg_show(st_rpg *s, float amount, g_object *obj);
+void update_dmg_show(st_rpg *s);
+void display_dmg_show(st_rpg *s);
 void rogue_update_shadowstep(st_rpg *s);
 void destroy_dungeon_shader(st_rpg *s);
 void display_player_shade(st_rpg *s);

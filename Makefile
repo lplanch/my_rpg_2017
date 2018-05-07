@@ -45,6 +45,7 @@ FILES		=	source/main.c					\
 			source/fight/create_spells_gunner.c		\
 			source/fight/create_spells_rogue.c		\
 			source/fight/destroy_spells.c			\
+			source/fight/damage_show.c			\
 			source/fight/icons.c				\
 			source/fight/icons_cd.c				\
 			source/fight/display_class.c			\

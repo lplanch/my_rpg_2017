@@ -13,6 +13,7 @@ void projectile_damage_enemy(st_rpg *s, proj_t *proj, enemy_t *mob)
 	float amount = proj->dmg + s->player.stat->frc / 7 * proj->dmgratio;
 
 	mob->stat->pva -= amount;
+	launch_dmg_show(s, amount, mob->obj);
 	handle_status(s, amount, mob);
 }
 
@@ -21,6 +22,7 @@ void swing_damage_enemy(st_rpg *s, swing_t *swing, enemy_t *mob)
 	float amount = swing->dmg + s->player.stat->frc / 7 * swing->dmgratio;
 
 	mob->stat->pva -= amount;
+	launch_dmg_show(s, amount, mob->obj);
 	handle_status(s, amount, mob);
 }
 
@@ -48,5 +50,6 @@ void apply_aoe(st_rpg *s, aoe_t *aoe, enemy_t *mob)
 	float amount = aoe->dmg + s->player.stat->frc / 7 * aoe->dmgratio;
 
 	mob->stat->pva -= amount;
+	launch_dmg_show(s, amount, mob->obj);
 	handle_status(s, amount, mob);
 }
