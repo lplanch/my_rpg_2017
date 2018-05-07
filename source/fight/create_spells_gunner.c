@@ -43,7 +43,8 @@ void create_gunner_explosions(st_rpg *s)
 	create_vector2i(9, 9), 0.002);
 	s->f.gun.explo = create_circle(90, 0, sfTransparent);
 	s->f.gun.expbt = create_circle(50, 0, sfTransparent);
-	s->f.gun.partf = create_particle("ressources/particles/flamethrower");
+	s->f.gun.partf = create_particle("ressources/particles/explosion");
+	s->f.gun.partg = create_particle("ressources/particles/gunpan");
 }
 
 void create_gunner_second(st_rpg *s)
@@ -51,7 +52,7 @@ void create_gunner_second(st_rpg *s)
 	s->f.gun.current = 0;
 	s->f.gun.ultrat = create_vector2f(0, 0);
 	s->f.gun.ult = 0;
-	s->f.gun.autospeed = 0.1;
+	s->f.gun.autospeed = 0.15;
 	s->f.gun.origin = s->f.gun.ultb[0]->dmg;
 	s->f.gun.auto_a = 0;
 	s->f.gun.blitz = create_projectile("ressources/proj/Blitz");

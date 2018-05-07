@@ -53,12 +53,11 @@ void get_particle_info(particle_t *part, int fd, char *buffer)
 	part->info[0].speed = (float)str_to_int(buffer);
 	free(buffer);
 	buffer = get_next_line(fd);
-	part->info[0].rands = (float)str_to_int(buffer);
+	part->info[0].rands = str_to_int(buffer);
 	free(buffer);
 	buffer = get_next_line(fd);
 	part->info[0].lsave = (float)str_to_int(buffer) / 100;
 	free(buffer);
-	part->info[0].lsave = (float)str_to_int(buffer) / 100;
 	part->info[0].life = 0;
 	buffer = get_next_line(fd);
 	part->info[0].fade = (float)str_to_int(buffer);

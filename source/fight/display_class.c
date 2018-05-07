@@ -12,8 +12,11 @@ void display_archer(st_rpg *s)
 {
 	display_aoe(s->window, s->f.arc.barrage);
 	display_aoe(s->window, s->f.arc.heal);
-	for (int i = 0; i != 20; i += 1)
+	for (int i = 0; i != 20; i += 1) {
 		display_projectile(s->window, s->f.arc.arrow[i]);
+		if (s->f.arc.arrow[i]->shot)
+			display_particle(s->f.arc.parta[i], s->window);
+	}
 	display_projectile(s->window, s->f.arc.axe);
 }
 
@@ -40,6 +43,7 @@ void display_gunner(st_rpg *s)
 		sfRenderWindow_drawSprite(s->window,
 		s->f.gun.expbullet->obj->sprite, NULL);
 	display_particle(s->f.gun.partf, s->window);
+	display_particle(s->f.gun.partg, s->window);
 }
 
 void display_rogue(st_rpg *s)

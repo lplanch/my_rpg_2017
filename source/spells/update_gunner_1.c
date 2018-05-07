@@ -58,6 +58,8 @@ void gunner_update_grenade_speed(st_rpg *s)
 void proc_grenade(st_rpg *s)
 {
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
+		launch_particle(s->f.gun.partf, s->f.gun.grenade->obj->pos,
+		get_angle(s));
 		if (circle_hitbox(s->f.gun.explo, s->f.mob[i]->obj) &&
 		s->f.mob[i]->alive)
 			s->f.mob[i]->stat->pva -= 70 + 15 * s->player.stat->lvl;
@@ -119,6 +121,8 @@ void gunner_update_auto_attack(st_rpg *s)
 		s->f.gun.bullet[s->f.gun.current]->angle = get_angle(s);
 		launch_projectile(s, s->f.gun.bullet[s->f.gun.current],
 		s->f.gun.bullet[s->f.gun.current]->angle);
+		launch_particle(s->f.gun.partg,
+		s->player.weapon[rand() % 2]->pos, get_angle(s));
 		update_current_bullet(s);
 		sfClock_restart(s->f.gun.t.clock);
 	} if (s->f.gun.bullet[9]->shot == 2) {

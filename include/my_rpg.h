@@ -287,6 +287,7 @@ typedef struct struct_archer_spells
 	float axeangle;
 	st_anim *anim;
 	st_time kal;
+	particle_t *parta[20];
 } archer_t;
 
 typedef struct struct_gunner_spells
@@ -322,6 +323,7 @@ typedef struct struct_gunner_spells
 	int dmg;
 	int origin;
 	particle_t *partf;
+	particle_t *partg;
 } gunner_t;
 
 typedef struct struct_melee_swing

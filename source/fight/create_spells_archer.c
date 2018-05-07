@@ -12,15 +12,18 @@ void create_archer_passive(st_rpg *s)
 {
 	for (int i = 0; i != 20; i += 1) {
 		s->f.arc.arrow[i] = create_projectile("ressources/proj/Arrow");
+		s->f.arc.parta[i] =
+		create_particle("ressources/particles/arrow");
 		if (s->player.tree.passive == 0) {
 			s->f.arc.arrow[i]->dmg += s->f.arc.arrow[i]->dmg * 0.1;
 			s->f.arc.arrow[i]->obj->speed += s->f.arc.arrow[i]
 			->obj->speed * 0.5;
 		} if (s->player.tree.passive == 1)
 			s->f.arc.arrow[i]->effect = "slow";
-		if (s->player.tree.passive == 2) {
-			s->player.max_speed += s->player.max_speed * 0.2;
-		}
+
+	}
+	if (s->player.tree.passive == 2) {
+		s->player.max_speed += s->player.max_speed * 0.2;
 	}
 }
 
