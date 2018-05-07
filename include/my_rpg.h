@@ -449,6 +449,9 @@ typedef struct s_shader
 typedef struct shader_fight
 {
 	shader_t vanish;
+	shader_t power;
+	shader_t endure;
+	shader_t armor;
 } f_shader_t;
 
 typedef struct main_fight

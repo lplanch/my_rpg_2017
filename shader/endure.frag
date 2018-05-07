@@ -1,6 +1,7 @@
 #version 130
 
 uniform sampler2D texture;
+uniform float time = 0;
 
 vec2 step = vec2(1, 1) / textureSize(texture, 0);
 
@@ -25,10 +26,12 @@ float aura(int n)
 void main()
 {
   	vec4 pixel = texture2D(texture, gl_TexCoord[0].xy);
+	vec4 color = gl_TexCoord[0];
 	if (pixel.a < 1)
 	{
-		float f = aura(2);
-		gl_FragColor = vec4(1, 0, 0, f);
+		float f = aura(4);
+		color.x = mod(time, 1);
+		gl_FragColor = vec4(color.xyz, f);
 	}
 	else
 		gl_FragColor = pixel;
