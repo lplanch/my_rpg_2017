@@ -35,5 +35,6 @@ void update_particles_class(st_rpg *s, float dt)
 		update_particles_gunner, update_particles_gunner,
 		update_particles_gunner};
 
-	(list[s->player.cdata.classe])(s, dt);
+	if (s->player.cdata.classe == 1)
+		(list[s->player.cdata.classe])(s, dt);
 }

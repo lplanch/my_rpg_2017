@@ -52,7 +52,7 @@ void create_gunner_second(st_rpg *s)
 	s->f.gun.current = 0;
 	s->f.gun.ultrat = create_vector2f(0, 0);
 	s->f.gun.ult = 0;
-	s->f.gun.autospeed = 0.1;
+	s->f.gun.autospeed = 0.15;
 	s->f.gun.origin = s->f.gun.ultb[0]->dmg;
 	s->f.gun.auto_a = 0;
 	s->f.gun.blitz = create_projectile("ressources/proj/Blitz");
