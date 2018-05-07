@@ -177,6 +177,7 @@ typedef struct s_files
 	int loading_timer;
 	int pre_var;
 	int relief;
+	int return_value;
 	float var_for_quests;
 	sfClock *clock;
 	sfView *view;
