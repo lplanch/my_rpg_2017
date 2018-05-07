@@ -12,11 +12,13 @@ void display_warrior_shad(st_rpg *s)
 	if (s->f.war.endure->count > 0) {
 		sfRenderWindow_drawSprite(s->window,
 		s->player.obj->sprite, &s->f.shade.endure.state);
+	} else if (s->f.war.lifesteal->count > 0) {
+		sfRenderWindow_drawSprite(s->window,
+		s->player.obj->sprite, &s->f.shade.power.state);
 	} else {
-		if (s->f.war.lifesteal->count > 0) {
-			sfRenderWindow_drawSprite(s->window,
-			s->player.obj->sprite, &s->f.shade.power.state);
-		} else if (s->f.war.parade->count > 0) {
+	 	if (s->f.war.parade->amount == 0 &&
+			s->player.tree.passive == 0 &&
+			!s->player.tree.lock[0]) {
 			sfRenderWindow_drawSprite(s->window,
 			s->player.obj->sprite, &s->f.shade.armor.state);
 		} else {

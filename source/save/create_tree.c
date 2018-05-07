@@ -36,6 +36,7 @@ void load_tree(st_rpg *s, char *path)
 void save_tree_2(int fd, tree_t tree)
 {
 	char value = tree.lock[7] + 48;
+	char *buffer = int_to_str(tree.skillp);
 
 	write_a_value(fd, &value, 1);
 	value = tree.lock[8] + 48;
@@ -50,8 +51,8 @@ void save_tree_2(int fd, tree_t tree)
 	write_a_value(fd, &value, 1);
 	value = tree.spell3 + 48;
 	write_a_value(fd, &value, 1);
-	value = tree.skillp + 48;
-	write_a_value(fd, &value, 1);
+	write_a_value(fd, buffer, 1);
+	free(buffer);
 }
 
 void save_tree(tree_t tree, char *path)

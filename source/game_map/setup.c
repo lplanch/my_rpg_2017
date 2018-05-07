@@ -76,9 +76,9 @@ void character_setup(st_rpg *s)
 	s->fi = malloc(sizeof(*(s->fi)));
 	*s->fi = (files_t) {0};
 	s->fi->character =
-	create_object("ressources/images/story_characters/hero.png",
-	create_vector2f(3680, 3700),
-	create_rect(0, 144, 48, 48), 0);
+	create_object("ressources/images/story_characters/jade2.png",
+	create_vector2f(8000, 7400),
+	create_rect(0, 0, 48, 48), 0);
 	sfSprite_scale(s->fi->character->sprite, create_vector2f(2, 2));
 	s->fi->ID_character = create_object("ressources/images/rose.jpg",
 	create_vector2f(5489, 6900),

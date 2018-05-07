@@ -15,6 +15,42 @@ sfIntRect set_texturerect_top(g_object *obj, int top)
 	return (obj->rect);
 }
 
+void wake_up(st_rpg *s)
+{
+	while (s->fi->character->pos.y != 8070) {
+		move_camera(s);
+		s->fi->character->pos.y -= 1;
+		sfSprite_setPosition(s->fi->character->sprite,
+		s->fi->character->pos);
+		draw(s);
+	}
+	s->fi->character->pos = create_vector2f(7950, 8037);
+	sfSprite_setPosition(s->fi->character->sprite, s->fi->character->pos);
+	s->fi->character->rect =
+	set_texturerect_top(s->fi->character, 144);
+}
+
+void after_quests1(st_rpg *s)
+{
+	s->fi->pnj[2].pnj->rect =
+	set_texturerect_top(s->fi->pnj[2].pnj, 193);
+	s->fi->pnj[0].pnj->rect =
+	set_texturerect_top(s->fi->pnj[0].pnj, 193);
+	s->fi->pnj[3].pnj->rect =
+	set_texturerect_top(s->fi->pnj[3].pnj, 193);
+	s->fi->character->rect =
+	set_texturerect_top(s->fi->character, 193);
+	s->fi->pnj[2].pnj->pos = create_vector2f(8100, 7000);
+	s->fi->pnj[3].pnj->pos = create_vector2f(9230, 7000);
+	s->fi->pnj[0].pnj->pos = create_vector2f(7950, 7700);
+	s->fi->character->pos = create_vector2f(7950, 8160);
+	sfSprite_setPosition(s->fi->pnj[2].pnj->sprite, s->fi->pnj[2].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[0].pnj->sprite, s->fi->pnj[0].pnj->pos);
+	sfSprite_setPosition(s->fi->character->sprite, s->fi->character->pos);
+	wake_up(s);
+}
+
 void quests_1(st_rpg *s)
 {
 	s->fi->quests[0]->status = 2;
