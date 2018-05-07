@@ -15,7 +15,7 @@ void create_dmg_show(st_rpg *s)
 		s->f.dmgshot[i] = 0;
 		s->f.dmg[i] = create_text("dmg", (sfVector2f){0, 0},
 		"ressources/fonts/bars.otf");
-		sfText_setCharacterSize(s->f.dmg[i]->text, 10);
+		sfText_setCharacterSize(s->f.dmg[i]->text, 12);
 	}
 }
 
@@ -28,8 +28,8 @@ void destroy_dmg_show(st_rpg *s)
 void launch_dmg_show(st_rpg *s, float amount, g_object *obj)
 {
 	char *buffer = int_to_str((int)amount);
-	sfVector2f pos = create_vector2f(obj->pos.x + obj->rect.width / 2,
-	obj->pos.y - 20);
+	sfVector2f pos = create_vector2f(obj->pos.x + rand() % obj->rect.width
+	- 20, obj->pos.y - 20);
 
 	sfText_setString(s->f.dmg[s->f.cdmg]->text, my_strdup(buffer));
 	sfText_setPosition(s->f.dmg[s->f.cdmg]->text, pos);
