@@ -8,6 +8,15 @@
 #include "my.h"
 #include "game_map.h"
 
+void ok_mimoune(st_rpg *s)
+{
+	for (int i = 0; s->fi->quests[i] != NULL; i++) {
+		if (s->fi->quests[i]->status == 1) {
+			s->fi->quests[i]->status = 2;
+		}
+	}
+}
+
 void game_update(st_rpg *s)
 {
 	if (s->fi->dialog_box_isopen == 1)
@@ -16,6 +25,7 @@ void game_update(st_rpg *s)
 	update_player_position_village(s);
 	move_id_player(s);
 	move_infos_box(s);
+	check_quests(s);
 	draw(s);
 }
 
@@ -32,7 +42,7 @@ int event_game(st_rpg *s)
 			check_pnj(s);
 		} if (event.type == sfEvtKeyPressed && event.key.code ==
 		sfKeyD) {
-			check_quests(s);
+			ok_mimoune(s);
 		} if (mouse_in_object_quest_box(s->fi
 		->quests_box.quests_box->obj, s->window, s) == 1) {
 			update_quests_box_des(s);

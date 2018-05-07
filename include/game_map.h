@@ -129,6 +129,9 @@ void get_rewards(char *buffer, quests_t *quests);
 void display_all(st_rpg *s, int size);
 void check_quests(st_rpg *s);
 void update_quests_box_des(st_rpg *s);
+void check_pnj_for_quests(st_rpg *s);
+
+void print_text_finish_quests(st_rpg *s);
 
 #ifndef MY_COOK_
 #define MY_COOK_

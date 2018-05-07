@@ -147,6 +147,7 @@ FILES		=	source/main.c					\
 			source/quests/get_all_quests.c			\
 			source/quests/check_quests.c			\
 			source/quests/get_quests.c			\
+			source/quests/check_pnj_for_quests.c		\
 			source/dungeon/main_proc.c					\
 			source/dungeon/update_origin/icons.c				\
 			source/dungeon/update_origin/life_bar.c				\

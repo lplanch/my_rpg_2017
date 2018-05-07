@@ -135,6 +135,7 @@ typedef struct s_quests
 	char *path;
 	int nbr_quests;
 	int status;
+	int status_text;
 	rewards_t rewards;
 	quests_list_t *quests_list;
 } quests_t;
@@ -176,6 +177,7 @@ typedef struct s_files
 	int loading_timer;
 	int pre_var;
 	int relief;
+	float var_for_quests;
 	sfClock *clock;
 	sfView *view;
 	quests_t **quests;
@@ -185,6 +187,7 @@ typedef struct s_files
 	sfVector2f acceleration;
 	g_object *ID_character;
 	g_object *loading;
+	t_object *text_finish_quests;
 	quests_box_t quests_box;
 	sfVector2f camera;
 	sfVector2f camera_prec;

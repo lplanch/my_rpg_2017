@@ -67,6 +67,7 @@ void draw_all(st_rpg *s)
 	draw_pnj(s);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite4, NULL);
 	draw_quests(s);
+	print_text_finish_quests(s);
 }
 
 void draw(st_rpg *s)
