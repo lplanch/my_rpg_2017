@@ -31,8 +31,7 @@ void destroy_main_menu(st_rpg *s)
 	}
 	sfClock_destroy(s->mainm.t.clock);
 	sfMusic_destroy(s->mainm.music);
-	sfShader_destroy(s->mainm.shader.shader);
-	sfClock_destroy(s->mainm.shader.time.clock);
+	destroy_shader(&s->mainm.shader);
 }
 
 void initialize_menu_interface(st_rpg *s)
@@ -57,7 +56,7 @@ void initialize_menu_interface(st_rpg *s)
 	s->mainm.title = create_object("ressources/images/menu/title.png",
 	create_vector2f(558, -300), create_rect(0, 0, 804, 67), 0);
 	sfSprite_setScale(s->mainm.guy->sprite, create_vector2f(2, 2));
-	init_menu_shader(s);
+	s->mainm.shader = create_shader("shader/rainbow.frag", 1);
 }
 
 void initialize_menu(st_rpg *s)

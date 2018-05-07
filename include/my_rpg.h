@@ -364,8 +364,11 @@ typedef struct struct_rogue_spells
 	st_time ultt;
 	proj_t *dance;
 	dash_t *tp;
+	dash_t *draw;
 	swing_t *auto_a[2];
 	sfIntRect ultr;
+	particle_t *partp;
+	particle_t *partd;
 } rogue_t;
 
 typedef struct struct_warrior_spells
@@ -436,6 +439,18 @@ typedef struct enemy
 	stat_t *stat;
 } enemy_t;
 
+typedef struct s_shader
+{
+	sfShader *shader;
+	sfRenderStates state;
+	st_time time;
+} shader_t;
+
+typedef struct shader_fight
+{
+	shader_t vanish;
+} f_shader_t;
+
 typedef struct main_fight
 {
 	enemy_t **mob;
@@ -452,14 +467,8 @@ typedef struct main_fight
 	rogue_t rog;
 	gunner_t gun;
 	warrior_t war;
+	f_shader_t shade;
 } fight_t;
-
-typedef struct s_shader
-{
-	sfShader *shader;
-	sfRenderStates state;
-	st_time time;
-} shader_t;
 
 typedef struct struct_status_menu
 {
@@ -567,6 +576,11 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void destroy_dungeon_shader(st_rpg *s);
+void display_player_shade(st_rpg *s);
+void set_shader(st_rpg *s);
+shader_t create_shader(char *frag, int is_clock);
+void destroy_shader(shader_t *shader);
 void display_dungeon(st_rpg *s);
 void draw_map_block(st_rpg *rpg, int y);
 void update_particles(st_rpg *s);
@@ -816,6 +830,5 @@ sfIntRect create_rect(int top, int left, int width, int height);
 sfVector2f create_vector2f(float x, float y);
 sfVector2i create_vector2i(int x, int y);
 void shader_move(st_rpg *s);
-void init_menu_shader(st_rpg *s);
 
 #endif
