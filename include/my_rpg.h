@@ -319,6 +319,7 @@ typedef struct struct_gunner_spells
 	int dmg;
 	int origin;
 	particle_t *partf;
+	particle_t *partg;
 } gunner_t;
 
 typedef struct struct_melee_swing

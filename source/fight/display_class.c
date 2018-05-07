@@ -40,6 +40,7 @@ void display_gunner(st_rpg *s)
 		sfRenderWindow_drawSprite(s->window,
 		s->f.gun.expbullet->obj->sprite, NULL);
 	display_particle(s->f.gun.partf, s->window);
+	display_particle(s->f.gun.partg, s->window);
 }
 
 void display_rogue(st_rpg *s)

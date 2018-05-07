@@ -44,6 +44,10 @@ void launch_particle(particle_t *part, sfVector2f pos, float angle)
 			part->info->a});
 		part->info[id].ratios = (get_ratios(angle +
 		rand() % (int)part->info[id].angle - part->info[id].angle / 2));
+		part->info[id].ratios.x = part->info[id].ratios.x *
+		(part->info[id].speed + (rand() % part->info[id].rands));
+		part->info[id].ratios.y = part->info[id].ratios.y *
+		(part->info[id].speed + (rand() % part->info[id].rands));
 	}
 }
 
@@ -59,9 +63,9 @@ void update_particle(particle_t *part, float dt)
 		}
 		for (int i = 0; i != 4; i += 1) {
 			part->vertex[(id * 4) + i].position.x +=
-			part->info[id].ratios.x * part->info[id].speed * dt;
+			part->info[id].ratios.x * dt;
 			part->vertex[(id * 4) + i].position.y +=
-			part->info[id].ratios.y * part->info[id].speed * dt;
+			part->info[id].ratios.y * dt;
 			part->vertex[(id * 4) + i].color.a -=
 			part->info[id].fade;
 		}

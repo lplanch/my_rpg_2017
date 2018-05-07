@@ -31,6 +31,7 @@ void gunner_jump(st_rpg *s)
 	s->f.gun.boots->li = 0;
 	s->f.gun.boots->c = 0;
 	s->f.gun.jump->speed = 80;
+	launch_particle(s->f.gun.partf, s->player.obj->pos, get_angle(s));
 	launch_dash(s, s->f.gun.jump);
 }
 

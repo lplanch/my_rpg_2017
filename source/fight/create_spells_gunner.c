@@ -43,7 +43,8 @@ void create_gunner_explosions(st_rpg *s)
 	create_vector2i(9, 9), 0.002);
 	s->f.gun.explo = create_circle(90, 0, sfTransparent);
 	s->f.gun.expbt = create_circle(50, 0, sfTransparent);
-	s->f.gun.partf = create_particle("ressources/particles/flamethrower");
+	s->f.gun.partf = create_particle("ressources/particles/explosion");
+	s->f.gun.partg = create_particle("ressources/particles/gunpan");
 }
 
 void create_gunner_second(st_rpg *s)

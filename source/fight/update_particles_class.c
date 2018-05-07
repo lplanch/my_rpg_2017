@@ -16,6 +16,7 @@
 void update_particles_gunner(st_rpg *s, float dt)
 {
 	update_particle(s->f.gun.partf, dt);
+	update_particle(s->f.gun.partg, dt);
 }
 
 /*void update_particles_archer(st_rpg *s)
