@@ -10,23 +10,26 @@
 
 void clear_inventory_slot(item_t *slot)
 {
-	slot->sprite = NULL;
 	slot->id = 0;
 	slot->stacks = 0;
+	slot->sprite = NULL;
 }
 
 void add_inventory_slot(item_t *first_slot)
 {
 	item_t *conductor = first_slot;
-	unsigned int last_pos = first_slot->pos;
 
-	while ((conductor = conductor->next) != NULL)
-		last_pos = conductor->pos;
-	conductor = malloc(sizeof(item_t));
-	clear_inventory_slot(conductor);
-	conductor->sprite = NULL;
-	conductor->pos = last_pos;
-	conductor->next = NULL;
+	while (conductor->next != NULL)
+		conductor = conductor->next;
+	conductor->next = malloc(sizeof(item_t));
+	clear_inventory_slot(conductor->next);
+	conductor->next->pos = conductor->pos + 1;
+	conductor->next->next = NULL;
+}
+
+void add_inventory_item(item_t *first_slot, unsigned int id)
+{
+	
 }
 
 void remove_inventory_slot(item_t *first_slot)
@@ -34,7 +37,8 @@ void remove_inventory_slot(item_t *first_slot)
 	item_t *conductor = first_slot;
 
 	while ((conductor = conductor->next->next) != NULL);
-	sfSprite_destroy(conductor->next->sprite);
+	if (conductor->next->sprite != NULL)
+		sfSprite_destroy(conductor->next->sprite);
 	free(conductor->next);
 	conductor->next = NULL;
 }
