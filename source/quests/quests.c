@@ -68,6 +68,6 @@ void quests_1(st_rpg *s)
 	s->fi->character->rect = set_texturerect_top(s->fi->character, 0);
 	dialog_box(s, "zac_beginning");
 	sfText_setString(s->fi->text_finish_quests->text,
-	"Quests 1 complete!");
+	"Quest 1 complete!");
 	s->fi->var_for_quests = 255;
 }
