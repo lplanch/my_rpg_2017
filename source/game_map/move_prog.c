@@ -70,8 +70,8 @@ void move_id_player(st_rpg *s)
 void move(st_rpg *s)
 {
 	s->fi->character->rect.left += 48;
-	if (s->fi->character->rect.left >= 288)
-		s->fi->character->rect.left = 144;
+	if (s->fi->character->rect.left >= 144)
+		s->fi->character->rect.left = 0;
 }
 
 void move_ok(st_rpg *s)
