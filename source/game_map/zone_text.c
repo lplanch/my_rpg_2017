@@ -38,7 +38,8 @@ int update_dialog_box(st_rpg *s, int fd)
 		free(tra);
 		return (1);
 	} else if (!my_strcmp(str, ">")) {
-		choice_box(s, fd);
+		if (choice_box(s, fd) != 0)
+			return (1);
 		free(str);
 		take_good_option(s, fd);
 		str = get_next_line(fd);
