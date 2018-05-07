@@ -133,6 +133,7 @@ FILES		=	source/main.c					\
 			source/game_map/get_pnj.c			\
 			source/game_map/transfer_pixel.c		\
 			source/game_map/transfer_pixel_all.c		\
+			source/game_map/move_pnj.c			\
 			source/game_map/player_movement.c		\
 			source/game_map/draw_dialog.c			\
 			source/game_map/zone_text.c			\
@@ -150,6 +151,7 @@ FILES		=	source/main.c					\
 			source/quests/get_all_quests.c			\
 			source/quests/check_quests.c			\
 			source/quests/get_quests.c			\
+			source/quests/quests.c				\
 			source/quests/check_pnj_for_quests.c		\
 			source/dungeon/main_proc.c					\
 			source/dungeon/update_origin/icons.c				\

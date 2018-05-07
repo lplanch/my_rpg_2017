@@ -29,6 +29,10 @@ void create_dialog_box(st_rpg *s)
 	sfWhite, 35);
 	sfText_setPosition(s->fi->pnj[s->fi->nb_pnj].dialog_box->text->text,
 	create_vector2f(pos_text_x, pos_text_y));
+	s->fi->pnj[s->fi->nb_pnj].dialog_box->text->font =
+	sfFont_createFromFile("ressources/fonts/testfont/mangat.ttf");
+	sfText_setFont(s->fi->pnj[s->fi->nb_pnj].dialog_box->text->text,
+	s->fi->pnj[s->fi->nb_pnj].dialog_box->text->font);
 }
 
 void create_name_box(st_rpg *s)
