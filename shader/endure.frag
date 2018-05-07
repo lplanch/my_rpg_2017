@@ -29,8 +29,9 @@ void main()
 	vec4 color = gl_TexCoord[0];
 	if (pixel.a < 1)
 	{
-		float f = aura(4);
+		float f = aura(3);
 		color.x = mod(time, 1);
+		color.y = mod(-time, 1);
 		gl_FragColor = vec4(color.xyz, f);
 	}
 	else
