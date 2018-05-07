@@ -289,6 +289,7 @@ typedef struct struct_archer_spells
 	st_anim *anim;
 	st_time kal;
 	particle_t *parta[20];
+	sfMusic *l_click;
 } archer_t;
 
 typedef struct struct_gunner_spells
@@ -325,6 +326,7 @@ typedef struct struct_gunner_spells
 	int origin;
 	particle_t *partf;
 	particle_t *partg;
+	sfMusic *l_click;
 } gunner_t;
 
 typedef struct struct_melee_swing
@@ -426,8 +428,8 @@ typedef struct fight_bars
 
 typedef struct enemy
 {
-	float dot;
-	float stun;
+	effect_t *poison;
+	effect_t *stun;
 	float cd;
 	float cdcount;
 	int cast;

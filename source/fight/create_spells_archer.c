@@ -40,4 +40,6 @@ void create_archer_projectiles(st_rpg *s)
 	s->f.arc.barrage = create_aoe_from_file("ressources/spells/0/Barrage");
 	s->f.arc.leaf = create_effect("power", 0, 6);
 	s->f.arc.leap = create_dash(70, 800);
+	s->f.arc.l_click =
+	sfMusic_createFromFile("ressources/audio/sound/arrow.ogg");
 }

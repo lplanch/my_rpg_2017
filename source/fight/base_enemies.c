@@ -13,6 +13,8 @@ void destroy_enemy(enemy_t *enemy)
 	free(enemy->stat);
 	destroy_object(enemy->life);
 	destroy_object(enemy->obj);
+	destroy_effect(enemy->stun);
+	destroy_effect(enemy->poison);
 }
 
 void update_life_bars_enemies(st_rpg *s)
