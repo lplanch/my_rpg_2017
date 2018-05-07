@@ -11,6 +11,8 @@
 void create_dungeon_loop(st_rpg *s)
 {
 	srand((long)&launch_dungeon);
+	create_player(s);
+	create_weapon(s);
 	make_proc_variables(&s->proc.pvar);
 	map_creation(&s->proc);
 	s->proc.smap = create_sprite_map(&s->proc, s->proc.map);
@@ -19,8 +21,6 @@ void create_dungeon_loop(st_rpg *s)
 	create_icons(s);
 	create_class(s);
 	create_life_bar(s);
-	create_player(s);
-	create_weapon(s);
 	generate_enemies(s);
 }
 
@@ -65,6 +65,21 @@ void stop_player(st_rpg *s)
 	s->player.nbr_frame.y = 0;
 }
 
+void display_dungeon(st_rpg *s)
+{
+	sfRenderWindow_clear(s->window, s->proc.pvar.background);
+	for (int y = 0; s->proc.map[y] != NULL; y++)
+		draw_map_block(s, y);
+	display_player(s);
+	display_enemies(s);
+	display_class(s);
+	display_icons(s);
+	display_life_bar(s);
+	verify_minimap(s);
+	verify_inventory(s);
+	verify_fast_inventory(s);
+}
+
 int dungeon_events(st_rpg *s)
 {
 	sfEvent event;
@@ -97,7 +112,7 @@ int dungeon_loop(st_rpg *s)
 		if (!s->f.cast)
 			launch_spells(s);
 		update_dungeon_loop(s);
-		display_fight(s);
+		display_dungeon(s);
 		sfRenderWindow_display(s->window);
 		if (verify_exit_player(s)) {
 			destroy_dungeon_loop(s);

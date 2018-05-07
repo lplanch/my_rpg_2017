@@ -93,7 +93,7 @@ int pause_main(st_rpg *s)
 	while (sfRenderWindow_isOpen(s->window)) {
 		if (event_pause_menu(s))
 			return (s->returnv);
-		display_fight(s);
+		display_dungeon(s);
 		set_colors_pause(s);
 		update_cursor_pos_pause(s);
 		which_display(s);

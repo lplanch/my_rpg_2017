@@ -18,17 +18,6 @@ void draw_map_block(st_rpg *rpg, int y)
 	}
 }
 
-int draw_sprites_map(st_rpg *rpg)
-{
-	for (int y = 0; rpg->proc.map[y] != NULL; y++)
-		draw_map_block(rpg, y);
-	sfRenderWindow_drawSprite(rpg->window, rpg->player.obj->sprite, NULL);
-	verify_minimap(rpg);
-	verify_inventory(rpg);
-	verify_fast_inventory(rpg);
-	return (1);
-}
-
 int update_sprite(st_rpg *rpg)
 {
 	sfVector2f player_pos;
@@ -58,7 +47,6 @@ int launch_dungeon_game(st_rpg *rpg)
 		verif_input_map(rpg);
 		update_sprite(rpg);
 		sfRenderWindow_clear(rpg->window, rpg->proc.pvar.background);
-		draw_sprites_map(rpg);
 		sfRenderWindow_display(rpg->window);
 		done = verify_exit_player(rpg);
 	}

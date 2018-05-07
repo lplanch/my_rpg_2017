@@ -60,6 +60,7 @@ int launch_main_menu_load_slots(st_rpg *s)
 		s->save = s->mainm.option + 1;
 		loading(s);
 		destroy_main_menu(s);
+		create_player(s);
 		load_save(s);
 		return (prog(s));
 	}
