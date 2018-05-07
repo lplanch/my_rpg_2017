@@ -10,7 +10,7 @@
 
 void destroy_icons_cd(st_rpg *s)
 {
-	for (int i = 0; i != 4; i += 1)
+	for (int i = 0; i < 4; i++)
 		destroy_object(s->f.cd[i]);
 }
 
@@ -26,7 +26,7 @@ void update_icons_cd(st_rpg *s)
 	s->f.cdt.time = sfClock_getElapsedTime(s->f.cdt.clock);
 	s->f.cdt.sec = s->f.cdt.time.microseconds / 1000000.0;
 	if (s->f.cdt.sec > 0.05) {
-		for (int i = 0; i != 4; i += 1) {
+		for (int i = 0; i < 4; i++) {
 			update_cdcount_icons(s, i);
 			s->f.cd[i]->rect.width = 128 * s->f.cdcount[i] /
 			s->f.cds[i];
@@ -39,7 +39,7 @@ void update_icons_cd(st_rpg *s)
 
 void create_icons_cd(st_rpg *s)
 {
-	for (int i = 0; i != 4; i += 1)
+	for (int i = 0; i < 4; i++)
 		s->f.cd[i] = create_object("ressources/images/semiblack.png",
 		create_vector2f(s->origin.x + 200 + 100 * i, s->origin.y + 800),
 		create_rect(0, 0, 128, 128), 0);
