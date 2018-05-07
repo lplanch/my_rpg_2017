@@ -11,6 +11,8 @@
 void rogue_withdraw(st_rpg *s)
 {
 	heal(s, s->player.stat->pvm / 4);
+	launch_dash(s, s->f.rog.draw);
+	launch_particle(s->f.rog.partd, s->player.obj->pos, 0);
 }
 
 void rogue_zone(st_rpg *s)

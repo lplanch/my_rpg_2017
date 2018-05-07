@@ -58,7 +58,10 @@ void destroy_spells_rogue(st_rpg *s)
 	destroy_aoe(s->f.rog.zone);
 	destroy_aoe(s->f.rog.flash);
 	destroy_button(s->f.rog.backstab);
+	destroy_particle(s->f.rog.partp);
+	destroy_particle(s->f.rog.partd);
 	destroy_dash(s->f.rog.tp);
+	destroy_dash(s->f.rog.draw);
 }
 
 void destroy_spells_warrior(st_rpg *s)

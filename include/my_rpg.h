@@ -364,8 +364,11 @@ typedef struct struct_rogue_spells
 	st_time ultt;
 	proj_t *dance;
 	dash_t *tp;
+	dash_t *draw;
 	swing_t *auto_a[2];
 	sfIntRect ultr;
+	particle_t *partp;
+	particle_t *partd;
 } rogue_t;
 
 typedef struct struct_warrior_spells
