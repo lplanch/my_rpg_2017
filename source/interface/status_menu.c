@@ -32,9 +32,6 @@ void destroy_status_menu(st_rpg *s)
 	destroy_text(s->statm.lvl);
 	destroy_text(s->statm.exp);
 	for (int i = 0; i != 6; i += 1) {
-		if (i == 2) {
-			i++;
-		}
 		destroy_button(s->statm.stats[i]);
 	}
 }
