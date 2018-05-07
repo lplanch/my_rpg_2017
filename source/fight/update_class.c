@@ -57,7 +57,8 @@ void update_rogue(st_rpg *s)
 	rogue_update_storm(s);
 	update_projectile(s->f.rog.dance);
 	rogue_update_auto_attack(s);
-	update_dash(s, s->f.rog.tp);
+	rogue_update_shadowstep(s);
+	update_dash(s, s->f.rog.draw);
 	if (s->f.rog.flash->shot)
 		rogue_update_flash(s);
 	if (s->f.rog.zone->shot)

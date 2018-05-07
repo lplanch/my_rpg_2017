@@ -15,6 +15,12 @@ void create(st_rpg *s)
 	setup_variable(s);
 	setup_loading(s);
 	get_all_quests(s, "ressources/quests/quests_info/");
+	s->fi->text_finish_quests = create_text("quests_finish",
+	create_vector2f(100, 100), "ressources/fonts/quests2.otf");
+	sfText_setColor(s->fi->text_finish_quests->text, sfWhite);
+	sfText_setCharacterSize(s->fi->text_finish_quests->text, 100);
+	s->fi->quests[0]->status = 1;
+	s->fi->quests[0]->status_text = 1;
 }
 
 int prog(st_rpg *s)

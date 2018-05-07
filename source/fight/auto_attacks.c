@@ -13,6 +13,8 @@ void archer_auto_attack(st_rpg *s)
 	s->f.arc.arrow[s->f.arc.current]->angle = get_angle(s);
 	launch_projectile(s, s->f.arc.arrow[s->f.arc.current],
 	s->f.arc.arrow[s->f.arc.current]->angle);
+	launch_particle(s->f.arc.parta[s->f.arc.current],
+	s->player.obj->pos, get_angle(s));
 	s->f.arc.current += 1;
 	update_current_arrow(s);
 }

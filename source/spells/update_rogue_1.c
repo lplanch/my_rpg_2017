@@ -55,6 +55,19 @@ void rogue_update_flash(st_rpg *s)
 	}
 }
 
+void rogue_update_shadowstep(st_rpg *s)
+{
+	if (s->f.rog.tp->on) {
+		s->f.rog.tp->count -= s->f.rog.tp->speed;
+		if (s->f.rog.tp->count <= 0) {
+			stop_player(s);
+			s->f.cast = 0;
+			s->f.rog.tp->on = 0;
+			launch_particle(s->f.rog.partp, s->player.obj->pos, 0);
+		}
+	}
+}
+
 void change_side_player(st_rpg *s)
 {
 	switch (s->f.rog.ultr.top)

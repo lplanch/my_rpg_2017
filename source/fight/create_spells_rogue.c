@@ -29,6 +29,7 @@ void create_rogue_daggers(st_rpg *s)
 	s->f.rog.flash = create_aoe_from_file("ressources/spells/2/Flash");
 	s->f.rog.fscale = 1;
 	s->f.rog.tp = create_dash(2000, 2000);
+	s->f.rog.draw = create_dash(200, 1000);
 }
 
 void create_rogue_autos(st_rpg *s)
@@ -47,4 +48,6 @@ void create_rogue_autos(st_rpg *s)
 		s->player.stat->frc += 0.1 * s->player.stat->frc;
 	}
 	s->f.rog.ultr = create_rect(0, 48 + 144 * s->player.cdata.sex, 48, 48);
+	s->f.rog.partp = create_particle("ressources/particles/shadowstep");
+	s->f.rog.partd = create_particle("ressources/particles/withdraw");
 }

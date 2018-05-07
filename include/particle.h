@@ -16,7 +16,7 @@ typedef struct particle_info
 {
 	sfVector2i size;
 	float speed;
-	float rands;
+	int rands;
 	float life;
 	float lsave;
 	float fade;

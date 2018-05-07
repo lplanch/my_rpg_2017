@@ -12,6 +12,7 @@ void destroy_spells_archer(st_rpg *s)
 {
 	for (int i = 0; i != 20; i += 1) {
 		destroy_projectile(s->f.arc.arrow[i]);
+		destroy_particle(s->f.arc.parta[i]);
 	}
 	destroy_projectile(s->f.arc.axe);
 	sfClock_destroy(s->f.arc.kal.clock);
@@ -43,6 +44,7 @@ void destroy_spells_gunner(st_rpg *s)
 	destroy_effect(s->f.gun.rush);
 	destroy_dash(s->f.gun.jump);
 	destroy_particle(s->f.gun.partf);
+	destroy_particle(s->f.gun.partg);
 }
 
 void destroy_spells_rogue(st_rpg *s)
@@ -56,7 +58,10 @@ void destroy_spells_rogue(st_rpg *s)
 	destroy_aoe(s->f.rog.zone);
 	destroy_aoe(s->f.rog.flash);
 	destroy_button(s->f.rog.backstab);
+	destroy_particle(s->f.rog.partp);
+	destroy_particle(s->f.rog.partd);
 	destroy_dash(s->f.rog.tp);
+	destroy_dash(s->f.rog.draw);
 }
 
 void destroy_spells_warrior(st_rpg *s)

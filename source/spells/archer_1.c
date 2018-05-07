@@ -15,6 +15,8 @@ void archer_salve(st_rpg *s)
 		i * 5;
 		launch_projectile(s, s->f.arc.arrow[s->f.arc.current],
 		s->f.arc.arrow[s->f.arc.current]->angle);
+		launch_particle(s->f.arc.parta[s->f.arc.current],
+		s->player.obj->pos, s->f.arc.arrow[s->f.arc.current]->angle);
 		s->f.arc.current += 1;
 		update_current_arrow(s);
 	}

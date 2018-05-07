@@ -135,6 +135,7 @@ typedef struct s_quests
 	char *path;
 	int nbr_quests;
 	int status;
+	int status_text;
 	rewards_t rewards;
 	quests_list_t *quests_list;
 } quests_t;
@@ -176,6 +177,7 @@ typedef struct s_files
 	int loading_timer;
 	int pre_var;
 	int relief;
+	float var_for_quests;
 	sfClock *clock;
 	sfView *view;
 	quests_t **quests;
@@ -185,6 +187,7 @@ typedef struct s_files
 	sfVector2f acceleration;
 	g_object *ID_character;
 	g_object *loading;
+	t_object *text_finish_quests;
 	quests_box_t quests_box;
 	sfVector2f camera;
 	sfVector2f camera_prec;
@@ -284,6 +287,7 @@ typedef struct struct_archer_spells
 	float axeangle;
 	st_anim *anim;
 	st_time kal;
+	particle_t *parta[20];
 } archer_t;
 
 typedef struct struct_gunner_spells
@@ -319,6 +323,7 @@ typedef struct struct_gunner_spells
 	int dmg;
 	int origin;
 	particle_t *partf;
+	particle_t *partg;
 } gunner_t;
 
 typedef struct struct_melee_swing
@@ -359,8 +364,11 @@ typedef struct struct_rogue_spells
 	st_time ultt;
 	proj_t *dance;
 	dash_t *tp;
+	dash_t *draw;
 	swing_t *auto_a[2];
 	sfIntRect ultr;
+	particle_t *partp;
+	particle_t *partd;
 } rogue_t;
 
 typedef struct struct_warrior_spells
@@ -431,6 +439,21 @@ typedef struct enemy
 	stat_t *stat;
 } enemy_t;
 
+typedef struct s_shader
+{
+	sfShader *shader;
+	sfRenderStates state;
+	st_time time;
+} shader_t;
+
+typedef struct shader_fight
+{
+	shader_t vanish;
+	shader_t power;
+	shader_t endure;
+	shader_t armor;
+} f_shader_t;
+
 typedef struct main_fight
 {
 	enemy_t **mob;
@@ -447,14 +470,8 @@ typedef struct main_fight
 	rogue_t rog;
 	gunner_t gun;
 	warrior_t war;
+	f_shader_t shade;
 } fight_t;
-
-typedef struct s_shader
-{
-	sfShader *shader;
-	sfRenderStates state;
-	st_time time;
-} shader_t;
 
 typedef struct struct_status_menu
 {
@@ -562,6 +579,12 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void rogue_update_shadowstep(st_rpg *s);
+void destroy_dungeon_shader(st_rpg *s);
+void display_player_shade(st_rpg *s);
+void set_shader(st_rpg *s);
+shader_t create_shader(char *frag, int is_clock);
+void destroy_shader(shader_t *shader);
 void display_dungeon(st_rpg *s);
 void draw_map_block(st_rpg *rpg, int y);
 void update_particles(st_rpg *s);
@@ -811,6 +834,5 @@ sfIntRect create_rect(int top, int left, int width, int height);
 sfVector2f create_vector2f(float x, float y);
 sfVector2i create_vector2i(int x, int y);
 void shader_move(st_rpg *s);
-void init_menu_shader(st_rpg *s);
 
 #endif

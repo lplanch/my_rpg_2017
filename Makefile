@@ -21,6 +21,7 @@ FILES		=	source/main.c					\
 			source/graphic/mouse_in_object.c		\
 			source/graphic/create_circle.c			\
 			source/graphic/st_time.c			\
+			source/graphic/create_shader.c			\
 			source/graphic/animation.c			\
 			source/graphic/get_angles.c			\
 			source/main_menu/main.c				\
@@ -54,6 +55,8 @@ FILES		=	source/main.c					\
 			source/fight/get_cooldowns.c			\
 			source/fight/aoe.c				\
 			source/fight/dash.c				\
+			source/fight/diplay_player_shader.c		\
+			source/fight/set_shader.c			\
 			source/fight/display_projectile.c		\
 			source/fight/heal.c				\
 			source/fight/handle_status.c			\
@@ -130,6 +133,7 @@ FILES		=	source/main.c					\
 			source/game_map/get_pnj.c			\
 			source/game_map/transfer_pixel.c		\
 			source/game_map/transfer_pixel_all.c		\
+			source/game_map/move_pnj.c			\
 			source/game_map/player_movement.c		\
 			source/game_map/draw_dialog.c			\
 			source/game_map/zone_text.c			\
@@ -147,6 +151,8 @@ FILES		=	source/main.c					\
 			source/quests/get_all_quests.c			\
 			source/quests/check_quests.c			\
 			source/quests/get_quests.c			\
+			source/quests/quests.c				\
+			source/quests/check_pnj_for_quests.c		\
 			source/dungeon/main_proc.c					\
 			source/dungeon/update_origin/icons.c				\
 			source/dungeon/update_origin/life_bar.c				\
