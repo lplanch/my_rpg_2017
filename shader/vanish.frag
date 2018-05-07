@@ -27,7 +27,7 @@ void main()
   	vec4 pixel = texture2D(texture, gl_TexCoord[0].xy);
 	if (pixel.a < 1)
 	{
-		float f = aura(4);
+		float f = aura(3);
 		gl_FragColor = vec4(0.5, 0.5, 0.5, f);
 	}
 	else
