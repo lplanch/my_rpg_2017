@@ -10,6 +10,8 @@
 
 void proc_enemy_stun(st_rpg *s, int i)
 {
+	if (s->f.mob[i]->stun->count > 0)
+		s->f.mob[i]->stun->amount = 1;
 	if (s->f.mob[i]->stun->amount == 1) {
 		s->f.mob[i]->cast = 2;
 	} if (s->f.mob[i]->stun->count < 0) {

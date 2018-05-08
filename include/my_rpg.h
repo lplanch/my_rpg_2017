@@ -439,6 +439,8 @@ typedef struct enemy
 {
 	effect_t *poison;
 	effect_t *stun;
+	int aggro;
+	sfVector2f ratios;
 	float cd;
 	float cdcount;
 	int cast;
@@ -632,7 +634,9 @@ void set_particle(particle_t *part, uint id, sfVector2f pos, sfColor color);
 void launch_particle(particle_t *part, sfVector2f pos, float angle);
 void update_particle(particle_t *part, float dt);
 particle_t *create_particle(char *str);
-void update_life_bars_enemies(st_rpg *s);
+void movement_enemies(st_rpg *s, int i);
+void set_aggro_enemies(st_rpg *s, int i);
+void update_life_bars_enemies(st_rpg *s, int i);
 void destroy_enemies(st_rpg *s);
 void update_enemies(st_rpg *s);
 void destroy_enemy(enemy_t *enemy);

@@ -127,6 +127,5 @@ int dungeon_loop(st_rpg *s)
 			return (0);
 		}
 	}
-	printf("%d\n", s->returnv);
 	return (s->returnv);
 }
