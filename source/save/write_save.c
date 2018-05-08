@@ -39,4 +39,5 @@ void save_game(st_rpg *s)
 	save_stat(s->player.stat, path);
 	save_tree(s->player.tree, path);
 	free(path);
+	s->pausm.opac = 255;
 }
