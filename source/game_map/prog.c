@@ -45,7 +45,6 @@ int prog(st_rpg *s)
 			return (main_menu(s));
 		}
 		if (event_game(s) || s->fi->return_value == 1) {
-			destroy(s);
 			return (1);
 		}
 		game_update(s);
