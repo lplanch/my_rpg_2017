@@ -20,7 +20,7 @@ void create(st_rpg *s)
 	create_vector2f(100, 100), "ressources/fonts/quests2.otf");
 	sfText_setColor(s->fi->text_finish_quests->text, sfWhite);
 	sfText_setCharacterSize(s->fi->text_finish_quests->text, 100);
-	s->fi->quests[1]->status = 1;
+	s->fi->quests[s->player.cdata.quest]->status = 1;
 	s->fi->quests[0]->status_text = 1;
 }
 
