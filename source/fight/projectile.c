@@ -12,12 +12,12 @@
 #include "my_rpg.h"
 #include "my.h"
 
-void update_projectile(proj_t *proj)
+void update_projectile(proj_t *proj, float dt)
 {
-	proj->obj->pos.x += proj->ratios.x * proj->obj->speed;
-	proj->obj->pos.y += proj->ratios.y * proj->obj->speed;
-	proj->used -= hypot(proj->ratios.x * proj->obj->speed,
-	proj->ratios.y * proj->obj->speed);
+	proj->obj->pos.x += proj->ratios.x * proj->obj->speed * dt;
+	proj->obj->pos.y += proj->ratios.y * proj->obj->speed * dt;
+	proj->used -= hypot(proj->ratios.x * proj->obj->speed * dt,
+	proj->ratios.y * proj->obj->speed * dt);
 	if (proj->used <= 0 && proj->shot != 2)
 		proj->shot = 0;
 	sfSprite_setPosition(proj->obj->sprite, proj->obj->pos);

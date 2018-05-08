@@ -20,7 +20,6 @@ void update_current_bullet(st_rpg *s)
 
 void gunner_update_blitz(st_rpg *s)
 {
-	update_projectile(s->f.gun.blitz);
 	s->f.gun.blitzt.time = sfClock_getElapsedTime(s->f.gun.blitzt.clock);
 	s->f.gun.blitzt.sec = s->f.gun.blitzt.time.microseconds / 1000000.0;
 	if (s->f.gun.blitzt.sec > 0.1 && s->f.gun.blitz->shot) {
@@ -36,7 +35,7 @@ void gunner_update_blitz(st_rpg *s)
 	}
 }
 
-void gunner_update_grenade_speed(st_rpg *s)
+void gunner_update_grenade_speed(st_rpg *s, float dt)
 {
 	if (s->f.gun.grenade->shot == 2) {
 		clocked_animation(s->f.gun.explosion);
@@ -51,7 +50,7 @@ void gunner_update_grenade_speed(st_rpg *s)
 			->range / 4800;
 			sfClock_restart(s->f.gun.explosion->t.clock);
 		}
-		update_projectile(s->f.gun.grenade);
+		update_projectile(s->f.gun.grenade, dt);
 	}
 }
 
@@ -67,7 +66,7 @@ void proc_grenade(st_rpg *s)
 	}
 }
 
-void gunner_update_grenade(st_rpg *s)
+void gunner_update_grenade(st_rpg *s, float dt)
 {
 	s->f.gun.explosion->t.time = sfClock_getElapsedTime(s->f.gun.explosion
 	->t.clock);
@@ -87,7 +86,7 @@ void gunner_update_grenade(st_rpg *s)
 		s->f.gun.explosion->c = 0;
 		proc_grenade(s);
 	}
-	gunner_update_grenade_speed(s);
+	gunner_update_grenade_speed(s, dt);
 }
 
 void gunner_update_ultimate(st_rpg *s)

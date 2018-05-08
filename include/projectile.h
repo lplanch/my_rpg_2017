@@ -26,7 +26,7 @@ typedef struct projectile
 } proj_t;
 
 proj_t *create_projectile(char *path);
-void update_projectile(proj_t *proj);
+void update_projectile(proj_t *proj, float dt);
 void destroy_projectile(proj_t *proj);
 
 #endif

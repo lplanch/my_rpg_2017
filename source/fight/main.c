@@ -75,8 +75,6 @@ int fight_instance(st_rpg *s)
 		update_class(s);
 		update_bars(s);
 		update_icons_cd(s);
-		update_projectiles(s);
-		update_effects(s);
 		display_fight(s);
 		sfRenderWindow_display(s->window);
 	}
