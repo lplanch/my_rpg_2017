@@ -20,6 +20,7 @@ void destroy_pause_menu(st_rpg *s)
 		destroy_button(s->pausm.button[i]);
 	destroy_object(s->pausm.cursor);
 	destroy_object(s->pausm.window);
+	destroy_text(s->pausm.saved);
 }
 
 void display_pause_menu(st_rpg *s)
@@ -29,6 +30,13 @@ void display_pause_menu(st_rpg *s)
 	for (int i = 0; i != 5; i += 1)
 		display_button(s->window, s->pausm.button[i]);
 	display_button(s->window, s->pausm.title);
+	if (s->pausm.opac > 0) {
+		sfText_setColor(s->pausm.saved->text,
+		(sfColor){255, 255, 255, s->pausm.opac});
+		sfRenderWindow_drawText(s->window,
+			s->pausm.saved->text, NULL);
+			s->pausm.opac -= 2;
+		}
 }
 
 void which_display(st_rpg *s)
@@ -79,4 +87,7 @@ void generate_pause_menu(st_rpg *s)
 	create_vector2f(x + 1530, y + 360), sfWhite, 42);
 	s->pausm.button[4] = create_vbutton("Quit Game",
 	create_vector2f(x + 1530, y + 440), sfWhite, 42);
+	s->pausm.saved = create_text("Saved",
+	create_vector2f(x + 1700, y + 300), "ressources/fonts/quests.otf");
+	s->pausm.opac = 0;
 }

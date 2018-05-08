@@ -43,8 +43,8 @@ void setup_variable(st_rpg *s)
 	s->fi->loading_timer = 0;
 	s->fi->pre_var = 0;
 	s->fi->relief = 0;
+	s->fi->quests_box.nb_quests = s->player.cdata.quest;
 	s->fi->quests_box.status = 0;
-	s->fi->quests_box.nb_quests = 0;
 	s->fi->var_for_quests = 0;
 	s->proc.gman.clock = sfClock_create();
 	s->proc.gman.dt = 1.;

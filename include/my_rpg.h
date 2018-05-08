@@ -550,6 +550,8 @@ typedef struct struct_main_menu
 
 typedef struct struct_pause_menu
 {
+	t_object *saved;
+	int opac;
 	int sens;
 	int menu;
 	int option;
