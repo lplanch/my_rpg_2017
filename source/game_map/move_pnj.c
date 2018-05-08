@@ -8,7 +8,7 @@
 #include "my.h"
 #include "game_map.h"
 
-void walk_animation_pnj(st_rpg *s,  int nb_pnj)
+void walk_animation_pnj(st_rpg *s, int nb_pnj)
 {
 	s->fi->pnj_clock.tmp =
 	sfClock_getElapsedTime(s->fi->pnj_clock.clock);
