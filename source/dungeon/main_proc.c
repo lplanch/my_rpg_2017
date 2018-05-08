@@ -10,7 +10,7 @@
 
 void make_proc_variables(proc_var_t *pvar)
 {
-	pvar->texture_path = "ressources/dungeon_lvl1_tiles.png";
+	pvar->texture_path = "ressources/dungeon_lvl2_tiles.png";
 	pvar->map_width = 80;
 	pvar->map_height = 45;
 	pvar->max_room_s = 15;
