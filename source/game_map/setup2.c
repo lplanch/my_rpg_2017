@@ -8,6 +8,14 @@
 #include "my.h"
 #include "game_map.h"
 
+void setup_music(st_rpg *s)
+{
+	s->fi->music.music =
+	create_music(50, "ressources/audio/Alaria city.ogg");
+	s->fi->samys_music.music =
+	create_music(50, "ressources/audio/Samy's Theme.ogg");
+}
+
 void setup_col(st_rpg *s)
 {
 	s->fi->nbr_colcircle = 42;

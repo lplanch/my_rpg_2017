@@ -17,6 +17,8 @@ sfIntRect set_texturerect_top(g_object *obj, int top)
 
 void wake_up(st_rpg *s)
 {
+	s->player.obj->rect.left = 0;
+	sfSprite_setTextureRect(s->player.obj->sprite, s->player.obj->rect);
 	while (s->player.obj->pos.y != 8070) {
 		move_camera(s);
 		s->player.obj->pos.y -= 1;
@@ -56,6 +58,8 @@ void after_quests(st_rpg *s)
 
 void quests_1(st_rpg *s)
 {
+	sfMusic_stop(s->fi->music.music);
+	sfMusic_play(s->fi->samys_music.music);
 	s->fi->quests[0]->status = 2;
 	s->fi->pnj[7].pnj->rect = set_texturerect_top(s->fi->pnj[7].pnj, 0);
 	dialog_box(s, "samy_beginning");
@@ -71,4 +75,5 @@ void quests_1(st_rpg *s)
 	sfText_setString(s->fi->text_finish_quests->text,
 	"Quest 1 complete!");
 	s->fi->var_for_quests = 255;
+	sfMusic_stop(s->fi->samys_music.music);
 }

@@ -12,6 +12,7 @@ void setupclock(st_rpg *s)
 {
 	s->fi->time.clock = sfClock_create();
 	s->fi->clock = sfClock_create();
+	s->fi->pnj_clock.clock = sfClock_create();
 }
 
 void setup_loading(st_rpg *s)
@@ -45,10 +46,10 @@ void setup_variable(st_rpg *s)
 	s->fi->quests_box.status = 0;
 	s->fi->quests_box.nb_quests = 0;
 	s->fi->var_for_quests = 0;
-	s->fi->music.music =
-	create_music(50, "ressources/audio/Alaria city.ogg");
 	s->proc.gman.clock = sfClock_create();
 	s->proc.gman.dt = 1.;
+	s->fi->oui = 0;
+	s->fi->size_name_pnj = 0;
 }
 
 void setup_quests_box(st_rpg *s)
