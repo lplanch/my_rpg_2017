@@ -11,8 +11,6 @@
 
 void destroy_pause_menu(st_rpg *s)
 {
-	s->fi->camera.x = 960;
-	s->fi->camera.y = 540;
 	sfView_setCenter(s->fi->view, s->fi->camera);
 	sfRenderWindow_setView(s->window, s->fi->view);
 	destroy_tree_menu(s);

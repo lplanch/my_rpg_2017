@@ -33,8 +33,19 @@ int prog(st_rpg *s)
 	parsing(a, s);
 	create_map(s);
 	while (sfRenderWindow_isOpen(s->window)) {
-		if (event_game(s) || s->fi->return_value == 1)
+		if (s->fi->return_value == 3) {
+			s->fi->camera.x = 960;
+			s->fi->camera.y = 540;
+			sfView_setCenter(s->fi->view, s->fi->camera);
+			sfRenderWindow_setView(s->window, s->fi->view);
+			loading(s);
+			destroy(s);
+			return (main_menu(s));
+		}
+		if (event_game(s) || s->fi->return_value == 1) {
+			destroy(s);
 			return (1);
+		}
 		game_update(s);
 		if (sfMusic_getStatus(s->fi->music.music) == 0)
 			sfMusic_play(s->fi->music.music);
