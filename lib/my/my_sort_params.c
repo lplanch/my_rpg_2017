@@ -29,8 +29,8 @@ char **my_sort_params(char **table)
 		while (j < len) {
 			if (my_strcmp(table[i], table[j]) < 0) {
 				temp = table[i];
-			        table[i] = table[j];
-			        table[j] = temp;
+				table[i] = table[j];
+				table[j] = temp;
 			} else
 				j = j + 1;
 		}

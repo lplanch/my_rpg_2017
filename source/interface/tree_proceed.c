@@ -61,7 +61,7 @@ void tree_proceed(st_rpg *s, int lock)
 	sfText_setString(s->treem.sp[0]->text, s->treem.spells[lock * 2]);
 	sfText_setString(s->treem.sp[1]->text, s->treem.spells[lock * 2 + 1]);
 	if (s->treem.status == lock && s->player.tree.lock[lock] &&
-		s->player.tree.skillp >= get_price(lock)) {
+	s->player.tree.skillp >= get_price(lock)) {
 		s->player.tree.lock[lock] = 0;
 		s->player.tree.skillp -= get_price(lock);
 		reset_sp(s);

@@ -177,6 +177,7 @@ typedef struct s_files
 	int loading_timer;
 	int pre_var;
 	int relief;
+	int return_value;
 	float var_for_quests;
 	sfClock *clock;
 	sfView *view;
@@ -196,10 +197,10 @@ typedef struct s_files
 	sfVector2f invers;
 	sfVector2f maxspeed;
 	sfVector2f vect_ID_player;
-	pnj_t pnj[4];
+	pnj_t pnj[14];
 	pos_t pos[10];
 	colcircle_t colcircle[42];
-	colsquare_t colsquare[470];
+	colsquare_t colsquare[473];
 	map_t map;
 	clockz_t time;
 	st_music music;
@@ -288,6 +289,7 @@ typedef struct struct_archer_spells
 	st_anim *anim;
 	st_time kal;
 	particle_t *parta[20];
+	sfMusic *l_click;
 } archer_t;
 
 typedef struct struct_gunner_spells
@@ -324,6 +326,7 @@ typedef struct struct_gunner_spells
 	int origin;
 	particle_t *partf;
 	particle_t *partg;
+	sfMusic *l_click;
 } gunner_t;
 
 typedef struct struct_melee_swing
@@ -425,8 +428,8 @@ typedef struct fight_bars
 
 typedef struct enemy
 {
-	float dot;
-	float stun;
+	effect_t *poison;
+	effect_t *stun;
 	float cd;
 	float cdcount;
 	int cast;
@@ -471,6 +474,9 @@ typedef struct main_fight
 	gunner_t gun;
 	warrior_t war;
 	f_shader_t shade;
+	t_object *dmg[50];
+	int dmgshot[50];
+	int cdmg;
 } fight_t;
 
 typedef struct struct_status_menu
@@ -579,6 +585,17 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void loot_enemy(st_rpg *s);
+void set_level_up(st_rpg *s);
+void destroy_main_particles(st_rpg *s);
+void update_main_particles(st_rpg *s, float dt);
+void display_main_particles(st_rpg *s);
+void create_main_particles(st_rpg *s);
+void create_dmg_show(st_rpg *s);
+void destroy_dmg_show(st_rpg *s);
+void launch_dmg_show(st_rpg *s, float amount, g_object *obj);
+void update_dmg_show(st_rpg *s);
+void display_dmg_show(st_rpg *s);
 void rogue_update_shadowstep(st_rpg *s);
 void destroy_dungeon_shader(st_rpg *s);
 void display_player_shade(st_rpg *s);

@@ -45,6 +45,8 @@ void create_gunner_explosions(st_rpg *s)
 	s->f.gun.expbt = create_circle(50, 0, sfTransparent);
 	s->f.gun.partf = create_particle("ressources/particles/explosion");
 	s->f.gun.partg = create_particle("ressources/particles/gunpan");
+	s->f.gun.l_click =
+	sfMusic_createFromFile("ressources/audio/sound/unload.ogg");
 }
 
 void create_gunner_second(st_rpg *s)

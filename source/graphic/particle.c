@@ -22,13 +22,13 @@ void display_particle(particle_t *part, sfRenderWindow *window)
 void set_particle(particle_t *part, uint id, sfVector2f pos, sfColor color)
 {
 	part->vertex[(id * 4) + 0].position = (sfVector2f){pos.x + 0,
-	pos.y + 0};
+		pos.y + 0};
 	part->vertex[(id * 4) + 1].position = (sfVector2f){pos.x +
-	part->info->size.x, pos.y + 0};
+		part->info->size.x, pos.y + 0};
 	part->vertex[(id * 4) + 2].position = (sfVector2f){pos.x +
-	part->info->size.x, pos.y + part->info->size.y};
+		part->info->size.x, pos.y + part->info->size.y};
 	part->vertex[(id * 4) + 3].position = (sfVector2f){pos.x + 0,
-	pos.y + part->info->size.y};
+		pos.y + part->info->size.y};
 	part->info[id].life = part->info[id].lsave;
 	for (int cnt = 0; cnt != 4; cnt++)
 		part->vertex[(id * 4) + cnt].color = color;
@@ -46,7 +46,8 @@ void launch_particle(particle_t *part, sfVector2f pos, float angle)
 			part->info->a});
 		if (part->info[id].angle != 0)
 			part->info[id].ratios = get_ratios(angle +
-		rand() % (int)part->info[id].angle - part->info[id].angle / 2);
+			rand() % (int)part->info[id].angle -
+			part->info[id].angle / 2);
 		else
 			part->info[id].ratios = get_ratios(angle);
 		value = rand() % part->info[id].rands;
@@ -59,7 +60,7 @@ void launch_particle(particle_t *part, sfVector2f pos, float angle)
 
 void update_particle(particle_t *part, float dt)
 {
-	for(uint id = 0; id < part->size; id += 1) {
+	for (uint id = 0; id < part->size; id += 1) {
 		if (part->info[id].life >= 0)
 			part->info[id].life -= dt;
 		if (part->info[id].life <= 0) {

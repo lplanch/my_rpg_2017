@@ -45,7 +45,7 @@ void rogue_update_flash(st_rpg *s)
 	s->f.rog.flash->anim->t.sec = s->f.rog.flash->anim->t.time.microseconds
 	/ 1000000.0;
 	if (s->f.rog.flash->anim->t.sec > s->f.rog.flash->anim->speed &&
-		s->f.rog.flash->anim->li < s->f.rog.flash->anim->ver) {
+	s->f.rog.flash->anim->li < s->f.rog.flash->anim->ver) {
 		s->f.rog.flash->anim->c += 1;
 		if (s->f.rog.flash->anim->c == s->f.rog.flash->anim->hor) {
 			s->f.rog.flash->anim->c = 0;
@@ -70,20 +70,19 @@ void rogue_update_shadowstep(st_rpg *s)
 
 void change_side_player(st_rpg *s)
 {
-	switch (s->f.rog.ultr.top)
-	{
-		case 0 :
-			s->f.rog.ultr.top = 48;
-			break;
-		case 48 :
-			s->f.rog.ultr.top = 144;
-			break;
-		case 144 :
-			s->f.rog.ultr.top = 96;
-			break;
-		case 96 :
-			s->f.rog.ultr.top = 0;
-			break;
+	switch (s->f.rog.ultr.top) {
+	case 0 :
+		s->f.rog.ultr.top = 48;
+		break;
+	case 48 :
+		s->f.rog.ultr.top = 144;
+		break;
+	case 144 :
+		s->f.rog.ultr.top = 96;
+		break;
+	case 96 :
+		s->f.rog.ultr.top = 0;
+		break;
 	}
 	s->player.obj->rect = s->f.rog.ultr;
 	sfSprite_setTextureRect(s->player.obj->sprite, s->player.obj->rect);

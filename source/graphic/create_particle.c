@@ -96,7 +96,7 @@ particle_t *create_particle(char *str)
 
 	free(buffer);
 	if (ptn == NULL)
-		return(NULL);
+		return (NULL);
 	memset(ptn, 0, size_m);
 	part = (particle_t *)(ptn);
 	part->size = size;
@@ -106,5 +106,5 @@ particle_t *create_particle(char *str)
 	for (uint i = 0; i < part->size; i += 1)
 		copy_particle(part, i);
 	close(fd);
-	return(part);
+	return (part);
 }

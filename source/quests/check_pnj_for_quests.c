@@ -29,5 +29,6 @@ void check_pnj_for_quests(st_rpg *s)
 	if (s->fi->quests[0]->status == 1 &&
 	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "samy") == 0) {
 		quests_1(s);
+		after_quests(s);
 	}
 }

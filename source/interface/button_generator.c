@@ -13,7 +13,8 @@ st_button *create_button(char *str, g_object *object, sfColor c, int size)
 {
 	st_button *button = malloc(sizeof(st_button));
 
-	button->text = create_text(str, object->pos, "ressources/fonts/button.ttf");
+	button->text = create_text(str, object->pos,
+	"ressources/fonts/button.ttf");
 	button->obj = object;
 	sfText_setColor(button->text->text, c);
 	sfText_setCharacterSize(button->text->text, size);

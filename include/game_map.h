@@ -133,7 +133,11 @@ void check_pnj_for_quests(st_rpg *s);
 
 void print_text_finish_quests(st_rpg *s);
 void move_pnj(st_rpg *s, int posx, int posy, int nb_pnj);
+
 void quests_1(st_rpg *s);
+void after_quests(st_rpg *s);
+
+void night_scene(st_rpg *s);
 
 #ifndef MY_COOK_
 #define MY_COOK_

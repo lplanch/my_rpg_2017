@@ -13,18 +13,15 @@ void display_life_bar(st_rpg *s)
 	sfRenderWindow_drawSprite(s->window, s->bar.bars->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->bar.life->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->bar.xp->sprite, NULL);
-	for (int i = 0; i != 3; i += 1) {
+	for (int i = 0; i != 3; i += 1)
 		sfRenderWindow_drawText(s->window, s->bar.values[i]->text,
 		NULL);
-	}
 }
 
 void update_bars(st_rpg *s)
 {
-	if (s->player.stat->exp >= 100) {
-		s->player.stat->exp -= 100;
-		s->player.stat->lvl += 1;
-	}
+	if (s->player.stat->exp >= 100)
+		set_level_up(s);
 	s->bar.life->rect.width = 316 * s->player.stat->pva /
 	s->player.stat->pvm;
 	s->bar.xp->rect.width = 316 * s->player.stat->exp / 100;

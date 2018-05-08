@@ -35,7 +35,7 @@ void setup_variable(st_rpg *s)
 	s->fi->maxspeed.y = speed * 50;
 	s->fi->dialog_box_isopen = 0;
 	s->fi->nb_pnj = 2;
-	s->fi->max_pnj = 4;
+	s->fi->max_pnj = 14;
 	s->fi->choice_cursor = 0;
 	s->fi->var_choice = 0;
 	s->fi->nb_choice_pre = 0;
@@ -46,7 +46,7 @@ void setup_variable(st_rpg *s)
 	s->fi->quests_box.nb_quests = 0;
 	s->fi->var_for_quests = 0;
 	s->fi->music.music =
-	create_music(50, "ressources/audio/music_map_village.ogg");
+	create_music(50, "ressources/audio/Alaria city.ogg");
 }
 
 void setup_quests_box(st_rpg *s)
@@ -76,9 +76,9 @@ void character_setup(st_rpg *s)
 	s->fi = malloc(sizeof(*(s->fi)));
 	*s->fi = (files_t) {0};
 	s->fi->character =
-	create_object("ressources/images/story_characters/hero.png",
-	create_vector2f(3680, 3700),
-	create_rect(0, 144, 48, 48), 0);
+	create_object("ressources/images/story_characters/jade2.png",
+	create_vector2f(8000, 7400),
+	create_rect(0, 0, 48, 48), 0);
 	sfSprite_scale(s->fi->character->sprite, create_vector2f(2, 2));
 	s->fi->ID_character = create_object("ressources/images/rose.jpg",
 	create_vector2f(5489, 6900),

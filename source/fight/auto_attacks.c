@@ -10,6 +10,7 @@
 
 void archer_auto_attack(st_rpg *s)
 {
+	sfMusic_play(s->f.arc.l_click);
 	s->f.arc.arrow[s->f.arc.current]->angle = get_angle(s);
 	launch_projectile(s, s->f.arc.arrow[s->f.arc.current],
 	s->f.arc.arrow[s->f.arc.current]->angle);
@@ -23,12 +24,13 @@ void gunner_auto_attack(st_rpg *s)
 {
 	s->f.gun.autocount = 0;
 	s->f.gun.auto_a = 1;
+	sfMusic_play(s->f.gun.l_click);
 }
 
 void rogue_auto_attack(st_rpg *s)
 {
 	if (s->f.rog.vanish > 0 && s->player.tree.passive == 2 &&
-		!s->player.tree.lock[2]) {
+	!s->player.tree.lock[2]) {
 		s->f.rog.vanish = 0;
 		rogue_backstab(s);
 	} else {

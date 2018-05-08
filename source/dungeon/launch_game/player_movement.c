@@ -50,15 +50,15 @@ void verify_collide_map(st_rpg *rpg)
 	int y = rpg->player.obj->pos.y;
 
 	if (vcollide(rpg->proc.map[(py + 34 + ay) / 96][(x - 22) / 96]) &&
-		vcollide(rpg->proc.map[(py + ay) / 96][(x + 22) / 96]) &&
-		vcollide(rpg->proc.map[(py + 34 + ay) / 96][(x + 22) / 96]) &&
-		vcollide(rpg->proc.map[(py + ay) / 96][(x - 22) / 96])) {
+	vcollide(rpg->proc.map[(py + ay) / 96][(x + 22) / 96]) &&
+	vcollide(rpg->proc.map[(py + 34 + ay) / 96][(x + 22) / 96]) &&
+	vcollide(rpg->proc.map[(py + ay) / 96][(x - 22) / 96])) {
 		rpg->player.obj->pos.y +=
 		rpg->player.acceleration.y * rpg->proc.gman.dt;
 	} if (vcollide(rpg->proc.map[(y + 32) / 96][(px + 24 + ax) / 96]) &&
-		vcollide(rpg->proc.map[(y + 2) / 96][(px + 24 + ax) / 96]) &&
-		vcollide(rpg->proc.map[(y + 32) / 96][(px - 24 + ax) / 96]) &&
-		vcollide(rpg->proc.map[(y + 2) / 96][(px - 24 + ax) / 96])) {
+	vcollide(rpg->proc.map[(y + 2) / 96][(px + 24 + ax) / 96]) &&
+	vcollide(rpg->proc.map[(y + 32) / 96][(px - 24 + ax) / 96]) &&
+	vcollide(rpg->proc.map[(y + 2) / 96][(px - 24 + ax) / 96])) {
 		rpg->player.obj->pos.x +=
 		rpg->player.acceleration.x * rpg->proc.gman.dt;
 	}
@@ -98,7 +98,7 @@ void walk_animation(st_rpg *s)
 	s->player.t.sec = s->player.t.time.microseconds / 1000000.0;
 	if (s->player.t.sec > s->player.animspeed) {
 		if (s->player.animcol == 2 || s->player.animcol == 0)
-		s->player.animsens = -s->player.animsens;
+			s->player.animsens = -s->player.animsens;
 		s->player.animcol += s->player.animsens;
 		sfClock_restart(s->player.t.clock);
 		s->player.obj->rect.left = s->player.animcol * 48

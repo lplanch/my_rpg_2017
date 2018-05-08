@@ -38,8 +38,7 @@ int update_dialog_box(st_rpg *s, int fd)
 		free(tra);
 		return (1);
 	} else if (!my_strcmp(str, ">")) {
-		if (choice_box(s, fd) != 0)
-			return (1);
+		s->fi->return_value = choice_box(s, fd);
 		free(str);
 		take_good_option(s, fd);
 		str = get_next_line(fd);
@@ -53,6 +52,8 @@ int update_dialog_box(st_rpg *s, int fd)
 void open_or_no(st_rpg *s, int fd)
 {
 	if (update_dialog_box(s, fd) == 1)
+		s->fi->dialog_box_isopen = 0;
+	if (s->fi->return_value == 2)
 		s->fi->dialog_box_isopen = 0;
 }
 
@@ -82,7 +83,7 @@ void dialog_box(st_rpg *s, char *deux)
 	create_dialog_box(s);
 	create_name_box(s);
 	update_dialog_box(s, fd);
-	while (s->fi->dialog_box_isopen == 1) {
+	while (s->fi->dialog_box_isopen == 1 && s->fi->return_value == 0) {
 		while (sfRenderWindow_pollEvent(s->window, &event))
 			event_dialog_box(s, event, fd);
 		draw_dialog_box(s);
@@ -90,4 +91,6 @@ void dialog_box(st_rpg *s, char *deux)
 	destroy_dialog_box(s);
 	close(fd);
 	free(path);
+	if (s->fi->return_value == 2)
+		after_quests(s);
 }

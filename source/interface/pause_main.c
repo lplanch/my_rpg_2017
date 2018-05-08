@@ -21,18 +21,18 @@ int left_clicked_on_pause(st_rpg *s, sfEvent event)
 	return (0);
 }
 
-
 void pause_menu_manage_cursor_events(st_rpg *s, sfEvent event)
 {
 	int max = 5;
 
 	if (event.type == sfEvtKeyPressed) {
 		if (((sfKeyboard_isKeyPressed(sfKeyS) ||
-		sfKeyboard_isKeyPressed(sfKeyDown)) &&
-		s->pausm.option < max - 1))
+			sfKeyboard_isKeyPressed(sfKeyDown)) &&
+			s->pausm.option < max - 1))
 			s->pausm.option += 1;
 		else if ((sfKeyboard_isKeyPressed(sfKeyZ) ||
-		sfKeyboard_isKeyPressed(sfKeyUp)) && s->pausm.option > 0)
+			sfKeyboard_isKeyPressed(sfKeyUp)) &&
+			s->pausm.option > 0)
 			s->pausm.option -= 1;
 	}
 	for (int i = 0; i != max; i += 1) {
@@ -77,7 +77,7 @@ int event_pause_menu(st_rpg *s)
 			destroy_pause_menu(s);
 			return (1);
 		} if (event.type == sfEvtKeyPressed &&
-			(sfKeyboard_isKeyPressed(sfKeyEscape))) {
+		(sfKeyboard_isKeyPressed(sfKeyEscape))) {
 			return (go_back(s));
 		} if (launch_pause_menu(s, event)) {
 			s->returnv = 1;

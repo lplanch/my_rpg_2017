@@ -51,7 +51,8 @@ char *which_spell(st_rpg *s, int spell)
 char *get_spell_path(st_rpg *s, int spell)
 {
 	char *tmp;
-	char *str = my_strcat("ressources/spells/", int_to_str(s->player.cdata.classe));
+	char *str = my_strcat("ressources/spells/",
+	int_to_str(s->player.cdata.classe));
 
 	tmp = my_strcat(str, "/");
 	free(str);

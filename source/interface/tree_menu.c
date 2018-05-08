@@ -73,14 +73,14 @@ void display_tree_menu(st_rpg *s)
 char *get_spell_char(int i)
 {
 	switch (i) {
-		case 0 :
-			return ("p");
-		case 1 :
-			return ("m");
-		case 2 :
-			return ("e");
-		case 3 :
-			return ("r");
+	case 0 :
+		return ("p");
+	case 1 :
+		return ("m");
+	case 2 :
+		return ("e");
+	case 3 :
+		return ("r");
 	}
 	return ("NULL");
 }
@@ -89,7 +89,8 @@ char *get_tree_path(st_rpg *s, int spell, int number)
 {
 	char *tmp;
 	char *tmp2 = int_to_str(number);
-	char *str = my_strcat("ressources/spells/", int_to_str(s->player.cdata.classe));
+	char *str = my_strcat("ressources/spells/",
+	int_to_str(s->player.cdata.classe));
 
 	tmp = my_strcat(str, "/");
 	free(str);

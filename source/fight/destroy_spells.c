@@ -20,12 +20,13 @@ void destroy_spells_archer(st_rpg *s)
 	destroy_aoe(s->f.arc.heal);
 	destroy_effect(s->f.arc.leaf);
 	destroy_dash(s->f.arc.leap);
+	sfMusic_destroy(s->f.arc.l_click);
 }
 
 void destroy_spells_gunner(st_rpg *s)
 {
 	for (int i = 0; i != 100; i += 1)
-		 destroy_projectile(s->f.gun.flame[i]);
+		destroy_projectile(s->f.gun.flame[i]);
 	for (int i = 0; i != 10; i += 1) {
 		destroy_projectile(s->f.gun.bullet[i]);
 		destroy_projectile(s->f.gun.ultb[i]);
@@ -45,6 +46,7 @@ void destroy_spells_gunner(st_rpg *s)
 	destroy_dash(s->f.gun.jump);
 	destroy_particle(s->f.gun.partf);
 	destroy_particle(s->f.gun.partg);
+	sfMusic_destroy(s->f.gun.l_click);
 }
 
 void destroy_spells_rogue(st_rpg *s)

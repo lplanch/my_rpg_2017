@@ -25,7 +25,6 @@ char **get_spinfo(st_rpg *s)
 	return (tab);
 }
 
-
 void tree_set_rects(st_rpg *s)
 {
 	for (int i = 0; i != 3; i += 1) {
@@ -38,7 +37,6 @@ void tree_set_rects(st_rpg *s)
 	}
 }
 
-
 void update_tree_pos(st_rpg *s)
 {
 	int x = s->origin.x + 1535;
@@ -48,9 +46,11 @@ void update_tree_pos(st_rpg *s)
 	sfSprite_setPosition(s->treem.select[1]->sprite,
 	create_vector2f(x + s->player.tree.spell1 * 125, s->origin.y + 180));
 	sfSprite_setPosition(s->treem.select[2]->sprite,
-	create_vector2f(x + 61 + s->player.tree.spell2 * 124, s->origin.y + 270));
+	create_vector2f(x + 61 +
+	s->player.tree.spell2 * 124, s->origin.y + 270));
 	sfSprite_setPosition(s->treem.select[3]->sprite,
-	create_vector2f(x + 61 + s->player.tree.spell3 * 124, s->origin.y + 360));
+	create_vector2f(x + 61 +
+	s->player.tree.spell3 * 124, s->origin.y + 360));
 	for (int i = 0, dec = 0, m = 3, d = 0; i != 10; i += 1) {
 		if (i > 5) {
 			d = 61;

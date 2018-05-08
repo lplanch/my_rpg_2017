@@ -61,7 +61,7 @@ void proc_grenade(st_rpg *s)
 		launch_particle(s->f.gun.partf, s->f.gun.grenade->obj->pos,
 		get_angle(s));
 		if (circle_hitbox(s->f.gun.explo, s->f.mob[i]->obj) &&
-		s->f.mob[i]->alive)
+			s->f.mob[i]->alive)
 			s->f.mob[i]->stat->pva -= 70 + 15 * s->player.stat->lvl;
 	}
 }

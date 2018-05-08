@@ -20,13 +20,16 @@ void create_dungeon_loop(st_rpg *s)
 	create_main_fight(s);
 	create_icons(s);
 	create_class(s);
+	create_dmg_show(s);
 	create_life_bar(s);
 	generate_enemies(s);
+	create_main_particles(s);
 	set_shader(s);
 }
 
 void destroy_dungeon_loop(st_rpg *s)
 {
+	create_dmg_show(s);
 	destroy_class(s);
 	destroy_icons(s);
 	destroy_life_bar(s);
@@ -34,6 +37,7 @@ void destroy_dungeon_loop(st_rpg *s)
 	destroy_player(s);
 	destroy_main_fight(s);
 	destroy_dungeon_shader(s);
+	destroy_main_particles(s);
 	free_dungeon(&s->proc);
 }
 
@@ -45,6 +49,7 @@ void update_origin(st_rpg *s)
 
 void update_dungeon_loop(st_rpg *s)
 {
+	update_dmg_show(s);
 	update_pos_weapon(s);
 	update_bars(s);
 	update_icons_cd(s);
@@ -77,6 +82,8 @@ void display_dungeon(st_rpg *s)
 	display_class(s);
 	display_icons(s);
 	display_life_bar(s);
+	display_dmg_show(s);
+	display_main_particles(s);
 	verify_minimap(s);
 	verify_inventory(s);
 	verify_fast_inventory(s);
@@ -87,12 +94,12 @@ int dungeon_events(st_rpg *s)
 	sfEvent event;
 
 	if (s->f.cast != 2) {
-	verify_x_movement(s);
-	verify_y_movement(s);
+		verify_x_movement(s);
+		verify_y_movement(s);
 	}
 	while (sfRenderWindow_pollEvent(s->window, &event)) {
 		if (event.type == sfEvtKeyPressed &&
-			sfKeyboard_isKeyPressed(sfKeyEscape)) {
+		sfKeyboard_isKeyPressed(sfKeyEscape)) {
 			stop_player(s);
 			return (pause_main(s));
 		} if (event.type == sfEvtClosed) {
