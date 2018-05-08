@@ -8,15 +8,33 @@
 #include "my_rpg.h"
 #include "my.h"
 
-void get_ratios_enemies(st_rpg *s)
+float get_angle_enemy(st_rpg *s, int i)
 {
+	float mx = s->player.obj->pos.x -
+	(s->f.mob[i]->obj->pos.x + s->f.mob[i]->obj->rect.width / 2);
+	float my = s->player.obj->pos.y -
+	(s->f.mob[i]->obj->pos.y + s->f.mob[i]->obj->rect.width / 2);
 
+	if (my <= 0) {
+		return (-acos(mx / hypot(mx, my)) * (180 / 3.14159265));
+	} else {
+		return (acos(mx / hypot(mx, my)) * (180 / 3.14159265));
+	}
 }
 
-void movement_enemies(st_rpg *s, int i)
+void movement_enemies(st_rpg *s, int i, float dt)
 {
-	if (s->f.mob[i]->alive && s->f.mob[i]->cast != 2) {
-
+	s->f.mob[i]->ratios = get_ratios(get_angle_enemy(s, i));
+	if (s->f.mob[i]->alive && s->f.mob[i]->cast != 2 && s->f.mob[i]) {
+		s->f.mob[i]->obj->pos.x += s->f.mob[i]->ratios.x *
+		s->f.mob[i]->stat->vit * 13 * dt;
+		s->f.mob[i]->obj->pos.y += s->f.mob[i]->ratios.y *
+		s->f.mob[i]->stat->vit * 13 * dt;
+		sfSprite_setPosition(s->f.mob[i]->obj->sprite,
+		s->f.mob[i]->obj->pos);
+		sfSprite_setPosition(s->f.mob[i]->life->sprite,
+		create_vector2f(s->f.mob[i]->obj->pos.x,
+		s->f.mob[i]->obj->pos.y - 20));
 	}
 }
 
