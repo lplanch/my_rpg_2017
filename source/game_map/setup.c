@@ -50,6 +50,7 @@ void setup_variable(st_rpg *s)
 	s->proc.gman.dt = 1.;
 	s->fi->oui = 0;
 	s->fi->size_name_pnj = 0;
+	s->fi->num_dungeon = 0;
 }
 
 void setup_quests_box(st_rpg *s)

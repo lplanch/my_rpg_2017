@@ -23,6 +23,7 @@ void tp_dungeon(st_rpg *s)
 void game_update(st_rpg *s)
 {
 	check_pnj_name(s);
+	check_pnj_for_quests(s);
 	if (s->fi->dialog_box_isopen == 1)
 		dialog_box(s, my_strdup(s->fi->pnj[s->fi->nb_pnj].name));
 	move_ok(s);

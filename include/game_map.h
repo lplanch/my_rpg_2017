@@ -58,7 +58,7 @@ void move_up(st_rpg *s);
 void move_down(st_rpg *s);
 void move_right(st_rpg *s);
 void move_left(st_rpg *s);
-void move_allpts(st_rpg *s);
+void move_allpts(pos_t *pos, st_rpg *s);
 void move_id_player(st_rpg *s);
 void move_infos_box(st_rpg *s);
 
@@ -144,6 +144,8 @@ void setup_music(st_rpg *s);
 
 void create_box_name(st_rpg *s, int i);
 void check_pnj_name(st_rpg *s);
+
+sfIntRect set_texturerect_top(g_object *obj, int top);
 
 #ifndef MY_COOK_
 #define MY_COOK_

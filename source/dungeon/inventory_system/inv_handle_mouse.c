@@ -52,13 +52,13 @@ void verify_mouse_inv_events(st_rpg *rpg)
 	{sfMouse_getPositionRenderWindow(rpg->window).x + rpg->origin.x,
 	sfMouse_getPositionRenderWindow(rpg->window).y + rpg->origin.y};
 	sfVector2i current_pos;
-	int left_pos = rpg->player.obj->pos.x - WIDTH / 2.5 + 15;
-	int top_pos = rpg->player.obj->pos.y - HEIGHT / 2.5 + 15;
 	int clicked = 0;
 
 	while (current != NULL) {
-		current_pos.x = left_pos + 120 * (current->pos % 9);
-		current_pos.y = top_pos + 120 * (current->pos / 9);
+		current_pos.x = rpg->player.obj->pos.x -
+		WIDTH / 2.5 + 15 + 120 * (current->pos % 9);
+		current_pos.y = rpg->player.obj->pos.y -
+		HEIGHT / 2.5 + 15 + 120 * (current->pos / 9);
 		if (current_pos.x < mouse_pos.x && current_pos.y < mouse_pos.y
 			&& mouse_pos.x < current_pos.x + 120 &&
 			mouse_pos.y < current_pos.y + 120) {
