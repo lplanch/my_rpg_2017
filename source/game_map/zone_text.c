@@ -66,7 +66,7 @@ void event_dialog_box(st_rpg *s, sfEvent event, int fd)
 		(mouse_in_object_dialogbox(s->fi
 		->pnj[s->fi->nb_pnj].dialog_box->obj,
 		s->window, s) == 1))) {
-			 open_or_no(s, fd);
+			open_or_no(s, fd);
 		}
 	}
 }

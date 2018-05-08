@@ -20,23 +20,23 @@ int launch_pause_menu_status(st_rpg *s)
 int launch_pause_menu_main(st_rpg *s)
 {
 	switch (s->pausm.option) {
-		case 0 :
-			s->pausm.menu = 1;
-			break;
-		case 1 :
-			s->pausm.menu = 2;
-			break;
-		case 2 :
-			save_game(s);
-			break;
-		case 3 :
-			destroy_pause_menu(s);
-			s->mainm.option = 0;
-			s->mainm.menu = 0;
-			return (main_menu(s));
-		case 4 :
-			destroy_pause_menu(s);
-			return (1);
+	case 0 :
+		s->pausm.menu = 1;
+		break;
+	case 1 :
+		s->pausm.menu = 2;
+		break;
+	case 2 :
+		save_game(s);
+		break;
+	case 3 :
+		destroy_pause_menu(s);
+		s->mainm.option = 0;
+		s->mainm.menu = 0;
+		return (main_menu(s));
+	case 4 :
+		destroy_pause_menu(s);
+		return (1);
 	}
 	return (0);
 }

@@ -31,7 +31,8 @@ void create_spells_rogue(st_rpg *s)
 void create_spells_warrior(st_rpg *s)
 {
 	s->f.war.auto_a = create_swing_from_file("ressources/spells/3/auto");
-	s->f.war.whirl = create_swing_from_file("ressources/spells/3/whirlwing");
+	s->f.war.whirl =
+	create_swing_from_file("ressources/spells/3/whirlwing");
 	s->f.war.estoc = 0;
 	s->f.war.count = 0;
 	s->f.war.hdmg = 50;

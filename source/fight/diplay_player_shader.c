@@ -16,9 +16,9 @@ void display_warrior_shad(st_rpg *s)
 		sfRenderWindow_drawSprite(s->window,
 		s->player.obj->sprite, &s->f.shade.power.state);
 	} else {
-	 	if (s->f.war.parade->amount == 0 &&
-			s->player.tree.passive == 0 &&
-			!s->player.tree.lock[0]) {
+		if (s->f.war.parade->amount == 0 &&
+		s->player.tree.passive == 0 &&
+		!s->player.tree.lock[0]) {
 			sfRenderWindow_drawSprite(s->window,
 			s->player.obj->sprite, &s->f.shade.armor.state);
 		} else {
@@ -35,7 +35,7 @@ void display_gunner_shad(st_rpg *s)
 		s->player.obj->sprite, &s->f.shade.power.state);
 	} else {
 		sfRenderWindow_drawSprite(s->window,
-			s->player.obj->sprite, NULL);
+		s->player.obj->sprite, NULL);
 	}
 }
 
@@ -72,7 +72,7 @@ void display_player_shade(st_rpg *s)
 	s->f.shade.endure.time.sec =
 	s->f.shade.endure.time.time.microseconds / 1000000.0;
 	if (s->f.shade.endure.time.sec > 1 &&
-		s->f.shade.endure.time.sec < 2) {
+	s->f.shade.endure.time.sec < 2) {
 		sfShader_setFloatParameter(s->f.shade.endure.shader, "time",
 		-s->f.shade.endure.time.sec);
 	} else {

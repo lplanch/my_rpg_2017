@@ -33,18 +33,18 @@ void generate_tree_menu_spell(st_rpg *s)
 		create_vector2f(0, 0), create_rect(0, 0, 38, 38), 0);
 	update_tree_pos(s);
 	for (int i = 0; i != 2; i += 1) {
-			s->treem.e[i] = create_object(get_tree_path(s, 2, i + 1),
-			create_vector2f(s->origin.x + 1596 + i * 124,
-			s->origin.y + 270),
-			create_rect(0, 0, 128, 128), 0);
-			sfSprite_setScale(s->treem.e[i]->sprite,
-			create_vector2f(0.5, 0.5));
-			s->treem.r[i] = create_object(get_tree_path(s, 3, i + 1),
-			create_vector2f(s->origin.x + 1596 + i * 124,
-			s->origin.y + 360),
-			create_rect(0, 0, 128, 128), 0);
-			sfSprite_setScale(s->treem.r[i]->sprite,
-			create_vector2f(0.5, 0.5));
+		s->treem.e[i] = create_object(get_tree_path(s, 2, i + 1),
+		create_vector2f(s->origin.x + 1596 + i * 124,
+		s->origin.y + 270),
+		create_rect(0, 0, 128, 128), 0);
+		sfSprite_setScale(s->treem.e[i]->sprite,
+		create_vector2f(0.5, 0.5));
+		s->treem.r[i] = create_object(get_tree_path(s, 3, i + 1),
+		create_vector2f(s->origin.x + 1596 + i * 124,
+		s->origin.y + 360),
+		create_rect(0, 0, 128, 128), 0);
+		sfSprite_setScale(s->treem.r[i]->sprite,
+		create_vector2f(0.5, 0.5));
 	}
 }
 
@@ -57,8 +57,8 @@ void generate_tree_menu_pas(st_rpg *s)
 	s->treem.window = create_object("ressources/images/pause_window.png",
 	create_vector2f(s->origin.x + 1490,
 	s->origin.y + 30), create_rect(0, 0, 400, 600), 0);
-	s->treem.classe = create_button(get_class_string(s
-	->player.cdata.classe), create_object("ressources/images/pictoclass.png",
+	s->treem.classe = create_button(get_class_string(s->
+	player.cdata.classe), create_object("ressources/images/pictoclass.png",
 	create_vector2f(s->origin.x + 1510,
 	s->origin.y + 45), create_rect(0, 32 * s->player.cdata.classe,
 	32, 32), 0), sfWhite, 30);
@@ -70,7 +70,8 @@ void generate_tree_menu_pas(st_rpg *s)
 	"ressources/fonts/button.ttf");
 	free(temp);
 	for (int i = 0; i != 4; i += 1) {
-		s->treem.select[i] = create_object("ressources/images/select.png",
+		s->treem.select[i] =
+		create_object("ressources/images/select.png",
 		create_vector2f(0, 0), create_rect(0, 0, 64, 64), 0);
 	}
 }

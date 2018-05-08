@@ -46,7 +46,8 @@ void after_quests(st_rpg *s)
 	s->fi->pnj[2].pnj->pos = create_vector2f(7950, 7700);
 	s->fi->character->pos = create_vector2f(7950, 8160);
 	sfSprite_setPosition(s->fi->pnj[7].pnj->sprite, s->fi->pnj[7].pnj->pos);
-	sfSprite_setPosition(s->fi->pnj[10].pnj->sprite, s->fi->pnj[10].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[10].pnj->sprite,
+	s->fi->pnj[10].pnj->pos);
 	sfSprite_setPosition(s->fi->pnj[2].pnj->sprite, s->fi->pnj[2].pnj->pos);
 	sfSprite_setPosition(s->fi->character->sprite, s->fi->character->pos);
 	wake_up(s);

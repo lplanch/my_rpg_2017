@@ -76,7 +76,7 @@ void warrior_update_rush(st_rpg *s)
 void warrior_update_quake(st_rpg *s)
 {
 	if (s->f.war.ultd->on) {
-	s->f.war.ultd->count -= s->f.war.ultd->speed;
+		s->f.war.ultd->count -= s->f.war.ultd->speed;
 		if (s->f.war.ultd->count <= 0) {
 			launch_aoe(s, s->f.war.crack);
 			sfCircleShape_setPosition(s->f.war.crack->circle,

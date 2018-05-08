@@ -26,7 +26,7 @@ void destroy_spells_archer(st_rpg *s)
 void destroy_spells_gunner(st_rpg *s)
 {
 	for (int i = 0; i != 100; i += 1)
-		 destroy_projectile(s->f.gun.flame[i]);
+		destroy_projectile(s->f.gun.flame[i]);
 	for (int i = 0; i != 10; i += 1) {
 		destroy_projectile(s->f.gun.bullet[i]);
 		destroy_projectile(s->f.gun.ultb[i]);

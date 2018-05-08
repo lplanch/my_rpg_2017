@@ -94,12 +94,12 @@ int dungeon_events(st_rpg *s)
 	sfEvent event;
 
 	if (s->f.cast != 2) {
-	verify_x_movement(s);
-	verify_y_movement(s);
+		verify_x_movement(s);
+		verify_y_movement(s);
 	}
 	while (sfRenderWindow_pollEvent(s->window, &event)) {
 		if (event.type == sfEvtKeyPressed &&
-			sfKeyboard_isKeyPressed(sfKeyEscape)) {
+		sfKeyboard_isKeyPressed(sfKeyEscape)) {
 			stop_player(s);
 			return (pause_main(s));
 		} if (event.type == sfEvtClosed) {

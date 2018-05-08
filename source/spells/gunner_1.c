@@ -21,7 +21,7 @@ void gunner_medikit(st_rpg *s)
 void gunner_grenade(st_rpg *s)
 {
 	int mx = sfMouse_getPositionRenderWindow(s->window).x;
-	int my = sfMouse_getPositionRenderWindow(s->window).y ;
+	int my = sfMouse_getPositionRenderWindow(s->window).y;
 
 	s->f.gun.grenade->range = hypot(abs(mx - 960),
 	abs(my - 540));

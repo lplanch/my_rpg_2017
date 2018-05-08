@@ -20,33 +20,33 @@ void update_pos_pnj(st_rpg *s, int nb_pnj)
 void move_pnj_x(st_rpg *s, int posx, int nb_pnj)
 {
 	if (s->fi->pnj[nb_pnj].pnj->pos.x > posx) {
-	       while (s->fi->pnj[nb_pnj].pnj->pos.x >= posx + 10) {
-			       s->fi->pnj[nb_pnj].pnj->pos.x -= 8;
-			       s->fi->pnj[nb_pnj].pnj->rect.top = 48;
-			       update_pos_pnj(s, nb_pnj);
-	       }
-       } if (s->fi->pnj[nb_pnj].pnj->pos.x < posx) {
-	       while (s->fi->pnj[nb_pnj].pnj->pos.x <= posx + 10) {
-			       s->fi->pnj[nb_pnj].pnj->pos.x += 8;
-			       s->fi->pnj[nb_pnj].pnj->rect.top = 96;
-			       update_pos_pnj(s, nb_pnj);
-	       }
-       }
+		while (s->fi->pnj[nb_pnj].pnj->pos.x >= posx + 10) {
+			s->fi->pnj[nb_pnj].pnj->pos.x -= 8;
+			s->fi->pnj[nb_pnj].pnj->rect.top = 48;
+			update_pos_pnj(s, nb_pnj);
+		}
+	} if (s->fi->pnj[nb_pnj].pnj->pos.x < posx) {
+		while (s->fi->pnj[nb_pnj].pnj->pos.x <= posx + 10) {
+			s->fi->pnj[nb_pnj].pnj->pos.x += 8;
+			s->fi->pnj[nb_pnj].pnj->rect.top = 96;
+			update_pos_pnj(s, nb_pnj);
+		}
+	}
 }
 
 void move_pnj(st_rpg *s, int posx, int posy, int nb_pnj)
 {
 	if (s->fi->pnj[nb_pnj].pnj->pos.y > posy) {
 		while (s->fi->pnj[nb_pnj].pnj->pos.y >= posy + 10) {
-				s->fi->pnj[nb_pnj].pnj->pos.y -= 8;
-				s->fi->pnj[nb_pnj].pnj->rect.top = 144;
-				update_pos_pnj(s, nb_pnj);
+			s->fi->pnj[nb_pnj].pnj->pos.y -= 8;
+			s->fi->pnj[nb_pnj].pnj->rect.top = 144;
+			update_pos_pnj(s, nb_pnj);
 		}
 	} if (s->fi->pnj[nb_pnj].pnj->pos.y < posy) {
 		while (s->fi->pnj[nb_pnj].pnj->pos.y <= posy + 10) {
-				s->fi->pnj[nb_pnj].pnj->pos.y += 8;
-				s->fi->pnj[nb_pnj].pnj->rect.top = 0;
-				update_pos_pnj(s, nb_pnj);
+			s->fi->pnj[nb_pnj].pnj->pos.y += 8;
+			s->fi->pnj[nb_pnj].pnj->rect.top = 0;
+			update_pos_pnj(s, nb_pnj);
 		}
 	}
 	move_pnj_x(s, posx, nb_pnj);

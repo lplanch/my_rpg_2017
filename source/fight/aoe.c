@@ -52,10 +52,11 @@ void proc_aoe(st_rpg *s, aoe_t *aoe)
 	}
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
 		if (circle_hitbox(aoe->circle, s->f.mob[i]->obj)
-		&& !my_strcmp(aoe->effect, "damage") && s->f.mob[i]->alive)
+			&& !my_strcmp(aoe->effect, "damage") &&
+			s->f.mob[i]->alive)
 			apply_aoe(s, aoe, s->f.mob[i]);
 		if (circle_hitbox(aoe->circle, s->player.obj) &&
-		!my_strcmp(aoe->effect, "heal"))
+			!my_strcmp(aoe->effect, "heal"))
 			heal(s, aoe->dmg);
 	}
 }
