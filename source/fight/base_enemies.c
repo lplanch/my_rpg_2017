@@ -19,7 +19,6 @@ void destroy_enemy(enemy_t *enemy)
 
 void update_life_bars_enemies(st_rpg *s, int i)
 {
-<<<<<<< HEAD
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
 		if (s->f.mob[i]->stat->pva <= 0) {
 			s->f.mob[i]->stat->pva = s->f.mob[i]->stat->pvm;
@@ -33,12 +32,11 @@ void update_life_bars_enemies(st_rpg *s, int i)
 		*s->f.mob[i]->stat->pva / s->f.mob[i]->stat->pvm;
 		sfSprite_setTextureRect(s->f.mob[i]->life->sprite,
 		s->f.mob[i]->life->rect);
-=======
+	}
 	if (s->f.mob[i]->stat->pva <= 0) {
 		s->f.mob[i]->stat->pva = s->f.mob[i]->stat->pvm;
 		s->f.mob[i]->alive = 0;
 		loot_enemy(s);
->>>>>>> 164284e1eb34a733d03344df724ec712eac78695
 	}
 	sfSprite_setPosition(s->f.mob[i]->life->sprite,
 	create_vector2f(s->f.mob[i]->obj->pos.x,

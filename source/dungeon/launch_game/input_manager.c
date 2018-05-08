@@ -16,7 +16,15 @@ void verify_other_input(sfEvent event, st_rpg *rpg)
 	} if (event.type == sfEvtKeyPressed && event.key.code == sfKeyM) {
 		sfView_zoom(rpg->proc.gman.camera, 1.1);
 		sfRenderWindow_setView(rpg->window, rpg->proc.gman.camera);
+	} if (event.type == sfEvtKeyPressed && event.key.code == key_inv &&
+		rpg->inv.is_open == 0) {
+		rpg->inv.is_open = 1;
+	} else if (event.type == sfEvtKeyPressed && event.key.code == key_inv &&
+		rpg->inv.is_open == 1) {
+		rpg->inv.is_open = 0;
+		rpg->inv.focused = NULL;
 	}
+
 }
 
 int verif_input_map(st_rpg *rpg)
