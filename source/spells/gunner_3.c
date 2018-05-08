@@ -16,6 +16,7 @@ void gunner_ult(st_rpg *s)
 	s->f.gun.ult = 1;
 	s->f.cast = 2;
 	stop_player(s);
+	sfMusic_play(s->f.gun.h_noon);
 	for (int i = 0; i != 10; i += 1) {
 		s->f.gun.ultb[i]->dmg = s->f.gun.origin;
 		s->f.gun.ultb[i]->angle = angle + 30 - i * 6;
@@ -33,6 +34,7 @@ void gunner_ult(st_rpg *s)
 
 void gunner_flamethrower(st_rpg *s)
 {
+	sfMusic_play(s->f.gun.s_flam);
 	s->f.gun.cflame = 0;
 	s->f.gun.flamet = 1;
 	s->f.cast = 1;

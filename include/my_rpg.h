@@ -332,6 +332,10 @@ typedef struct struct_gunner_spells
 	particle_t *partf;
 	particle_t *partg;
 	sfMusic *l_click;
+	sfMusic *s_explo;
+	sfMusic *zap;
+	sfMusic *h_noon;
+	sfMusic *s_flam;
 } gunner_t;
 
 typedef struct struct_melee_swing
@@ -593,6 +597,8 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void destroy_gunner_sound(st_rpg *s);
+void create_gunner_sound(st_rpg *s);
 void handle_rage(st_rpg *s, float amount, enemy_t *mob);
 void handle_lifesteal(st_rpg *s, float amount, effect_t *effect);
 void handle_poison(st_rpg *s, enemy_t *mob);
