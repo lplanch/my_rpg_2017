@@ -71,7 +71,7 @@ void event_dialog_box(st_rpg *s, sfEvent event, int fd)
 	}
 }
 
-void dialog_box(st_rpg *s, char *deux)
+void dialog_box(st_rpg *s, char *deux, char *name)
 {
 	char *un = my_strdup("ressources/images/dialog_box/text/");
 	char *path = my_strcat(un, deux);
@@ -81,7 +81,7 @@ void dialog_box(st_rpg *s, char *deux)
 	free(un);
 	check_pnj_for_quests(s);
 	create_dialog_box(s);
-	create_name_box(s);
+	create_name_box(s, name);
 	update_dialog_box(s, fd);
 	while (s->fi->dialog_box_isopen == 1 && s->fi->return_value == 0) {
 		while (sfRenderWindow_pollEvent(s->window, &event))

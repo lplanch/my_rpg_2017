@@ -25,7 +25,8 @@ void game_update(st_rpg *s)
 	check_pnj_name(s);
 	check_pnj_for_quests(s);
 	if (s->fi->dialog_box_isopen == 1)
-		dialog_box(s, my_strdup(s->fi->pnj[s->fi->nb_pnj].name));
+		dialog_box(s, my_strdup(s->fi->pnj[s->fi->nb_pnj].name),
+		my_strdup(s->fi->pnj[s->fi->nb_pnj].name));
 	move_ok(s);
 	s->player.last_pos = s->player.obj->pos;
 	update_player_position_village(s);
