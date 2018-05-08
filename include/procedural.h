@@ -26,6 +26,8 @@ static const sfKeyCode key_right = sfKeyD;
 static const sfKeyCode key_map = sfKeyTab;
 static const sfKeyCode key_inv = sfKeyLShift;
 static const sfMouseButton key_fast_inv = sfMouseMiddle;
+static const sfMouseButton key_select_item = sfMouseLeft;
+
 
 //LAUNCH DUNGEON FUNCTION
 int launch_dungeon(st_rpg *rpg);
@@ -134,6 +136,8 @@ void remove_inventory_slot(item_t *first_slot);
 void create_fast_inventory_screen(ing_finv_t *finv);
 void verify_inventory(st_rpg *rpg);
 void verify_fast_inventory(st_rpg *rpg);
+
+void verify_mouse_inv_events(st_rpg *rpg);
 
 //NPC
 //ENNEMIES

@@ -36,7 +36,7 @@ void destroy_main(st_rpg *s)
 
 int main(void)
 {
-	st_rpg s;
+	st_rpg s = {0};
 
 	create_main(&s);
 	main_menu(&s);

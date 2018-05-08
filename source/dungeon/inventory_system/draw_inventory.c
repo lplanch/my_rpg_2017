@@ -50,11 +50,14 @@ void draw_inventory(st_rpg *rpg)
 {
 	draw_inventory_background(rpg);
 	draw_inventory_items(rpg);
+	verify_mouse_inv_events(rpg);
 }
 
 void verify_inventory(st_rpg *rpg)
 {
 	if (sfKeyboard_isKeyPressed(key_inv)) {
 		draw_inventory(rpg);
+	} else {
+		rpg->inv.focused = NULL;
 	}
 }

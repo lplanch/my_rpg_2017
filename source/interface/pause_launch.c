@@ -33,7 +33,7 @@ int launch_pause_menu_main(st_rpg *s)
 		destroy_pause_menu(s);
 		s->mainm.option = 0;
 		s->mainm.menu = 0;
-		return (main_menu(s));
+		return (3);
 	case 4 :
 		destroy_pause_menu(s);
 		return (1);

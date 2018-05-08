@@ -7,9 +7,12 @@
 
 #include "my_rpg.h"
 #include "my.h"
+#include "game_map.h"
 
 void destroy_pause_menu(st_rpg *s)
 {
+	sfView_setCenter(s->fi->view, s->fi->camera);
+	sfRenderWindow_setView(s->window, s->fi->view);
 	destroy_tree_menu(s);
 	destroy_status_menu(s);
 	destroy_button(s->pausm.title);

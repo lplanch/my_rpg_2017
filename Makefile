@@ -63,6 +63,8 @@ FILES		=	source/main.c					\
 			source/fight/handle_status.c			\
 			source/fight/hitbox.c				\
 			source/fight/enemy.c				\
+			source/fight/handle_effects.c			\
+			source/fight/enemy_effects.c			\
 			source/fight/loot_enemy.c			\
 			source/fight/generate_enemy.c			\
 			source/fight/base_enemies.c			\
@@ -198,6 +200,7 @@ FILES		=	source/main.c					\
 			source/dungeon/inventory_system/create_inventory.c		\
 			source/dungeon/inventory_system/create_fast_inventory.c		\
 			source/dungeon/inventory_system/draw_fast_inventory.c		\
+			source/dungeon/inventory_system/inv_handle_mouse.c		\
 			source/dungeon/npc/ennemies_dungeon.c				\
 
 SRCS		=	$(FILES)
