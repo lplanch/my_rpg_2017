@@ -48,6 +48,7 @@ typedef struct ingame_inventory_manager
 	item_t *focused;
 	item_t *armor;
 	item_t *weapon;
+	int is_open;
 } ing_inv_t;
 
 #endif

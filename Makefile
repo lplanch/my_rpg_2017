@@ -52,6 +52,7 @@ FILES		=	source/main.c					\
 			source/fight/update_class.c			\
 			source/fight/auto_attacks.c			\
 			source/fight/launch_spells.c			\
+			source/fight/destroy_class_sound.c			\
 			source/fight/locked_spells.c			\
 			source/fight/get_cooldowns.c			\
 			source/fight/aoe.c				\

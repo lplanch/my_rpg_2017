@@ -24,8 +24,8 @@ effect_t *create_effect(char *type, int amount, float duration)
 	return (effect);
 }
 
-void proc_effect(effect_t *effect)
+void proc_effect(effect_t *effect, float dt)
 {
 	if (effect->count > 0)
-		effect->count -= 0.1;
+		effect->count -= dt;
 }

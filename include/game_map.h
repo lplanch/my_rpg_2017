@@ -58,7 +58,7 @@ void move_up(st_rpg *s);
 void move_down(st_rpg *s);
 void move_right(st_rpg *s);
 void move_left(st_rpg *s);
-void move_allpts(st_rpg *s);
+void move_allpts(pos_t *pos, st_rpg *s);
 void move_id_player(st_rpg *s);
 void move_infos_box(st_rpg *s);
 

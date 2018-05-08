@@ -16,6 +16,7 @@ void gunner_net(st_rpg *s)
 
 void gunner_jump(st_rpg *s)
 {
+	sfMusic_play(s->f.gun.s_explo);
 	s->f.gun.explosion->obj->pos = create_vector2f(s->player.obj->pos.x
 	- 50 * 1.8,
 	s->player.obj->pos.y - 50 * 1.8);

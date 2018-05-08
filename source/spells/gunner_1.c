@@ -11,6 +11,7 @@
 void gunner_blitz(st_rpg *s)
 {
 	launch_projectile(s, s->f.gun.blitz, get_angle(s));
+	sfMusic_play(s->f.gun.zap);
 }
 
 void gunner_medikit(st_rpg *s)

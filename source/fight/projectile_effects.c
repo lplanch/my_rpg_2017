@@ -21,6 +21,7 @@ void explosive_proc(st_rpg *s)
 void handle_explosive(st_rpg *s, proj_t *proj)
 {
 	if (!my_strcmp(proj->effect, "explosive")) {
+		sfMusic_play(s->f.gun.s_explo);
 		s->f.gun.expbullet->obj->pos = create_vector2f(s
 		->f.gun.bullet[9]->obj->pos.x - 50, s->f.gun.bullet[9]
 		->obj->pos.y - 50);
