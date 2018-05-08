@@ -15,6 +15,7 @@ void projectile_damage_enemy(st_rpg *s, proj_t *proj, enemy_t *mob)
 	mob->stat->pva -= amount;
 	launch_dmg_show(s, amount, mob->obj);
 	handle_status(s, amount, mob);
+	handle_stun(proj->effect, mob, proj->duration);
 }
 
 void swing_damage_enemy(st_rpg *s, swing_t *swing, enemy_t *mob)
@@ -53,4 +54,5 @@ void apply_aoe(st_rpg *s, aoe_t *aoe, enemy_t *mob)
 	mob->stat->pva -= amount;
 	launch_dmg_show(s, amount, mob->obj);
 	handle_status(s, amount, mob);
+	handle_stun(aoe->effect, mob, aoe->duration);
 }
