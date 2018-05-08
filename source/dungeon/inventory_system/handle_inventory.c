@@ -29,7 +29,7 @@ void add_inventory_slot(item_t *first_slot)
 
 int search_item(item_t *first_slot, unsigned int id)
 {
-	item_t *current;
+	item_t *current = first_slot;
 
 	while (current != NULL) {
 		if (current->id == id)
@@ -52,7 +52,7 @@ int add_inventory_item(item_t *first_slot, unsigned int id)
 			return (0);
 		current->stacks += 1;
 	} else {
-		while (current->pos < pos)
+		while ((signed)current->pos < pos)
 			current = current->next;
 		current->stacks += 1;
 	}

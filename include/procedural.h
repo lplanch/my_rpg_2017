@@ -64,6 +64,7 @@ void update_camera_position(st_rpg *rpg);
 void update_player_position(st_rpg *rpg);
 void verify_y_movement(st_rpg *rpg);
 void verify_x_movement(st_rpg *rpg);
+void verify_collide_map(st_rpg *rpg);
 int interval(float value, float less, float max);
 
 //MINIMAP
