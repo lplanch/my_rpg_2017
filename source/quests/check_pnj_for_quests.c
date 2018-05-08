@@ -10,15 +10,15 @@
 
 void reset_pos_friends(st_rpg *s)
 {
-	s->fi->pnj[8].pnj->rect = set_texturerect_top(s->fi->pnj[8].pnj, 144);
-	s->fi->pnj[2].pnj->rect = set_texturerect_top(s->fi->pnj[2].pnj, 144);
 	s->fi->pnj[10].pnj->rect = set_texturerect_top(s->fi->pnj[10].pnj, 144);
-	s->fi->pnj[8].pnj->pos = create_vector2f(7882, 7374);
-	s->fi->pnj[10].pnj->pos = create_vector2f(10000, 10000);
-	s->fi->pnj[2].pnj->pos = create_vector2f(10000, 10000);
-	sfSprite_setPosition(s->fi->pnj[8].pnj->sprite, s->fi->pnj[8].pnj->pos);
+	s->fi->pnj[3].pnj->rect = set_texturerect_top(s->fi->pnj[3].pnj, 144);
+	s->fi->pnj[13].pnj->rect = set_texturerect_top(s->fi->pnj[13].pnj, 144);
+	s->fi->pnj[10].pnj->pos = create_vector2f(7882, 7374);
+	s->fi->pnj[13].pnj->pos = create_vector2f(10000, 10000);
+	s->fi->pnj[3].pnj->pos = create_vector2f(10000, 10000);
 	sfSprite_setPosition(s->fi->pnj[10].pnj->sprite, s->fi->pnj[10].pnj->pos);
-	sfSprite_setPosition(s->fi->pnj[2].pnj->sprite, s->fi->pnj[2].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[13].pnj->sprite, s->fi->pnj[13].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
 }
 
 void print_text_finish_quests(st_rpg *s)
@@ -40,7 +40,7 @@ void print_text_finish_quests(st_rpg *s)
 void check_pnj_for_quests(st_rpg *s)
 {
 	if (s->fi->quests[0]->status == 1 &&
-	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "samy") == 0) {
+	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "Samy") == 0) {
 		stop_player(s);
 		quests_1(s);
 		after_quests(s);
@@ -52,7 +52,7 @@ void check_pnj_for_quests(st_rpg *s)
 		s->fi->quests[1]->status = 2;
 		reset_pos_friends(s);
 	} if (s->fi->quests[2]->status == 1 &&
-	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "samy") == 0) {
+	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "Samy") == 0) {
 		stop_player(s);
 		quests_3(s);
 		after_quests(s);

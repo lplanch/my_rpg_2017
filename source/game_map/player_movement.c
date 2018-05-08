@@ -14,11 +14,12 @@ void verify_collide_village(st_rpg *rpg)
 	rpg->player.acceleration.y * rpg->proc.gman.dt;
 	rpg->player.obj->pos.x +=
 	rpg->player.acceleration.x * rpg->proc.gman.dt;
+	move_id_player(rpg);
 	if (collision(rpg) == 1) {
 		rpg->player.obj->pos.y -=
-		rpg->player.acceleration.y * rpg->proc.gman.dt * 3;
+		rpg->player.acceleration.y * rpg->proc.gman.dt;
 		rpg->player.obj->pos.x -=
-		rpg->player.acceleration.x * rpg->proc.gman.dt * 3;
+		rpg->player.acceleration.x * rpg->proc.gman.dt;
 		sfSprite_setPosition(rpg->player.obj->sprite,
 		rpg->player.obj->pos);
 		stop_player(rpg);
