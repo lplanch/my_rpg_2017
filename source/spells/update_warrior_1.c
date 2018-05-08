@@ -54,7 +54,9 @@ void proc_rush(st_rpg *s)
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
 		if (hitbox(s->player.obj, s->f.mob[i]->obj) &&
 		s->f.mob[i]->alive) {
-			s->f.mob[i]->stat->pva -= 20 + s->player.stat->frc * 2;
+			s->f.mob[i]->stat->pva -= 40 + (s->player.stat->frc / 7)
+			* 2;
+			s->f.mob[i]->stun->count += 1;
 			s->f.war.rush->count = 0;
 		}
 	}
