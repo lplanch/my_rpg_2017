@@ -52,13 +52,14 @@ FILES		=	source/main.c					\
 			source/fight/update_class.c			\
 			source/fight/auto_attacks.c			\
 			source/fight/launch_spells.c			\
-			source/fight/destroy_class_sound.c			\
+			source/fight/destroy_class_sound.c		\
 			source/fight/locked_spells.c			\
 			source/fight/get_cooldowns.c			\
 			source/fight/aoe.c				\
 			source/fight/dash.c				\
 			source/fight/diplay_player_shader.c		\
 			source/fight/set_shader.c			\
+			source/fight/apply_projectiles.c		\
 			source/fight/display_projectile.c		\
 			source/fight/heal.c				\
 			source/fight/handle_status.c			\

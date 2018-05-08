@@ -10,8 +10,6 @@
 
 void update_archer(st_rpg *s)
 {
-	for (int i = 0; i != 20; i += 1)
-		update_projectile(s->f.arc.arrow[i]);
 	update_kalash(s);
 	update_axe(s);
 	update_dash(s, s->f.arc.leap);
@@ -28,12 +26,7 @@ void update_archer(st_rpg *s)
 void update_gunner(st_rpg *s)
 {
 	gunner_update_auto_attack(s);
-	gunner_update_grenade(s);
-	for (int i = 0; i != 100; i += 1)
-		update_projectile(s->f.gun.flame[i]);
 	for (int i = 0; i != 10; i += 1) {
-		update_projectile(s->f.gun.bullet[i]);
-		update_projectile(s->f.gun.ultb[i]);
 		if (s->f.gun.ultb[i]->shot) {
 			s->f.gun.trait[i]->rect.width += 80;
 			s->f.gun.trait[i]->rect.height -= 1;
@@ -42,8 +35,6 @@ void update_gunner(st_rpg *s)
 		}
 	}
 	clocked_animation(s->f.gun.boots);
-	update_projectile(s->f.gun.net);
-	gunner_update_blitz(s);
 	gunner_update_ultimate(s);
 	gunner_update_flamet(s);
 	update_dash(s, s->f.gun.jump);
@@ -52,10 +43,7 @@ void update_gunner(st_rpg *s)
 
 void update_rogue(st_rpg *s)
 {
-	for (int i = 0; i != 30; i += 1)
-		update_projectile(s->f.rog.dagger[i]);
 	rogue_update_storm(s);
-	update_projectile(s->f.rog.dance);
 	rogue_update_auto_attack(s);
 	rogue_update_shadowstep(s);
 	update_dash(s, s->f.rog.draw);
@@ -74,7 +62,6 @@ void update_warrior(st_rpg *s)
 		s->f.war.whirl->count);
 	if (s->f.war.whirl->able == 0 && s->f.war.whirl->shot == 1)
 		s->f.war.whirl->able = 1;
-	warrior_update_hasagi(s);
 	if (s->f.war.shield->shot)
 		clocked_animation(s->f.war.shield->anim);
 	sfSprite_setPosition(s->f.war.paricon->sprite,

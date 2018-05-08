@@ -39,10 +39,10 @@ void launch_aoe(st_rpg *s, aoe_t *aoe)
 	sfClock_restart(aoe->anim->t.clock);
 }
 
-void proc_aoe(st_rpg *s, aoe_t *aoe)
+void proc_aoe(st_rpg *s, aoe_t *aoe, float dt)
 {
 	if (aoe->shot)
-		aoe->count += 0.1;
+		aoe->count += dt;
 	else
 		return;
 	if (aoe->count >= aoe->duration) {

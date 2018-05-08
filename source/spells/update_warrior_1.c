@@ -20,10 +20,10 @@ void proc_estoc(st_rpg *s)
 	}
 }
 
-void warrior_update_hasagi_estoc(st_rpg *s)
+void warrior_update_hasagi_estoc(st_rpg *s, float dt)
 {
-	s->f.war.hpos.x += s->f.war.hrat.x * 10;
-	s->f.war.hpos.y += s->f.war.hrat.y * 10;
+	s->f.war.hpos.x += s->f.war.hrat.x * 10 * dt;
+	s->f.war.hpos.y += s->f.war.hrat.y * 10 * dt;
 	s->f.war.count += 14;
 	sfSprite_setPosition(s->player.weapon[0]->sprite,
 	s->f.war.hpos);
@@ -39,12 +39,12 @@ void warrior_update_hasagi_estoc(st_rpg *s)
 	}
 }
 
-void warrior_update_hasagi(st_rpg *s)
+void warrior_update_hasagi(st_rpg *s, float dt)
 {
 	if (s->f.war.estoc == 1)
-		warrior_update_hasagi_estoc(s);
+		warrior_update_hasagi_estoc(s, dt);
 	else if (s->f.war.estoc == 2)
-		update_projectile(s->f.war.hasagi);
+		update_projectile(s->f.war.hasagi, dt);
 	if (!s->f.war.hasagi->shot && s->f.war.estoc == 2)
 		s->f.war.estoc = 0;
 }
