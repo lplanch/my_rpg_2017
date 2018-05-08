@@ -32,6 +32,25 @@ void wake_up(st_rpg *s)
 	set_texturerect_top(s->player.obj, 144);
 }
 
+void set_pnj_meeting_without_zac(st_rpg *s)
+{
+	s->fi->pnj[8].pnj->rect =
+	set_texturerect_top(s->fi->pnj[8].pnj, 0);
+	s->fi->pnj[10].pnj->rect =
+	set_texturerect_top(s->fi->pnj[10].pnj, 48);
+	s->player.obj->rect =
+	set_texturerect_top(s->player.obj, 96);
+	s->fi->pnj[8].pnj->pos = create_vector2f(8192, 4738);
+	s->fi->pnj[10].pnj->pos = create_vector2f(8261, 4781);
+	s->fi->pnj[2].pnj->pos = create_vector2f(10000, 10000);
+	s->player.obj->pos = create_vector2f(8131, 4771);
+	sfSprite_setPosition(s->fi->pnj[8].pnj->sprite, s->fi->pnj[8].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[10].pnj->sprite,
+	s->fi->pnj[10].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[2].pnj->sprite, s->fi->pnj[2].pnj->pos);
+	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
+}
+
 void after_quests(st_rpg *s)
 {
 	night_scene(s);
@@ -54,6 +73,26 @@ void after_quests(st_rpg *s)
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	wake_up(s);
 	s->fi->return_value = 0;
+}
+
+void start_quests_4(st_rpg *s)
+{
+	set_pnj_meeting_without_zac(s);
+	dialog_box(s, "samy_zac_is_missing1");
+	dialog_box(s, "jade_zac_is_missing1");
+}
+
+void quests_3(st_rpg *s)
+{
+	sfMusic_stop(s->fi->music.music);
+	sfMusic_play(s->fi->samys_music.music);
+	s->fi->quests[2]->status = 2;
+	s->fi->pnj[8].pnj->rect = set_texturerect_top(s->fi->pnj[8].pnj, 0);
+	dialog_box(s, "samy_night");
+	sfText_setString(s->fi->text_finish_quests->text,
+	"Quest 3 complete!");
+	s->fi->var_for_quests = 255;
+	sfMusic_stop(s->fi->samys_music.music);
 }
 
 void quests_1(st_rpg *s)

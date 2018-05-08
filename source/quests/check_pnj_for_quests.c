@@ -51,5 +51,11 @@ void check_pnj_for_quests(st_rpg *s)
 		s->fi->num_dungeon = 0;
 		s->fi->quests[1]->status = 2;
 		reset_pos_friends(s);
+	} if (s->fi->quests[2]->status == 1 &&
+	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "samy") == 0) {
+		stop_player(s);
+		quests_3(s);
+		after_quests(s);
+		start_quests_4(s);
 	}
 }
