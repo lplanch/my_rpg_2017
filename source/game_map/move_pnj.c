@@ -8,8 +8,25 @@
 #include "my.h"
 #include "game_map.h"
 
+void walk_animation_pnj(st_rpg *s,  int nb_pnj)
+{
+	s->fi->pnj_clock.tmp =
+	sfClock_getElapsedTime(s->fi->pnj_clock.clock);
+	s->fi->pnj_clock.seconds =
+	s->fi->pnj_clock.tmp.microseconds / 100000000.0;
+	if (s->fi->pnj_clock.seconds > s->player.animspeed) {
+		if (s->player.animcol == 2 || s->player.animcol == 0)
+			s->player.animsens = -s->player.animsens;
+		s->player.animcol += s->player.animsens;
+		sfClock_restart(s->player.t.clock);
+		s->fi->pnj[nb_pnj].pnj->rect.left = s->player.animcol * 48
+		+ 144 * s->player.cdata.sex;
+	}
+}
+
 void update_pos_pnj(st_rpg *s, int nb_pnj)
 {
+	walk_animation_pnj(s, nb_pnj);
 	sfSprite_setTextureRect(s->fi->pnj[nb_pnj].pnj->sprite,
 	s->fi->pnj[nb_pnj].pnj->rect);
 	sfSprite_setPosition(s->fi->pnj[nb_pnj].pnj->sprite,

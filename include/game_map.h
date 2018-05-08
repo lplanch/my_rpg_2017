@@ -34,6 +34,7 @@ void draw_pnj(st_rpg *s);
 void draw_all(st_rpg *s);
 void draw_dialog_box(st_rpg *s);
 void draw_loading(st_rpg *s);
+void draw_name_box(st_rpg *s);
 void draw_choice_menu(st_rpg *s, int compter);
 
 int event_game(st_rpg *s);
@@ -138,6 +139,11 @@ void quests_1(st_rpg *s);
 void after_quests(st_rpg *s);
 
 void night_scene(st_rpg *s);
+
+void setup_music(st_rpg *s);
+
+void create_box_name(st_rpg *s, int i);
+void check_pnj_name(st_rpg *s);
 
 #ifndef MY_COOK_
 #define MY_COOK_

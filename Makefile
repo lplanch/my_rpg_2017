@@ -154,6 +154,7 @@ FILES		=	source/main.c					\
 			source/game_map/destroy.c			\
 			source/game_map/player_animation_village.c	\
 			source/game_map/move_infos.c			\
+			source/game_map/name_top_head.c			\
 			source/quests/create_difquests.c		\
 			source/quests/get_quests_rewards.c		\
 			source/quests/get_all_quests.c			\

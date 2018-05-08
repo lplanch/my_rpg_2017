@@ -179,6 +179,10 @@ typedef struct s_files
 	int relief;
 	int return_value;
 	float var_for_quests;
+	int oui;
+	int size_name_pnj;
+	st_button **name_head;
+	g_object *name_head_edge[2];
 	sfClock *clock;
 	sfView *view;
 	quests_t **quests;
@@ -202,7 +206,9 @@ typedef struct s_files
 	colsquare_t colsquare[473];
 	map_t map;
 	clockz_t time;
+	clockz_t pnj_clock;
 	st_music music;
+	st_music samys_music;
 } files_t;
 
 typedef struct struct_animation

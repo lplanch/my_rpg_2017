@@ -34,7 +34,6 @@ void destroy_dungeon_loop(st_rpg *s)
 	destroy_icons(s);
 	destroy_life_bar(s);
 	destroy_enemies(s);
-	destroy_player(s);
 	destroy_main_fight(s);
 	destroy_dungeon_shader(s);
 	destroy_main_particles(s);
@@ -128,5 +127,6 @@ int dungeon_loop(st_rpg *s)
 			return (0);
 		}
 	}
+	printf("%d\n", s->returnv);
 	return (s->returnv);
 }
