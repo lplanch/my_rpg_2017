@@ -38,8 +38,8 @@ int prog(st_rpg *s)
 		game_update(s);
 		if (sfMusic_getStatus(s->fi->music.music) == 0)
 			sfMusic_play(s->fi->music.music);
-		//printf("x= %f\n", s->fi->character->pos.x);
-		//printf("y= %f\n", s->fi->character->pos.y);
+		//printf("x= %f\n", s->player.obj->pos.x);
+		//printf("y= %f\n", s->player.obj->pos.y);
 	}
 	return (0);
 }
