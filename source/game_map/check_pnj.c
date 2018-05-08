@@ -61,6 +61,8 @@ void check_pnj_withpos(st_rpg *s, int j, int i)
 	&& (s->fi->pos[j].y > s->fi->pnj[i].pnj->pos.y + 66)) {
 		s->fi->dialog_box_isopen = 1;
 		s->fi->nb_pnj = i;
+		s->returnv = 0;
+		s->fi->return_value = 0;
 		stop_player(s);
 	}
 }

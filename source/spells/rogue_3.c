@@ -10,6 +10,7 @@
 
 void rogue_storm(st_rpg *s)
 {
+	sfMusic_play(s->f.rog.s_ult);
 	s->f.rog.ultcount = 0;
 	s->f.rog.ulting = 1;
 	s->f.rog.ultangle = 1;
@@ -19,6 +20,7 @@ void rogue_storm(st_rpg *s)
 
 void rogue_blind(st_rpg *s)
 {
+	sfMusic_play(s->f.rog.flashbang);
 	launch_aoe(s, s->f.rog.flash);
 	sfCircleShape_setPosition(s->f.rog.flash->circle,
 	create_vector2f(s->origin.x + 960 - sfCircleShape_getRadius(s

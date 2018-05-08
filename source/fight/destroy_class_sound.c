@@ -18,3 +18,11 @@ void destroy_gunner_sound(st_rpg *s)
 	sfMusic_destroy(s->f.gun.s_flam);
 
 }
+
+void destroy_rogue_sound(st_rpg *s)
+{
+	sfMusic_destroy(s->f.rog.l_click);
+	sfMusic_destroy(s->f.rog.s_vanish);
+	sfMusic_destroy(s->f.rog.flashbang);
+	sfMusic_destroy(s->f.rog.s_ult);
+}

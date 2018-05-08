@@ -27,6 +27,7 @@ void create_spells_rogue(st_rpg *s)
 {
 	create_rogue_daggers(s);
 	create_rogue_autos(s);
+	create_rogue_sound(s);
 }
 
 void create_spells_warrior(st_rpg *s)

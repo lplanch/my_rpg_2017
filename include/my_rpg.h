@@ -181,6 +181,7 @@ typedef struct s_files
 	float var_for_quests;
 	int oui;
 	int size_name_pnj;
+	int num_dungeon;
 	st_button **name_head;
 	g_object *name_head_edge[2];
 	sfClock *clock;
@@ -381,6 +382,11 @@ typedef struct struct_rogue_spells
 	sfIntRect ultr;
 	particle_t *partp;
 	particle_t *partd;
+	sfMusic *l_click;
+	sfMusic *flashbang;
+	sfMusic *s_vanish;
+	sfMusic *s_ult;
+
 } rogue_t;
 
 typedef struct struct_warrior_spells
@@ -599,6 +605,8 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void destroy_rogue_sound(st_rpg *s);
+void create_rogue_sound(st_rpg *s);
 void destroy_gunner_sound(st_rpg *s);
 void create_gunner_sound(st_rpg *s);
 void handle_rage(st_rpg *s, float amount, enemy_t *mob);

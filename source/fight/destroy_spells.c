@@ -62,6 +62,7 @@ void destroy_spells_rogue(st_rpg *s)
 	destroy_particle(s->f.rog.partd);
 	destroy_dash(s->f.rog.tp);
 	destroy_dash(s->f.rog.draw);
+	destroy_rogue_sound(s);
 }
 
 void destroy_spells_warrior(st_rpg *s)

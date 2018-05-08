@@ -29,6 +29,7 @@ void gunner_auto_attack(st_rpg *s)
 
 void rogue_auto_attack(st_rpg *s)
 {
+	sfMusic_play(s->f.rog.l_click);
 	if (s->f.rog.vanish > 0 && s->player.tree.passive == 2 &&
 	!s->player.tree.lock[2]) {
 		s->f.rog.vanish = 0;

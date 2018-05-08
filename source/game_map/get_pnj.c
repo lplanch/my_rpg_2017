@@ -78,7 +78,6 @@ void get_all_pnj(st_rpg *s, char *path)
 	while ((entry = readdir(dir)) != 0) {
 		if (entry->d_name[0] != '.') {
 			name = my_strcat_dup(path, entry->d_name);
-			printf("%s\n", name);
 			s->fi->pnj[i] = get_pnj(name);
 			free(name);
 			i++;

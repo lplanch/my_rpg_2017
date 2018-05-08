@@ -37,7 +37,8 @@ void destroy_dungeon_loop(st_rpg *s)
 	destroy_main_fight(s);
 	destroy_dungeon_shader(s);
 	destroy_main_particles(s);
-	free_dungeon(&s->proc);
+	if (s->returnv != 0)
+		free_dungeon(&s->proc);
 }
 
 void update_origin(st_rpg *s)
@@ -123,8 +124,15 @@ int dungeon_loop(st_rpg *s)
 		display_dungeon(s);
 		sfRenderWindow_display(s->window);
 		if (verify_exit_player(s)) {
+			s->returnv = 0;
 			destroy_dungeon_loop(s);
-			return (0);
+			s->fi->camera_pos = 1;
+			s->player.obj->pos.x = 3707;
+			s->player.obj->pos.y = 3550;
+			s->fi->dialog_box_isopen = 0;
+			s->fi->var_choice = 0;
+			s->fi->nb_choice_pre = 0;
+			return (4);
 		}
 	}
 	return (s->returnv);

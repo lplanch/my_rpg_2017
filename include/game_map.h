@@ -145,6 +145,8 @@ void setup_music(st_rpg *s);
 void create_box_name(st_rpg *s, int i);
 void check_pnj_name(st_rpg *s);
 
+sfIntRect set_texturerect_top(g_object *obj, int top);
+
 #ifndef MY_COOK_
 #define MY_COOK_
 

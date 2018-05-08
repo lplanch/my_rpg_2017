@@ -98,10 +98,12 @@ void gunner_update_ultimate(st_rpg *s)
 			s->f.gun.ultb[i]->dmg += s->f.gun.ultb[i]->dmgratio;
 		}
 		if (s->f.gun.ultb[0]->dmg > s->f.gun.origin * 5 ||
-			sfMouse_isButtonPressed(sfMouseLeft))
-			s->f.gun.ult = 2;
+			sfMouse_isButtonPressed(sfMouseLeft)) {
+				s->f.gun.ult = 2;
+				sfMusic_play(s->f.gun.l_click);
+			}
 		sfClock_restart(s->f.gun.t.clock);
-	} if (s->f.gun.t.sec > 0.1 && s->f.gun.ult == 2) {
+	} if (s->f.gun.t.sec > 0.15 && s->f.gun.ult == 2) {
 		launch_projectile(s, s->f.gun.ultb[s->f.gun.current],
 		s->f.gun.ultb[s->f.gun.current]->angle);
 		update_current_bullet(s);
