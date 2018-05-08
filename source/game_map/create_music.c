@@ -14,5 +14,6 @@ sfMusic *create_music(float volume, char *path)
 
 	music = sfMusic_createFromFile(path);
 	sfMusic_setVolume(music, volume);
+	sfMusic_setLoop(music, 1);
 	return (music);
 }

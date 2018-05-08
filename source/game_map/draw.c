@@ -67,6 +67,9 @@ void draw_all(st_rpg *s)
 	sfRenderWindow_drawSprite(s->window, s->player.obj->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite4, NULL);
 	draw_quests(s);
+	if (s->fi->oui == 1) {
+		draw_name_box(s);
+	}
 	print_text_finish_quests(s);
 }
 

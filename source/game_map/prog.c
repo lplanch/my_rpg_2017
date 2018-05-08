@@ -13,6 +13,7 @@ void create(st_rpg *s)
 	character_setup(s);
 	get_all_pnj(s, "ressources/images/dialog_box/pnj/");
 	setup_variable(s);
+	setup_music(s);
 	setup_loading(s);
 	get_all_quests(s, "ressources/quests/quests_info/");
 	s->fi->text_finish_quests = create_text("quests_finish",
@@ -32,12 +33,11 @@ int prog(st_rpg *s)
 	create(s);
 	parsing(a, s);
 	create_map(s);
+	sfMusic_play(s->fi->music.music);
 	while (sfRenderWindow_isOpen(s->window)) {
 		if (event_game(s) || s->fi->return_value == 1)
 			return (1);
 		game_update(s);
-		if (sfMusic_getStatus(s->fi->music.music) == 0)
-			sfMusic_play(s->fi->music.music);
 		//printf("x= %f\n", s->player.obj->pos.x);
 		//printf("y= %f\n", s->player.obj->pos.y);
 	}
