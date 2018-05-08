@@ -55,7 +55,5 @@ void check_pnj_for_quests(st_rpg *s)
 	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "Samy") == 0) {
 		stop_player(s);
 		quests_3(s);
-		after_quests(s);
-		start_quests_4(s);
 	}
 }

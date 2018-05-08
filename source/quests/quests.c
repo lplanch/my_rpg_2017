@@ -79,21 +79,32 @@ void after_quests(st_rpg *s)
 void start_quests_4(st_rpg *s)
 {
 	set_pnj_meeting_without_zac(s);
-	dialog_box(s, "samy_zac_is_missing1");
+	move_camera(s);
+	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "jade_zac_is_missing1");
+	s->fi->dialog_box_isopen = 1;
+	dialog_box(s, "samy_zac_is_missing1");
+	s->fi->dialog_box_isopen = 1;
+	dialog_box(s, "jade_zac_is_missing2");
+	s->fi->dialog_box_isopen = 1;
+	dialog_box(s, "jade_zac_is_missing3");
+	s->fi->dialog_box_isopen = 1;
+	dialog_box(s, "samy_zac_is_missing2");
+	sfText_setString(s->fi->text_finish_quests->text,
+	"Quest 3 complete!");
+	s->fi->var_for_quests = 255;
 }
 
 void quests_3(st_rpg *s)
 {
 	sfMusic_stop(s->fi->music.music);
 	sfMusic_play(s->fi->samys_music.music);
-	s->fi->quests[3]->status = 2;
+	s->fi->quests[2]->status = 2;
 	s->fi->pnj[10].pnj->rect = set_texturerect_top(s->fi->pnj[10].pnj, 0);
 	dialog_box(s, "samy_night");
-	sfText_setString(s->fi->text_finish_quests->text,
-	"Quest 3 complete!");
-	s->fi->var_for_quests = 255;
 	sfMusic_stop(s->fi->samys_music.music);
+	after_quests(s);
+	start_quests_4(s);
 }
 
 void quests_1(st_rpg *s)
