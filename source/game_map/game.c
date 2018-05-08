@@ -13,8 +13,13 @@ void game_update(st_rpg *s)
 	if (s->fi->dialog_box_isopen == 1)
 		dialog_box(s, my_strdup(s->fi->pnj[s->fi->nb_pnj].name));
 	move_ok(s);
+	s->player.last_pos = s->player.obj->pos;
 	update_player_position_village(s);
+	if (!s->f.panim)
+		player_animation_village(s);
 	move_id_player(s);
+	s->proc.gman.time = sfClock_restart(s->proc.gman.clock);
+	s->proc.gman.dt = sfTime_asSeconds(s->proc.gman.time);
 	move_infos_box(s);
 	check_quests(s);
 	draw(s);

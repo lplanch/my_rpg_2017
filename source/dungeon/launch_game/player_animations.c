@@ -8,21 +8,6 @@
 #include "my.h"
 #include "my_rpg.h"
 
-int choose_orientation(st_rpg *s)
-{
-	if (abs(s->player.nbr_frame.x) > abs(s->player.nbr_frame.y)) {
-		if (s->player.nbr_frame.x > 0)
-			return (2);
-		else
-			return (1);
-	} else {
-		if (s->player.nbr_frame.y > 0)
-			return (0);
-		else
-			return (3);
-	}
-}
-
 int orientation_from_mouse(st_rpg *s)
 {
 	float angle = get_angle(s);

@@ -30,13 +30,15 @@ void create_player(st_rpg *s)
 	sfVector2f scale = {2, 2};
 
 	s->player.obj = create_object("ressources/images/hero.png",
-	create_vector2f(960, 540),
+	create_vector2f(3700, 3800),
 	create_rect(0, 0 + 150 * s->player.cdata.sex, 48, 48), 0);
 	sfSprite_scale(s->player.obj->sprite, scale);
 	s->player.animcol = 1;
 	s->player.animsens = 1;
 	s->player.animspeed = 0.2;
 	s->player.t = create_st_time();
+	init_player_movement(s);
+	init_player_camera(s);
 }
 
 void display_player(st_rpg *s)

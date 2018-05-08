@@ -54,12 +54,12 @@ void move_allpts(st_rpg *s)
 
 void move_id_player(st_rpg *s)
 {
-	s->fi->ID_character->rect.left = s->fi->character->rect.left;
-	s->fi->ID_character->rect.top = s->fi->character->rect.top;
-	s->fi->ID_character->rect.width = s->fi->character->rect.width + 10;
-	s->fi->ID_character->rect.height = s->fi->character->rect.height - 16;
-	s->fi->ID_character->pos.x = s->fi->character->pos.x + 14;
-	s->fi->ID_character->pos.y = s->fi->character->pos.y + 66;
+	s->fi->ID_character->rect.left = s->player.obj->rect.left;
+	s->fi->ID_character->rect.top = s->player.obj->rect.top;
+	s->fi->ID_character->rect.width = s->player.obj->rect.width + 10;
+	s->fi->ID_character->rect.height = s->player.obj->rect.height - 16;
+	s->fi->ID_character->pos.x = s->player.obj->pos.x + 14;
+	s->fi->ID_character->pos.y = s->player.obj->pos.y + 66;
 	move_allpts(s);
 	sfSprite_setTextureRect(s->fi->ID_character->sprite,
 	s->fi->ID_character->rect);
@@ -67,33 +67,8 @@ void move_id_player(st_rpg *s)
 	s->fi->ID_character->pos);
 }
 
-void move(st_rpg *s)
-{
-	s->fi->character->rect.left += 48;
-	if (s->fi->character->rect.left >= 144)
-		s->fi->character->rect.left = 0;
-}
-
 void move_ok(st_rpg *s)
 {
-	if (sfKeyboard_isKeyPressed(sfKeyUp) == sfTrue) {
-		s->fi->character->rect.top = 144;
-		s->fi->direction = 1;
-		s->fi->velocity.y = -speed * 3;
-	} else if (sfKeyboard_isKeyPressed(sfKeyDown) == sfTrue) {
-		s->fi->character->rect.top = 0;
-		s->fi->direction = 3;
-		s->fi->velocity.y = speed * 3;
-	} else
-		s->fi->velocity.y = 0;
-	if (sfKeyboard_isKeyPressed(sfKeyRight) == sfTrue) {
-		s->fi->character->rect.top = 96;
-		s->fi->direction = 2;
-		s->fi->velocity.x = speed * 3;
-	} else if (sfKeyboard_isKeyPressed(sfKeyLeft) == sfTrue) {
-		s->fi->character->rect.top = 48;
-		s->fi->direction = 4;
-		s->fi->velocity.x = -speed * 3;
-	} else
-		s->fi->velocity.x = 0;
+	verify_x_movement(s);
+	verify_y_movement(s);
 }

@@ -10,7 +10,6 @@
 
 void init_player_movement(st_rpg *rpg)
 {
-	rpg->player.obj->pos = get_entry_pos(&rpg->proc);
 	rpg->player.acceleration.x = 0;
 	rpg->player.acceleration.y = 0;
 	rpg->player.max_speed = 200;
@@ -29,8 +28,7 @@ void init_player_camera(st_rpg *rpg)
 
 void init_dungeon_game(st_rpg *rpg)
 {
-	init_player_movement(rpg);
-	init_player_camera(rpg);
+	rpg->player.obj->pos = get_entry_pos(&rpg->proc);
 	init_minimap(&rpg->proc);
 	create_ingame_inventory(rpg);
 	rpg->proc.gman.clock = sfClock_create();
