@@ -60,4 +60,10 @@ void proc_effects(st_rpg *s)
 		proc_effect_gunner, proc_effect_rogue, proc_effect_warrior};
 
 	(list[s->player.cdata.classe])(s);
+	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
+		proc_effect(s->f.mob[i]->stun);
+		proc_effect(s->f.mob[i]->poison);
+		proc_enemy_stun(s, i);
+		proc_enemy_poison(s, i);
+	}
 }

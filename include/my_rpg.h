@@ -584,6 +584,8 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void proc_enemy_stun(st_rpg *s, int i);
+void proc_enemy_poison(st_rpg *s, int i);
 void loot_enemy(st_rpg *s);
 void set_level_up(st_rpg *s);
 void destroy_main_particles(st_rpg *s);

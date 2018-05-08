@@ -24,6 +24,7 @@ void swing_damage_enemy(st_rpg *s, swing_t *swing, enemy_t *mob)
 	mob->stat->pva -= amount;
 	launch_dmg_show(s, amount, mob->obj);
 	handle_status(s, amount, mob);
+	handle_poison(s, mob);
 }
 
 void apply_projectile(st_rpg *s, proj_t *proj, enemy_t **mob)
