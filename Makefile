@@ -178,6 +178,7 @@ FILES		=	source/main.c					\
 			source/dungeon/launch_game/camera_manager.c			\
 			source/dungeon/launch_game/input_manager.c			\
 			source/dungeon/launch_game/player_movement.c			\
+			source/dungeon/launch_game/player_animations.c			\
 			source/dungeon/launch_game/free_dungeon.c			\
 			source/dungeon/launch_game/verify_collisions.c			\
 			source/dungeon/launch_game/init_dungeon.c			\

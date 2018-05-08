@@ -31,15 +31,28 @@ item_t *create_first_slot(void)
 	return (slot);
 }
 
+void update_inventory_size(ing_inv_t *inv)
+{
+	item_t *current;
+
+	while (current->next != NULL)
+		current = current->next;
+	if (current->pos + 1 < inv->size)
+		for (unsigned int i = 0; i < inv->size - current->pos + 1; i++)
+			add_inventory_slot(inv->first_slot);
+}
+
 void create_inventory_var(ing_inv_t *inv)
 {
-	inv->size = 10;
+	inv->size = 30;
 	inv->money = 0;
 	inv->first_slot = create_first_slot();
 	for (unsigned int i = 0; i < inv->size; i++)
 		add_inventory_slot(inv->first_slot);
 	inv->armor = create_first_slot();
 	inv->weapon = create_first_slot();
+	inv->sheet =
+	sfTexture_createFromFile("ressources/item_sheet.png", NULL);
 }
 
 void create_ingame_inventory(st_rpg *rpg)
