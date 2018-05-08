@@ -8,6 +8,16 @@
 #include "my.h"
 #include "game_map.h"
 
+void draw_night_scene(st_rpg *s, g_object *moon, g_object *background)
+{
+	moon->pos.y += 2.5;
+	moon->pos.x += 3;
+	sfSprite_setPosition(moon->sprite, moon->pos);
+	sfRenderWindow_drawSprite(s->window, background->sprite, NULL);
+	sfRenderWindow_drawSprite(s->window, moon->sprite, NULL);
+	sfRenderWindow_display(s->window);
+}
+
 void night_scene(st_rpg *s)
 {
 	float posx = s->fi->camera.x - 960;
@@ -21,13 +31,9 @@ void night_scene(st_rpg *s)
 	moon = create_object("ressources/images/scenes/moon.png",
 	create_vector2f(posx + 1000, posy), create_rect(0, 0, 315, 310), 0);
 	for (int i = 0; i != 300; i++) {
-		moon->pos.y += 2.5;
-		moon->pos.x += 3;
-		sfSprite_setPosition(moon->sprite, moon->pos);
-		sfRenderWindow_drawSprite(s->window, background->sprite, NULL);
-		sfRenderWindow_drawSprite(s->window, moon->sprite, NULL);
-		sfRenderWindow_display(s->window);
+		draw_night_scene(s, moon, background);
 	}
 	destroy_object(background);
 	destroy_object(moon);
+	sfMusic_play(s->fi->music.music);
 }

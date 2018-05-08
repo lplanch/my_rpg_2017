@@ -1,0 +1,20 @@
+/*
+** EPITECH PROJECT, 2018
+** destroy_class_sound.c
+** File description:
+** description
+*/
+
+#include "my_rpg.h"
+
+void destroy_gunner_sound(st_rpg *s)
+{
+	destroy_particle(s->f.gun.partf);
+	destroy_particle(s->f.gun.partg);
+	sfMusic_destroy(s->f.gun.l_click);
+	sfMusic_destroy(s->f.gun.s_explo);
+	sfMusic_destroy(s->f.gun.zap);
+	sfMusic_destroy(s->f.gun.h_noon);
+	sfMusic_destroy(s->f.gun.s_flam);
+
+}

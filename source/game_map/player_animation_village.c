@@ -25,7 +25,8 @@ int choose_orientation(st_rpg *s)
 
 void player_animation_village(st_rpg *s)
 {
-	if (abs(s->player.nbr_frame.x) != 0 || abs(s->player.nbr_frame.y) != 0) {
+	if (abs(s->player.nbr_frame.x) != 0 ||
+	abs(s->player.nbr_frame.y) != 0) {
 		walk_animation(s);
 		s->player.obj->rect.top = choose_orientation(s) * 48;
 		sfSprite_setTextureRect(s->player.obj->sprite,

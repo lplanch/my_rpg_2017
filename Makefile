@@ -52,6 +52,7 @@ FILES		=	source/main.c					\
 			source/fight/update_class.c			\
 			source/fight/auto_attacks.c			\
 			source/fight/launch_spells.c			\
+			source/fight/destroy_class_sound.c			\
 			source/fight/locked_spells.c			\
 			source/fight/get_cooldowns.c			\
 			source/fight/aoe.c				\
@@ -63,6 +64,8 @@ FILES		=	source/main.c					\
 			source/fight/handle_status.c			\
 			source/fight/hitbox.c				\
 			source/fight/enemy.c				\
+			source/fight/enemy_aggro.c			\
+			source/fight/handle_effects.c			\
 			source/fight/enemy_effects.c			\
 			source/fight/loot_enemy.c			\
 			source/fight/generate_enemy.c			\
@@ -152,6 +155,7 @@ FILES		=	source/main.c					\
 			source/game_map/destroy.c			\
 			source/game_map/player_animation_village.c	\
 			source/game_map/move_infos.c			\
+			source/game_map/name_top_head.c			\
 			source/quests/create_difquests.c		\
 			source/quests/get_quests_rewards.c		\
 			source/quests/get_all_quests.c			\

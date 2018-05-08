@@ -179,6 +179,10 @@ typedef struct s_files
 	int relief;
 	int return_value;
 	float var_for_quests;
+	int oui;
+	int size_name_pnj;
+	st_button **name_head;
+	g_object *name_head_edge[2];
 	sfClock *clock;
 	sfView *view;
 	quests_t **quests;
@@ -202,7 +206,9 @@ typedef struct s_files
 	colsquare_t colsquare[473];
 	map_t map;
 	clockz_t time;
+	clockz_t pnj_clock;
 	st_music music;
+	st_music samys_music;
 } files_t;
 
 typedef struct struct_animation
@@ -326,6 +332,10 @@ typedef struct struct_gunner_spells
 	particle_t *partf;
 	particle_t *partg;
 	sfMusic *l_click;
+	sfMusic *s_explo;
+	sfMusic *zap;
+	sfMusic *h_noon;
+	sfMusic *s_flam;
 } gunner_t;
 
 typedef struct struct_melee_swing
@@ -429,6 +439,8 @@ typedef struct enemy
 {
 	effect_t *poison;
 	effect_t *stun;
+	int aggro;
+	sfVector2f ratios;
 	float cd;
 	float cdcount;
 	int cast;
@@ -454,6 +466,9 @@ typedef struct shader_fight
 	shader_t power;
 	shader_t endure;
 	shader_t armor;
+	shader_t poison;
+	shader_t stun;
+
 } f_shader_t;
 
 typedef struct main_fight
@@ -584,6 +599,12 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void destroy_gunner_sound(st_rpg *s);
+void create_gunner_sound(st_rpg *s);
+void handle_rage(st_rpg *s, float amount, enemy_t *mob);
+void handle_lifesteal(st_rpg *s, float amount, effect_t *effect);
+void handle_poison(st_rpg *s, enemy_t *mob);
+void handle_stun(char *str, enemy_t *mob, float duration);
 void proc_enemy_stun(st_rpg *s, int i);
 void proc_enemy_poison(st_rpg *s, int i);
 void loot_enemy(st_rpg *s);
@@ -613,7 +634,9 @@ void set_particle(particle_t *part, uint id, sfVector2f pos, sfColor color);
 void launch_particle(particle_t *part, sfVector2f pos, float angle);
 void update_particle(particle_t *part, float dt);
 particle_t *create_particle(char *str);
-void update_life_bars_enemies(st_rpg *s);
+void movement_enemies(st_rpg *s, int i);
+void set_aggro_enemies(st_rpg *s, int i);
+void update_life_bars_enemies(st_rpg *s, int i);
 void destroy_enemies(st_rpg *s);
 void update_enemies(st_rpg *s);
 void destroy_enemy(enemy_t *enemy);

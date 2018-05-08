@@ -58,6 +58,7 @@ void gunner_update_grenade_speed(st_rpg *s)
 void proc_grenade(st_rpg *s)
 {
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
+		sfMusic_play(s->f.gun.s_explo);
 		launch_particle(s->f.gun.partf, s->f.gun.grenade->obj->pos,
 		get_angle(s));
 		if (circle_hitbox(s->f.gun.explo, s->f.mob[i]->obj) &&

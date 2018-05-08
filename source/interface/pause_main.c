@@ -46,8 +46,7 @@ int launch_pause_menu(st_rpg *s, sfEvent event)
 	if ((event.type == sfEvtKeyPressed && (sfKeyboard_isKeyPressed(sfKeyE)
 	|| sfKeyboard_isKeyPressed(sfKeyReturn)))
 	|| left_clicked_on_pause(s, event)) {
-		if (which_pause_menu(s))
-			return (1);
+		return (which_pause_menu(s));
 	}
 	return (0);
 }
@@ -66,6 +65,7 @@ int go_back(st_rpg *s)
 
 int event_pause_menu(st_rpg *s)
 {
+	int a = 0;
 	sfEvent event;
 
 	while (sfRenderWindow_pollEvent(s->window, &event)) {
@@ -79,8 +79,8 @@ int event_pause_menu(st_rpg *s)
 		} if (event.type == sfEvtKeyPressed &&
 		(sfKeyboard_isKeyPressed(sfKeyEscape))) {
 			return (go_back(s));
-		} if (launch_pause_menu(s, event)) {
-			s->returnv = 1;
+		} if ((a = launch_pause_menu(s, event)) != 0) {
+			s->returnv = a;
 			return (1);
 		}
 	}
@@ -91,8 +91,10 @@ int pause_main(st_rpg *s)
 {
 	generate_pause_menu(s);
 	while (sfRenderWindow_isOpen(s->window)) {
-		if (event_pause_menu(s))
+		if (event_pause_menu(s)) {
+			printf("%d\n", s->returnv);
 			return (s->returnv);
+		}
 		display_dungeon(s);
 		set_colors_pause(s);
 		update_cursor_pos_pause(s);
