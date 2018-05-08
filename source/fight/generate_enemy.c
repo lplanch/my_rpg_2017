@@ -14,6 +14,7 @@ void generate_enemy_stat(enemy_t *enemy)
 	enemy->stun = create_effect("stun", 0, 0);
 	enemy->poison = create_effect("poison", 0, 0);
 	enemy->cd = 0;
+//	enemy->aggro = 0;
 	enemy->cdcount = 0;
 	enemy->alive = 1;
 	enemy->stat->pva = enemy->stat->pvm;

@@ -63,6 +63,7 @@ FILES		=	source/main.c					\
 			source/fight/handle_status.c			\
 			source/fight/hitbox.c				\
 			source/fight/enemy.c				\
+			source/fight/handle_effects.c			\
 			source/fight/enemy_effects.c			\
 			source/fight/loot_enemy.c			\
 			source/fight/generate_enemy.c			\
