@@ -91,8 +91,10 @@ int pause_main(st_rpg *s)
 {
 	generate_pause_menu(s);
 	while (sfRenderWindow_isOpen(s->window)) {
-		if (event_pause_menu(s))
+		if (event_pause_menu(s)) {
+			printf("%d\n", s->returnv);
 			return (s->returnv);
+		}
 		display_dungeon(s);
 		set_colors_pause(s);
 		update_cursor_pos_pause(s);
