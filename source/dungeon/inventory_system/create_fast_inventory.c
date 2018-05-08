@@ -16,7 +16,8 @@ void create_fast_inventory_screen(ing_finv_t *finv)
 	finv->rect.top = 0;
 	finv->sprite = sfSprite_create();
 	finv->texture =
-	sfTexture_createFromFile("ressources/fast_inv.png", NULL);
+	sfTexture_createFromFile(
+	"ressources/images/inventory/fast_inv.png", NULL);
 	sfSprite_setTexture(finv->sprite, finv->texture, sfTrue);
 	sfSprite_setTextureRect(finv->sprite, finv->rect);
 }

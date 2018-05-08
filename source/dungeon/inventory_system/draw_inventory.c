@@ -50,6 +50,7 @@ void draw_inventory(st_rpg *rpg)
 {
 	draw_inventory_background(rpg);
 	draw_inventory_items(rpg);
+	verify_mouse_inv_events(rpg);
 }
 
 void verify_inventory(st_rpg *rpg)
