@@ -30,7 +30,6 @@ void game_update(st_rpg *s)
 	s->player.last_pos = s->player.obj->pos;
 	update_player_position_village(s);
 	player_animation_village(s);
-	move_id_player(s);
 	s->proc.gman.time = sfClock_restart(s->proc.gman.clock);
 	s->proc.gman.dt = sfTime_asSeconds(s->proc.gman.time);
 	move_infos_box(s);
