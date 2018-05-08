@@ -35,14 +35,31 @@ void update_life_bars_enemies(st_rpg *s)
 	}
 }
 
+void choose_display_enemies(st_rpg *s, int i)
+{
+	if (s->f.mob[i]->poison->count > 0) {
+		sfRenderWindow_drawSprite(s->window,
+		s->f.mob[i]->obj->sprite, &s->f.shade.poison.state);
+		sfRenderWindow_drawSprite(s->window,
+		s->f.mob[i]->life->sprite, &s->f.shade.poison.state);
+	} else if (s->f.mob[i]->stun->count > 0) {
+		sfRenderWindow_drawSprite(s->window,
+		s->f.mob[i]->obj->sprite, &s->f.shade.stun.state);
+		sfRenderWindow_drawSprite(s->window,
+		s->f.mob[i]->life->sprite, &s->f.shade.stun.state);
+	} else {
+		sfRenderWindow_drawSprite(s->window,
+		s->f.mob[i]->obj->sprite, NULL);
+		sfRenderWindow_drawSprite(s->window,
+		s->f.mob[i]->life->sprite, NULL);
+	}
+}
+
 void display_enemies(st_rpg *s)
 {
 	for (int i = 0; i < s->proc.pvar.enemy_nbr; i ++) {
 		if (s->f.mob[i]->alive) {
-			sfRenderWindow_drawSprite(s->window,
-			s->f.mob[i]->obj->sprite, NULL);
-			sfRenderWindow_drawSprite(s->window,
-			s->f.mob[i]->life->sprite, NULL);
+			choose_display_enemies(s, i);
 		}
 	}
 }

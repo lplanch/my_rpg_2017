@@ -454,6 +454,9 @@ typedef struct shader_fight
 	shader_t power;
 	shader_t endure;
 	shader_t armor;
+	shader_t poison;
+	shader_t stun;
+
 } f_shader_t;
 
 typedef struct main_fight
