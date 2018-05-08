@@ -55,9 +55,22 @@ void draw_inventory(st_rpg *rpg)
 
 void verify_inventory(st_rpg *rpg)
 {
-	if (sfKeyboard_isKeyPressed(key_inv)) {
+	sfEvent event;
+
+	while (sfRenderWindow_pollEvent(rpg->window, &event)) {
+		if (event.type == sfEvtKeyPressed && event.key.code == key_inv
+			&& rpg->inv.is_open == 0) {
+			my_putchar('b');
+			rpg->inv.is_open = 1;
+		} else if (event.type == sfEvtKeyPressed && event.key.code == key_inv
+			&& rpg->inv.is_open == 1) {
+			my_putchar('c');
+			rpg->inv.is_open = 0;
+			rpg->inv.focused = NULL;
+		}
+	}
+	if (rpg->inv.is_open == 1) {
+		my_putchar('a');
 		draw_inventory(rpg);
-	} else {
-		rpg->inv.focused = NULL;
 	}
 }
