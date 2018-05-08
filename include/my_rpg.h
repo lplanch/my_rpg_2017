@@ -181,6 +181,7 @@ typedef struct s_files
 	float var_for_quests;
 	int oui;
 	int size_name_pnj;
+	int num_dungeon;
 	st_button **name_head;
 	g_object *name_head_edge[2];
 	sfClock *clock;
