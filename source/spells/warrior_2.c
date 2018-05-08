@@ -25,7 +25,6 @@ void warrior_stance(st_rpg *s)
 
 void warrior_lifesteal(st_rpg *s)
 {
-	s->f.war.endure->amount = 1000000;
 	s->f.war.lifesteal->count = s->f.war.lifesteal->duration;
 }
 

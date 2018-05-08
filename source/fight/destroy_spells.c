@@ -46,7 +46,7 @@ void destroy_spells_gunner(st_rpg *s)
 	destroy_dash(s->f.gun.jump);
 	destroy_particle(s->f.gun.partf);
 	destroy_particle(s->f.gun.partg);
-	sfMusic_destroy(s->f.arc.l_click);
+	sfMusic_destroy(s->f.gun.l_click);
 }
 
 void destroy_spells_rogue(st_rpg *s)

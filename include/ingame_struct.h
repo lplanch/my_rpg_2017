@@ -17,10 +17,10 @@ typedef struct framebuffer {
 //INVENTORY
 typedef struct inventory_item
 {
-	sfSprite *sprite;
 	unsigned int id;
 	unsigned int stacks;
 	unsigned int pos;
+	sfSprite *sprite;
 	struct inventory_item *next;
 } item_t;
 
@@ -38,6 +38,7 @@ typedef struct ingame_inventory_manager
 	sfSprite *sprite;
 	sfTexture *texture;
 	sfIntRect rect;
+	sfTexture *sheet;
 	unsigned int size;
 	unsigned int money;
 	item_t *first_slot;
