@@ -54,6 +54,7 @@ void set_pnj_meeting_without_zac(st_rpg *s)
 void after_quests(st_rpg *s)
 {
 	night_scene(s);
+	s->fi->pnj[3].pnj->rect.left = 0;
 	s->fi->pnj[10].pnj->rect =
 	set_texturerect_top(s->fi->pnj[10].pnj, 193);
 	s->fi->pnj[3].pnj->rect =
