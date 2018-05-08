@@ -26,6 +26,8 @@ static const sfKeyCode key_right = sfKeyD;
 static const sfKeyCode key_map = sfKeyTab;
 static const sfKeyCode key_inv = sfKeyLShift;
 static const sfMouseButton key_fast_inv = sfMouseMiddle;
+static const sfMouseButton key_select_item = sfMouseLeft;
+
 
 //LAUNCH DUNGEON FUNCTION
 int launch_dungeon(st_rpg *rpg);

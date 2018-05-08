@@ -57,5 +57,7 @@ void verify_inventory(st_rpg *rpg)
 {
 	if (sfKeyboard_isKeyPressed(key_inv)) {
 		draw_inventory(rpg);
+	} else {
+		rpg->inv.focused = NULL;
 	}
 }

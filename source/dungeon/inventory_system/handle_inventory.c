@@ -12,7 +12,6 @@ void clear_inventory_slot(item_t *slot)
 {
 	slot->id = 1;
 	slot->stacks = 1;
-	slot->selected = 0;
 	slot->sprite = NULL;
 }
 

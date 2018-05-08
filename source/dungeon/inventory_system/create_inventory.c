@@ -52,13 +52,17 @@ void create_inventory_var(ing_inv_t *inv)
 		add_inventory_slot(inv->first_slot);
 	inv->armor = create_first_slot();
 	inv->weapon = create_first_slot();
-	inv->sheet =
-	sfTexture_createFromFile(
+	inv->sheet = sfTexture_createFromFile(
 	"ressources/images/inventory/item_sheet.png", NULL);
 	inv->highlight = sfSprite_create();
 	sfSprite_setTexture(inv->highlight, inv->sheet, sfTrue);
-	sfSprite_setTextureRect(inv->highlight, create_rect(0, 0, 115, 115));
+	sfSprite_setTextureRect(inv->highlight, (sfIntRect){0, 0, 115, 115});
 	sfSprite_setColor(inv->highlight, (sfColor){255, 255, 255, 128});
+	inv->selected_texture = sfTexture_createFromFile(
+	"ressources/images/inventory/item_border.png", NULL);
+	inv->selected = sfSprite_create();
+	sfSprite_setTexture(inv->selected, inv->selected_texture, sfTrue);
+	sfSprite_setTextureRect(inv->selected, (sfIntRect){0, 0, 130, 130});
 }
 
 void create_ingame_inventory(st_rpg *rpg)
