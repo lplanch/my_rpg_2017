@@ -55,16 +55,16 @@ void draw_quests(st_rpg *s)
 
 void draw_all(st_rpg *s)
 {
-	sfSprite_setTextureRect(s->fi->character->sprite,
-	s->fi->character->rect);
-	sfSprite_setPosition(s->fi->character->sprite, s->fi->character->pos);
+	sfSprite_setTextureRect(s->player.obj->sprite,
+	s->player.obj->rect);
+	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	sfRenderWindow_clear(s->window, sfBlack);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite5, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite3, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite2, NULL);
 	draw_pnj(s);
-	sfRenderWindow_drawSprite(s->window, s->fi->character->sprite, NULL);
+	sfRenderWindow_drawSprite(s->window, s->player.obj->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite4, NULL);
 	draw_quests(s);
 	print_text_finish_quests(s);

@@ -150,6 +150,7 @@ FILES		=	source/main.c					\
 			source/game_map/create_music.c			\
 			source/game_map/mouse_in_object_quest_box.c	\
 			source/game_map/destroy.c			\
+			source/game_map/player_animation_village.c	\
 			source/game_map/move_infos.c			\
 			source/quests/create_difquests.c		\
 			source/quests/get_quests_rewards.c		\
@@ -197,6 +198,7 @@ FILES		=	source/main.c					\
 			source/dungeon/inventory_system/create_inventory.c		\
 			source/dungeon/inventory_system/create_fast_inventory.c		\
 			source/dungeon/inventory_system/draw_fast_inventory.c		\
+			source/dungeon/inventory_system/inv_handle_mouse.c		\
 			source/dungeon/npc/ennemies_dungeon.c				\
 
 SRCS		=	$(FILES)

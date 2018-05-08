@@ -36,12 +36,16 @@ typedef struct fast_inventory
 typedef struct ingame_inventory_manager
 {
 	sfSprite *sprite;
+	sfSprite *highlight;
+	sfSprite *selected;
+	sfTexture *selected_texture;
 	sfTexture *texture;
 	sfIntRect rect;
 	sfTexture *sheet;
 	unsigned int size;
 	unsigned int money;
 	item_t *first_slot;
+	item_t *focused;
 	item_t *armor;
 	item_t *weapon;
 } ing_inv_t;

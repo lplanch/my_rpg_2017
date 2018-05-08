@@ -17,17 +17,17 @@ sfIntRect set_texturerect_top(g_object *obj, int top)
 
 void wake_up(st_rpg *s)
 {
-	while (s->fi->character->pos.y != 8070) {
+	while (s->player.obj->pos.y != 8070) {
 		move_camera(s);
-		s->fi->character->pos.y -= 1;
-		sfSprite_setPosition(s->fi->character->sprite,
-		s->fi->character->pos);
+		s->player.obj->pos.y -= 1;
+		sfSprite_setPosition(s->player.obj->sprite,
+		s->player.obj->pos);
 		draw(s);
 	}
-	s->fi->character->pos = create_vector2f(7950, 8037);
-	sfSprite_setPosition(s->fi->character->sprite, s->fi->character->pos);
-	s->fi->character->rect =
-	set_texturerect_top(s->fi->character, 144);
+	s->player.obj->pos = create_vector2f(7950, 8037);
+	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
+	s->player.obj->rect =
+	set_texturerect_top(s->player.obj, 144);
 }
 
 void after_quests(st_rpg *s)
@@ -39,17 +39,17 @@ void after_quests(st_rpg *s)
 	set_texturerect_top(s->fi->pnj[2].pnj, 193);
 	s->fi->pnj[10].pnj->rect =
 	set_texturerect_top(s->fi->pnj[10].pnj, 193);
-	s->fi->character->rect =
-	set_texturerect_top(s->fi->character, 193);
+	s->player.obj->rect =
+	set_texturerect_top(s->player.obj, 193);
 	s->fi->pnj[7].pnj->pos = create_vector2f(8100, 7000);
 	s->fi->pnj[10].pnj->pos = create_vector2f(9230, 7000);
 	s->fi->pnj[2].pnj->pos = create_vector2f(7950, 7700);
-	s->fi->character->pos = create_vector2f(7950, 8160);
+	s->player.obj->pos = create_vector2f(7950, 8160);
 	sfSprite_setPosition(s->fi->pnj[7].pnj->sprite, s->fi->pnj[7].pnj->pos);
 	sfSprite_setPosition(s->fi->pnj[10].pnj->sprite,
 	s->fi->pnj[10].pnj->pos);
 	sfSprite_setPosition(s->fi->pnj[2].pnj->sprite, s->fi->pnj[2].pnj->pos);
-	sfSprite_setPosition(s->fi->character->sprite, s->fi->character->pos);
+	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	wake_up(s);
 	s->fi->return_value = 0;
 }
@@ -61,12 +61,12 @@ void quests_1(st_rpg *s)
 	dialog_box(s, "samy_beginning");
 	s->fi->dialog_box_isopen = 1;
 	move_pnj(s, 7947, 7374, 10);
-	s->fi->character->rect = set_texturerect_top(s->fi->character, 96);
+	s->player.obj->rect = set_texturerect_top(s->player.obj, 96);
 	dialog_box(s, "jade_beginning");
 	s->fi->dialog_box_isopen = 1;
 	move_pnj(s, 7888, 7502, 2);
 	s->fi->pnj[2].pnj->rect = set_texturerect_top(s->fi->pnj[2].pnj, 144);
-	s->fi->character->rect = set_texturerect_top(s->fi->character, 0);
+	s->player.obj->rect = set_texturerect_top(s->player.obj, 0);
 	dialog_box(s, "zac_beginning");
 	sfText_setString(s->fi->text_finish_quests->text,
 	"Quest 1 complete!");

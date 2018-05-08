@@ -182,7 +182,6 @@ typedef struct s_files
 	sfClock *clock;
 	sfView *view;
 	quests_t **quests;
-	g_object *character;
 	sfVector2f last_pos;
 	sfVector2i nbr_frame;
 	sfVector2f acceleration;
@@ -853,5 +852,9 @@ sfIntRect create_rect(int top, int left, int width, int height);
 sfVector2f create_vector2f(float x, float y);
 sfVector2i create_vector2i(int x, int y);
 void shader_move(st_rpg *s);
+void init_player_movement(st_rpg *rpg);
+void init_player_camera(st_rpg *rpg);
+void walk_animation(st_rpg *s);
+void player_animation_village(st_rpg *s);
 
 #endif

@@ -59,7 +59,7 @@ void destroy(st_rpg *s)
 	destroy_texture(s);
 	destroy_pnj(s);
 	destroy_quests(s);
-	destroy_object(s->fi->character);
+	destroy_object(s->player.obj);
 	destroy_object(s->fi->ID_character);
 	destroy_object(s->fi->loading);
 	sfClock_destroy(s->fi->time.clock);

@@ -10,7 +10,7 @@
 
 void clear_inventory_slot(item_t *slot)
 {
-	slot->id = 0;
+	slot->id = 1;
 	slot->stacks = 1;
 	slot->sprite = NULL;
 }
@@ -37,7 +37,6 @@ int search_item(item_t *first_slot, unsigned int id)
 		current = current->next;
 	}
 	return (-1);
-
 }
 
 int add_inventory_item(item_t *first_slot, unsigned int id)
