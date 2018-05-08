@@ -52,3 +52,15 @@ void create_rogue_autos(st_rpg *s)
 	s->f.rog.partp = create_particle("ressources/particles/shadowstep");
 	s->f.rog.partd = create_particle("ressources/particles/withdraw");
 }
+
+void create_rogue_sound(st_rpg *s)
+{
+	s->f.rog.l_click =
+	sfMusic_createFromFile("ressources/audio/sound/dag.ogg");
+	s->f.rog.flashbang =
+	sfMusic_createFromFile("ressources/audio/sound/flashbang.ogg");
+	s->f.rog.s_vanish =
+	sfMusic_createFromFile("ressources/audio/sound/vanish.ogg");
+	s->f.rog.s_ult =
+	sfMusic_createFromFile("ressources/audio/sound/rog_ult.ogg");
+}

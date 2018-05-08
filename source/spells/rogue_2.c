@@ -17,6 +17,7 @@ void rogue_withdraw(st_rpg *s)
 
 void rogue_zone(st_rpg *s)
 {
+	sfMusic_play(s->f.rog.s_vanish);
 	launch_aoe(s, s->f.rog.zone);
 	sfCircleShape_setPosition(s->f.rog.zone->circle,
 	create_vector2f(s->origin.x + 960 - sfCircleShape_getRadius(s
