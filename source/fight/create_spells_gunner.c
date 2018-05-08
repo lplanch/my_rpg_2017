@@ -45,8 +45,6 @@ void create_gunner_explosions(st_rpg *s)
 	s->f.gun.expbt = create_circle(50, 0, sfTransparent);
 	s->f.gun.partf = create_particle("ressources/particles/explosion");
 	s->f.gun.partg = create_particle("ressources/particles/gunpan");
-	s->f.gun.l_click =
-	sfMusic_createFromFile("ressources/audio/sound/unload.ogg");
 }
 
 void create_gunner_second(st_rpg *s)
@@ -89,4 +87,18 @@ void create_gunner_ults(st_rpg *s)
 	create_vector2i(9, 9), 0.002);
 	sfSprite_setScale(s->f.gun.boots->obj->sprite,
 	create_vector2f(1.8, 1.8));
+}
+
+void create_gunner_sound(st_rpg *s)
+{
+	s->f.gun.l_click =
+	sfMusic_createFromFile("ressources/audio/sound/unload.ogg");
+	s->f.gun.s_explo =
+	sfMusic_createFromFile("ressources/audio/sound/explosion.ogg");
+	s->f.gun.zap =
+	sfMusic_createFromFile("ressources/audio/sound/zap.ogg");
+	s->f.gun.h_noon =
+	sfMusic_createFromFile("ressources/audio/sound/h_noon.ogg");
+	s->f.gun.s_flam =
+	sfMusic_createFromFile("ressources/audio/sound/flam.ogg");
 }

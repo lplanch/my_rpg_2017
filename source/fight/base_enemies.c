@@ -19,6 +19,20 @@ void destroy_enemy(enemy_t *enemy)
 
 void update_life_bars_enemies(st_rpg *s, int i)
 {
+	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
+		if (s->f.mob[i]->stat->pva <= 0) {
+			s->f.mob[i]->stat->pva = s->f.mob[i]->stat->pvm;
+			s->f.mob[i]->alive = 0;
+			loot_enemy(s);
+		}
+		sfSprite_setPosition(s->f.mob[i]->life->sprite,
+		create_vector2f(s->f.mob[i]->obj->pos.x,
+		s->f.mob[i]->obj->pos.y - 20));
+		s->f.mob[i]->life->rect.width = s->f.mob[i]->obj->rect.width
+		*s->f.mob[i]->stat->pva / s->f.mob[i]->stat->pvm;
+		sfSprite_setTextureRect(s->f.mob[i]->life->sprite,
+		s->f.mob[i]->life->rect);
+	}
 	if (s->f.mob[i]->stat->pva <= 0) {
 		s->f.mob[i]->stat->pva = s->f.mob[i]->stat->pvm;
 		s->f.mob[i]->alive = 0;
@@ -33,14 +47,31 @@ void update_life_bars_enemies(st_rpg *s, int i)
 	s->f.mob[i]->life->rect);
 }
 
+void choose_display_enemies(st_rpg *s, int i)
+{
+	if (s->f.mob[i]->poison->count > 0) {
+		sfRenderWindow_drawSprite(s->window,
+		s->f.mob[i]->obj->sprite, &s->f.shade.poison.state);
+		sfRenderWindow_drawSprite(s->window,
+		s->f.mob[i]->life->sprite, &s->f.shade.poison.state);
+	} else if (s->f.mob[i]->stun->count > 0) {
+		sfRenderWindow_drawSprite(s->window,
+		s->f.mob[i]->obj->sprite, &s->f.shade.stun.state);
+		sfRenderWindow_drawSprite(s->window,
+		s->f.mob[i]->life->sprite, &s->f.shade.stun.state);
+	} else {
+		sfRenderWindow_drawSprite(s->window,
+		s->f.mob[i]->obj->sprite, NULL);
+		sfRenderWindow_drawSprite(s->window,
+		s->f.mob[i]->life->sprite, NULL);
+	}
+}
+
 void display_enemies(st_rpg *s)
 {
 	for (int i = 0; i < s->proc.pvar.enemy_nbr; i += 1) {
 		if (s->f.mob[i]->alive) {
-			sfRenderWindow_drawSprite(s->window,
-			s->f.mob[i]->obj->sprite, NULL);
-			sfRenderWindow_drawSprite(s->window,
-			s->f.mob[i]->life->sprite, NULL);
+			choose_display_enemies(s, i);
 		}
 	}
 }

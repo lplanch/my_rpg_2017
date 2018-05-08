@@ -44,9 +44,7 @@ void destroy_spells_gunner(st_rpg *s)
 	sfCircleShape_destroy(s->f.gun.expbt);
 	destroy_effect(s->f.gun.rush);
 	destroy_dash(s->f.gun.jump);
-	destroy_particle(s->f.gun.partf);
-	destroy_particle(s->f.gun.partg);
-	sfMusic_destroy(s->f.gun.l_click);
+	destroy_gunner_sound(s);
 }
 
 void destroy_spells_rogue(st_rpg *s)
@@ -89,4 +87,5 @@ void destroy_class(st_rpg *s)
 		destroy_spells_warrior};
 
 	(list[s->player.cdata.classe])(s);
+
 }
