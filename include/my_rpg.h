@@ -230,6 +230,7 @@ typedef struct custom_data
 	int sex;
 	char *name;
 	int classe;
+	int quest;
 } st_cdata;
 
 typedef struct struct_st_custom

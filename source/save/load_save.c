@@ -30,6 +30,7 @@ st_cdata load_cdata(char *path)
 	cdata.sex = str_to_int(get_next_line(fd));
 	cdata.classe = str_to_int(get_next_line(fd));
 	cdata.name = get_next_line(fd);
+	cdata.quest = str_to_int(get_next_line(fd));
 	close(fd);
 	return (cdata);
 }
