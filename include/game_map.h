@@ -74,6 +74,7 @@ int case_id(st_rpg *s, int nb_ID);
 int case_tp(st_rpg *s, int nb_ID);
 int check_colcircle(st_rpg *s, int nbr);
 int check_colsquare(st_rpg *s, int nbr);
+int check_colpnj(st_rpg *s, int nbr);
 void check_pnj(st_rpg *s);
 int collision_id(st_rpg *s);
 void create_dialog_box(st_rpg *s);

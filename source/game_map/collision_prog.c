@@ -8,6 +8,19 @@
 #include "my.h"
 #include "game_map.h"
 
+int collision_prog_2(st_rpg *s)
+{
+	int nbr = 0;
+
+	while (nbr < s->fi->max_pnj) {
+		if (check_colpnj(s, nbr) == 1) {
+			return (1);
+		} else
+			nbr++;
+	}
+	return (0);
+}
+
 int collision_prog(st_rpg *s)
 {
 	int nbr = 0;
@@ -25,7 +38,7 @@ int collision_prog(st_rpg *s)
 		} else
 			nbr++;
 	}
-	return (0);
+	return (collision_prog_2(s));
 }
 
 int collision(st_rpg *s)
