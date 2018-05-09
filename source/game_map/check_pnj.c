@@ -8,15 +8,6 @@
 #include "my.h"
 #include "game_map.h"
 
-void destroy_name_box(st_rpg *s)
-{
-	for (int i = 0; i != s->fi->size_name_pnj; i++) {
-		destroy_button(s->fi->name_head[i]);
-	}
-	free(s->fi->name_head);
-	s->fi->oui = 0;
-}
-
 int check_pnj_withpos_name(st_rpg *s, int j, int i)
 {
 	if (s->fi->pos[j].x < (s->fi->pnj[i].pnj->pos.x +

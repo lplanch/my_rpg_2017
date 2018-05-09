@@ -8,6 +8,24 @@
 #include "my.h"
 #include "game_map.h"
 
+void destroy_name_box(st_rpg *s)
+{
+	for (int i = 0; i != s->fi->size_name_pnj; i++) {
+		destroy_button(s->fi->name_head[i]);
+	}
+	free(s->fi->name_head);
+	destroy_object(s->fi->name_head_edge[0]);
+	destroy_object(s->fi->name_head_edge[1]);
+	s->fi->oui = 0;
+}
+
+void destroy_music(st_rpg *s)
+{
+	sfMusic_destroy(s->fi->music.music);
+	sfMusic_destroy(s->fi->samys_music.music);
+	sfMusic_destroy(s->fi->ponder_music.music);
+}
+
 void destroy_pnj(st_rpg *s)
 {
 	int i = 0;
@@ -65,7 +83,8 @@ void destroy(st_rpg *s)
 	destroy_object(s->fi->ID_character);
 	destroy_object(s->fi->loading);
 	sfClock_destroy(s->fi->time.clock);
+	sfClock_destroy(s->fi->pnj_clock.clock);
 	sfClock_destroy(s->fi->clock);
-	sfMusic_destroy(s->fi->music.music);
+	destroy_music(s);
 	free_all(s);
 }

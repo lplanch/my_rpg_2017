@@ -30,4 +30,6 @@ void background_with_text(st_rpg *s, char *path_sprite, char *text, char *font)
 		sfRenderWindow_display(s->window);
 		compter += 1;
 	}
+	destroy_object(background);
+	destroy_text(text_obj);
 }
