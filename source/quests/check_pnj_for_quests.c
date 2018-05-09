@@ -32,7 +32,7 @@ void print_text_finish_quests(st_rpg *s)
 		sfText_setPosition(s->fi->text_finish_quests->text,
 		create_vector2f(posx, posy));
 		sfRenderWindow_drawText(s->window,
-		s->fi->text_finish_quests->text, NULL);
+		s->fi->text_finish_quests->text, &s->fi->shader.state);
 		s->fi->var_for_quests -= 1;
 	}
 }

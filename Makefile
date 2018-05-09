@@ -129,6 +129,7 @@ FILES		=	source/main.c					\
 			source/game_map/setup2.c			\
 			source/game_map/remalloc_tab.c			\
 			source/game_map/tileset.c			\
+			source/game_map/set_shader_map.c		\
 			source/game_map/parsing_tab_to.c		\
 			source/game_map/set_pixeltoimage.c		\
 			source/game_map/parsing.c			\

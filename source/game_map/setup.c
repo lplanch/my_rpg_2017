@@ -73,6 +73,7 @@ void setup_quests_box(st_rpg *s)
 	sfFont_createFromFile("ressources/fonts/quests2.otf");
 	sfText_setFont(s->fi->quests_box.quests_des->text->text,
 	s->fi->quests_box.quests_des->text->font);
+	set_shader_map(s);
 }
 
 void character_setup(st_rpg *s)
