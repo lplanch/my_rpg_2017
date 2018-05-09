@@ -157,7 +157,6 @@ FILES		=	source/main.c					\
 			source/game_map/destroy.c			\
 			source/game_map/player_animation_village.c	\
 			source/game_map/move_infos.c			\
-<<<<<<< HEAD
 			source/game_map/name_top_head.c			\
 			source/quests/create_difquests.c		\
 			source/quests/get_quests_rewards.c		\
@@ -168,17 +167,6 @@ FILES		=	source/main.c					\
 			source/quests/check_pnj_for_quests.c		\
 			source/scenes/night.c				\
 			source/scenes/background_with_text.c		\
-=======
-			source/game_map/name_top_head.c					\
-			source/quests/create_difquests.c				\
-			source/quests/get_quests_rewards.c				\
-			source/quests/get_all_quests.c					\
-			source/quests/check_quests.c					\
-			source/quests/get_quests.c					\
-			source/quests/quests.c						\
-			source/quests/check_pnj_for_quests.c				\
-			source/scenes/night.c						\
->>>>>>> 76f0982e5df8d24e4eba0bc352e68a0a6ffcafed
 			source/dungeon/main_proc.c					\
 			source/dungeon/update_origin/icons.c				\
 			source/dungeon/update_origin/life_bar.c				\
