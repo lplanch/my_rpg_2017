@@ -27,6 +27,7 @@ int check_pnj_withpos_name(st_rpg *s, int j, int i)
 	&& (s->fi->pos[j].y > s->fi->pnj[i].pnj->pos.y + 66)) {
 		create_box_name(s, i);
 		s->fi->oui = 1;
+		s->fi->pnj_shade = i;
 		return (1);
 	} else {
 		if (s->fi->oui == 1)

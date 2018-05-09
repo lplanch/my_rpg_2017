@@ -29,6 +29,13 @@ typedef struct struct_music
 	int volume;
 } st_music;
 
+typedef struct s_shader
+{
+	sfShader *shader;
+	sfRenderStates state;
+	st_time time;
+} shader_t;
+
 typedef struct struct_button
 {
 	t_object *text;
@@ -164,6 +171,8 @@ typedef struct s_colcircle
 
 typedef struct s_files
 {
+	shader_t shader;
+	shader_t shade_white;
 	int direction;
 	int nbr_colcircle;
 	int nbr_colsquare;
@@ -179,6 +188,7 @@ typedef struct s_files
 	int relief;
 	int return_value;
 	float var_for_quests;
+	int pnj_shade;
 	int oui;
 	int size_name_pnj;
 	int num_dungeon;
@@ -210,6 +220,7 @@ typedef struct s_files
 	clockz_t pnj_clock;
 	st_music music;
 	st_music samys_music;
+	st_music ponder_music;
 } files_t;
 
 typedef struct struct_animation
@@ -462,13 +473,6 @@ typedef struct enemy
 	stat_t *stat;
 } enemy_t;
 
-typedef struct s_shader
-{
-	sfShader *shader;
-	sfRenderStates state;
-	st_time time;
-} shader_t;
-
 typedef struct shader_fight
 {
 	shader_t vanish;
@@ -613,6 +617,7 @@ typedef struct struct_rpg
 
 void enemies_animation(st_rpg *s);
 void enemy_animation(st_rpg *s, int i);
+void set_shader_map(st_rpg *s);
 void destroy_rogue_sound(st_rpg *s);
 void create_rogue_sound(st_rpg *s);
 void destroy_gunner_sound(st_rpg *s);
