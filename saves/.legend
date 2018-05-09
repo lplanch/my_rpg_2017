@@ -14,6 +14,7 @@ second one is the custom data :
 sex (0-1)
 class (0-3)
 name (character string)
+quests (0-***)
 
 third one is the skill tree :
 lockstate of passive1 (0-1)
@@ -30,3 +31,4 @@ Chosen passive number (0-2)
 Chosen spell number (0-2)
 Chosen spell number (0-1)
 Chosen spell number (0-1)
+Skill points

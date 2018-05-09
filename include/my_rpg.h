@@ -619,6 +619,7 @@ typedef struct struct_rpg
 
 void create_archer_sound(st_rpg *s);
 void destroy_archer_sound(st_rpg *s);
+float get_angle_enemy(st_rpg *s, int i);
 void enemies_animation(st_rpg *s);
 void enemy_animation(st_rpg *s, int i);
 void set_shader_map(st_rpg *s);
