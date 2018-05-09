@@ -12,6 +12,7 @@ void create_spells_archer(st_rpg *s)
 {
 	create_archer_passive(s);
 	create_archer_projectiles(s);
+	create_archer_sound(s);
 }
 
 void create_spells_gunner(st_rpg *s)

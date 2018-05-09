@@ -24,6 +24,7 @@ void archer_salve(st_rpg *s)
 
 void archer_leap(st_rpg *s)
 {
+	sfMusic_play(s->f.arc.s_leap);
 	launch_dash(s, s->f.arc.leap);
 }
 

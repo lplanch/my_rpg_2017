@@ -308,6 +308,8 @@ typedef struct struct_archer_spells
 	st_time kal;
 	particle_t *parta[20];
 	sfMusic *l_click;
+	sfMusic *s_leap;
+	sfMusic *s_arrow_rain;
 } archer_t;
 
 typedef struct struct_gunner_spells
@@ -615,6 +617,8 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void create_archer_sound(st_rpg *s);
+void destroy_archer_sound(st_rpg *s);
 void enemies_animation(st_rpg *s);
 void enemy_animation(st_rpg *s, int i);
 void set_shader_map(st_rpg *s);

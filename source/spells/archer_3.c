@@ -10,6 +10,7 @@
 
 void archer_barrage(st_rpg *s)
 {
+	sfMusic_play(s->f.arc.s_arrow_rain);
 	launch_aoe(s, s->f.arc.barrage);
 	stop_player(s);
 	s->f.cast = 2;

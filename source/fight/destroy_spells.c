@@ -20,7 +20,7 @@ void destroy_spells_archer(st_rpg *s)
 	destroy_aoe(s->f.arc.heal);
 	destroy_effect(s->f.arc.leaf);
 	destroy_dash(s->f.arc.leap);
-	sfMusic_destroy(s->f.arc.l_click);
+	destroy_archer_sound(s);
 }
 
 void destroy_spells_gunner(st_rpg *s)

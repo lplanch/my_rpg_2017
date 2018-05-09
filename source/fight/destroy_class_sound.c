@@ -26,3 +26,10 @@ void destroy_rogue_sound(st_rpg *s)
 	sfMusic_destroy(s->f.rog.flashbang);
 	sfMusic_destroy(s->f.rog.s_ult);
 }
+
+void destroy_archer_sound(st_rpg *s)
+{
+	sfMusic_destroy(s->f.arc.l_click);
+	sfMusic_destroy(s->f.arc.s_leap);
+	sfMusic_destroy(s->f.arc.s_arrow_rain);
+}
