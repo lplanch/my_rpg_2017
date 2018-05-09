@@ -6,9 +6,9 @@
 */
 
 #include "my.h"
-#include "rpg.h"
+#include "my_rpg.h"
 
 void create_items_list(st_rpg *rpg)
 {
-	
+
 }
