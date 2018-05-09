@@ -13,6 +13,7 @@ void destroy_main_fight(st_rpg *s)
 	for (int i = 0; i != 3; i += 1)
 		destroy_object(s->f.locks[i]);
 	sfClock_destroy(s->f.proc.clock);
+	sfClock_destroy(s->f.ent.clock);
 }
 
 void create_main_fight(st_rpg *s)
@@ -20,6 +21,7 @@ void create_main_fight(st_rpg *s)
 	s->f.cast = 0;
 	s->f.panim = 0;
 	s->f.proc = create_st_time();
+	s->f.ent = create_st_time();
 	for (int i = 0; i != 4; i += 1)
 		s->f.cdcount[i] = 0;
 	get_cooldowns(s);

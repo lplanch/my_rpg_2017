@@ -455,6 +455,8 @@ typedef struct fight_bars
 
 typedef struct enemy
 {
+	int animcol;
+	int animsens;
 	effect_t *poison;
 	effect_t *stun;
 	int aggro;
@@ -484,6 +486,7 @@ typedef struct shader_fight
 
 typedef struct main_fight
 {
+	st_time ent;
 	enemy_t **mob;
 	st_button *icons[4];
 	g_object *cd[4];
@@ -612,6 +615,8 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void enemies_animation(st_rpg *s);
+void enemy_animation(st_rpg *s, int i);
 void set_shader_map(st_rpg *s);
 void destroy_rogue_sound(st_rpg *s);
 void create_rogue_sound(st_rpg *s);

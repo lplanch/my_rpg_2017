@@ -14,6 +14,8 @@ void generate_enemy_stat(enemy_t *enemy)
 	enemy->stun = create_effect("stun", 0, 0);
 	enemy->poison = create_effect("poison", 0, 0);
 	enemy->cd = 0;
+	enemy->animcol = 1;
+	enemy->animsens = 1;
 	enemy->aggro = 0;
 	enemy->cdcount = 0;
 	enemy->alive = 1;

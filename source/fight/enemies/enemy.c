@@ -20,6 +20,7 @@ void update_enemies(st_rpg *s)
 		update_life_bars_enemies(s, i);
 		set_aggro_enemies(s, i);
 	}
+	enemies_animation(s);
 }
 
 void generate_enemies(st_rpg *s)
