@@ -27,10 +27,8 @@ void movement_enemies(st_rpg *s, int i, float dt)
 	s->f.mob[i]->ratios = get_ratios(get_angle_enemy(s, i));
 	if (s->f.mob[i]->alive && s->f.mob[i]->cast != 2 &&
 		s->f.mob[i]->aggro) {
-		s->f.mob[i]->obj->pos.x += s->f.mob[i]->ratios.x *
-		s->f.mob[i]->stat->vit * 13 * dt;
-		s->f.mob[i]->obj->pos.y += s->f.mob[i]->ratios.y *
-		s->f.mob[i]->stat->vit * 13 * dt;
+		pathfinding(s, dt, i);
+		verify_collide_map_enemies(s, dt, i);
 		sfSprite_setPosition(s->f.mob[i]->obj->sprite,
 		s->f.mob[i]->obj->pos);
 		sfSprite_setPosition(s->f.mob[i]->life->sprite,

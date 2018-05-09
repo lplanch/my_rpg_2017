@@ -615,6 +615,8 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void pathfinding(st_rpg *s, float dt, int i);
+void verify_collide_map_enemies(st_rpg *rpg, float dt, int i);
 float get_angle_enemy(st_rpg *s, int i);
 void enemies_animation(st_rpg *s);
 void enemy_animation(st_rpg *s, int i);

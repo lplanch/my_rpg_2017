@@ -19,7 +19,6 @@ void walk_animation_enemy(st_rpg *s, int i)
 
 int choose_orientation_enemy(st_rpg *s, int i)
 {
-	s->f.mob[i]->ratios = get_ratios(get_angle_enemy(s, i));
 	if (abs(s->f.mob[i]->ratios.x * 100) >
 	abs(s->f.mob[i]->ratios.y * 100)) {
 		if (s->f.mob[i]->ratios.x > 0)

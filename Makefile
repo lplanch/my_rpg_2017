@@ -69,6 +69,7 @@ FILES		=	source/main.c					\
 			source/fight/enemies/enemy.c			\
 			source/fight/enemies/aggro.c			\
 			source/fight/enemies/enemy_effects.c		\
+			source/fight/enemies/collisions.c		\
 			source/fight/enemies/loot_enemy.c		\
 			source/fight/enemies/animation.c		\
 			source/fight/enemies/generate_enemy.c		\
