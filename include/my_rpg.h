@@ -192,6 +192,7 @@ typedef struct s_files
 	int oui;
 	int size_name_pnj;
 	int num_dungeon;
+	int map_status;
 	st_button **name_head;
 	g_object *name_head_edge[2];
 	sfClock *clock;

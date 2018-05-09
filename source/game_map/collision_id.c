@@ -84,7 +84,7 @@ int case_tp(st_rpg *s, int nb_ID)
 		return (1);
 	case 92:
 		s->player.obj->pos.x = 5847;
-		s->player.obj->pos.y = 6969;
+		s->player.obj->pos.y = 7020;
 		s->player.obj->rect.top = 0;
 		sfSprite_setPosition(s->player.obj->sprite,
 		s->player.obj->pos);
@@ -92,7 +92,7 @@ int case_tp(st_rpg *s, int nb_ID)
 		return (1);
 	case 120:
 		s->player.obj->pos.x = 5116;
-		s->player.obj->pos.y = 6969;
+		s->player.obj->pos.y = 7020;
 		s->player.obj->rect.top = 0;
 		sfSprite_setPosition(s->player.obj->sprite,
 		s->player.obj->pos);
@@ -100,7 +100,7 @@ int case_tp(st_rpg *s, int nb_ID)
 		return (1);
 	case 122:
 		s->player.obj->pos.x = 4472;
-		s->player.obj->pos.y = 6969;
+		s->player.obj->pos.y = 7020;
 		s->player.obj->rect.top = 0;
 		sfSprite_setPosition(s->player.obj->sprite,
 		s->player.obj->pos);
