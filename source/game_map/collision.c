@@ -44,6 +44,25 @@ int collision_id(st_rpg *s)
 	return (0);
 }
 
+int check_colpnj(st_rpg *s, int nbr)
+{
+	int i = 0;
+
+	while (i != 10) {
+		if (s->fi->pos[i].x < (s->fi->pnj[nbr].pnj->pos.x +
+		s->fi->pnj[nbr].pnj->rect.width)
+		&& (s->fi->pos[i].x > s->fi->pnj[nbr].pnj->pos.x)
+		&& (s->fi->pos[i].y < s->fi->pnj[nbr].pnj->pos.y +
+		s->fi->pnj[nbr].pnj->rect.height + 50)
+		&& (s->fi->pos[i].y > s->fi->pnj[nbr].pnj->pos.y)) {
+			return (1);
+		} else {
+			i++;
+		}
+	}
+	return (0);
+}
+
 int check_colsquare(st_rpg *s, int nbr)
 {
 	int i = 0;
