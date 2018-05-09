@@ -87,14 +87,25 @@ int event_pause_menu(st_rpg *s)
 	return (0);
 }
 
+void set_origin_map(st_rpg *s)
+{
+	if (!s->fi->map_status) {
+		s->origin.x = s->fi->camera.x - 960;
+		s->origin.y = s->fi->camera.y - 540;
+	}
+}
+
 int pause_main(st_rpg *s)
 {
+	set_origin_map(s);
 	generate_pause_menu(s);
 	while (sfRenderWindow_isOpen(s->window)) {
 		if (event_pause_menu(s)) {
 			return (s->returnv);
-		}
-		display_dungeon(s);
+		} if (s->fi->map_status)
+			display_dungeon(s);
+		else
+			draw_all(s);
 		set_colors_pause(s);
 		update_cursor_pos_pause(s);
 		which_display(s);

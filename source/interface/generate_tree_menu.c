@@ -69,6 +69,11 @@ void generate_tree_menu_pas(st_rpg *s)
 	create_vector2f(s->origin.x + 1720, s->origin.y + 45),
 	"ressources/fonts/button.ttf");
 	free(temp);
+
+}
+
+void generate_tree_menu_select(st_rpg *s)
+{
 	for (int i = 0; i != 4; i += 1) {
 		s->treem.select[i] =
 		create_object("ressources/images/select.png",
@@ -81,6 +86,7 @@ void generate_tree_menu(st_rpg *s)
 	int x = s->origin.x + 1510;
 	int y = s->origin.y;
 
+	generate_tree_menu_select(s);
 	generate_tree_menu_pas(s);
 	generate_tree_menu_spell(s);
 	generate_tree_menu_mouse(s);

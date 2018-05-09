@@ -46,6 +46,10 @@ int event_game(st_rpg *s)
 		if (event.type == sfEvtClosed) {
 			destroy(s);
 			return (1);
+		} if (event.type == sfEvtKeyPressed &&
+		sfKeyboard_isKeyPressed(sfKeyEscape)) {
+			stop_player(s);
+			return (pause_main(s));
 		} if (event.type == sfEvtKeyPressed && event.key.code ==
 		sfKeyReturn) {
 			check_pnj(s);
