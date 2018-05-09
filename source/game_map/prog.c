@@ -48,8 +48,6 @@ int prog(st_rpg *s)
 			return (1);
 		}
 		game_update(s);
-		//printf("x= %f\n", s->player.obj->pos.x);
-		//printf("y= %f\n", s->player.obj->pos.y);
 	}
 	return (0);
 }
