@@ -28,7 +28,7 @@ void print_text_finish_quests(st_rpg *s)
 
 	if (s->fi->quests[0]->status_text == 1 && s->fi->var_for_quests != 0) {
 		sfText_setColor(s->fi->text_finish_quests->text,
-		(sfColor){255, 255, 255, s->fi->var_for_quests});
+		(sfColor){0, 255, 255, s->fi->var_for_quests});
 		sfText_setPosition(s->fi->text_finish_quests->text,
 		create_vector2f(posx, posy));
 		sfRenderWindow_drawText(s->window,
@@ -55,7 +55,5 @@ void check_pnj_for_quests(st_rpg *s)
 	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "Samy") == 0) {
 		stop_player(s);
 		quests_3(s);
-		after_quests(s);
-		start_quests_4(s);
 	}
 }

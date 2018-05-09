@@ -77,7 +77,7 @@ void check_pnj(st_rpg *s);
 int collision_id(st_rpg *s);
 void create_dialog_box(st_rpg *s);
 void create_choice_box(st_rpg *s, int compter, char **tab);
-void create_name_box(st_rpg *s);
+void create_name_box(st_rpg *s, char *name);
 
 int **get_layer(char *name, st_rpg *s);
 void create_map(st_rpg *s);
@@ -88,7 +88,7 @@ void free_tab(char **tab, int y);
 void free_all(st_rpg *s);
 void free_tab_withnull(char **tab);
 
-void dialog_box(st_rpg *s, char *deux);
+void dialog_box(st_rpg *s, char *deux, char *name);
 int choice_box(st_rpg *s, int fd);
 void choice_box_quit(st_rpg *s, char **tab, char *str, int compter);
 int choice_box_check_quit(st_rpg *s, char **tab, char *str, int compter);

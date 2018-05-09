@@ -35,7 +35,7 @@ void create_dialog_box(st_rpg *s)
 	s->fi->pnj[s->fi->nb_pnj].dialog_box->text->font);
 }
 
-void create_name_box(st_rpg *s)
+void create_name_box(st_rpg *s, char *name)
 {
 	float pos_x = s->fi->camera.x - 440;
 	float pos_y = s->fi->camera.y + 200;
@@ -43,7 +43,7 @@ void create_name_box(st_rpg *s)
 	float pos_text_y = pos_y + 26;
 
 	s->fi->pnj[s->fi->nb_pnj].name_box =
-	create_button(s->fi->pnj[s->fi->nb_pnj].name,
+	create_button(name,
 	create_object("ressources/images/dialog_box/name_box_obj.png",
 	create_vector2f(pos_x, pos_y), create_rect(0, 0, 162, 76), 0),
 	sfWhite, 20);
