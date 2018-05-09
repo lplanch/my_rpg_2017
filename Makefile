@@ -101,7 +101,7 @@ FILES		=	source/main.c					\
 			source/spells/update_rogue_1.c			\
 			source/spells/update_warrior_1.c		\
 			source/interface/life_bar.c			\
-			source/interface/main_particles.c			\
+			source/interface/main_particles.c		\
 			source/interface/status_menu.c			\
 			source/interface/status_info.c			\
 			source/interface/tree_menu.c			\
@@ -156,15 +156,15 @@ FILES		=	source/main.c					\
 			source/game_map/destroy.c			\
 			source/game_map/player_animation_village.c	\
 			source/game_map/move_infos.c			\
-			source/game_map/name_top_head.c			\
-			source/quests/create_difquests.c		\
-			source/quests/get_quests_rewards.c		\
-			source/quests/get_all_quests.c			\
-			source/quests/check_quests.c			\
-			source/quests/get_quests.c			\
-			source/quests/quests.c				\
-			source/quests/check_pnj_for_quests.c		\
-			source/scenes/night.c				\
+			source/game_map/name_top_head.c					\
+			source/quests/create_difquests.c				\
+			source/quests/get_quests_rewards.c				\
+			source/quests/get_all_quests.c					\
+			source/quests/check_quests.c					\
+			source/quests/get_quests.c					\
+			source/quests/quests.c						\
+			source/quests/check_pnj_for_quests.c				\
+			source/scenes/night.c						\
 			source/dungeon/main_proc.c					\
 			source/dungeon/update_origin/icons.c				\
 			source/dungeon/update_origin/life_bar.c				\
@@ -204,6 +204,8 @@ FILES		=	source/main.c					\
 			source/dungeon/inventory_system/create_fast_inventory.c		\
 			source/dungeon/inventory_system/draw_fast_inventory.c		\
 			source/dungeon/inventory_system/inv_handle_mouse.c		\
+			source/dungeon/inventory_system/inventory_items_handling.c	\
+			source/dungeon/ground_item_system/create_items_on_ground.c	\
 			source/dungeon/npc/ennemies_dungeon.c				\
 
 SRCS		=	$(FILES)
