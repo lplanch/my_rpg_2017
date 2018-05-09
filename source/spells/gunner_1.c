@@ -26,7 +26,7 @@ void gunner_grenade(st_rpg *s)
 
 	s->f.gun.grenade->range = hypot(abs(mx - 960),
 	abs(my - 540));
-	s->f.gun.grenade->obj->speed = s->f.gun.grenade->range / 50;
+	s->f.gun.grenade->obj->speed = s->f.gun.grenade->range;
 	launch_projectile(s, s->f.gun.grenade, get_angle(s));
 	sfClock_restart(s->f.gun.explosion->t.clock);
 }
