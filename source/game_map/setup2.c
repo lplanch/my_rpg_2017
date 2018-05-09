@@ -14,6 +14,8 @@ void setup_music(st_rpg *s)
 	create_music(50, "ressources/audio/Alaria city.ogg");
 	s->fi->samys_music.music =
 	create_music(50, "ressources/audio/Samy's Theme.ogg");
+	s->fi->ponder_music.music =
+	create_music(50, "ressources/audio/ponder.ogg");
 }
 
 void setup_col(st_rpg *s)

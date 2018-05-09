@@ -210,6 +210,7 @@ typedef struct s_files
 	clockz_t pnj_clock;
 	st_music music;
 	st_music samys_music;
+	st_music ponder_music;
 } files_t;
 
 typedef struct struct_animation

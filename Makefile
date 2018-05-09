@@ -165,6 +165,7 @@ FILES		=	source/main.c					\
 			source/quests/quests.c				\
 			source/quests/check_pnj_for_quests.c		\
 			source/scenes/night.c				\
+			source/scenes/background_with_text.c		\
 			source/dungeon/main_proc.c					\
 			source/dungeon/update_origin/icons.c				\
 			source/dungeon/update_origin/life_bar.c				\

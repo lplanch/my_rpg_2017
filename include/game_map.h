@@ -149,6 +149,8 @@ void check_pnj_name(st_rpg *s);
 
 sfIntRect set_texturerect_top(g_object *obj, int top);
 
+void background_with_text(st_rpg *s, char *path_sprite, char *text, char *font);
+
 #ifndef MY_COOK_
 #define MY_COOK_
 
