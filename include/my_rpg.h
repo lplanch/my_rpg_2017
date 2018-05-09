@@ -29,6 +29,13 @@ typedef struct struct_music
 	int volume;
 } st_music;
 
+typedef struct s_shader
+{
+	sfShader *shader;
+	sfRenderStates state;
+	st_time time;
+} shader_t;
+
 typedef struct struct_button
 {
 	t_object *text;
@@ -164,6 +171,7 @@ typedef struct s_colcircle
 
 typedef struct s_files
 {
+	shader_t shader;
 	int direction;
 	int nbr_colcircle;
 	int nbr_colsquare;
@@ -460,13 +468,6 @@ typedef struct enemy
 	stat_t *stat;
 } enemy_t;
 
-typedef struct s_shader
-{
-	sfShader *shader;
-	sfRenderStates state;
-	st_time time;
-} shader_t;
-
 typedef struct shader_fight
 {
 	shader_t vanish;
@@ -608,6 +609,7 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void set_shader_map(st_rpg *s);
 void destroy_rogue_sound(st_rpg *s);
 void create_rogue_sound(st_rpg *s);
 void destroy_gunner_sound(st_rpg *s);

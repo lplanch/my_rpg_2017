@@ -45,6 +45,7 @@ void destroy_quests(st_rpg *s)
 	}
 	destroy_button(s->fi->quests_box.quests_box);
 	destroy_button(s->fi->quests_box.quests_des);
+	destroy_shader(&s->fi->shader);
 }
 
 void destroy(st_rpg *s)
