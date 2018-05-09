@@ -172,6 +172,7 @@ typedef struct s_colcircle
 typedef struct s_files
 {
 	shader_t shader;
+	shader_t shade_white;
 	int direction;
 	int nbr_colcircle;
 	int nbr_colsquare;
@@ -187,6 +188,7 @@ typedef struct s_files
 	int relief;
 	int return_value;
 	float var_for_quests;
+	int pnj_shade;
 	int oui;
 	int size_name_pnj;
 	int num_dungeon;

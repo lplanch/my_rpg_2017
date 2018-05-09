@@ -32,9 +32,9 @@ void create_leave(proc_t *proc)
 {
 	int room = rand() % count_rooms(proc->proom);
 	int posx = proc->proom[room].pos1[0] +
-	(rand() % (proc->proom[room].height - 4)) + 2;
+	(rand() % (proc->proom[room].height - 5)) + 3;
 	int posy = proc->proom[room].pos1[1]+
-	(rand() % (proc->proom[room].height - 4)) + 2;
+	(rand() % (proc->proom[room].height - 5)) + 3;
 
 	if (proc->map[posy][posx] == 'E')
 		proc->map[posy][posx] = 'B';

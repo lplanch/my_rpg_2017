@@ -136,8 +136,13 @@ void remove_inventory_slot(item_t *first_slot);
 void create_fast_inventory_screen(ing_finv_t *finv);
 void verify_inventory(st_rpg *rpg);
 void verify_fast_inventory(st_rpg *rpg);
-
+int search_item(item_t *first_slot, unsigned int id);
+int add_inventory_item(item_t *first_slot, unsigned int id);
+void use_inventory_item(st_rpg *rpg, item_t *current);
 void verify_mouse_inv_events(st_rpg *rpg);
+
+//ITEM INSIDE DUNGEONS
+void create_items_list(st_rpg *rpg);
 
 //NPC
 //ENNEMIES

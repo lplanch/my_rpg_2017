@@ -39,25 +39,6 @@ int search_item(item_t *first_slot, unsigned int id)
 	return (-1);
 }
 
-int add_inventory_item(item_t *first_slot, unsigned int id)
-{
-	item_t *current;
-	int pos = search_item(first_slot, id);
-
-	if (pos == -1) {
-		while (current != NULL && current->sprite != NULL)
-			current = current->next;
-		if (current == NULL)
-			return (0);
-		current->stacks += 1;
-	} else {
-		while ((signed)current->pos < pos)
-			current = current->next;
-		current->stacks += 1;
-	}
-	return (1);
-}
-
 void remove_inventory_slot(item_t *first_slot)
 {
 	item_t *conductor = first_slot;

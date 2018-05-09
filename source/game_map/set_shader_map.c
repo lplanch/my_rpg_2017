@@ -10,5 +10,6 @@
 void set_shader_map(st_rpg *s)
 {
 	s->fi->shader = create_shader("shader/black.frag", 0);
+	s->fi->shade_white = create_shader("shader/white.frag", 0);
 
 }

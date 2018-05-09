@@ -110,7 +110,7 @@ void quests_3(st_rpg *s)
 	after_quests(s);
 	background_with_text(s,
 	"ressources/images/scenes/background_zac_missing.png",
-	"Zac is missing", "ressources/fonts/quests2.otf");
+	"Zach is missing", "ressources/fonts/quests2.otf");
 	start_quests_4(s);
 }
 

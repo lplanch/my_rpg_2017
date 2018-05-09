@@ -21,6 +21,28 @@ void reset_pos_friends(st_rpg *s)
 	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
 }
 
+void print_text_finish_quests2(st_rpg *s, int posx, int posy)
+{
+	sfText_setColor(s->fi->text_finish_quests->text,
+	(sfColor){0, 0, 0, s->fi->var_for_quests});
+	sfText_setPosition(s->fi->text_finish_quests->text,
+	create_vector2f(posx, posy - 3));
+	sfRenderWindow_drawText(s->window,
+	s->fi->text_finish_quests->text, NULL);
+	sfText_setColor(s->fi->text_finish_quests->text,
+	(sfColor){0, 0, 0, s->fi->var_for_quests});
+	sfText_setPosition(s->fi->text_finish_quests->text,
+	create_vector2f(posx, posy + 3));
+	sfRenderWindow_drawText(s->window,
+	s->fi->text_finish_quests->text, NULL);
+	sfText_setColor(s->fi->text_finish_quests->text,
+	(sfColor){255, 255, 255, s->fi->var_for_quests});
+	sfText_setPosition(s->fi->text_finish_quests->text,
+	create_vector2f(posx, posy));
+	sfRenderWindow_drawText(s->window,
+	s->fi->text_finish_quests->text, NULL);
+}
+
 void print_text_finish_quests(st_rpg *s)
 {
 	float posx = s->fi->camera.x - 200;
@@ -28,11 +50,18 @@ void print_text_finish_quests(st_rpg *s)
 
 	if (s->fi->quests[0]->status_text == 1 && s->fi->var_for_quests != 0) {
 		sfText_setColor(s->fi->text_finish_quests->text,
-		(sfColor){0, 255, 255, s->fi->var_for_quests});
+		(sfColor){0, 0, 0, s->fi->var_for_quests});
 		sfText_setPosition(s->fi->text_finish_quests->text,
-		create_vector2f(posx, posy));
+		create_vector2f(posx - 3, posy));
 		sfRenderWindow_drawText(s->window,
-		s->fi->text_finish_quests->text, &s->fi->shader.state);
+		s->fi->text_finish_quests->text, NULL);
+		sfText_setColor(s->fi->text_finish_quests->text,
+		(sfColor){0, 0, 0, s->fi->var_for_quests});
+		sfText_setPosition(s->fi->text_finish_quests->text,
+		create_vector2f(posx + 3, posy));
+		sfRenderWindow_drawText(s->window,
+		s->fi->text_finish_quests->text, NULL);
+		print_text_finish_quests2(s, posx, posy);
 		s->fi->var_for_quests -= 1;
 	}
 }

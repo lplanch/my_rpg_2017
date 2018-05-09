@@ -33,6 +33,10 @@ void draw_pnj(st_rpg *s)
 	int nbpnj = 14;
 
 	while (i != nbpnj) {
+		if (s->fi->oui == 1 && i == s->fi->pnj_shade) {
+			sfRenderWindow_drawSprite(s->window,
+			s->fi->pnj[i].pnj->sprite, &s->fi->shade_white.state);	
+		}
 		sfRenderWindow_drawSprite(s->window,
 		s->fi->pnj[i].pnj->sprite, NULL);
 		i++;
