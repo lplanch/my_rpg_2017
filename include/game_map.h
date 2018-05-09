@@ -24,6 +24,7 @@ static const float speed = 3;
 int game(st_rpg *s);
 void destroy(st_rpg *s);
 void destroy_dialog_box(st_rpg *s);
+void destroy_name_box(st_rpg *s);
 char **remalloc_tab(char **tab, char *str);
 
 void check_pos_camera_x(st_rpg *s);

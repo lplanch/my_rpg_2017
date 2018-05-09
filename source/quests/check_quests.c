@@ -10,6 +10,7 @@
 
 void set_all_before_quests(st_rpg *s, int i)
 {
+	i--;
 	while (i >= 0) {
 		s->fi->quests[i]->status = 3;
 		i--;
@@ -28,7 +29,7 @@ void check_status_quests(st_rpg *s)
 	for (int i = 0; s->fi->quests[i] != NULL; i++) {
 		if (s->fi->quests[i]->status == 2)
 			check_status_for_finish_quests(s, i);
-		if (s->fi->quests[i]->status == 3 &&
+		if (s->fi->quests[i]->status == 3 ||
 		s->fi->quests[i]->status == 1)
 			set_all_before_quests(s, i);
 	}
