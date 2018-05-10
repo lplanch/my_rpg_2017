@@ -593,6 +593,12 @@ typedef struct particle_all
 	particle_t *lvlup;
 } all_part_t;
 
+typedef struct cutscene
+{
+	g_object *map;
+	g_object *zachd;
+} ct_cutscene;
+
 typedef struct struct_rpg
 {
 	all_part_t part;
@@ -607,6 +613,7 @@ typedef struct struct_rpg
 	pause_menu_t pausm;
 	sfVector2f origin;
 	g_object *loading;
+	ct_cutscene cut;
 	int returnv;
 	st_custom cust;
 	st_menu mainm;

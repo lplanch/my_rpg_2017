@@ -141,8 +141,7 @@ void quests_1(st_rpg *s);
 void quests_3(st_rpg *s);
 void start_quests_4(st_rpg *s);
 void after_quests(st_rpg *s);
-
-void night_scene(st_rpg *s);
+void wake_up(st_rpg *s);
 
 void setup_music(st_rpg *s);
 
@@ -151,7 +150,13 @@ void check_pnj_name(st_rpg *s);
 
 sfIntRect set_texturerect_top(g_object *obj, int top);
 
+void night_scene(st_rpg *s);
 void background_with_text(st_rpg *s, char *path_sprite, char *text, char *font);
+void death_zac(st_rpg *s);
+void move_pnj_zach(st_rpg *s, sfVector2f pos, int nb_pnj);
+void move_player_to_zach(st_rpg *s, sfVector2f pos);
+void draw_scene_zach(st_rpg *s);
+void walk_animation_pnj(st_rpg *s, int nb_pnj);
 
 #ifndef MY_COOK_
 #define MY_COOK_
