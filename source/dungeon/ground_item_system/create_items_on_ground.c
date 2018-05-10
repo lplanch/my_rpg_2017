@@ -51,7 +51,7 @@ void verif_block_creating(st_rpg *rpg, proom_t *proom, int y, gitem_t **crt)
 		if ((prev = rand_item_ground()) == -1)
 			continue;
 		if ((result = rand() % 32) == 0 &&
-			rpg->proc.first_gritem == NULL) {
+		rpg->proc.first_gritem == NULL) {
 			rpg->proc.first_gritem =
 			create_gritem(rpg, prev, cx, cy);
 			*crt = rpg->proc.first_gritem;

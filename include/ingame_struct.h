@@ -19,7 +19,7 @@ typedef struct inventory_item
 {
 	unsigned int id;
 	unsigned int stacks;
-	unsigned int pos;
+	int pos;
 	sfText *show_stacks;
 	sfSprite *sprite;
 	struct inventory_item *next;
@@ -32,6 +32,7 @@ typedef struct fast_inventory
 	sfIntRect rect;
 	sfVector2f created_pos;
 	int created;
+	item_t *slots[3];
 } ing_finv_t;
 
 typedef struct ingame_inventory_manager

@@ -21,3 +21,10 @@ void create_fast_inventory_screen(ing_finv_t *finv)
 	sfSprite_setTexture(finv->sprite, finv->texture, sfTrue);
 	sfSprite_setTextureRect(finv->sprite, finv->rect);
 }
+
+void create_fast_inventory_slots(st_rpg *rpg)
+{
+	rpg->finv.slots[0] = create_first_slot();
+	rpg->finv.slots[1] = create_first_slot();
+	rpg->finv.slots[2] = create_first_slot();
+}

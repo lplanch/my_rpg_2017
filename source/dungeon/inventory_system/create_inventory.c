@@ -38,20 +38,18 @@ void update_inventory_size(ing_inv_t *inv)
 
 	while (current->next != NULL)
 		current = current->next;
-	if (current->pos + 1 < inv->size)
+	if (current->pos + 1 < (signed)inv->size)
 		for (unsigned int i = 0; i < inv->size - current->pos + 1; i++)
 			add_inventory_slot(inv->first_slot);
 }
 
 void create_inventory_var(ing_inv_t *inv)
 {
-	inv->size = 30;
+	inv->size = 53;
 	inv->money = 0;
 	inv->first_slot = create_first_slot();
 	for (unsigned int i = 0; i < inv->size; i++)
 		add_inventory_slot(inv->first_slot);
-	inv->armor = create_first_slot();
-	inv->weapon = create_first_slot();
 	inv->sheet = sfTexture_createFromFile(
 	"ressources/images/inventory/item_sheet.png", NULL);
 	inv->highlight = sfSprite_create();
@@ -69,6 +67,7 @@ void create_ingame_inventory(st_rpg *rpg)
 {
 	create_inventory_screen(&rpg->inv);
 	create_inventory_var(&rpg->inv);
+	create_armor_weapon_slot(rpg);
 	create_fast_inventory_screen(&rpg->finv);
 	rpg->inv.is_open = 0;
 	rpg->inv.focused = NULL;

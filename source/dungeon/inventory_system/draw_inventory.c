@@ -39,7 +39,10 @@ sfVector2f current_pos, sfVector2f text_pos)
 	sfText_setPosition(current->show_stacks, text_pos);
 	sfText_setString(current->show_stacks, temp);
 	sfRenderWindow_drawSprite(rpg->window, current->sprite, NULL);
-	sfRenderWindow_drawText(rpg->window, current->show_stacks, NULL);
+	if (current->stacks != 0) {
+		sfRenderWindow_drawText(rpg->window, current->show_stacks,
+		NULL);
+	}
 	free(temp);
 }
 
@@ -57,6 +60,7 @@ void draw_inventory_items(st_rpg *rpg)
 		text_pos.x = left_pos + 120 * (current->pos % 9) + 10;
 		text_pos.y = top_pos + 120 * (current->pos / 9) + 90;
 		draw_inventory_sprites(rpg, current, current_pos, text_pos);
+		draw_armor_weapon_slot(rpg);
 		current = current->next;
 	}
 }
