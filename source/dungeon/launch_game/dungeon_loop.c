@@ -44,6 +44,7 @@ void destroy_dungeon_loop(st_rpg *s)
 		free_dungeon(s, &s->proc);
 	sfMusic_destroy(s->dungeon_music.music);
 	sfMusic_play(s->fi->music.music);
+	s->fi->map_status = 0;
 }
 
 void update_origin(st_rpg *s)
