@@ -14,17 +14,17 @@ void dungeon1(proc_var_t *hey)
 	"ressources/dungeons_tilesets/dungeon_lvl1_tiles.png";
 	hey->map_width = 80;
 	hey->map_height = 45;
-	hey->max_room_s = 15;
-	hey->min_room_s = 9;
-	hey->nbr_rooms = 30;
+	hey->max_room_s = 12;
+	hey->min_room_s = 12;
+	hey->nbr_rooms = 1;
 	hey->current_floor = 0;
 	hey->max_floor = 1;
 	hey->background.r = 20;
 	hey->background.g = 11;
 	hey->background.b = 40;
 	hey->background.a = 255;
-	hey->min_enemies = 3;
-	hey->max_enemies = 9;
+	hey->min_enemies = 1;
+	hey->max_enemies = 2;
 	hey->dungeon_music =
 	"ressources/audio/music_dungeon2.ogg";
 	hey->volume = 50;

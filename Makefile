@@ -60,6 +60,8 @@ FILES		=	source/main.c							\
 			source/fight/projectile/update_projectiles.c			\
 			source/fight/projectile/projectile_effects.c			\
 			source/fight/hitbox.c						\
+			source/fight/enemies/boss.c					\
+			source/fight/enemies/champ_spells.c				\
 			source/fight/enemies/attack.c					\
 			source/fight/enemies/enemy.c					\
 			source/fight/enemies/aggro.c					\

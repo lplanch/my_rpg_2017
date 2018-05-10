@@ -656,6 +656,11 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void generate_champ(st_rpg *s);
+void destroy_champ(st_rpg *s);
+void display_champ(st_rpg *s);
+void update_champ(st_rpg *s, float dt);
+void launch_champ_spells(st_rpg *s);
 int mouse_in_press(g_object *obj, sfRenderWindow *window, sfEvent event);
 void set_text_option(st_rpg *s);
 void set_new_sound(st_rpg *s);
