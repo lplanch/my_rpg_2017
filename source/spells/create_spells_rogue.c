@@ -63,4 +63,6 @@ void create_rogue_sound(st_rpg *s)
 	sfMusic_createFromFile("ressources/audio/sound/vanish.ogg");
 	s->f.rog.s_ult =
 	sfMusic_createFromFile("ressources/audio/sound/rog_ult.ogg");
+	s->f.rog.s_dag_toss =
+	sfMusic_createFromFile("ressources/audio/sound/throw_dag.ogg");
 }

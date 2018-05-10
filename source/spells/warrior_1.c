@@ -10,6 +10,7 @@
 
 void warrior_rush(st_rpg *s)
 {
+	sfMusic_play(s->f.war.s_rush);
 	launch_dash(s, s->f.war.rush);
 }
 
@@ -21,6 +22,7 @@ void warrior_whirlwing(st_rpg *s)
 
 void warrior_hasagi(st_rpg *s)
 {
+	sfMusic_play(s->f.war.s_hasaki);
 	s->f.cast = 1;
 	s->f.war.estoc = 1;
 	s->f.war.count = 0;

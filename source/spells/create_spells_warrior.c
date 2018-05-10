@@ -35,10 +35,21 @@ void create_spells_warrior1(st_rpg *s)
 	s->f.war.hasagi = create_projectile("ressources/proj/HASAGI");
 	s->f.war.hpos = create_vector2f(0, 0);
 	s->f.war.hrat = create_vector2f(0, 0);
+	s->f.war.sound = 1;
 }
 
 void create_warrior_sound(st_rpg *s)
 {
 	s->f.war.s_shield =
 	sfMusic_createFromFile("ressources/audio/sound/shield.ogg");
+	s->f.war.s_sword1 =
+	sfMusic_createFromFile("ressources/audio/sound/sword1.ogg");
+	s->f.war.s_sword2 =
+	sfMusic_createFromFile("ressources/audio/sound/sword2.ogg");
+	s->f.war.s_hasaki =
+	sfMusic_createFromFile("ressources/audio/sound/hasaki.ogg");
+	s->f.war.s_rush =
+	sfMusic_createFromFile("ressources/audio/sound/rush.ogg");
+	s->f.war.s_stomp =
+	sfMusic_createFromFile("ressources/audio/sound/stomp.ogg");
 }
