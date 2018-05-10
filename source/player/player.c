@@ -41,9 +41,22 @@ void create_player(st_rpg *s)
 	init_player_camera(s);
 }
 
+void display_player_bless(st_rpg *s)
+{
+	int a = s->f.recover->count * 100;
+	if ((a % 20) > 10) {
+		sfRenderWindow_drawSprite(s->window,
+		s->player.obj->sprite, &s->f.shade.bless.state);
+	}
+}
+
 void display_player(st_rpg *s)
 {
-	display_player_shade(s);
+	if (s->f.recover->count > 0) {
+		display_player_bless(s);
+	} else {
+		display_player_shade(s);
+	}
 	sfRenderWindow_drawSprite(s->window, s->player.weapon[0]->sprite, NULL);
 	if (check_double_class(s))
 		sfRenderWindow_drawSprite(s->window, s->player.weapon[1]

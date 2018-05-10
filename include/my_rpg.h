@@ -495,6 +495,7 @@ typedef struct shader_fight
 	shader_t armor;
 	shader_t poison;
 	shader_t stun;
+	shader_t bless;
 
 } f_shader_t;
 
