@@ -16,6 +16,8 @@ void setup_music(st_rpg *s)
 	create_music(50, "ressources/audio/Samy's Theme.ogg");
 	s->fi->ponder_music.music =
 	create_music(50, "ressources/audio/ponder.ogg");
+	s->proc.dungeon_music =
+	create_music(50, "ressources/audio/music_dungeon2.ogg");
 }
 
 void setup_col(st_rpg *s)
