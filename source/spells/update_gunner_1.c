@@ -166,7 +166,7 @@ void gunner_update_flamet(st_rpg *s)
 	if (s->f.gun.t.sec > 0.01 && s->f.gun.flamet == 1) {
 		s->f.gun.flame[s->f.gun.cflame]->angle = get_angle(s);
 		launch_projectile(s, s->f.gun.flame[s->f.gun.cflame],
-		s->f.gun.flame[s->f.gun.cflame]->angle);
+		s->f.gun.flame[s->f.gun.cflame]->angle + (rand() % 9) - 4);
 		s->f.gun.cflame += 1;
 		s->f.gun.flamestay -= s->f.gun.t.sec;
 		s->f.gun.t.sec = 0;

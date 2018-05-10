@@ -294,6 +294,49 @@ typedef struct struct_dash
 	float count;
 } dash_t;
 
+typedef struct struct_stat_entity
+{
+	int pvm;
+	int pva;
+	int frc;
+	int def;
+	int prc;
+	int vit;
+	int cha;
+	int exp;
+	int lvl;
+} stat_t;
+
+typedef struct enemy
+{
+	int animcol;
+	int animsens;
+	effect_t *poison;
+	effect_t *stun;
+	int aggro;
+	sfVector2f ratios;
+	float cd;
+	float cdcount;
+	int cast;
+	int alive;
+	int type;
+	int spell1;
+	int spell2;
+	g_object *obj;
+	g_object *life;
+	stat_t *stat;
+} enemy_t;
+
+typedef struct boss_spells
+{
+	enemy_t *mob;
+	int attack;
+	float cdcount;
+	aoe_t *tent[6];
+	aoe_t *well;
+	aoe_t *ball;
+} boss_t;
+
 typedef struct struct_archer_spells
 {
 	aoe_t *barrage;
@@ -446,19 +489,6 @@ typedef struct fight_tree
 	int skillp;
 } tree_t;
 
-typedef struct struct_stat_entity
-{
-	int pvm;
-	int pva;
-	int frc;
-	int def;
-	int prc;
-	int vit;
-	int cha;
-	int exp;
-	int lvl;
-} stat_t;
-
 typedef struct fight_bars
 {
 	g_object *bars;
@@ -466,26 +496,6 @@ typedef struct fight_bars
 	g_object *xp;
 	t_object *values[3];
 } bars_t;
-
-typedef struct enemy
-{
-	int animcol;
-	int animsens;
-	effect_t *poison;
-	effect_t *stun;
-	int aggro;
-	sfVector2f ratios;
-	float cd;
-	float cdcount;
-	int cast;
-	int alive;
-	int type;
-	int spell1;
-	int spell2;
-	g_object *obj;
-	g_object *life;
-	stat_t *stat;
-} enemy_t;
 
 typedef struct shader_fight
 {
@@ -501,6 +511,7 @@ typedef struct shader_fight
 
 typedef struct main_fight
 {
+	boss_t boss;
 	effect_t *recover;
 	dash_t *knock;
 	st_time ent;
