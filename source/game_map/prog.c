@@ -24,7 +24,7 @@ void create(st_rpg *s)
 	s->fi->quests[0]->status_text = 1;
 }
 
-int prog(st_rpg *s)
+int start_game(st_rpg *s)
 {
 	struct stat a;
 
@@ -37,6 +37,13 @@ int prog(st_rpg *s)
 	s->player.obj->pos = create_vector2f(3718, 2602);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	sfClock_restart(s->proc.gman.clock);
+	return (1);
+}
+
+int prog(st_rpg *s)
+{
+	if (start_game(s) == 0)
+		return (0);
 	while (sfRenderWindow_isOpen(s->window)) {
 		if (s->fi->return_value == 3 || s->returnv == 3) {
 			s->fi->camera.x = 960;
@@ -48,7 +55,7 @@ int prog(st_rpg *s)
 			return (main_menu(s));
 		}
 		game_update(s);
-		if (event_game(s) || s->fi->return_value == 1) {
+		if (event_game(s) == 1 || s->fi->return_value == 1) {
 			return (1);
 		}
 	}

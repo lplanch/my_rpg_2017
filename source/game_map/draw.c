@@ -35,7 +35,7 @@ void draw_pnj(st_rpg *s)
 	while (i != nbpnj) {
 		if (s->fi->oui == 1 && i == s->fi->pnj_shade) {
 			sfRenderWindow_drawSprite(s->window,
-			s->fi->pnj[i].pnj->sprite, &s->fi->shade_white.state);	
+			s->fi->pnj[i].pnj->sprite, &s->fi->shade_white.state);
 		}
 		sfRenderWindow_drawSprite(s->window,
 		s->fi->pnj[i].pnj->sprite, NULL);
@@ -73,6 +73,8 @@ void draw_all(st_rpg *s)
 	draw_quests(s);
 	if (s->fi->oui == 1) {
 		draw_name_box(s);
+	} if (s->fi->zach_status == 1) {
+		draw_scene_zach(s);
 	}
 	print_text_finish_quests(s);
 }

@@ -157,6 +157,7 @@ void move_pnj_zach(st_rpg *s, sfVector2f pos, int nb_pnj);
 void move_player_to_zach(st_rpg *s, sfVector2f pos);
 void draw_scene_zach(st_rpg *s);
 void walk_animation_pnj(st_rpg *s, int nb_pnj);
+void reset_pos_friends(st_rpg *s);
 
 #ifndef MY_COOK_
 #define MY_COOK_

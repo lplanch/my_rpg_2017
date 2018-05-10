@@ -99,7 +99,6 @@ void start_quests_4(st_rpg *s)
 
 void quests_3(st_rpg *s)
 {
-	//death_zac(s);
 	sfMusic_stop(s->fi->music.music);
 	sfMusic_play(s->fi->samys_music.music);
 	s->fi->quests[3]->status = 2;

@@ -15,7 +15,7 @@ void update_pos_pnj_zach(st_rpg *s, int nb_pnj)
 	s->fi->pnj[nb_pnj].pnj->rect);
 	sfSprite_setPosition(s->fi->pnj[nb_pnj].pnj->sprite,
 	s->fi->pnj[nb_pnj].pnj->pos);
-	draw_scene_zach(s);
+	draw(s);
 }
 
 void move_pnj_x_zach(st_rpg *s, int posx, int nb_pnj)

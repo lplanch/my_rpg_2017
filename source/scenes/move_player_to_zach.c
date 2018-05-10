@@ -30,7 +30,7 @@ void update_pos_player_zach(st_rpg *s)
 	s->player.obj->rect);
 	sfSprite_setPosition(s->player.obj->sprite,
 	s->player.obj->pos);
-	draw_scene_zach(s);
+	draw(s);
 }
 
 void move_player_x_zach(st_rpg *s, int posx)
