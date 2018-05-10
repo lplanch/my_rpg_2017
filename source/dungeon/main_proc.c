@@ -27,9 +27,9 @@ void make_proc_variables(proc_var_t *pvar)
 	pvar->max_enemies = 9;
 }
 
-int launch_dungeon(st_rpg *rpg)
+int launch_dungeon(st_rpg *rpg, void (*function_pvar)(proc_var_t *))
 {
 	rpg->fi->map_status = 1;
-	make_proc_variables(&rpg->proc.pvar);
+	function_pvar(&rpg->proc.pvar);
 	return (dungeon_loop(rpg));
 }

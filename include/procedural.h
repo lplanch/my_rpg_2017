@@ -30,7 +30,7 @@ static const sfMouseButton key_select_item = sfMouseLeft;
 
 
 //LAUNCH DUNGEON FUNCTION
-int launch_dungeon(st_rpg *rpg);
+int launch_dungeon(st_rpg *rpg, void (*function_pvar)(proc_var_t *));
 
 //MAKE MAP
 void map_creation(proc_t *proc);
