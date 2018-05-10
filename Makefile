@@ -77,8 +77,8 @@ FILES		=	source/main.c							\
 			source/fight/cosmetic/update_particles.c			\
 			source/fight/cosmetic/update_particles_class.c			\
 			source/fight/levelup.c						\
-			source/fight/create_weapon.c					\
-			source/fight/update_weapon_pos.c				\
+			source/fight/weapon/create_weapon.c				\
+			source/fight/weapon/update_weapon_pos.c				\
 			source/fight/swing.c						\
 			source/spells/create_spells.c					\
 			source/spells/launch_spells.c					\
