@@ -10,14 +10,18 @@
 
 int add_inventory_item(item_t *first_slot, unsigned int id)
 {
-	item_t *current;
+	item_t *current = first_slot;
 	int pos = search_item(first_slot, id);
 
 	if (pos == -1) {
-		while (current != NULL && current->sprite != NULL)
+		while (current != NULL && current->id != 1)
 			current = current->next;
 		if (current == NULL)
 			return (0);
+		current->id = id;
+		if (current->sprite != NULL)
+			sfSprite_destroy(current->sprite);
+		current->sprite = NULL;
 		current->stacks += 1;
 	} else {
 		while ((signed)current->pos < pos)
