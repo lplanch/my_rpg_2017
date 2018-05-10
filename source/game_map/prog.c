@@ -10,6 +10,8 @@
 
 void create(st_rpg *s)
 {
+	s->player.obj->pos = create_vector2f(7952, 4593);
+	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	character_setup(s);
 	get_all_pnj(s, "ressources/images/dialog_box/pnj/");
 	setup_variable(s);
@@ -34,8 +36,6 @@ int start_game(st_rpg *s)
 	parsing(a, s);
 	create_map(s);
 	sfMusic_play(s->fi->music.music);
-	s->player.obj->pos = create_vector2f(3718, 2602);
-	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	sfClock_restart(s->proc.gman.clock);
 	return (1);
 }
