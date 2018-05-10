@@ -630,6 +630,9 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void set_tree_positions(st_rpg *s);
+void generate_pause_menu_window(st_rpg *s);
+void generate_pause_menu_buttons(st_rpg *s);
 void resume(st_rpg *s);
 void destroy_warrior_sound(st_rpg *s);
 void create_warrior_sound(st_rpg *s);
