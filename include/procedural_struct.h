@@ -63,6 +63,8 @@ typedef struct game_manager
 
 typedef struct proc_var
 {
+	char *dungeon_music;
+	float volume;
 	char *texture_path;
 	unsigned int map_width;
 	unsigned int map_height;
