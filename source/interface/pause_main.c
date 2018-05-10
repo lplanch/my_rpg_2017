@@ -21,6 +21,7 @@ int launch_pause_menu(st_rpg *s, sfEvent event)
 int go_back(st_rpg *s)
 {
 	if (!s->pausm.menu) {
+		resume(s);
 		destroy_pause_menu(s);
 		s->returnv = 0;
 		return (1);

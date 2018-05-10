@@ -13,6 +13,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "particle.h"
 #include "game_object.h"
@@ -629,6 +630,7 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void resume(st_rpg *s);
 void destroy_warrior_sound(st_rpg *s);
 void create_warrior_sound(st_rpg *s);
 void attack_enemy(st_rpg *s, int i);
@@ -930,5 +932,7 @@ void init_player_movement(st_rpg *rpg);
 void init_player_camera(st_rpg *rpg);
 void walk_animation(st_rpg *s);
 void player_animation_village(st_rpg *s);
+void create_dungeon_loop(st_rpg *s);
+int dungeon_loop(st_rpg *s);
 
 #endif
