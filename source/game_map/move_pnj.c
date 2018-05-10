@@ -13,14 +13,13 @@ void walk_animation_pnj(st_rpg *s, int nb_pnj)
 	s->fi->pnj_clock.tmp =
 	sfClock_getElapsedTime(s->fi->pnj_clock.clock);
 	s->fi->pnj_clock.seconds =
-	s->fi->pnj_clock.tmp.microseconds / 100000000.0;
-	if (s->fi->pnj_clock.seconds > s->player.animspeed) {
+	s->fi->pnj_clock.tmp.microseconds / 1000000.0;
+	if (s->fi->pnj_clock.seconds > 0.1) {
 		if (s->player.animcol == 2 || s->player.animcol == 0)
 			s->player.animsens = -s->player.animsens;
 		s->player.animcol += s->player.animsens;
-		sfClock_restart(s->player.t.clock);
-		s->fi->pnj[nb_pnj].pnj->rect.left = s->player.animcol * 48
-		+ 144 * s->player.cdata.sex;
+		sfClock_restart(s->fi->pnj_clock.clock);
+		s->fi->pnj[nb_pnj].pnj->rect.left = s->player.animcol * 48;
 	}
 }
 

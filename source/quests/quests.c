@@ -12,6 +12,7 @@ sfIntRect set_texturerect_top(g_object *obj, int top)
 {
 	obj->rect.top = top;
 	sfSprite_setTextureRect(obj->sprite, obj->rect);
+	obj->rect.left = 0;
 	return (obj->rect);
 }
 
@@ -67,12 +68,12 @@ void after_quests(st_rpg *s)
 	s->fi->pnj[13].pnj->pos = create_vector2f(9230, 7000);
 	s->fi->pnj[3].pnj->pos = create_vector2f(7950, 7700);
 	s->player.obj->pos = create_vector2f(7950, 8160);
-	sfSprite_setPosition(s->fi->pnj[10].pnj->sprite, s->fi->pnj[10].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[10].pnj->sprite,
+	s->fi->pnj[10].pnj->pos);
 	sfSprite_setPosition(s->fi->pnj[13].pnj->sprite,
 	s->fi->pnj[13].pnj->pos);
 	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
-	wake_up(s);
 	s->fi->return_value = 0;
 }
 
@@ -92,15 +93,13 @@ void start_quests_4(st_rpg *s)
 	dialog_box(s, "jade_zac_is_missing3", "jade");
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "samy_zac_is_missing2", "samy");
-	sfText_setString(s->fi->text_finish_quests->text,
-	"Quest 4 complete!");
-	s->fi->var_for_quests = 255;
 	sfMusic_stop(s->fi->ponder_music.music);
 	sfMusic_play(s->fi->music.music);
 }
 
 void quests_3(st_rpg *s)
 {
+	death_zac(s);
 	sfMusic_stop(s->fi->music.music);
 	sfMusic_play(s->fi->samys_music.music);
 	s->fi->quests[3]->status = 2;
@@ -108,14 +107,18 @@ void quests_3(st_rpg *s)
 	dialog_box(s, "samy_night", "samy");
 	sfMusic_stop(s->fi->samys_music.music);
 	after_quests(s);
+	s->fi->pnj[3].pnj->pos = create_vector2f(1000, 1000);
+	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
+	wake_up(s);
 	background_with_text(s,
-	"ressources/images/scenes/background_zac_missing.png",
+	"ressources/images/scenes/background_zach_missing.png",
 	"Zach is missing", "ressources/fonts/quests2.otf");
 	start_quests_4(s);
 }
 
 void quests_1(st_rpg *s)
 {
+	s->player.animsens = 1;
 	sfMusic_stop(s->fi->music.music);
 	sfMusic_play(s->fi->samys_music.music);
 	s->fi->quests[0]->status = 2;

@@ -10,10 +10,8 @@
 
 void create_dungeon_loop(st_rpg *s)
 {
-	srand((long)&launch_dungeon);
 	create_player(s);
 	create_weapon(s);
-	make_proc_variables(&s->proc.pvar);
 	map_creation(&s->proc);
 	s->proc.smap = create_sprite_map(&s->proc, s->proc.map);
 	create_items_list(s);
@@ -116,8 +114,6 @@ int dungeon_events(st_rpg *s)
 
 int dungeon_loop(st_rpg *s)
 {
-	s->fi->map_status = 1;
-	create_dungeon_loop(s);
 	while (sfRenderWindow_isOpen(s->window)) {
 		if (dungeon_events(s))
 			break;

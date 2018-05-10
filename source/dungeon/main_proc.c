@@ -27,12 +27,9 @@ void make_proc_variables(proc_var_t *pvar)
 	pvar->max_enemies = 9;
 }
 
-int launch_dungeon(st_rpg *rpg)
+int launch_dungeon(st_rpg *rpg, void (*function_pvar)(proc_var_t *))
 {
-	srand((long)&launch_dungeon);
-	make_proc_variables(&rpg->proc.pvar);
-	map_creation(&rpg->proc);
-	rpg->proc.smap = create_sprite_map(&rpg->proc, rpg->proc.map);
-	launch_dungeon_game(rpg);
-	return (0);
+	rpg->fi->map_status = 1;
+	function_pvar(&rpg->proc.pvar);
+	return (dungeon_loop(rpg));
 }

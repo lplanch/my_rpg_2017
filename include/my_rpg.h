@@ -13,6 +13,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "particle.h"
 #include "game_object.h"
@@ -498,6 +499,7 @@ typedef struct shader_fight
 
 typedef struct main_fight
 {
+	dash_t *knock;
 	st_time ent;
 	enemy_t **mob;
 	st_button *icons[4];
@@ -602,6 +604,12 @@ typedef struct particle_all
 	particle_t *lvlup;
 } all_part_t;
 
+typedef struct cutscene
+{
+	g_object *map;
+	g_object *zachd;
+} ct_cutscene;
+
 typedef struct struct_rpg
 {
 	int s_music;
@@ -618,6 +626,7 @@ typedef struct struct_rpg
 	pause_menu_t pausm;
 	sfVector2f origin;
 	g_object *loading;
+	ct_cutscene cut;
 	int returnv;
 	st_custom cust;
 	st_menu mainm;
@@ -630,6 +639,7 @@ typedef struct struct_rpg
 #include "procedural.h"
 
 void get_sound_option(st_rpg *s);
+void resume(st_rpg *s);
 void destroy_warrior_sound(st_rpg *s);
 void create_warrior_sound(st_rpg *s);
 void attack_enemy(st_rpg *s, int i);
@@ -931,5 +941,7 @@ void init_player_movement(st_rpg *rpg);
 void init_player_camera(st_rpg *rpg);
 void walk_animation(st_rpg *s);
 void player_animation_village(st_rpg *s);
+void create_dungeon_loop(st_rpg *s);
+int dungeon_loop(st_rpg *s);
 
 #endif

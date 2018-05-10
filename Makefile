@@ -170,6 +170,9 @@ FILES		=	source/main.c							\
 			source/quests/check_pnj_for_quests.c				\
 			source/scenes/night.c						\
 			source/scenes/background_with_text.c				\
+			source/scenes/death_zach.c					\
+			source/scenes/move_pnj_zach.c					\
+			source/scenes/move_player_to_zach.c				\
 			source/player/player.c						\
 			source/player/player_movement_map.c				\
 			source/player/player_animation_village.c			\

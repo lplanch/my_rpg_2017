@@ -29,6 +29,7 @@ void create_main_fight(st_rpg *s)
 		s->f.locks[i] = create_object("ressources/images/lock.png",
 		create_vector2f(320 + 100 * i, 820),
 		create_rect(0, 0, 38, 38), 0);
+	s->f.knock = create_dash(70, 600);
 }
 
 int fight_events(st_rpg *s)
