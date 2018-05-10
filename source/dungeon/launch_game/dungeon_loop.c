@@ -44,6 +44,7 @@ void destroy_dungeon_loop(st_rpg *s)
 	destroy_main_particles(s);
 	if (s->returnv != 0)
 		free_dungeon(s, &s->proc);
+	sfFont_destroy(s->inv.inventory_font);
 	sfMusic_destroy(s->dungeon_music.music);
 	sfMusic_play(s->fi->music.music);
 	s->fi->map_status = 0;
@@ -128,7 +129,7 @@ int dungeon_loop(st_rpg *s)
 	while (sfRenderWindow_isOpen(s->window)) {
 		if (dungeon_events(s))
 			break;
-		if (!s->f.cast)
+		if (!s->f.cast && !s->inv.is_open)
 			launch_spells(s);
 		update_dungeon_loop(s);
 		display_dungeon(s);

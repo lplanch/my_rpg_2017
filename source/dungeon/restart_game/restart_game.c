@@ -8,17 +8,6 @@
 #include "my.h"
 #include "my_rpg.h"
 
-void print_map(char **map)
-{
-	for (int y = 0; map[y] != NULL; y++) {
-		for (int x = 0; map[y][x] != '\0'; x++) {
-			my_putchar(map[y][x]);
-			my_putchar(' ');
-		}
-		my_putchar('\n');
-	}
-}
-
 void create_char_map_restart(proc_t *proc)
 {
 	increment_proc_struct(&proc->pvar, proc);
@@ -29,7 +18,6 @@ void create_char_map_restart(proc_t *proc)
 	create_entry(proc);
 	create_leave(proc);
 	make_map_better(proc->map);
-	print_map(proc->map);
 }
 
 void init_next_level(st_rpg *rpg)

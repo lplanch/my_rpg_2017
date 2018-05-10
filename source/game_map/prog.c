@@ -13,7 +13,7 @@ void create(st_rpg *s)
 	s->player.obj->pos = create_vector2f(7935, 4516);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	character_setup(s);
-	get_all_pnj(s, "ressources/images/dialog_box/pnj/");
+	get_all_pnj(s, "ressources/pnj/pnj/");
 	setup_variable(s);
 	setup_music(s);
 	setup_loading(s);

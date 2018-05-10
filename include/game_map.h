@@ -48,6 +48,7 @@ void setup_camera(st_rpg *s);
 void setup_variable(st_rpg *s);
 void setup_loading(st_rpg *s);
 void setup_col(st_rpg *s);
+void setup_variable_scene_quests(st_rpg *s);
 void pnj_setup(st_rpg *s);
 void get_all_pnj(st_rpg *s, char *path);
 void game_update(st_rpg *s);

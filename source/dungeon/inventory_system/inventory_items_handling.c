@@ -8,6 +8,16 @@
 #include "my.h"
 #include "my_rpg.h"
 
+void verify_destroy_item(item_t *current)
+{
+	if (current->sprite != NULL)
+		sfSprite_destroy(current->sprite);
+	current->sprite = NULL;
+	if (current->show_stacks != NULL)
+		sfText_destroy(current->show_stacks);
+	current->show_stacks = NULL;
+}
+
 int add_inventory_item(item_t *first_slot, unsigned int id)
 {
 	item_t *current = first_slot;
@@ -18,10 +28,8 @@ int add_inventory_item(item_t *first_slot, unsigned int id)
 			current = current->next;
 		if (current == NULL)
 			return (0);
+		verify_destroy_item(current);
 		current->id = id;
-		if (current->sprite != NULL)
-			sfSprite_destroy(current->sprite);
-		current->sprite = NULL;
 		current->stacks += 1;
 	} else {
 		while ((signed)current->pos < pos)

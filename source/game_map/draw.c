@@ -75,6 +75,8 @@ void draw_all(st_rpg *s)
 		draw_name_box(s);
 	} if (s->fi->zach_status == 1) {
 		draw_scene_zach(s);
+	} if (s->fi->dream_status == 1) {
+		sfRenderWindow_clear(s->window, sfBlack);
 	}
 	print_text_finish_quests(s);
 }

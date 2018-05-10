@@ -38,7 +38,7 @@ void dungeon2(proc_var_t *hey)
 	hey->map_height = 45;
 	hey->max_room_s = 9;
 	hey->min_room_s = 5;
-	hey->nbr_rooms = 10;
+	hey->nbr_rooms = 100;
 	hey->current_floor = 0;
 	hey->max_floor = 0;
 	hey->background.r = 20;

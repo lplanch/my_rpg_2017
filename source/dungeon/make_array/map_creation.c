@@ -29,5 +29,4 @@ void map_creation(proc_t *proc)
 	create_entry(proc);
 	create_leave(proc);
 	make_map_better(proc->map);
-	print_map(proc->map);
 }

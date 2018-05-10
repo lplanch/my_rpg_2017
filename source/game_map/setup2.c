@@ -8,6 +8,23 @@
 #include "my.h"
 #include "game_map.h"
 
+void setup_variable_scene_quests(st_rpg *s)
+{
+	s->fi->oui = 0;
+	s->fi->num_dungeon = 0;
+	s->fi->map_status = 0;
+	s->fi->zach_status = 0;
+	s->fi->dream_status = 0;
+	s->cut.map =
+	create_object("ressources/images/scenes/map_death_of_zach.png",
+	create_vector2f(s->fi->camera.x - 540, s->fi->camera.y - 560),
+	create_rect(0, 0, 528, 528), 0);
+	s->cut.zachd =
+	create_object("ressources/images/scenes/zach_is_dead.png",
+	create_vector2f(s->fi->camera.x - 50, s->fi->camera.y - 190),
+	create_rect(0, 0, 61, 39), 0);
+}
+
 void setup_music(st_rpg *s)
 {
 	s->fi->music.music =
