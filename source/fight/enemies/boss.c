@@ -10,6 +10,9 @@
 
 void update_champ(st_rpg *s)
 {
+	clocked_animation(s->f.boss.tent->anim);
+	clocked_animation(s->f.boss.well->anim);
+	clocked_animation(s->f.boss.ball->anim);
 }
 
 void display_champ(st_rpg *s)
