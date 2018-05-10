@@ -35,7 +35,7 @@ void init_minimap(proc_t *proc)
 	sfColor trans_white = {255, 255, 255, 128};
 
 	proc->minimap.current_level_font =
-	sfFont_createFromFile("ressources/OpenSans.ttf");
+	sfFont_createFromFile("ressources/fonts/OpenSans.ttf");
 	proc->minimap.current_level_text = sfText_create();
 	sfText_setString(proc->minimap.current_level_text, level_string);
 	sfText_setFont(proc->minimap.current_level_text,

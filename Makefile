@@ -125,44 +125,43 @@ FILES		=	source/main.c							\
 			source/save/create_tree.c					\
 			source/save/write_save.c					\
 			source/save/load_save.c						\
-			source/game_map/collision.c					\
-			source/game_map/collision_prog.c				\
-			source/game_map/collision_id.c					\
-			source/game_map/game.c						\
-			source/game_map/move.c						\
-			source/game_map/move_prog.c					\
 			source/game_map/prog.c						\
-			source/game_map/setup.c						\
-			source/game_map/setup2.c					\
-			source/game_map/remalloc_tab.c					\
-			source/game_map/tileset.c					\
-			source/game_map/set_shader_map.c				\
-			source/game_map/parsing_tab_to.c				\
-			source/game_map/set_pixeltoimage.c				\
-			source/game_map/parsing.c					\
-			source/game_map/lib_func.c					\
-			source/game_map/draw.c						\
-			source/game_map/check_pnj.c					\
-			source/game_map/zone_text_create.c				\
-			source/game_map/check_pos_camera.c				\
-			source/game_map/get_layer.c					\
-			source/game_map/free.c						\
-			source/game_map/get_pnj.c					\
-			source/game_map/transfer_pixel.c				\
-			source/game_map/transfer_pixel_all.c				\
-			source/game_map/move_pnj.c					\
-			source/game_map/draw_dialog.c					\
-			source/game_map/zone_text.c					\
-			source/game_map/choice_box.c					\
-			source/game_map/choice_box_quit.c				\
-			source/game_map/choicebox_create_event.c			\
-			source/game_map/setpixel_to_image.c				\
-			source/game_map/mouse_in_object_dialogbox.c			\
-			source/game_map/create_music.c					\
-			source/game_map/mouse_in_object_quest_box.c			\
-			source/game_map/destroy.c					\
-			source/game_map/move_infos.c					\
-			source/game_map/name_top_head.c					\
+			source/game_map/game.c						\
+			source/game_map/collisions/collision.c				\
+			source/game_map/collisions/collision_prog.c			\
+			source/game_map/collisions/collision_id.c			\
+			source/game_map/collisions/check_pos_camera.c			\
+			source/game_map/move/move.c					\
+			source/game_map/move/move_prog.c				\
+			source/game_map/move/move_infos.c				\
+			source/game_map/move/move_pnj.c					\
+			source/game_map/setup_destroy/setup.c				\
+			source/game_map/setup_destroy/setup2.c				\
+			source/game_map/setup_destroy/free.c				\
+			source/game_map/setup_destroy/destroy.c				\
+			source/game_map/fcnt/remalloc_tab.c				\
+			source/game_map/fcnt/create_music.c				\
+			source/game_map/fcnt/lib_func.c					\
+			source/game_map/fcnt/set_shader_map.c				\
+			source/game_map/create_map/tileset.c				\
+			source/game_map/create_map/parsing_tab_to.c			\
+			source/game_map/create_map/set_pixeltoimage.c			\
+			source/game_map/create_map/parsing.c				\
+			source/game_map/create_map/setpixel_to_image.c			\
+			source/game_map/create_map/get_layer.c				\
+			source/game_map/create_map/transfer_pixel.c			\
+			source/game_map/create_map/transfer_pixel_all.c			\
+			source/game_map/draw/draw.c					\
+			source/game_map/draw/draw_dialog.c				\
+			source/game_map/pnj/check_pnj.c					\
+			source/game_map/pnj/get_pnj.c					\
+			source/game_map/dialog/zone_text_create.c			\
+			source/game_map/dialog/zone_text.c				\
+			source/game_map/dialog/choice_box.c				\
+			source/game_map/dialog/choice_box_quit.c			\
+			source/game_map/dialog/choicebox_create_event.c			\
+			source/game_map/dialog/mouse_in_object_dialogbox.c		\
+			source/game_map/dialog/name_top_head.c				\
 			source/quests/create_difquests.c				\
 			source/quests/get_quests_rewards.c				\
 			source/quests/get_all_quests.c					\
@@ -170,6 +169,7 @@ FILES		=	source/main.c							\
 			source/quests/get_quests.c					\
 			source/quests/quests.c						\
 			source/quests/check_pnj_for_quests.c				\
+			source/quests/mouse_in_object_quest_box.c			\
 			source/scenes/night.c						\
 			source/scenes/background_with_text.c				\
 			source/scenes/death_zach.c					\

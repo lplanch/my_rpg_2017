@@ -45,7 +45,7 @@ void draw_floor_restart(st_rpg *rpg)
 	sfVector2f screen_center = rpg->proc.gman.camera_pos;
 	char *cur_level = int_to_str(rpg->proc.pvar.current_floor);
 	char *level_string = my_strcat("Floor ", cur_level);
-	sfFont *font = sfFont_createFromFile("ressources/OpenSans.ttf");
+	sfFont *font = sfFont_createFromFile("ressources/fonts/OpenSans.ttf");
 	sfText *next_level = sfText_create();
 
 	screen_center.y -= 25;

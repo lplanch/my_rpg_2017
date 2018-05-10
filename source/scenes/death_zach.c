@@ -102,6 +102,12 @@ void death_zac(st_rpg *s)
 	sfMusic *music = create_music(s->s_music,
 	"ressources/audio/death_zach.ogg");
 
+	s->cut.map->pos = create_vector2f(s->fi->camera.x - 540,
+	s->fi->camera.y - 560);
+	s->cut.zachd->pos = create_vector2f(s->fi->camera.x - 50,
+	s->fi->camera.y - 190);
+	sfSprite_setPosition(s->cut.map->sprite, s->cut.map->pos);
+	sfSprite_setPosition(s->cut.zachd->sprite, s->cut.zachd->pos);
 	sfMusic_stop(s->fi->music.music);
 	sfMusic_setLoop(music, 1);
 	sfMusic_play(music);
