@@ -75,6 +75,18 @@ void warrior_update_rush(st_rpg *s)
 	}
 }
 
+void warrior_proc_quake(st_rpg *s)
+{
+	stop_player(s);
+	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
+		if (circle_hitbox(s->f.war.crack->circle, s->f.mob[i]->obj) &&
+			s->f.mob[i]->alive)
+			apply_aoe(s, s->f.war.crack, s->f.mob[i]);
+	}
+	s->f.cast = 0;
+	s->f.war.ultd->on = 0;
+}
+
 void warrior_update_quake(st_rpg *s)
 {
 	if (s->f.war.ultd->on) {
@@ -90,11 +102,9 @@ void warrior_update_quake(st_rpg *s)
 			->sprite, create_rect(0, 0, 250, 250));
 			sfSprite_setPosition(s->f.war.crack->anim->obj->sprite,
 			create_vector2f(s->origin.x + 960 - s->f.war.crack
-			->anim->obj->rect.width / 2, s->origin.y + 540 -
-			s->f.war.crack->anim->obj->rect.height / 2));
-			stop_player(s);
-			s->f.cast = 0;
-			s->f.war.ultd->on = 0;
+			->anim->obj->rect.width, s->origin.y + 540 -
+			s->f.war.crack->anim->obj->rect.height));
+			warrior_proc_quake(s);
 		}
 	}
 }

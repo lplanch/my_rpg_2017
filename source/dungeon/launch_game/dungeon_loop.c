@@ -38,6 +38,7 @@ void destroy_dungeon_loop(st_rpg *s)
 	destroy_main_particles(s);
 	if (s->returnv != 0)
 		free_dungeon(s, &s->proc);
+	s->fi->map_status = 0;
 }
 
 void update_origin(st_rpg *s)
