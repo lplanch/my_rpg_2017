@@ -22,6 +22,7 @@ int launch_main_menu_saves(st_rpg *s)
 int launch_main_menu_options(st_rpg *s)
 {
 	if (s->mainm.option == 2) {
+		set_new_sound(s);
 		main_menu_togo_main(s);
 	}
 	return (0);
