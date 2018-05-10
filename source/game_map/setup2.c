@@ -11,11 +11,11 @@
 void setup_music(st_rpg *s)
 {
 	s->fi->music.music =
-	create_music(50, "ressources/audio/Alaria city.ogg");
+	create_music(s->s_music, "ressources/audio/Alaria city.ogg");
 	s->fi->samys_music.music =
-	create_music(50, "ressources/audio/Samy's Theme.ogg");
+	create_music(s->s_music, "ressources/audio/Samy's Theme.ogg");
 	s->fi->ponder_music.music =
-	create_music(50, "ressources/audio/ponder.ogg");
+	create_music(s->s_music, "ressources/audio/ponder.ogg");
 }
 
 void setup_col(st_rpg *s)

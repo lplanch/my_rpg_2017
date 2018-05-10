@@ -28,6 +28,7 @@ void rogue_backstab(st_rpg *s)
 
 void rogue_dance(st_rpg *s)
 {
+	sfMusic_play(s->f.rog.s_dag_toss);
 	launch_projectile(s, s->f.rog.dance, get_angle(s));
 }
 

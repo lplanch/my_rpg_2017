@@ -30,6 +30,7 @@ FILES		=	source/main.c							\
 			source/main_menu/launcher.c					\
 			source/main_menu/base.c						\
 			source/main_menu/events.c					\
+			source/main_menu/sound_set.c					\
 			source/main_menu/shader.c					\
 			source/custom/main.c						\
 			source/custom/get_buttons.c					\
@@ -220,6 +221,7 @@ FILES		=	source/main.c							\
 			source/dungeon/ground_item_system/create_items_on_ground.c	\
 			source/dungeon/ground_item_system/draw_item_ground.c		\
 			source/dungeon/npc/ennemies_dungeon.c				\
+			source/dungeon/dungeons_preset/dungeon_preset1-5.c		\
 
 SRCS		=	$(FILES)
 

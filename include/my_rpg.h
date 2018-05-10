@@ -404,7 +404,7 @@ typedef struct struct_rogue_spells
 	sfMusic *flashbang;
 	sfMusic *s_vanish;
 	sfMusic *s_ult;
-
+	sfMusic *s_dag_toss;
 } rogue_t;
 
 typedef struct struct_warrior_spells
@@ -415,6 +415,7 @@ typedef struct struct_warrior_spells
 	sfVector2f hpos;
 	sfVector2f hrat;
 	float hdmg;
+	int sound;
 	aoe_t *shield;
 	aoe_t *crack;
 	int estoc;
@@ -427,6 +428,11 @@ typedef struct struct_warrior_spells
 	effect_t *parade;
 	g_object *paricon;
 	sfMusic *s_shield;
+	sfMusic *s_sword1;
+	sfMusic *s_sword2;
+	sfMusic *s_hasaki;
+	sfMusic *s_rush;
+	sfMusic *s_stomp;
 } warrior_t;
 
 typedef struct fight_tree
@@ -606,6 +612,8 @@ typedef struct cutscene
 
 typedef struct struct_rpg
 {
+	int s_music;
+	int s_effect;
 	all_part_t part;
 	proc_t proc;
 	ing_inv_t inv;
@@ -625,6 +633,7 @@ typedef struct struct_rpg
 	int save;
 	st_time partime;
 	files_t *fi;
+	st_music dungeon_music;
 	sfRenderWindow *window;
 } st_rpg;
 
@@ -633,6 +642,7 @@ typedef struct struct_rpg
 void set_tree_positions(st_rpg *s);
 void generate_pause_menu_window(st_rpg *s);
 void generate_pause_menu_buttons(st_rpg *s);
+void get_sound_option(st_rpg *s);
 void resume(st_rpg *s);
 void destroy_warrior_sound(st_rpg *s);
 void create_warrior_sound(st_rpg *s);
@@ -935,5 +945,9 @@ void init_player_movement(st_rpg *rpg);
 void init_player_camera(st_rpg *rpg);
 void walk_animation(st_rpg *s);
 void player_animation_village(st_rpg *s);
+void create_dungeon_loop(st_rpg *s);
+int dungeon_loop(st_rpg *s);
+
+void dungeon1(proc_var_t *hey);
 
 #endif
