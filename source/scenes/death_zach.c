@@ -99,24 +99,28 @@ void death_zac(st_rpg *s)
 {
 	sfVector2f scale = {2, 2};
 	sfVector2f scale2 = {1.4, 1.4};
+	sfMusic *music = create_music(s->s_music,
+	"ressources/audio/death_zach.ogg");
 
+	sfMusic_stop(s->fi->music.music);
+	sfMusic_setLoop(music, 1);
+	sfMusic_play(music);
 	s->fi->zach_status = 1;
-	s->cut.map =
-	create_object("ressources/images/scenes/map_death_of_zach.png",
-	create_vector2f(s->fi->camera.x - 540, s->fi->camera.y - 560),
-	create_rect(0, 0, 528, 528), 0);
-	s->cut.zachd =
-	create_object("ressources/images/scenes/zach_is_dead.png",
-	create_vector2f(s->fi->camera.x - 50, s->fi->camera.y - 190),
-	create_rect(0, 0, 61, 39), 0);
 	setup_pos_for_scene_zach(s, scale, scale2);
 	move_all_character_zach(s);
 	draw(s);
 	dialog_death_zach(s);
 	s->fi->zach_status = 0;
 	reset_pos_friends(s);
+	sfMusic_stop(music);
 	after_quests(s);
 	s->fi->pnj[3].pnj->pos = create_vector2f(10000, 10000);
 	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
+	sfMusic_destroy(music);
+	sfMusic_play(s->fi->music.music);
+	s->fi->dream_status = 1;
+	s->fi->dialog_box_isopen = 1;
+	dialog_box(s, "player_dream1", "hero");
+	s->fi->dream_status = 0;
 	wake_up(s);
 }

@@ -48,11 +48,7 @@ void setup_variable(st_rpg *s)
 	s->fi->var_for_quests = 0;
 	s->proc.gman.clock = sfClock_create();
 	s->proc.gman.dt = 1.;
-	s->fi->oui = 0;
 	s->fi->size_name_pnj = 0;
-	s->fi->num_dungeon = 0;
-	s->fi->map_status = 0;
-	s->fi->zach_status = 0;
 }
 
 void setup_quests_box(st_rpg *s)
@@ -89,4 +85,5 @@ void character_setup(st_rpg *s)
 	setup_camera(s);
 	setup_col(s);
 	setup_quests_box(s);
+	setup_variable_scene_quests(s);
 }

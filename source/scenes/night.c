@@ -24,7 +24,11 @@ void night_scene(st_rpg *s)
 	float posy = s->fi->camera.y - 540;
 	g_object *background;
 	g_object *moon;
+	sfMusic *music = create_music(s->s_music, "ressources/audio/night.ogg");
 
+	sfMusic_stop(s->fi->music.music);
+	sfMusic_setLoop(music, 1);
+	sfMusic_play(music);
 	background =
 	create_object("ressources/images/scenes/background_night.png",
 	create_vector2f(posx, posy), create_rect(0, 0, 1920, 1080), 0);
@@ -35,5 +39,6 @@ void night_scene(st_rpg *s)
 	}
 	destroy_object(background);
 	destroy_object(moon);
+	sfMusic_destroy(music);
 	sfMusic_play(s->fi->music.music);
 }
