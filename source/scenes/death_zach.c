@@ -116,5 +116,7 @@ void death_zac(st_rpg *s)
 	s->fi->zach_status = 0;
 	reset_pos_friends(s);
 	after_quests(s);
+	s->fi->pnj[3].pnj->pos = create_vector2f(10000, 10000);
+	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
 	wake_up(s);
 }
