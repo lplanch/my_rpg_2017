@@ -114,6 +114,7 @@ int dungeon_events(st_rpg *s)
 
 int dungeon_loop(st_rpg *s)
 {
+	s->fi->map_status = 1;
 	create_dungeon_loop(s);
 	while (sfRenderWindow_isOpen(s->window)) {
 		if (dungeon_events(s))

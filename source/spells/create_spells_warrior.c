@@ -36,3 +36,9 @@ void create_spells_warrior1(st_rpg *s)
 	s->f.war.hpos = create_vector2f(0, 0);
 	s->f.war.hrat = create_vector2f(0, 0);
 }
+
+void create_warrior_sound(st_rpg *s)
+{
+	s->f.war.s_shield =
+	sfMusic_createFromFile("ressources/audio/sound/shield.ogg");
+}

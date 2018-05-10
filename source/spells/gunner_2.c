@@ -10,6 +10,7 @@
 
 void gunner_net(st_rpg *s)
 {
+	sfMusic_play(s->f.gun.s_net);
 	s->f.gun.net->angle = get_angle(s);
 	launch_projectile(s, s->f.gun.net, s->f.gun.net->angle);
 }

@@ -79,6 +79,7 @@ void destroy_spells_warrior(st_rpg *s)
 	destroy_object(s->f.war.paricon);
 	destroy_dash(s->f.war.rush);
 	destroy_dash(s->f.war.ultd);
+	destroy_warrior_sound(s);
 }
 
 void destroy_class(st_rpg *s)
