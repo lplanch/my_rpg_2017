@@ -24,7 +24,6 @@ void destroy_music(st_rpg *s)
 	sfMusic_destroy(s->fi->music.music);
 	sfMusic_destroy(s->fi->samys_music.music);
 	sfMusic_destroy(s->fi->ponder_music.music);
-	sfMusic_destroy(s->dungeon_music);
 }
 
 void destroy_pnj(st_rpg *s)

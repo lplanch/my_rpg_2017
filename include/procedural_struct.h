@@ -85,7 +85,6 @@ typedef struct proc_gen
 	smap_t **smap;
 	minimap_t minimap;
 	gitem_t *first_gritem;
-	sfMusic *dungeon_music;
 	char **map;
 	sfTexture *blocks_texture;
 	unsigned int current_floor;

@@ -625,6 +625,7 @@ typedef struct struct_rpg
 	int save;
 	st_time partime;
 	files_t *fi;
+	st_music dungeon_music;
 	sfRenderWindow *window;
 } st_rpg;
 
@@ -934,5 +935,7 @@ void walk_animation(st_rpg *s);
 void player_animation_village(st_rpg *s);
 void create_dungeon_loop(st_rpg *s);
 int dungeon_loop(st_rpg *s);
+
+void dungeon1(proc_var_t *hey);
 
 #endif
