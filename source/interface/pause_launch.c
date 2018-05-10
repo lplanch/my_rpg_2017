@@ -17,6 +17,17 @@ int launch_pause_menu_status(st_rpg *s)
 	return (0);
 }
 
+void resume(st_rpg *s)
+{
+	if (s->fi->map_status == 1) {
+		destroy_class(s);
+		destroy_icons(s);
+		create_icons(s);
+		create_class(s);
+		get_cooldowns(s);
+	}
+}
+
 int launch_pause_menu_main(st_rpg *s)
 {
 	switch (s->pausm.option) {
