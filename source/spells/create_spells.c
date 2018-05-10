@@ -35,6 +35,7 @@ void create_spells_warrior(st_rpg *s)
 {
 	create_spells_warrior1(s);
 	create_spells_warrior2(s);
+	create_warrior_sound(s);
 }
 
 void create_class(st_rpg *s)

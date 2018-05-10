@@ -50,4 +50,6 @@ void create_archer_sound(st_rpg *s)
 	sfMusic_createFromFile("ressources/audio/sound/leap.ogg");
 	s->f.arc.s_arrow_rain =
 	sfMusic_createFromFile("ressources/audio/sound/arrow_rain.ogg");
+	s->f.arc.s_fountain =
+	sfMusic_createFromFile("ressources/audio/sound/fountain.ogg");
 }

@@ -311,6 +311,7 @@ typedef struct struct_archer_spells
 	sfMusic *l_click;
 	sfMusic *s_leap;
 	sfMusic *s_arrow_rain;
+	sfMusic *s_fountain;
 } archer_t;
 
 typedef struct struct_gunner_spells
@@ -352,6 +353,7 @@ typedef struct struct_gunner_spells
 	sfMusic *zap;
 	sfMusic *h_noon;
 	sfMusic *s_flam;
+	sfMusic *s_net;
 } gunner_t;
 
 typedef struct struct_melee_swing
@@ -423,6 +425,7 @@ typedef struct struct_warrior_spells
 	effect_t *destroyer;
 	effect_t *parade;
 	g_object *paricon;
+	sfMusic *s_shield;
 } warrior_t;
 
 typedef struct fight_tree
@@ -619,6 +622,8 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void destroy_warrior_sound(st_rpg *s);
+void create_warrior_sound(st_rpg *s);
 void attack_enemy(st_rpg *s, int i);
 int player_is_dead(st_rpg *s);
 void hurt(st_rpg *s, float amount);

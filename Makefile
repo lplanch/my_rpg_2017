@@ -44,7 +44,6 @@ FILES		=	source/main.c							\
 			source/fight/icons/icons_cd.c					\
 			source/fight/display_class.c					\
 			source/fight/update_class.c					\
-			source/fight/destroy_class_sound.c				\
 			source/fight/get_cooldowns.c					\
 			source/fight/main.c						\
 			source/fight/aoe/aoe.c						\
@@ -81,6 +80,7 @@ FILES		=	source/main.c							\
 			source/fight/swing.c						\
 			source/spells/create_spells.c					\
 			source/spells/launch_spells.c					\
+			source/spells/destroy_class_sound.c				\
 			source/spells/locked_spells.c					\
 			source/spells/create_spells_archer.c				\
 			source/spells/create_spells_gunner.c				\
@@ -214,6 +214,7 @@ FILES		=	source/main.c							\
 			source/dungeon/inventory_system/inv_handle_mouse.c		\
 			source/dungeon/inventory_system/inventory_items_handling.c	\
 			source/dungeon/ground_item_system/create_items_on_ground.c	\
+			source/dungeon/ground_item_system/draw_item_ground.c		\
 			source/dungeon/npc/ennemies_dungeon.c				\
 
 SRCS		=	$(FILES)

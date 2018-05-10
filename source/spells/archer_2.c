@@ -10,6 +10,7 @@
 
 void archer_heal(st_rpg *s)
 {
+	sfMusic_play(s->f.arc.s_fountain);
 	launch_aoe(s, s->f.arc.heal);
 	sfCircleShape_setPosition(s->f.arc.heal->circle,
 	create_vector2f(s->origin.x + 960 - sfCircleShape_getRadius(s
