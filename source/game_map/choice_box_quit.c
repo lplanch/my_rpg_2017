@@ -34,7 +34,7 @@ int choice_box_check_quit(st_rpg *s, char **tab, char *str, int compter)
 	}
 	if (my_strcmp(tab[s->fi->choice_cursor], "Chaotic Maze") == 0 &&
 	s->fi->quests[4]->status != 0) {
-		s->fi->num_dungeon = 1;
+		s->fi->num_dungeon = 2;
 		choice_box_quit(s, tab, str, compter);
 		quit_game_for_dungeon(s);
 		return (launch_dungeon(s, &dungeon2));

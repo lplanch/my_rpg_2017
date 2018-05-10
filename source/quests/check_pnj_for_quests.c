@@ -96,5 +96,6 @@ void check_pnj_for_quests(st_rpg *s)
 		s->fi->num_dungeon = 0;
 		s->fi->quests[4]->status = 2;
 		reset_pos_friends(s);
+		death_zac(s);
 	}
 }

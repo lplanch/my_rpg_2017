@@ -19,7 +19,22 @@ void draw_scene_zach(st_rpg *s)
 	s->fi->pnj[10].pnj->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window,
 	s->fi->pnj[13].pnj->sprite, NULL);
-	sfRenderWindow_display(s->window);
+}
+
+void dialog_death_zach(st_rpg *s)
+{
+	s->fi->dialog_box_isopen = 1;
+	dialog_box(s, "jade_death_zach1", "jade");
+	s->fi->dialog_box_isopen = 1;
+	dialog_box(s, "samy_death_zach1", "samy");
+	s->fi->dialog_box_isopen = 1;
+	dialog_box(s, "jade_death_zach2", "jade");
+	s->fi->dialog_box_isopen = 1;
+	dialog_box(s, "samy_death_zach2", "samy");
+	s->fi->dialog_box_isopen = 1;
+	dialog_box(s, "jade_death_zach3", "jade");
+	s->fi->dialog_box_isopen = 1;
+	dialog_box(s, "samy_death_zach3", "samy");
 }
 
 void move_all_character_zach(st_rpg *s)
@@ -64,10 +79,10 @@ void setup_pos_for_scene_zach(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 
 void death_zac(st_rpg *s)
 {
-	int a = 0;
 	sfVector2f scale = {2, 2};
 	sfVector2f scale2 = {1.4, 1.4};
 
+	s->fi->zach_status = 1;
 	s->cut.map =
 	create_object("ressources/images/scenes/map_death_of_zach.png",
 	create_vector2f(s->fi->camera.x - 540, s->fi->camera.y - 560),
@@ -78,7 +93,7 @@ void death_zac(st_rpg *s)
 	create_rect(0, 0, 61, 39), 0);
 	setup_pos_for_scene_zach(s, scale, scale2);
 	move_all_character_zach(s);
-	while (!a) {
-		draw_scene_zach(s);
-	}
+	draw(s);
+	dialog_death_zach(s);
+	s->fi->zach_status = 0;
 }
