@@ -35,8 +35,9 @@ void destroy_main_menu(st_rpg *s)
 	destroy_shader(&s->mainm.shader);
 	destroy_text(s->mainm.sound[0]);
 	destroy_text(s->mainm.sound[1]);
-	destroy_text(s->mainm.sound[2]);
-	destroy_text(s->mainm.sound[3]);
+	for (int i = 0; i != 4; i++) {
+		destroy_button(s->mainm.s_button[i]);
+	}
 }
 
 void initialize_menu_interface(st_rpg *s)

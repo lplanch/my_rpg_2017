@@ -83,9 +83,9 @@ void main_menu_togo_options(st_rpg *s)
 
 	for (int i = 0; i != get_max_buttons(s) + 1; i += 1)
 		destroy_button(s->mainm.button[i]);
-	s->mainm.button[0] = create_vbutton("Sound",
+	s->mainm.button[0] = create_vbutton("Sound            ",
 	create_vector2f(800, 500), grey, 100);
-	s->mainm.button[1] = create_vbutton("Music",
+	s->mainm.button[1] = create_vbutton("Music            ",
 	create_vector2f(800, 620), grey, 100);
 	s->mainm.button[2] = create_vbutton("Back",
 	create_vector2f(800, 740), grey, 100);

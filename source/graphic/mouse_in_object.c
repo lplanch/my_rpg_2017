@@ -42,3 +42,14 @@ int mouse_in_object(g_object *obj, sfRenderWindow *window)
 	}
 	return (0);
 }
+
+int mouse_in_press(g_object *obj, sfRenderWindow *window, sfEvent event)
+{
+	if (event.type ==  sfEvtMouseButtonPressed &&
+	mouse_in_object(obj, window)) {
+		return (1);
+	} else {
+		return (0);
+	}
+
+}
