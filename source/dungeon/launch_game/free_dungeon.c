@@ -33,13 +33,14 @@ void free_minimap(proc_t *proc)
 	sfSprite_destroy(proc->minimap.fm_sprite);
 }
 
-void free_dungeon(proc_t *proc)
+void free_dungeon(st_rpg *rpg, proc_t *proc)
 {
 	for (int y = 0; proc->map[y] != NULL; y++) {
 		for (int x = 0; proc->map[y][x] != '\0'; x++)
 			free_sprite_map(&proc->smap[y][x]);
 		free(proc->smap[y]);
 	}
+	destroy_items_list(rpg);
 	free(proc->smap);
 	free_map_tbl(proc);
 }

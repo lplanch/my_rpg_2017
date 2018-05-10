@@ -16,6 +16,7 @@ void create_dungeon_loop(st_rpg *s)
 	make_proc_variables(&s->proc.pvar);
 	map_creation(&s->proc);
 	s->proc.smap = create_sprite_map(&s->proc, s->proc.map);
+	create_items_list(s);
 	init_dungeon_game(s);
 	create_main_fight(s);
 	create_icons(s);
@@ -38,7 +39,7 @@ void destroy_dungeon_loop(st_rpg *s)
 	destroy_dungeon_shader(s);
 	destroy_main_particles(s);
 	if (s->returnv != 0)
-		free_dungeon(&s->proc);
+		free_dungeon(s, &s->proc);
 }
 
 void update_origin(st_rpg *s)
@@ -77,6 +78,7 @@ void display_dungeon(st_rpg *s)
 	sfRenderWindow_clear(s->window, s->proc.pvar.background);
 	for (int y = 0; s->proc.map[y] != NULL; y++)
 		draw_map_block(s, y);
+	draw_item_on_ground(s);
 	display_player(s);
 	display_enemies(s);
 	display_class(s);

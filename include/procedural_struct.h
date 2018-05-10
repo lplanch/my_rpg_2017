@@ -23,6 +23,14 @@ typedef struct minimap {
 	sfText *current_level_text;
 } minimap_t;
 
+//GROUND ITEM
+typedef struct ground_item
+{
+	sfSprite *sprite;
+	sfVector2f pos;
+	unsigned int id;
+	struct ground_item *next;
+} gitem_t;
 
 //MAP SYSTEM
 typedef struct proc_room
@@ -76,6 +84,7 @@ typedef struct proc_gen
 	proom_t *proom;
 	smap_t **smap;
 	minimap_t minimap;
+	gitem_t *first_gritem;
 	char **map;
 	sfTexture *blocks_texture;
 	unsigned int current_floor;

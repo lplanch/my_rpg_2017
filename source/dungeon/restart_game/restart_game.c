@@ -39,6 +39,7 @@ void init_next_level(st_rpg *rpg)
 
 	create_char_map_restart(&rpg->proc);
 	rpg->proc.smap = create_sprite_map(&rpg->proc, rpg->proc.map);
+	create_items_list(rpg);
 	rpg->player.obj->pos = get_entry_pos(&rpg->proc);
 	rpg->player.acceleration.x = 0;
 	rpg->player.acceleration.y = 0;
@@ -76,7 +77,7 @@ void draw_floor_restart(st_rpg *rpg)
 
 int next_level_screen(st_rpg *rpg)
 {
-	free_dungeon(&rpg->proc);
+	free_dungeon(rpg, &rpg->proc);
 	if (rpg->proc.pvar.current_floor < rpg->proc.pvar.max_floor &&
 	rpg->proc.pvar.max_floor > 0) {
 		rpg->proc.pvar.current_floor += 1;
