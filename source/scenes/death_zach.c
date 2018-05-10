@@ -96,4 +96,7 @@ void death_zac(st_rpg *s)
 	draw(s);
 	dialog_death_zach(s);
 	s->fi->zach_status = 0;
+	reset_pos_friends(s);
+	after_quests(s);
+	wake_up(s);
 }
