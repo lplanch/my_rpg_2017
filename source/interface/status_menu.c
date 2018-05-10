@@ -51,12 +51,12 @@ void display_status_menu(st_rpg *s)
 void generate_status_info(st_rpg *s, int x, int y)
 {
 	s->statm.classe = create_button(get_class_string(s->
-	player.cdata.classe), create_object("ressources/images/pictoclass.png",
+	player.cdata.classe), create_object("ressources/images/interface/pictoclass.png",
 	create_vector2f(x + 1620, y + 100), create_rect(0, 32 *
 	s->player.cdata.classe, 32, 32), 0), sfWhite, 30);
 	for (int i = 0; i != 6; i += 1) {
 		s->statm.stats[i] = create_button(get_stat_value(s, i),
-		create_object("ressources/images/pictostat.png",
+		create_object("ressources/images/interface/pictostat.png",
 		create_vector2f(x + 1540, y + 300 + i * 50),
 		create_rect(0, i * 32, 32, 32), 0), sfWhite, 30);
 		sfText_setPosition(s->statm.stats[i]->text->text,
@@ -77,7 +77,8 @@ void generate_status_menu(st_rpg *s)
 	int x = s->origin.x;
 	int y = s->origin.y;
 
-	s->statm.window = create_object("ressources/images/pause_window.png",
+	s->statm.window = create_object(
+	"ressources/images/interface/pause_window.png",
 	create_vector2f(x + 1490, y + 30), create_rect(0, 0, 400, 600), 0);
 	s->statm.face = create_object("ressources/images/heroface.png",
 	create_vector2f(x + 1500, y + 40),

@@ -28,7 +28,8 @@ void create_main_fight(st_rpg *s)
 		s->f.cdcount[i] = 0;
 	get_cooldowns(s);
 	for (int i = 0; i != 3; i += 1)
-		s->f.locks[i] = create_object("ressources/images/lock.png",
+		s->f.locks[i] = create_object(
+		"ressources/images/interface/lock.png",
 		create_vector2f(320 + 100 * i, 820),
 		create_rect(0, 0, 38, 38), 0);
 	s->f.knock = create_dash(50, 300);

@@ -48,7 +48,8 @@ void initialize_menu_interface(st_rpg *s)
 	s->mainm.sens = 1;
 	s->mainm.option = 0;
 	get_sound_option(s);
-	s->mainm.cursor = create_object("ressources/images/cursor.png",
+	s->mainm.cursor = create_object(
+	"ressources/images/interface/cursor.png",
 	create_vector2f(700, 500), create_rect(0, 0, 100, 116), 2);
 	s->mainm.button[0] = create_vbutton("Play", create_vector2f(800, 500),
 	grey, 100);
