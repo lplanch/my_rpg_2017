@@ -67,5 +67,4 @@ void verify_mouse_inv_events(st_rpg *rpg)
 			verify_unfocused_item(rpg, clicked);
 		current = current->next;
 	}
-	draw_focused_item(rpg);
 }

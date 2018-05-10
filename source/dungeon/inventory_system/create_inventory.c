@@ -72,4 +72,6 @@ void create_ingame_inventory(st_rpg *rpg)
 	create_fast_inventory_screen(&rpg->finv);
 	rpg->inv.is_open = 0;
 	rpg->inv.focused = NULL;
+	rpg->inv.inventory_font =
+	sfFont_createFromFile("ressources/fonts/bars.otf");
 }

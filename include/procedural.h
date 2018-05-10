@@ -140,6 +140,8 @@ int search_item(item_t *first_slot, unsigned int id);
 int add_inventory_item(item_t *first_slot, unsigned int id);
 void use_inventory_item(st_rpg *rpg, item_t *current);
 void verify_mouse_inv_events(st_rpg *rpg);
+void draw_focused_item(st_rpg *rpg);
+void draw_inventory_background(st_rpg *rpg);
 
 //ITEM INSIDE DUNGEONS
 void create_items_list(st_rpg *rpg);
