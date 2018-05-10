@@ -38,7 +38,6 @@ FILES		=	source/main.c							\
 			source/custom/to_player.c					\
 			source/custom/launch.c						\
 			source/custom/cursor.c						\
-			source/fight/main.c						\
 			source/fight/damage/damage_show.c				\
 			source/fight/damage/apply_damage.c				\
 			source/fight/icons/icons.c					\
@@ -46,8 +45,10 @@ FILES		=	source/main.c							\
 			source/fight/display_class.c					\
 			source/fight/update_class.c					\
 			source/fight/get_cooldowns.c					\
-			source/fight/aoe.c						\
-			source/fight/create_aoe.c					\
+			source/fight/main.c						\
+			source/fight/aoe/aoe.c						\
+			source/fight/aoe/create_aoe.c					\
+			source/fight/aoe/proc_aoes.c					\
 			source/fight/dash.c						\
 			source/fight/cosmetic/diplay_player_shader.c			\
 			source/fight/cosmetic/set_shader.c				\
@@ -56,8 +57,8 @@ FILES		=	source/main.c							\
 			source/fight/projectile/display_projectile.c			\
 			source/fight/projectile/update_projectiles.c			\
 			source/fight/projectile/projectile_effects.c			\
-			source/fight/heal.c						\
 			source/fight/hitbox.c						\
+			source/fight/enemies/attack.c					\
 			source/fight/enemies/enemy.c					\
 			source/fight/enemies/aggro.c					\
 			source/fight/enemies/enemy_effects.c				\
@@ -73,7 +74,6 @@ FILES		=	source/main.c							\
 			source/fight/effect/proc_effects.c				\
 			source/fight/cosmetic/update_particles.c			\
 			source/fight/cosmetic/update_particles_class.c			\
-			source/fight/proc_aoes.c					\
 			source/fight/levelup.c						\
 			source/fight/create_weapon.c					\
 			source/fight/update_weapon_pos.c				\
@@ -174,6 +174,7 @@ FILES		=	source/main.c							\
 			source/player/player_animation_village.c			\
 			source/player/player_movement.c					\
 			source/player/player_animations.c				\
+			source/player/player_hp.c					\
 			source/player/verify_collisions.c				\
 			source/dungeon/main_proc.c					\
 			source/dungeon/update_origin/icons.c				\

@@ -19,6 +19,7 @@ void update_enemies(st_rpg *s)
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
 		update_life_bars_enemies(s, i);
 		set_aggro_enemies(s, i);
+		attack_enemy(s, i);
 	}
 	enemies_animation(s);
 }

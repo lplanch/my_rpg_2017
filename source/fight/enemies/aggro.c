@@ -47,4 +47,5 @@ void set_aggro_enemies(st_rpg *s, int i)
 	s->f.mob[i]->obj->pos.y + s->f.mob[i]->obj->rect.height / 2 - 600});
 	if (circle_hitbox(circle, s->player.obj))
 		s->f.mob[i]->aggro = 1;
+	sfCircleShape_destroy(circle);
 }
