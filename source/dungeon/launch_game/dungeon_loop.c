@@ -4,12 +4,16 @@
 ** File description:
 ** best project
 */
-
+#include "game_map.h"
 #include "my_rpg.h"
 #include "my.h"
 
 void create_dungeon_loop(st_rpg *s)
 {
+	s->dungeon_music.music =
+	create_music(s->s_music, s->proc.pvar.dungeon_music);
+	sfMusic_play(s->dungeon_music.music);
+	sfMusic_setLoop(s->dungeon_music.music, 1);
 	create_player(s);
 	create_weapon(s);
 	map_creation(&s->proc);
@@ -38,6 +42,8 @@ void destroy_dungeon_loop(st_rpg *s)
 	destroy_main_particles(s);
 	if (s->returnv != 0)
 		free_dungeon(s, &s->proc);
+	sfMusic_destroy(s->dungeon_music.music);
+	sfMusic_play(s->fi->music.music);
 }
 
 void update_origin(st_rpg *s)
