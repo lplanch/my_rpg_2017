@@ -45,7 +45,7 @@ int prog(st_rpg *s)
 	if (start_game(s) == 0)
 		return (0);
 	while (sfRenderWindow_isOpen(s->window)) {
-		if (s->fi->return_value == 3) {
+		if (s->fi->return_value == 3 || s->returnv == 3) {
 			s->fi->camera.x = 960;
 			s->fi->camera.y = 540;
 			sfView_setCenter(s->fi->view, s->fi->camera);

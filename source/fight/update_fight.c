@@ -8,7 +8,7 @@
 #include "my_rpg.h"
 #include "my.h"
 
-void update_effects(st_rpg *s)
+void update_fight(st_rpg *s)
 {
 	s->f.proc.time = sfClock_getElapsedTime(s->f.proc.clock);
 	s->f.proc.sec = s->f.proc.time.microseconds / 1000000.0;

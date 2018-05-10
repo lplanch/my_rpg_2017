@@ -25,6 +25,7 @@ void resume(st_rpg *s)
 		create_icons(s);
 		create_class(s);
 		get_cooldowns(s);
+		sfClock_restart(s->f.proc.clock);
 	}
 }
 

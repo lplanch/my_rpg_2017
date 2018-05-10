@@ -70,7 +70,7 @@ FILES		=	source/main.c							\
 			source/fight/enemies/generate_enemy.c				\
 			source/fight/enemies/base_enemies.c				\
 			source/fight/effect/handle_effects.c				\
-			source/fight/effect/update_effects.c				\
+			source/fight/update_fight.c					\
 			source/fight/effect/handle_status.c				\
 			source/fight/effect/effect.c					\
 			source/fight/effect/proc_effects.c				\
@@ -221,6 +221,7 @@ FILES		=	source/main.c							\
 			source/dungeon/inventory_system/inventory_items_handling.c	\
 			source/dungeon/ground_item_system/create_items_on_ground.c	\
 			source/dungeon/ground_item_system/draw_item_ground.c		\
+			source/dungeon/ground_item_system/update_ground_item.c		\
 			source/dungeon/npc/ennemies_dungeon.c				\
 			source/dungeon/dungeons_preset/dungeon_preset1-5.c		\
 

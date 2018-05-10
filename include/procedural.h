@@ -145,6 +145,7 @@ void verify_mouse_inv_events(st_rpg *rpg);
 void create_items_list(st_rpg *rpg);
 void destroy_items_list(st_rpg *rpg);
 void draw_item_on_ground(st_rpg *rpg);
+void update_item_ground(st_rpg *rpg);
 
 //NPC
 //ENNEMIES

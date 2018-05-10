@@ -500,6 +500,7 @@ typedef struct shader_fight
 
 typedef struct main_fight
 {
+	effect_t *recover;
 	dash_t *knock;
 	st_time ent;
 	enemy_t **mob;
@@ -568,7 +569,8 @@ typedef struct struct_main_menu
 	g_object *rock2[2];
 	g_object *guy;
 	g_object *title;
-	t_object *sound[4];
+	t_object *sound[2];
+	st_button *s_button[4];
 	shader_t shader;
 } st_menu;
 
@@ -642,6 +644,7 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+int mouse_in_press(g_object *obj, sfRenderWindow *window, sfEvent event);
 void set_text_option(st_rpg *s);
 void set_new_sound(st_rpg *s);
 void choose_set_sound(st_rpg *s, sfEvent event);
@@ -817,7 +820,7 @@ void destroy_swing(swing_t *swing);
 void update_swing(st_rpg *s, swing_t *swing, g_object *obj);
 void launch_swing(st_rpg *s, swing_t *swing, g_object *obj);
 void create_weapon(st_rpg *s);
-void update_effects(st_rpg *s);
+void update_fight(st_rpg *s);
 void apply_aoe(st_rpg *s, aoe_t *aoe, enemy_t *mob);
 void proc_aoe(st_rpg *s, aoe_t *aoe, float dt);
 void proc_aoes(st_rpg *s, float dt);
