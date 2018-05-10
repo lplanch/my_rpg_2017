@@ -34,8 +34,11 @@ int prog(st_rpg *s)
 	parsing(a, s);
 	create_map(s);
 	sfMusic_play(s->fi->music.music);
+	s->player.obj->pos = create_vector2f(3718, 2602);
+	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
+	sfClock_restart(s->proc.gman.clock);
 	while (sfRenderWindow_isOpen(s->window)) {
-		if (s->fi->return_value == 3) {
+		if (s->fi->return_value == 3 || s->returnv == 3) {
 			s->fi->camera.x = 960;
 			s->fi->camera.y = 540;
 			sfView_setCenter(s->fi->view, s->fi->camera);
@@ -44,10 +47,10 @@ int prog(st_rpg *s)
 			destroy(s);
 			return (main_menu(s));
 		}
+		game_update(s);
 		if (event_game(s) || s->fi->return_value == 1) {
 			return (1);
 		}
-		game_update(s);
 	}
 	return (0);
 }
