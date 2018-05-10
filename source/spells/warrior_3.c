@@ -10,6 +10,7 @@
 
 void warrior_earthquake(st_rpg *s)
 {
+	sfMusic_play(s->f.war.s_stomp);
 	launch_dash(s, s->f.war.ultd);
 }
 
