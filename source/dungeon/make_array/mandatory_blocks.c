@@ -20,10 +20,10 @@ int count_rooms(proom_t *proom)
 void create_entry(proc_t *proc)
 {
 	int room = rand() % count_rooms(proc->proom);
-	int posx = proc->proom[room].pos1[0] +
-	(rand() % (proc->proom[room].width - 4)) + 2;
-	int posy = proc->proom[room].pos1[1] +
-	(rand() % (proc->proom[room].height - 4)) + 2;
+	int posx = proc->proom[room].pos1[0] + 2 +
+	(rand() % (proc->proom[room].width + 1) - 1);
+	int posy = proc->proom[room].pos1[1] + 2 +
+	(rand() % (proc->proom[room].height + 1) - 1);
 
 	proc->map[posy][posx] = 'E';
 }
@@ -31,10 +31,10 @@ void create_entry(proc_t *proc)
 void create_leave(proc_t *proc)
 {
 	int room = rand() % count_rooms(proc->proom);
-	int posx = proc->proom[room].pos1[0] +
-	(rand() % (proc->proom[room].height - 5)) + 3;
-	int posy = proc->proom[room].pos1[1]+
-	(rand() % (proc->proom[room].height - 5)) + 3;
+	int posx = proc->proom[room].pos1[0] + 2 +
+	(rand() % (proc->proom[room].height + 1) - 1);
+	int posy = proc->proom[room].pos1[1] + 2 +
+	(rand() % (proc->proom[room].height + 1) - 1);
 
 	if (proc->map[posy][posx] == 'E')
 		proc->map[posy][posx] = 'B';
