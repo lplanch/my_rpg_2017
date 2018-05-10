@@ -20,6 +20,7 @@ typedef struct inventory_item
 	unsigned int id;
 	unsigned int stacks;
 	unsigned int pos;
+	sfText *show_stacks;
 	sfSprite *sprite;
 	struct inventory_item *next;
 } item_t;
@@ -40,8 +41,9 @@ typedef struct ingame_inventory_manager
 	sfSprite *selected;
 	sfTexture *selected_texture;
 	sfTexture *texture;
-	sfIntRect rect;
 	sfTexture *sheet;
+	sfIntRect rect;
+	sfFont *inventory_font;
 	unsigned int size;
 	unsigned int money;
 	item_t *first_slot;

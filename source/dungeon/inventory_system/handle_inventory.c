@@ -11,8 +11,9 @@
 void clear_inventory_slot(item_t *slot)
 {
 	slot->id = 1;
-	slot->stacks = 1;
+	slot->stacks = 0;
 	slot->sprite = NULL;
+	slot->show_stacks = NULL;
 }
 
 void add_inventory_slot(item_t *first_slot)
@@ -25,6 +26,16 @@ void add_inventory_slot(item_t *first_slot)
 	clear_inventory_slot(conductor->next);
 	conductor->next->pos = conductor->pos + 1;
 	conductor->next->next = NULL;
+}
+
+void draw_inventory_background(st_rpg *rpg)
+{
+	sfVector2f player_pos = rpg->player.obj->pos;
+
+	player_pos.x -= WIDTH / 2.5;
+	player_pos.y -= HEIGHT / 2.5;
+	sfSprite_setPosition(rpg->inv.sprite, player_pos);
+	sfRenderWindow_drawSprite(rpg->window, rpg->inv.sprite, NULL);
 }
 
 int search_item(item_t *first_slot, unsigned int id)
