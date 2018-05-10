@@ -111,6 +111,7 @@ FILES		=	source/main.c							\
 			source/interface/status_info.c					\
 			source/interface/tree_menu.c					\
 			source/interface/update_tree.c					\
+			source/interface/generate_pause_menu.c				\
 			source/interface/pause_menu.c					\
 			source/interface/pause_main.c					\
 			source/interface/pause_events.c					\
