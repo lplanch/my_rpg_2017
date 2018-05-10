@@ -41,16 +41,7 @@ void update_tree_pos(st_rpg *s)
 {
 	int x = s->origin.x + 1535;
 
-	sfSprite_setPosition(s->treem.select[0]->sprite,
-	create_vector2f(x + s->player.tree.passive * 125, s->origin.y + 90));
-	sfSprite_setPosition(s->treem.select[1]->sprite,
-	create_vector2f(x + s->player.tree.spell1 * 125, s->origin.y + 180));
-	sfSprite_setPosition(s->treem.select[2]->sprite,
-	create_vector2f(x + 61 +
-	s->player.tree.spell2 * 124, s->origin.y + 270));
-	sfSprite_setPosition(s->treem.select[3]->sprite,
-	create_vector2f(x + 61 +
-	s->player.tree.spell3 * 124, s->origin.y + 360));
+	set_tree_positions(s);
 	for (int i = 0, dec = 0, m = 3, d = 0; i != 10; i += 1) {
 		if (i > 5) {
 			d = 61;

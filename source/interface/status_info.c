@@ -73,3 +73,19 @@ void update_status_menu(st_rpg *s)
 		}
 	}
 }
+
+void set_tree_positions(st_rpg *s)
+{
+	int x = s->origin.x + 1535;
+	
+	sfSprite_setPosition(s->treem.select[0]->sprite,
+	create_vector2f(x + s->player.tree.passive * 125, s->origin.y + 90));
+	sfSprite_setPosition(s->treem.select[1]->sprite,
+	create_vector2f(x + s->player.tree.spell1 * 125, s->origin.y + 180));
+	sfSprite_setPosition(s->treem.select[2]->sprite,
+	create_vector2f(x + 61 +
+	s->player.tree.spell2 * 124, s->origin.y + 270));
+	sfSprite_setPosition(s->treem.select[3]->sprite,
+	create_vector2f(x + 61 +
+	s->player.tree.spell3 * 124, s->origin.y + 360));
+}

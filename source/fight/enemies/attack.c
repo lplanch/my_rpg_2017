@@ -14,7 +14,7 @@ void attack_enemy(st_rpg *s, int i)
 	(s->player.stat->def / 100 * s->f.mob[i]->stat->frc);
 
 	if (hitbox(s->player.obj, s->f.mob[i]->obj) && s->f.mob[i]->aggro
-	&& s->f.mob[i]->alive) {
+	&& s->f.mob[i]->alive && !s->f.mob[i]->cast) {
 		hurt(s, amount);
 		stop_player(s);
 		launch_dash(s, s->f.knock);

@@ -635,6 +635,7 @@ typedef struct struct_rpg
 	int save;
 	st_time partime;
 	files_t *fi;
+	st_music dungeon_music;
 	sfRenderWindow *window;
 } st_rpg;
 
@@ -643,6 +644,9 @@ typedef struct struct_rpg
 void set_text_option(st_rpg *s);
 void set_new_sound(st_rpg *s);
 void choose_set_sound(st_rpg *s, sfEvent event);
+void set_tree_positions(st_rpg *s);
+void generate_pause_menu_window(st_rpg *s);
+void generate_pause_menu_buttons(st_rpg *s);
 void get_sound_option(st_rpg *s);
 void resume(st_rpg *s);
 void destroy_warrior_sound(st_rpg *s);
@@ -948,5 +952,8 @@ void walk_animation(st_rpg *s);
 void player_animation_village(st_rpg *s);
 void create_dungeon_loop(st_rpg *s);
 int dungeon_loop(st_rpg *s);
+
+void dungeon1(proc_var_t *hey);
+void dungeon2(proc_var_t *hey);
 
 #endif

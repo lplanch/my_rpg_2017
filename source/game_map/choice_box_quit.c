@@ -8,6 +8,13 @@
 #include "my.h"
 #include "game_map.h"
 
+void quit_game_for_dungeon(st_rpg *s)
+{
+	sfView_setCenter(s->fi->view, create_vector2f(960, 540));
+	sfRenderWindow_setView(s->window, s->fi->view);
+	sfMusic_stop(s->fi->music.music);
+}
+
 void choice_box_quit(st_rpg *s, char **tab, char *str, int compter)
 {
 	s->fi->nb_choice_pre = compter;
@@ -22,17 +29,15 @@ int choice_box_check_quit(st_rpg *s, char **tab, char *str, int compter)
 	s->fi->quests[1]->status != 0) {
 		s->fi->num_dungeon = 1;
 		choice_box_quit(s, tab, str, compter);
-		sfView_setCenter(s->fi->view, create_vector2f(960, 540));
-		sfRenderWindow_setView(s->window, s->fi->view);
-		return (dungeon_loop(s));
+		quit_game_for_dungeon(s);
+		return (launch_dungeon(s, &dungeon1));
 	}
 	if (my_strcmp(tab[s->fi->choice_cursor], "Chaotic Maze") == 0 &&
 	s->fi->quests[4]->status != 0) {
 		s->fi->num_dungeon = 1;
 		choice_box_quit(s, tab, str, compter);
-		sfView_setCenter(s->fi->view, create_vector2f(960, 540));
-		sfRenderWindow_setView(s->window, s->fi->view);
-		return (dungeon_loop(s));
+		quit_game_for_dungeon(s);
+		return (launch_dungeon(s, &dungeon2));
 	}
 	choice_box_quit(s, tab, str, compter);
 	return (0);

@@ -112,6 +112,7 @@ FILES		=	source/main.c							\
 			source/interface/status_info.c					\
 			source/interface/tree_menu.c					\
 			source/interface/update_tree.c					\
+			source/interface/generate_pause_menu.c				\
 			source/interface/pause_menu.c					\
 			source/interface/pause_main.c					\
 			source/interface/pause_events.c					\
@@ -221,6 +222,7 @@ FILES		=	source/main.c							\
 			source/dungeon/ground_item_system/create_items_on_ground.c	\
 			source/dungeon/ground_item_system/draw_item_ground.c		\
 			source/dungeon/npc/ennemies_dungeon.c				\
+			source/dungeon/dungeons_preset/dungeon_preset1-5.c		\
 
 SRCS		=	$(FILES)
 

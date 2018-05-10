@@ -32,6 +32,8 @@ void create_spells_warrior1(st_rpg *s)
 	s->f.war.hdmg = 50;
 	s->f.war.shield = create_aoe_from_file("ressources/spells/3/Heal");
 	s->f.war.crack = create_aoe_from_file("ressources/spells/3/Crack");
+	sfSprite_setScale(s->f.war.crack->anim
+	->obj->sprite, (sfVector2f){2, 2});
 	s->f.war.hasagi = create_projectile("ressources/proj/HASAGI");
 	s->f.war.hpos = create_vector2f(0, 0);
 	s->f.war.hrat = create_vector2f(0, 0);
