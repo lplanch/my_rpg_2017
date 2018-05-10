@@ -10,7 +10,6 @@
 
 void create_dungeon_loop(st_rpg *s)
 {
-	srand((long)&launch_dungeon);
 	create_player(s);
 	create_weapon(s);
 	make_proc_variables(&s->proc.pvar);

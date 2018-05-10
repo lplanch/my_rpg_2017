@@ -13,6 +13,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "particle.h"
 #include "game_object.h"

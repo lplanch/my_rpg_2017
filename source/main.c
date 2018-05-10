@@ -38,6 +38,7 @@ int main(void)
 {
 	st_rpg s = {0};
 
+	srand(time(0));
 	create_main(&s);
 	main_menu(&s);
 	destroy_main(&s);
