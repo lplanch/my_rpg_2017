@@ -817,7 +817,7 @@ void destroy_swing(swing_t *swing);
 void update_swing(st_rpg *s, swing_t *swing, g_object *obj);
 void launch_swing(st_rpg *s, swing_t *swing, g_object *obj);
 void create_weapon(st_rpg *s);
-void update_effects(st_rpg *s);
+void update_fight(st_rpg *s);
 void apply_aoe(st_rpg *s, aoe_t *aoe, enemy_t *mob);
 void proc_aoe(st_rpg *s, aoe_t *aoe, float dt);
 void proc_aoes(st_rpg *s, float dt);

@@ -59,7 +59,7 @@ void update_dungeon_loop(st_rpg *s)
 	update_pos_weapon(s);
 	update_bars(s);
 	update_icons_cd(s);
-	update_effects(s);
+	update_fight(s);
 	apply_projectiles(s);
 	update_enemies(s);
 	update_origin(s);

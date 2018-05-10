@@ -70,7 +70,7 @@ FILES		=	source/main.c							\
 			source/fight/enemies/generate_enemy.c				\
 			source/fight/enemies/base_enemies.c				\
 			source/fight/effect/handle_effects.c				\
-			source/fight/effect/update_effects.c				\
+			source/fight/update_fight.c					\
 			source/fight/effect/handle_status.c				\
 			source/fight/effect/effect.c					\
 			source/fight/effect/proc_effects.c				\
