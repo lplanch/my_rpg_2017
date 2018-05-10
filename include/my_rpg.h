@@ -568,7 +568,8 @@ typedef struct struct_main_menu
 	g_object *rock2[2];
 	g_object *guy;
 	g_object *title;
-	t_object *sound[4];
+	t_object *sound[2];
+	st_button *s_button[4];
 	shader_t shader;
 } st_menu;
 
@@ -642,6 +643,7 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+int mouse_in_press(g_object *obj, sfRenderWindow *window, sfEvent event);
 void set_text_option(st_rpg *s);
 void set_new_sound(st_rpg *s);
 void choose_set_sound(st_rpg *s, sfEvent event);

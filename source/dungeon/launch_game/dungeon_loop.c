@@ -68,6 +68,7 @@ void update_dungeon_loop(st_rpg *s)
 		player_animation(s);
 	update_class(s);
 	update_particles(s);
+	update_item_ground(s);
 }
 
 void stop_player(st_rpg *s)
