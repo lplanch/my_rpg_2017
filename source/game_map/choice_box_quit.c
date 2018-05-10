@@ -37,7 +37,7 @@ int choice_box_check_quit(st_rpg *s, char **tab, char *str, int compter)
 		s->fi->num_dungeon = 1;
 		choice_box_quit(s, tab, str, compter);
 		quit_game_for_dungeon(s);
-		return (dungeon_loop(s));
+		return (launch_dungeon(s, &dungeon2));
 	}
 	choice_box_quit(s, tab, str, compter);
 	return (0);
