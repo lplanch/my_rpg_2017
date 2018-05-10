@@ -64,13 +64,16 @@ void verif_block_creating(st_rpg *rpg, proom_t *proom, int y, gitem_t **crt)
 
 void destroy_items_list(st_rpg *rpg)
 {
+	gitem_t *last = NULL;
 	gitem_t *crt = rpg->proc.first_gritem;
 
 	while (crt != NULL) {
 		sfSprite_destroy(crt->sprite);
+		last = crt->next;
 		free(crt);
-		crt = crt->next;
+		crt = last;
 	}
+	rpg->proc.first_gritem = NULL;
 }
 
 void create_items_list(st_rpg *rpg)
