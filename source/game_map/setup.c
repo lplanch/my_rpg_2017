@@ -82,7 +82,8 @@ void character_setup(st_rpg *s)
 {
 	s->fi = malloc(sizeof(*(s->fi)));
 	*s->fi = (files_t) {0};
-	s->fi->ID_character = create_object("ressources/images/rose.jpg",
+	s->fi->ID_character = create_object(
+	"ressources/images/interface/void.png",
 	create_vector2f(5489, 6900),
 	create_rect(144, 0, 48, 48), 0);
 	setup_camera(s);

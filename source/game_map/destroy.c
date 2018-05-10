@@ -82,6 +82,8 @@ void destroy(st_rpg *s)
 	destroy_object(s->player.obj);
 	destroy_object(s->fi->ID_character);
 	destroy_object(s->fi->loading);
+	destroy_object(s->cut.map);
+	destroy_object(s->cut.zachd);
 	sfClock_destroy(s->fi->time.clock);
 	sfClock_destroy(s->fi->pnj_clock.clock);
 	sfClock_destroy(s->fi->clock);

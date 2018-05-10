@@ -35,19 +35,19 @@ void wake_up(st_rpg *s)
 
 void set_pnj_meeting_without_zac(st_rpg *s)
 {
-	s->fi->pnj[10].pnj->rect =
-	set_texturerect_top(s->fi->pnj[10].pnj, 0);
-	s->fi->pnj[13].pnj->rect =
-	set_texturerect_top(s->fi->pnj[13].pnj, 48);
+	s->fi->pnj[11].pnj->rect =
+	set_texturerect_top(s->fi->pnj[11].pnj, 0);
+	s->fi->pnj[14].pnj->rect =
+	set_texturerect_top(s->fi->pnj[14].pnj, 48);
 	s->player.obj->rect =
 	set_texturerect_top(s->player.obj, 96);
-	s->fi->pnj[10].pnj->pos = create_vector2f(8192, 4738);
-	s->fi->pnj[13].pnj->pos = create_vector2f(8261, 4781);
+	s->fi->pnj[11].pnj->pos = create_vector2f(8192, 4738);
+	s->fi->pnj[14].pnj->pos = create_vector2f(8261, 4781);
 	s->fi->pnj[3].pnj->pos = create_vector2f(10000, 10000);
 	s->player.obj->pos = create_vector2f(8131, 4771);
-	sfSprite_setPosition(s->fi->pnj[10].pnj->sprite, s->fi->pnj[10].pnj->pos);
-	sfSprite_setPosition(s->fi->pnj[13].pnj->sprite,
-	s->fi->pnj[13].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[11].pnj->sprite, s->fi->pnj[11].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[14].pnj->sprite,
+	s->fi->pnj[14].pnj->pos);
 	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 }
@@ -56,22 +56,22 @@ void after_quests(st_rpg *s)
 {
 	night_scene(s);
 	s->fi->pnj[3].pnj->rect.left = 0;
-	s->fi->pnj[10].pnj->rect =
-	set_texturerect_top(s->fi->pnj[10].pnj, 193);
+	s->fi->pnj[11].pnj->rect =
+	set_texturerect_top(s->fi->pnj[11].pnj, 193);
 	s->fi->pnj[3].pnj->rect =
 	set_texturerect_top(s->fi->pnj[3].pnj, 193);
-	s->fi->pnj[13].pnj->rect =
-	set_texturerect_top(s->fi->pnj[13].pnj, 193);
+	s->fi->pnj[14].pnj->rect =
+	set_texturerect_top(s->fi->pnj[14].pnj, 193);
 	s->player.obj->rect =
 	set_texturerect_top(s->player.obj, 193);
-	s->fi->pnj[10].pnj->pos = create_vector2f(8100, 7000);
-	s->fi->pnj[13].pnj->pos = create_vector2f(9230, 7000);
+	s->fi->pnj[11].pnj->pos = create_vector2f(8100, 7000);
+	s->fi->pnj[14].pnj->pos = create_vector2f(9230, 7000);
 	s->fi->pnj[3].pnj->pos = create_vector2f(7950, 7700);
 	s->player.obj->pos = create_vector2f(7950, 8160);
-	sfSprite_setPosition(s->fi->pnj[10].pnj->sprite,
-	s->fi->pnj[10].pnj->pos);
-	sfSprite_setPosition(s->fi->pnj[13].pnj->sprite,
-	s->fi->pnj[13].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[11].pnj->sprite,
+	s->fi->pnj[11].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[14].pnj->sprite,
+	s->fi->pnj[14].pnj->pos);
 	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	s->fi->return_value = 0;
@@ -102,7 +102,7 @@ void quests_3(st_rpg *s)
 	sfMusic_stop(s->fi->music.music);
 	sfMusic_play(s->fi->samys_music.music);
 	s->fi->quests[3]->status = 2;
-	s->fi->pnj[10].pnj->rect = set_texturerect_top(s->fi->pnj[10].pnj, 0);
+	s->fi->pnj[11].pnj->rect = set_texturerect_top(s->fi->pnj[11].pnj, 0);
 	dialog_box(s, "samy_night", "samy");
 	sfMusic_stop(s->fi->samys_music.music);
 	after_quests(s);
@@ -121,10 +121,10 @@ void quests_1(st_rpg *s)
 	sfMusic_stop(s->fi->music.music);
 	sfMusic_play(s->fi->samys_music.music);
 	s->fi->quests[0]->status = 2;
-	s->fi->pnj[10].pnj->rect = set_texturerect_top(s->fi->pnj[10].pnj, 0);
+	s->fi->pnj[11].pnj->rect = set_texturerect_top(s->fi->pnj[11].pnj, 0);
 	dialog_box(s, "samy_beginning", "samy");
 	s->fi->dialog_box_isopen = 1;
-	move_pnj(s, 7947, 7374, 13);
+	move_pnj(s, 7947, 7374, 14);
 	s->player.obj->rect = set_texturerect_top(s->player.obj, 96);
 	dialog_box(s, "jade_beginning", "samy");
 	s->fi->dialog_box_isopen = 1;
