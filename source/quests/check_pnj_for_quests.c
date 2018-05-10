@@ -69,6 +69,11 @@ void print_text_finish_quests(st_rpg *s)
 void check_pnj_for_quests(st_rpg *s)
 {
 	if (s->fi->quests[0]->status == 1 &&
+	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "Tutorial") == 0) {
+		stop_player(s);
+		my_putchar('n');
+		dialog_box(s, "Turorial", "Tutorial");
+	} if (s->fi->quests[0]->status == 1 &&
 	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "Samy") == 0) {
 		stop_player(s);
 		quests_1(s);
