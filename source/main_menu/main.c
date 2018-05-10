@@ -19,6 +19,12 @@ void display_main_menu_interface(st_rpg *s)
 	sfRenderWindow_drawSprite(s->window, s->mainm.cursor->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->mainm.title->sprite,
 	&s->mainm.shader.state);
+	if (s->mainm.menu == 2) {
+		for (int i = 0; i != 4; i++) {
+			sfRenderWindow_drawText(s->window,
+			s->mainm.sound[i]->text, NULL);
+		}
+	}
 	if (s->mainm.menu > 2) {
 		sfRenderWindow_drawText(s->window,
 		s->mainm.button[3]->text->text, NULL);

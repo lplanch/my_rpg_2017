@@ -68,6 +68,8 @@ int event_main_menu(st_rpg *s)
 		} if (launch_main_menu(s, event)) {
 			s->returnv = 1;
 			return (1);
+		} if (s->mainm.menu == 2) {
+			choose_set_sound(s, event);
 		}
 		main_menu_manage_cursor_events(s, event);
 	}

@@ -552,6 +552,7 @@ typedef struct status_tree_menu
 typedef struct struct_main_menu
 {
 	sfMusic *music;
+	sfMusic *s_effect;
 	int menu;
 	int create;
 	st_time t;
@@ -566,6 +567,7 @@ typedef struct struct_main_menu
 	g_object *rock2[2];
 	g_object *guy;
 	g_object *title;
+	t_object *sound[4];
 	shader_t shader;
 } st_menu;
 
@@ -639,6 +641,9 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void set_text_option(st_rpg *s);
+void set_new_sound(st_rpg *s);
+void choose_set_sound(st_rpg *s, sfEvent event);
 void set_tree_positions(st_rpg *s);
 void generate_pause_menu_window(st_rpg *s);
 void generate_pause_menu_buttons(st_rpg *s);
