@@ -69,4 +69,11 @@ void proc_effects(st_rpg *s, float dt)
 		proc_enemy_poison(s, i);
 		movement_enemies(s, i, dt);
 	}
+	proc_effect(s->f.recover, dt);
+	if (s->f.recover->count > 0) {
+		s->f.recover->amount = 1;
+	} else {
+		s->f.recover->count = 0;
+		s->f.recover->amount = 0;
+	}
 }

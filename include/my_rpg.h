@@ -499,6 +499,7 @@ typedef struct shader_fight
 
 typedef struct main_fight
 {
+	effect_t *recover;
 	dash_t *knock;
 	st_time ent;
 	enemy_t **mob;
