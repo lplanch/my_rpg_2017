@@ -29,10 +29,7 @@ void make_proc_variables(proc_var_t *pvar)
 
 int launch_dungeon(st_rpg *rpg)
 {
-	srand((long)&launch_dungeon);
+	rpg->fi->map_status = 1;
 	make_proc_variables(&rpg->proc.pvar);
-	map_creation(&rpg->proc);
-	rpg->proc.smap = create_sprite_map(&rpg->proc, rpg->proc.map);
-	launch_dungeon_game(rpg);
-	return (0);
+	return (dungeon_loop(rpg));
 }

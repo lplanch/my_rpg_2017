@@ -931,5 +931,7 @@ void init_player_movement(st_rpg *rpg);
 void init_player_camera(st_rpg *rpg);
 void walk_animation(st_rpg *s);
 void player_animation_village(st_rpg *s);
+void create_dungeon_loop(st_rpg *s);
+int dungeon_loop(st_rpg *s);
 
 #endif
