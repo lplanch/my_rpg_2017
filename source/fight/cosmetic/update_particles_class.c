@@ -26,11 +26,6 @@ void update_particles_rogue(st_rpg *s, float dt)
 	update_particle(s->f.rog.partd, dt);
 }
 
-/*void update_particles_archer(st_rpg *s)
-{
-
-}*/
-
 void update_particles_class(st_rpg *s, float dt)
 {
 	void (*list[4])(st_rpg *s, float dt) = {update_particles_archer,

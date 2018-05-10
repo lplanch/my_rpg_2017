@@ -39,23 +39,16 @@ FILES		=	source/main.c					\
 			source/custom/launch.c				\
 			source/custom/cursor.c				\
 			source/fight/main.c				\
-			source/fight/create_spells.c			\
-			source/fight/create_spells_archer.c		\
-			source/fight/create_spells_gunner.c		\
-			source/fight/create_spells_rogue.c		\
-			source/fight/destroy_spells.c			\
 			source/fight/damage/damage_show.c		\
 			source/fight/damage/apply_damage.c		\
 			source/fight/icons/icons.c			\
 			source/fight/icons/icons_cd.c			\
 			source/fight/display_class.c			\
 			source/fight/update_class.c			\
-			source/fight/auto_attacks.c			\
-			source/fight/launch_spells.c			\
 			source/fight/destroy_class_sound.c		\
-			source/fight/locked_spells.c			\
 			source/fight/get_cooldowns.c			\
 			source/fight/aoe.c				\
+			source/fight/create_aoe.c			\
 			source/fight/dash.c				\
 			source/fight/cosmetic/diplay_player_shader.c	\
 			source/fight/cosmetic/set_shader.c		\
@@ -86,6 +79,15 @@ FILES		=	source/main.c					\
 			source/fight/create_weapon.c			\
 			source/fight/update_weapon_pos.c		\
 			source/fight/swing.c				\
+			source/spells/create_spells.c			\
+			source/spells/launch_spells.c			\
+			source/spells/locked_spells.c			\
+			source/spells/create_spells_archer.c		\
+			source/spells/create_spells_gunner.c		\
+			source/spells/create_spells_rogue.c		\
+			source/spells/create_spells_warrior.c		\
+			source/spells/destroy_spells.c			\
+			source/spells/auto_attacks.c			\
 			source/spells/archer_1.c			\
 			source/spells/archer_2.c			\
 			source/spells/archer_3.c			\
@@ -110,6 +112,7 @@ FILES		=	source/main.c					\
 			source/interface/update_tree.c			\
 			source/interface/pause_menu.c			\
 			source/interface/pause_main.c			\
+			source/interface/pause_events.c			\
 			source/interface/pause_launch.c			\
 			source/interface/pause_design.c			\
 			source/interface/tree_proceed.c			\

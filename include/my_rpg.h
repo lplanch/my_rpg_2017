@@ -618,6 +618,8 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void draw_all(st_rpg *s);
+void pause_menu_manage_cursor_events(st_rpg *s, sfEvent event);
 void set_origin_map(st_rpg *s);
 void pathfinding(st_rpg *s, float dt, int i);
 void verify_collide_map_enemies(st_rpg *rpg, float dt, int i);
