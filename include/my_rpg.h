@@ -622,6 +622,7 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void resume(st_rpg *s);
 void destroy_warrior_sound(st_rpg *s);
 void create_warrior_sound(st_rpg *s);
 void attack_enemy(st_rpg *s, int i);
