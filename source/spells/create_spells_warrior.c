@@ -52,4 +52,10 @@ void create_warrior_sound(st_rpg *s)
 	sfMusic_createFromFile("ressources/audio/sound/rush.ogg");
 	s->f.war.s_stomp =
 	sfMusic_createFromFile("ressources/audio/sound/stomp.ogg");
+	sfMusic_setVolume(s->f.war.s_shield, s->s_effect);
+	sfMusic_setVolume(s->f.war.s_sword2, s->s_effect);
+	sfMusic_setVolume(s->f.war.s_sword1, s->s_effect);
+	sfMusic_setVolume(s->f.war.s_hasaki, s->s_effect);
+	sfMusic_setVolume(s->f.war.s_rush, s->s_effect);
+	sfMusic_setVolume(s->f.war.s_stomp, s->s_effect);
 }

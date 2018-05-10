@@ -65,4 +65,9 @@ void create_rogue_sound(st_rpg *s)
 	sfMusic_createFromFile("ressources/audio/sound/rog_ult.ogg");
 	s->f.rog.s_dag_toss =
 	sfMusic_createFromFile("ressources/audio/sound/throw_dag.ogg");
+	sfMusic_setVolume(s->f.rog.l_click, s->s_effect);
+	sfMusic_setVolume(s->f.rog.flashbang, s->s_effect);
+	sfMusic_setVolume(s->f.rog.s_vanish, s->s_effect);
+	sfMusic_setVolume(s->f.rog.s_ult, s->s_effect);
+	sfMusic_setVolume(s->f.rog.s_dag_toss, s->s_effect);
 }

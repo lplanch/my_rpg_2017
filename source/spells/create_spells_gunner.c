@@ -103,4 +103,10 @@ void create_gunner_sound(st_rpg *s)
 	sfMusic_createFromFile("ressources/audio/sound/flam.ogg");
 	s->f.gun.s_net =
 	sfMusic_createFromFile("ressources/audio/sound/net.ogg");
+	sfMusic_setVolume(s->f.gun.l_click, s->s_effect);
+	sfMusic_setVolume(s->f.gun.s_explo, s->s_effect);
+	sfMusic_setVolume(s->f.gun.zap, s->s_effect);
+	sfMusic_setVolume(s->f.gun.h_noon, s->s_effect);
+	sfMusic_setVolume(s->f.gun.s_flam, s->s_effect);
+	sfMusic_setVolume(s->f.gun.s_net, s->s_effect);
 }

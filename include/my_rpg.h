@@ -604,6 +604,8 @@ typedef struct particle_all
 
 typedef struct struct_rpg
 {
+	int s_music;
+	int s_effect;
 	all_part_t part;
 	proc_t proc;
 	ing_inv_t inv;
@@ -627,6 +629,7 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void get_sound_option(st_rpg *s);
 void destroy_warrior_sound(st_rpg *s);
 void create_warrior_sound(st_rpg *s);
 void attack_enemy(st_rpg *s, int i);
