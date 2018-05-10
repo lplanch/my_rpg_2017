@@ -25,4 +25,7 @@ void dungeon1(proc_var_t *hey)
 	hey->background.a = 255;
 	hey->min_enemies = 3;
 	hey->max_enemies = 9;
+	hey->dungeon_music =
+	"ressources/audio/music_dungeon2.ogg";
+	hey->volume = 50;
 }

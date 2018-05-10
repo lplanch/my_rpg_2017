@@ -13,8 +13,6 @@ void quit_game_for_dungeon(st_rpg *s)
 	sfView_setCenter(s->fi->view, create_vector2f(960, 540));
 	sfRenderWindow_setView(s->window, s->fi->view);
 	sfMusic_stop(s->fi->music.music);
-	//sfMusic_play(s->proc.dungeon_music);
-	//sfMusic_setLoop(s->proc.dungeon_music, 1);
 }
 
 void choice_box_quit(st_rpg *s, char **tab, char *str, int compter)
