@@ -55,7 +55,7 @@ int prog(st_rpg *s)
 			return (main_menu(s));
 		}
 		game_update(s);
-		if (event_game(s) || s->fi->return_value == 1) {
+		if (event_game(s) == 1 || s->fi->return_value == 1) {
 			return (1);
 		}
 	}
