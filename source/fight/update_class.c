@@ -76,4 +76,5 @@ void update_class(st_rpg *s)
 		update_rogue, update_warrior};
 
 	(list[s->player.cdata.classe])(s);
+	update_dash(s, s->f.knock);
 }

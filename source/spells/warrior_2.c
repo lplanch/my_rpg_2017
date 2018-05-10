@@ -10,6 +10,7 @@
 
 void warrior_stance(st_rpg *s)
 {
+	sfMusic_play(s->f.war.s_shield);
 	s->f.cast = 2;
 	stop_player(s);
 	launch_aoe(s, s->f.war.shield);

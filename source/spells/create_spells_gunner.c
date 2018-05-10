@@ -101,4 +101,6 @@ void create_gunner_sound(st_rpg *s)
 	sfMusic_createFromFile("ressources/audio/sound/h_noon.ogg");
 	s->f.gun.s_flam =
 	sfMusic_createFromFile("ressources/audio/sound/flam.ogg");
+	s->f.gun.s_net =
+	sfMusic_createFromFile("ressources/audio/sound/net.ogg");
 }

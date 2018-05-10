@@ -121,7 +121,7 @@ void make_deadlock_left_block(sfTexture *blocks, smap_t *smap);
 
 //MAIN GAME
 int launch_dungeon_game(st_rpg *rpg);
-void free_dungeon(proc_t *proc);
+void free_dungeon(st_rpg *rpg, proc_t *proc);
 
 //START A NEW LEVEL
 int next_level_screen(st_rpg *rpg);
@@ -143,6 +143,8 @@ void verify_mouse_inv_events(st_rpg *rpg);
 
 //ITEM INSIDE DUNGEONS
 void create_items_list(st_rpg *rpg);
+void destroy_items_list(st_rpg *rpg);
+void draw_item_on_ground(st_rpg *rpg);
 
 //NPC
 //ENNEMIES
