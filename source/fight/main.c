@@ -14,6 +14,8 @@ void destroy_main_fight(st_rpg *s)
 		destroy_object(s->f.locks[i]);
 	sfClock_destroy(s->f.proc.clock);
 	sfClock_destroy(s->f.ent.clock);
+	destroy_dash(s->f.knock);
+	destroy_effect(s->f.recover);
 }
 
 void create_main_fight(st_rpg *s)
@@ -29,7 +31,8 @@ void create_main_fight(st_rpg *s)
 		s->f.locks[i] = create_object("ressources/images/lock.png",
 		create_vector2f(320 + 100 * i, 820),
 		create_rect(0, 0, 38, 38), 0);
-	s->f.knock = create_dash(70, 600);
+	s->f.knock = create_dash(50, 300);
+	s->f.recover = create_effect("recover", 0, 0.75);
 }
 
 int fight_events(st_rpg *s)

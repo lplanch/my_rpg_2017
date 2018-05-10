@@ -31,7 +31,12 @@ void destroy_main_menu(st_rpg *s)
 	}
 	sfClock_destroy(s->mainm.t.clock);
 	sfMusic_destroy(s->mainm.music);
+	sfMusic_destroy(s->mainm.s_effect);
 	destroy_shader(&s->mainm.shader);
+	destroy_text(s->mainm.sound[0]);
+	destroy_text(s->mainm.sound[1]);
+	destroy_text(s->mainm.sound[2]);
+	destroy_text(s->mainm.sound[3]);
 }
 
 void initialize_menu_interface(st_rpg *s)
@@ -56,6 +61,7 @@ void initialize_menu_interface(st_rpg *s)
 	create_vector2f(558, -300), create_rect(0, 0, 804, 67), 0);
 	sfSprite_setScale(s->mainm.guy->sprite, create_vector2f(2, 2));
 	s->mainm.shader = create_shader("shader/rainbow.frag", 1);
+	set_text_option(s);
 }
 
 void initialize_menu(st_rpg *s)

@@ -31,6 +31,7 @@ FILES		=	source/main.c							\
 			source/main_menu/base.c						\
 			source/main_menu/events.c					\
 			source/main_menu/sound_set.c					\
+			source/main_menu/set_text_option.c				\
 			source/main_menu/shader.c					\
 			source/custom/main.c						\
 			source/custom/get_buttons.c					\
