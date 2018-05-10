@@ -21,7 +21,7 @@ void generate_enemy_stat(enemy_t *enemy)
 	enemy->alive = 1;
 	enemy->stat->pva = enemy->stat->pvm;
 	enemy->ratios = create_vector2f(0, 0);
-	enemy->life = create_object("ressources/images/minibar.png",
+	enemy->life = create_object("ressources/images/interface/minibar.png",
 	create_vector2f(enemy->obj->pos.x, enemy->obj->pos.y - 20),
 	create_rect(0, 0, 50, 10), 0);
 }

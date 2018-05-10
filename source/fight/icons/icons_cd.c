@@ -40,7 +40,8 @@ void update_icons_cd(st_rpg *s)
 void create_icons_cd(st_rpg *s)
 {
 	for (int i = 0; i < 4; i++)
-		s->f.cd[i] = create_object("ressources/images/semiblack.png",
+		s->f.cd[i] = create_object(
+		"ressources/images/interface/semiblack.png",
 		create_vector2f(s->origin.x + 200 + 100 * i, s->origin.y + 800),
 		create_rect(0, 0, 128, 128), 0);
 	s->f.cdt = create_st_time();

@@ -20,7 +20,8 @@ void generate_pause_menu_window(st_rpg *s)
 	s->pausm.menu = 0;
 	s->statm.show = 6;
 	s->pausm.sens = 1;
-	s->pausm.window = create_object("ressources/images/pause_window.png",
+	s->pausm.window = create_object(
+	"ressources/images/interface/pause_window.png",
 	create_vector2f(x + 1490, y + 30), create_rect(0, 0, 400, 600), 0);
 	s->pausm.cursor =
 	create_object("ressources/images/dialog_box/cursor.png",

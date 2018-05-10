@@ -40,13 +40,13 @@ void create_life_bar(st_rpg *s)
 	int x = s->origin.x;
 	int y = s->origin.y;
 
-	s->bar.bars = create_object("ressources/images/bars.png",
+	s->bar.bars = create_object("ressources/images/interface/bars.png",
 	create_vector2f(x + 40, y + 40),
 	create_rect(0, 0, 408, 82), 0);
-	s->bar.life = create_object("ressources/images/life.png",
+	s->bar.life = create_object("ressources/images/interface/life.png",
 	create_vector2f(x + s->bar.bars->pos.x + 82, y + s->bar.bars->pos.y
 	+ 18), create_rect(0, 0, 316, 18), 0);
-	s->bar.xp = create_object("ressources/images/xp.png",
+	s->bar.xp = create_object("ressources/images/interface/xp.png",
 	create_vector2f(x + s->bar.life->pos.x, y + s->bar.bars->pos.y + 47),
 	create_rect(0, 0, 316, 18), 0);
 	s->bar.values[0] = create_text("0", create_vector2f(x + 67, y + 67),
