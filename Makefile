@@ -63,6 +63,7 @@ FILES		=	source/main.c							\
 			source/fight/enemies/boss.c					\
 			source/fight/enemies/champ_spells.c				\
 			source/fight/enemies/champ_update.c				\
+			source/fight/enemies/hitbox.c					\
 			source/fight/enemies/attack.c					\
 			source/fight/enemies/enemy.c					\
 			source/fight/enemies/aggro.c					\
