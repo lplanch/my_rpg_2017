@@ -23,8 +23,6 @@ void draw_scene_samy(st_rpg *s)
 
 void dialog_death_samy(st_rpg *s)
 {
-	int a = 0;
-
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "samy_death_samy2", "Samy");
 	s->cut.champ_status = 1;
@@ -41,11 +39,6 @@ void dialog_death_samy(st_rpg *s)
 	s->fi->pnj[3].pnj->pos = create_vector2f(10000, 10000);
 	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
 	sfSprite_setPosition(s->fi->pnj[2].pnj->sprite, s->fi->pnj[2].pnj->pos);
-	while (a != 100) {
-		draw_scene_samy(s);
-		sfRenderWindow_display(s->window);
-		a++;
-	}
 	quit_game_for_dungeon(s);
 	s->fi->return_value = launch_dungeon(s, &dungeon3_2);
 }

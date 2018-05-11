@@ -199,6 +199,7 @@ typedef struct s_files
 	int dream_status;
 	st_button **name_head;
 	g_object *name_head_edge[2];
+	g_object *lake;
 	sfClock *clock;
 	sfView *view;
 	quests_t **quests;
@@ -219,9 +220,10 @@ typedef struct s_files
 	pnj_t pnj[15];
 	pos_t pos[10];
 	colcircle_t colcircle[42];
-	colsquare_t colsquare[473];
+	colsquare_t colsquare[479];
 	map_t map;
 	clockz_t time;
+	clockz_t lake_clock;
 	clockz_t pnj_clock;
 	st_music music;
 	st_music samys_music;

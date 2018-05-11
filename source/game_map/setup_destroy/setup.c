@@ -13,6 +13,7 @@ void setupclock(st_rpg *s)
 	s->fi->time.clock = sfClock_create();
 	s->fi->clock = sfClock_create();
 	s->fi->pnj_clock.clock = sfClock_create();
+	s->fi->lake_clock.clock = sfClock_create();
 }
 
 void setup_loading(st_rpg *s)

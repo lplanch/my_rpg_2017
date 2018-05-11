@@ -164,6 +164,7 @@ void draw_scene_samy(st_rpg *s);
 
 void draw_floor_nbr(st_rpg *rpg);
 void quit_game_for_dungeon(st_rpg *s);
+void lake_update(st_rpg *s);
 
 #ifndef MY_COOK_
 #define MY_COOK_

@@ -44,9 +44,14 @@ void setup_music(st_rpg *s)
 
 void setup_col(st_rpg *s)
 {
+	sfVector2f scale = {5, 5};
+
 	s->fi->nbr_colcircle = 42;
-	s->fi->nbr_colsquare = 473;
+	s->fi->nbr_colsquare = 479;
 	s->fi->direction = 3;
+	s->fi->lake = create_object("ressources/map_preset/lake.png",
+	create_vector2f(2720, 0), create_rect(0, 0, 288, 366), 0);
+	sfSprite_scale(s->fi->lake->sprite, scale);
 }
 
 void setup_camera(st_rpg *s)

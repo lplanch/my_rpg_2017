@@ -63,6 +63,7 @@ void draw_all(st_rpg *s)
 	s->player.obj->rect);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	sfRenderWindow_clear(s->window, sfBlack);
+	sfRenderWindow_drawSprite(s->window, s->fi->lake->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite5, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite3, NULL);
