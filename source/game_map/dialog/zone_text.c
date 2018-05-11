@@ -67,7 +67,8 @@ void event_dialog_box(st_rpg *s, sfEvent event, int fd)
 		->pnj[s->fi->nb_pnj].dialog_box->obj,
 		s->window, s) == 1))) {
 			open_or_no(s, fd);
-		}
+		} if (sfKeyboard_isKeyPressed(sfKeyEscape))
+			s->fi->return_value = 6;
 	}
 }
 

@@ -129,10 +129,13 @@ void death_zac(st_rpg *s)
 	s->fi->pnj[3].pnj->pos = create_vector2f(10000, 10000);
 	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
 	sfMusic_destroy(music);
-	sfMusic_play(s->fi->music.music);
 	s->fi->dream_status = 1;
 	s->fi->dialog_box_isopen = 1;
+	sfMusic_stop(s->fi->music.music);
+	sfMusic_play(s->fi->reflexion_music.music);
 	dialog_box(s, "player_dream1", "hero");
+	sfMusic_stop(s->fi->reflexion_music.music);
+	sfMusic_play(s->fi->music.music);
 	s->fi->dream_status = 0;
 	wake_up(s);
 }

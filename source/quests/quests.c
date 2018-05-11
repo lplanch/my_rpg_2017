@@ -81,8 +81,6 @@ void start_quests_4(st_rpg *s)
 {
 	set_pnj_meeting_without_zac(s);
 	move_camera(s);
-	sfMusic_stop(s->fi->music.music);
-	sfMusic_play(s->fi->ponder_music.music);
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "jade_zac_is_missing1", "jade");
 	s->fi->dialog_box_isopen = 1;
@@ -93,7 +91,7 @@ void start_quests_4(st_rpg *s)
 	dialog_box(s, "jade_zac_is_missing3", "jade");
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "samy_zac_is_missing2", "samy");
-	sfMusic_stop(s->fi->ponder_music.music);
+	sfMusic_stop(s->fi->reflexion_music.music);
 	sfMusic_play(s->fi->music.music);
 }
 
@@ -109,6 +107,8 @@ void quests_3(st_rpg *s)
 	s->fi->pnj[3].pnj->pos = create_vector2f(1000, 1000);
 	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
 	wake_up(s);
+	sfMusic_stop(s->fi->music.music);
+	sfMusic_play(s->fi->reflexion_music.music);
 	background_with_text(s,
 	"ressources/images/scenes/background_zach_missing.png",
 	"Zach is missing", "ressources/fonts/quests2.otf");
