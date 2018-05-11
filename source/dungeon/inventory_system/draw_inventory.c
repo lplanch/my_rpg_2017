@@ -50,7 +50,7 @@ void draw_inventory_items(st_rpg *rpg)
 {
 	item_t *current = rpg->inv.first_slot;
 	float left_pos = rpg->player.obj->pos.x - WIDTH / 2.5 + 15;
-	float top_pos = rpg->player.obj->pos.y - HEIGHT / 2.5 + 15;
+	float top_pos = rpg->player.obj->pos.y - HEIGHT / 2.5 + 70;
 	sfVector2f current_pos;
 	sfVector2f text_pos;
 
