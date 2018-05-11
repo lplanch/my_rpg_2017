@@ -10,8 +10,6 @@
 
 void update_samy(st_rpg *s, float dt)
 {
-	printf("cast = %d\n", s->f.mob[0]->cast);
-	printf("casting = %f\n", s->f.boss.casting);
 	s->f.mob[0]->cdcount -= dt;
 	if (s->f.mob[0]->cdcount < 0 && enemy_is_able(s, 0)) {
 		s->f.mob[0]->cast = 2;

@@ -634,9 +634,14 @@ typedef struct particle_all
 typedef struct cutscene
 {
 	int champ_status;
+	int samy_value;
+	int zac_value;
+	int jade_value;
 	g_object *map;
 	g_object *zachd;
 	g_object *map_samy;
+	g_object *map_samy_boss;
+	g_object *samy_boss;
 	g_object *samyd;
 	g_object *champ;
 } ct_cutscene;
