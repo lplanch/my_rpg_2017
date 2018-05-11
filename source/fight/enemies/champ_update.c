@@ -8,9 +8,25 @@
 #include "my_rpg.h"
 #include "my.h"
 
-void launch_champ_tentacle(st_rpg *s)
+void stop_tentacle(st_rpg *s)
 {
-	s->f.mob[0]->cast = 2;
+	if (s->f.boss.ctent > 5) {
+		s->f.boss.ctent = 0;
+		s->f.mob[0]->cast = 0;
+	}
+}
+
+int precedent_tentacle_is_mid(st_rpg *s)
+{
+	if (s->f.boss.ctent > 0) {
+		if (s->f.boss.tent[s->f.boss.ctent - 1]->anim->li > 0)
+			return (1);
+	}
+	return (0);
+}
+
+void update_tentacle(st_rpg *s)
+{
 	s->f.boss.trat = get_ratios(get_angle_enemy(s, 0));
 	launch_aoe(s, s->f.boss.tent[s->f.boss.ctent]);
 	sfCircleShape_setPosition(s->f.boss.tent[s->f.boss.ctent]->circle,
@@ -26,32 +42,5 @@ void launch_champ_tentacle(st_rpg *s)
 	s->f.mob[0]->obj->pos.y + 72 + s->f.boss.trat.y * 100 * (s->f.boss.ctent + 2) -
 	s->f.boss.tent[s->f.boss.ctent]->anim->obj->rect.height / 2));
 	s->f.boss.ctent += 1;
-}
-
-void launch_champ_shadowball(st_rpg *s)
-{
-	launch_aoe(s, s->f.boss.ball);
-}
-
-void launch_champ_well(st_rpg *s)
-{
-	launch_aoe(s, s->f.boss.well);
-	sfCircleShape_setPosition(s->f.boss.well->circle,
-	create_vector2f(s->player.obj->pos.x - sfCircleShape_getRadius(s
-	->f.boss.well->circle),
-	s->player.obj->pos.y - sfCircleShape_getRadius(s
-	->f.boss.well->circle)));
-	sfSprite_setPosition(s->f.boss.well->anim->obj->sprite,
-	create_vector2f(s->player.obj->pos.x - s->f.boss.well->anim->obj
-	->rect.width / 2,
-	s->player.obj->pos.y - s->f.boss.well->anim->obj->rect.height / 2));
-}
-
-void launch_champ_spells(st_rpg *s)
-{
-	void (*list[3])(st_rpg *s) = {launch_champ_tentacle,
-	launch_champ_shadowball, launch_champ_well};
-
-	s->f.boss.attack = 0;
-	(list[s->f.boss.attack])(s);
+	stop_tentacle(s);
 }

@@ -14,20 +14,22 @@ void update_champ(st_rpg *s, float dt)
 		clocked_animation(s->f.boss.tent[i]->anim);
 	clocked_animation(s->f.boss.well->anim);
 	clocked_animation(s->f.boss.ball->anim);
-	s->f.boss.mob->cdcount -= dt;
-	if (s->f.boss.mob->cdcount < 0) {
-		s->f.boss.mob->cdcount  = s->f.boss.mob->cd;
+	s->f.mob[0]->cdcount -= dt;
+	if (precedent_tentacle_is_mid(s))
+		update_tentacle(s);
+	if (s->f.mob[0]->cdcount < 0) {
+		s->f.mob[0]->cdcount  = s->f.mob[0]->cd;
 		launch_champ_spells(s);
 	}
 }
 
 void display_champ(st_rpg *s)
 {
-	sfRenderWindow_drawSprite(s->window, s->f.boss.mob->obj->sprite, NULL);
-	/*for (int i = 0; i != 6; i += 1)
+	sfRenderWindow_drawSprite(s->window, s->f.mob[0]->obj->sprite, NULL);
+	for (int i = 0; i != 6; i += 1)
 		display_aoe(s->window, s->f.boss.tent[i]);
 	display_aoe(s->window, s->f.boss.well);
-	display_aoe(s->window, s->f.boss.ball);*/
+	display_aoe(s->window, s->f.boss.ball);
 }
 
 void destroy_champ(st_rpg *s)
@@ -36,17 +38,21 @@ void destroy_champ(st_rpg *s)
 		destroy_aoe(s->f.boss.tent[i]);
 	destroy_aoe(s->f.boss.well);
 	destroy_aoe(s->f.boss.ball);
-	destroy_enemy(s->f.boss.mob);
 }
 
 void generate_champ(st_rpg *s)
 {
-	s->f.boss.mob = generate_enemy("ressources/enemies/Champ");
+	destroy_enemies(s);
+	s->proc.pvar.enemy_nbr = 1;
+	s->f.mob = malloc(sizeof(enemy_t *) * s->proc.pvar.enemy_nbr);
+	s->f.mob[0] = generate_enemy("ressources/enemies/Champ");
 	s->f.boss.attack = 0;
-
-	sfSprite_setPosition(s->f.boss.mob->obj->sprite,
-	(sfVector2f){s->player.obj->pos.x, s->player.obj->pos.y});
-	sfSprite_setScale(s->f.boss.mob->obj->sprite, (sfVector2f){3, 3});
+	s->f.boss.ctent = 0;
+	s->f.mob[0]->obj->pos.x = s->player.obj->pos.x;
+	s->f.mob[0]->obj->pos.y = s->player.obj->pos.y;
+	sfSprite_setPosition(s->f.mob[0]->obj->sprite,
+	s->f.mob[0]->obj->pos);
+	sfSprite_setScale(s->f.mob[0]->obj->sprite, (sfVector2f){3, 3});
 	for (int i = 0; i != 6; i += 1)
 		s->f.boss.tent[i] = create_aoe_from_file(
 		"ressources/spells/enemies/tent");

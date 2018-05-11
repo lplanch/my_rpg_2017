@@ -331,9 +331,9 @@ typedef struct enemy
 
 typedef struct boss_spells
 {
-	enemy_t *mob;
 	int attack;
-	float cdcount;
+	int ctent;
+	sfVector2f trat;
 	aoe_t *tent[6];
 	aoe_t *well;
 	aoe_t *ball;
@@ -662,6 +662,7 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void update_tentacle(st_rpg *s);
 void generate_champ(st_rpg *s);
 void destroy_champ(st_rpg *s);
 void display_champ(st_rpg *s);
