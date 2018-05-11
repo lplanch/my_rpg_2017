@@ -8,6 +8,28 @@
 #include "my.h"
 #include "game_map.h"
 
+void print_letter(st_rpg *s)
+{
+	sfEvent event;
+	g_object *letter =
+	create_object("ressources/images/scenes/letter_death_zach.jpg",
+	create_vector2f(s->fi->camera.x, s->fi->camera.y - 960),
+	create_rect(0, 0, 531, 761), 0);
+
+	sfSprite_setPosition(letter->sprite, create_vector2f(s->fi->camera.x -
+	(letter->rect.width / 2), s->fi->camera.y - (letter->rect.height / 2)));
+	while (42) {
+		sfRenderWindow_pollEvent(s->window, &event);
+		draw_all(s);
+		sfRenderWindow_drawSprite(s->window, letter->sprite, NULL);
+		sfRenderWindow_display(s->window);
+		if (sfKeyboard_isKeyPressed(sfKeyReturn)
+		&& event.type == sfEvtKeyPressed)
+			break;
+	}
+	destroy_object(letter);
+}
+
 void draw_scene_zach(st_rpg *s)
 {
 	sfRenderWindow_clear(s->window, sfBlack);
@@ -23,36 +45,20 @@ void draw_scene_zach(st_rpg *s)
 
 void dialog_death_zach(st_rpg *s)
 {
-	sfEvent event;
-	g_object *letter =
-	create_object("ressources/images/scenes/letter_death_zach.jpg",
-	create_vector2f(s->fi->camera.x, s->fi->camera.y - 960),
-	create_rect(0, 0, 531, 761), 0);
 
-	sfSprite_setPosition(letter->sprite, create_vector2f(s->fi->camera.x -
-	(letter->rect.width / 2), s->fi->camera.y - (letter->rect.height / 2)));
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "jade_death_zach1", "jade");
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "samy_death_zach1", "samy");
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "jade_death_zach2", "jade");
-	while (42) {
-		sfRenderWindow_pollEvent(s->window, &event);
-		draw_all(s);
-		sfRenderWindow_drawSprite(s->window, letter->sprite, NULL);
-		sfRenderWindow_display(s->window);
-		if (sfKeyboard_isKeyPressed(sfKeyReturn)
-		&& event.type == sfEvtKeyPressed)
-			break;
-	}
+	print_letter(s);
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "samy_death_zach2", "samy");
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "jade_death_zach3", "jade");
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "samy_death_zach3", "samy");
-	destroy_object(letter);
 }
 
 void move_all_character_zach(st_rpg *s)
