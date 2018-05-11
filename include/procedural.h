@@ -143,11 +143,13 @@ void draw_focused_item(st_rpg *rpg);
 void draw_inventory_background(st_rpg *rpg);
 void create_item_sprite(st_rpg *rpg, item_t *current);
 int mouse_on_inventory_slot(st_rpg *rpg, int posx, int posy);
+void draw_resume_item(st_rpg *rpg);
 
 //WEAPON AND ARMOR SLOT
 void draw_armor_weapon_slot(st_rpg *rpg);
 void create_armor_weapon_slot(st_rpg *rpg);
 void verify_armor_weapon_highlight(st_rpg *rpg, int *clicked);
+void update_pos_weapon_armor_focus(st_rpg *rpg, sfVector2f *pos);
 
 //FAST INVENTORY
 void verify_fast_inventory(st_rpg *rpg);

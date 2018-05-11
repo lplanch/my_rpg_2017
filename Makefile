@@ -61,6 +61,8 @@ FILES		=	source/main.c							\
 			source/fight/projectile/projectile_effects.c			\
 			source/fight/hitbox.c						\
 			source/fight/enemies/champ.c					\
+			source/fight/enemies/samy.c					\
+			source/fight/enemies/samy_spells.c				\
 			source/fight/enemies/champ_spells.c				\
 			source/fight/enemies/champ_update.c				\
 			source/fight/enemies/hitbox.c					\
@@ -225,6 +227,8 @@ FILES		=	source/main.c							\
 			source/dungeon/inventory_system/inv_handle_mouse.c		\
 			source/dungeon/inventory_system/inventory_items_handling.c	\
 			source/dungeon/inventory_system/create_weapon_armor.c		\
+			source/dungeon/inventory_system/highlight_weapon_armor.c	\
+			source/dungeon/inventory_system/item_resume.c			\
 			source/dungeon/ground_item_system/create_items_on_ground.c	\
 			source/dungeon/ground_item_system/draw_item_ground.c		\
 			source/dungeon/ground_item_system/update_ground_item.c		\
