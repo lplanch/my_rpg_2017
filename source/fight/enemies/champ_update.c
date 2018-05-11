@@ -48,7 +48,8 @@ void update_tentacle(st_rpg *s)
 
 void update_well(st_rpg *s)
 {
-	proc_enemy_aoe(s, s->f.boss.well, 0);
+	if (s->f.boss.well->anim->li == 3)
+		proc_enemy_aoe(s, s->f.boss.well, 0);
 }
 
 void update_shadowball(st_rpg *s, float dt)

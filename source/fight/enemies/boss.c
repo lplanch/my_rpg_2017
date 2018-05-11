@@ -18,7 +18,7 @@ void update_champ(st_rpg *s, float dt)
 	update_shadowball(s, dt);
 	if (precedent_tentacle_is_mid(s))
 		update_tentacle(s);
-	if (s->f.mob[0]->cdcount < 0) {
+	if (s->f.mob[0]->cdcount < 0 && enemy_is_able(s, 0)) {
 		s->f.mob[0]->cdcount  = s->f.mob[0]->cd;
 		launch_champ_spells(s);
 	}
