@@ -666,6 +666,7 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+int enemy_is_able(st_rpg *s, int i);
 void update_well(st_rpg *s);
 void proc_enemy_aoe(st_rpg *s, aoe_t *aoe, int i);
 void get_object_ends(g_object *object, sfVector2f points[4]);
