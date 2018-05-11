@@ -18,6 +18,22 @@ void verify_destroy_item(item_t *current)
 	current->show_stacks = NULL;
 }
 
+void remove_inventory_item(st_rpg *rpg, item_t *to_remove)
+{
+	item_t *current = rpg->inv.first_slot;
+
+	while (current != to_remove)
+		current = current->next;
+	current->stacks -= 1;
+	if (current->stacks == 0) {
+		verify_destroy_item(current);
+		clear_inventory_slot(current);
+		if (rpg->inv.focused == to_remove) {
+			rpg->inv.focused = NULL;
+		}
+	}
+}
+
 int add_inventory_item(item_t *first_slot, unsigned int id)
 {
 	item_t *current = first_slot;
@@ -44,4 +60,5 @@ void use_inventory_item(st_rpg *rpg, item_t *current)
 	my_putstr("using item : ");
 	my_put_nbr(current->id);
 	my_putchar('\n');
+	remove_inventory_item(rpg, current);
 }
