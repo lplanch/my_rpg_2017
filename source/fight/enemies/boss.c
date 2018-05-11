@@ -22,6 +22,7 @@ void update_champ(st_rpg *s, float dt)
 		s->f.mob[0]->cdcount  = s->f.mob[0]->cd;
 		launch_champ_spells(s);
 	}
+	update_well(s);
 }
 
 void display_champ(st_rpg *s)

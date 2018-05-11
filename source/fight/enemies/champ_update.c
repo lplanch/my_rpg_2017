@@ -32,17 +32,23 @@ void update_tentacle(st_rpg *s)
 	sfCircleShape_setPosition(s->f.boss.tent[s->f.boss.ctent]->circle,
 	create_vector2f(s->f.mob[0]->obj->pos.x + 144 + s->f.boss.trat.x * 70 *
 	s->f.boss.ctent - sfCircleShape_getRadius(s->f.boss.tent[s
-	->f.boss.ctent]->circle), s->f.mob[0]->obj->pos.y + 72
-	+ s->f.boss.trat.y * 100 * (s->f.boss.ctent + 2) - sfCircleShape_getRadius(s
+	->f.boss.ctent]->circle), s->f.mob[0]->obj->pos.y + 72 + s->f.boss.trat
+	.y * 100 * (s->f.boss.ctent + 2) - sfCircleShape_getRadius(s
 	->f.boss.tent[s->f.boss.ctent]->circle)));
 	sfSprite_setPosition(s->f.boss.tent[s->f.boss.ctent]->anim->obj->sprite,
 	create_vector2f(s->f.mob[0]->obj->pos.x + 144 + s->f.boss.trat.x * 70 *
-	s->f.boss.ctent - s->f.boss.tent[s->f.boss.ctent]->anim->obj
-	->rect.width / 2,
-	s->f.mob[0]->obj->pos.y + 72 + s->f.boss.trat.y * 100 * (s->f.boss.ctent + 2) -
-	s->f.boss.tent[s->f.boss.ctent]->anim->obj->rect.height / 2));
+	s->f.boss.ctent - s->f.boss.tent[s->f.boss.ctent]->anim->obj->rect.width
+	/ 2, s->f.mob[0]->obj->pos.y + 72 + s->f.boss.trat.y * 100 * (s->f.boss.
+	ctent + 2) - s->f.boss.tent[s->f.boss.ctent]->anim
+	->obj->rect.height / 2));
+	proc_enemy_aoe(s, s->f.boss.tent[s->f.boss.ctent], 0);
 	s->f.boss.ctent += 1;
 	stop_tentacle(s);
+}
+
+void update_well(st_rpg *s)
+{
+	proc_enemy_aoe(s, s->f.boss.well, 0);
 }
 
 void update_shadowball(st_rpg *s, float dt)
@@ -61,4 +67,5 @@ void update_shadowball(st_rpg *s, float dt)
 	create_vector2f(s->f.boss.ballpos.x - s->f.boss.ball->anim->obj
 	->rect.width / 2, s->f.boss.ballpos.y -
 	s->f.boss.ball->anim->obj->rect.height / 2));
+	proc_enemy_aoe(s, s->f.boss.ball, 0);
 }

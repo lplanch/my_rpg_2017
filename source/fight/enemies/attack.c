@@ -16,6 +16,25 @@ int enemy_is_able(st_rpg *s, int i)
 	return (0);
 }
 
+void proc_enemy_aoe(st_rpg *s, aoe_t *aoe, int i)
+{
+	float amount = s->f.mob[i]->stat->frc -
+	(s->player.stat->def / 100 * s->f.mob[i]->stat->frc);
+
+	if (circle_hitbox(aoe->circle, s->player.obj) && enemy_is_able(s, i)) {
+		hurt(s, amount);
+		stop_player(s);
+		launch_dash(s, s->f.knock);
+		s->f.knock->ratios = get_ratios(get_angle_enemy(s, i));
+		s->player.nbr_frame.x = s->f.knock->ratios.x *
+		s->f.knock->speed;
+		s->player.nbr_frame.y = s->f.knock->ratios.y *
+		s->f.knock->speed;
+		launch_dmg_show(s, amount, s->player.obj);
+		s->f.recover->count = s->f.recover->duration;
+	}
+}
+
 void attack_enemy(st_rpg *s, int i)
 {
 	float amount = s->f.mob[i]->stat->frc -
