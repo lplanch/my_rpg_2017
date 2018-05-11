@@ -15,7 +15,8 @@ void create_spells_warrior2(st_rpg *s)
 	s->f.war.destroyer = create_effect("destroyer", 0, 5);
 	s->f.war.parade = create_effect("parade", 0, 5);
 	s->f.war.parade->count = 5;
-	s->f.war.paricon = create_object("ressources/images/pictostat.png",
+	s->f.war.paricon = create_object(
+	"ressources/images/interface/pictostat.png",
 	create_vector2f(s->origin.x + 125, s->origin.y + 88),
 	create_rect(0, 64, 32, 32), 0);
 	s->f.war.rush = create_dash(60, 3000);

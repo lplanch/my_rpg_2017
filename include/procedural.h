@@ -133,15 +133,26 @@ void create_ingame_inventory(st_rpg *rpg);
 void clear_inventory_slot(item_t *slot);
 void add_inventory_slot(item_t *first_slot);
 void remove_inventory_slot(item_t *first_slot);
-void create_fast_inventory_screen(ing_finv_t *finv);
 void verify_inventory(st_rpg *rpg);
-void verify_fast_inventory(st_rpg *rpg);
+item_t *create_first_slot(void);
 int search_item(item_t *first_slot, unsigned int id);
 int add_inventory_item(item_t *first_slot, unsigned int id);
 void use_inventory_item(st_rpg *rpg, item_t *current);
 void verify_mouse_inv_events(st_rpg *rpg);
 void draw_focused_item(st_rpg *rpg);
 void draw_inventory_background(st_rpg *rpg);
+void create_item_sprite(st_rpg *rpg, item_t *current);
+int mouse_on_inventory_slot(st_rpg *rpg, int posx, int posy);
+
+//WEAPON AND ARMOR SLOT
+void draw_armor_weapon_slot(st_rpg *rpg);
+void create_armor_weapon_slot(st_rpg *rpg);
+void verify_armor_weapon_highlight(st_rpg *rpg, int *clicked);
+
+//FAST INVENTORY
+void verify_fast_inventory(st_rpg *rpg);
+void create_fast_inventory_slots(st_rpg *rpg);
+void create_fast_inventory_screen(ing_finv_t *finv);
 
 //ITEM INSIDE DUNGEONS
 void create_items_list(st_rpg *rpg);

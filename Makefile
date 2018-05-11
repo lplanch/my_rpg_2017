@@ -60,6 +60,8 @@ FILES		=	source/main.c							\
 			source/fight/projectile/update_projectiles.c			\
 			source/fight/projectile/projectile_effects.c			\
 			source/fight/hitbox.c						\
+			source/fight/enemies/boss.c					\
+			source/fight/enemies/champ_spells.c				\
 			source/fight/enemies/attack.c					\
 			source/fight/enemies/enemy.c					\
 			source/fight/enemies/aggro.c					\
@@ -219,6 +221,7 @@ FILES		=	source/main.c							\
 			source/dungeon/inventory_system/draw_fast_inventory.c		\
 			source/dungeon/inventory_system/inv_handle_mouse.c		\
 			source/dungeon/inventory_system/inventory_items_handling.c	\
+			source/dungeon/inventory_system/create_weapon_armor.c		\
 			source/dungeon/ground_item_system/create_items_on_ground.c	\
 			source/dungeon/ground_item_system/draw_item_ground.c		\
 			source/dungeon/ground_item_system/update_ground_item.c		\
