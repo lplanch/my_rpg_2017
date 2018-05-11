@@ -103,5 +103,19 @@ void check_pnj_for_quests(st_rpg *s)
 		sfText_setString(s->fi->text_finish_quests->text,
 		"Quest 3 complete!");
 		s->fi->var_for_quests = 255;
+	} if (s->fi->quests[5]->status == 1 && s->fi->num_dungeon == 3) {
+		stop_player(s);
+		s->returnv = 0;
+		s->fi->return_value = 0;
+		s->fi->num_dungeon = 0;
+		s->fi->quests[5]->status = 2;
+		s->player.obj->pos = create_vector2f(7950, 8160);
+		sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
+		s->fi->camera_pos = 0;
+		move_camera(s);
+		death_samy(s);
+		sfText_setString(s->fi->text_finish_quests->text,
+		"Quest 4 complete!");
+		s->fi->var_for_quests = 255;
 	}
 }

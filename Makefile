@@ -175,6 +175,7 @@ FILES		=	source/main.c							\
 			source/scenes/night.c						\
 			source/scenes/background_with_text.c				\
 			source/scenes/death_zach.c					\
+			source/scenes/death_samy.c					\
 			source/scenes/move_pnj_zach.c					\
 			source/scenes/move_player_to_zach.c				\
 			source/player/player.c						\

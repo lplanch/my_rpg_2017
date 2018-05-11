@@ -61,6 +61,8 @@ void draw_dialog_box(st_rpg *s)
 	draw_all(s);
 	if (s->fi->zach_status == 1)
 		draw_scene_zach(s);
+	if (s->fi->samy_status == 1)
+		draw_scene_samy(s);
 	sfRenderWindow_drawSprite(s->window,
 	s->fi->pnj[s->fi->nb_pnj].dialog_box->obj->sprite, NULL);
 	sfRenderWindow_drawText(s->window,

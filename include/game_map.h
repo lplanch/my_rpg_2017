@@ -154,11 +154,13 @@ sfIntRect set_texturerect_top(g_object *obj, int top);
 void night_scene(st_rpg *s);
 void background_with_text(st_rpg *s, char *path_sprite, char *text, char *font);
 void death_zac(st_rpg *s);
+void death_samy(st_rpg *s);
 void move_pnj_zach(st_rpg *s, sfVector2f pos, int nb_pnj);
 void move_player_to_zach(st_rpg *s, sfVector2f pos);
 void draw_scene_zach(st_rpg *s);
 void walk_animation_pnj(st_rpg *s, int nb_pnj);
 void reset_pos_friends(st_rpg *s);
+void draw_scene_samy(st_rpg *s);
 
 #ifndef MY_COOK_
 #define MY_COOK_
