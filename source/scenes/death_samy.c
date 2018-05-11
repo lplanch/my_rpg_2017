@@ -12,7 +12,9 @@ void draw_scene_samy(st_rpg *s)
 {
 	sfRenderWindow_clear(s->window, sfBlack);
 	sfRenderWindow_drawSprite(s->window, s->cut.map_samy->sprite, NULL);
-	sfRenderWindow_drawSprite(s->window, s->cut.champ->sprite, NULL);
+	if (s->cut.champ_status == 1)
+		sfRenderWindow_drawSprite(s->window,
+		s->cut.champ->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window,
 	s->player.obj->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window,
@@ -21,9 +23,31 @@ void draw_scene_samy(st_rpg *s)
 
 void dialog_death_samy(st_rpg *s)
 {
+	int a = 0;
 
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "samy_death_samy2", "Samy");
+	s->cut.champ_status = 1;
+	s->fi->dialog_box_isopen = 1;
+	dialog_box(s, "champ_death_samy1", "Champ");
+	s->fi->dialog_box_isopen = 1;
+	s->fi->pnj[11].pnj->rect =
+	set_texturerect_top(s->fi->pnj[11].pnj, 96);
+	dialog_box(s, "samy_death_samy3", "Samy");
+	s->cut.champ_status = 0;
+	reset_pos_friends(s);
+	sfMusic_stop(s->fi->samys_music.music);
+	s->fi->pnj[2].pnj->pos = create_vector2f(10000, 10000);
+	s->fi->pnj[3].pnj->pos = create_vector2f(10000, 10000);
+	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[2].pnj->sprite, s->fi->pnj[2].pnj->pos);
+	while (a != 100) {
+		draw_scene_samy(s);
+		sfRenderWindow_display(s->window);
+		a++;
+	}
+	quit_game_for_dungeon(s);
+	s->fi->return_value = launch_dungeon(s, &dungeon3_2);
 }
 
 void move_all_character_samy(st_rpg *s)
@@ -45,6 +69,7 @@ void move_all_character_samy(st_rpg *s)
 
 void setup_pos_for_scene_samy(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 {
+	s->cut.champ_status = 0;
 	sfSprite_scale(s->cut.map_samy->sprite, scale);
 	sfSprite_scale(s->cut.champ->sprite, scale2);
 	s->fi->pnj[11].pnj->rect =
@@ -79,11 +104,5 @@ void death_samy(st_rpg *s)
 	move_all_character_samy(s);
 	dialog_death_samy(s);
 	s->fi->samy_status = 0;
-	reset_pos_friends(s);
-	sfMusic_stop(s->fi->samys_music.music);
-	s->fi->pnj[2].pnj->pos = create_vector2f(10000, 10000);
-	s->fi->pnj[3].pnj->pos = create_vector2f(10000, 10000);
-	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
-	sfSprite_setPosition(s->fi->pnj[2].pnj->sprite, s->fi->pnj[2].pnj->pos);
 	sfMusic_play(s->fi->music.music);
 }

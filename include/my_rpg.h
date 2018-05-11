@@ -984,5 +984,6 @@ int dungeon_loop(st_rpg *s);
 void dungeon1(proc_var_t *hey);
 void dungeon2(proc_var_t *hey);
 void dungeon3(proc_var_t *hey);
+void dungeon3_2(proc_var_t *hey);
 
 #endif
