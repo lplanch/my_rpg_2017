@@ -74,7 +74,7 @@ void create_st_custom(st_rpg *s)
 	s->cust.back = create_object("ressources/images/cust/bg.png",
 	create_vector2f(0, 0), create_rect(0, 0, 1920, 1080), 0);
 	cust_initialize_buttons(s);
-	s->cust.cursor = create_object("ressources/images/cursor.png",
+	s->cust.cursor = create_object("ressources/images/interface/cursor.png",
 	create_vector2f(1180, 710), create_rect(0, 0, 150, 150), 0);
 	sfSprite_setScale(s->cust.cursor->sprite, create_vector2f(0.5, 0.5));
 	sfSprite_setRotation(s->cust.cursor->sprite, -90);

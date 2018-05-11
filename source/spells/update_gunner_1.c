@@ -60,7 +60,7 @@ void proc_grenade(st_rpg *s)
 		sfMusic_play(s->f.gun.s_explo);
 		launch_particle(s->f.gun.partf, s->f.gun.grenade->obj->pos,
 		get_angle(s));
-		if (circle_hitbox(s->f.gun.explo, s->f.mob[i]->obj) &&
+		if (circle_hitbox_enemy(s->f.gun.explo, s->f.mob[i]) &&
 			s->f.mob[i]->alive)
 			s->f.mob[i]->stat->pva -= 70 + 15 * s->player.stat->lvl;
 	}

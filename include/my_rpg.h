@@ -326,6 +326,7 @@ typedef struct enemy
 	g_object *obj;
 	g_object *life;
 	stat_t *stat;
+	sfVector2f scale;
 } enemy_t;
 
 typedef struct boss_spells
@@ -333,6 +334,9 @@ typedef struct boss_spells
 	int attack;
 	int ctent;
 	sfVector2f trat;
+	sfVector2f ballpos;
+	sfVector2f ballrat;
+	float used;
 	aoe_t *tent[6];
 	aoe_t *well;
 	aoe_t *ball;
@@ -657,6 +661,11 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void get_object_ends(g_object *object, sfVector2f points[4]);
+int enemy_hitbox(g_object *attack, enemy_t *mob);
+int circle_hitbox_enemy(sfCircleShape *circle, enemy_t *mob);
+void update_shadowball(st_rpg *s, float dt);
+int precedent_tentacle_is_mid(st_rpg *s);
 void update_tentacle(st_rpg *s);
 void generate_champ(st_rpg *s);
 void destroy_champ(st_rpg *s);

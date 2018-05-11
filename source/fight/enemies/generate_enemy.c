@@ -59,6 +59,12 @@ void generate_enemy_object(enemy_t *enemy, int fd, char *buffer)
 	buffer = get_next_line(fd);
 	enemy->spell2 = str_to_int(buffer);
 	free(buffer);
+	buffer = get_next_line(fd);
+	enemy->scale.x = str_to_int(buffer);
+	free(buffer);
+	buffer = get_next_line(fd);
+	enemy->scale.y = str_to_int(buffer);
+	free(buffer);
 }
 
 enemy_t *generate_enemy(char *str)

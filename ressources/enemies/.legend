@@ -6,6 +6,8 @@ size in y (rect height)
 type (mob ID)
 spell1 (spell ID)
 spell2 (spell ID)
+scale x
+sacle y
 cd (float cooldown)
 level
 pvm
