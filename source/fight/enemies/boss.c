@@ -23,7 +23,6 @@ void update_champ(st_rpg *s, float dt)
 
 void display_champ(st_rpg *s)
 {
-	printf("top %d, left %d\n", s->f.boss.mob->obj->rect.top, s->f.boss.mob->obj->rect.left);
 	sfRenderWindow_drawSprite(s->window, s->f.boss.mob->obj->sprite, NULL);
 	for (int i = 0; i != 6; i += 1)
 		display_aoe(s->window, s->f.boss.tent[i]);
