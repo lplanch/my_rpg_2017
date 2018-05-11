@@ -27,8 +27,9 @@ void update_life_bars_enemies(st_rpg *s, int i)
 	sfSprite_setPosition(s->f.mob[i]->life->sprite,
 	create_vector2f(s->f.mob[i]->obj->pos.x,
 	s->f.mob[i]->obj->pos.y - 20));
-	s->f.mob[i]->life->rect.width = s->f.mob[i]->obj->rect.width
-	* s->f.mob[i]->stat->pva / s->f.mob[i]->stat->pvm;
+	s->f.mob[i]->life->rect.width = (s->f.mob[i]->obj->rect.width
+	* s->f.mob[i]->stat->pva / s->f.mob[i]->stat->pvm) *
+	s->f.mob[i]->scale.x;
 	sfSprite_setTextureRect(s->f.mob[i]->life->sprite,
 	s->f.mob[i]->life->rect);
 }

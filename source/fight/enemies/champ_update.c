@@ -44,3 +44,21 @@ void update_tentacle(st_rpg *s)
 	s->f.boss.ctent += 1;
 	stop_tentacle(s);
 }
+
+void update_shadowball(st_rpg *s, float dt)
+{
+	if (s->f.boss.used < 300)
+		s->f.boss.ballrat = get_ratios(get_angle_enemy(s, 0));
+	s->f.boss.ballpos.x += s->f.boss.ballrat.x * 1000 * dt;
+	s->f.boss.ballpos.y += s->f.boss.ballrat.y * 1000 * dt;
+	s->f.boss.used -= hypot(s->f.boss.ballrat.x * 1000 * dt,
+	s->f.boss.ballrat.y * 1000 * dt);
+	sfCircleShape_setPosition(s->f.boss.ball->circle,
+	create_vector2f(s->f.boss.ballpos.x - sfCircleShape_getRadius(s
+	->f.boss.ball->circle), s->f.boss.ballpos.y - sfCircleShape_getRadius(s
+	->f.boss.ball->circle)));
+	sfSprite_setPosition(s->f.boss.ball->anim->obj->sprite,
+	create_vector2f(s->f.boss.ballpos.x - s->f.boss.ball->anim->obj
+	->rect.width / 2, s->f.boss.ballpos.y -
+	s->f.boss.ball->anim->obj->rect.height / 2));
+}

@@ -11,7 +11,7 @@
 void proc_estoc(st_rpg *s)
 {
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
-		if (hitbox(s->player.weapon[0], s->f.mob[i]->obj) &&
+		if (enemy_hitbox(s->player.weapon[0], s->f.mob[i]) &&
 		s->f.mob[i]->alive) {
 			s->f.mob[i]->stat->pva -= s->f.war.hdmg;
 			s->f.war.estoc = 2;
@@ -52,7 +52,7 @@ void warrior_update_hasagi(st_rpg *s, float dt)
 void proc_rush(st_rpg *s)
 {
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
-		if (hitbox(s->player.obj, s->f.mob[i]->obj) &&
+		if (enemy_hitbox(s->player.obj, s->f.mob[i]) &&
 		s->f.mob[i]->alive) {
 			s->f.mob[i]->stat->pva -= 40 + (s->player.stat->frc / 7)
 			* 2;
@@ -79,7 +79,7 @@ void warrior_proc_quake(st_rpg *s)
 {
 	stop_player(s);
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
-		if (circle_hitbox(s->f.war.crack->circle, s->f.mob[i]->obj) &&
+		if (circle_hitbox_enemy(s->f.war.crack->circle, s->f.mob[i]) &&
 			s->f.mob[i]->alive)
 			apply_aoe(s, s->f.war.crack, s->f.mob[i]);
 	}

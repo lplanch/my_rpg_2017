@@ -14,10 +14,12 @@ void set_level_up(st_rpg *s)
 	s->player.tree.skillp += 1;
 	s->player.stat->pvm += rand() % 10;
 	s->player.stat->pva = s->player.stat->pvm;
-	s->player.stat->frc += rand() % 8;
-	s->player.stat->def += rand() % 8;
-	s->player.stat->prc += rand() % 8;
-	s->player.stat->vit += rand() % 8;
+	s->player.stat->frc += rand() % 6;
+	s->player.stat->def += rand() % 3;
+	if (s->player.stat->def > 90)
+		s->player.stat->def = 90;
+	s->player.stat->prc += rand() % 4;
+	s->player.stat->vit += rand() % 3;
 	s->player.stat->cha += rand() % 3;
 	s->player.stat->exp -= 100;
 	launch_particle(s->part.lvlup, s->player.obj->pos, 0);

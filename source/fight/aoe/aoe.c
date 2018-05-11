@@ -51,7 +51,7 @@ void proc_aoe(st_rpg *s, aoe_t *aoe, float dt)
 		aoe->count = 0;
 	}
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
-		if (circle_hitbox(aoe->circle, s->f.mob[i]->obj)
+		if (circle_hitbox_enemy(aoe->circle, s->f.mob[i])
 			&& !my_strcmp(aoe->effect, "damage") &&
 			s->f.mob[i]->alive)
 			apply_aoe(s, aoe, s->f.mob[i]);
