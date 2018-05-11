@@ -344,7 +344,6 @@ typedef struct boss_spells
 	dash_t *dash;
 	dash_t *fus;
 	effect_t *rage;
-	int rageb;
 	float casting;
 } boss_t;
 

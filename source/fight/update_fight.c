@@ -17,7 +17,7 @@ void update_fight(st_rpg *s)
 		proc_effects(s, s->f.proc.sec);
 		update_projectiles(s, s->f.proc.sec);
 		//update_champ(s, s->f.proc.sec);
-		update_samy(s, s->f.proc.sec);
+		//update_samy(s, s->f.proc.sec);
 		sfClock_restart(s->f.proc.clock);
 	}
 }

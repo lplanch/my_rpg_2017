@@ -52,5 +52,4 @@ void generate_samy(st_rpg *s)
 	s->f.boss.fus = create_dash(40, 800);
 	s->f.boss.rage = create_effect("rage", 0, 5);
 	s->f.boss.casting = 0;
-	s->f.boss.rageb = 0;
 }

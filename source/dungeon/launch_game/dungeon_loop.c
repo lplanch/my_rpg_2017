@@ -27,7 +27,7 @@ void create_dungeon_loop(st_rpg *s)
 	create_life_bar(s);
 	generate_enemies(s);
 	//generate_champ(s);
-	generate_samy(s);
+	//generate_samy(s);
 	create_main_particles(s);
 	set_shader(s);
 }
@@ -39,6 +39,7 @@ void destroy_dungeon_loop(st_rpg *s)
 	destroy_icons(s);
 	destroy_life_bar(s);
 	//destroy_champ(s);
+	//destroy_samy(s);
 	destroy_enemies(s);
 	destroy_main_fight(s);
 	destroy_dungeon_shader(s);
@@ -92,6 +93,7 @@ void display_dungeon(st_rpg *s)
 	display_player(s);
 	display_enemies(s);
 	//display_champ(s);
+	//display_samy(s);
 	display_class(s);
 	display_icons(s);
 	display_life_bar(s);
