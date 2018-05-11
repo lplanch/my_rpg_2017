@@ -25,8 +25,8 @@ void create_dungeon_loop(st_rpg *s)
 	create_class(s);
 	create_dmg_show(s);
 	create_life_bar(s);
-	generate_champ(s);
 	generate_enemies(s);
+	generate_champ(s);
 	create_main_particles(s);
 	set_shader(s);
 }
