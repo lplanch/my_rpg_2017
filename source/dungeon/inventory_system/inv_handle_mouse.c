@@ -28,9 +28,8 @@ void highlight_item(st_rpg *rpg, item_t *current, int *clicked)
 {
 	int left_pos = rpg->player.obj->pos.x - WIDTH / 2.5 + 15.5;
 	int top_pos = rpg->player.obj->pos.y - HEIGHT / 2.5 + 70.5;
-	sfVector2f pos =
-	{left_pos + 120 * (current->pos % 9),
-		top_pos + 120 * (current->pos / 9)};
+	sfVector2f pos = {left_pos + 120 * (current->pos % 9),
+	top_pos + 120 * (current->pos / 9)};
 
 	sfSprite_setPosition(rpg->inv.highlight, (sfVector2f){pos.x, pos.y});
 	sfRenderWindow_drawSprite(rpg->window, rpg->inv.highlight, NULL);
@@ -38,6 +37,9 @@ void highlight_item(st_rpg *rpg, item_t *current, int *clicked)
 		rpg->inv.focused = current;
 		*clicked = 1;
 		rpg->inv.drawed = 0;
+	} if (rpg->inv.use_item && 1 < current->id && current->id < 15) {
+		use_inventory_item(rpg, current);
+		rpg->inv.use_item = 0;
 	}
 }
 
@@ -69,4 +71,5 @@ void verify_mouse_inv_events(st_rpg *rpg)
 	verify_armor_weapon_highlight(rpg, &clicked);
 	if (sfMouse_isButtonPressed(key_select_item) && clicked == 0)
 		rpg->inv.focused = NULL;
+	rpg->inv.use_item = 0;
 }

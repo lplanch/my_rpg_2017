@@ -69,6 +69,7 @@ void create_ingame_inventory(st_rpg *rpg)
 	create_inventory_var(&rpg->inv);
 	create_armor_weapon_slot(rpg);
 	create_fast_inventory_screen(&rpg->finv);
+	rpg->inv.use_item = 0;
 	rpg->inv.is_open = 0;
 	rpg->inv.focused = NULL;
 	rpg->inv.resume = NULL;

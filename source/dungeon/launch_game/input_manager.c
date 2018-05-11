@@ -23,20 +23,21 @@ void verify_other_input(sfEvent event, st_rpg *rpg)
 	rpg->inv.is_open == 1) {
 		rpg->inv.is_open = 0;
 		rpg->inv.focused = NULL;
+	} if (event.type == sfEvtMouseButtonPressed &&
+	event.mouseButton.button == key_use_item) {
+		rpg->inv.use_item = 1;
 	}
 
 }
 
 int verif_input_map(st_rpg *rpg)
 {
-	sfEvent event;
-
 	verify_y_movement(rpg);
 	verify_x_movement(rpg);
-	while (sfRenderWindow_pollEvent(rpg->window, &event)) {
-		if (event.type == sfEvtClosed)
+	while (sfRenderWindow_pollEvent(rpg->window, &rpg->event)) {
+		if (rpg->event.type == sfEvtClosed)
 			sfRenderWindow_close(rpg->window);
-		verify_other_input(event, rpg);
+		verify_other_input(rpg->event, rpg);
 	}
 	return (0);
 }
