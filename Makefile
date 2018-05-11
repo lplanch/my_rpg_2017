@@ -61,6 +61,8 @@ FILES		=	source/main.c							\
 			source/fight/projectile/projectile_effects.c			\
 			source/fight/hitbox.c						\
 			source/fight/enemies/champ.c					\
+			source/fight/enemies/samy.c					\
+			source/fight/enemies/samy_spells.c				\
 			source/fight/enemies/champ_spells.c				\
 			source/fight/enemies/champ_update.c				\
 			source/fight/enemies/hitbox.c					\
