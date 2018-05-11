@@ -344,6 +344,8 @@ typedef struct boss_spells
 	aoe_t *well;
 	aoe_t *ball;
 	dash_t *dash;
+	dash_t *fus;
+	effect_t *rage;
 	float casting;
 } boss_t;
 
@@ -676,10 +678,11 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void update_samy_fusrohdah(st_rpg *s);
 void update_samy(st_rpg *s, float dt);
 void launch_samy_spell(st_rpg *s);
 void launch_samy_dash(st_rpg *s);
-void update_samy_dash(st_rpg *s);
+void update_samy_dash(st_rpg *s, float dt);
 void generate_samy(st_rpg *s);
 int enemy_is_able(st_rpg *s, int i);
 void update_well(st_rpg *s);

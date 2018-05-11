@@ -40,7 +40,7 @@ void attack_enemy(st_rpg *s, int i)
 	float amount = s->f.mob[i]->stat->frc -
 	(s->player.stat->def / 100 * s->f.mob[i]->stat->frc);
 
-	if (hitbox(s->player.obj, s->f.mob[i]->obj) && enemy_is_able(s, i)) {
+	if (enemy_hitbox(s->player.obj, s->f.mob[i]) && enemy_is_able(s, i)) {
 		hurt(s, amount);
 		stop_player(s);
 		launch_dash(s, s->f.knock);
