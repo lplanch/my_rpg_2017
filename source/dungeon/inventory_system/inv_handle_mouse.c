@@ -11,28 +11,23 @@
 void draw_focused_item(st_rpg *rpg)
 {
 	int left_pos = rpg->player.obj->pos.x - WIDTH / 2.5 + 7.5;
-	int top_pos = rpg->player.obj->pos.y - HEIGHT / 2.5 + 7.5;
+	int top_pos = rpg->player.obj->pos.y - HEIGHT / 2.5 + 62.5;
 	sfVector2f pos;
 
 	if (rpg->inv.focused == NULL)
 		return;
 	pos.x = left_pos + 120 * (rpg->inv.focused->pos % 9);
 	pos.y = top_pos + 120 * (rpg->inv.focused->pos / 9);
-	if (rpg->inv.focused->pos == -1) {
-		pos.x = rpg->player.obj->pos.x + WIDTH / 4.12 - 7.5;
-		pos.y = rpg->player.obj->pos.y - HEIGHT / 6 - 7.5;
-	} if (rpg->inv.focused->pos == -2) {
-		pos.x = rpg->player.obj->pos.x + WIDTH / 4.12 - 7.5;
-		pos.y = rpg->player.obj->pos.y - HEIGHT / 3 - 7.5;
-	}
+	update_pos_weapon_armor_focus(rpg, &pos);
 	sfSprite_setPosition(rpg->inv.selected, (sfVector2f){pos.x, pos.y});
 	sfRenderWindow_drawSprite(rpg->window, rpg->inv.selected, NULL);
+	draw_resume_item(rpg);
 }
 
 void highlight_item(st_rpg *rpg, item_t *current, int *clicked)
 {
 	int left_pos = rpg->player.obj->pos.x - WIDTH / 2.5 + 15.5;
-	int top_pos = rpg->player.obj->pos.y - HEIGHT / 2.5 + 15.5;
+	int top_pos = rpg->player.obj->pos.y - HEIGHT / 2.5 + 70.5;
 	sfVector2f pos =
 	{left_pos + 120 * (current->pos % 9),
 		top_pos + 120 * (current->pos / 9)};
@@ -42,6 +37,7 @@ void highlight_item(st_rpg *rpg, item_t *current, int *clicked)
 	if (sfMouse_isButtonPressed(key_select_item) == sfTrue) {
 		rpg->inv.focused = current;
 		*clicked = 1;
+		rpg->inv.drawed = 0;
 	}
 }
 
@@ -65,16 +61,12 @@ void verify_mouse_inv_events(st_rpg *rpg)
 	while (current != NULL) {
 		if (mouse_on_inventory_slot(rpg, rpg->player.obj->pos.x - WIDTH
 		/ 2.5 + 15 + 120 * (current->pos % 9), rpg->player.obj->pos.y -
-		HEIGHT / 2.5 + 15 + 120 * (current->pos / 9))) {
+		HEIGHT / 2.5 + 70 + 120 * (current->pos / 9))) {
 			highlight_item(rpg, current, &clicked);
-		} /*else
-			if (sfMouse_isButtonPressed(key_select_item) &&
-			clicked == 0)
-				rpg->inv.focused = NULL;
-		*/current = current->next;
+		}
+		current = current->next;
 	}
 	verify_armor_weapon_highlight(rpg, &clicked);
-	if (sfMouse_isButtonPressed(key_select_item) &&
-	clicked == 0)
+	if (sfMouse_isButtonPressed(key_select_item) && clicked == 0)
 		rpg->inv.focused = NULL;
 }
