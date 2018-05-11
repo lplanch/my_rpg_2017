@@ -40,6 +40,23 @@ void init_next_level(st_rpg *rpg)
 	free(level_string);
 }
 
+void draw_floor_nbr(st_rpg *rpg)
+{
+	sfVector2f screen_center = rpg->proc.gman.camera_pos;
+	char *cur_level = int_to_str(rpg->proc.pvar.current_floor);
+	char *level_string = my_strcat("Floor ", cur_level);
+	sfFont *font = sfFont_createFromFile("ressources/fonts/OpenSans.ttf");
+	sfText *next_level = sfText_create();
+
+	fade_in_text(rpg->window, next_level);
+	for (int i = 0; i < 2600; i++);
+	fade_out_text(rpg->window, next_level);
+	sfText_destroy(next_level);
+	sfFont_destroy(font);
+	free(cur_level);
+	free(level_string);
+}
+
 void draw_floor_restart(st_rpg *rpg)
 {
 	sfVector2f screen_center = rpg->proc.gman.camera_pos;
