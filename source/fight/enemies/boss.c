@@ -15,6 +15,7 @@ void update_champ(st_rpg *s, float dt)
 	clocked_animation(s->f.boss.well->anim);
 	clocked_animation(s->f.boss.ball->anim);
 	s->f.mob[0]->cdcount -= dt;
+	update_shadowball(s, dt);
 	if (precedent_tentacle_is_mid(s))
 		update_tentacle(s);
 	if (s->f.mob[0]->cdcount < 0) {
@@ -25,7 +26,6 @@ void update_champ(st_rpg *s, float dt)
 
 void display_champ(st_rpg *s)
 {
-	sfRenderWindow_drawSprite(s->window, s->f.mob[0]->obj->sprite, NULL);
 	for (int i = 0; i != 6; i += 1)
 		display_aoe(s->window, s->f.boss.tent[i]);
 	display_aoe(s->window, s->f.boss.well);
@@ -48,6 +48,10 @@ void generate_champ(st_rpg *s)
 	s->f.mob[0] = generate_enemy("ressources/enemies/Champ");
 	s->f.boss.attack = 0;
 	s->f.boss.ctent = 0;
+	s->f.boss.used = 0;
+	s->f.boss.trat = create_vector2f(0, 0);
+	s->f.boss.ballpos = create_vector2f(0, 0);
+	s->f.boss.ballrat = create_vector2f(0, 0);
 	s->f.mob[0]->obj->pos.x = s->player.obj->pos.x;
 	s->f.mob[0]->obj->pos.y = s->player.obj->pos.y;
 	sfSprite_setPosition(s->f.mob[0]->obj->sprite,

@@ -34,7 +34,7 @@ void apply_projectile(st_rpg *s, proj_t *proj, enemy_t **mob)
 	int i = 0;
 
 	while (i != s->proc.pvar.enemy_nbr) {
-		if (hitbox(proj->obj, mob[i]->obj) && proj->shot &&
+		if (enemy_hitbox(proj->obj, mob[i]) && proj->shot &&
 		mob[i]->alive) {
 			projectile_damage_enemy(s, proj, mob[i]);
 			proj->shot = 0;

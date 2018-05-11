@@ -10,5 +10,5 @@
 
 void loot_enemy(st_rpg *s)
 {
-	s->player.stat->exp += 35;
+	s->player.stat->exp += (rand() % 3) + 3;
 }

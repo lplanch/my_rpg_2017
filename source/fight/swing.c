@@ -46,7 +46,7 @@ void launch_swing(st_rpg *s, swing_t *swing, g_object *obj)
 void apply_swing(st_rpg *s, swing_t *swing, g_object *obj)
 {
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
-		if (hitbox(obj, s->f.mob[i]->obj) && swing->able &&
+		if (enemy_hitbox(obj, s->f.mob[i]) && swing->able &&
 		s->f.mob[i]->alive) {
 			swing_damage_enemy(s, swing, s->f.mob[i]);
 			swing->able -= 1;

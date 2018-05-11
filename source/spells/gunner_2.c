@@ -26,7 +26,7 @@ void gunner_jump(st_rpg *s)
 	sfSprite_setPosition(s->f.gun.boots->obj->sprite,
 	s->f.gun.explosion->obj->pos);
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
-		if (circle_hitbox(s->f.gun.explo, s->f.mob[i]->obj) &&
+		if (circle_hitbox_enemy(s->f.gun.explo, s->f.mob[i]) &&
 			s->f.mob[i]->alive)
 			s->f.mob[i]->stat->pva -= 40 + 15 * s->player.stat->lvl;
 	}

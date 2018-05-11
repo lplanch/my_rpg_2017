@@ -11,9 +11,11 @@
 float get_angle_enemy(st_rpg *s, int i)
 {
 	float mx = s->player.obj->pos.x -
-	(s->f.mob[i]->obj->pos.x + s->f.mob[i]->obj->rect.width / 2);
+	(s->f.mob[i]->obj->pos.x +
+	(s->f.mob[i]->obj->rect.width * s->f.mob[i]->scale.x) / 2);
 	float my = s->player.obj->pos.y -
-	(s->f.mob[i]->obj->pos.y + s->f.mob[i]->obj->rect.width / 2);
+	(s->f.mob[i]->obj->pos.y +
+	(s->f.mob[i]->obj->rect.height * s->f.mob[i]->scale.y) / 2);
 
 	if (my <= 0) {
 		return (-acos(mx / hypot(mx, my)) * (180 / 3.14159265));
