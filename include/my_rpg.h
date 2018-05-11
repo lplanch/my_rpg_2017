@@ -195,6 +195,7 @@ typedef struct s_files
 	int num_dungeon;
 	int map_status;
 	int zach_status;
+	int samy_status;
 	int dream_status;
 	st_button **name_head;
 	g_object *name_head_edge[2];
@@ -628,8 +629,12 @@ typedef struct particle_all
 
 typedef struct cutscene
 {
+	int champ_status;
 	g_object *map;
 	g_object *zachd;
+	g_object *map_samy;
+	g_object *samyd;
+	g_object *champ;
 } ct_cutscene;
 
 typedef struct struct_rpg
@@ -988,5 +993,6 @@ int dungeon_loop(st_rpg *s);
 void dungeon1(proc_var_t *hey);
 void dungeon2(proc_var_t *hey);
 void dungeon3(proc_var_t *hey);
+void dungeon3_2(proc_var_t *hey);
 
 #endif

@@ -65,7 +65,6 @@ FILES		=	source/main.c							\
 			source/fight/enemies/champ_update.c				\
 			source/fight/enemies/attack.c					\
 			source/fight/enemies/enemy.c					\
-			source/fight/enemies/hitbox.c					\
 			source/fight/enemies/aggro.c					\
 			source/fight/enemies/enemy_effects.c				\
 			source/fight/enemies/collisions.c				\
@@ -177,6 +176,7 @@ FILES		=	source/main.c							\
 			source/scenes/night.c						\
 			source/scenes/background_with_text.c				\
 			source/scenes/death_zach.c					\
+			source/scenes/death_samy.c					\
 			source/scenes/move_pnj_zach.c					\
 			source/scenes/move_player_to_zach.c				\
 			source/player/player.c						\
