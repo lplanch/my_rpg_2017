@@ -24,10 +24,10 @@ void update_champ(st_rpg *s, float dt)
 void display_champ(st_rpg *s)
 {
 	sfRenderWindow_drawSprite(s->window, s->f.boss.mob->obj->sprite, NULL);
-	for (int i = 0; i != 6; i += 1)
+	/*for (int i = 0; i != 6; i += 1)
 		display_aoe(s->window, s->f.boss.tent[i]);
 	display_aoe(s->window, s->f.boss.well);
-	display_aoe(s->window, s->f.boss.ball);
+	display_aoe(s->window, s->f.boss.ball);*/
 }
 
 void destroy_champ(st_rpg *s)

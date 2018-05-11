@@ -85,5 +85,4 @@ void draw(st_rpg *s)
 {
 	draw_all(s);
 	sfRenderWindow_display(s->window);
-	usleep(1);
 }
