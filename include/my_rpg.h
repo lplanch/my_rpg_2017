@@ -657,6 +657,7 @@ typedef struct struct_rpg
 	tree_menu_t treem;
 	pause_menu_t pausm;
 	sfVector2f origin;
+	sfEvent event;
 	g_object *loading;
 	ct_cutscene cut;
 	int returnv;
