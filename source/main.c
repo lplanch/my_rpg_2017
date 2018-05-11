@@ -9,6 +9,7 @@
 #include <SFML/Audio.h>
 #include "game_object.h"
 #include "my_rpg.h"
+#include "my.h"
 
 void loading(st_rpg *s)
 {
@@ -39,6 +40,10 @@ int main(void)
 	st_rpg s = {0};
 
 	srand(time(0));
+	if (corupt_save() == 84) {
+		my_putstr("Corrupted save\n");
+		return (84);
+	}
 	create_main(&s);
 	main_menu(&s);
 	destroy_main(&s);

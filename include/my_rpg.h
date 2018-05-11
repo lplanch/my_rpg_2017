@@ -666,6 +666,11 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+int corupt_save(void);
+int check_stat_value(char *buffer);
+int check_tree(char *saves);
+int check_stat(char *saves);
+int check_cust(char *saves);
 int enemy_is_able(st_rpg *s, int i);
 void update_well(st_rpg *s);
 void proc_enemy_aoe(st_rpg *s, aoe_t *aoe, int i);
