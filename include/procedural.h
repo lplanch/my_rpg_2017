@@ -27,6 +27,7 @@ static const sfKeyCode key_map = sfKeyTab;
 static const sfKeyCode key_inv = sfKeyLShift;
 static const sfMouseButton key_fast_inv = sfMouseMiddle;
 static const sfMouseButton key_select_item = sfMouseLeft;
+static const sfMouseButton key_use_item = sfMouseRight;
 
 
 //LAUNCH DUNGEON FUNCTION
@@ -144,6 +145,7 @@ void draw_inventory_background(st_rpg *rpg);
 void create_item_sprite(st_rpg *rpg, item_t *current);
 int mouse_on_inventory_slot(st_rpg *rpg, int posx, int posy);
 void draw_resume_item(st_rpg *rpg);
+void remove_inventory_item(st_rpg *rpg, item_t *to_remove);
 
 //WEAPON AND ARMOR SLOT
 void draw_armor_weapon_slot(st_rpg *rpg);

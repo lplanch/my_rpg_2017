@@ -199,6 +199,7 @@ typedef struct s_files
 	int dream_status;
 	st_button **name_head;
 	g_object *name_head_edge[2];
+	g_object *lake;
 	sfClock *clock;
 	sfView *view;
 	quests_t **quests;
@@ -219,9 +220,10 @@ typedef struct s_files
 	pnj_t pnj[15];
 	pos_t pos[10];
 	colcircle_t colcircle[42];
-	colsquare_t colsquare[473];
+	colsquare_t colsquare[479];
 	map_t map;
 	clockz_t time;
+	clockz_t lake_clock;
 	clockz_t pnj_clock;
 	st_music music;
 	st_music samys_music;
@@ -341,6 +343,10 @@ typedef struct boss_spells
 	aoe_t *tent[6];
 	aoe_t *well;
 	aoe_t *ball;
+	dash_t *dash;
+	dash_t *fus;
+	effect_t *rage;
+	float casting;
 } boss_t;
 
 typedef struct struct_archer_spells
@@ -630,9 +636,14 @@ typedef struct particle_all
 typedef struct cutscene
 {
 	int champ_status;
+	int samy_value;
+	int zac_value;
+	int jade_value;
 	g_object *map;
 	g_object *zachd;
 	g_object *map_samy;
+	g_object *map_samy_boss;
+	g_object *samy_boss;
 	g_object *samyd;
 	g_object *champ;
 } ct_cutscene;
@@ -652,6 +663,7 @@ typedef struct struct_rpg
 	tree_menu_t treem;
 	pause_menu_t pausm;
 	sfVector2f origin;
+	sfEvent event;
 	g_object *loading;
 	ct_cutscene cut;
 	int returnv;
@@ -671,6 +683,12 @@ int check_stat_value(char *buffer);
 int check_tree(char *saves);
 int check_stat(char *saves);
 int check_cust(char *saves);
+void update_samy_fusrohdah(st_rpg *s);
+void update_samy(st_rpg *s, float dt);
+void launch_samy_spell(st_rpg *s);
+void launch_samy_dash(st_rpg *s);
+void update_samy_dash(st_rpg *s, float dt);
+void generate_samy(st_rpg *s);
 int enemy_is_able(st_rpg *s, int i);
 void update_well(st_rpg *s);
 void proc_enemy_aoe(st_rpg *s, aoe_t *aoe, int i);

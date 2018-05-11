@@ -10,15 +10,15 @@
 
 void reset_pos_friends(st_rpg *s)
 {
-	s->fi->pnj[11].pnj->rect = set_texturerect_top(s->fi->pnj[11].pnj, 144);
-	s->fi->pnj[3].pnj->rect = set_texturerect_top(s->fi->pnj[3].pnj, 144);
-	s->fi->pnj[14].pnj->rect = set_texturerect_top(s->fi->pnj[14].pnj, 144);
-	s->fi->pnj[11].pnj->pos = create_vector2f(7882, 7374);
-	s->fi->pnj[14].pnj->pos = create_vector2f(10000, 10000);
-	s->fi->pnj[3].pnj->pos = create_vector2f(10000, 10000);
-	sfSprite_setPosition(s->fi->pnj[11].pnj->sprite, s->fi->pnj[11].pnj->pos);
-	sfSprite_setPosition(s->fi->pnj[14].pnj->sprite, s->fi->pnj[14].pnj->pos);
-	sfSprite_setPosition(s->fi->pnj[3].pnj->sprite, s->fi->pnj[3].pnj->pos);
+	s->fi->pnj[s->cut.samy_value].pnj->rect = set_texturerect_top(s->fi->pnj[s->cut.samy_value].pnj, 144);
+	s->fi->pnj[s->cut.zac_value].pnj->rect = set_texturerect_top(s->fi->pnj[s->cut.zac_value].pnj, 144);
+	s->fi->pnj[s->cut.jade_value].pnj->rect = set_texturerect_top(s->fi->pnj[s->cut.jade_value].pnj, 144);
+	s->fi->pnj[s->cut.samy_value].pnj->pos = create_vector2f(7882, 7374);
+	s->fi->pnj[s->cut.jade_value].pnj->pos = create_vector2f(10000, 10000);
+	s->fi->pnj[s->cut.zac_value].pnj->pos = create_vector2f(10000, 10000);
+	sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite, s->fi->pnj[s->cut.samy_value].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[s->cut.jade_value].pnj->sprite, s->fi->pnj[s->cut.jade_value].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite, s->fi->pnj[s->cut.zac_value].pnj->pos);
 }
 
 void print_text_finish_quests2(st_rpg *s, int posx, int posy)
@@ -82,7 +82,7 @@ void check_pnj_for_quests(st_rpg *s)
 		s->fi->num_dungeon = 0;
 		s->fi->quests[2]->status = 2;
 		reset_pos_friends(s);
-	} if (s->fi->quests[3]->status == 1 &&
+	} if (s->fi->quests[s->cut.zac_value]->status == 1 &&
 	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "Samy") == 0) {
 		stop_player(s);
 		sfText_setString(s->fi->text_finish_quests->text,

@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** death_zac.c
+** samy_boss.c
 ** File description:
-** death_zac.c file for my_rpg
+** samy_boss.c file for my_rpg
 */
 
 #include "my.h"
@@ -82,6 +82,26 @@ void setup_pos_for_scene_samy(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 }
 
 void death_samy(st_rpg *s)
+{
+	sfVector2f scale = {2, 2};
+	sfVector2f scale2 = {3, 3};
+
+	s->cut.map_samy->pos = create_vector2f(s->fi->camera.x - 740,
+	s->fi->camera.y - 560);
+	s->cut.champ->pos = create_vector2f(s->fi->camera.x - 115,
+	s->fi->camera.y - 240);
+	sfSprite_setPosition(s->cut.map_samy->sprite, s->cut.map_samy->pos);
+	sfSprite_setPosition(s->cut.champ->sprite, s->cut.champ->pos);
+	sfMusic_stop(s->fi->music.music);
+	s->fi->samy_status = 1;
+	setup_pos_for_scene_samy(s, scale, scale2);
+	move_all_character_samy(s);
+	dialog_death_samy(s);
+	s->fi->samy_status = 0;
+	sfMusic_play(s->fi->music.music);
+}
+
+void samy_boss(st_rpg *s)
 {
 	sfVector2f scale = {2, 2};
 	sfVector2f scale2 = {3, 3};

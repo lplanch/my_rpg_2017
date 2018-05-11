@@ -8,6 +8,22 @@
 #include "my.h"
 #include "game_map.h"
 
+void lake_update(st_rpg *s)
+{
+	s->fi->lake_clock.tmp = sfClock_getElapsedTime(s->fi->lake_clock.clock);
+	s->fi->lake_clock.seconds =
+	s->fi->lake_clock.tmp.microseconds / 1000000.0;
+	if (s->fi->lake_clock.seconds > 0.3) {
+		if (s->fi->lake->rect.left == 576)
+			s->fi->lake->rect.left = 0;
+		else
+			s->fi->lake->rect.left += 288;
+		sfClock_restart(s->fi->lake_clock.clock);
+		sfSprite_setTextureRect(s->fi->lake->sprite, s->fi->lake->rect);
+	}
+}
+
+
 void tp_orphanage(st_rpg *s)
 {
 	s->player.obj->pos = create_vector2f(8659, 7394);
@@ -22,6 +38,7 @@ void tp_dungeon(st_rpg *s)
 
 void game_update(st_rpg *s)
 {
+	lake_update(s);
 	check_pnj_name(s);
 	check_pnj_for_quests(s);
 	if (s->fi->dialog_box_isopen == 1)

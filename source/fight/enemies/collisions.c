@@ -11,12 +11,14 @@
 int enemy_is_ok_horizontal(st_rpg *s, float dt, int i)
 {
 	int vx = s->f.mob[i]->ratios.x * s->f.mob[i]->stat->vit * 15 * dt;
-	int px = s->f.mob[i]->obj->pos.x + (s->f.mob[i]->obj->rect.width * 0.2);
+	int px = s->f.mob[i]->obj->pos.x + (s->f.mob[i]->obj->rect.width * s
+	->f.mob[i]->scale.x * 0.2);
 	int py = s->f.mob[i]->obj->pos.y +
-	(s->f.mob[i]->obj->rect.height * 0.2);
-	int sx = s->f.mob[i]->obj->pos.x + (s->f.mob[i]->obj->rect.width * 0.8);
+	(s->f.mob[i]->obj->rect.height * s->f.mob[i]->scale.y * 0.2);
+	int sx = s->f.mob[i]->obj->pos.x + (s->f.mob[i]->obj->rect.width * s
+	->f.mob[i]->scale.x * 0.8);
 	int sy = s->f.mob[i]->obj->pos.y +
-	(s->f.mob[i]->obj->rect.height * 0.8);
+	(s->f.mob[i]->obj->rect.height * s->f.mob[i]->scale.y * 0.8);
 
 	if (vcollide(s->proc.map[sy / 96][(sx + vx) / 96]) &&
 	vcollide(s->proc.map[py / 96][(sx + vx) / 96]) &&
@@ -30,12 +32,14 @@ int enemy_is_ok_horizontal(st_rpg *s, float dt, int i)
 int enemy_is_ok_vertical(st_rpg *s, float dt, int i)
 {
 	int vy = s->f.mob[i]->ratios.y * s->f.mob[i]->stat->vit * 15 * dt;
-	int px = s->f.mob[i]->obj->pos.x + (s->f.mob[i]->obj->rect.width * 0.2);
+	int px = s->f.mob[i]->obj->pos.x + (s->f.mob[i]->obj->rect.width * s
+	->f.mob[i]->scale.x * 0.2);
 	int py = s->f.mob[i]->obj->pos.y +
-	(s->f.mob[i]->obj->rect.height * 0.2);
-	int sx = s->f.mob[i]->obj->pos.x + (s->f.mob[i]->obj->rect.width * 0.8);
+	(s->f.mob[i]->obj->rect.height * s->f.mob[i]->scale.y * 0.2);
+	int sx = s->f.mob[i]->obj->pos.x + (s->f.mob[i]->obj->rect.width * s
+	->f.mob[i]->scale.x * 0.8);
 	int sy = s->f.mob[i]->obj->pos.y +
-	(s->f.mob[i]->obj->rect.height * 0.8);
+	(s->f.mob[i]->obj->rect.height * s->f.mob[i]->scale.y * 0.8);
 
 	if (vcollide(s->proc.map[(sy + vy) / 96][px / 96]) &&
 	vcollide(s->proc.map[(py + vy) / 96][sx / 96]) &&

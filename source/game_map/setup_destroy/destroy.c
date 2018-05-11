@@ -83,10 +83,14 @@ void destroy(st_rpg *s)
 	destroy_object(s->fi->ID_character);
 	destroy_object(s->fi->loading);
 	destroy_object(s->cut.map);
+	destroy_object(s->cut.map_samy);
 	destroy_object(s->cut.zachd);
+	destroy_object(s->cut.champ);
+	destroy_object(s->fi->lake);
 	sfClock_destroy(s->fi->time.clock);
 	sfClock_destroy(s->fi->pnj_clock.clock);
 	sfClock_destroy(s->fi->clock);
+	sfClock_destroy(s->fi->lake_clock.clock);
 	destroy_music(s);
 	free_all(s);
 }

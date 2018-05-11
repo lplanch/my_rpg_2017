@@ -8,6 +8,13 @@
 #include "my.h"
 #include "game_map.h"
 
+void setup_pnj_value(st_rpg *s)
+{
+	s->cut.samy_value = 11;
+	s->cut.jade_value = 14;
+	s->cut.zac_value = 3;
+}
+
 void setup_variable_scene_quests(st_rpg *s)
 {
 	s->fi->oui = 0;
@@ -27,6 +34,12 @@ void setup_variable_scene_quests(st_rpg *s)
 	s->cut.samyd =
 	create_object("ressources/images/scenes/samy_is_dead.png",
 	create_vector2f(0, 0), create_rect(0, 0, 70, 50), 0);
+	s->cut.map_samy_boss =
+	create_object("ressources/images/scenes/map_samy_boss.png",
+	create_vector2f(0, 0), create_rect(0, 0, 816, 528), 0);
+	s->cut.samy_boss =
+	create_object("ressources/images/scenes/samy_boss.png",
+	create_vector2f(0, 0), create_rect(0, 0, 70, 50), 0);
 	s->cut.champ =
 	create_object("ressources/images/scenes/champ.png",
 	create_vector2f(0, 0), create_rect(0, 0, 60, 46), 0);
@@ -44,9 +57,14 @@ void setup_music(st_rpg *s)
 
 void setup_col(st_rpg *s)
 {
+	sfVector2f scale = {5, 5};
+
 	s->fi->nbr_colcircle = 42;
-	s->fi->nbr_colsquare = 473;
+	s->fi->nbr_colsquare = 479;
 	s->fi->direction = 3;
+	s->fi->lake = create_object("ressources/map_preset/lake.png",
+	create_vector2f(2720, 0), create_rect(0, 0, 288, 366), 0);
+	sfSprite_scale(s->fi->lake->sprite, scale);
 }
 
 void setup_camera(st_rpg *s)

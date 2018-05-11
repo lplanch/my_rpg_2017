@@ -14,6 +14,7 @@ void create(st_rpg *s)
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	character_setup(s);
 	get_all_pnj(s, "ressources/pnj/pnj/");
+	setup_pnj_value(s);
 	setup_variable(s);
 	setup_music(s);
 	setup_loading(s);
@@ -56,6 +57,7 @@ int prog(st_rpg *s)
 		}
 		game_update(s);
 		if (event_game(s) == 1 || s->fi->return_value == 1) {
+			//destroy(s);
 			return (1);
 		}
 	}
