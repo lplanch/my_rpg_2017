@@ -42,7 +42,7 @@ void dialog_death_samy(st_rpg *s)
 	move_player_to_zach(s, create_vector2f(s->player.obj->pos.x - 200,
 	s->fi->camera.y - 200));
 	quit_game_for_dungeon(s);
-	s->fi->return_value = launch_dungeon(s, &dungeon3_2);
+	s->fi->return_value = launch_dungeon(s, &dungeon4_2);
 	//samy_boss(s);
 }
 

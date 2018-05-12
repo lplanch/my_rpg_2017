@@ -10,8 +10,8 @@
 
 void setup_pnj_value(st_rpg *s)
 {
-	s->cut.samy_value = 11;
-	s->cut.jade_value = 14;
+	s->cut.samy_value = 13;
+	s->cut.jade_value = 16;
 	s->cut.zac_value = 3;
 }
 

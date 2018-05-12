@@ -99,7 +99,7 @@ void quests_3(st_rpg *s)
 {
 	sfMusic_stop(s->fi->music.music);
 	sfMusic_play(s->fi->samys_music.music);
-	s->fi->quests[s->cut.zac_value]->status = 2;
+	s->fi->quests[5]->status = 2;
 	s->fi->pnj[s->cut.samy_value].pnj->rect = set_texturerect_top(s->fi->pnj[s->cut.samy_value].pnj, 0);
 	dialog_box(s, "samy_night", "samy");
 	sfMusic_stop(s->fi->samys_music.music);
