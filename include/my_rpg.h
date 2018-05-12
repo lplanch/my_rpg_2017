@@ -343,6 +343,7 @@ typedef struct boss_spells
 	sfVector2f trat;
 	sfVector2f ballpos;
 	sfVector2f ballrat;
+	sfVector2f rayrat;
 	float used;
 	aoe_t *tent[6];
 	aoe_t *well;
@@ -692,7 +693,7 @@ typedef struct struct_rpg
 #include "procedural.h"
 #include "game_map.h"
 
-void update_ly_ray(st_rpg *s);
+void update_ly_ray(st_rpg *s, float dt);
 void launch_ly_spell(st_rpg *s);
 void destroy_boss(st_rpg *s);
 void display_boss(st_rpg *s);

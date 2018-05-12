@@ -24,7 +24,7 @@ void update_ly(st_rpg *s, float dt)
 		s->f.boss.casting = 0;
 		launch_ly_spell(s);
 	}
-	update_ly_ray(s);
+	update_ly_ray(s, dt);
 }
 
 void display_ly(st_rpg *s)
@@ -53,4 +53,6 @@ void generate_ly(st_rpg *s)
 	sfSprite_setScale(s->f.mob[1]->obj->sprite, (sfVector2f){3, 3});
 	s->f.boss.ray = create_aoe_from_file("ressources/spells/enemies/ray");
 	s->f.boss.attack_ly = 0;
+	s->f.boss.casting = 0;
+	s->f.boss.rayrat = create_vector2f(0, 0);
 }
