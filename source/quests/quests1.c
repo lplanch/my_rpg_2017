@@ -15,7 +15,7 @@ void quests_1_part2(st_rpg *s)
 	s->fi->pnj[s->cut.zac_value].pnj->rect =
 	set_texturerect_top(s->fi->pnj[s->cut.zac_value].pnj, 144);
 	s->player.obj->rect = set_texturerect_top(s->player.obj, 0);
-	dialog_box(s, "zac_beginning", "zac");
+	dialog_box(s, "zac_beginning", "zach");
 	sfText_setString(s->fi->text_finish_quests->text,
 	"Quest 1 complete!");
 	s->fi->var_for_quests = 255;
@@ -34,6 +34,6 @@ void quests_1(st_rpg *s)
 	s->fi->dialog_box_isopen = 1;
 	move_pnj(s, 7947, 7374, s->cut.jade_value);
 	s->player.obj->rect = set_texturerect_top(s->player.obj, 96);
-	dialog_box(s, "jade_beginning", "samy");
+	dialog_box(s, "jade_beginning", "jade");
 	quests_1_part2(s);
 }
