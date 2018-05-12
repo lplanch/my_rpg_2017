@@ -36,8 +36,6 @@ void setup_variable(st_rpg *s)
 	s->fi->maxspeed.x = speed * 50;
 	s->fi->maxspeed.y = speed * 50;
 	s->fi->dialog_box_isopen = 0;
-	s->fi->nb_pnj = 2;
-	s->fi->max_pnj = 18;
 	s->fi->choice_cursor = 0;
 	s->fi->var_choice = 0;
 	s->fi->nb_choice_pre = 0;
@@ -49,7 +47,6 @@ void setup_variable(st_rpg *s)
 	s->fi->var_for_quests = 0;
 	s->proc.gman.clock = sfClock_create();
 	s->proc.gman.dt = 1.;
-	s->fi->size_name_pnj = 0;
 }
 
 void setup_quests_box(st_rpg *s)
