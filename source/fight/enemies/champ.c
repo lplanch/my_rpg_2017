@@ -25,9 +25,23 @@ void update_champ(st_rpg *s, float dt)
 	update_well(s);
 }
 
+int choose_display_champ(st_rpg *s)
+{
+	if (s->f.boss.casting > 0) {
+		sfRenderWindow_drawSprite(s->window,
+		s->f.mob[0]->obj->sprite, &s->f.shade.champ.state);
+		sfRenderWindow_drawSprite(s->window,
+		s->f.mob[0]->life->sprite, &s->f.shade.champ.state);
+		return (0);
+	}
+	return (1);
+}
+
 void display_champ(st_rpg *s)
 {
-	choose_display_enemies(s, 0);
+	if (choose_display_champ(s) == 1) {
+		choose_display_enemies(s, 0);
+	}
 	for (int i = 0; i != 6; i += 1)
 		display_aoe(s->window, s->f.boss.tent[i]);
 	display_aoe(s->window, s->f.boss.well);

@@ -96,9 +96,5 @@ void launch_samy_spell(st_rpg *s)
 	void (*list[3])(st_rpg *s) = {launch_samy_dash,
 	launch_samy_fusrohdah, launch_samy_rage};
 
-	s->f.boss.attack = rand() % 2;
-	if (s->f.mob[0]->stat->pva < s->f.mob[0]->stat->pvm / 2 &&
-	s->f.boss.rage->amount == 0)
-		s->f.boss.attack = 2;
 	(list[s->f.boss.attack])(s);
 }

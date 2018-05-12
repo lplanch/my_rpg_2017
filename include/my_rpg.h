@@ -519,7 +519,9 @@ typedef struct shader_fight
 	shader_t poison;
 	shader_t stun;
 	shader_t bless;
-
+	shader_t samy_roda;
+	shader_t samy_rush;
+	shader_t champ;
 } f_shader_t;
 
 typedef struct main_fight
