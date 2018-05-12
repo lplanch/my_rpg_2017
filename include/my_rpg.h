@@ -1046,6 +1046,7 @@ void destroy_dungeon_loop(st_rpg *s);
 void update_current_bullet(st_rpg *s);
 void update_current_dagger(st_rpg *s);
 void change_side_player(st_rpg *s);
+void display_gunner(st_rpg *s);
 
 void dungeon1(proc_var_t *hey);
 void dungeon2(proc_var_t *hey);

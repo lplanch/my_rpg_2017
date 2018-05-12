@@ -45,6 +45,7 @@ FILES		=	source/main.c							\
 			source/fight/icons/icons.c					\
 			source/fight/icons/icons_cd.c					\
 			source/fight/display_class.c					\
+			source/fight/display_gunner.c					\
 			source/fight/update_class.c					\
 			source/fight/get_cooldowns.c					\
 			source/fight/main.c						\
@@ -61,8 +62,10 @@ FILES		=	source/main.c							\
 			source/fight/projectile/projectile_effects.c			\
 			source/fight/hitbox.c						\
 			source/fight/enemies/champ.c					\
+			source/fight/enemies/champ_generation.c				\
 			source/fight/enemies/samy.c					\
 			source/fight/enemies/samy_spells.c				\
+			source/fight/enemies/lauch_samy_spells.c			\
 			source/fight/enemies/champ_spells.c				\
 			source/fight/enemies/champ_update.c				\
 			source/fight/enemies/ly.c					\
