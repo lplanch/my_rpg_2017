@@ -46,9 +46,11 @@ void update_inventory_size(ing_inv_t *inv)
 void create_inventory_var(ing_inv_t *inv)
 {
 	inv->size = 53;
-	inv->first_slot = create_first_slot();
-	for (unsigned int i = 0; i < inv->size; i++)
-		add_inventory_slot(inv->first_slot);
+	if (inv->first_slot == NULL) {
+		inv->first_slot = create_first_slot();
+		for (unsigned int i = 0; i < inv->size; i++)
+			add_inventory_slot(inv->first_slot);
+	}
 	inv->sheet = sfTexture_createFromFile(
 	"ressources/images/inventory/item_sheet.png", NULL);
 	inv->highlight = sfSprite_create();

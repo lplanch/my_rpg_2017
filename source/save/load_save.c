@@ -47,6 +47,7 @@ void load_save(st_rpg *s)
 	free(tmp);
 	tmp = my_strcat(path, "tree");
 	load_tree(s, tmp);
+	load_inventory(s);
 	free(tmp);
 	free(path);
 }

@@ -58,6 +58,7 @@ void printchr(char *str);
 int str_to_int(char *str);
 
 int disp_stdarg(char *s, ...);
+int my_str_chrpos(char *str, char chr);
 
 void replace_chr(char *str, char replace, char with);
 

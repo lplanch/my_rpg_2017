@@ -48,7 +48,8 @@ FILES		=	my_putchar.c		\
 			file_is_empty.c		\
 			count_chr_tbl.c		\
 			my_strcpy.c		\
-			re_alloc.c
+			re_alloc.c		\
+			my_str_chrpos.c		\
 
 SRCS		=	$(FILES)
 
