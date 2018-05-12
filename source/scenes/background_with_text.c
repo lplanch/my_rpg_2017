@@ -8,6 +8,15 @@
 #include "my.h"
 #include "game_map.h"
 
+void print_background_with_text(st_rpg *s, g_object *background,
+t_object *text_obj)
+{
+	sfRenderWindow_clear(s->window, sfBlack);
+	sfRenderWindow_drawSprite(s->window, background->sprite, NULL);
+	sfRenderWindow_drawText(s->window, text_obj->text, NULL);
+	sfRenderWindow_display(s->window);
+}
+
 void background_with_text(st_rpg *s, char *path_sprite, char *text, char *font)
 {
 	int compter = 0;
@@ -24,10 +33,7 @@ void background_with_text(st_rpg *s, char *path_sprite, char *text, char *font)
 	sfText_setColor(text_obj->text, sfBlack);
 	sfText_setCharacterSize(text_obj->text, 100);
 	while (compter != 200) {
-		sfRenderWindow_clear(s->window, sfBlack);
-		sfRenderWindow_drawSprite(s->window, background->sprite, NULL);
-		sfRenderWindow_drawText(s->window, text_obj->text, NULL);
-		sfRenderWindow_display(s->window);
+		print_background_with_text(s, background, text_obj);
 		compter += 1;
 	}
 	destroy_object(background);

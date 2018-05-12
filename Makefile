@@ -190,16 +190,21 @@ FILES		=	source/main.c							\
 			source/quests/check_quests.c					\
 			source/quests/get_quests.c					\
 			source/quests/quests.c						\
+			source/quests/quests1.c						\
 			source/quests/check_pnj_for_quests.c				\
 			source/quests/mouse_in_object_quest_box.c			\
+			source/quests/print_text_finish_quests.c			\
 			source/scenes/night.c						\
 			source/scenes/background_with_text.c				\
 			source/scenes/death_zach.c					\
+			source/scenes/death_zach_setup.c					\
 			source/scenes/death_samy.c					\
+			source/scenes/death_samy_setup.c				\
 			source/scenes/move_pnj_zach.c					\
 			source/scenes/move_player_to_zach.c				\
 			source/scenes/scene_recup_son.c					\
 			source/scenes/samy_boss.c					\
+			source/scenes/after_quests.c					\
 			source/player/player.c						\
 			source/player/player_movement_map.c				\
 			source/player/player_animation_village.c			\

@@ -178,6 +178,9 @@ void scene_recup_son(st_rpg *s);
 void draw_scene_son(st_rpg *s);
 void draw_scene_samy_boss(st_rpg *s);
 void draw_cut_scene(st_rpg *s);
+void print_letter(st_rpg *s);
+void setup_pos_for_scene_zach(st_rpg *s, sfVector2f scale, sfVector2f scale2);
+void setup_pos_for_scene_samy(st_rpg *s, sfVector2f scale, sfVector2f scale2);
 
 void tp_bridge(st_rpg *s);
 void tp_bridge2(st_rpg *s);
@@ -204,4 +207,5 @@ void tp_bedroom3(st_rpg *s);
 void tp_corridor1(st_rpg *s);
 void tp_corridor2(st_rpg *s);
 void tp_corridor3(st_rpg *s);
+
 #endif

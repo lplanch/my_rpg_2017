@@ -67,6 +67,7 @@ void scene_recup_son(st_rpg *s)
 	s->fi->son_status = 1;
 	setup_pos_for_scene_son(s, scale);
 	move_all_character_son(s);
+	stop_player(s);
 	s->fi->son_status = 0;
 	s->player.obj->rect =
 	set_texturerect_top(s->player.obj, 48);
