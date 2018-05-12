@@ -29,6 +29,8 @@ void create_dungeon_loop(st_rpg *s)
 	generate_enemies(s);
 	create_main_particles(s);
 	set_shader(s);
+	sfClock_restart(s->proc.gman.clock);
+	sfClock_restart(s->f.proc.clock);
 }
 
 void destroy_dungeon_loop(st_rpg *s)

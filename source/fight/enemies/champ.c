@@ -39,7 +39,7 @@ int choose_display_champ(st_rpg *s)
 
 void display_champ(st_rpg *s)
 {
-	if (choose_display_champ(s) == 1) {
+	if (s->f.mob[0]->alive && choose_display_champ(s) == 1) {
 		choose_display_enemies(s, 0);
 	}
 	for (int i = 0; i != 6; i += 1)

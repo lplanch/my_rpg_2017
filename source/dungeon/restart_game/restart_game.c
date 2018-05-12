@@ -77,5 +77,7 @@ int next_level_screen(st_rpg *rpg)
 	destroy_enemies(rpg);
 	draw_floor_restart(rpg);
 	generate_enemies(rpg);
+	sfClock_restart(rpg->proc.gman.clock);
+	sfClock_restart(rpg->f.proc.clock);
 	return (0);
 }
