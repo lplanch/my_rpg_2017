@@ -32,30 +32,31 @@ void update_ly_ray(st_rpg *s, float dt)
 		s->f.boss.ray->anim->c = 0;
 		s->f.boss.rayrat = get_ratios(get_angle_thunder(s));
 	}
-	sfCircleShape_setPosition(s->f.boss.ray->circle,
-	create_vector2f(s->f.boss.ray->anim->obj->pos.x + 50 * dt *
-	s->f.boss.rayrat.x - sfCircleShape_getRadius(s->f.boss.ray->circle),
-	s->f.boss.ray->anim->obj->pos.x + 50 * dt *
-	s->f.boss.rayrat.y - sfCircleShape_getRadius(s->f.boss.ray->circle)));
+	s->f.boss.ray->anim->obj->pos = create_vector2f(s->f.boss.ray->anim->obj
+	->pos.x + 350 * dt * s->f.boss.rayrat.x, s->f.boss.ray->anim->obj->pos.y + 350 * dt *
+	s->f.boss.rayrat.y);
 	sfSprite_setPosition(s->f.boss.ray->anim->obj->sprite,
-	create_vector2f(s->f.boss.ray->anim->obj->pos.x + 50 * dt *
-	s->f.boss.rayrat.x - s->f.boss.ray->anim->obj->rect.width / 2,
-	s->f.boss.ray->anim->obj->pos.y + 50 * dt *
-	s->f.boss.rayrat.y - s->f.boss.ray->anim->obj->rect.height / 2));
+	s->f.boss.ray->anim->obj->pos);
+	sfCircleShape_setPosition(s->f.boss.ray->circle,
+	create_vector2f(s->f.boss.ray->anim->obj->pos.x + 350 * dt *
+	s->f.boss.rayrat.x - sfCircleShape_getRadius(s->f.boss.ray->circle),
+	s->f.boss.ray->anim->obj->pos.x + 350 * dt *
+	s->f.boss.rayrat.y - sfCircleShape_getRadius(s->f.boss.ray->circle)));
 }
 
 void launch_ly_ray(st_rpg *s)
 {
 	launch_aoe(s, s->f.boss.ray);
+	s->f.boss.ray->anim->obj->pos = create_vector2f(s->f.mob[1]->obj->pos.x
+	- s->f.boss.ray->anim->obj->rect.width / 2,
+	s->f.mob[1]->obj->pos.y - s->f.boss.ray->anim->obj->rect.height / 2);
+	sfSprite_setPosition(s->f.boss.ray->anim->obj->sprite,
+	s->f.boss.ray->anim->obj->pos);
 	sfCircleShape_setPosition(s->f.boss.ray->circle,
 	create_vector2f(s->f.mob[1]->obj->pos.x - sfCircleShape_getRadius(s
 	->f.boss.ray->circle),
 	s->f.mob[1]->obj->pos.y - sfCircleShape_getRadius(s
 	->f.boss.ray->circle)));
-	sfSprite_setPosition(s->f.boss.ray->anim->obj->sprite,
-	create_vector2f(s->f.mob[1]->obj->pos.x - s->f.boss.ray->anim->obj
-	->rect.width / 2,
-	s->f.mob[1]->obj->pos.y - s->f.boss.ray->anim->obj->rect.height / 2));
 }
 
 void launch_ly_spell(st_rpg *s)
