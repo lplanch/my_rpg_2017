@@ -678,6 +678,11 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+int corupt_save(void);
+int check_stat_value(char *buffer);
+int check_tree(char *saves);
+int check_stat(char *saves);
+int check_cust(char *saves);
 void update_samy_fusrohdah(st_rpg *s);
 void update_samy(st_rpg *s, float dt);
 void launch_samy_spell(st_rpg *s);
