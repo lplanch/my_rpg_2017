@@ -351,6 +351,8 @@ typedef struct boss_spells
 	dash_t *fus;
 	effect_t *rage;
 	float casting;
+	sfMusic *s_tent;
+	sfMusic *s_ball;
 } boss_t;
 
 typedef struct struct_archer_spells

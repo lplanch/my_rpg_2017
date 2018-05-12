@@ -25,7 +25,8 @@ void destroy_ly(st_rpg *s)
 
 void generate_ly(st_rpg *s)
 {
-	destroy_enemies(s);
+	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1)
+		destroy_enemy(s->f.mob[i]);
 	s->proc.pvar.enemy_nbr = 2;
 	s->f.mob = malloc(sizeof(enemy_t *) * s->proc.pvar.enemy_nbr);
 	generate_champ(s);
