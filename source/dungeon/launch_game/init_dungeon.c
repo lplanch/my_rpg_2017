@@ -30,7 +30,6 @@ void init_dungeon_game(st_rpg *rpg)
 {
 	rpg->player.obj->pos = get_entry_pos(&rpg->proc);
 	init_minimap(&rpg->proc);
-	create_ingame_inventory(rpg);
 	rpg->proc.gman.clock = sfClock_create();
 	rpg->proc.gman.dt = 1.;
 }

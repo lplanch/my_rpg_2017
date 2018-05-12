@@ -131,6 +131,7 @@ void fade_out_text(sfRenderWindow *window, sfText *text);
 
 //INVENTORY
 void create_ingame_inventory(st_rpg *rpg);
+void destroy_inventory(st_rpg *rpg);
 void clear_inventory_slot(item_t *slot);
 void add_inventory_slot(item_t *first_slot);
 void remove_inventory_slot(item_t *first_slot);
@@ -167,5 +168,9 @@ void update_item_ground(st_rpg *rpg);
 //NPC
 //ENNEMIES
 sfVector2f create_ennemy_position(st_rpg *rpg);
+
+//OTHER LOUIS WORK ON OTHER PARTICULAR EVENTS
+//FISHING
+void verify_choice_fishing(st_rpg *rpg, char **tab, char *str, int compter);
 
 #endif

@@ -167,6 +167,7 @@ FILES		=	source/main.c							\
 			source/game_map/draw/draw_dialog.c				\
 			source/game_map/pnj/check_pnj.c					\
 			source/game_map/pnj/get_pnj.c					\
+			source/game_map/pnj/events/events_fishing.c			\
 			source/game_map/dialog/zone_text_create.c			\
 			source/game_map/dialog/zone_text.c				\
 			source/game_map/dialog/choice_box.c				\
@@ -235,6 +236,7 @@ FILES		=	source/main.c							\
 			source/dungeon/inventory_system/create_weapon_armor.c		\
 			source/dungeon/inventory_system/highlight_weapon_armor.c	\
 			source/dungeon/inventory_system/item_resume.c			\
+			source/dungeon/inventory_system/destroy_inventory.c		\
 			source/dungeon/ground_item_system/create_items_on_ground.c	\
 			source/dungeon/ground_item_system/draw_item_ground.c		\
 			source/dungeon/ground_item_system/update_ground_item.c		\

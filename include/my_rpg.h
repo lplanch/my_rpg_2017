@@ -681,6 +681,7 @@ typedef struct struct_rpg
 } st_rpg;
 
 #include "procedural.h"
+#include "game_map.h"
 
 void destroy_boss(st_rpg *s);
 void display_boss(st_rpg *s);
