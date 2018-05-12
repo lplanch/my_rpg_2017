@@ -10,11 +10,7 @@
 
 void create_dungeon_loop(st_rpg *s)
 {
-<<<<<<< HEAD
 	s->boss = 0;
-=======
-	s->boss = 3;
->>>>>>> 22c82d9adc28da919ed14fa2a778819284816196
 	s->dungeon_music.music =
 	create_music(s->s_music, s->proc.pvar.dungeon_music);
 	sfMusic_play(s->dungeon_music.music);
