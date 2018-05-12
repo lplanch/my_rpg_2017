@@ -10,7 +10,7 @@
 
 void create(st_rpg *s)
 {
-	s->player.obj->pos = create_vector2f(7935, 4516);
+	s->player.obj->pos = create_vector2f(7934, 4497);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	character_setup(s);
 	get_all_pnj(s, "ressources/pnj/pnj/");
@@ -26,6 +26,9 @@ void create(st_rpg *s)
 	sfText_setCharacterSize(s->fi->text_finish_quests->text, 100);
 	s->fi->quests[s->player.cdata.quest]->status = 1;
 	s->fi->quests[0]->status_text = 1;
+	s->fi->camera = create_vector2f(7839, 4497);
+	s->fi->camera_prec = s->fi->camera;
+	s->fi->camera_pos = 2;
 }
 
 int start_game(st_rpg *s)
