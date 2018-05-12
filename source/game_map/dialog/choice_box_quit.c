@@ -44,6 +44,7 @@ int choice_box_check_quit(st_rpg *s, char **tab, char *str, int compter)
 		quit_game_for_dungeon(s);
 		return (launch_dungeon(s, &dungeon3));
 	}
+	verify_choice_fishing(s, tab, str, compter);
 	choice_box_quit(s, tab, str, compter);
 	return (0);
 }

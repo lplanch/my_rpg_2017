@@ -19,6 +19,7 @@ void create(st_rpg *s)
 	setup_music(s);
 	setup_loading(s);
 	get_all_quests(s, "ressources/quests/quests_info/");
+	create_ingame_inventory(s);
 	s->fi->text_finish_quests = create_text("quests_finish",
 	create_vector2f(100, 100), "ressources/fonts/quests2.otf");
 	sfText_setColor(s->fi->text_finish_quests->text, sfWhite);

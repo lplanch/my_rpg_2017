@@ -47,7 +47,6 @@ typedef struct ingame_inventory_manager
 	sfIntRect rect;
 	sfFont *inventory_font;
 	unsigned int size;
-	unsigned int money;
 	item_t *first_slot;
 	item_t *focused;
 	sfText *resume;

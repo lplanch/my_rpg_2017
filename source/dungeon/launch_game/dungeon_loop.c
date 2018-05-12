@@ -19,8 +19,8 @@ void create_dungeon_loop(st_rpg *s)
 	create_weapon(s);
 	map_creation(&s->proc);
 	s->proc.smap = create_sprite_map(&s->proc, s->proc.map);
-	create_items_list(s);
 	init_dungeon_game(s);
+	create_items_list(s);
 	create_main_fight(s);
 	create_icons(s);
 	create_class(s);
@@ -45,7 +45,6 @@ void destroy_dungeon_loop(st_rpg *s)
 	destroy_main_particles(s);
 	if (s->returnv != 0)
 		free_dungeon(s, &s->proc);
-	sfFont_destroy(s->inv.inventory_font);
 	sfMusic_destroy(s->dungeon_music.music);
 	sfMusic_play(s->fi->music.music);
 	s->fi->map_status = 0;

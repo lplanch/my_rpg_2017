@@ -92,5 +92,6 @@ void destroy(st_rpg *s)
 	sfClock_destroy(s->fi->clock);
 	sfClock_destroy(s->fi->lake_clock.clock);
 	destroy_music(s);
+	destroy_inventory(s);
 	free_all(s);
 }
