@@ -229,6 +229,7 @@ FILES		=	source/main.c							\
 			source/dungeon/make_sprite_map/create_blocks_deadlock.c		\
 			source/dungeon/launch_game/launch_dungeon.c			\
 			source/dungeon/launch_game/dungeon_loop.c			\
+			source/dungeon/launch_game/dungeon_loop_create_update.c		\
 			source/dungeon/launch_game/camera_manager.c			\
 			source/dungeon/launch_game/input_manager.c			\
 			source/dungeon/launch_game/free_dungeon.c			\

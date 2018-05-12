@@ -1040,6 +1040,8 @@ void walk_animation(st_rpg *s);
 void player_animation_village(st_rpg *s);
 void create_dungeon_loop(st_rpg *s);
 int dungeon_loop(st_rpg *s);
+void update_dungeon_loop(st_rpg *s);
+void destroy_dungeon_loop(st_rpg *s);
 
 void dungeon1(proc_var_t *hey);
 void dungeon2(proc_var_t *hey);

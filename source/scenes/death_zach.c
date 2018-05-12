@@ -42,7 +42,7 @@ void move_all_character_zach(st_rpg *s)
 	set_texturerect_top(s->fi->pnj[s->cut.samy_value].pnj, 96);
 }
 
-void death_zac_part2(st_rpg *s,sfMusic *music)
+void death_zac_part2(st_rpg *s, sfMusic *music)
 {
 	move_all_character_zach(s);
 	draw(s);
