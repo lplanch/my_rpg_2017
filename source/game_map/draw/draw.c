@@ -30,7 +30,7 @@ void draw_loading(st_rpg *s)
 void draw_pnj(st_rpg *s)
 {
 	int i = 0;
-	int nbpnj = 15;
+	int nbpnj = 17;
 
 	while (i != nbpnj) {
 		if (s->fi->oui == 1 && i == s->fi->pnj_shade) {

@@ -74,7 +74,7 @@ void check_pnj_for_quests(st_rpg *s)
 		quests_1(s);
 		after_quests(s);
 		wake_up(s);
-	} /*if (s->fi->quests[1]->status == 1 &&
+	} if (s->fi->quests[1]->status == 1 &&
 	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "Holm") == 0) {
 		stop_player(s);
 		s->fi->quests[1]->status = 2;
@@ -126,5 +126,5 @@ void check_pnj_for_quests(st_rpg *s)
 		sfText_setString(s->fi->text_finish_quests->text,
 		"Quest 4 complete!");
 		s->fi->var_for_quests = 255;
-	}*/
+	}
 }
