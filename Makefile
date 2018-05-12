@@ -29,10 +29,13 @@ FILES		=	source/main.c							\
 			source/main_menu/togo.c						\
 			source/main_menu/launcher.c					\
 			source/main_menu/base.c						\
+			source/main_menu/base_part2.c					\
 			source/main_menu/events.c					\
 			source/main_menu/sound_set.c					\
+			source/main_menu/sound_set_part2.c				\
 			source/main_menu/set_text_option.c				\
 			source/main_menu/shader.c					\
+			source/main_menu/display_main_menu_interface.c			\
 			source/custom/main.c						\
 			source/custom/get_buttons.c					\
 			source/custom/base.c						\
@@ -45,6 +48,7 @@ FILES		=	source/main.c							\
 			source/fight/icons/icons.c					\
 			source/fight/icons/icons_cd.c					\
 			source/fight/display_class.c					\
+			source/fight/display_gunner.c					\
 			source/fight/update_class.c					\
 			source/fight/get_cooldowns.c					\
 			source/fight/main.c						\
@@ -61,8 +65,10 @@ FILES		=	source/main.c							\
 			source/fight/projectile/projectile_effects.c			\
 			source/fight/hitbox.c						\
 			source/fight/enemies/champ.c					\
+			source/fight/enemies/champ_generation.c				\
 			source/fight/enemies/samy.c					\
 			source/fight/enemies/samy_spells.c				\
+			source/fight/enemies/lauch_samy_spells.c			\
 			source/fight/enemies/champ_spells.c				\
 			source/fight/enemies/champ_update.c				\
 			source/fight/enemies/ly.c					\
@@ -134,6 +140,7 @@ FILES		=	source/main.c							\
 			source/interface/tree_proceed.c					\
 			source/interface/generate_tree_menu.c				\
 			source/interface/button_generator.c				\
+			source/interface/get_stat.c					\
 			source/save/create_stat.c					\
 			source/save/create_tree.c					\
 			source/save/write_save.c					\

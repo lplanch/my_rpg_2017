@@ -12,7 +12,7 @@ void check_pos_camera_y(st_rpg *s)
 {
 	if ((s->player.obj->pos.y <= 532 && s->player.obj->pos.y >= 24 &&
 		s->player.obj->pos.x >= 136 && s->player.obj->pos.x
-		<= 9378) || (s->player.obj->pos.y <= 5970 &&
+		<= 9378) || (s->player.obj->pos.y <= 5990 &&
 		s->player.obj->pos.y >= 5597 && s->player.obj->pos.x
 		>= 6270 && s->player.obj->pos.x <= 8708))
 		s->fi->camera_pos = 3;

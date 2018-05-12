@@ -60,6 +60,17 @@ int security_first(st_rpg *rpg)
 	return (0);
 }
 
+void verify_collide_map_part2(st_rpg *rpg, int y, int px, int ax)
+{
+	if (vcollide(rpg->proc.map[(y + 32) / 96][(px + 24 + ax) / 96]) &&
+	vcollide(rpg->proc.map[(y + 2) / 96][(px + 24 + ax) / 96]) &&
+	vcollide(rpg->proc.map[(y + 32) / 96][(px - 24 + ax) / 96]) &&
+	vcollide(rpg->proc.map[(y + 2) / 96][(px - 24 + ax) / 96])) {
+		rpg->player.obj->pos.x +=
+		rpg->player.acceleration.x * rpg->proc.gman.dt;
+	}
+}
+
 void verify_collide_map(st_rpg *rpg)
 {
 	int py = rpg->player.obj->pos.y;
@@ -77,11 +88,6 @@ void verify_collide_map(st_rpg *rpg)
 	vcollide(rpg->proc.map[(py + ay) / 96][(x - 22) / 96])) {
 		rpg->player.obj->pos.y +=
 		rpg->player.acceleration.y * rpg->proc.gman.dt;
-	} if (vcollide(rpg->proc.map[(y + 32) / 96][(px + 24 + ax) / 96]) &&
-	vcollide(rpg->proc.map[(y + 2) / 96][(px + 24 + ax) / 96]) &&
-	vcollide(rpg->proc.map[(y + 32) / 96][(px - 24 + ax) / 96]) &&
-	vcollide(rpg->proc.map[(y + 2) / 96][(px - 24 + ax) / 96])) {
-		rpg->player.obj->pos.x +=
-		rpg->player.acceleration.x * rpg->proc.gman.dt;
 	}
+	verify_collide_map_part2(rpg, y, px, ax);
 }
