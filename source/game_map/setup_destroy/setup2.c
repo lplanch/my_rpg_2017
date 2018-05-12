@@ -10,9 +10,10 @@
 
 void setup_pnj_value(st_rpg *s)
 {
-	s->cut.samy_value = 13;
-	s->cut.jade_value = 16;
+	s->cut.samy_value = 14;
+	s->cut.jade_value = 17;
 	s->cut.zac_value = 3;
+	s->cut.son_value = 11;
 }
 
 void setup_variable_scene_quests(st_rpg *s)
@@ -43,6 +44,9 @@ void setup_variable_scene_quests(st_rpg *s)
 	s->cut.champ =
 	create_object("ressources/images/scenes/champ.png",
 	create_vector2f(0, 0), create_rect(0, 0, 60, 46), 0);
+	s->cut.map_son =
+	create_object("ressources/images/scenes/map_son.png",
+	create_vector2f(0, 0), create_rect(0, 0, 528, 528), 0);
 }
 
 void setup_music(st_rpg *s)

@@ -189,6 +189,7 @@ FILES		=	source/main.c							\
 			source/scenes/death_samy.c					\
 			source/scenes/move_pnj_zach.c					\
 			source/scenes/move_player_to_zach.c				\
+			source/scenes/scene_recup_son.c					\
 			source/player/player.c						\
 			source/player/player_movement_map.c				\
 			source/player/player_animation_village.c			\
@@ -237,6 +238,7 @@ FILES		=	source/main.c							\
 			source/dungeon/inventory_system/highlight_weapon_armor.c	\
 			source/dungeon/inventory_system/item_resume.c			\
 			source/dungeon/inventory_system/destroy_inventory.c		\
+			source/dungeon/inventory_system/save_load_inventory.c		\
 			source/dungeon/ground_item_system/create_items_on_ground.c	\
 			source/dungeon/ground_item_system/draw_item_ground.c		\
 			source/dungeon/ground_item_system/update_ground_item.c		\

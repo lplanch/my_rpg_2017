@@ -197,6 +197,7 @@ typedef struct s_files
 	int zach_status;
 	int samy_status;
 	int dream_status;
+	int son_status;
 	st_button **name_head;
 	g_object *name_head_edge[2];
 	g_object *lake;
@@ -217,7 +218,7 @@ typedef struct s_files
 	sfVector2f invers;
 	sfVector2f maxspeed;
 	sfVector2f vect_ID_player;
-	pnj_t pnj[17];
+	pnj_t pnj[18];
 	pos_t pos[10];
 	colcircle_t colcircle[42];
 	colsquare_t colsquare[479];
@@ -644,7 +645,9 @@ typedef struct cutscene
 	int samy_value;
 	int zac_value;
 	int jade_value;
+	int son_value;
 	g_object *map;
+	g_object *map_son;
 	g_object *zachd;
 	g_object *map_samy;
 	g_object *map_samy_boss;
