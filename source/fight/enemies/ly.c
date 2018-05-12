@@ -12,7 +12,6 @@ void update_ly(st_rpg *s, float dt)
 {
 	s->f.mob[1]->cdcount -= dt;
 	if (s->f.mob[1]->cdcount < 0 && enemy_is_able(s, 0)) {
-		//s->f.mob[1]->cast = 2;
 		s->f.boss.casting = 1;
 		s->f.boss.attack_ly = rand() % 2;
 	} if (s->f.boss.casting > 0) {
