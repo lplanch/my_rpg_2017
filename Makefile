@@ -133,6 +133,10 @@ FILES		=	source/main.c							\
 			source/save/create_tree.c					\
 			source/save/write_save.c					\
 			source/save/load_save.c						\
+			source/save/corupt_cust.c					\
+			source/save/corupt_save.c					\
+			source/save/corupt_stat.c					\
+			source/save/corupt_tree.c					\
 			source/game_map/prog.c						\
 			source/game_map/game.c						\
 			source/game_map/collisions/collision.c				\
