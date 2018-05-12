@@ -17,6 +17,9 @@
 #include <SFML/Audio.h>
 #include <SFML/Graphics.h>
 
+#ifndef GAME_MAP_H
+#define GAME_MAP_H
+
 #include "my_rpg.h"
 
 static const float speed = 3;
@@ -63,6 +66,7 @@ void move_left(st_rpg *s);
 void move_allpts(pos_t *pos, st_rpg *s);
 void move_id_player(st_rpg *s);
 void move_infos_box(st_rpg *s);
+void choice_box_quit(st_rpg *s, char **tab, char *str, int compter);
 
 int my_getnbr_i(char const *str, int i);
 int is_num(char a);
@@ -167,8 +171,7 @@ void quit_game_for_dungeon(st_rpg *s);
 void lake_update(st_rpg *s);
 void setup_pnj_value(st_rpg *s);
 void samy_boss(st_rpg *s);
-
-#ifndef MY_COOK_
-#define MY_COOK_
+void scene_recup_son(st_rpg *s);
+void draw_scene_son(st_rpg *s);
 
 #endif

@@ -197,6 +197,7 @@ typedef struct s_files
 	int zach_status;
 	int samy_status;
 	int dream_status;
+	int son_status;
 	st_button **name_head;
 	g_object *name_head_edge[2];
 	g_object *lake;
@@ -217,7 +218,7 @@ typedef struct s_files
 	sfVector2f invers;
 	sfVector2f maxspeed;
 	sfVector2f vect_ID_player;
-	pnj_t pnj[16];
+	pnj_t pnj[18];
 	pos_t pos[10];
 	colcircle_t colcircle[42];
 	colsquare_t colsquare[479];
@@ -348,6 +349,8 @@ typedef struct boss_spells
 	dash_t *fus;
 	effect_t *rage;
 	float casting;
+	sfMusic *s_tent;
+	sfMusic *s_ball;
 } boss_t;
 
 typedef struct struct_archer_spells
@@ -642,7 +645,9 @@ typedef struct cutscene
 	int samy_value;
 	int zac_value;
 	int jade_value;
+	int son_value;
 	g_object *map;
+	g_object *map_son;
 	g_object *zachd;
 	g_object *map_samy;
 	g_object *map_samy_boss;
@@ -681,6 +686,7 @@ typedef struct struct_rpg
 } st_rpg;
 
 #include "procedural.h"
+#include "game_map.h"
 
 void destroy_boss(st_rpg *s);
 void display_boss(st_rpg *s);
@@ -1034,6 +1040,7 @@ int dungeon_loop(st_rpg *s);
 void dungeon1(proc_var_t *hey);
 void dungeon2(proc_var_t *hey);
 void dungeon3(proc_var_t *hey);
-void dungeon3_2(proc_var_t *hey);
+void dungeon4_1(proc_var_t *hey);
+void dungeon4_2(proc_var_t *hey);
 
 #endif

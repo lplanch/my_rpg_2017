@@ -35,21 +35,15 @@ int choose_samy_diplay(st_rpg *s)
 	if (s->f.boss.casting > 0 && s->f.boss.attack == 0) {
 		sfRenderWindow_drawSprite(s->window,
 		s->f.mob[0]->obj->sprite, &s->f.shade.samy_rush.state);
-		sfRenderWindow_drawSprite(s->window,
-		s->f.mob[0]->life->sprite, &s->f.shade.samy_rush.state);
 		return (0);
 	} else if (s->f.boss.casting > 0 && s->f.boss.attack == 1) {
 		sfRenderWindow_drawSprite(s->window,
 		s->f.mob[0]->obj->sprite, &s->f.shade.samy_roda.state);
-		sfRenderWindow_drawSprite(s->window,
-		s->f.mob[0]->life->sprite, &s->f.shade.samy_roda.state);
 		return (0);
 	} else if (s->f.boss.casting > 0 && s->f.boss.attack == 2 &&
 	s->f.mob[0]->poison->count <= 0 && s->f.mob[0]->stun->count <= 0) {
 		sfRenderWindow_drawSprite(s->window,
 		s->f.mob[0]->obj->sprite, &s->f.shade.power.state);
-		sfRenderWindow_drawSprite(s->window,
-		s->f.mob[0]->life->sprite, &s->f.shade.power.state);
 		return (0);
 	}
 	return (1);
@@ -57,7 +51,7 @@ int choose_samy_diplay(st_rpg *s)
 
 void display_samy(st_rpg *s)
 {
-	if (choose_samy_diplay(s) == 1) {
+	if (s->f.mob[0]->alive && choose_samy_diplay(s) == 1) {
 		choose_display_enemies(s, 0);
 	}
 }
@@ -71,7 +65,8 @@ void destroy_samy(st_rpg *s)
 
 void generate_samy(st_rpg *s)
 {
-	destroy_enemies(s);
+	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1)
+		destroy_enemy(s->f.mob[i]);
 	s->proc.pvar.enemy_nbr = 1;
 	s->f.mob = malloc(sizeof(enemy_t *) * s->proc.pvar.enemy_nbr);
 	s->f.mob[0] = generate_enemy("ressources/enemies/Samy");

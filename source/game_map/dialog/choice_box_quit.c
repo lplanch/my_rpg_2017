@@ -31,19 +31,26 @@ int choice_box_check_quit(st_rpg *s, char **tab, char *str, int compter)
 		choice_box_quit(s, tab, str, compter);
 		quit_game_for_dungeon(s);
 		return (launch_dungeon(s, &dungeon1));
-	} if (my_strcmp(tab[s->fi->choice_cursor], "Chaotic Maze") == 0 &&
+	} if (my_strcmp(tab[s->fi->choice_cursor], "White Cavern") == 0 &&
 	s->fi->quests[4]->status != 0) {
 		s->fi->num_dungeon = 2;
 		choice_box_quit(s, tab, str, compter);
 		quit_game_for_dungeon(s);
 		return (launch_dungeon(s, &dungeon2));
-	} if (my_strcmp(tab[s->fi->choice_cursor], "Vegetable Cave") == 0 &&
-	s->fi->quests[5]->status != 0) {
+	} if (my_strcmp(tab[s->fi->choice_cursor], "Chaotic Maze") == 0 &&
+	s->fi->quests[6]->status != 0) {
 		s->fi->num_dungeon = 3;
 		choice_box_quit(s, tab, str, compter);
 		quit_game_for_dungeon(s);
 		return (launch_dungeon(s, &dungeon3));
+	} if (my_strcmp(tab[s->fi->choice_cursor], "Vegetable Cave") == 0 &&
+	s->fi->quests[7]->status != 0) {
+		s->fi->num_dungeon = 4;
+		choice_box_quit(s, tab, str, compter);
+		quit_game_for_dungeon(s);
+		return (launch_dungeon(s, &dungeon4_1));
 	}
+	verify_choice_fishing(s, tab, str, compter);
 	choice_box_quit(s, tab, str, compter);
 	return (0);
 }

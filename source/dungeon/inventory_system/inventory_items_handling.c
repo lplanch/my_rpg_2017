@@ -57,8 +57,5 @@ int add_inventory_item(item_t *first_slot, unsigned int id)
 
 void use_inventory_item(st_rpg *rpg, item_t *current)
 {
-	my_putstr("using item : ");
-	my_put_nbr(current->id);
-	my_putchar('\n');
 	remove_inventory_item(rpg, current);
 }

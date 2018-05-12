@@ -37,7 +37,7 @@ void setup_variable(st_rpg *s)
 	s->fi->maxspeed.y = speed * 50;
 	s->fi->dialog_box_isopen = 0;
 	s->fi->nb_pnj = 2;
-	s->fi->max_pnj = 16;
+	s->fi->max_pnj = 18;
 	s->fi->choice_cursor = 0;
 	s->fi->var_choice = 0;
 	s->fi->nb_choice_pre = 0;
