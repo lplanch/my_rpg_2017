@@ -16,7 +16,7 @@ void update_samy(st_rpg *s, float dt)
 		s->f.boss.casting = 1;
 		s->f.boss.attack = rand() % 2;
 		if (s->f.mob[0]->stat->pva < s->f.mob[0]->stat->pvm / 2 &&
-		s->f.boss.rage->amount == 0)
+			s->f.boss.rage->amount == 0)
 			s->f.boss.attack = 2;
 	} if (s->f.boss.casting > 0) {
 		s->f.boss.casting -= dt;

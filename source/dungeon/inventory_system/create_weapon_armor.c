@@ -11,9 +11,9 @@
 void draw_armor_weapon_slot(st_rpg *rpg)
 {
 	sfVector2f armor_pos = {rpg->player.obj->pos.x + WIDTH / 4.12,
-	rpg->player.obj->pos.y - HEIGHT / 6};
+		rpg->player.obj->pos.y - HEIGHT / 6};
 	sfVector2f weapon_pos = {rpg->player.obj->pos.x + WIDTH / 4.12,
-	rpg->player.obj->pos.y - HEIGHT / 3};
+		rpg->player.obj->pos.y - HEIGHT / 3};
 
 	if (rpg->inv.armor->sprite == NULL)
 		create_item_sprite(rpg, rpg->inv.armor);

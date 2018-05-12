@@ -24,7 +24,7 @@ void print_letter(st_rpg *s)
 		sfRenderWindow_drawSprite(s->window, letter->sprite, NULL);
 		sfRenderWindow_display(s->window);
 		if (sfKeyboard_isKeyPressed(sfKeyReturn)
-		&& event.type == sfEvtKeyPressed)
+			&& event.type == sfEvtKeyPressed)
 			break;
 	}
 	destroy_object(letter);

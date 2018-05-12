@@ -43,7 +43,7 @@ void update_projectiles(st_rpg *s, float dt)
 {
 	void (*list[4])(st_rpg *s, float dt) = {update_projectile_archer,
 		update_projectile_gunner, update_projectile_rogue,
-	update_projectile_warrior};
+		update_projectile_warrior};
 
 	(list[s->player.cdata.classe])(s, dt);
 }

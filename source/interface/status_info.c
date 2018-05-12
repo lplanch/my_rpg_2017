@@ -77,7 +77,7 @@ void update_status_menu(st_rpg *s)
 void set_tree_positions(st_rpg *s)
 {
 	int x = s->origin.x + 1535;
-	
+
 	sfSprite_setPosition(s->treem.select[0]->sprite,
 	create_vector2f(x + s->player.tree.passive * 125, s->origin.y + 90));
 	sfSprite_setPosition(s->treem.select[1]->sprite,

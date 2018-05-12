@@ -11,7 +11,7 @@
 int enemy_is_able(st_rpg *s, int i)
 {
 	if (s->f.mob[i]->aggro && s->f.mob[i]->alive &&
-	!s->f.mob[i]->cast && !s->f.recover->amount)
+		!s->f.mob[i]->cast && !s->f.recover->amount)
 		return (1);
 	return (0);
 }

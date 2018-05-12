@@ -45,7 +45,7 @@ int mouse_in_object(g_object *obj, sfRenderWindow *window)
 
 int mouse_in_press(g_object *obj, sfRenderWindow *window, sfEvent event)
 {
-	if (event.type ==  sfEvtMouseButtonPressed &&
+	if (event.type == sfEvtMouseButtonPressed &&
 	mouse_in_object(obj, window)) {
 		return (1);
 	} else {

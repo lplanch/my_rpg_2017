@@ -28,7 +28,7 @@ void movement_enemies(st_rpg *s, int i, float dt)
 {
 	s->f.mob[i]->ratios = get_ratios(get_angle_enemy(s, i));
 	if (s->f.mob[i]->alive && s->f.mob[i]->cast != 2 &&
-		s->f.mob[i]->aggro) {
+	s->f.mob[i]->aggro) {
 		pathfinding(s, dt, i);
 		verify_collide_map_enemies(s, dt, i);
 		sfSprite_setPosition(s->f.mob[i]->obj->sprite,
@@ -46,7 +46,8 @@ void set_aggro_enemies(st_rpg *s, int i)
 	sfCircleShape_setRadius(circle, 600);
 	sfCircleShape_setPosition(circle, (sfVector2f)
 	{s->f.mob[i]->obj->pos.x + s->f.mob[i]->obj->rect.width / 2 - 600,
-	s->f.mob[i]->obj->pos.y + s->f.mob[i]->obj->rect.height / 2 - 600});
+		s->f.mob[i]->obj->pos.y +
+		s->f.mob[i]->obj->rect.height / 2 - 600});
 	if (circle_hitbox(circle, s->player.obj))
 		s->f.mob[i]->aggro = 1;
 	sfCircleShape_destroy(circle);

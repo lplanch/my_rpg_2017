@@ -18,13 +18,14 @@ void launch_champ_tentacle(st_rpg *s)
 	create_vector2f(s->f.mob[0]->obj->pos.x + 144 + s->f.boss.trat.x * 70 *
 	s->f.boss.ctent - sfCircleShape_getRadius(s->f.boss.tent[s
 	->f.boss.ctent]->circle), s->f.mob[0]->obj->pos.y + 72
-	+ s->f.boss.trat.y * 100 * (s->f.boss.ctent + 2) - sfCircleShape_getRadius(s
-	->f.boss.tent[s->f.boss.ctent]->circle)));
+	+ s->f.boss.trat.y * 100 * (s->f.boss.ctent + 2) -
+	sfCircleShape_getRadius(s->f.boss.tent[s->f.boss.ctent]->circle)));
 	sfSprite_setPosition(s->f.boss.tent[s->f.boss.ctent]->anim->obj->sprite,
 	create_vector2f(s->f.mob[0]->obj->pos.x + 144 + s->f.boss.trat.x * 70 *
 	s->f.boss.ctent - s->f.boss.tent[s->f.boss.ctent]->anim->obj
 	->rect.width / 2,
-	s->f.mob[0]->obj->pos.y + 72 + s->f.boss.trat.y * 100 * (s->f.boss.ctent + 2) -
+	s->f.mob[0]->obj->pos.y + 72 + s->f.boss.trat.y * 100 *
+	(s->f.boss.ctent + 2) -
 	s->f.boss.tent[s->f.boss.ctent]->anim->obj->rect.height / 2));
 	s->f.boss.ctent += 1;
 }
@@ -63,7 +64,7 @@ void launch_champ_well(st_rpg *s)
 void launch_champ_spells(st_rpg *s)
 {
 	void (*list[3])(st_rpg *s) = {launch_champ_tentacle,
-	launch_champ_shadowball, launch_champ_well};
+		launch_champ_shadowball, launch_champ_well};
 
 	s->f.boss.attack = rand() % 3;
 	(list[s->f.boss.attack])(s);

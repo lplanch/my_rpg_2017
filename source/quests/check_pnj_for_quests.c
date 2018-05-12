@@ -10,15 +10,24 @@
 
 void reset_pos_friends(st_rpg *s)
 {
-	s->fi->pnj[s->cut.samy_value].pnj->rect = set_texturerect_top(s->fi->pnj[s->cut.samy_value].pnj, 144);
-	s->fi->pnj[s->cut.zac_value].pnj->rect = set_texturerect_top(s->fi->pnj[s->cut.zac_value].pnj, 144);
-	s->fi->pnj[s->cut.jade_value].pnj->rect = set_texturerect_top(s->fi->pnj[s->cut.jade_value].pnj, 144);
-	s->fi->pnj[s->cut.samy_value].pnj->pos = create_vector2f(7882, 7374);
-	s->fi->pnj[s->cut.jade_value].pnj->pos = create_vector2f(10000, 10000);
-	s->fi->pnj[s->cut.zac_value].pnj->pos = create_vector2f(10000, 10000);
-	sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite, s->fi->pnj[s->cut.samy_value].pnj->pos);
-	sfSprite_setPosition(s->fi->pnj[s->cut.jade_value].pnj->sprite, s->fi->pnj[s->cut.jade_value].pnj->pos);
-	sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite, s->fi->pnj[s->cut.zac_value].pnj->pos);
+	s->fi->pnj[s->cut.samy_value].pnj->rect =
+	set_texturerect_top(s->fi->pnj[s->cut.samy_value].pnj, 144);
+	s->fi->pnj[s->cut.zac_value].pnj->rect =
+	set_texturerect_top(s->fi->pnj[s->cut.zac_value].pnj, 144);
+	s->fi->pnj[s->cut.jade_value].pnj->rect =
+	set_texturerect_top(s->fi->pnj[s->cut.jade_value].pnj, 144);
+	s->fi->pnj[s->cut.samy_value].pnj->pos =
+	create_vector2f(7882, 7374);
+	s->fi->pnj[s->cut.jade_value].pnj->pos =
+	create_vector2f(10000, 10000);
+	s->fi->pnj[s->cut.zac_value].pnj->pos =
+	create_vector2f(10000, 10000);
+	sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite,
+	s->fi->pnj[s->cut.samy_value].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[s->cut.jade_value].pnj->sprite,
+	s->fi->pnj[s->cut.jade_value].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite,
+	s->fi->pnj[s->cut.zac_value].pnj->pos);
 }
 
 void print_text_finish_quests2(st_rpg *s, int posx, int posy)
@@ -87,7 +96,7 @@ void check_pnj_for_quests(st_rpg *s)
 		s->fi->quests[3]->status = 2;
 		s->fi->dialog_box_isopen = 1;
 		dialog_box(s, "father_loos_son1", "Matthew");
-	} if (s->fi->quests[4]->status == 1 &&  s->fi->num_dungeon == 2) {
+	} if (s->fi->quests[4]->status == 1 && s->fi->num_dungeon == 2) {
 		s->fi->quests[4]->status = 2;
 		s->returnv = 0;
 		s->fi->return_value = 0;

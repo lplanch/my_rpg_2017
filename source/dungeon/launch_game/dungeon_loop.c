@@ -10,7 +10,7 @@
 
 void create_dungeon_loop(st_rpg *s)
 {
-	s->boss = 2;
+	s->boss = 1;
 	s->dungeon_music.music =
 	create_music(s->s_music, s->proc.pvar.dungeon_music);
 	sfMusic_play(s->dungeon_music.music);
@@ -90,8 +90,6 @@ void display_dungeon(st_rpg *s)
 	draw_item_on_ground(s);
 	display_player(s);
 	display_enemies(s);
-	//display_champ(s);
-	//display_samy(s);
 	display_class(s);
 	display_icons(s);
 	display_life_bar(s);

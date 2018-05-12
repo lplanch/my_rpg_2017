@@ -23,7 +23,6 @@ void lake_update(st_rpg *s)
 	}
 }
 
-
 void tp_orphanage(st_rpg *s)
 {
 	s->player.obj->pos = create_vector2f(8659, 7394);

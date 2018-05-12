@@ -11,7 +11,8 @@
 void draw_scene_samy_boss(st_rpg *s)
 {
 	sfRenderWindow_clear(s->window, sfBlack);
-	sfRenderWindow_drawSprite(s->window, s->cut.map_samy_boss->sprite, NULL);
+	sfRenderWindow_drawSprite(s->window,
+	s->cut.map_samy_boss->sprite, NULL);
 	if (s->cut.samy_boss_status == 1)
 		sfRenderWindow_drawSprite(s->window,
 		s->cut.samy_boss->sprite, NULL);
@@ -32,7 +33,8 @@ void dialog_samy_boss(st_rpg *s)
 	s->cut.samy_boss_status = 1;
 	sfMusic_stop(s->fi->samys_music.music);
 	sfMusic_play(s->fi->samy_boss.music);
-	s->cut.samy_boss->pos = create_vector2f(s->cut.samyd->pos.x + 10, s->cut.samyd->pos.y - 25);
+	s->cut.samy_boss->pos = create_vector2f(s->cut.samyd->pos.x + 10,
+	s->cut.samyd->pos.y - 25);
 	s->cut.samyd->pos = create_vector2f(10000, 10000);
 	sfSprite_setPosition(s->cut.samyd->sprite, s->cut.samyd->pos);
 	sfSprite_setPosition(s->cut.samy_boss->sprite, s->cut.samy_boss->pos);
@@ -73,7 +75,8 @@ void samy_boss(st_rpg *s)
 	s->fi->camera.y - 560);
 	s->cut.samyd->pos = create_vector2f(s->fi->camera.x - 180,
 	s->fi->camera.y - 150);
-	sfSprite_setPosition(s->cut.map_samy_boss->sprite, s->cut.map_samy_boss->pos);
+	sfSprite_setPosition(s->cut.map_samy_boss->sprite,
+	s->cut.map_samy_boss->pos);
 	sfSprite_setPosition(s->cut.samyd->sprite, s->cut.samyd->pos);
 	sfMusic_stop(s->fi->music.music);
 	s->fi->samy_boss_status = 1;
