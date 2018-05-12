@@ -54,5 +54,6 @@ void generate_ly(st_rpg *s)
 	s->f.boss.ray = create_aoe_from_file("ressources/spells/enemies/ray");
 	s->f.boss.attack_ly = 0;
 	s->f.boss.casting = 0;
+	s->f.boss.rayused = 0;
 	s->f.boss.rayrat = create_vector2f(0, 0);
 }

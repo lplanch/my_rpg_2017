@@ -344,6 +344,10 @@ typedef struct boss_spells
 	sfVector2f ballpos;
 	sfVector2f ballrat;
 	sfVector2f rayrat;
+	g_object *bar;
+	g_object *life[2];
+	t_object *name;
+	float rayused;
 	float used;
 	aoe_t *tent[6];
 	aoe_t *well;
@@ -693,6 +697,12 @@ typedef struct struct_rpg
 #include "procedural.h"
 #include "game_map.h"
 
+void create_boss_name(st_rpg *s);
+void display_boss_life_bar(st_rpg *s);
+void destroy_boss_life_bar(st_rpg *s);
+void update_boss_life_bar_origin(st_rpg *s);
+void update_boss_life_bar_width(st_rpg *s);
+void create_boss_life_bar(st_rpg *s);
 void update_ly_ray(st_rpg *s, float dt);
 void launch_ly_spell(st_rpg *s);
 void destroy_boss(st_rpg *s);
