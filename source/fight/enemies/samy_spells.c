@@ -32,6 +32,7 @@ void proc_samy_dash(st_rpg *s)
 	s->f.knock->speed * 3;
 	launch_dmg_show(s, amount, s->player.obj);
 	s->f.recover->count = 1.5;
+	s->f.recover->amount = 1;
 }
 
 void update_samy_dash(st_rpg *s, float dt)
