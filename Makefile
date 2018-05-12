@@ -111,9 +111,13 @@ FILES		=	source/main.c							\
 			source/spells/warrior_2.c					\
 			source/spells/warrior_3.c					\
 			source/spells/update_archer_1.c					\
-			source/spells/update_gunner_1.c					\
-			source/spells/update_rogue_1.c					\
-			source/spells/update_warrior_1.c				\
+			source/spells/update_gunner_1_1.c				\
+			source/spells/update_gunner_1_2.c				\
+			source/spells/update_gunner_1_3.c				\
+			source/spells/update_rogue_1_1.c				\
+			source/spells/update_rogue_1_2.c				\
+			source/spells/update_warrior_1_1.c				\
+			source/spells/update_warrior_1_2.c				\
 			source/interface/life_bar.c					\
 			source/interface/main_particles.c				\
 			source/interface/status_menu.c					\

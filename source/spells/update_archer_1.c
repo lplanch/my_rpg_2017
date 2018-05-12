@@ -37,6 +37,20 @@ void update_kalash(st_rpg *s)
 	}
 }
 
+void update_axe_part2(st_rpg *s, sfVector2f ratios)
+{
+	if (s->f.arc.axe->used <= 0)
+		s->f.arc.axe->shot = 0;
+	s->f.arc.axe->obj->pos.x = s->f.arc.axe->rpos.x - ratios.x * s
+	->f.arc.axe->obj->rect.width / 2 + ratios.y * s->f.arc.axe->obj
+	->rect.height / 2;
+	s->f.arc.axe->obj->pos.y = s->f.arc.axe->rpos.y - ratios.y * s
+	->f.arc.axe->obj->rect.width / 2 - ratios.x * s->f.arc.axe->obj
+	->rect.height / 2;
+	sfSprite_setPosition(s->f.arc.axe->obj->sprite, s->f.arc.axe->obj->pos);
+	sfSprite_setRotation(s->f.arc.axe->obj->sprite, s->f.arc.axe->angle);
+}
+
 void update_axe(st_rpg *s)
 {
 	sfVector2f ratios;
@@ -51,14 +65,5 @@ void update_axe(st_rpg *s)
 	->speed;
 	s->f.arc.axe->used -= hypot(s->f.arc.axe->ratios.x * s->f.arc.axe->obj
 	->speed, s->f.arc.axe->ratios.y * s->f.arc.axe->obj->speed);
-	if (s->f.arc.axe->used <= 0)
-		s->f.arc.axe->shot = 0;
-	s->f.arc.axe->obj->pos.x = s->f.arc.axe->rpos.x - ratios.x * s
-	->f.arc.axe->obj->rect.width / 2 + ratios.y * s->f.arc.axe->obj
-	->rect.height / 2;
-	s->f.arc.axe->obj->pos.y = s->f.arc.axe->rpos.y - ratios.y * s
-	->f.arc.axe->obj->rect.width / 2 - ratios.x * s->f.arc.axe->obj
-	->rect.height / 2;
-	sfSprite_setPosition(s->f.arc.axe->obj->sprite, s->f.arc.axe->obj->pos);
-	sfSprite_setRotation(s->f.arc.axe->obj->sprite, s->f.arc.axe->angle);
+	update_axe_part2(s, ratios);
 }
