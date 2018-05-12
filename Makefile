@@ -65,6 +65,8 @@ FILES		=	source/main.c							\
 			source/fight/enemies/samy_spells.c				\
 			source/fight/enemies/champ_spells.c				\
 			source/fight/enemies/champ_update.c				\
+			source/fight/enemies/ly.c					\
+			source/fight/enemies/boss.c					\
 			source/fight/enemies/hitbox.c					\
 			source/fight/enemies/attack.c					\
 			source/fight/enemies/enemy.c					\

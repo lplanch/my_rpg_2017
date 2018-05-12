@@ -26,9 +26,10 @@ void update_samy(st_rpg *s, float dt)
 	update_samy_fusrohdah(s);
 }
 
-/*void display_samy(st_rpg *s)
+void display_samy(st_rpg *s)
 {
-}*/
+	choose_display_enemies(s, 0);
+}
 
 void destroy_samy(st_rpg *s)
 {
