@@ -46,7 +46,6 @@ void update_inventory_size(ing_inv_t *inv)
 void create_inventory_var(ing_inv_t *inv)
 {
 	inv->size = 53;
-	inv->money = 0;
 	inv->first_slot = create_first_slot();
 	for (unsigned int i = 0; i < inv->size; i++)
 		add_inventory_slot(inv->first_slot);

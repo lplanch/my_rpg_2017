@@ -14,6 +14,7 @@ void clear_inventory_slot(item_t *slot)
 	slot->stacks = 0;
 	slot->sprite = NULL;
 	slot->show_stacks = NULL;
+	slot->description = NULL;
 }
 
 void add_inventory_slot(item_t *first_slot)
