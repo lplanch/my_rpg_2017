@@ -54,6 +54,9 @@ void destroy_champ(st_rpg *s)
 		destroy_aoe(s->f.boss.tent[i]);
 	destroy_aoe(s->f.boss.well);
 	destroy_aoe(s->f.boss.ball);
+	sfMusic_destroy(s->f.boss.s_ball);
+	sfMusic_destroy(s->f.boss.s_tent);
+
 }
 
 void generate_champ(st_rpg *s)
@@ -75,4 +78,10 @@ void generate_champ(st_rpg *s)
 		"ressources/spells/enemies/tent");
 	s->f.boss.well = create_aoe_from_file("ressources/spells/enemies/well");
 	s->f.boss.ball = create_aoe_from_file("ressources/spells/enemies/ball");
+	s->f.boss.s_ball =
+	sfMusic_createFromFile("ressources/audio/sound/ball.ogg");
+	s->f.boss.s_tent =
+	sfMusic_createFromFile("ressources/audio/sound/tent.ogg");
+	sfMusic_setVolume(s->f.boss.s_tent, s->s_effect);
+	sfMusic_setVolume(s->f.boss.s_ball, s->s_effect);
 }

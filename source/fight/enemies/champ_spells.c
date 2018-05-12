@@ -10,6 +10,7 @@
 
 void launch_champ_tentacle(st_rpg *s)
 {
+	sfMusic_play(s->f.boss.s_tent);
 	s->f.mob[0]->cast = 2;
 	s->f.boss.trat = get_ratios(get_angle_enemy(s, 0));
 	launch_aoe(s, s->f.boss.tent[s->f.boss.ctent]);
@@ -30,6 +31,7 @@ void launch_champ_tentacle(st_rpg *s)
 
 void launch_champ_shadowball(st_rpg *s)
 {
+	sfMusic_play(s->f.boss.s_ball);
 	s->f.boss.ballrat = get_ratios(get_angle_enemy(s, 0));
 	launch_aoe(s, s->f.boss.ball);
 	s->f.boss.ballpos = create_vector2f(s->f.mob[0]->obj->pos.x + 144,
