@@ -21,6 +21,10 @@ void move_camera2(st_rpg *s)
 		s->fi->camera.x = s->player.obj->pos.x;
 		s->fi->camera_prec.x = s->fi->camera.x;
 		break;
+	case 4:
+		s->fi->camera.y = s->fi->camera_prec.y;
+		s->fi->camera.x = s->fi->camera_prec.x;
+		break;
 	}
 }
 
@@ -28,6 +32,7 @@ void move_camera(st_rpg *s)
 {
 	check_pos_camera_x(s);
 	check_pos_camera_y(s);
+	check_pos_angles(s);
 	switch (s->fi->camera_pos) {
 	case 0:
 		s->fi->camera = s->player.obj->pos;

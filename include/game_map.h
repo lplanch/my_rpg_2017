@@ -34,6 +34,7 @@ char **remalloc_tab(char **tab, char *str);
 
 void check_pos_camera_x(st_rpg *s);
 void check_pos_camera_y(st_rpg *s);
+void check_pos_angles(st_rpg *s);
 
 void draw(st_rpg *s);
 void draw_pnj(st_rpg *s);
