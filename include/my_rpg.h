@@ -338,6 +338,7 @@ typedef struct enemy
 typedef struct boss_spells
 {
 	int attack;
+	int attack_ly;
 	int ctent;
 	sfVector2f trat;
 	sfVector2f ballpos;

@@ -27,6 +27,8 @@ float get_angle_enemy(st_rpg *s, int i)
 void movement_enemies(st_rpg *s, int i, float dt)
 {
 	s->f.mob[i]->ratios = get_ratios(get_angle_enemy(s, i));
+	if (s->f.mob[i]->type == 6)
+		s->f.mob[i]->ratios = get_ratios(get_angle_enemy(s, i) + 45);
 	if (s->f.mob[i]->alive && s->f.mob[i]->cast != 2 &&
 	s->f.mob[i]->aggro) {
 		pathfinding(s, dt, i);
