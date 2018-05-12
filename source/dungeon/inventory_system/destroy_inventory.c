@@ -15,7 +15,7 @@ void destroy_inventory_sprites(st_rpg *rpg)
 	if (rpg->inv.highlight != NULL)
 		sfSprite_destroy(rpg->inv.highlight);
 	if (rpg->inv.selected != NULL)
-	sfSprite_destroy(rpg->inv.selected);
+		sfSprite_destroy(rpg->inv.selected);
 }
 
 void destroy_inventory_textures(st_rpg *rpg)

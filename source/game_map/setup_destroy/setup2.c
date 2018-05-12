@@ -37,10 +37,10 @@ void setup_variable_scene_quests(st_rpg *s)
 	create_vector2f(0, 0), create_rect(0, 0, 70, 50), 0);
 	s->cut.map_samy_boss =
 	create_object("ressources/images/scenes/map_samy_boss.png",
-	create_vector2f(0, 0), create_rect(0, 0, 816, 528), 0);
+	create_vector2f(0, 0), create_rect(0, 0, 816, 816), 0);
 	s->cut.samy_boss =
 	create_object("ressources/images/scenes/samy_boss.png",
-	create_vector2f(0, 0), create_rect(0, 0, 70, 50), 0);
+	create_vector2f(0, 0), create_rect(0, 0, 29, 48), 0);
 	s->cut.champ =
 	create_object("ressources/images/scenes/champ.png",
 	create_vector2f(0, 0), create_rect(0, 0, 60, 46), 0);
@@ -57,6 +57,8 @@ void setup_music(st_rpg *s)
 	create_music(s->s_music, "ressources/audio/Samy's Theme.ogg");
 	s->fi->reflexion_music.music =
 	create_music(s->s_music, "ressources/audio/reflexion.ogg");
+	s->fi->samy_boss.music =
+	create_music(s->s_music, "ressources/audio/boss_samy.ogg");
 }
 
 void setup_col(st_rpg *s)

@@ -90,8 +90,6 @@ void display_dungeon(st_rpg *s)
 	draw_item_on_ground(s);
 	display_player(s);
 	display_enemies(s);
-	//display_champ(s);
-	//display_samy(s);
 	display_class(s);
 	display_icons(s);
 	display_life_bar(s);

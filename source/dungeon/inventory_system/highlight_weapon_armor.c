@@ -48,9 +48,9 @@ void highlight_weapon(st_rpg *rpg, item_t *current, int *clicked)
 void verify_armor_weapon_highlight(st_rpg *rpg, int *clicked)
 {
 	if (mouse_on_inventory_slot(rpg, rpg->player.obj->pos.x + WIDTH / 4.12,
-	rpg->player.obj->pos.y - HEIGHT / 6))
+		rpg->player.obj->pos.y - HEIGHT / 6))
 		highlight_armor(rpg, rpg->inv.armor, clicked);
 	if (mouse_on_inventory_slot(rpg, rpg->player.obj->pos.x + WIDTH / 4.12,
-	rpg->player.obj->pos.y - HEIGHT / 3))
+		rpg->player.obj->pos.y - HEIGHT / 3))
 		highlight_weapon(rpg, rpg->inv.weapon, clicked);
 }

@@ -80,8 +80,11 @@ void draw_all(st_rpg *s)
 		draw_scene_samy(s);
 	} if (s->fi->dream_status == 1) {
 		sfRenderWindow_clear(s->window, sfBlack);
-	} if (s->fi->son_status == 1)
+	} if (s->fi->son_status == 1) {
 		draw_scene_son(s);
+	} if (s->fi->samy_boss_status == 1) {
+		draw_scene_samy_boss(s);
+	}
 	print_text_finish_quests(s);
 }
 

@@ -24,7 +24,7 @@ void print_letter(st_rpg *s)
 		sfRenderWindow_drawSprite(s->window, letter->sprite, NULL);
 		sfRenderWindow_display(s->window);
 		if (sfKeyboard_isKeyPressed(sfKeyReturn)
-		&& event.type == sfEvtKeyPressed)
+			&& event.type == sfEvtKeyPressed)
 			break;
 	}
 	destroy_object(letter);
@@ -127,7 +127,8 @@ void death_zac(st_rpg *s)
 	sfMusic_stop(music);
 	after_quests(s);
 	s->fi->pnj[s->cut.zac_value].pnj->pos = create_vector2f(10000, 10000);
-	sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite, s->fi->pnj[s->cut.zac_value].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite,
+	s->fi->pnj[s->cut.zac_value].pnj->pos);
 	sfMusic_destroy(music);
 	s->fi->dream_status = 1;
 	s->fi->dialog_box_isopen = 1;

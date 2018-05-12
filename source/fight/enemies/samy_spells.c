@@ -8,14 +8,6 @@
 #include "my_rpg.h"
 #include "my.h"
 
-/*void launch_samy_dash(st_rpg *s)
-{
-}
-
-void launch_samy_dash(st_rpg *s)
-{
-}*/
-
 void proc_samy_dash(st_rpg *s)
 {
 	float amount = s->f.mob[0]->stat->frc -
@@ -44,8 +36,10 @@ void update_samy_dash(st_rpg *s, float dt)
 			s->f.boss.dash->on = 0;
 		} if (enemy_hitbox(s->player.obj, s->f.mob[0]))
 			proc_samy_dash(s);
-		s->f.mob[0]->ratios.x = s->f.boss.dash->ratios.x * s->f.boss.dash->speed;
-		s->f.mob[0]->ratios.y = s->f.boss.dash->ratios.y * s->f.boss.dash->speed;
+		s->f.mob[0]->ratios.x =
+		s->f.boss.dash->ratios.x * s->f.boss.dash->speed;
+		s->f.mob[0]->ratios.y =
+		s->f.boss.dash->ratios.y * s->f.boss.dash->speed;
 		verify_collide_map_enemies(s, dt, 0);
 		sfSprite_setPosition(s->f.mob[0]->obj->sprite,
 		s->f.mob[0]->obj->pos);
@@ -58,8 +52,10 @@ void launch_samy_dash(st_rpg *s)
 	s->f.mob[0]->cast = 2;
 	s->f.boss.dash->on = 1;
 	s->f.boss.dash->count = s->f.boss.dash->range;
-	s->f.mob[0]->ratios.x = s->f.boss.dash->ratios.x * s->f.boss.dash->speed;
-	s->f.mob[0]->ratios.y = s->f.boss.dash->ratios.y * s->f.boss.dash->speed;
+	s->f.mob[0]->ratios.x =
+	s->f.boss.dash->ratios.x * s->f.boss.dash->speed;
+	s->f.mob[0]->ratios.y =
+	s->f.boss.dash->ratios.y * s->f.boss.dash->speed;
 }
 
 void update_samy_fusrohdah(st_rpg *s)
@@ -95,7 +91,7 @@ void launch_samy_rage(st_rpg *s)
 void launch_samy_spell(st_rpg *s)
 {
 	void (*list[3])(st_rpg *s) = {launch_samy_dash,
-	launch_samy_fusrohdah, launch_samy_rage};
+		launch_samy_fusrohdah, launch_samy_rage};
 
 	(list[s->f.boss.attack])(s);
 }

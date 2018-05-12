@@ -36,14 +36,15 @@ void dialog_death_samy(st_rpg *s)
 	reset_pos_friends(s);
 	sfMusic_stop(s->fi->samys_music.music);
 	s->fi->pnj[s->cut.samy_value].pnj->pos = create_vector2f(10000, 10000);
-	sfSprite_setPosition(s->fi->pnj[2].pnj->sprite, s->fi->pnj[s->cut.samy_value].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[2].pnj->sprite,
+	s->fi->pnj[s->cut.samy_value].pnj->pos);
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "champ_death_samy2", "Champ");
 	move_player_to_zach(s, create_vector2f(s->player.obj->pos.x - 200,
 	s->fi->camera.y - 200));
 	quit_game_for_dungeon(s);
 	s->fi->return_value = launch_dungeon(s, &dungeon4_2);
-	//samy_boss(s);
+	samy_boss(s);
 }
 
 void move_all_character_samy(st_rpg *s)
