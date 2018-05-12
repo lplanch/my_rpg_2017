@@ -217,7 +217,7 @@ typedef struct s_files
 	sfVector2f invers;
 	sfVector2f maxspeed;
 	sfVector2f vect_ID_player;
-	pnj_t pnj[16];
+	pnj_t pnj[17];
 	pos_t pos[10];
 	colcircle_t colcircle[42];
 	colsquare_t colsquare[479];
@@ -1035,6 +1035,7 @@ int dungeon_loop(st_rpg *s);
 void dungeon1(proc_var_t *hey);
 void dungeon2(proc_var_t *hey);
 void dungeon3(proc_var_t *hey);
-void dungeon3_2(proc_var_t *hey);
+void dungeon4_1(proc_var_t *hey);
+void dungeon4_2(proc_var_t *hey);
 
 #endif

@@ -53,7 +53,7 @@ int check_colpnj(st_rpg *s, int nbr)
 		s->fi->pnj[nbr].pnj->rect.width)
 		&& (s->fi->pos[i].x > s->fi->pnj[nbr].pnj->pos.x)
 		&& (s->fi->pos[i].y < s->fi->pnj[nbr].pnj->pos.y +
-		s->fi->pnj[nbr].pnj->rect.height + 50)
+		s->fi->pnj[nbr].pnj->rect.height + 33)
 		&& (s->fi->pos[i].y > s->fi->pnj[nbr].pnj->pos.y)) {
 			return (1);
 		} else {
