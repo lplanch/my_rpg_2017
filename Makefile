@@ -149,8 +149,10 @@ FILES		=	source/main.c							\
 			source/game_map/move/move_pnj.c					\
 			source/game_map/setup_destroy/setup.c				\
 			source/game_map/setup_destroy/setup2.c				\
+			source/game_map/setup_destroy/setup_scene.c			\
 			source/game_map/setup_destroy/free.c				\
 			source/game_map/setup_destroy/destroy.c				\
+			source/game_map/setup_destroy/destroy_quests.c			\
 			source/game_map/fcnt/remalloc_tab.c				\
 			source/game_map/fcnt/create_music.c				\
 			source/game_map/fcnt/lib_func.c					\
@@ -175,6 +177,13 @@ FILES		=	source/main.c							\
 			source/game_map/dialog/choicebox_create_event.c			\
 			source/game_map/dialog/mouse_in_object_dialogbox.c		\
 			source/game_map/dialog/name_top_head.c				\
+			source/game_map/tp/tp_bedroom.c					\
+			source/game_map/tp/tp_bridge.c					\
+			source/game_map/tp/tp_cook.c					\
+			source/game_map/tp/tp_corridor.c				\
+			source/game_map/tp/tp_inside.c					\
+			source/game_map/tp/tp_orphanage.c				\
+			source/game_map/tp/tp_outside.c					\
 			source/quests/create_difquests.c				\
 			source/quests/get_quests_rewards.c				\
 			source/quests/get_all_quests.c					\

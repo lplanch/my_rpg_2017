@@ -8,6 +8,22 @@
 #include "my.h"
 #include "game_map.h"
 
+void move_camera2(st_rpg *s)
+{
+	switch (s->fi->camera_pos) {
+	case 2:
+		s->fi->camera.x = s->fi->camera_prec.x;
+		s->fi->camera.y = s->player.obj->pos.y;
+		s->fi->camera_prec.y = s->fi->camera.y;
+		break;
+	case 3:
+		s->fi->camera.y = s->fi->camera_prec.y;
+		s->fi->camera.x = s->player.obj->pos.x;
+		s->fi->camera_prec.x = s->fi->camera.x;
+		break;
+	}
+}
+
 void move_camera(st_rpg *s)
 {
 	check_pos_camera_x(s);
@@ -21,15 +37,8 @@ void move_camera(st_rpg *s)
 		s->fi->camera.x = 3717;
 		s->fi->camera.y = 4086;
 		break;
-	case 2:
-		s->fi->camera.x = s->fi->camera_prec.x;
-		s->fi->camera.y = s->player.obj->pos.y;
-		s->fi->camera_prec.y = s->fi->camera.y;
-		break;
-	case 3:
-		s->fi->camera.y = s->fi->camera_prec.y;
-		s->fi->camera.x = s->player.obj->pos.x;
-		s->fi->camera_prec.x = s->fi->camera.x;
+	default:
+		move_camera2(s);
 		break;
 	}
 	sfView_setCenter(s->fi->view, s->fi->camera);

@@ -10,43 +10,13 @@
 
 void setup_pnj_value(st_rpg *s)
 {
+	s->fi->nb_pnj = 2;
+	s->fi->max_pnj = 18;
 	s->cut.samy_value = 14;
 	s->cut.jade_value = 17;
 	s->cut.zac_value = 3;
 	s->cut.son_value = 11;
-}
-
-void setup_variable_scene_quests(st_rpg *s)
-{
-	s->fi->oui = 0;
-	s->fi->num_dungeon = 0;
-	s->fi->map_status = 0;
-	s->fi->zach_status = 0;
-	s->fi->dream_status = 0;
-	s->cut.map =
-	create_object("ressources/images/scenes/map_death_of_zach.png",
-	create_vector2f(0, 0), create_rect(0, 0, 528, 528), 0);
-	s->cut.zachd =
-	create_object("ressources/images/scenes/zach_is_dead.png",
-	create_vector2f(0, 0), create_rect(0, 0, 61, 39), 0);
-	s->cut.map_samy =
-	create_object("ressources/images/scenes/map_death_of_samy.png",
-	create_vector2f(0, 0), create_rect(0, 0, 816, 528), 0);
-	s->cut.samyd =
-	create_object("ressources/images/scenes/samy_is_dead.png",
-	create_vector2f(0, 0), create_rect(0, 0, 70, 50), 0);
-	s->cut.map_samy_boss =
-	create_object("ressources/images/scenes/map_samy_boss.png",
-	create_vector2f(0, 0), create_rect(0, 0, 816, 816), 0);
-	s->cut.samy_boss =
-	create_object("ressources/images/scenes/samy_boss.png",
-	create_vector2f(0, 0), create_rect(0, 0, 29, 48), 0);
-	s->cut.champ =
-	create_object("ressources/images/scenes/champ.png",
-	create_vector2f(0, 0), create_rect(0, 0, 60, 46), 0);
-	s->cut.map_son =
-	create_object("ressources/images/scenes/map_son.png",
-	create_vector2f(0, 0), create_rect(0, 0, 528, 528), 0);
+	s->fi->size_name_pnj = 0;
 }
 
 void setup_music(st_rpg *s)

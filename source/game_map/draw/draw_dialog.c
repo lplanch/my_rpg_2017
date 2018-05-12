@@ -8,6 +8,23 @@
 #include "my.h"
 #include "game_map.h"
 
+void draw_cut_scene(st_rpg *s)
+{
+	if (s->fi->oui == 1) {
+		draw_name_box(s);
+	} if (s->fi->zach_status == 1) {
+		draw_scene_zach(s);
+	} if (s->fi->samy_status == 1) {
+		draw_scene_samy(s);
+	} if (s->fi->dream_status == 1) {
+		sfRenderWindow_clear(s->window, sfBlack);
+	} if (s->fi->son_status == 1) {
+		draw_scene_son(s);
+	} if (s->fi->samy_boss_status == 1) {
+		draw_scene_samy_boss(s);
+	}
+}
+
 void draw_name_box(st_rpg *s)
 {
 	sfRenderWindow_drawSprite(s->window,

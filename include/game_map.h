@@ -28,6 +28,8 @@ int game(st_rpg *s);
 void destroy(st_rpg *s);
 void destroy_dialog_box(st_rpg *s);
 void destroy_name_box(st_rpg *s);
+void destroy_pnj(st_rpg *s);
+void destroy_quests(st_rpg *s);
 char **remalloc_tab(char **tab, char *str);
 
 void check_pos_camera_x(st_rpg *s);
@@ -170,9 +172,36 @@ void draw_floor_nbr(st_rpg *rpg);
 void quit_game_for_dungeon(st_rpg *s);
 void lake_update(st_rpg *s);
 void setup_pnj_value(st_rpg *s);
+void setup_variable_scene_quests(st_rpg *s);
 void samy_boss(st_rpg *s);
 void scene_recup_son(st_rpg *s);
 void draw_scene_son(st_rpg *s);
 void draw_scene_samy_boss(st_rpg *s);
+void draw_cut_scene(st_rpg *s);
 
+void tp_bridge(st_rpg *s);
+void tp_bridge2(st_rpg *s);
+void tp_inside1(st_rpg *s);
+void tp_inside2(st_rpg *s);
+void tp_inside3(st_rpg *s);
+void tp_inside4(st_rpg *s);
+
+void tp_outside1(st_rpg *s);
+void tp_outside2(st_rpg *s);
+void tp_outside3(st_rpg *s);
+void tp_outside4(st_rpg *s);
+
+void tp_orphanage(st_rpg *s);
+void tp_village(st_rpg *s);
+
+void tp_cook1(st_rpg *s);
+void tp_cook2(st_rpg *s);
+
+void tp_bedroom(st_rpg *s);
+void tp_bedroom2(st_rpg *s);
+void tp_bedroom3(st_rpg *s);
+
+void tp_corridor1(st_rpg *s);
+void tp_corridor2(st_rpg *s);
+void tp_corridor3(st_rpg *s);
 #endif

@@ -23,7 +23,7 @@ void lake_update(st_rpg *s)
 	}
 }
 
-void tp_orphanage(st_rpg *s)
+void tp_orphanage2(st_rpg *s)
 {
 	s->player.obj->pos = create_vector2f(8659, 7394);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
@@ -71,7 +71,7 @@ int event_game(st_rpg *s)
 			check_pnj(s);
 		} if (event.type == sfEvtKeyPressed && event.key.code ==
 		sfKeyO) {
-			tp_orphanage(s);
+			tp_orphanage2(s);
 		} if (event.type == sfEvtKeyPressed && event.key.code ==
 		sfKeyL) {
 			tp_dungeon(s);
