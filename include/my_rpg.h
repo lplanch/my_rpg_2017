@@ -217,7 +217,7 @@ typedef struct s_files
 	sfVector2f invers;
 	sfVector2f maxspeed;
 	sfVector2f vect_ID_player;
-	pnj_t pnj[15];
+	pnj_t pnj[16];
 	pos_t pos[10];
 	colcircle_t colcircle[42];
 	colsquare_t colsquare[479];
