@@ -343,6 +343,7 @@ typedef struct boss_spells
 	aoe_t *tent[6];
 	aoe_t *well;
 	aoe_t *ball;
+	aoe_t *ray;
 	dash_t *dash;
 	dash_t *fus;
 	effect_t *rage;

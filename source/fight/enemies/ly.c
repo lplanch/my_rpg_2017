@@ -10,6 +10,7 @@
 
 void update_ly(st_rpg *s, float dt)
 {
+	clocked_animation(s->f.boss.ray->anim);
 }
 
 void display_ly(st_rpg *s)
@@ -19,6 +20,7 @@ void display_ly(st_rpg *s)
 
 void destroy_ly(st_rpg *s)
 {
+	destroy_aoe(s->f.boss.ray);
 }
 
 void generate_ly(st_rpg *s)
@@ -33,4 +35,5 @@ void generate_ly(st_rpg *s)
 	sfSprite_setPosition(s->f.mob[1]->obj->sprite,
 	s->f.mob[1]->obj->pos);
 	sfSprite_setScale(s->f.mob[1]->obj->sprite, (sfVector2f){3, 3});
+	s->f.boss.ray = create_aoe_from_file("ressources/spells/enemies/ray");
 }
