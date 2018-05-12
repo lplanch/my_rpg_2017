@@ -8,36 +8,15 @@
 #include <stdlib.h>
 #include "my_rpg.h"
 
-int get_max_buttons(st_rpg *s)
+void initialize_menu_interface_part2(st_rpg *s)
 {
-	if (s->mainm.menu > 2)
-		return (3);
-	return (2);
-}
-
-void destroy_main_menu(st_rpg *s)
-{
-	destroy_object(s->mainm.first);
-	destroy_object(s->mainm.guy);
-	destroy_object(s->mainm.rope);
-	destroy_object(s->mainm.cursor);
-	destroy_object(s->mainm.title);
-	for (int i = 0; i != get_max_buttons(s) + 1; i += 1)
-		destroy_button(s->mainm.button[i]);
-	for (int i = 0; i != 2; i += 1) {
-		destroy_object(s->mainm.rockback[i]);
-		destroy_object(s->mainm.rock2[i]);
-		destroy_object(s->mainm.abyss[i]);
-	}
-	sfClock_destroy(s->mainm.t.clock);
-	sfMusic_destroy(s->mainm.music);
-	sfMusic_destroy(s->mainm.s_effect);
-	destroy_shader(&s->mainm.shader);
-	destroy_text(s->mainm.sound[0]);
-	destroy_text(s->mainm.sound[1]);
-	for (int i = 0; i != 4; i++) {
-		destroy_button(s->mainm.s_button[i]);
-	}
+	s->mainm.guy = create_object("ressources/images/menu/guy.png",
+	create_vector2f(212, -600), create_rect(0, 0, 234, 307), 0);
+	s->mainm.title = create_object("ressources/images/menu/title.png",
+	create_vector2f(558, -300), create_rect(0, 0, 804, 67), 0);
+	sfSprite_setScale(s->mainm.guy->sprite, create_vector2f(2, 2));
+	s->mainm.shader = create_shader("shader/rainbow.frag", 1);
+	set_text_option(s);
 }
 
 void initialize_menu_interface(st_rpg *s)
@@ -57,13 +36,15 @@ void initialize_menu_interface(st_rpg *s)
 	create_vector2f(800, 620), grey, 100);
 	s->mainm.button[2] = create_vbutton("Quit", create_vector2f(800, 740),
 	grey, 100);
-	s->mainm.guy = create_object("ressources/images/menu/guy.png",
-	create_vector2f(212, -600), create_rect(0, 0, 234, 307), 0);
-	s->mainm.title = create_object("ressources/images/menu/title.png",
-	create_vector2f(558, -300), create_rect(0, 0, 804, 67), 0);
-	sfSprite_setScale(s->mainm.guy->sprite, create_vector2f(2, 2));
-	s->mainm.shader = create_shader("shader/rainbow.frag", 1);
-	set_text_option(s);
+	initialize_menu_interface_part2(s);
+}
+
+void initialize_menu_part2(st_rpg *s)
+{
+	sfSprite_setScale(s->mainm.abyss[1]->sprite, create_vector2f(-1, 1));
+	s->mainm.t.sec = 0.0;
+	s->mainm.t.clock = sfClock_create();
+	initialize_menu_interface(s);
 }
 
 void initialize_menu(st_rpg *s)
@@ -87,10 +68,7 @@ void initialize_menu(st_rpg *s)
 		create_vector2f(110, 2236 * i),
 		create_rect(0, 0, 1920, 2236), 4);
 	}
-	sfSprite_setScale(s->mainm.abyss[1]->sprite, create_vector2f(-1, 1));
-	s->mainm.t.sec = 0.0;
-	s->mainm.t.clock = sfClock_create();
-	initialize_menu_interface(s);
+	initialize_menu_part2(s);
 }
 
 int left_clicked_on_buttons(st_rpg *s, sfEvent event)

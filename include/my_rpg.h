@@ -1047,6 +1047,9 @@ void update_current_bullet(st_rpg *s);
 void update_current_dagger(st_rpg *s);
 void change_side_player(st_rpg *s);
 void display_gunner(st_rpg *s);
+void display_main_menu_interface(st_rpg *s);
+void modify_music(st_rpg *s, sfEvent event);
+void modify_effect(st_rpg *s, sfEvent event);
 
 void dungeon1(proc_var_t *hey);
 void dungeon2(proc_var_t *hey);
