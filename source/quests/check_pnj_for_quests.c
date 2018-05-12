@@ -89,7 +89,14 @@ void check_pnj_for_quests(st_rpg *s)
 		dialog_box(s, "father_loos_son1", "Matthew");
 	} if (s->fi->quests[4]->status == 1 &&  s->fi->num_dungeon == 2) {
 		s->fi->quests[4]->status = 2;
+		s->returnv = 0;
+		s->fi->return_value = 0;
 		s->fi->num_dungeon = 0;
+		s->player.obj->pos = create_vector2f(7950, 8160);
+		sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
+		s->fi->camera_pos = 0;
+		move_camera(s);
+		scene_recup_son(s);
 		reset_pos_friends(s);
 	} if (s->fi->quests[5]->status == 1 &&
 	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "Samy") == 0) {

@@ -30,7 +30,7 @@ void draw_loading(st_rpg *s)
 void draw_pnj(st_rpg *s)
 {
 	int i = 0;
-	int nbpnj = 17;
+	int nbpnj = 18;
 
 	while (i != nbpnj) {
 		if (s->fi->oui == 1 && i == s->fi->pnj_shade) {
@@ -80,7 +80,8 @@ void draw_all(st_rpg *s)
 		draw_scene_samy(s);
 	} if (s->fi->dream_status == 1) {
 		sfRenderWindow_clear(s->window, sfBlack);
-	}
+	} if (s->fi->son_status == 1)
+		draw_scene_son(s);
 	print_text_finish_quests(s);
 }
 

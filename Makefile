@@ -189,6 +189,7 @@ FILES		=	source/main.c							\
 			source/scenes/death_samy.c					\
 			source/scenes/move_pnj_zach.c					\
 			source/scenes/move_player_to_zach.c				\
+			source/scenes/scene_recup_son.c					\
 			source/player/player.c						\
 			source/player/player_movement_map.c				\
 			source/player/player_animation_village.c			\

@@ -171,5 +171,7 @@ void quit_game_for_dungeon(st_rpg *s);
 void lake_update(st_rpg *s);
 void setup_pnj_value(st_rpg *s);
 void samy_boss(st_rpg *s);
+void scene_recup_son(st_rpg *s);
+void draw_scene_son(st_rpg *s);
 
 #endif
