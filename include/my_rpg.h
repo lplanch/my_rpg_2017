@@ -198,6 +198,7 @@ typedef struct s_files
 	int samy_status;
 	int dream_status;
 	int son_status;
+	int samy_boss_status;
 	st_button **name_head;
 	g_object *name_head_edge[2];
 	g_object *lake;
@@ -229,6 +230,7 @@ typedef struct s_files
 	st_music music;
 	st_music samys_music;
 	st_music reflexion_music;
+	st_music samy_boss;
 } files_t;
 
 typedef struct struct_animation
@@ -640,6 +642,7 @@ typedef struct particle_all
 typedef struct cutscene
 {
 	int champ_status;
+	int samy_boss_status;
 	int samy_value;
 	int zac_value;
 	int jade_value;

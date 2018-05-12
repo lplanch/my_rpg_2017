@@ -24,6 +24,7 @@ void destroy_music(st_rpg *s)
 	sfMusic_destroy(s->fi->music.music);
 	sfMusic_destroy(s->fi->samys_music.music);
 	sfMusic_destroy(s->fi->reflexion_music.music);
+	sfMusic_destroy(s->fi->samy_boss.music);
 }
 
 void destroy_pnj(st_rpg *s)
@@ -86,6 +87,9 @@ void destroy(st_rpg *s)
 	destroy_object(s->cut.map_samy);
 	destroy_object(s->cut.zachd);
 	destroy_object(s->cut.champ);
+	destroy_object(s->cut.map_samy_boss);
+	destroy_object(s->cut.samyd);
+	destroy_object(s->cut.samy_boss);
 	destroy_object(s->fi->lake);
 	sfClock_destroy(s->fi->time.clock);
 	sfClock_destroy(s->fi->pnj_clock.clock);

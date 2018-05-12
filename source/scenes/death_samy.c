@@ -43,7 +43,7 @@ void dialog_death_samy(st_rpg *s)
 	s->fi->camera.y - 200));
 	quit_game_for_dungeon(s);
 	s->fi->return_value = launch_dungeon(s, &dungeon4_2);
-	//samy_boss(s);
+	samy_boss(s);
 }
 
 void move_all_character_samy(st_rpg *s)
