@@ -692,6 +692,8 @@ typedef struct struct_rpg
 #include "procedural.h"
 #include "game_map.h"
 
+void update_ly_ray(st_rpg *s);
+void launch_ly_spell(st_rpg *s);
 void destroy_boss(st_rpg *s);
 void display_boss(st_rpg *s);
 void update_boss(st_rpg *s, float dt);
