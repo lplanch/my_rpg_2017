@@ -12,6 +12,7 @@ void destroy_enemies(st_rpg *s)
 {
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1)
 		destroy_enemy(s->f.mob[i]);
+	destroy_boss(s);
 }
 
 void update_enemies(st_rpg *s)
@@ -35,4 +36,5 @@ void generate_enemies(st_rpg *s)
 		sfSprite_setPosition(s->f.mob[i]->obj->sprite,
 		s->f.mob[i]->obj->pos);
 	}
+	generate_boss(s);
 }

@@ -652,6 +652,7 @@ typedef struct cutscene
 
 typedef struct struct_rpg
 {
+	int boss;
 	int s_music;
 	int s_effect;
 	all_part_t part;
@@ -680,12 +681,23 @@ typedef struct struct_rpg
 
 #include "procedural.h"
 
+void destroy_boss(st_rpg *s);
+void display_boss(st_rpg *s);
+void update_boss(st_rpg *s, float dt);
+void generate_boss(st_rpg *s);
+void generate_ly(st_rpg *s);
+void destroy_ly(st_rpg *s);
+void display_ly(st_rpg *s);
+void update_ly(st_rpg *s, float dt);
+void choose_display_enemies(st_rpg *s, int i);
 int corupt_save(void);
 int check_stat_value(char *buffer);
 int check_tree(char *saves);
 int check_stat(char *saves);
 int check_cust(char *saves);
 void update_samy_fusrohdah(st_rpg *s);
+void display_samy(st_rpg *s);
+void destroy_samy(st_rpg *s);
 void update_samy(st_rpg *s, float dt);
 void launch_samy_spell(st_rpg *s);
 void launch_samy_dash(st_rpg *s);

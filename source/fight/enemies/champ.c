@@ -27,6 +27,7 @@ void update_champ(st_rpg *s, float dt)
 
 void display_champ(st_rpg *s)
 {
+	choose_display_enemies(s, 0);
 	for (int i = 0; i != 6; i += 1)
 		display_aoe(s->window, s->f.boss.tent[i]);
 	display_aoe(s->window, s->f.boss.well);
@@ -43,9 +44,6 @@ void destroy_champ(st_rpg *s)
 
 void generate_champ(st_rpg *s)
 {
-	destroy_enemies(s);
-	s->proc.pvar.enemy_nbr = 1;
-	s->f.mob = malloc(sizeof(enemy_t *) * s->proc.pvar.enemy_nbr);
 	s->f.mob[0] = generate_enemy("ressources/enemies/Champ");
 	s->f.boss.attack = 0;
 	s->f.boss.ctent = 0;

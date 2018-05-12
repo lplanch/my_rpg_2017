@@ -56,6 +56,10 @@ void choose_display_enemies(st_rpg *s, int i)
 
 void display_enemies(st_rpg *s)
 {
+	if (s->boss != 0) {
+		display_boss(s);
+		return;
+	}
 	for (int i = 0; i < s->proc.pvar.enemy_nbr; i += 1) {
 		if (s->f.mob[i]->alive) {
 			choose_display_enemies(s, i);
