@@ -230,6 +230,7 @@ FILES		=	source/main.c							\
 			source/scenes/final_cutscene.c					\
 			source/scenes/scene_recup_son.c					\
 			source/scenes/samy_boss.c					\
+			source/scenes/samy_boss2.c					\
 			source/scenes/after_quests.c					\
 			source/scenes/death_fcnt.c					\
 			source/scenes/final_fight_ly.c					\
@@ -295,6 +296,7 @@ FILES		=	source/main.c							\
 			source/dungeon/ground_item_system/update_ground_item.c		\
 			source/dungeon/npc/ennemies_dungeon.c				\
 			source/dungeon/dungeons_preset/dungeon_preset1-5.c		\
+			source/dungeon/dungeons_preset/dungeon_preset5.c		\
 			source/dungeon/dungeons_preset/dungeon_preset_boss.c		\
 
 SRCS		=	$(FILES)

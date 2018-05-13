@@ -29,7 +29,6 @@ void dungeon_boss_champ(proc_var_t *hey)
 	hey->volume = 0;
 }
 
-
 void dungeon_boss_samy(proc_var_t *hey)
 {
 	hey->texture_path =

@@ -40,11 +40,7 @@ void dialog_samy_boss(st_rpg *s)
 	sfSprite_setPosition(s->cut.samy_boss->sprite, s->cut.samy_boss->pos);
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "samy_boss_samy2", "Samy");
-	s->boss = 1;
-	sfMusic_stop(s->fi->samy_boss.music);
-	quit_game_for_dungeon(s);
-	s->fi->return_value = launch_dungeon(s, &dungeon_boss_samy);
-	s->boss = 0;
+	dialog_samy_boss_2(s);
 }
 
 void setup_pos_for_scene_samy_boss(st_rpg *s, sfVector2f scale,
@@ -76,18 +72,7 @@ void samy_boss_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 	sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite,
 	s->fi->pnj[s->cut.samy_value].pnj->pos);
 	if (s->fi->return_value == 4) {
-		s->fi->dream_status = 1;
-		s->fi->dialog_box_isopen = 1;
-		sfMusic_stop(s->fi->music.music);
-		sfMusic_play(s->fi->reflexion_music.music);
-		dialog_box(s, "player_dream2", "hero");
-		sfMusic_stop(s->fi->reflexion_music.music);
-		sfMusic_play(s->fi->music.music);
-		s->fi->dream_status = 0;
-		set_all_var_at_zero(s);
-		after_quests(s);
-		wake_up(s);
-		s->fi->dialog_box_isopen = 0;
+		samy_boss_part2_in_if(s);
 	}
 }
 
