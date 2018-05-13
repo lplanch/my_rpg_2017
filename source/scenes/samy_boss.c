@@ -84,6 +84,7 @@ void samy_boss_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 		sfMusic_stop(s->fi->reflexion_music.music);
 		sfMusic_play(s->fi->music.music);
 		s->fi->dream_status = 0;
+		set_all_var_at_zero(s);
 		after_quests(s);
 		wake_up(s);
 	}

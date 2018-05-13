@@ -8,15 +8,20 @@
 #include "my.h"
 #include "game_map.h"
 
-void death_fcnt(st_rpg *s)
+void set_all_var_at_zero(st_rpg *s)
 {
-	stop_player(s);
-	s->returnv = 0;
-	s->fi->return_value = 0;
-	s->fi->num_dungeon = 0;
 	s->fi->var_choice = 0;
 	s->fi->nb_choice_pre = 0;
 	s->fi->choice_cursor = 0;
+}
+
+void death_fcnt(st_rpg *s)
+{
+	stop_player(s);
+	set_all_var_at_zero(s);
+	s->returnv = 0;
+	s->fi->return_value = 0;
+	s->fi->num_dungeon = 0;
 	s->player.obj->pos = create_vector2f(7950, 8160);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	s->fi->camera_pos = 0;
