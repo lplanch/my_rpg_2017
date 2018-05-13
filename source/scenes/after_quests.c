@@ -49,6 +49,10 @@ void set_position_after_quests(st_rpg *s)
 
 void after_quests(st_rpg *s)
 {
+	s->player.obj->pos = create_vector2f(7950, 8160);
+	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
+	s->fi->camera_pos = 0;
+	move_camera(s);
 	night_scene(s);
 	s->fi->pnj[s->cut.zac_value].pnj->rect.left = 0;
 	s->fi->pnj[s->cut.samy_value].pnj->rect =
