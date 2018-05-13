@@ -195,6 +195,7 @@ void draw_scene_final(st_rpg *s);
 void begin_scene(st_rpg *s);
 void draw_begin(st_rpg *s);
 void update_death(st_rpg *s);
+void draw_dialog_box(st_rpg *s);
 
 void tp_bridge(st_rpg *s);
 void tp_bridge2(st_rpg *s);

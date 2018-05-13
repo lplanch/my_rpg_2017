@@ -61,7 +61,7 @@ void proc_grenade(st_rpg *s)
 		launch_particle(s->f.gun.partf, s->f.gun.grenade->obj->pos,
 		get_angle(s));
 		if (circle_hitbox_enemy(s->f.gun.explo, s->f.mob[i]) &&
-			s->f.mob[i]->alive) {
+		s->f.mob[i]->alive) {
 			s->f.mob[i]->stat->pva -= 50 + 15 * s->player.stat->frc;
 			launch_dmg_show(s, 50 + 15 * s->player.stat->frc,
 			s->f.mob[i]->obj);

@@ -29,7 +29,7 @@ void events_fishing_instance(st_rpg *rpg, fish_t *fish)
 			fish->catch_clock = NULL;
 			sfClock_destroy(fish->catch_clock);
 		} if (event.type == sfEvtKeyPressed &&
-		event.key.code == key_fishing && !fish->in_catch)
+			event.key.code == key_fishing && !fish->in_catch)
 			fish->score -= 1;
 	}
 }
