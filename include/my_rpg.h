@@ -362,6 +362,7 @@ typedef struct boss_spells
 	sfMusic *s_ball;
 	sfMusic *samy_rage;
 	sfMusic *samy_roda;
+	sfMusic *thunder;
 } boss_t;
 
 typedef struct struct_archer_spells

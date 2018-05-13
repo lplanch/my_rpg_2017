@@ -48,6 +48,7 @@ void update_ly_ray(st_rpg *s, float dt)
 
 void launch_ly_ray(st_rpg *s)
 {
+	sfMusic_play(s->f.boss.thunder);
 	s->f.boss.rayused = 0;
 	launch_aoe(s, s->f.boss.ray);
 	s->f.boss.ray->anim->obj->pos = create_vector2f(s->f.mob[1]->obj->pos.x
