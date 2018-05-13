@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2017
+** EPITECH PROJECT, 2018
 ** draw_circle.c
 ** File description:
 ** draw_circle functions file

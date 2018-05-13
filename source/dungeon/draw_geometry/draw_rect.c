@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2017
+** EPITECH PROJECT, 2018
 ** my_draw_rect.c
 ** File description:
 ** draw a rect on the screen

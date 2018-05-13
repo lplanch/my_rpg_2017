@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2017
+** EPITECH PROJECT, 2018
 ** my_put_pixel.c
 ** File description:
 ** draw a pixel on the screen

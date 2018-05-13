@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2017
+** EPITECH PROJECT, 2018
 ** fill_screen.c
 ** File description:
 ** fill the screen with one color
