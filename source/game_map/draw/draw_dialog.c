@@ -21,7 +21,10 @@ void draw_cut_scene(st_rpg *s)
 	} if (s->fi->son_status == 1) {
 		draw_scene_son(s);
 	} if (s->fi->samy_boss_status == 1) {
+		printf("%s\n", "ok");
 		draw_scene_samy_boss(s);
+	} if (s->fi->boss_status == 1) {
+		draw_scene_final_fight(s);
 	}
 }
 
@@ -82,8 +85,11 @@ void draw_dialog_box(st_rpg *s)
 		draw_scene_samy(s);
 	if (s->fi->son_status == 1)
 		draw_scene_son(s);
-	if (s->fi->samy_boss_status == 1)
+	if (s->fi->samy_boss_status == 1) {
+		printf("%s\n", "ok");
 		draw_scene_samy_boss(s);
+	} if (s->fi->boss_status == 1)
+		draw_scene_final_fight(s);
 	sfRenderWindow_drawSprite(s->window,
 	s->fi->pnj[s->fi->nb_pnj].dialog_box->obj->sprite, NULL);
 	sfRenderWindow_drawText(s->window,

@@ -199,6 +199,7 @@ typedef struct s_files
 	int dream_status;
 	int son_status;
 	int samy_boss_status;
+	int boss_status;
 	st_button **name_head;
 	g_object *name_head_edge[2];
 	g_object *lake;
@@ -661,8 +662,10 @@ typedef struct cutscene
 	g_object *map_samy;
 	g_object *map_samy_boss;
 	g_object *samy_boss;
+	g_object *map_boss;
 	g_object *samyd;
 	g_object *champ;
+	g_object *champ_boss;
 } ct_cutscene;
 
 typedef struct struct_rpg
@@ -1069,5 +1072,6 @@ void dungeon2(proc_var_t *hey);
 void dungeon3(proc_var_t *hey);
 void dungeon4_1(proc_var_t *hey);
 void dungeon4_2(proc_var_t *hey);
+void dungeon5(proc_var_t *hey);
 
 #endif
