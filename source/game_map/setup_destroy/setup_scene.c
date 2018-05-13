@@ -25,6 +25,9 @@ void setup_obj_for_scene(st_rpg *s)
 	s->cut.champ_boss =
 	create_object("ressources/images/scenes/champ_boss.png",
 	create_vector2f(0, 0), create_rect(0, 0, 90, 48), 0);
+	s->cut.ly_boss =
+	create_object("ressources/images/scenes/ly_boss.png",
+	create_vector2f(0, 0), create_rect(0, 0, 95, 47), 0);
 }
 
 void setup_obj_for_scene_map(st_rpg *s)

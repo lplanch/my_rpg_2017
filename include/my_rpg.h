@@ -200,6 +200,7 @@ typedef struct s_files
 	int son_status;
 	int samy_boss_status;
 	int boss_status;
+	int boss_ly_status;
 	st_button **name_head;
 	g_object *name_head_edge[2];
 	g_object *lake;
@@ -232,6 +233,7 @@ typedef struct s_files
 	st_music samys_music;
 	st_music reflexion_music;
 	st_music samy_boss;
+	st_music boss_music;
 } files_t;
 
 typedef struct struct_animation
@@ -677,6 +679,7 @@ typedef struct cutscene
 	g_object *samyd;
 	g_object *champ;
 	g_object *champ_boss;
+	g_object *ly_boss;
 } ct_cutscene;
 
 typedef struct struct_rpg

@@ -29,6 +29,7 @@ void destroy_music(st_rpg *s)
 	sfMusic_destroy(s->fi->samys_music.music);
 	sfMusic_destroy(s->fi->reflexion_music.music);
 	sfMusic_destroy(s->fi->samy_boss.music);
+	sfMusic_destroy(s->fi->boss_music.music);
 }
 
 void destroy_sprite(st_rpg *s)

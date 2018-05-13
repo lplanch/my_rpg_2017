@@ -12,7 +12,6 @@ sfIntRect set_texturerect_top(g_object *obj, int top)
 {
 	obj->rect.top = top;
 	sfSprite_setTextureRect(obj->sprite, obj->rect);
-	obj->rect.left = 0;
 	return (obj->rect);
 }
 
