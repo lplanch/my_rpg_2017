@@ -16,10 +16,10 @@ void read_map_boss(st_rpg *rpg)
 	int fd = open(pathname, O_RDONLY);
 
 	rpg->proc.map =
-	malloc(sizeof(char *) * (rpg->proc.pvar.map_height + 1));
-	for (int y = 0; (str = get_next_line(fd)) != NULL; y++) {
+	malloc(sizeof(char *) * (rpg->proc.pvar.map_height));
+	for (int y = 0; (str = get_next_line(fd)) != NULL; y++)
 		rpg->proc.map[y] = str;
-	}
+	rpg->proc.map[rpg->proc.pvar.map_height - 1] = NULL;
 	close(fd);
 }
 

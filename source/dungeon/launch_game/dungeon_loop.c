@@ -41,7 +41,8 @@ void display_dungeon(st_rpg *s)
 	display_life_bar(s);
 	display_dmg_show(s);
 	display_main_particles(s);
-	verify_minimap(s);
+	if (!s->boss)
+		verify_minimap(s);
 	verify_inventory(s);
 	verify_fast_inventory(s);
 }

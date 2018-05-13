@@ -49,7 +49,7 @@ int verify_exit_player(st_rpg *rpg)
 	int ex = get_exit_pos(&rpg->proc).x / 96;
 	int ey = get_exit_pos(&rpg->proc).y / 96;
 
-	if (px == ex && py == ey)
+	if (!rpg->boss && px == ex && py == ey)
 		return (next_level_screen(rpg));
 	return (0);
 }

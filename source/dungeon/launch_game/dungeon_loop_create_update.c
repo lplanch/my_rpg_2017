@@ -25,7 +25,6 @@ void create_dungeon_loop_part2(st_rpg *s)
 
 void create_dungeon_loop(st_rpg *s)
 {
-	s->boss = 3;
 	s->f.rog.vanish = 0;
 	s->dungeon_music.music =
 	create_music(s->s_music, s->proc.pvar.dungeon_music);
@@ -33,7 +32,7 @@ void create_dungeon_loop(st_rpg *s)
 	sfMusic_setLoop(s->dungeon_music.music, 1);
 	create_player(s);
 	create_weapon(s);
-	if (s->boss)
+	if (!s->boss)
 		map_creation(&s->proc);
 	else
 		map_boss_creation(s);
