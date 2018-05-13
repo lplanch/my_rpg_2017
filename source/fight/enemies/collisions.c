@@ -52,6 +52,8 @@ int enemy_is_ok_vertical(st_rpg *s, float dt, int i)
 
 void pathfinding(st_rpg *s, float dt, int i)
 {
+	if (security_map_enemy(s, dt, i))
+		return;
 	if (!enemy_is_ok_vertical(s, dt, i)) {
 		s->f.mob[i]->ratios.y = 0;
 		if (s->f.mob[i]->ratios.x > 0)
