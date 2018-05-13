@@ -775,7 +775,7 @@ void destroy_warrior_sound(st_rpg *s);
 void create_warrior_sound(st_rpg *s);
 void attack_enemy(st_rpg *s, int i);
 int player_is_dead(st_rpg *s);
-void hurt(st_rpg *s, float amount);
+int hurt(st_rpg *s, float amount);
 void create_spells_warrior1(st_rpg *s);
 void create_spells_warrior2(st_rpg *s);
 void draw_all(st_rpg *s);

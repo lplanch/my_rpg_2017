@@ -40,7 +40,6 @@ void proc_effect_warrior(st_rpg *s, float dt)
 	proc_effect(s->f.war.lifesteal, dt);
 	proc_effect(s->f.war.destroyer, dt);
 	if (s->f.war.endure->count <= 0 && s->f.war.endure->amount != 0) {
-		s->player.stat->def -= s->f.war.endure->amount;
 		s->f.war.endure->amount = 0;
 	} if (s->f.war.destroyer->count <= 0 &&
 	s->f.war.destroyer->amount != 0) {
