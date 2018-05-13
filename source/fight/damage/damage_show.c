@@ -44,8 +44,8 @@ void update_dmg_show(st_rpg *s)
 {
 	for (int i = 0; i != 50; i += 1) {
 		if (s->f.dmgshot[i] != 0) {
-			sfText_setPosition(s->f.dmg[i]->text, (sfVector2f)
-			{sfText_getPosition(s->f.dmg[i]->text).x,
+			sfText_setPosition(s->f.dmg[i]->text,
+			(sfVector2f){sfText_getPosition(s->f.dmg[i]->text).x,
 				sfText_getPosition(s->f.dmg[i]->text).y - 1});
 			s->f.dmgshot[i] += 1;
 		} if (s->f.dmgshot[i] > 50)

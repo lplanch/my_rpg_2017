@@ -28,18 +28,18 @@ void update_enemies(st_rpg *s)
 char *get_enemy_path(void)
 {
 	switch (rand() % 6) {
-		case 0 :
-			return ("ressources/enemies/Fanatic");
-		case 1 :
-			return ("ressources/enemies/Blob");
-		case 2 :
-			return ("ressources/enemies/Bat");
-		case 3 :
-			return ("ressources/enemies/Demon");
-		case 4 :
-			return ("ressources/enemies/Minotaur");
-		case 5 :
-			return ("ressources/enemies/Ghost");
+	case 0:
+		return ("ressources/enemies/Fanatic");
+	case 1:
+		return ("ressources/enemies/Blob");
+	case 2:
+		return ("ressources/enemies/Bat");
+	case 3:
+		return ("ressources/enemies/Demon");
+	case 4:
+		return ("ressources/enemies/Minotaur");
+	case 5:
+		return ("ressources/enemies/Ghost");
 	}
 	return (NULL);
 }

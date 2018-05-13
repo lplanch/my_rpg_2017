@@ -28,13 +28,13 @@ gitem_t *create_gritem(st_rpg *rpg, unsigned int id, int x, int y)
 
 int rand_item_ground(void)
 {
-	if (rand() % 2 == 0)
+	if (rand() % 4 == 0)
 		return (rand() % 3 + 2);
-	if (rand() % 6 == 0)
+	if (rand() % 8 == 0)
 		return (5);
-	if (rand() % 7 == 0)
+	if (rand() % 10 == 0)
 		return (6);
-	if (rand() % 9 == 0)
+	if (rand() % 18 == 0)
 		return (7);
 	return (-1);
 }
