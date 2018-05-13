@@ -636,6 +636,8 @@ typedef struct struct_player_info
 {
 	stat_t *stat;
 	tree_t tree;
+	effect_t *speed_effect;
+	effect_t *cdr_effect;
 	st_cdata cdata;
 	g_object *obj;
 	g_object *weapon[2];

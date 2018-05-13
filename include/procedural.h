@@ -152,6 +152,13 @@ int mouse_on_inventory_slot(st_rpg *rpg, int posx, int posy);
 void draw_resume_item(st_rpg *rpg);
 void remove_inventory_item(st_rpg *rpg, item_t *to_remove);
 
+//USE ITEM
+void create_use_item(st_rpg *rpg);
+void destroy_use_item(st_rpg *rpg);
+void update_use_item(st_rpg *rpg, float dt);
+void add_speed(st_rpg *rpg, int to_add);
+void add_cdr(st_rpg *rpg, int to_add);
+
 //LOAD SAVE INVENTORY
 void save_current_inventory(st_rpg *rpg);
 void load_inventory(st_rpg *rpg);

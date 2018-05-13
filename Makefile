@@ -280,6 +280,7 @@ FILES		=	source/main.c							\
 			source/dungeon/inventory_system/destroy_inventory.c		\
 			source/dungeon/inventory_system/save_inventory.c		\
 			source/dungeon/inventory_system/load_inventory.c		\
+			source/dungeon/increment_stats/speed_item_use.c			\
 			source/dungeon/ground_item_system/create_items_on_ground.c	\
 			source/dungeon/ground_item_system/draw_item_ground.c		\
 			source/dungeon/ground_item_system/update_ground_item.c		\

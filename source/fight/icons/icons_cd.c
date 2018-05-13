@@ -17,7 +17,8 @@ void destroy_icons_cd(st_rpg *s)
 void update_cdcount_icons(st_rpg *s, int i)
 {
 	if (s->f.cdcount[i] > 0) {
-		s->f.cdcount[i] -= 0.05;
+		s->f.cdcount[i] -= 0.05 *
+		((float)s->player.cdr_effect->amount / 100.);
 	}
 }
 
