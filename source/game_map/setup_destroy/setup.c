@@ -47,6 +47,7 @@ void setup_variable(st_rpg *s)
 	s->fi->var_for_quests = 0;
 	s->proc.gman.clock = sfClock_create();
 	s->proc.gman.dt = 1.;
+	s->fi->final_status = 3;
 }
 
 void setup_quests_box(st_rpg *s)
