@@ -56,5 +56,5 @@ int die(st_rpg *s)
 	destroy_die(s);
 	destroy_dungeon_loop(s);
 	s->player.stat->pva = s->player.stat->pvm;
-	return (0);
+	return (2);
 }

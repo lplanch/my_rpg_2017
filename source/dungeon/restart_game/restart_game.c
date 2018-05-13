@@ -72,7 +72,6 @@ int next_level_screen(st_rpg *rpg)
 	rpg->proc.pvar.max_floor < 0) {
 		rpg->proc.pvar.current_floor -= 1;
 	} else {
-		win(rpg, "GROS PD");
 		rpg->boss = 0;
 		return (1);
 	}
