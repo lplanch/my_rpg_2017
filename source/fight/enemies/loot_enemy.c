@@ -10,5 +10,9 @@
 
 void loot_enemy(st_rpg *s)
 {
-	s->player.stat->exp += (rand() % 3) + 3;
+	int bonus_by_level = 10 - s->player.stat->lvl;
+
+	if (bonus_by_level < 0)
+		bonus_by_level = 0;
+	s->player.stat->exp += (rand() % 3) + bonus_by_level;
 }

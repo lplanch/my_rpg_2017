@@ -23,8 +23,8 @@ void display_boss_life_bar(st_rpg *s)
 			s->f.boss.bar->sprite, NULL);
 			sfRenderWindow_drawText(s->window,
 			s->f.boss.name->text, NULL);
-		}
-		sfRenderWindow_drawSprite(s->window,
+		} if (s->f.mob[1]->alive)
+			sfRenderWindow_drawSprite(s->window,
 			s->f.boss.life[1]->sprite, NULL);
 	}
 }
