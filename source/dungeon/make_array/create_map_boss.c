@@ -20,6 +20,7 @@ void read_map_boss(st_rpg *rpg)
 	for (int y = 0; (str = get_next_line(fd)) != NULL; y++) {
 		rpg->proc.map[y] = str;
 	}
+	close(fd);
 }
 
 void map_boss_creation(st_rpg *rpg)
