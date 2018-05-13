@@ -39,6 +39,8 @@ int update_dialog_box(st_rpg *s, int fd)
 		return (1);
 	} else if (!my_strcmp(str, ">")) {
 		s->fi->return_value = choice_box(s, fd);
+		if (s->fi->return_value == 2)
+			s->fi->num_dungeon = 0;
 		free(str);
 		take_good_option(s, fd);
 		str = get_next_line(fd);
@@ -93,5 +95,5 @@ void dialog_box(st_rpg *s, char *deux, char *name)
 	close(fd);
 	free(path);
 	if (s->fi->return_value == 2)
-		after_quests(s);
+		death_fcnt(s);
 }

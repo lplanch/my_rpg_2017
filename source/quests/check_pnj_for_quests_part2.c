@@ -21,8 +21,10 @@ void check_pnj_for_quests6(st_rpg *s)
 		s->fi->camera_pos = 0;
 		move_camera(s);
 		final_fight(s);
-		sfText_setString(s->fi->text_finish_quests->text,
-		"Quest 5 complete!");
-		s->fi->var_for_quests = 255;
+		if (s->fi->return_value != 2) {
+			sfText_setString(s->fi->text_finish_quests->text,
+			"Quest 5 complete!");
+			s->fi->var_for_quests = 255;
+		}
 	}
 }

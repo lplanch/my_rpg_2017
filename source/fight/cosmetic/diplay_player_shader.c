@@ -16,7 +16,7 @@ void display_warrior_shad(st_rpg *s)
 		sfRenderWindow_drawSprite(s->window,
 		s->player.obj->sprite, &s->f.shade.power.state);
 	} else {
-		if (s->f.war.parade->amount == 0 &&
+		if (s->f.war.parade->amount == 1 &&
 		s->player.tree.passive == 0 &&
 		!s->player.tree.lock[0]) {
 			sfRenderWindow_drawSprite(s->window,

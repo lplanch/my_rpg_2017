@@ -226,8 +226,9 @@ FILES		=	source/main.c							\
 			source/scenes/scene_recup_son.c					\
 			source/scenes/samy_boss.c					\
 			source/scenes/after_quests.c					\
+			source/scenes/death_fcnt.c					\
 			source/player/player.c						\
-			source/player/security_collide.c						\
+			source/player/security_collide.c				\
 			source/player/player_movement_map.c				\
 			source/player/player_animation_village.c			\
 			source/player/player_movement.c					\
