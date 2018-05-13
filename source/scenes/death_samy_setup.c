@@ -24,8 +24,8 @@ void draw_scene_samy(st_rpg *s)
 void setup_pos_for_scene_samy(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 {
 	s->cut.champ_status = 0;
-	sfSprite_scale(s->cut.map_samy->sprite, scale);
-	sfSprite_scale(s->cut.champ->sprite, scale2);
+	sfSprite_setScale(s->cut.map_samy->sprite, scale);
+	sfSprite_setScale(s->cut.champ->sprite, scale2);
 	s->fi->pnj[s->cut.samy_value].pnj->rect =
 	set_texturerect_top(s->fi->pnj[s->cut.samy_value].pnj, 144);
 	s->fi->pnj[s->cut.samy_value].pnj->pos =

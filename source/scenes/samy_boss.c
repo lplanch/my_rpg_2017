@@ -42,7 +42,9 @@ void dialog_samy_boss(st_rpg *s)
 	dialog_box(s, "samy_boss_samy2", "Samy");
 	s->boss = 1;
 	sfMusic_stop(s->fi->samy_boss.music);
+	quit_game_for_dungeon(s);
 	s->fi->return_value = launch_dungeon(s, &dungeon_boss_samy);
+	s->boss = 0;
 }
 
 void setup_pos_for_scene_samy_boss(st_rpg *s, sfVector2f scale,
@@ -50,9 +52,9 @@ sfVector2f scale2)
 {
 	sfVector2f scale3 = {3, 3};
 
-	sfSprite_scale(s->cut.map_samy_boss->sprite, scale);
-	sfSprite_scale(s->cut.samyd->sprite, scale2);
-	sfSprite_scale(s->cut.samy_boss->sprite, scale3);
+	sfSprite_setScale(s->cut.map_samy_boss->sprite, scale);
+	sfSprite_setScale(s->cut.samyd->sprite, scale2);
+	sfSprite_setScale(s->cut.samy_boss->sprite, scale3);
 	s->player.obj->pos =
 	create_vector2f(s->fi->camera.x + 20, s->fi->camera.y + 400);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
