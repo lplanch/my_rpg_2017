@@ -369,6 +369,8 @@ typedef struct boss_spells
 	sfMusic *samy_rage;
 	sfMusic *samy_roda;
 	sfMusic *thunder;
+	particle_t *samy_part;
+	particle_t *samy_fus;
 } boss_t;
 
 typedef struct struct_archer_spells
@@ -719,6 +721,7 @@ typedef struct struct_rpg
 #include "procedural.h"
 #include "game_map.h"
 
+void generate_samy(st_rpg *s);
 void test_destroy_loop_pause(st_rpg *s);
 void choose_sound(st_rpg *s);
 int boss_is_dead(st_rpg *s);

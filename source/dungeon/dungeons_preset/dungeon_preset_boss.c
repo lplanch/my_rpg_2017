@@ -25,8 +25,7 @@ void dungeon_boss_champ(proc_var_t *hey)
 	hey->background.a = 255;
 	hey->min_enemies = 0;
 	hey->max_enemies = 1;
-	hey->dungeon_music =
-	"ressources/audio/boss.ogg";
+	hey->dungeon_music = "ressources/audio/boss.ogg";
 	hey->volume = 0;
 }
 
@@ -48,7 +47,6 @@ void dungeon_boss_samy(proc_var_t *hey)
 	hey->background.a = 255;
 	hey->min_enemies = 0;
 	hey->max_enemies = 1;
-	hey->dungeon_music =
-	"ressources/audio/boss_samy.ogg";
+	hey->dungeon_music = "ressources/audio/boss_samy.ogg";
 	hey->volume = 0;
 }

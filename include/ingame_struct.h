@@ -34,6 +34,11 @@ typedef struct fast_inventory
 	sfVector2f created_pos;
 	int created;
 	item_t *slots[3];
+	sfTexture *txr_slots[3];
+	sfSprite *spr[3];
+	sfSprite *item_spr[3];
+	int focused_slot;
+	int mouse_released;
 } ing_finv_t;
 
 typedef struct ingame_inventory_manager
