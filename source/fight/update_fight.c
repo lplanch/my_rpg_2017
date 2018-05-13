@@ -15,6 +15,7 @@ void update_fight(st_rpg *s)
 	if (s->f.proc.sec > 0.016) {
 		proc_aoes(s, s->f.proc.sec);
 		proc_effects(s, s->f.proc.sec);
+		update_use_item(s, s->f.proc.sec);
 		update_projectiles(s, s->f.proc.sec);
 		update_boss(s, s->f.proc.sec);
 		sfClock_restart(s->f.proc.clock);

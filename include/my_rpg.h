@@ -334,6 +334,8 @@ typedef struct enemy
 	g_object *life;
 	stat_t *stat;
 	sfVector2f scale;
+	float idlecount;
+	int idle;
 } enemy_t;
 
 typedef struct boss_spells
@@ -637,6 +639,8 @@ typedef struct struct_player_info
 {
 	stat_t *stat;
 	tree_t tree;
+	effect_t *speed_effect;
+	effect_t *cdr_effect;
 	st_cdata cdata;
 	g_object *obj;
 	g_object *weapon[2];

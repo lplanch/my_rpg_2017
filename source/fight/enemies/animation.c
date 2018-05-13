@@ -35,7 +35,7 @@ int choose_orientation_enemy(st_rpg *s, int i)
 
 void enemy_animation(st_rpg *s, int i)
 {
-	if (s->f.mob[i]->aggro) {
+	if (s->f.mob[i]->ratios.x != 0 || s->f.mob[i]->ratios.y != 0) {
 		walk_animation_enemy(s, i);
 		s->f.mob[i]->obj->rect.top = choose_orientation_enemy(s, i) *
 		s->f.mob[i]->obj->rect.height;
