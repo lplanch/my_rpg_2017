@@ -84,6 +84,7 @@ int dungeon_loop(st_rpg *s)
 		sfRenderWindow_display(s->window);
 		if (verify_exit_player(s)) {
 			set_for_quit(s);
+			s->player.stat->pva = s->player.stat->pvm
 			return (4);
 		}
 	}
