@@ -34,8 +34,9 @@ void launch_samy_fusrohdah(st_rpg *s)
 {
 	launch_particle(s->f.boss.samy_fus,
 	(sfVector2f){s->f.mob[0]->obj->pos.x +
-	(s->f.mob[0]->obj->rect.width * 3 / 2),
-	s->f.mob[0]->obj->pos.y + (s->f.mob[0]->obj->rect.height * 3 / 2)},
+		(s->f.mob[0]->obj->rect.width * 3 / 2),
+		s->f.mob[0]->obj->pos.y +
+		(s->f.mob[0]->obj->rect.height * 3 / 2)},
 	get_angle_enemy(s, 0));
 	s->f.boss.fus->ratios = get_ratios(get_angle_enemy(s, 0));
 	s->f.mob[0]->cast = 2;
@@ -49,8 +50,9 @@ void launch_samy_rage(st_rpg *s)
 {
 	launch_particle(s->f.boss.samy_part,
 	(sfVector2f){s->f.mob[0]->obj->pos.x +
-	(s->f.mob[0]->obj->rect.width * 3 / 2),
-	s->f.mob[0]->obj->pos.y + (s->f.mob[0]->obj->rect.height * 3 / 2)},
+		(s->f.mob[0]->obj->rect.width * 3 / 2),
+		s->f.mob[0]->obj->pos.y +
+		(s->f.mob[0]->obj->rect.height * 3 / 2)},
 	rand() % 360);
 	s->f.boss.rage->amount = 1;
 	s->f.boss.fus->speed = s->f.boss.fus->speed * 1.5;

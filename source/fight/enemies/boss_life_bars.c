@@ -49,8 +49,8 @@ void update_boss_life_bar_origin(st_rpg *s)
 		create_vector2f(x + 1000, y + 50));
 		sfSprite_setPosition(s->f.boss.life[0]->sprite,
 		create_vector2f(x + 1000, y + 50));
-		sfText_setPosition(s->f.boss.name->text, (sfVector2f){x + 1200,
-		y + 110});
+		sfText_setPosition(s->f.boss.name->text,
+		(sfVector2f){x + 1200, y + 110});
 	} if (s->boss == 3) {
 		sfSprite_setPosition(s->f.boss.life[1]->sprite,
 		create_vector2f(x + 1000, y + 75));
@@ -81,11 +81,11 @@ void create_boss_life_bar(st_rpg *s)
 {
 	if (s->boss != 0) {
 		s->f.boss.bar = create_object(
-	"ressources/images/interface/boss_lifebar.png", create_vector2f(0, 0),
-	create_rect(0, 0, 700, 50), 0);
+		"ressources/images/interface/boss_lifebar.png",
+		create_vector2f(0, 0), create_rect(0, 0, 700, 50), 0);
 		s->f.boss.life[0] = create_object(
-	"ressources/images/interface/boss_lifebar.png", create_vector2f(0, 0),
-	create_rect(50, 0, 700, 50), 0);
+		"ressources/images/interface/boss_lifebar.png",
+		create_vector2f(0, 0), create_rect(50, 0, 700, 50), 0);
 	} if (s->boss == 3) {
 		s->f.boss.life[0]->rect.height = 25;
 		s->f.boss.life[1] = create_object(

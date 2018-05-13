@@ -41,19 +41,19 @@ void choose_display_enemies(st_rpg *s, int i)
 		s->f.mob[i]->obj->sprite, &s->f.shade.poison.state);
 		if (!s->boss)
 			sfRenderWindow_drawSprite(s->window,
-		s->f.mob[i]->life->sprite, &s->f.shade.poison.state);
+			s->f.mob[i]->life->sprite, &s->f.shade.poison.state);
 	} else if (s->f.mob[i]->stun->count > 0) {
 		sfRenderWindow_drawSprite(s->window,
 		s->f.mob[i]->obj->sprite, &s->f.shade.stun.state);
 		if (!s->boss)
 			sfRenderWindow_drawSprite(s->window,
-		s->f.mob[i]->life->sprite, &s->f.shade.stun.state);
+			s->f.mob[i]->life->sprite, &s->f.shade.stun.state);
 	} else {
 		sfRenderWindow_drawSprite(s->window,
 		s->f.mob[i]->obj->sprite, NULL);
 		if (!s->boss)
 			sfRenderWindow_drawSprite(s->window,
-		s->f.mob[i]->life->sprite, NULL);
+			s->f.mob[i]->life->sprite, NULL);
 	}
 }
 
