@@ -36,6 +36,7 @@ void init_next_level(st_rpg *rpg)
 	rpg->proc.gman.dt = 1;
 	reset_screen(rpg->proc.minimap.f_minimap);
 	sfText_setString(rpg->proc.minimap.current_level_text, level_string);
+	create_use_item(rpg);
 	free(cur_level);
 	free(level_string);
 }

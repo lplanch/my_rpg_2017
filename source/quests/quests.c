@@ -17,6 +17,7 @@ sfIntRect set_texturerect_top(g_object *obj, int top)
 
 void wake_up(st_rpg *s)
 {
+	s->player.obj->rect.left = 0 + 144 * s->player.cdata.sex;
 	sfSprite_setTextureRect(s->player.obj->sprite, s->player.obj->rect);
 	while (s->player.obj->pos.y != 8070) {
 		move_camera(s);

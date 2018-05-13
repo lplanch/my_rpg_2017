@@ -48,8 +48,8 @@ void generate_ly(st_rpg *s)
 	s->f.mob = malloc(sizeof(enemy_t *) * s->proc.pvar.enemy_nbr);
 	generate_champ(s);
 	s->f.mob[1] = generate_enemy("ressources/enemies/Ly");
-	s->f.mob[1]->obj->pos.x = s->player.obj->pos.x;
-	s->f.mob[1]->obj->pos.y = s->player.obj->pos.y;
+	s->f.mob[1]->obj->pos.x = s->player.obj->pos.x - 100;
+	s->f.mob[1]->obj->pos.y = s->player.obj->pos.y - 400;
 	sfSprite_setPosition(s->f.mob[1]->obj->sprite,
 	s->f.mob[1]->obj->pos);
 	sfSprite_setScale(s->f.mob[1]->obj->sprite, (sfVector2f){3, 3});

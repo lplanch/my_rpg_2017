@@ -22,7 +22,8 @@ void proc_enemy_aoe(st_rpg *s, aoe_t *aoe, int i)
 	(s->player.stat->def / 100 * s->f.mob[i]->stat->frc);
 
 	if (circle_hitbox(aoe->circle, s->player.obj) && enemy_is_able(s, i)) {
-		hurt(s, amount);
+		if (hurt(s, amount))
+			return;
 		stop_player(s);
 		launch_dash(s, s->f.knock);
 		s->f.knock->ratios = get_ratios(get_angle_enemy(s, i));
@@ -41,7 +42,8 @@ void attack_enemy(st_rpg *s, int i)
 	(s->player.stat->def / 100 * s->f.mob[i]->stat->frc);
 
 	if (enemy_hitbox(s->player.obj, s->f.mob[i]) && enemy_is_able(s, i)) {
-		hurt(s, amount);
+		if (hurt(s, amount))
+			return;
 		stop_player(s);
 		launch_dash(s, s->f.knock);
 		s->f.knock->ratios = get_ratios(get_angle_enemy(s, i));
