@@ -19,7 +19,8 @@ void walk_animation_player_zach(st_rpg *s)
 			s->player.animsens = -s->player.animsens;
 		s->player.animcol += s->player.animsens;
 		sfClock_restart(s->fi->pnj_clock.clock);
-		s->player.obj->rect.left = s->player.animcol * 48;
+		s->player.obj->rect.left = s->player.animcol * 48
+		+ 144 * s->player.cdata.sex;
 	}
 }
 
