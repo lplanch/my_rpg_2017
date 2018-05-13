@@ -26,5 +26,7 @@ void check_pnj_for_quests6(st_rpg *s)
 			"Quest 5 complete!");
 			s->fi->var_for_quests = 255;
 		}
+		if (s->fi->return_value == 2)
+			death_fcnt(s);
 	}
 }
