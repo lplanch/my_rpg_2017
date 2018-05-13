@@ -697,6 +697,8 @@ typedef struct struct_rpg
 #include "procedural.h"
 #include "game_map.h"
 
+int security_map(st_rpg *s);
+int security_map_enemy(st_rpg *s, float dt, int i);
 void create_boss_name(st_rpg *s);
 void display_boss_life_bar(st_rpg *s);
 void destroy_boss_life_bar(st_rpg *s);

@@ -223,6 +223,7 @@ FILES		=	source/main.c							\
 			source/scenes/samy_boss.c					\
 			source/scenes/after_quests.c					\
 			source/player/player.c						\
+			source/player/security_collide.c						\
 			source/player/player_movement_map.c				\
 			source/player/player_animation_village.c			\
 			source/player/player_movement.c					\

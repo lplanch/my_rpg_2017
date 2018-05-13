@@ -72,6 +72,8 @@ void verify_collide_map_enemies(st_rpg *s, float dt, int i)
 	int vx = s->f.mob[i]->ratios.x * s->f.mob[i]->stat->vit * 15 * dt;
 	int vy = s->f.mob[i]->ratios.y * s->f.mob[i]->stat->vit * 15 * dt;
 
+	if (security_map_enemy(s, dt, i))
+		return;
 	if (enemy_is_ok_vertical(s, dt, i))
 		s->f.mob[i]->obj->pos.y += vy;
 	if (enemy_is_ok_horizontal(s, dt, i))
