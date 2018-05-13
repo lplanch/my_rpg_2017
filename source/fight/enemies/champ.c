@@ -54,5 +54,4 @@ void destroy_champ(st_rpg *s)
 	destroy_aoe(s->f.boss.ball);
 	sfMusic_destroy(s->f.boss.s_ball);
 	sfMusic_destroy(s->f.boss.s_tent);
-
 }
