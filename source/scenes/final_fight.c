@@ -42,6 +42,10 @@ void final_fight_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 {
 	setup_pos_for_scene_final_fight(s, scale, scale2);
 	dialog_boss(s);
+
+	s->boss = 2;
+	s->fi->return_value = launch_dungeon(s, &dungeon_boss_champ);
+	s->boss = 0;
 	s->fi->boss_status = 0;
 	reset_pos_friends(s);
 	s->fi->pnj[s->cut.zac_value].pnj->pos = create_vector2f(10000, 10000);
@@ -50,7 +54,8 @@ void final_fight_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 	s->fi->pnj[s->cut.samy_value].pnj->pos = create_vector2f(10000, 10000);
 	sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite,
 	s->fi->pnj[s->cut.samy_value].pnj->pos);
-	wake_up(s);
+	if (s->fi->return_value == 4)
+		wake_up(s);
 }
 
 void final_fight(st_rpg *s)

@@ -15,16 +15,20 @@ void check_pnj_for_quests5(st_rpg *s)
 		s->returnv = 0;
 		s->fi->return_value = 0;
 		s->fi->num_dungeon = 0;
-		s->fi->quests[7]->status = 2;
 		s->player.obj->pos = create_vector2f(7950, 8160);
 		sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 		s->fi->camera_pos = 0;
 		move_camera(s);
 		death_samy(s);
-		sfText_setString(s->fi->text_finish_quests->text,
-		"Quest 4 complete!");
-		s->fi->var_for_quests = 255;
+		if (s->fi->return_value != 2) {
+			sfText_setString(s->fi->text_finish_quests->text,
+			"Quest 4 complete!");
+			s->fi->var_for_quests = 255;
+			s->fi->quests[7]->status = 2;
+		}
 	}
+	if (s->fi->return_value == 2)
+		death_fcnt(s);
 	check_pnj_for_quests6(s);
 }
 
@@ -41,9 +45,11 @@ void check_pnj_for_quests4(st_rpg *s)
 		s->fi->camera_pos = 0;
 		move_camera(s);
 		death_zac(s);
-		sfText_setString(s->fi->text_finish_quests->text,
-		"Quest 3 complete!");
-		s->fi->var_for_quests = 255;
+		if (s->fi->return_value != 2) {
+			sfText_setString(s->fi->text_finish_quests->text,
+			"Quest 3 complete!");
+			s->fi->var_for_quests = 255;
+		}
 	}
 	check_pnj_for_quests5(s);
 }
@@ -101,4 +107,6 @@ void check_pnj_for_quests(st_rpg *s)
 		reset_pos_friends(s);
 	}
 	check_pnj_for_quests2(s);
+	if (s->fi->return_value == 2)
+		death_fcnt(s);
 }

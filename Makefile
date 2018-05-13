@@ -52,6 +52,7 @@ FILES		=	source/main.c							\
 			source/fight/update_class.c					\
 			source/fight/get_cooldowns.c					\
 			source/fight/main.c						\
+			source/fight/win.c						\
 			source/fight/die.c						\
 			source/fight/aoe/aoe.c						\
 			source/fight/aoe/create_aoe.c					\
@@ -108,18 +109,18 @@ FILES		=	source/main.c							\
 			source/spells/create_spells_warrior.c				\
 			source/spells/destroy_spells.c					\
 			source/spells/auto_attacks.c					\
-			source/spells/archer_1.c					\
-			source/spells/archer_2.c					\
-			source/spells/archer_3.c					\
-			source/spells/gunner_1.c					\
-			source/spells/gunner_2.c					\
-			source/spells/gunner_3.c					\
-			source/spells/rogue_1.c						\
-			source/spells/rogue_2.c						\
-			source/spells/rogue_3.c						\
-			source/spells/warrior_1.c					\
-			source/spells/warrior_2.c					\
-			source/spells/warrior_3.c					\
+			source/spells/archer_m.c					\
+			source/spells/archer_e.c					\
+			source/spells/archer_r.c					\
+			source/spells/gunner_m.c					\
+			source/spells/gunner_e.c					\
+			source/spells/gunner_r.c					\
+			source/spells/rogue_m.c						\
+			source/spells/rogue_e.c						\
+			source/spells/rogue_r.c						\
+			source/spells/warrior_m.c					\
+			source/spells/warrior_e.c					\
+			source/spells/warrior_r.c					\
 			source/spells/update_archer_1.c					\
 			source/spells/update_gunner_1_1.c				\
 			source/spells/update_gunner_1_2.c				\
@@ -225,8 +226,9 @@ FILES		=	source/main.c							\
 			source/scenes/scene_recup_son.c					\
 			source/scenes/samy_boss.c					\
 			source/scenes/after_quests.c					\
+			source/scenes/death_fcnt.c					\
 			source/player/player.c						\
-			source/player/security_collide.c						\
+			source/player/security_collide.c				\
 			source/player/player_movement_map.c				\
 			source/player/player_animation_village.c			\
 			source/player/player_movement.c					\

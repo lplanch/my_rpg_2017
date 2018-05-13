@@ -67,22 +67,24 @@ void samy_boss_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 	s->cut.samy_boss_status = 0;
 	s->fi->samy_boss_status = 0;
 	reset_pos_friends(s);
-	after_quests(s);
 	s->fi->pnj[s->cut.zac_value].pnj->pos = create_vector2f(10000, 10000);
 	sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite,
 	s->fi->pnj[s->cut.zac_value].pnj->pos);
 	s->fi->pnj[s->cut.samy_value].pnj->pos = create_vector2f(10000, 10000);
 	sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite,
 	s->fi->pnj[s->cut.samy_value].pnj->pos);
-	s->fi->dream_status = 1;
-	s->fi->dialog_box_isopen = 1;
-	sfMusic_stop(s->fi->music.music);
-	sfMusic_play(s->fi->reflexion_music.music);
-	dialog_box(s, "player_dream2", "hero");
-	sfMusic_stop(s->fi->reflexion_music.music);
-	sfMusic_play(s->fi->music.music);
-	s->fi->dream_status = 0;
-	wake_up(s);
+	if (s->fi->return_value == 4) {
+		s->fi->dream_status = 1;
+		s->fi->dialog_box_isopen = 1;
+		sfMusic_stop(s->fi->music.music);
+		sfMusic_play(s->fi->reflexion_music.music);
+		dialog_box(s, "player_dream2", "hero");
+		sfMusic_stop(s->fi->reflexion_music.music);
+		sfMusic_play(s->fi->music.music);
+		s->fi->dream_status = 0;
+		after_quests(s);
+		wake_up(s);
+	}
 }
 
 void samy_boss(st_rpg *s)
