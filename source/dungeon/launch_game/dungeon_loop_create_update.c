@@ -4,6 +4,7 @@
 ** File description:
 ** best project
 */
+
 #include "game_map.h"
 #include "my_rpg.h"
 #include "my.h"
@@ -38,6 +39,7 @@ void create_dungeon_loop(st_rpg *s)
 		map_boss_creation(s);
 	s->proc.smap = create_sprite_map(&s->proc, s->proc.map);
 	init_dungeon_game(s);
+	create_use_item(s);
 	create_dungeon_loop_part2(s);
 }
 

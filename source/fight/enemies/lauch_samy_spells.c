@@ -8,6 +8,16 @@
 #include "my_rpg.h"
 #include "my.h"
 
+void choose_sound(st_rpg *s)
+{
+	if (s->f.boss.attack == 1) {
+		sfMusic_play(s->f.boss.samy_roda);
+	} else if (s->f.boss.attack == 2) {
+		sfMusic_play(s->f.boss.samy_rage);
+
+	}
+}
+
 void launch_samy_dash(st_rpg *s)
 {
 	s->f.boss.dash->ratios = get_ratios(get_angle_enemy(s, 0));

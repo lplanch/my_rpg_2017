@@ -39,6 +39,7 @@ void destroy_archer_sound(st_rpg *s)
 void destroy_warrior_sound(st_rpg *s)
 {
 	sfMusic_destroy(s->f.war.s_shield);
+	sfMusic_destroy(s->f.war.s_endure);
 	sfMusic_destroy(s->f.war.s_sword1);
 	sfMusic_destroy(s->f.war.s_sword2);
 	sfMusic_destroy(s->f.war.s_hasaki);

@@ -41,6 +41,7 @@ void free_dungeon(st_rpg *rpg, proc_t *proc)
 		free(proc->smap[y]);
 	}
 	destroy_items_list(rpg);
+	destroy_use_item(rpg);
 	free(proc->smap);
 	free_map_tbl(proc);
 }

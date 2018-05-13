@@ -29,8 +29,8 @@ void dialog_boss(st_rpg *s)
 void setup_pos_for_scene_final_fight(st_rpg *s, sfVector2f scale,
 sfVector2f scale2)
 {
-	sfSprite_scale(s->cut.map_boss->sprite, scale);
-	sfSprite_scale(s->cut.champ_boss->sprite, scale2);
+	sfSprite_setScale(s->cut.map_boss->sprite, scale);
+	sfSprite_setScale(s->cut.champ_boss->sprite, scale2);
 	s->player.obj->pos =
 	create_vector2f(s->fi->camera.x - 100, s->fi->camera.y + 400);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
@@ -44,6 +44,7 @@ void final_fight_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 	dialog_boss(s);
 
 	s->boss = 2;
+	quit_game_for_dungeon(s);
 	s->fi->return_value = launch_dungeon(s, &dungeon_boss_champ);
 	s->boss = 0;
 	s->fi->boss_status = 0;

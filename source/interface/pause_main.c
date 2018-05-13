@@ -49,6 +49,7 @@ int event_pause_menu(st_rpg *s)
 			return (go_back(s));
 		} if ((a = launch_pause_menu(s, event)) != 0) {
 			s->returnv = a;
+			test_destroy_loop_pause(s);
 			return (1);
 		}
 	}

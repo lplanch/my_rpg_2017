@@ -18,6 +18,7 @@ void update_samy(st_rpg *s, float dt)
 		if (s->f.mob[0]->stat->pva < s->f.mob[0]->stat->pvm / 2 &&
 			s->f.boss.rage->amount == 0)
 			s->f.boss.attack = 2;
+		choose_sound(s);
 	} if (s->f.boss.casting > 0) {
 		s->f.boss.casting -= dt;
 	} if (s->f.boss.casting < 0) {
@@ -61,6 +62,8 @@ void destroy_samy(st_rpg *s)
 	destroy_dash(s->f.boss.dash);
 	destroy_dash(s->f.boss.fus);
 	destroy_effect(s->f.boss.rage);
+	sfMusic_destroy(s->f.boss.samy_roda);
+	sfMusic_destroy(s->f.boss.samy_rage);
 }
 
 void generate_samy(st_rpg *s)
@@ -79,4 +82,10 @@ void generate_samy(st_rpg *s)
 	s->f.boss.fus = create_dash(60, 800);
 	s->f.boss.rage = create_effect("rage", 0, 5);
 	s->f.boss.casting = 0;
+	s->f.boss.samy_roda =
+	sfMusic_createFromFile("ressources/audio/sound/roda.ogg");
+	s->f.boss.samy_rage =
+	sfMusic_createFromFile("ressources/audio/sound/samy_rage.ogg");
+	sfMusic_setVolume(s->f.boss.samy_rage, s->s_effect);
+	sfMusic_setVolume(s->f.boss.samy_roda, s->s_effect);
 }
