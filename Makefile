@@ -52,6 +52,7 @@ FILES		=	source/main.c							\
 			source/fight/update_class.c					\
 			source/fight/get_cooldowns.c					\
 			source/fight/main.c						\
+			source/fight/die.c						\
 			source/fight/aoe/aoe.c						\
 			source/fight/aoe/create_aoe.c					\
 			source/fight/aoe/proc_aoes.c					\
