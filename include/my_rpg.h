@@ -721,6 +721,8 @@ typedef struct struct_rpg
 #include "procedural.h"
 #include "game_map.h"
 
+void dialog_samy_boss_2(st_rpg *s);
+void samy_boss_part2_in_if(st_rpg *s);
 void generate_samy(st_rpg *s);
 void test_destroy_loop_pause(st_rpg *s);
 void choose_sound(st_rpg *s);
