@@ -23,3 +23,11 @@ void set_colors_pause(st_rpg *s)
 		->text->text, sfWhite);
 	sfText_setColor(s->pausm.button[s->pausm.option]->text->text, sfYellow);
 }
+
+void test_destroy_loop_pause(st_rpg *s)
+{
+	if ((s->returnv == 1 || s->returnv == 3) && s->fi->map_status == 1) {
+		destroy_dungeon_loop(s);
+	}
+
+}

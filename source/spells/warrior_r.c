@@ -16,6 +16,7 @@ void warrior_earthquake(st_rpg *s)
 
 void warrior_endure(st_rpg *s)
 {
+	sfMusic_play(s->f.war.s_endure);
 	s->f.war.endure->count = s->f.war.endure->duration;
 	s->f.war.endure->amount = 1000000;
 	s->player.stat->def += s->f.war.endure->amount;
