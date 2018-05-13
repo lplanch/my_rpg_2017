@@ -50,7 +50,7 @@ void update_rogue(st_rpg *s)
 	if (s->f.rog.flash->shot)
 		rogue_update_flash(s);
 	if (s->f.rog.zone->shot)
-		clocked_animation(s->f.rog.flash->anim);
+		clocked_animation(s->f.rog.zone->anim);
 }
 
 void update_warrior(st_rpg *s)
