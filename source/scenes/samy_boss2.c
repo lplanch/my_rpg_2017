@@ -30,4 +30,5 @@ void samy_boss_part2_in_if(st_rpg *s)
 	set_all_var_at_zero(s);
 	after_quests(s);
 	wake_up(s);
+	s->fi->dialog_box_isopen = 0;
 }

@@ -18,7 +18,6 @@ void set_all_var_at_zero(st_rpg *s)
 void death_fcnt(st_rpg *s)
 {
 	stop_player(s);
-	//set_all_var_at_zero(s);
 	s->returnv = 0;
 	s->fi->return_value = 0;
 	s->fi->num_dungeon = 0;

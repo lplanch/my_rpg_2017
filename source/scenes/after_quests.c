@@ -45,6 +45,7 @@ void set_position_after_quests(st_rpg *s)
 	s->fi->pnj[s->cut.zac_value].pnj->pos);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	s->fi->return_value = 0;
+	update_death(s);
 }
 
 void after_quests(st_rpg *s)

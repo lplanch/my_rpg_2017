@@ -26,6 +26,8 @@ void display_rogue(st_rpg *s)
 		display_projectile(s->window, s->f.rog.dagger[i]);
 	display_projectile(s->window, s->f.rog.dance);
 	display_aoe(s->window, s->f.rog.zone);
+	sfRenderWindow_drawSprite(s->window, s->f.rog.zone->anim->obj->sprite,
+	NULL);
 	display_aoe(s->window, s->f.rog.flash);
 	display_particle(s->f.rog.partp, s->window);
 	display_particle(s->f.rog.partd, s->window);
