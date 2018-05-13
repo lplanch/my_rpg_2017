@@ -52,16 +52,16 @@ int security_map(st_rpg *s)
 	int ay = s->player.acceleration.y * s->proc.gman.dt;
 
 	if ((x + 22) / 96 < 0 || (x + 22) / 96 > s->proc.pvar.map_width
-	|| (x - 22) / 96 < 0 || (x - 22) / 96 > s->proc.pvar.map_width)
+	|| (x - 22) / 96 < 0 || (x - 22) / 96 > s->proc.pvar.map_width) {
 		return (1);
-	if ((y + 34 + ay) / 96 < 0 || (y + 34 + ay) / 96 > s->proc.pvar.
-	map_height || (y + ay) / 96 < 0 || (y + ay) / 96 < s->proc.pvar.
-	map_height)
+	} if ((y + 34 + ay) / 96 < 0 || (y + 34 + ay) / 96 > s->proc.pvar.
+	map_height || (y + ay) / 96 < 0 || (y + ay) / 96 > s->proc.pvar.
+	map_height) {
 		return (1);
-	if ((y + 32) / 96 < 0 || (y + 2) / 96 < 0 || (y + 32) / 96 > s->proc.
-	pvar.map_height || (y + 2) / 96 > s->proc.pvar.map_height)
+	} if ((y + 32) / 96 < 0 || (y + 2) / 96 < 0 || (y + 32) / 96 > s->proc.
+	pvar.map_height || (y + 2) / 96 > s->proc.pvar.map_height) {
 		return (1);
-	if ((x + 24 + ax) / 96 < 0 || (x - 24 + ax) / 96 < 0 ||
+	} if ((x + 24 + ax) / 96 < 0 || (x - 24 + ax) / 96 < 0 ||
 	(x + 24 + ax) / 96 > s->proc.pvar.map_width || (x - 24 + ax) / 96 >
 	s->proc.pvar.map_width)
 		return (1);
