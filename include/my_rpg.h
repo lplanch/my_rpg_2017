@@ -334,6 +334,8 @@ typedef struct enemy
 	g_object *life;
 	stat_t *stat;
 	sfVector2f scale;
+	float idlecount;
+	int idle;
 } enemy_t;
 
 typedef struct boss_spells
