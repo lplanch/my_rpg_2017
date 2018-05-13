@@ -74,6 +74,7 @@ int choice_box_check_quit(st_rpg *s, char **tab, char *str, int compter)
 	int return_value = 0;
 
 	if ((return_value = choice_dungeon(s, tab, str, compter)) != 0) {
+		set_all_var_at_zero(s);
 		return (return_value);
 	}
 	choice_box_quit(s, tab, str, compter);

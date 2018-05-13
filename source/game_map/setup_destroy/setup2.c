@@ -29,6 +29,8 @@ void setup_music(st_rpg *s)
 	create_music(s->s_music, "ressources/audio/reflexion.ogg");
 	s->fi->samy_boss.music =
 	create_music(s->s_music, "ressources/audio/boss_samy.ogg");
+	s->fi->boss_music.music =
+	create_music(s->s_music, "ressources/audio/boss.ogg");
 }
 
 void setup_col(st_rpg *s)

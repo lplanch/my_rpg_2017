@@ -12,13 +12,11 @@ sfIntRect set_texturerect_top(g_object *obj, int top)
 {
 	obj->rect.top = top;
 	sfSprite_setTextureRect(obj->sprite, obj->rect);
-	obj->rect.left = 0;
 	return (obj->rect);
 }
 
 void wake_up(st_rpg *s)
 {
-	s->player.obj->rect.left = 0;
 	sfSprite_setTextureRect(s->player.obj->sprite, s->player.obj->rect);
 	while (s->player.obj->pos.y != 8070) {
 		move_camera(s);

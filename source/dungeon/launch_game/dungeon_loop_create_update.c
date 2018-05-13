@@ -28,7 +28,7 @@ void create_dungeon_loop(st_rpg *s)
 {
 	s->f.rog.vanish = 0;
 	s->dungeon_music.music =
-	create_music(s->s_music, s->proc.pvar.dungeon_music);
+	create_music(s->proc.pvar.volume, s->proc.pvar.dungeon_music);
 	sfMusic_play(s->dungeon_music.music);
 	sfMusic_setLoop(s->dungeon_music.music, 1);
 	create_player(s);

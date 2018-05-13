@@ -227,6 +227,7 @@ FILES		=	source/main.c							\
 			source/scenes/samy_boss.c					\
 			source/scenes/after_quests.c					\
 			source/scenes/death_fcnt.c					\
+			source/scenes/final_fight_ly.c					\
 			source/player/player.c						\
 			source/player/security_collide.c				\
 			source/player/player_movement_map.c				\
