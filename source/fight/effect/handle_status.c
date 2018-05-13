@@ -11,7 +11,7 @@
 void handle_poison(st_rpg *s, enemy_t *mob)
 {
 	if (s->player.cdata.classe == 2 && s->player.tree.passive == 1 &&
-	!s->player.tree.lock[1]) {
+	!s->player.tree.lock[1] && rand() % 6 == 1) {
 		mob->poison->amount = 1;
 		mob->poison->count = 1;
 	}
