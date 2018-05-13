@@ -92,4 +92,20 @@ typedef struct proc_gen
 	unsigned int current_floor;
 } proc_t;
 
+typedef struct fishing
+{
+	int score;
+	int in_catch;
+	int returnv;
+	int done;
+	sfClock *catch_clock;
+	sfSprite *character;
+	sfSprite *rod;
+	sfIntRect rod_rect;
+	sfTexture *rod_sheet;
+	sfText *time_rem;
+	sfText *cur_score;
+	sfFont *fishing_font;
+} fish_t;
+
 #endif
