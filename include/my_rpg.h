@@ -198,6 +198,8 @@ typedef struct s_files
 	int samy_status;
 	int dream_status;
 	int son_status;
+	int samy_boss_status;
+	int boss_status;
 	st_button **name_head;
 	g_object *name_head_edge[2];
 	g_object *lake;
@@ -229,6 +231,7 @@ typedef struct s_files
 	st_music music;
 	st_music samys_music;
 	st_music reflexion_music;
+	st_music samy_boss;
 } files_t;
 
 typedef struct struct_animation
@@ -336,10 +339,16 @@ typedef struct enemy
 typedef struct boss_spells
 {
 	int attack;
+	int attack_ly;
 	int ctent;
 	sfVector2f trat;
 	sfVector2f ballpos;
 	sfVector2f ballrat;
+	sfVector2f rayrat;
+	g_object *bar;
+	g_object *life[2];
+	t_object *name;
+	float rayused;
 	float used;
 	aoe_t *tent[6];
 	aoe_t *well;
@@ -642,6 +651,7 @@ typedef struct particle_all
 typedef struct cutscene
 {
 	int champ_status;
+	int samy_boss_status;
 	int samy_value;
 	int zac_value;
 	int jade_value;
@@ -652,8 +662,10 @@ typedef struct cutscene
 	g_object *map_samy;
 	g_object *map_samy_boss;
 	g_object *samy_boss;
+	g_object *map_boss;
 	g_object *samyd;
 	g_object *champ;
+	g_object *champ_boss;
 } ct_cutscene;
 
 typedef struct struct_rpg
@@ -688,6 +700,16 @@ typedef struct struct_rpg
 #include "procedural.h"
 #include "game_map.h"
 
+int security_map(st_rpg *s);
+int security_map_enemy(st_rpg *s, float dt, int i);
+void create_boss_name(st_rpg *s);
+void display_boss_life_bar(st_rpg *s);
+void destroy_boss_life_bar(st_rpg *s);
+void update_boss_life_bar_origin(st_rpg *s);
+void update_boss_life_bar_width(st_rpg *s);
+void create_boss_life_bar(st_rpg *s);
+void update_ly_ray(st_rpg *s, float dt);
+void launch_ly_spell(st_rpg *s);
 void destroy_boss(st_rpg *s);
 void display_boss(st_rpg *s);
 void update_boss(st_rpg *s, float dt);
@@ -1036,11 +1058,23 @@ void walk_animation(st_rpg *s);
 void player_animation_village(st_rpg *s);
 void create_dungeon_loop(st_rpg *s);
 int dungeon_loop(st_rpg *s);
+void update_dungeon_loop(st_rpg *s);
+void destroy_dungeon_loop(st_rpg *s);
+
+void update_current_bullet(st_rpg *s);
+void update_current_dagger(st_rpg *s);
+void change_side_player(st_rpg *s);
+void display_gunner(st_rpg *s);
+void display_main_menu_interface(st_rpg *s);
+void modify_music(st_rpg *s, sfEvent event);
+void modify_effect(st_rpg *s, sfEvent event);
 
 void dungeon1(proc_var_t *hey);
 void dungeon2(proc_var_t *hey);
 void dungeon3(proc_var_t *hey);
 void dungeon4_1(proc_var_t *hey);
 void dungeon4_2(proc_var_t *hey);
+void dungeon5(proc_var_t *hey);
+void dungeon_boss_samy(proc_var_t *hey);
 
 #endif

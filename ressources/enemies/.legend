@@ -1,5 +1,3 @@
-.legend for enemy files
-
 link to image (.png)
 size in x (rect width)
 size in y (rect height)
@@ -14,3 +12,5 @@ pvm
 frc
 def
 vit
+
+.legend for enemy files

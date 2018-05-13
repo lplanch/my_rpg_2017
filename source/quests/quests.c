@@ -31,6 +31,7 @@ void wake_up(st_rpg *s)
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	s->player.obj->rect =
 	set_texturerect_top(s->player.obj, 144);
+	sfClock_restart(s->proc.gman.clock);
 }
 
 void set_pnj_meeting_without_zac(st_rpg *s)
@@ -45,29 +46,6 @@ void set_pnj_meeting_without_zac(st_rpg *s)
 	s->fi->pnj[s->cut.jade_value].pnj->pos = create_vector2f(8261, 4781);
 	s->fi->pnj[s->cut.zac_value].pnj->pos = create_vector2f(10000, 10000);
 	s->player.obj->pos = create_vector2f(8131, 4771);
-	sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite, s->fi->pnj[s->cut.samy_value].pnj->pos);
-	sfSprite_setPosition(s->fi->pnj[s->cut.jade_value].pnj->sprite,
-	s->fi->pnj[s->cut.jade_value].pnj->pos);
-	sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite, s->fi->pnj[s->cut.zac_value].pnj->pos);
-	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
-}
-
-void after_quests(st_rpg *s)
-{
-	night_scene(s);
-	s->fi->pnj[s->cut.zac_value].pnj->rect.left = 0;
-	s->fi->pnj[s->cut.samy_value].pnj->rect =
-	set_texturerect_top(s->fi->pnj[s->cut.samy_value].pnj, 193);
-	s->fi->pnj[s->cut.zac_value].pnj->rect =
-	set_texturerect_top(s->fi->pnj[s->cut.zac_value].pnj, 193);
-	s->fi->pnj[s->cut.jade_value].pnj->rect =
-	set_texturerect_top(s->fi->pnj[s->cut.jade_value].pnj, 193);
-	s->player.obj->rect =
-	set_texturerect_top(s->player.obj, 193);
-	s->fi->pnj[s->cut.samy_value].pnj->pos = create_vector2f(8100, 7000);
-	s->fi->pnj[s->cut.jade_value].pnj->pos = create_vector2f(9230, 7000);
-	s->fi->pnj[s->cut.zac_value].pnj->pos = create_vector2f(7950, 7700);
-	s->player.obj->pos = create_vector2f(7950, 8160);
 	sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite,
 	s->fi->pnj[s->cut.samy_value].pnj->pos);
 	sfSprite_setPosition(s->fi->pnj[s->cut.jade_value].pnj->sprite,
@@ -75,7 +53,6 @@ void after_quests(st_rpg *s)
 	sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite,
 	s->fi->pnj[s->cut.zac_value].pnj->pos);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
-	s->fi->return_value = 0;
 }
 
 void start_quests_4(st_rpg *s)
@@ -101,12 +78,14 @@ void quests_3(st_rpg *s)
 	sfMusic_stop(s->fi->music.music);
 	sfMusic_play(s->fi->samys_music.music);
 	s->fi->quests[5]->status = 2;
-	s->fi->pnj[s->cut.samy_value].pnj->rect = set_texturerect_top(s->fi->pnj[s->cut.samy_value].pnj, 0);
+	s->fi->pnj[s->cut.samy_value].pnj->rect =
+	set_texturerect_top(s->fi->pnj[s->cut.samy_value].pnj, 0);
 	dialog_box(s, "samy_night", "samy");
 	sfMusic_stop(s->fi->samys_music.music);
 	after_quests(s);
 	s->fi->pnj[s->cut.zac_value].pnj->pos = create_vector2f(1000, 1000);
-	sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite, s->fi->pnj[s->cut.zac_value].pnj->pos);
+	sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite,
+	s->fi->pnj[s->cut.zac_value].pnj->pos);
 	wake_up(s);
 	sfMusic_stop(s->fi->music.music);
 	sfMusic_play(s->fi->reflexion_music.music);
@@ -114,27 +93,4 @@ void quests_3(st_rpg *s)
 	"ressources/images/scenes/background_zach_missing.png",
 	"Zach is missing", "ressources/fonts/quests2.otf");
 	start_quests_4(s);
-}
-
-void quests_1(st_rpg *s)
-{
-	s->player.animsens = 1;
-	sfMusic_stop(s->fi->music.music);
-	sfMusic_play(s->fi->samys_music.music);
-	s->fi->quests[0]->status = 2;
-	s->fi->pnj[s->cut.samy_value].pnj->rect = set_texturerect_top(s->fi->pnj[s->cut.samy_value].pnj, 0);
-	dialog_box(s, "samy_beginning", "samy");
-	s->fi->dialog_box_isopen = 1;
-	move_pnj(s, 7947, 7374, s->cut.jade_value);
-	s->player.obj->rect = set_texturerect_top(s->player.obj, 96);
-	dialog_box(s, "jade_beginning", "samy");
-	s->fi->dialog_box_isopen = 1;
-	move_pnj(s, 7888, 7502, s->cut.zac_value);
-	s->fi->pnj[s->cut.zac_value].pnj->rect = set_texturerect_top(s->fi->pnj[s->cut.zac_value].pnj, 144);
-	s->player.obj->rect = set_texturerect_top(s->player.obj, 0);
-	dialog_box(s, "zac_beginning", "zac");
-	sfText_setString(s->fi->text_finish_quests->text,
-	"Quest 1 complete!");
-	s->fi->var_for_quests = 255;
-	sfMusic_stop(s->fi->samys_music.music);
 }

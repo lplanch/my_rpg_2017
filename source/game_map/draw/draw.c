@@ -72,16 +72,7 @@ void draw_all(st_rpg *s)
 	sfRenderWindow_drawSprite(s->window, s->player.obj->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window, s->fi->map.sprite4, NULL);
 	draw_quests(s);
-	if (s->fi->oui == 1) {
-		draw_name_box(s);
-	} if (s->fi->zach_status == 1) {
-		draw_scene_zach(s);
-	} if (s->fi->samy_status == 1) {
-		draw_scene_samy(s);
-	} if (s->fi->dream_status == 1) {
-		sfRenderWindow_clear(s->window, sfBlack);
-	} if (s->fi->son_status == 1)
-		draw_scene_son(s);
+	draw_cut_scene(s);
 	print_text_finish_quests(s);
 }
 

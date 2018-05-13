@@ -58,6 +58,13 @@ void free_save_inv(char *id, char *nbr, char *temp, char *line)
 	free(line);
 }
 
+void free_and_close(char *path, char *pathname, int fd)
+{
+	close(fd);
+	free(path);
+	free(pathname);
+}
+
 void save_current_inventory(st_rpg *rpg)
 {
 	char *id;
@@ -79,7 +86,5 @@ void save_current_inventory(st_rpg *rpg)
 		current = current->next;
 		free_save_inv(id, nbr, temp, line);
 	}
-	close(fd);
-	free(path);
-	free(pathname);
+	free_and_close(path, pathname, fd);
 }

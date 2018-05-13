@@ -12,164 +12,64 @@ int case_tp(st_rpg *s, int nb_ID)
 {
 	switch (s->fi->map.layer_relief[nb_ID]) {
 	case 314:
-		s->player.obj->pos.x = 3707;
-		s->player.obj->pos.y = 3492;
-		s->player.obj->rect.top = 0;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 1;
+		tp_bridge(s);
 		return (1);
 	case 93:
-		s->player.obj->pos.x = 3720;
-		s->player.obj->pos.y = 2700;
-		s->player.obj->rect.top = 144;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
+		tp_bridge2(s);
 		return (1);
 	case 25:
-		s->player.obj->pos.x = 7246;
-		s->player.obj->pos.y = 5552;
-		s->player.obj->rect.top = 144;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_orphanage(s);
 		return (1);
 	case 26:
-		s->player.obj->pos.x = 7191;
-		s->player.obj->pos.y = 561;
-		s->player.obj->rect.top = 96;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_village(s);
 		return (1);
 	case 57:
-		s->player.obj->pos.x = 3850;
-		s->player.obj->pos.y = 9449;
-		s->player.obj->rect.top = 144;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_inside4(s);
 		return (1);
 	case 91:
-		s->player.obj->pos.x = 8792;
-		s->player.obj->pos.y = 6969;
-		s->player.obj->rect.top = 0;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_bedroom(s);
 		return (1);
 	case 121:
-		s->player.obj->pos.x = 8550;
-		s->player.obj->pos.y = 9049;
-		s->player.obj->rect.top = 0;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_bedroom2(s);
 		return (1);
 	case 123:
-		s->player.obj->pos.x = 7443;
-		s->player.obj->pos.y = 9094;
-		s->player.obj->rect.top = 0;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_bedroom3(s);
 		return (1);
 	case 88:
-		s->player.obj->pos.x = 2636;
-		s->player.obj->pos.y = 11194;
-		s->player.obj->rect.top = 48;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_cook1(s);
 		return (1);
 	case 92:
-		s->player.obj->pos.x = 5847;
-		s->player.obj->pos.y = 7020;
-		s->player.obj->rect.top = 0;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_corridor1(s);
 		return (1);
 	case 120:
-		s->player.obj->pos.x = 5116;
-		s->player.obj->pos.y = 7020;
-		s->player.obj->rect.top = 0;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_corridor2(s);
 		return (1);
 	case 122:
-		s->player.obj->pos.x = 4472;
-		s->player.obj->pos.y = 7020;
-		s->player.obj->rect.top = 0;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_corridor3(s);
 		return (1);
 	case 56:
-		s->player.obj->pos.x = 7233;
-		s->player.obj->pos.y = 4301;
-		s->player.obj->rect.top = 0;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_outside4(s);
 		return (1);
 	case 87:
-		s->player.obj->pos.x = 153;
-		s->player.obj->pos.y = 8640;
-		s->player.obj->rect.top = 96;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_cook2(s);
 		return (1);
-
 	case 119:
-		s->player.obj->pos.x = 661;
-		s->player.obj->pos.y = 4959;
-		s->player.obj->rect.top = 144;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_inside2(s);
 		return (1);
 	case 118:
-		s->player.obj->pos.x = 4062;
-		s->player.obj->pos.y = 1730;
-		s->player.obj->rect.top = 0;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_outside2(s);
 		return (1);
 	case 150:
-		s->player.obj->pos.x = 526;
-		s->player.obj->pos.y = 6069;
-		s->player.obj->rect.top = 144;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_inside3(s);
 		return (1);
 	case 149:
-		s->player.obj->pos.x = 5025;
-		s->player.obj->pos.y = 1401;
-		s->player.obj->rect.top = 0;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_outside3(s);
 		return (1);
 	case 151:
-		s->player.obj->pos.x = 1615;
-		s->player.obj->pos.y = 6229;
-		s->player.obj->rect.top = 144;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_inside1(s);
 		return (1);
 	case 152:
-		s->player.obj->pos.x = 4395;
-		s->player.obj->pos.y = 2512;
-		s->player.obj->rect.top = 0;
-		sfSprite_setPosition(s->player.obj->sprite,
-		s->player.obj->pos);
-		s->fi->camera_pos = 0;
+		tp_outside1(s);
 		return (1);
 	default:
 		return (0);

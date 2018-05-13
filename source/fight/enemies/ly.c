@@ -10,12 +10,28 @@
 
 void update_ly(st_rpg *s, float dt)
 {
-	clocked_animation(s->f.boss.ray->anim);
+	if (s->f.mob[1]->cdcount >= 0)
+		s->f.mob[1]->cdcount -= dt;
+	if (s->f.mob[1]->cdcount < 0 && enemy_is_able(s, 1)) {
+		s->f.mob[1]->cast = 2;
+		s->f.boss.casting = 1;
+		s->f.boss.attack_ly = rand() % 2;
+	} if (s->f.boss.casting > 0) {
+		s->f.boss.casting -= dt;
+	} if (s->f.boss.casting < 0) {
+		s->f.mob[1]->cdcount = s->f.mob[1]->cd;
+		s->f.mob[1]->cast = 0;
+		s->f.boss.casting = 0;
+		launch_ly_spell(s);
+	}
+	update_ly_ray(s, dt);
 }
 
 void display_ly(st_rpg *s)
 {
-	choose_display_enemies(s, 1);
+	if (s->f.mob[1]->alive)
+		choose_display_enemies(s, 1);
+	display_aoe(s->window, s->f.boss.ray);
 }
 
 void destroy_ly(st_rpg *s)
@@ -37,4 +53,8 @@ void generate_ly(st_rpg *s)
 	s->f.mob[1]->obj->pos);
 	sfSprite_setScale(s->f.mob[1]->obj->sprite, (sfVector2f){3, 3});
 	s->f.boss.ray = create_aoe_from_file("ressources/spells/enemies/ray");
+	s->f.boss.attack_ly = 0;
+	s->f.boss.casting = 0;
+	s->f.boss.rayused = 0;
+	s->f.boss.rayrat = create_vector2f(0, 0);
 }

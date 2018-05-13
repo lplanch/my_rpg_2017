@@ -31,6 +31,7 @@ int launch_cust_menu_classes(st_rpg *s)
 		create_player_from_cust(s);
 		custom_destroy(s);
 		create_player(s);
+		s->inv.first_slot = NULL;
 		return (prog(s));
 	}
 	return (0);

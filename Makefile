@@ -29,10 +29,13 @@ FILES		=	source/main.c							\
 			source/main_menu/togo.c						\
 			source/main_menu/launcher.c					\
 			source/main_menu/base.c						\
+			source/main_menu/base_part2.c					\
 			source/main_menu/events.c					\
 			source/main_menu/sound_set.c					\
+			source/main_menu/sound_set_part2.c				\
 			source/main_menu/set_text_option.c				\
 			source/main_menu/shader.c					\
+			source/main_menu/display_main_menu_interface.c			\
 			source/custom/main.c						\
 			source/custom/get_buttons.c					\
 			source/custom/base.c						\
@@ -45,6 +48,7 @@ FILES		=	source/main.c							\
 			source/fight/icons/icons.c					\
 			source/fight/icons/icons_cd.c					\
 			source/fight/display_class.c					\
+			source/fight/display_gunner.c					\
 			source/fight/update_class.c					\
 			source/fight/get_cooldowns.c					\
 			source/fight/main.c						\
@@ -61,12 +65,17 @@ FILES		=	source/main.c							\
 			source/fight/projectile/projectile_effects.c			\
 			source/fight/hitbox.c						\
 			source/fight/enemies/champ.c					\
+			source/fight/enemies/champ_generation.c				\
 			source/fight/enemies/samy.c					\
 			source/fight/enemies/samy_spells.c				\
+			source/fight/enemies/lauch_samy_spells.c			\
 			source/fight/enemies/champ_spells.c				\
 			source/fight/enemies/champ_update.c				\
 			source/fight/enemies/ly.c					\
+			source/fight/enemies/ly_spells.c				\
 			source/fight/enemies/boss.c					\
+			source/fight/enemies/create_boss_name.c				\
+			source/fight/enemies/boss_life_bars.c				\
 			source/fight/enemies/hitbox.c					\
 			source/fight/enemies/attack.c					\
 			source/fight/enemies/enemy.c					\
@@ -111,9 +120,13 @@ FILES		=	source/main.c							\
 			source/spells/warrior_2.c					\
 			source/spells/warrior_3.c					\
 			source/spells/update_archer_1.c					\
-			source/spells/update_gunner_1.c					\
-			source/spells/update_rogue_1.c					\
-			source/spells/update_warrior_1.c				\
+			source/spells/update_gunner_1_1.c				\
+			source/spells/update_gunner_1_2.c				\
+			source/spells/update_gunner_1_3.c				\
+			source/spells/update_rogue_1_1.c				\
+			source/spells/update_rogue_1_2.c				\
+			source/spells/update_warrior_1_1.c				\
+			source/spells/update_warrior_1_2.c				\
 			source/interface/life_bar.c					\
 			source/interface/main_particles.c				\
 			source/interface/status_menu.c					\
@@ -129,6 +142,7 @@ FILES		=	source/main.c							\
 			source/interface/tree_proceed.c					\
 			source/interface/generate_tree_menu.c				\
 			source/interface/button_generator.c				\
+			source/interface/get_stat.c					\
 			source/save/create_stat.c					\
 			source/save/create_tree.c					\
 			source/save/write_save.c					\
@@ -149,8 +163,10 @@ FILES		=	source/main.c							\
 			source/game_map/move/move_pnj.c					\
 			source/game_map/setup_destroy/setup.c				\
 			source/game_map/setup_destroy/setup2.c				\
+			source/game_map/setup_destroy/setup_scene.c			\
 			source/game_map/setup_destroy/free.c				\
 			source/game_map/setup_destroy/destroy.c				\
+			source/game_map/setup_destroy/destroy_quests.c			\
 			source/game_map/fcnt/remalloc_tab.c				\
 			source/game_map/fcnt/create_music.c				\
 			source/game_map/fcnt/lib_func.c					\
@@ -168,6 +184,9 @@ FILES		=	source/main.c							\
 			source/game_map/pnj/check_pnj.c					\
 			source/game_map/pnj/get_pnj.c					\
 			source/game_map/pnj/events/events_fishing.c			\
+			source/game_map/pnj/events/update_fishing.c			\
+			source/game_map/pnj/events/draw_fishing.c			\
+			source/game_map/pnj/events/create_fishing.c			\
 			source/game_map/dialog/zone_text_create.c			\
 			source/game_map/dialog/zone_text.c				\
 			source/game_map/dialog/choice_box.c				\
@@ -175,22 +194,38 @@ FILES		=	source/main.c							\
 			source/game_map/dialog/choicebox_create_event.c			\
 			source/game_map/dialog/mouse_in_object_dialogbox.c		\
 			source/game_map/dialog/name_top_head.c				\
+			source/game_map/tp/tp_bedroom.c					\
+			source/game_map/tp/tp_bridge.c					\
+			source/game_map/tp/tp_cook.c					\
+			source/game_map/tp/tp_corridor.c				\
+			source/game_map/tp/tp_inside.c					\
+			source/game_map/tp/tp_orphanage.c				\
+			source/game_map/tp/tp_outside.c					\
 			source/quests/create_difquests.c				\
 			source/quests/get_quests_rewards.c				\
 			source/quests/get_all_quests.c					\
 			source/quests/check_quests.c					\
 			source/quests/get_quests.c					\
 			source/quests/quests.c						\
+			source/quests/quests1.c						\
 			source/quests/check_pnj_for_quests.c				\
+			source/quests/check_pnj_for_quests_part2.c			\
 			source/quests/mouse_in_object_quest_box.c			\
+			source/quests/print_text_finish_quests.c			\
 			source/scenes/night.c						\
 			source/scenes/background_with_text.c				\
 			source/scenes/death_zach.c					\
+			source/scenes/death_zach_setup.c				\
+			source/scenes/final_fight.c					\
 			source/scenes/death_samy.c					\
+			source/scenes/death_samy_setup.c				\
 			source/scenes/move_pnj_zach.c					\
 			source/scenes/move_player_to_zach.c				\
 			source/scenes/scene_recup_son.c					\
+			source/scenes/samy_boss.c					\
+			source/scenes/after_quests.c					\
 			source/player/player.c						\
+			source/player/security_collide.c						\
 			source/player/player_movement_map.c				\
 			source/player/player_animation_village.c			\
 			source/player/player_movement.c					\
@@ -200,6 +235,7 @@ FILES		=	source/main.c							\
 			source/dungeon/main_proc.c					\
 			source/dungeon/update_origin/icons.c				\
 			source/dungeon/update_origin/life_bar.c				\
+			source/dungeon/make_array/create_map_boss.c			\
 			source/dungeon/make_array/map_creation.c			\
 			source/dungeon/make_array/verify_collide.c			\
 			source/dungeon/make_array/corridors.c				\
@@ -214,6 +250,7 @@ FILES		=	source/main.c							\
 			source/dungeon/make_sprite_map/create_blocks_deadlock.c		\
 			source/dungeon/launch_game/launch_dungeon.c			\
 			source/dungeon/launch_game/dungeon_loop.c			\
+			source/dungeon/launch_game/dungeon_loop_create_update.c		\
 			source/dungeon/launch_game/camera_manager.c			\
 			source/dungeon/launch_game/input_manager.c			\
 			source/dungeon/launch_game/free_dungeon.c			\
@@ -244,6 +281,7 @@ FILES		=	source/main.c							\
 			source/dungeon/ground_item_system/update_ground_item.c		\
 			source/dungeon/npc/ennemies_dungeon.c				\
 			source/dungeon/dungeons_preset/dungeon_preset1-5.c		\
+			source/dungeon/dungeons_preset/dungeon_preset_boss.c		\
 
 SRCS		=	$(FILES)
 

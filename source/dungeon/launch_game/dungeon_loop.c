@@ -8,70 +8,16 @@
 #include "my_rpg.h"
 #include "my.h"
 
-void create_dungeon_loop(st_rpg *s)
+void set_for_quit(st_rpg *s)
 {
-	s->boss = 2;
-	s->dungeon_music.music =
-	create_music(s->s_music, s->proc.pvar.dungeon_music);
-	sfMusic_play(s->dungeon_music.music);
-	sfMusic_setLoop(s->dungeon_music.music, 1);
-	create_player(s);
-	create_weapon(s);
-	map_creation(&s->proc);
-	s->proc.smap = create_sprite_map(&s->proc, s->proc.map);
-	init_dungeon_game(s);
-	create_items_list(s);
-	create_main_fight(s);
-	create_icons(s);
-	create_class(s);
-	create_dmg_show(s);
-	create_life_bar(s);
-	generate_enemies(s);
-	create_main_particles(s);
-	set_shader(s);
-	sfClock_restart(s->proc.gman.clock);
-	sfClock_restart(s->f.proc.clock);
-}
-
-void destroy_dungeon_loop(st_rpg *s)
-{
-	create_dmg_show(s);
-	destroy_class(s);
-	destroy_icons(s);
-	destroy_life_bar(s);
-	destroy_enemies(s);
-	destroy_main_fight(s);
-	destroy_dungeon_shader(s);
-	destroy_main_particles(s);
-	if (s->returnv != 0)
-		free_dungeon(s, &s->proc);
-	sfMusic_destroy(s->dungeon_music.music);
-	sfMusic_play(s->fi->music.music);
-	s->fi->map_status = 0;
-}
-
-void update_origin(st_rpg *s)
-{
-	origin_life_bar(s);
-	origin_icons(s);
-}
-
-void update_dungeon_loop(st_rpg *s)
-{
-	update_dmg_show(s);
-	update_pos_weapon(s);
-	update_bars(s);
-	update_icons_cd(s);
-	update_fight(s);
-	apply_projectiles(s);
-	update_enemies(s);
-	update_origin(s);
-	update_sprite(s);
-	if (!s->f.panim)
-		player_animation(s);
-	update_class(s);
-	update_particles(s);
-	update_item_ground(s);
+	s->returnv = 0;
+	destroy_dungeon_loop(s);
+	s->fi->camera_pos = 1;
+	s->player.obj->pos.x = 3707;
+	s->player.obj->pos.y = 3550;
+	s->fi->dialog_box_isopen = 0;
+	s->fi->var_choice = 0;
+	s->fi->nb_choice_pre = 0;
 }
 
 void stop_player(st_rpg *s)
@@ -90,14 +36,13 @@ void display_dungeon(st_rpg *s)
 	draw_item_on_ground(s);
 	display_player(s);
 	display_enemies(s);
-	//display_champ(s);
-	//display_samy(s);
 	display_class(s);
 	display_icons(s);
 	display_life_bar(s);
 	display_dmg_show(s);
 	display_main_particles(s);
-	verify_minimap(s);
+	if (!s->boss)
+		verify_minimap(s);
 	verify_inventory(s);
 	verify_fast_inventory(s);
 }
@@ -136,14 +81,7 @@ int dungeon_loop(st_rpg *s)
 		display_dungeon(s);
 		sfRenderWindow_display(s->window);
 		if (verify_exit_player(s)) {
-			s->returnv = 0;
-			destroy_dungeon_loop(s);
-			s->fi->camera_pos = 1;
-			s->player.obj->pos.x = 3707;
-			s->player.obj->pos.y = 3550;
-			s->fi->dialog_box_isopen = 0;
-			s->fi->var_choice = 0;
-			s->fi->nb_choice_pre = 0;
+			set_for_quit(s);
 			return (4);
 		}
 	}

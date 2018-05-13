@@ -12,6 +12,7 @@ void destroy_anim(st_anim *anim)
 {
 	destroy_object(anim->obj);
 	sfClock_destroy(anim->t.clock);
+	free(anim);
 }
 
 st_anim *create_anim(g_object *obj, sfVector2i max, float speed)

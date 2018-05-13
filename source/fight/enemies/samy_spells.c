@@ -8,14 +8,6 @@
 #include "my_rpg.h"
 #include "my.h"
 
-/*void launch_samy_dash(st_rpg *s)
-{
-}
-
-void launch_samy_dash(st_rpg *s)
-{
-}*/
-
 void proc_samy_dash(st_rpg *s)
 {
 	float amount = s->f.mob[0]->stat->frc -
@@ -32,6 +24,7 @@ void proc_samy_dash(st_rpg *s)
 	s->f.knock->speed * 3;
 	launch_dmg_show(s, amount, s->player.obj);
 	s->f.recover->count = 1.5;
+	s->f.recover->amount = 1;
 }
 
 void update_samy_dash(st_rpg *s, float dt)
@@ -43,22 +36,14 @@ void update_samy_dash(st_rpg *s, float dt)
 			s->f.boss.dash->on = 0;
 		} if (enemy_hitbox(s->player.obj, s->f.mob[0]))
 			proc_samy_dash(s);
-		s->f.mob[0]->ratios.x = s->f.boss.dash->ratios.x * s->f.boss.dash->speed;
-		s->f.mob[0]->ratios.y = s->f.boss.dash->ratios.y * s->f.boss.dash->speed;
+		s->f.mob[0]->ratios.x =
+		s->f.boss.dash->ratios.x * s->f.boss.dash->speed;
+		s->f.mob[0]->ratios.y =
+		s->f.boss.dash->ratios.y * s->f.boss.dash->speed;
 		verify_collide_map_enemies(s, dt, 0);
 		sfSprite_setPosition(s->f.mob[0]->obj->sprite,
 		s->f.mob[0]->obj->pos);
 	}
-}
-
-void launch_samy_dash(st_rpg *s)
-{
-	s->f.boss.dash->ratios = get_ratios(get_angle_enemy(s, 0));
-	s->f.mob[0]->cast = 2;
-	s->f.boss.dash->on = 1;
-	s->f.boss.dash->count = s->f.boss.dash->range;
-	s->f.mob[0]->ratios.x = s->f.boss.dash->ratios.x * s->f.boss.dash->speed;
-	s->f.mob[0]->ratios.y = s->f.boss.dash->ratios.y * s->f.boss.dash->speed;
 }
 
 void update_samy_fusrohdah(st_rpg *s)
@@ -70,31 +55,4 @@ void update_samy_fusrohdah(st_rpg *s)
 			s->f.boss.fus->on = 0;
 		}
 	}
-}
-
-void launch_samy_fusrohdah(st_rpg *s)
-{
-	s->f.boss.fus->ratios = get_ratios(get_angle_enemy(s, 0));
-	s->f.mob[0]->cast = 2;
-	s->f.boss.fus->on = 1;
-	s->f.boss.fus->count = s->f.boss.fus->range;
-	s->player.nbr_frame.x = s->f.boss.fus->ratios.x * s->f.boss.fus->speed;
-	s->player.nbr_frame.y = s->f.boss.fus->ratios.y * s->f.boss.fus->speed;
-}
-
-void launch_samy_rage(st_rpg *s)
-{
-	s->f.boss.rage->amount = 1;
-	s->f.boss.fus->speed = s->f.boss.fus->speed * 1.5;
-	s->f.boss.fus->range = s->f.boss.fus->range * 1.5;
-	s->f.boss.dash->speed = s->f.boss.dash->speed * 1.2;
-	s->f.boss.dash->range = s->f.boss.dash->range * 1.2;
-}
-
-void launch_samy_spell(st_rpg *s)
-{
-	void (*list[3])(st_rpg *s) = {launch_samy_dash,
-	launch_samy_fusrohdah, launch_samy_rage};
-
-	(list[s->f.boss.attack])(s);
 }

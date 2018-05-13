@@ -33,12 +33,10 @@ void move_all_character_son(st_rpg *s)
 	s->fi->camera.y + 500));
 	move_pnj_zach(s, create_vector2f(s->fi->camera.x - 60,
 	s->fi->camera.y + 500), s->cut.son_value);
-	s->fi->pnj[s->cut.son_value].pnj->pos =
-	create_vector2f(1300, 6155);
+	s->fi->pnj[s->cut.son_value].pnj->pos = create_vector2f(1300, 6155);
 	sfSprite_setPosition(s->fi->pnj[s->cut.son_value].pnj->sprite,
 	s->fi->pnj[s->cut.son_value].pnj->pos);
-	s->player.obj->pos =
-	create_vector2f(1368, 6133);
+	s->player.obj->pos = create_vector2f(1368, 6133);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	move_camera(s);
 }
@@ -67,6 +65,7 @@ void scene_recup_son(st_rpg *s)
 	s->fi->son_status = 1;
 	setup_pos_for_scene_son(s, scale);
 	move_all_character_son(s);
+	stop_player(s);
 	s->fi->son_status = 0;
 	s->player.obj->rect =
 	set_texturerect_top(s->player.obj, 48);
@@ -74,5 +73,7 @@ void scene_recup_son(st_rpg *s)
 	set_texturerect_top(s->fi->pnj[s->cut.son_value].pnj, 96);
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "father_loos_son2", "Matthew");
+	s->player.obj->pos = create_vector2f(1368, 6133);
+	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	sfMusic_play(s->fi->music.music);
 }

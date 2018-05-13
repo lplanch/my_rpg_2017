@@ -51,7 +51,8 @@ void display_status_menu(st_rpg *s)
 void generate_status_info(st_rpg *s, int x, int y)
 {
 	s->statm.classe = create_button(get_class_string(s->
-	player.cdata.classe), create_object("ressources/images/interface/pictoclass.png",
+	player.cdata.classe),
+	create_object("ressources/images/interface/pictoclass.png",
 	create_vector2f(x + 1620, y + 100), create_rect(0, 32 *
 	s->player.cdata.classe, 32, 32), 0), sfWhite, 30);
 	for (int i = 0; i != 6; i += 1) {

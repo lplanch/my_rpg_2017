@@ -8,72 +8,50 @@
 #include "my.h"
 #include "game_map.h"
 
-void draw_scene_samy(st_rpg *s)
+void draw_scene_samy_boss(st_rpg *s)
 {
 	sfRenderWindow_clear(s->window, sfBlack);
-	sfRenderWindow_drawSprite(s->window, s->cut.map_samy->sprite, NULL);
-	if (s->cut.champ_status == 1)
+	sfRenderWindow_drawSprite(s->window,
+	s->cut.map_samy_boss->sprite, NULL);
+	if (s->cut.samy_boss_status == 1)
 		sfRenderWindow_drawSprite(s->window,
-		s->cut.champ->sprite, NULL);
+		s->cut.samy_boss->sprite, NULL);
+	sfRenderWindow_drawSprite(s->window, s->cut.samyd->sprite, NULL);
 	sfRenderWindow_drawSprite(s->window,
 	s->player.obj->sprite, NULL);
-	sfRenderWindow_drawSprite(s->window,
-	s->fi->pnj[s->cut.samy_value].pnj->sprite, NULL);
 }
 
-void dialog_death_samy(st_rpg *s)
+void dialog_samy_boss(st_rpg *s)
 {
-	s->fi->dialog_box_isopen = 1;
-	dialog_box(s, "samy_death_samy2", "Samy");
-	s->cut.champ_status = 1;
-	s->fi->dialog_box_isopen = 1;
-	dialog_box(s, "champ_death_samy1", "Champ");
-	s->fi->dialog_box_isopen = 1;
-	s->fi->pnj[s->cut.samy_value].pnj->rect =
-	set_texturerect_top(s->fi->pnj[s->cut.samy_value].pnj, 96);
-	dialog_box(s, "samy_death_samy3", "Samy");
-	s->cut.champ_status = 0;
-	reset_pos_friends(s);
-	sfMusic_stop(s->fi->samys_music.music);
-	s->fi->pnj[s->cut.samy_value].pnj->pos = create_vector2f(10000, 10000);
-	sfSprite_setPosition(s->fi->pnj[2].pnj->sprite, s->fi->pnj[s->cut.samy_value].pnj->pos);
-	s->fi->dialog_box_isopen = 1;
-	dialog_box(s, "champ_death_samy2", "Champ");
-	move_player_to_zach(s, create_vector2f(s->player.obj->pos.x - 200,
-	s->fi->camera.y - 200));
-	quit_game_for_dungeon(s);
-	s->fi->return_value = launch_dungeon(s, &dungeon3_2);
-	//samy_boss(s);
-}
-
-void move_all_character_samy(st_rpg *s)
-{
-	move_player_to_zach(s, create_vector2f(s->player.obj->pos.x - 350,
-	s->fi->camera.y - 200));
+	move_player_to_zach(s, create_vector2f(s->fi->camera.x - 180,
+	s->fi->camera.y));
+	s->player.obj->rect =
+	set_texturerect_top(s->player.obj, 144);
 	s->fi->dialog_box_isopen = 1;
 	sfMusic_play(s->fi->samys_music.music);
-	dialog_box(s, "samy_death_samy1", "Samy");
-	s->player.obj->rect =
-	set_texturerect_top(s->player.obj, 96);
-	move_pnj_zach(s, create_vector2f(s->fi->camera.x - 150,
-	s->fi->camera.y - 90), s->cut.samy_value);
-	move_pnj_zach(s, create_vector2f(s->fi->camera.x - 200,
-	s->fi->camera.y - 200), s->cut.samy_value);
-	s->fi->pnj[s->cut.samy_value].pnj->rect =
-	set_texturerect_top(s->fi->pnj[s->cut.samy_value].pnj, 48);
+	dialog_box(s, "samy_boss_samy1", "Samy");
+	s->cut.samy_boss_status = 1;
+	sfMusic_stop(s->fi->samys_music.music);
+	sfMusic_play(s->fi->samy_boss.music);
+	s->cut.samy_boss->pos = create_vector2f(s->cut.samyd->pos.x + 10,
+	s->cut.samyd->pos.y - 25);
+	s->cut.samyd->pos = create_vector2f(10000, 10000);
+	sfSprite_setPosition(s->cut.samyd->sprite, s->cut.samyd->pos);
+	sfSprite_setPosition(s->cut.samy_boss->sprite, s->cut.samy_boss->pos);
+	s->fi->dialog_box_isopen = 1;
+	dialog_box(s, "samy_boss_samy2", "Samy");
+	sfMusic_stop(s->fi->samy_boss.music);
+	s->cut.samy_boss_status = 0;
 }
 
-void setup_pos_for_scene_samy(st_rpg *s, sfVector2f scale, sfVector2f scale2)
+void setup_pos_for_scene_samy_boss(st_rpg *s, sfVector2f scale,
+sfVector2f scale2)
 {
-	s->cut.champ_status = 0;
-	sfSprite_scale(s->cut.map_samy->sprite, scale);
-	sfSprite_scale(s->cut.champ->sprite, scale2);
-	s->fi->pnj[s->cut.samy_value].pnj->rect =
-	set_texturerect_top(s->fi->pnj[s->cut.samy_value].pnj, 144);
-	s->fi->pnj[s->cut.samy_value].pnj->pos =
-	create_vector2f(s->fi->camera.x + 20, s->fi->camera.y + 500);
-	sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite,
-	s->fi->pnj[s->cut.samy_value].pnj->pos);
+	sfVector2f scale3 = {3, 3};
+
+	sfSprite_scale(s->cut.map_samy_boss->sprite, scale);
+	sfSprite_scale(s->cut.samyd->sprite, scale2);
+	sfSprite_scale(s->cut.samy_boss->sprite, scale3);
 	s->player.obj->pos =
 	create_vector2f(s->fi->camera.x + 20, s->fi->camera.y + 400);
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
@@ -81,42 +59,50 @@ void setup_pos_for_scene_samy(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 	set_texturerect_top(s->player.obj, 144);
 }
 
-void death_samy(st_rpg *s)
+void samy_boss_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 {
-	sfVector2f scale = {2, 2};
-	sfVector2f scale2 = {3, 3};
-
-	s->cut.map_samy->pos = create_vector2f(s->fi->camera.x - 740,
-	s->fi->camera.y - 560);
-	s->cut.champ->pos = create_vector2f(s->fi->camera.x - 115,
-	s->fi->camera.y - 240);
-	sfSprite_setPosition(s->cut.map_samy->sprite, s->cut.map_samy->pos);
-	sfSprite_setPosition(s->cut.champ->sprite, s->cut.champ->pos);
+	setup_pos_for_scene_samy_boss(s, scale, scale2);
+	dialog_samy_boss(s);
+	s->fi->samy_boss_status = 0;
+	reset_pos_friends(s);
+	after_quests(s);
+	s->fi->pnj[s->cut.zac_value].pnj->pos = create_vector2f(10000, 10000);
+	sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite,
+	s->fi->pnj[s->cut.zac_value].pnj->pos);
+	s->fi->pnj[s->cut.samy_value].pnj->pos = create_vector2f(10000, 10000);
+	sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite,
+	s->fi->pnj[s->cut.samy_value].pnj->pos);
+	s->fi->dream_status = 1;
+	s->fi->dialog_box_isopen = 1;
 	sfMusic_stop(s->fi->music.music);
-	s->fi->samy_status = 1;
-	setup_pos_for_scene_samy(s, scale, scale2);
-	move_all_character_samy(s);
-	dialog_death_samy(s);
-	s->fi->samy_status = 0;
+	sfMusic_play(s->fi->reflexion_music.music);
+	dialog_box(s, "player_dream2", "hero");
+	sfMusic_stop(s->fi->reflexion_music.music);
 	sfMusic_play(s->fi->music.music);
+	s->fi->dream_status = 0;
+	wake_up(s);
 }
 
 void samy_boss(st_rpg *s)
 {
-	sfVector2f scale = {2, 2};
-	sfVector2f scale2 = {3, 3};
+	sfVector2f scale = {1.5, 1.5};
+	sfVector2f scale2 = {1.4, 1.4};
 
-	s->cut.map_samy->pos = create_vector2f(s->fi->camera.x - 740,
+	s->returnv = 0;
+	s->fi->return_value = 0;
+	s->fi->num_dungeon = 0;
+	s->player.obj->pos = create_vector2f(7950, 8160);
+	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
+	s->fi->camera_pos = 0;
+	move_camera(s);
+	s->cut.map_samy_boss->pos = create_vector2f(s->fi->camera.x - 740,
 	s->fi->camera.y - 560);
-	s->cut.champ->pos = create_vector2f(s->fi->camera.x - 115,
-	s->fi->camera.y - 240);
-	sfSprite_setPosition(s->cut.map_samy->sprite, s->cut.map_samy->pos);
-	sfSprite_setPosition(s->cut.champ->sprite, s->cut.champ->pos);
+	s->cut.samyd->pos = create_vector2f(s->fi->camera.x - 180,
+	s->fi->camera.y - 150);
+	sfSprite_setPosition(s->cut.map_samy_boss->sprite,
+	s->cut.map_samy_boss->pos);
+	sfSprite_setPosition(s->cut.samyd->sprite, s->cut.samyd->pos);
 	sfMusic_stop(s->fi->music.music);
-	s->fi->samy_status = 1;
-	setup_pos_for_scene_samy(s, scale, scale2);
-	move_all_character_samy(s);
-	dialog_death_samy(s);
-	s->fi->samy_status = 0;
-	sfMusic_play(s->fi->music.music);
+	s->fi->samy_boss_status = 1;
+	samy_boss_part2(s, scale, scale2);
 }

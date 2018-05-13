@@ -34,9 +34,9 @@ void display_pause_menu(st_rpg *s)
 		sfText_setColor(s->pausm.saved->text,
 		(sfColor){255, 255, 255, s->pausm.opac});
 		sfRenderWindow_drawText(s->window,
-			s->pausm.saved->text, NULL);
-			s->pausm.opac -= 2;
-		}
+		s->pausm.saved->text, NULL);
+		s->pausm.opac -= 2;
+	}
 }
 
 void which_display(st_rpg *s)

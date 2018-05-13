@@ -66,13 +66,13 @@ typedef struct proc_var
 	char *dungeon_music;
 	float volume;
 	char *texture_path;
-	unsigned int map_width;
-	unsigned int map_height;
-	unsigned int max_room_s;
-	unsigned int min_room_s;
-	unsigned int nbr_rooms;
-	unsigned int min_enemies;
-	unsigned int max_enemies;
+	int map_width;
+	int map_height;
+	int max_room_s;
+	int min_room_s;
+	int nbr_rooms;
+	int min_enemies;
+	int max_enemies;
 	int enemy_nbr;
 	int current_floor;
 	int max_floor;
@@ -91,5 +91,21 @@ typedef struct proc_gen
 	sfTexture *blocks_texture;
 	unsigned int current_floor;
 } proc_t;
+
+typedef struct fishing
+{
+	int score;
+	int in_catch;
+	int returnv;
+	int done;
+	sfClock *catch_clock;
+	sfSprite *character;
+	sfSprite *rod;
+	sfIntRect rod_rect;
+	sfTexture *rod_sheet;
+	sfText *time_rem;
+	sfText *cur_score;
+	sfFont *fishing_font;
+} fish_t;
 
 #endif
