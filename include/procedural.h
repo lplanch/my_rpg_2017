@@ -177,6 +177,7 @@ void create_fast_inventory_sprites(st_rpg *rpg);
 void verify_mouse_focused(st_rpg *rpg);
 void verify_mouse_released(st_rpg *rpg);
 void draw_items_fast_inventory(st_rpg *rpg);
+void draw_fast_inv_slot(st_rpg *rpg);
 
 //ITEM INSIDE DUNGEONS
 void create_items_list(st_rpg *rpg);
