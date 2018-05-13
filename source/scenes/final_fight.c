@@ -45,6 +45,7 @@ void final_fight_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 
 	s->boss = 2;
 	s->fi->return_value = launch_dungeon(s, &dungeon_boss_champ);
+	s->boss = 0;
 	s->fi->boss_status = 0;
 	reset_pos_friends(s);
 	s->fi->pnj[s->cut.zac_value].pnj->pos = create_vector2f(10000, 10000);

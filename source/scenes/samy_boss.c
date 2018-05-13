@@ -67,7 +67,6 @@ void samy_boss_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 	s->cut.samy_boss_status = 0;
 	s->fi->samy_boss_status = 0;
 	reset_pos_friends(s);
-	after_quests(s);
 	s->fi->pnj[s->cut.zac_value].pnj->pos = create_vector2f(10000, 10000);
 	sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite,
 	s->fi->pnj[s->cut.zac_value].pnj->pos);
@@ -83,6 +82,7 @@ void samy_boss_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 		sfMusic_stop(s->fi->reflexion_music.music);
 		sfMusic_play(s->fi->music.music);
 		s->fi->dream_status = 0;
+		after_quests(s);
 		wake_up(s);
 	}
 }
