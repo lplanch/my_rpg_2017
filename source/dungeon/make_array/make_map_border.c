@@ -36,15 +36,15 @@ char **border_map(proc_var_t *pvar, char **map)
 	result[pvar->map_height + 3] = my_calloc(sizeof(char) *
 	(pvar->map_width + 5));
 	result[pvar->map_height + 4] = NULL;
-	for (unsigned int x = 0; x < pvar->map_width + 4; x++)
+	for (int x = 0; x < pvar->map_width + 4; x++)
 		result[0][x] = '%';
-	for (unsigned int x = 0; x < pvar->map_width + 4; x++)
+	for (int x = 0; x < pvar->map_width + 4; x++)
 		result[1][x] = '%';
 	for (int y = 0; map[y] != NULL; y++)
 		result[y + 2] = map_width_dup(map[y]);
-	for (unsigned int x = 0; x < pvar->map_width + 4; x++)
+	for (int x = 0; x < pvar->map_width + 4; x++)
 		result[pvar->map_height + 2][x] = '%';
-	for (unsigned int x = 0; x < pvar->map_width + 4; x++)
+	for (int x = 0; x < pvar->map_width + 4; x++)
 		result[pvar->map_height + 3][x] = '%';
 	free(map);
 	return (result);

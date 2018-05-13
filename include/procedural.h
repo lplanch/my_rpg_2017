@@ -25,10 +25,10 @@ static const sfKeyCode key_left = sfKeyQ;
 static const sfKeyCode key_right = sfKeyD;
 static const sfKeyCode key_map = sfKeyTab;
 static const sfKeyCode key_inv = sfKeyLShift;
+static const sfKeyCode key_fishing = sfKeySpace;
 static const sfMouseButton key_fast_inv = sfMouseMiddle;
 static const sfMouseButton key_select_item = sfMouseLeft;
 static const sfMouseButton key_use_item = sfMouseRight;
-
 
 //LAUNCH DUNGEON FUNCTION
 int launch_dungeon(st_rpg *rpg, void (*function_pvar)(proc_var_t *));
@@ -56,6 +56,9 @@ sfVector2f get_exit_pos(proc_t *proc);
 int verify_exit_player(st_rpg *rpg);
 int vcollide(char block);
 int is_wall(char block);
+
+//MAKE BOSS MAP
+void map_boss_creation(st_rpg *rpg);
 
 //CREATE SPRITE MAP
 smap_t **create_sprite_map(proc_t *proc, char **map);
@@ -176,6 +179,9 @@ sfVector2f create_ennemy_position(st_rpg *rpg);
 
 //OTHER LOUIS WORK ON OTHER PARTICULAR EVENTS
 //FISHING
-void verify_choice_fishing(st_rpg *rpg, char **tab, char *str, int compter);
+int launch_fishing_instance(st_rpg *rpg);
+void create_fishing_instance(st_rpg *rpg, fish_t *fish);
+void draw_fishing_instance(st_rpg *rpg, fish_t *fish);
+void update_fishing_instance(st_rpg *rpg, fish_t *fish, float elapsed);
 
 #endif

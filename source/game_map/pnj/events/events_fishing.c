@@ -8,15 +8,33 @@
 #include "my.h"
 #include "my_rpg.h"
 
-void launch_fishing_instance(st_rpg *rpg)
+void destroy_fishing_instance(st_rpg *rpg, fish_t *fish, sfClock *trem)
 {
-
+	sfClock_destroy(trem);
+	sfSprite_destroy(fish->character);
+	sfSprite_destroy(fish->rod);
+	sfTexture_destroy(fish->rod_sheet);
+	sfText_destroy(fish->time_rem);
+	sfText_destroy(fish->cur_score);
+	sfFont_destroy(fish->fishing_font);
+	sfMusic_play(rpg->fi->music.music);
 }
 
-void verify_choice_fishing(st_rpg *rpg, char **tab, char *str, int compter)
+int launch_fishing_instance(st_rpg *rpg)
 {
-	if (!my_strcmp(tab[rpg->fi->choice_cursor], "Of course !")) {
-		choice_box_quit(rpg, tab, str, compter);
-		launch_fishing_instance(rpg);
+	int returnv;
+	sfClock *time_remaining = sfClock_create();
+	sfTime elapsed_time = sfClock_getElapsedTime(time_remaining);
+	fish_t fish;
+
+	create_fishing_instance(rpg, &fish);
+	while (sfTime_asSeconds(elapsed_time) <= 60 && !fish.done) {
+		update_fishing_instance(rpg, &fish,
+		sfTime_asSeconds(elapsed_time));
+		draw_fishing_instance(rpg, &fish);
+		elapsed_time = sfClock_getElapsedTime(time_remaining);
 	}
+	returnv = fish.returnv;
+	destroy_fishing_instance(rpg, &fish, time_remaining);
+	return (returnv);
 }

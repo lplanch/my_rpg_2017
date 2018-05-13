@@ -184,6 +184,9 @@ FILES		=	source/main.c							\
 			source/game_map/pnj/check_pnj.c					\
 			source/game_map/pnj/get_pnj.c					\
 			source/game_map/pnj/events/events_fishing.c			\
+			source/game_map/pnj/events/update_fishing.c			\
+			source/game_map/pnj/events/draw_fishing.c			\
+			source/game_map/pnj/events/create_fishing.c			\
 			source/game_map/dialog/zone_text_create.c			\
 			source/game_map/dialog/zone_text.c				\
 			source/game_map/dialog/choice_box.c				\
@@ -230,6 +233,7 @@ FILES		=	source/main.c							\
 			source/dungeon/main_proc.c					\
 			source/dungeon/update_origin/icons.c				\
 			source/dungeon/update_origin/life_bar.c				\
+			source/dungeon/make_array/create_map_boss.c			\
 			source/dungeon/make_array/map_creation.c			\
 			source/dungeon/make_array/verify_collide.c			\
 			source/dungeon/make_array/corridors.c				\

@@ -12,9 +12,9 @@ void increment_proc_struct(proc_var_t *pvar, proc_t *proc)
 {
 	proc->map = my_calloc(sizeof(char *) * (pvar->map_height + 1));
 	proc->proom = my_calloc(sizeof(proom_t) * (pvar->nbr_rooms + 1));
-	for (unsigned int y = 0; y < pvar->map_height; y++) {
+	for (int y = 0; y < pvar->map_height; y++) {
 		proc->map[y] = my_calloc(sizeof(char) * (pvar->map_width + 1));
-		for (unsigned int x = 0; x < pvar->map_width; x++)
+		for (int x = 0; x < pvar->map_width; x++)
 			proc->map[y][x] = '#';
 	}
 }
