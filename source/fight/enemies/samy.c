@@ -71,7 +71,7 @@ void generate_samy(st_rpg *s)
 	s->f.mob = malloc(sizeof(enemy_t *) * s->proc.pvar.enemy_nbr);
 	s->f.mob[0] = generate_enemy("ressources/enemies/Samy");
 	s->f.mob[0]->obj->pos.x = s->player.obj->pos.x;
-	s->f.mob[0]->obj->pos.y = s->player.obj->pos.y;
+	s->f.mob[0]->obj->pos.y = s->player.obj->pos.y - 400;
 	sfSprite_setPosition(s->f.mob[0]->obj->sprite,
 	s->f.mob[0]->obj->pos);
 	sfSprite_setScale(s->f.mob[0]->obj->sprite, (sfVector2f){3, 3});

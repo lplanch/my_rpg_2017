@@ -16,6 +16,8 @@ void generate_enemy_stat(enemy_t *enemy)
 	enemy->animcol = 1;
 	enemy->animsens = 1;
 	enemy->aggro = 0;
+	enemy->idle = 0;
+	enemy->idlecount = 0;
 	enemy->cdcount = 0;
 	enemy->alive = 1;
 	enemy->stat->pva = enemy->stat->pvm;
