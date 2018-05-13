@@ -33,7 +33,10 @@ void create_dungeon_loop(st_rpg *s)
 	sfMusic_setLoop(s->dungeon_music.music, 1);
 	create_player(s);
 	create_weapon(s);
-	map_creation(&s->proc);
+	if (s->boss)
+		map_creation(&s->proc);
+	else
+		map_boss_creation(s);
 	s->proc.smap = create_sprite_map(&s->proc, s->proc.map);
 	init_dungeon_game(s);
 	create_dungeon_loop_part2(s);

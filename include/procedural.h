@@ -57,6 +57,9 @@ int verify_exit_player(st_rpg *rpg);
 int vcollide(char block);
 int is_wall(char block);
 
+//MAKE BOSS MAP
+void map_boss_creation(st_rpg *rpg);
+
 //CREATE SPRITE MAP
 smap_t **create_sprite_map(proc_t *proc, char **map);
 void free_map_tbl(proc_t *proc);
