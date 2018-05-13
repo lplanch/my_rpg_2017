@@ -18,6 +18,7 @@ void set_for_quit(st_rpg *s)
 	s->fi->dialog_box_isopen = 0;
 	s->fi->var_choice = 0;
 	s->fi->nb_choice_pre = 0;
+	sfClock_restart(s->proc.gman.clock);
 }
 
 void stop_player(st_rpg *s)
@@ -82,7 +83,7 @@ int dungeon_loop(st_rpg *s)
 		update_dungeon_loop(s);
 		display_dungeon(s);
 		sfRenderWindow_display(s->window);
-		if (verify_exit_player(s)) {
+		if (verify_exit_player(s) || boss_is_dead(s)) {
 			set_for_quit(s);
 			return (4);
 		}
