@@ -503,6 +503,7 @@ typedef struct struct_warrior_spells
 	sfMusic *s_sword2;
 	sfMusic *s_hasaki;
 	sfMusic *s_rush;
+	sfMusic *s_endure;
 	sfMusic *s_stomp;
 } warrior_t;
 

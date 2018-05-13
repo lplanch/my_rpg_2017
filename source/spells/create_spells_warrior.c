@@ -45,6 +45,8 @@ void create_warrior_sound(st_rpg *s)
 {
 	s->f.war.s_shield =
 	sfMusic_createFromFile("ressources/audio/sound/shield.ogg");
+	s->f.war.s_endure =
+	sfMusic_createFromFile("ressources/audio/sound/endure.ogg");
 	s->f.war.s_sword1 =
 	sfMusic_createFromFile("ressources/audio/sound/sword1.ogg");
 	s->f.war.s_sword2 =
@@ -56,6 +58,7 @@ void create_warrior_sound(st_rpg *s)
 	s->f.war.s_stomp =
 	sfMusic_createFromFile("ressources/audio/sound/stomp.ogg");
 	sfMusic_setVolume(s->f.war.s_shield, s->s_effect);
+	sfMusic_setVolume(s->f.war.s_endure, s->s_effect);
 	sfMusic_setVolume(s->f.war.s_sword2, s->s_effect);
 	sfMusic_setVolume(s->f.war.s_sword1, s->s_effect);
 	sfMusic_setVolume(s->f.war.s_hasaki, s->s_effect);
