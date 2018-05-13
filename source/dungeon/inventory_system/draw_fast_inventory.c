@@ -40,6 +40,10 @@ void draw_fast_inventory_background(st_rpg *rpg)
 void draw_fast_inventory(st_rpg *rpg)
 {
 	draw_fast_inventory_background(rpg);
+	draw_items_fast_inventory(rpg);
+	verify_mouse_focused(rpg);
+	verify_mouse_released(rpg);
+	rpg->finv.mouse_released = 0;
 }
 
 void verify_fast_inventory(st_rpg *rpg)
