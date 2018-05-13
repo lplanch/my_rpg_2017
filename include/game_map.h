@@ -190,6 +190,8 @@ void dungeon_boss_champ(proc_var_t *hey);
 void set_all_var_at_zero(st_rpg *s);
 void final_fight_ly(st_rpg *s);
 void draw_scene_final_fight_ly(st_rpg *s);
+void final_scene(st_rpg *s);
+void draw_scene_final(st_rpg *s);
 
 void tp_bridge(st_rpg *s);
 void tp_bridge2(st_rpg *s);

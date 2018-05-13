@@ -8,6 +8,16 @@
 #include "my.h"
 #include "game_map.h"
 
+void setup_obj_for_scene_part2(st_rpg *s)
+{
+	s->cut.ly_death =
+	create_object("ressources/images/scenes/ly_death.png",
+	create_vector2f(0, 0), create_rect(0, 0, 41, 28), 0);
+	s->cut.champ_death =
+	create_object("ressources/images/scenes/champ_death.png",
+	create_vector2f(0, 0), create_rect(0, 0, 41, 33), 0);
+}
+
 void setup_obj_for_scene(st_rpg *s)
 {
 	s->cut.zachd =
@@ -28,6 +38,7 @@ void setup_obj_for_scene(st_rpg *s)
 	s->cut.ly_boss =
 	create_object("ressources/images/scenes/ly_boss.png",
 	create_vector2f(0, 0), create_rect(0, 0, 95, 47), 0);
+	setup_obj_for_scene_part2(s);
 }
 
 void setup_obj_for_scene_map(st_rpg *s)
