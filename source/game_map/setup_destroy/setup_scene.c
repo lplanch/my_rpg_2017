@@ -8,6 +8,21 @@
 #include "my.h"
 #include "game_map.h"
 
+void update_death(st_rpg *s)
+{
+	if (s->fi->quests[8]->status > 0) {
+		s->fi->pnj[s->cut.samy_value].pnj->pos =
+		create_vector2f(10000, 10000);
+		sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite,
+			s->fi->pnj[s->cut.samy_value].pnj->pos);
+	} if (s->fi->quests[6]->status > 0) {
+		s->fi->pnj[s->cut.zac_value].pnj->pos =
+		create_vector2f(10000, 10000);
+		sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite,
+		s->fi->pnj[s->cut.zac_value].pnj->pos);
+	}
+}
+
 void setup_obj_for_scene_part2(st_rpg *s)
 {
 	s->cut.ly_death =
