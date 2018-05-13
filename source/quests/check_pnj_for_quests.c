@@ -27,6 +27,8 @@ void check_pnj_for_quests5(st_rpg *s)
 			s->fi->quests[7]->status = 2;
 		}
 	}
+	if (s->fi->return_value == 2)
+		death_fcnt(s);
 	check_pnj_for_quests6(s);
 }
 
