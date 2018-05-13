@@ -1,5 +1,4 @@
 link to image
-//all of those values are * 100
 speed
 range
 damage
@@ -7,3 +6,6 @@ ratio
 cooldown
 effect (ex : stun)
 effect duration
+
+
+//all of those values are * 100
