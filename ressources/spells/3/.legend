@@ -1,5 +1,3 @@
-SWING MELEE ATTACKS FILES
-
 Begin angle
 Max angle
 Speed * 100
@@ -7,3 +5,5 @@ Scale.x * 100
 Scale.y * 100
 Damage
 Damage ratio
+
+SWING MELEE ATTACKS FILES
