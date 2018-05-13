@@ -184,6 +184,7 @@ void final_fight(st_rpg *s);
 void setup_pos_for_scene_zach(st_rpg *s, sfVector2f scale, sfVector2f scale2);
 void setup_pos_for_scene_samy(st_rpg *s, sfVector2f scale, sfVector2f scale2);
 void check_pnj_for_quests6(st_rpg *s);
+void draw_scene_final_fight(st_rpg *s);
 
 void tp_bridge(st_rpg *s);
 void tp_bridge2(st_rpg *s);
