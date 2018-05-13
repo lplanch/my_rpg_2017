@@ -31,10 +31,14 @@ void rogue_update_storm(st_rpg *s)
 
 void proc_backstab(st_rpg *s)
 {
+	float amount = 0;
+
 	for (int i = 0; i != s->proc.pvar.enemy_nbr; i += 1) {
 		if (enemy_hitbox(s->player.weapon[0], s->f.mob[i]) &&
 		s->f.mob[i]->alive) {
-			s->f.mob[i]->stat->pva -= s->f.rog.bdmg;
+			amount = s->f.mob[i]->stat->pva -= s->f.rog.bdmg;
+			hurt(s, amount);
+			launch_dmg_show(s, amount, s->f.mob[i]->obj);
 		}
 	}
 }
