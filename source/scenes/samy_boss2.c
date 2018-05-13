@@ -14,6 +14,7 @@ void dialog_samy_boss_2(st_rpg *s)
 	quit_game_for_dungeon(s);
 	s->fi->return_value = launch_dungeon(s, &dungeon_boss_samy);
 	s->boss = 0;
+	sfMusic_stop(s->fi->samy_boss.music);
 }
 
 void samy_boss_part2_in_if(st_rpg *s)
