@@ -55,8 +55,11 @@ void final_fight_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 	s->fi->pnj[s->cut.samy_value].pnj->pos = create_vector2f(10000, 10000);
 	sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite,
 	s->fi->pnj[s->cut.samy_value].pnj->pos);
-	if (s->fi->return_value == 4)
+	if (s->fi->return_value == 4) {
+		set_all_var_at_zero(s);
+		after_quests(s);
 		wake_up(s);
+	}
 }
 
 void final_fight(st_rpg *s)

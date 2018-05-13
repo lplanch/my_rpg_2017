@@ -50,11 +50,15 @@ void update_boss(st_rpg *s, float dt)
 int boss_is_dead(st_rpg *s)
 {
 	if (s->boss == 1 || s->boss == 2) {
-		if (!s->f.mob[0]->alive)
+		if (!s->f.mob[0]->alive) {
+			win(s, "You win");
 			return (1);
+		}
 	} if (s->boss == 3) {
-		if (!s->f.mob[0]->alive && !s->f.mob[1]->alive)
+		if (!s->f.mob[0]->alive && !s->f.mob[1]->alive) {
+			win(s, "You win");
 			return (1);
+		}
 	}
 	return (0);
 }

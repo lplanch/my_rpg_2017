@@ -60,7 +60,6 @@ int event_game(st_rpg *s)
 
 	while (sfRenderWindow_pollEvent(s->window, &event)) {
 		if (event.type == sfEvtClosed) {
-			destroy(s);
 			return (1);
 		} if (event.type == sfEvtKeyPressed &&
 		sfKeyboard_isKeyPressed(sfKeyEscape)) {
