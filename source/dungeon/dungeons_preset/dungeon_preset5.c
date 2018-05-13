@@ -18,7 +18,7 @@ void dungeon5(proc_var_t *hey)
 	hey->min_room_s = 6;
 	hey->nbr_rooms = 100;
 	hey->current_floor = 2;
-	hey->max_floor = 2;
+	hey->max_floor = 7;
 	hey->background.r = 40;
 	hey->background.g = 11;
 	hey->background.b = 20;

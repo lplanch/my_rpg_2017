@@ -18,7 +18,7 @@ void dungeon1(proc_var_t *hey)
 	hey->min_room_s = 12;
 	hey->nbr_rooms = 20;
 	hey->current_floor = 0;
-	hey->max_floor = 1;
+	hey->max_floor = 5;
 	hey->background.r = 20;
 	hey->background.g = 11;
 	hey->background.b = 40;
@@ -40,7 +40,7 @@ void dungeon2(proc_var_t *hey)
 	hey->min_room_s = 8;
 	hey->nbr_rooms = 10;
 	hey->current_floor = 0;
-	hey->max_floor = 1;
+	hey->max_floor = 6;
 	hey->background.r = 20;
 	hey->background.g = 11;
 	hey->background.b = 40;
@@ -62,7 +62,7 @@ void dungeon3(proc_var_t *hey)
 	hey->min_room_s = 5;
 	hey->nbr_rooms = 100;
 	hey->current_floor = 0;
-	hey->max_floor = 3;
+	hey->max_floor = 8;
 	hey->background.r = 20;
 	hey->background.g = 11;
 	hey->background.b = 40;
@@ -84,7 +84,7 @@ void dungeon4_1(proc_var_t *hey)
 	hey->min_room_s = 10;
 	hey->nbr_rooms = 100;
 	hey->current_floor = 0;
-	hey->max_floor = 0;
+	hey->max_floor = 3;
 	hey->background.r = 20;
 	hey->background.g = 11;
 	hey->background.b = 40;
@@ -105,8 +105,8 @@ void dungeon4_2(proc_var_t *hey)
 	hey->max_room_s = 14;
 	hey->min_room_s = 10;
 	hey->nbr_rooms = 100;
-	hey->current_floor = 2;
-	hey->max_floor = 2;
+	hey->current_floor = 4;
+	hey->max_floor = 8;
 	hey->background.r = 20;
 	hey->background.g = 11;
 	hey->background.b = 40;
