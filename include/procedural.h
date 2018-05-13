@@ -173,6 +173,10 @@ void update_pos_weapon_armor_focus(st_rpg *rpg, sfVector2f *pos);
 void verify_fast_inventory(st_rpg *rpg);
 void create_fast_inventory_slots(st_rpg *rpg);
 void create_fast_inventory_screen(ing_finv_t *finv);
+void create_fast_inventory_sprites(st_rpg *rpg);
+void verify_mouse_focused(st_rpg *rpg);
+void verify_mouse_released(st_rpg *rpg);
+void draw_items_fast_inventory(st_rpg *rpg);
 
 //ITEM INSIDE DUNGEONS
 void create_items_list(st_rpg *rpg);

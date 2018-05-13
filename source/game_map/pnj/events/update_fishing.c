@@ -8,7 +8,7 @@
 #include "my.h"
 #include "my_rpg.h"
 
-void catch_fish(st_rpg *rpg, fish_t *fish)
+void catch_fish(void)
 {
 	my_putstr("catched !\n");
 }
@@ -24,7 +24,7 @@ void events_fishing_instance(st_rpg *rpg, fish_t *fish)
 			fish->done = 1;
 		} if (event.type == sfEvtKeyPressed &&
 		event.key.code == key_fishing && fish->in_catch) {
-			catch_fish(rpg, fish);
+			catch_fish();
 			fish->in_catch = 0;
 			fish->catch_clock = NULL;
 			sfClock_destroy(fish->catch_clock);
@@ -34,7 +34,7 @@ void events_fishing_instance(st_rpg *rpg, fish_t *fish)
 	}
 }
 
-void verify_catch_fish(st_rpg *rpg, fish_t *fish)
+void verify_catch_fish(fish_t *fish)
 {
 	sfTime catch_time;
 
@@ -67,7 +67,7 @@ void update_fishing_instance(st_rpg *rpg, fish_t *fish, float elapsed)
 		sfText_setColor(fish->time_rem, sfWhite);
 	sfText_setString(fish->time_rem, elapsed_txt);
 	sfText_setString(fish->cur_score, score);
-	verify_catch_fish(rpg, fish);
+	verify_catch_fish(fish);
 	free(elapsed_txt);
 	free(score);
 }
