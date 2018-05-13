@@ -68,6 +68,7 @@ FILES		=	source/main.c							\
 			source/fight/hitbox.c						\
 			source/fight/enemies/champ.c					\
 			source/fight/enemies/champ_generation.c				\
+			source/fight/enemies/generate_samy.c				\
 			source/fight/enemies/samy.c					\
 			source/fight/enemies/samy_spells.c				\
 			source/fight/enemies/lauch_samy_spells.c			\

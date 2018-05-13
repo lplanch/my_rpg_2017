@@ -44,6 +44,7 @@ void update_samy_dash(st_rpg *s, float dt)
 		sfSprite_setPosition(s->f.mob[0]->obj->sprite,
 		s->f.mob[0]->obj->pos);
 	}
+	update_particle(s->f.boss.samy_fus, dt);
 }
 
 void update_samy_fusrohdah(st_rpg *s)
