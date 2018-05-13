@@ -30,6 +30,7 @@ void wake_up(st_rpg *s)
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	s->player.obj->rect =
 	set_texturerect_top(s->player.obj, 144);
+	stop_player(s);
 	sfClock_restart(s->proc.gman.clock);
 }
 
@@ -70,6 +71,8 @@ void start_quests_4(st_rpg *s)
 	dialog_box(s, "samy_zac_is_missing2", "samy");
 	sfMusic_stop(s->fi->reflexion_music.music);
 	sfMusic_play(s->fi->music.music);
+	stop_player(s);
+	sfClock_restart(s->proc.gman.clock);
 }
 
 void quests_3(st_rpg *s)

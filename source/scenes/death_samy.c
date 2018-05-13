@@ -20,7 +20,7 @@ void dialog_death_samy_part2(st_rpg *s)
 	s->fi->camera.y - 200));
 	quit_game_for_dungeon(s);
 	s->fi->return_value = launch_dungeon(s, &dungeon4_2);
-	if (s->fi->return_value != 2) {
+	if (s->fi->return_value == 4) {
 		samy_boss(s);
 	}
 }
