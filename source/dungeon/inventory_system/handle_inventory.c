@@ -21,12 +21,19 @@ void add_inventory_slot(item_t *first_slot)
 {
 	item_t *conductor = first_slot;
 
-	while (conductor != NULL)
+	if (conductor == NULL) {
+		first_slot = malloc(sizeof(item_t));
+		clear_inventory_slot(first_slot);
+		first_slot->pos = 0;
+		first_slot->next = NULL;
+		return;
+	}
+	while (conductor->next != NULL)
 		conductor = conductor->next;
-	conductor = malloc(sizeof(item_t));
+	conductor->next = malloc(sizeof(item_t));
 	clear_inventory_slot(conductor->next);
-	conductor->pos = conductor->pos + 1;
-	conductor->next = NULL;
+	conductor->next->pos = conductor->pos + 1;
+	conductor->next->next = NULL;
 }
 
 void draw_inventory_background(st_rpg *rpg)

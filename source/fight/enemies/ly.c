@@ -29,7 +29,8 @@ void update_ly(st_rpg *s, float dt)
 
 void display_ly(st_rpg *s)
 {
-	choose_display_enemies(s, 1);
+	if (s->f.mob[1]->alive)
+		choose_display_enemies(s, 1);
 	display_aoe(s->window, s->f.boss.ray);
 }
 

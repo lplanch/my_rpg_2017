@@ -48,7 +48,7 @@ void make_positions_proom(proc_t *proc)
 	proom_t temp_proom;
 	int iter = 0;
 
-	for (unsigned int i = 0; i < proc->pvar.nbr_rooms; i++) {
+	for (int i = 0; i < proc->pvar.nbr_rooms; i++) {
 		new_room(&proc->pvar, &temp_proom);
 		if (!verify_intersect(&temp_proom, proc, iter)) {
 			proc->proom[iter] = temp_proom;

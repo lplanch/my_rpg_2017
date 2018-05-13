@@ -30,8 +30,6 @@ int choose_display_champ(st_rpg *s)
 	if (s->f.boss.casting > 0) {
 		sfRenderWindow_drawSprite(s->window,
 		s->f.mob[0]->obj->sprite, &s->f.shade.champ.state);
-		sfRenderWindow_drawSprite(s->window,
-		s->f.mob[0]->life->sprite, &s->f.shade.champ.state);
 		return (0);
 	}
 	return (1);

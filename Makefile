@@ -225,6 +225,7 @@ FILES		=	source/main.c							\
 			source/scenes/samy_boss.c					\
 			source/scenes/after_quests.c					\
 			source/player/player.c						\
+			source/player/security_collide.c						\
 			source/player/player_movement_map.c				\
 			source/player/player_animation_village.c			\
 			source/player/player_movement.c					\
@@ -234,6 +235,7 @@ FILES		=	source/main.c							\
 			source/dungeon/main_proc.c					\
 			source/dungeon/update_origin/icons.c				\
 			source/dungeon/update_origin/life_bar.c				\
+			source/dungeon/make_array/create_map_boss.c			\
 			source/dungeon/make_array/map_creation.c			\
 			source/dungeon/make_array/verify_collide.c			\
 			source/dungeon/make_array/corridors.c				\
