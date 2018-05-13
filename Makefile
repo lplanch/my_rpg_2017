@@ -284,6 +284,7 @@ FILES		=	source/main.c							\
 			source/dungeon/inventory_system/load_inventory.c		\
 			source/dungeon/inventory_system/draw_finv_focused.c		\
 			source/dungeon/inventory_system/draw_items_finventory.c		\
+			source/dungeon/inventory_system/fast_inventory_hgt.c		\
 			source/dungeon/increment_stats/speed_item_use.c			\
 			source/dungeon/ground_item_system/create_items_on_ground.c	\
 			source/dungeon/ground_item_system/draw_item_ground.c		\
