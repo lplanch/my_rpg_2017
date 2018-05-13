@@ -31,7 +31,7 @@ void update_die(st_rpg *s)
 	(sfColor){255, 255, 255, fade});
 	sfText_setColor(s->f.die_msg->text,
 	(sfColor){255, 255, 255, fade});
-	s->f.fade += 1;
+	s->f.fade += 2;
 }
 
 void destroy_die(st_rpg *s)
