@@ -201,6 +201,7 @@ typedef struct s_files
 	int samy_boss_status;
 	int boss_status;
 	int boss_ly_status;
+	int final_status;
 	st_button **name_head;
 	g_object *name_head_edge[2];
 	g_object *lake;
@@ -680,6 +681,8 @@ typedef struct cutscene
 	g_object *champ;
 	g_object *champ_boss;
 	g_object *ly_boss;
+	g_object *ly_death;
+	g_object *champ_death;
 } ct_cutscene;
 
 typedef struct struct_rpg

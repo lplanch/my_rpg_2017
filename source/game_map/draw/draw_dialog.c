@@ -26,6 +26,8 @@ void draw_cut_scene(st_rpg *s)
 		draw_scene_final_fight(s);
 	} if (s->fi->boss_ly_status == 1) {
 		draw_scene_final_fight_ly(s);
+	} if (s->fi->final_status == 1) {
+		draw_scene_final(s);
 	}
 }
 
@@ -92,6 +94,8 @@ void draw_dialog_box(st_rpg *s)
 		draw_scene_final_fight(s);
 	if (s->fi->boss_ly_status == 1)
 		draw_scene_final_fight_ly(s);
+	if (s->fi->final_status == 1)
+		draw_scene_final(s);
 	sfRenderWindow_drawSprite(s->window,
 	s->fi->pnj[s->fi->nb_pnj].dialog_box->obj->sprite, NULL);
 	sfRenderWindow_drawText(s->window,
