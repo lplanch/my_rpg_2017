@@ -15,7 +15,6 @@ void check_pnj_for_quests6(st_rpg *s)
 		s->returnv = 0;
 		s->fi->return_value = 0;
 		s->fi->num_dungeon = 0;
-		s->fi->quests[8]->status = 2;
 		s->player.obj->pos = create_vector2f(7950, 8160);
 		sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 		s->fi->camera_pos = 0;

@@ -57,6 +57,9 @@ void final_fight_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 	s->fi->pnj[s->cut.samy_value].pnj->pos);
 	if (s->fi->return_value == 4) {
 		final_fight_ly(s);
+	} else {
+		sfMusic_stop(s->fi->boss_music.music);
+		s->fi->num_dungeon = 0;
 	}
 }
 

@@ -31,7 +31,7 @@ void create_dungeon_loop(st_rpg *s)
 	create_music(s->proc.pvar.volume, s->proc.pvar.dungeon_music);
 	sfMusic_play(s->dungeon_music.music);
 	sfMusic_setLoop(s->dungeon_music.music, 1);
-	if (s->boss != 0)
+	if (s->boss == 0)
 		sfMusic_setVolume(s->dungeon_music.music, s->s_music);
 	create_player(s);
 	create_weapon(s);

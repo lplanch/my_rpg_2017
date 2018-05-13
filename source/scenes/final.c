@@ -20,7 +20,9 @@ void draw_scene_final(st_rpg *s)
 void dialog_final(st_rpg *s)
 {
 	s->fi->dialog_box_isopen = 1;
-	dialog_box(s, "final", "Ly");
+	dialog_box(s, "final1", "Ly");
+	s->fi->dialog_box_isopen = 1;
+	dialog_box(s, "final2", "Champ");
 	s->fi->final_status = 0;
 }
 
@@ -64,7 +66,7 @@ void final_scene(st_rpg *s)
 	move_camera(s);
 	s->cut.map_boss->pos = create_vector2f(s->fi->camera.x - 740,
 	s->fi->camera.y - 560);
-	s->cut.champ_death->pos = create_vector2f(s->fi->camera.x,
+	s->cut.champ_death->pos = create_vector2f(s->fi->camera.x - 100,
 	s->fi->camera.y - 150);
 	s->cut.ly_death->pos = create_vector2f(s->fi->camera.x + 50,
 	s->fi->camera.y - 150);
