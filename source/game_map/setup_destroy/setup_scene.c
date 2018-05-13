@@ -16,6 +16,9 @@ void setup_obj_for_scene_part2(st_rpg *s)
 	s->cut.champ_death =
 	create_object("ressources/images/scenes/champ_death.png",
 	create_vector2f(0, 0), create_rect(0, 0, 41, 33), 0);
+	s->cut.begin =
+	create_object("ressources/images/scenes/begin.png",
+	create_vector2f(0, 0), create_rect(0, 0, 1920, 1080), 0);
 }
 
 void setup_obj_for_scene(st_rpg *s)

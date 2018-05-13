@@ -28,7 +28,8 @@ void draw_cut_scene(st_rpg *s)
 		draw_scene_final_fight_ly(s);
 	} if (s->fi->final_status == 1) {
 		draw_scene_final(s);
-	}
+	} if (s->fi->begin_status == 2 && s->fi->quests[0]->status == 1)
+		draw_begin(s);
 }
 
 void draw_name_box(st_rpg *s)
@@ -96,6 +97,8 @@ void draw_dialog_box(st_rpg *s)
 		draw_scene_final_fight_ly(s);
 	if (s->fi->final_status == 1)
 		draw_scene_final(s);
+	if (s->fi->begin_status == 2 && s->fi->quests[0]->status == 1)
+		draw_begin(s);
 	sfRenderWindow_drawSprite(s->window,
 	s->fi->pnj[s->fi->nb_pnj].dialog_box->obj->sprite, NULL);
 	sfRenderWindow_drawText(s->window,

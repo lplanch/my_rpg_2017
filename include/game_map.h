@@ -192,6 +192,8 @@ void final_fight_ly(st_rpg *s);
 void draw_scene_final_fight_ly(st_rpg *s);
 void final_scene(st_rpg *s);
 void draw_scene_final(st_rpg *s);
+void begin_scene(st_rpg *s);
+void draw_begin(st_rpg *s);
 
 void tp_bridge(st_rpg *s);
 void tp_bridge2(st_rpg *s);

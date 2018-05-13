@@ -130,6 +130,7 @@ FILES		=	source/main.c							\
 			source/spells/update_warrior_1_1.c				\
 			source/spells/update_warrior_1_2.c				\
 			source/scenes/final.c						\
+			source/scenes/begin_scene.c					\
 			source/interface/life_bar.c					\
 			source/interface/main_particles.c				\
 			source/interface/status_menu.c					\

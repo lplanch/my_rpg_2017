@@ -50,6 +50,12 @@ void final_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 	s->fi->pnj[s->cut.samy_value].pnj->pos = create_vector2f(10000, 10000);
 	sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite,
 	s->fi->pnj[s->cut.samy_value].pnj->pos);
+	s->fi->pnj[s->cut.zac_value].pnj->pos = create_vector2f(10000, 10000);
+	sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite,
+	s->fi->pnj[s->cut.zac_value].pnj->pos);
+	s->fi->pnj[s->cut.samy_value].pnj->pos = create_vector2f(10000, 10000);
+	sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite,
+	s->fi->pnj[s->cut.samy_value].pnj->pos);
 }
 
 void final_scene(st_rpg *s)

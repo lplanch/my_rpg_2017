@@ -21,6 +21,13 @@ void destroy_all_obj(st_rpg *s)
 	destroy_object(s->cut.samyd);
 	destroy_object(s->cut.samy_boss);
 	destroy_object(s->fi->lake);
+	destroy_object(s->cut.map_son);
+	destroy_object(s->cut.map_boss);
+	destroy_object(s->cut.champ_boss);
+	destroy_object(s->cut.ly_boss);
+	destroy_object(s->cut.ly_death);
+	destroy_object(s->cut.champ_death);
+	destroy_object(s->cut.begin);
 }
 
 void destroy_music(st_rpg *s)
