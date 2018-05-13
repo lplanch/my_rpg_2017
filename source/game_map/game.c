@@ -23,20 +23,9 @@ void lake_update(st_rpg *s)
 	}
 }
 
-void tp_orphanage2(st_rpg *s)
-{
-	s->player.obj->pos = create_vector2f(8659, 7394);
-	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
-}
-
-void tp_dungeon(st_rpg *s)
-{
-	s->player.obj->pos = create_vector2f(3718, 2602);
-	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
-}
-
 void game_update(st_rpg *s)
 {
+	update_death(s);
 	lake_update(s);
 	check_pnj_name(s);
 	check_pnj_for_quests(s);
@@ -68,12 +57,6 @@ int event_game(st_rpg *s)
 		} if (event.type == sfEvtKeyPressed && event.key.code ==
 		sfKeyReturn) {
 			check_pnj(s);
-		} if (event.type == sfEvtKeyPressed && event.key.code ==
-		sfKeyO) {
-			tp_orphanage2(s);
-		} if (event.type == sfEvtKeyPressed && event.key.code ==
-		sfKeyL) {
-			tp_dungeon(s);
 		} if (mouse_in_object_quest_box(s->fi
 		->quests_box.quests_box->obj, s->window, s) == 1) {
 			update_quests_box_des(s);
