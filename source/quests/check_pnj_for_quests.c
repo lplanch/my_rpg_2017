@@ -91,8 +91,6 @@ void check_pnj_for_quests2(st_rpg *s)
 
 void check_pnj_for_quests(st_rpg *s)
 {
-	if (s->fi->quests[0]->status == 1 && s->fi->begin_status == 0)
-		begin_scene(s);
 	if (s->fi->quests[0]->status == 1 &&
 	my_strcmp(s->fi->pnj[s->fi->nb_pnj].name, "Samy") == 0) {
 		stop_player(s);

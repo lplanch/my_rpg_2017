@@ -14,7 +14,7 @@ void update_death(st_rpg *s)
 		s->fi->pnj[s->cut.samy_value].pnj->pos =
 		create_vector2f(10000, 10000);
 		sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite,
-			s->fi->pnj[s->cut.samy_value].pnj->pos);
+		s->fi->pnj[s->cut.samy_value].pnj->pos);
 	} if (s->fi->quests[6]->status > 0) {
 		s->fi->pnj[s->cut.zac_value].pnj->pos =
 		create_vector2f(10000, 10000);
