@@ -706,6 +706,7 @@ typedef struct struct_rpg
 #include "procedural.h"
 #include "game_map.h"
 
+void test_destroy_loop_pause(st_rpg *s);
 void choose_sound(st_rpg *s);
 int boss_is_dead(st_rpg *s);
 int win(st_rpg *s, char *str);
