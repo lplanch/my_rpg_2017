@@ -32,7 +32,8 @@ int update_sprite(st_rpg *rpg)
 	(rpg->player.obj->rect.height);
 	sfSprite_setPosition(rpg->player.obj->sprite, player_pos);
 	update_camera_position(rpg);
-	update_minimap(rpg);
+	if (!rpg->boss)
+		update_minimap(rpg);
 	rpg->proc.gman.time = sfClock_restart(rpg->proc.gman.clock);
 	rpg->proc.gman.dt = sfTime_asSeconds(rpg->proc.gman.time);
 	return (1);

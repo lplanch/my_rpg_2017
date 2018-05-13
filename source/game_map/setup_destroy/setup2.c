@@ -15,7 +15,7 @@ void setup_pnj_value(st_rpg *s)
 	s->cut.samy_value = 14;
 	s->cut.jade_value = 17;
 	s->cut.zac_value = 3;
-	s->cut.son_value = 11;
+	s->cut.son_value = 12;
 	s->fi->size_name_pnj = 0;
 }
 

@@ -44,6 +44,12 @@ int choice_dungeon(st_rpg *s, char **tab, char *str, int compter)
 		choice_box_quit(s, tab, str, compter);
 		quit_game_for_dungeon(s);
 		return (launch_dungeon(s, &dungeon2));
+	} if (my_strcmp(tab[s->fi->choice_cursor], "Volcanic Point") == 0 &&
+	s->fi->quests[8]->status != 0) {
+		s->fi->num_dungeon = 5;
+		choice_box_quit(s, tab, str, compter);
+		quit_game_for_dungeon(s);
+		return (launch_dungeon(s, &dungeon5));
 	}
 	return (choice_dungeon_part2(s, tab, str, compter));
 }
