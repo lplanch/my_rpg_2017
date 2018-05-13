@@ -37,6 +37,7 @@ void display_ly(st_rpg *s)
 void destroy_ly(st_rpg *s)
 {
 	destroy_aoe(s->f.boss.ray);
+	sfMusic_destroy(s->f.boss.thunder);
 }
 
 void generate_ly(st_rpg *s)
@@ -57,4 +58,8 @@ void generate_ly(st_rpg *s)
 	s->f.boss.casting = 0;
 	s->f.boss.rayused = 0;
 	s->f.boss.rayrat = create_vector2f(0, 0);
+	sfMusic_createFromFile("ressources/audio/sound/roda.ogg");
+	s->f.boss.thunder =
+	sfMusic_createFromFile("ressources/audio/sound/thunder.ogg");
+	sfMusic_setVolume(s->f.boss.thunder, s->s_effect);
 }

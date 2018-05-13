@@ -24,13 +24,37 @@ float get_angle_enemy(st_rpg *s, int i)
 	}
 }
 
+void enemy_idle(st_rpg *s, float dt, int i)
+{
+	if (s->f.mob[i]->idlecount >= 0) {
+		s->f.mob[i]->idlecount -= dt;
+	} if (s->f.mob[i]->alive && !s->f.mob[i]->aggro &&
+		s->f.mob[i]->idlecount < 0) {
+		s->f.mob[i]->idle = rand() % 3;
+		s->f.mob[i]->idlecount = 1;
+		if (s->f.mob[i]->idle == 1)
+			s->f.mob[i]->ratios = get_ratios(rand() % 360);
+		else
+			s->f.mob[i]->ratios = (sfVector2f){0, 0};
+	} if (!s->f.mob[i]->aggro) {
+	verify_collide_map_enemies(s, dt, i);
+	sfSprite_setPosition(s->f.mob[i]->obj->sprite,
+	s->f.mob[i]->obj->pos);
+	sfSprite_setPosition(s->f.mob[i]->life->sprite,
+	create_vector2f(s->f.mob[i]->obj->pos.x,
+	s->f.mob[i]->obj->pos.y - 20));
+	}
+}
+
 void movement_enemies(st_rpg *s, int i, float dt)
 {
-	s->f.mob[i]->ratios = get_ratios(get_angle_enemy(s, i));
-	if (s->f.mob[i]->type == 6)
-		s->f.mob[i]->ratios = get_ratios(get_angle_enemy(s, i) + 45);
+	enemy_idle(s, dt, i);
 	if (s->f.mob[i]->alive && s->f.mob[i]->cast != 2 &&
-	s->f.mob[i]->aggro) {
+		s->f.mob[i]->aggro) {
+		s->f.mob[i]->ratios = get_ratios(get_angle_enemy(s, i));
+		if (s->f.mob[i]->type == 6)
+			s->f.mob[i]->ratios = get_ratios(get_angle_enemy(s,
+		i) + 45);
 		pathfinding(s, dt, i);
 		verify_collide_map_enemies(s, dt, i);
 		sfSprite_setPosition(s->f.mob[i]->obj->sprite,

@@ -10,11 +10,13 @@
 
 void verify_y_movement(st_rpg *rpg)
 {
+	float speed = rpg->player.stat->vit / 10;
+
 	if (sfKeyboard_isKeyPressed(key_up) == sfTrue) {
-		if (rpg->player.nbr_frame.y > -20)
+		if (rpg->player.nbr_frame.y > -20 * speed)
 			rpg->player.nbr_frame.y -= 2;
 	} else if (sfKeyboard_isKeyPressed(key_down) == sfTrue) {
-		if (rpg->player.nbr_frame.y < 20)
+		if (rpg->player.nbr_frame.y < 20 * speed)
 			rpg->player.nbr_frame.y += 2;
 	} else {
 		if (rpg->player.nbr_frame.y > 0)
@@ -26,11 +28,13 @@ void verify_y_movement(st_rpg *rpg)
 
 void verify_x_movement(st_rpg *rpg)
 {
+	float speed = rpg->player.stat->vit / 10;
+
 	if (sfKeyboard_isKeyPressed(key_left) == sfTrue) {
-		if (rpg->player.nbr_frame.x > -20)
+		if (rpg->player.nbr_frame.x > -20 * speed)
 			rpg->player.nbr_frame.x -= 2;
 	} else if (sfKeyboard_isKeyPressed(key_right) == sfTrue) {
-		if (rpg->player.nbr_frame.x < 20)
+		if (rpg->player.nbr_frame.x < 20 * speed)
 			rpg->player.nbr_frame.x += 2;
 	} else {
 		if (rpg->player.nbr_frame.x > 0)

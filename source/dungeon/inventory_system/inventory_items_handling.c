@@ -57,5 +57,10 @@ int add_inventory_item(item_t *first_slot, unsigned int id)
 
 void use_inventory_item(st_rpg *rpg, item_t *current)
 {
+	int to_add[] = {0, 0, 5, 3, 150, 10, 10, 0, 0};
+	void (*function[])(st_rpg *, int) =
+	{NULL, NULL, &heal, &add_speed, &add_cdr, &heal, &heal, &heal};
+
+	(*function[current->id])(rpg, to_add[current->id]);
 	remove_inventory_item(rpg, current);
 }
