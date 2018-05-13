@@ -26,12 +26,6 @@ void dialog_begin(st_rpg *s)
 void begin_part2(st_rpg *s)
 {
 	dialog_begin(s);
-	s->fi->pnj[s->cut.zac_value].pnj->pos = create_vector2f(10000, 10000);
-	sfSprite_setPosition(s->fi->pnj[s->cut.zac_value].pnj->sprite,
-	s->fi->pnj[s->cut.zac_value].pnj->pos);
-	s->fi->pnj[s->cut.samy_value].pnj->pos = create_vector2f(10000, 10000);
-	sfSprite_setPosition(s->fi->pnj[s->cut.samy_value].pnj->sprite,
-	s->fi->pnj[s->cut.samy_value].pnj->pos);
 }
 
 void begin_scene(st_rpg *s)
