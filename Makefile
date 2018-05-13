@@ -209,12 +209,14 @@ FILES		=	source/main.c							\
 			source/quests/quests.c						\
 			source/quests/quests1.c						\
 			source/quests/check_pnj_for_quests.c				\
+			source/quests/check_pnj_for_quests_part2.c			\
 			source/quests/mouse_in_object_quest_box.c			\
 			source/quests/print_text_finish_quests.c			\
 			source/scenes/night.c						\
 			source/scenes/background_with_text.c				\
 			source/scenes/death_zach.c					\
-			source/scenes/death_zach_setup.c					\
+			source/scenes/death_zach_setup.c				\
+			source/scenes/final_fight.c					\
 			source/scenes/death_samy.c					\
 			source/scenes/death_samy_setup.c				\
 			source/scenes/move_pnj_zach.c					\

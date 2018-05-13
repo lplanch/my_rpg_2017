@@ -10,6 +10,7 @@
 
 void reset_pos_friends(st_rpg *s)
 {
+	sfClock_restart(s->proc.gman.clock);
 	s->fi->pnj[s->cut.samy_value].pnj->rect =
 	set_texturerect_top(s->fi->pnj[s->cut.samy_value].pnj, 144);
 	s->fi->pnj[s->cut.zac_value].pnj->rect =
@@ -59,4 +60,5 @@ void after_quests(st_rpg *s)
 	s->player.obj->rect =
 	set_texturerect_top(s->player.obj, 193);
 	set_position_after_quests(s);
+	sfClock_restart(s->proc.gman.clock);
 }

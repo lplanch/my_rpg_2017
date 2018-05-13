@@ -22,6 +22,9 @@ void setup_obj_for_scene(st_rpg *s)
 	s->cut.champ =
 	create_object("ressources/images/scenes/champ.png",
 	create_vector2f(0, 0), create_rect(0, 0, 60, 46), 0);
+	s->cut.champ_boss =
+	create_object("ressources/images/scenes/champ_boss.png",
+	create_vector2f(0, 0), create_rect(0, 0, 90, 48), 0);
 }
 
 void setup_obj_for_scene_map(st_rpg *s)
@@ -38,6 +41,9 @@ void setup_obj_for_scene_map(st_rpg *s)
 	s->cut.map_son =
 	create_object("ressources/images/scenes/map_son.png",
 	create_vector2f(0, 0), create_rect(0, 0, 528, 528), 0);
+	s->cut.map_boss =
+	create_object("ressources/images/scenes/map_boss.png",
+	create_vector2f(0, 0), create_rect(0, 0, 912, 913), 0);
 }
 
 void setup_variable_scene_quests(st_rpg *s)

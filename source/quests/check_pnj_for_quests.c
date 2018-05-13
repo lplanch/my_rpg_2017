@@ -25,6 +25,7 @@ void check_pnj_for_quests5(st_rpg *s)
 		"Quest 4 complete!");
 		s->fi->var_for_quests = 255;
 	}
+	check_pnj_for_quests6(s);
 }
 
 void check_pnj_for_quests4(st_rpg *s)

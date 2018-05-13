@@ -31,6 +31,7 @@ void wake_up(st_rpg *s)
 	sfSprite_setPosition(s->player.obj->sprite, s->player.obj->pos);
 	s->player.obj->rect =
 	set_texturerect_top(s->player.obj, 144);
+	sfClock_restart(s->proc.gman.clock);
 }
 
 void set_pnj_meeting_without_zac(st_rpg *s)
