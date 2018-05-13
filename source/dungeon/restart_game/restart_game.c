@@ -69,11 +69,13 @@ int next_level_screen(st_rpg *rpg)
 	if (rpg->proc.pvar.current_floor < rpg->proc.pvar.max_floor &&
 	rpg->proc.pvar.max_floor > 0) {
 		rpg->proc.pvar.current_floor += 1;
-	} else if (rpg->proc.pvar.current_floor < rpg->proc.pvar.max_floor &&
+	} else if (rpg->proc.pvar.current_floor > rpg->proc.pvar.max_floor &&
 	rpg->proc.pvar.max_floor < 0) {
 		rpg->proc.pvar.current_floor -= 1;
-	} else
+	} else {
+		rpg->boss = 0;
 		return (1);
+	}
 	destroy_enemies(rpg);
 	draw_floor_restart(rpg);
 	generate_enemies(rpg);

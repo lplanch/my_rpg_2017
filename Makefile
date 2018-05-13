@@ -281,6 +281,7 @@ FILES		=	source/main.c							\
 			source/dungeon/ground_item_system/update_ground_item.c		\
 			source/dungeon/npc/ennemies_dungeon.c				\
 			source/dungeon/dungeons_preset/dungeon_preset1-5.c		\
+			source/dungeon/dungeons_preset/dungeon_preset_boss.c		\
 
 SRCS		=	$(FILES)
 

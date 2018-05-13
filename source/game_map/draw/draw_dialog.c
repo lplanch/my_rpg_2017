@@ -21,7 +21,6 @@ void draw_cut_scene(st_rpg *s)
 	} if (s->fi->son_status == 1) {
 		draw_scene_son(s);
 	} if (s->fi->samy_boss_status == 1) {
-		printf("%s\n", "ok");
 		draw_scene_samy_boss(s);
 	} if (s->fi->boss_status == 1) {
 		draw_scene_final_fight(s);
@@ -86,7 +85,6 @@ void draw_dialog_box(st_rpg *s)
 	if (s->fi->son_status == 1)
 		draw_scene_son(s);
 	if (s->fi->samy_boss_status == 1) {
-		printf("%s\n", "ok");
 		draw_scene_samy_boss(s);
 	} if (s->fi->boss_status == 1)
 		draw_scene_final_fight(s);

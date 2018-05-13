@@ -1075,5 +1075,6 @@ void dungeon3(proc_var_t *hey);
 void dungeon4_1(proc_var_t *hey);
 void dungeon4_2(proc_var_t *hey);
 void dungeon5(proc_var_t *hey);
+void dungeon_boss_samy(proc_var_t *hey);
 
 #endif

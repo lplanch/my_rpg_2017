@@ -29,7 +29,8 @@ void init_player_camera(st_rpg *rpg)
 void init_dungeon_game(st_rpg *rpg)
 {
 	rpg->player.obj->pos = get_entry_pos(&rpg->proc);
-	init_minimap(&rpg->proc);
+	if (!rpg->boss)
+		init_minimap(&rpg->proc);
 	rpg->proc.gman.clock = sfClock_create();
 	rpg->proc.gman.dt = 1.;
 }

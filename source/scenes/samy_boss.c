@@ -40,8 +40,9 @@ void dialog_samy_boss(st_rpg *s)
 	sfSprite_setPosition(s->cut.samy_boss->sprite, s->cut.samy_boss->pos);
 	s->fi->dialog_box_isopen = 1;
 	dialog_box(s, "samy_boss_samy2", "Samy");
+	s->boss = 1;
 	sfMusic_stop(s->fi->samy_boss.music);
-	s->cut.samy_boss_status = 0;
+	s->fi->return_value = launch_dungeon(s, &dungeon_boss_samy);
 }
 
 void setup_pos_for_scene_samy_boss(st_rpg *s, sfVector2f scale,
@@ -63,6 +64,7 @@ void samy_boss_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 {
 	setup_pos_for_scene_samy_boss(s, scale, scale2);
 	dialog_samy_boss(s);
+	s->cut.samy_boss_status = 0;
 	s->fi->samy_boss_status = 0;
 	reset_pos_friends(s);
 	after_quests(s);
