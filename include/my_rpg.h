@@ -560,6 +560,9 @@ typedef struct main_fight
 	t_object *dmg[50];
 	int dmgshot[50];
 	int cdmg;
+	t_object *die_msg;
+	g_object *die_fade;
+	int fade;
 } fight_t;
 
 typedef struct struct_status_menu
@@ -700,6 +703,7 @@ typedef struct struct_rpg
 #include "procedural.h"
 #include "game_map.h"
 
+int die(st_rpg *s);
 int security_map(st_rpg *s);
 int security_map_enemy(st_rpg *s, float dt, int i);
 void create_boss_name(st_rpg *s);

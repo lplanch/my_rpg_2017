@@ -77,11 +77,14 @@ int dungeon_loop(st_rpg *s)
 			break;
 		if (!s->f.cast && !s->inv.is_open)
 			launch_spells(s);
+		if (player_is_dead(s))
+			return	(die(s));
 		update_dungeon_loop(s);
 		display_dungeon(s);
 		sfRenderWindow_display(s->window);
 		if (verify_exit_player(s)) {
 			set_for_quit(s);
+			s->player.stat->pva = s->player.stat->pvm
 			return (4);
 		}
 	}
