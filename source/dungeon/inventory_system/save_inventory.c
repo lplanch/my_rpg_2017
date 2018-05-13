@@ -22,7 +22,7 @@ char *free_save_inv(item_t *current)
 	free(id);
 	free(nbr);
 	free(temp);
-	return(line);
+	return (line);
 }
 
 void free_and_close(char *path, char *pathname, int fd)

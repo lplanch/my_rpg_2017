@@ -360,6 +360,8 @@ typedef struct boss_spells
 	float casting;
 	sfMusic *s_tent;
 	sfMusic *s_ball;
+	sfMusic *samy_rage;
+	sfMusic *samy_roda;
 } boss_t;
 
 typedef struct struct_archer_spells
@@ -703,6 +705,7 @@ typedef struct struct_rpg
 #include "procedural.h"
 #include "game_map.h"
 
+void choose_sound(st_rpg *s);
 int die(st_rpg *s);
 int security_map(st_rpg *s);
 int security_map_enemy(st_rpg *s, float dt, int i);
