@@ -703,6 +703,7 @@ typedef struct struct_rpg
 #include "procedural.h"
 #include "game_map.h"
 
+int win(st_rpg *s, char *str);
 int die(st_rpg *s);
 int security_map(st_rpg *s);
 int security_map_enemy(st_rpg *s, float dt, int i);
