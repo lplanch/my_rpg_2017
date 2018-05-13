@@ -87,6 +87,7 @@ void samy_boss_part2(st_rpg *s, sfVector2f scale, sfVector2f scale2)
 		set_all_var_at_zero(s);
 		after_quests(s);
 		wake_up(s);
+		s->fi->dialog_box_isopen = 0;
 	}
 }
 
