@@ -24,4 +24,10 @@ void origin_icons(st_rpg *s)
 			sfSprite_setPosition(s->f.locks[i]->sprite,
 			create_vector2f(x + 120 + 100 * i, y + 20));
 	}
+	if (s->player.cdata.classe == 2) {
+		sfSprite_setPosition(s->f.rog.backstab->obj->sprite,
+		(sfVector2f){x, y});
+		sfText_setPosition(s->f.rog.backstab->text->text,
+		(sfVector2f){x, y});
+	}
 }

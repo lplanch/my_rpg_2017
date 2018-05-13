@@ -74,6 +74,8 @@ FILES		=	source/main.c							\
 			source/fight/enemies/ly.c					\
 			source/fight/enemies/ly_spells.c				\
 			source/fight/enemies/boss.c					\
+			source/fight/enemies/create_boss_name.c				\
+			source/fight/enemies/boss_life_bars.c				\
 			source/fight/enemies/hitbox.c					\
 			source/fight/enemies/attack.c					\
 			source/fight/enemies/enemy.c					\

@@ -19,4 +19,5 @@ void update_fight(st_rpg *s)
 		update_boss(s, s->f.proc.sec);
 		sfClock_restart(s->f.proc.clock);
 	}
+	update_boss_life_bar_origin(s);
 }

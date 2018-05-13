@@ -18,6 +18,7 @@ void destroy_boss(st_rpg *s)
 		destroy_champ(s);
 		destroy_ly(s);
 	}
+	destroy_boss_life_bar(s);
 }
 
 void display_boss(st_rpg *s)
@@ -30,6 +31,7 @@ void display_boss(st_rpg *s)
 		display_champ(s);
 		display_ly(s);
 	}
+	display_boss_life_bar(s);
 }
 
 void update_boss(st_rpg *s, float dt)
@@ -42,6 +44,7 @@ void update_boss(st_rpg *s, float dt)
 		update_champ(s, dt);
 		update_ly(s, dt);
 	}
+	update_boss_life_bar_width(s);
 }
 
 void generate_boss(st_rpg *s)
@@ -58,4 +61,5 @@ void generate_boss(st_rpg *s)
 		generate_ly(s);
 		generate_champ(s);
 	}
+	create_boss_life_bar(s);
 }
