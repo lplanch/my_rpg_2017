@@ -45,7 +45,7 @@ void verify_sprites_finv(st_rpg *rpg)
 void draw_items_fast_inventory(st_rpg *rpg)
 {
 	sfVector2f i_pos = {rpg->finv.created_pos.x + rpg->player.obj->pos.x,
-	rpg->finv.created_pos.y + rpg->player.obj->pos.y};
+		rpg->finv.created_pos.y + rpg->player.obj->pos.y};
 
 	verify_sprites_finv(rpg);
 	if (rpg->finv.item_spr[0] != NULL) {

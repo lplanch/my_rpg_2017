@@ -60,9 +60,10 @@ void draw_inventory_items(st_rpg *rpg)
 		text_pos.x = left_pos + 120 * (current->pos % 9) + 10;
 		text_pos.y = top_pos + 120 * (current->pos / 9) + 90;
 		draw_inventory_sprites(rpg, current, current_pos, text_pos);
-		draw_armor_weapon_slot(rpg);
 		current = current->next;
 	}
+	draw_armor_weapon_slot(rpg);
+	draw_fast_inv_slot(rpg);
 }
 
 void verify_inventory(st_rpg *rpg)

@@ -24,7 +24,7 @@ sfVector2f get_mouse_position_finv(st_rpg *rpg)
 void draw_map_focused(st_rpg *rpg, int angle)
 {
 	sfVector2f c_pos = {rpg->finv.created_pos.x + rpg->player.obj->pos.x,
-	rpg->finv.created_pos.y + rpg->player.obj->pos.y};
+		rpg->finv.created_pos.y + rpg->player.obj->pos.y};
 
 	if (-20 <= angle && angle < 90) {
 		sfSprite_setPosition(rpg->finv.spr[0],
@@ -48,14 +48,14 @@ void verify_mouse_focused(st_rpg *rpg)
 {
 	sfVector2f mouse_pos = get_mouse_position_finv(rpg);
 	sfVector2f diff_pos = {mouse_pos.x - rpg->finv.created_pos.x,
-	mouse_pos.y - rpg->finv.created_pos.y};
+		mouse_pos.y - rpg->finv.created_pos.y};
 	float mx = mouse_pos.x - rpg->finv.created_pos.x;
 	float my = mouse_pos.y - rpg->finv.created_pos.y;
 	int angle;
 
 	rpg->finv.focused_slot = -1;
 	if (-30 < diff_pos.x && diff_pos.x < 30 &&
-	-30 < diff_pos.y && diff_pos.y < 30)
+		-30 < diff_pos.y && diff_pos.y < 30)
 		return;
 	if (my <= 0)
 		angle = -acos(mx / hypot(mx, my)) * (180 / 3.14159265);
