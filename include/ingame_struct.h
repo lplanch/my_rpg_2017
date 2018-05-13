@@ -55,6 +55,7 @@ typedef struct ingame_inventory_manager
 	item_t *weapon;
 	int is_open;
 	int use_item;
+	unsigned int money;
 } ing_inv_t;
 
 #endif

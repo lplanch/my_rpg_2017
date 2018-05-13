@@ -19,9 +19,13 @@ int choice_dungeon_part2(st_rpg *s, char **tab, char *str, int compter)
 	} if (my_strcmp(tab[s->fi->choice_cursor], "Vegetable Cave") == 0 &&
 	s->fi->quests[7]->status != 0) {
 		s->fi->num_dungeon = 4;
-		choice_box_quit(s, tab, str, compter);
 		quit_game_for_dungeon(s);
 		return (launch_dungeon(s, &dungeon4_1));
+	} if (!my_strcmp(tab[s->fi->choice_cursor], "Of course ! (25$)") &&
+	s->inv.money >= 25) {
+		choice_box_quit(s, tab, str, compter);
+		s->inv.money -= 25;
+		return (launch_fishing_instance(s));
 	}
 	return (0);
 }
@@ -66,7 +70,6 @@ int choice_box_check_quit(st_rpg *s, char **tab, char *str, int compter)
 	if ((return_value = choice_dungeon(s, tab, str, compter)) != 0) {
 		return (return_value);
 	}
-	verify_choice_fishing(s, tab, str, compter);
 	choice_box_quit(s, tab, str, compter);
 	return (0);
 }
