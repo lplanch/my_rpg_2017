@@ -721,6 +721,12 @@ typedef struct struct_rpg
 #include "procedural.h"
 #include "game_map.h"
 
+void dialog_final(st_rpg *s);
+void setup_pos_for_scene_final(st_rpg *s, sfVector2f scale,
+sfVector2f scale2);
+void dialog_boss_ly(st_rpg *s);
+void setup_pos_for_scene_final_fight_ly(st_rpg *s, sfVector2f scale,
+sfVector2f scale2);
 void generate_samy(st_rpg *s);
 void test_destroy_loop_pause(st_rpg *s);
 void choose_sound(st_rpg *s);
@@ -801,6 +807,7 @@ void enemies_animation(st_rpg *s);
 void enemy_animation(st_rpg *s, int i);
 void set_shader_map(st_rpg *s);
 void destroy_rogue_sound(st_rpg *s);
+void final_fight_ly(st_rpg *s);
 void create_rogue_sound(st_rpg *s);
 void destroy_gunner_sound(st_rpg *s);
 void create_gunner_sound(st_rpg *s);

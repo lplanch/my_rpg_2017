@@ -226,6 +226,8 @@ FILES		=	source/main.c							\
 			source/scenes/death_samy_setup.c				\
 			source/scenes/move_pnj_zach.c					\
 			source/scenes/move_player_to_zach.c				\
+			source/scenes/ly_cutscene.c					\
+			source/scenes/final_cutscene.c					\
 			source/scenes/scene_recup_son.c					\
 			source/scenes/samy_boss.c					\
 			source/scenes/after_quests.c					\
