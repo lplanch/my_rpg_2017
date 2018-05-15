@@ -15,7 +15,7 @@ void tp_bridge2(st_rpg *s)
 	s->player.obj->rect.top = 144;
 	sfSprite_setPosition(s->player.obj->sprite,
 	s->player.obj->pos);
-	s->fi->camera = create_vector2f(3720, 2738);
+	s->fi->camera = create_vector2f(3720, 2709);
 	s->fi->camera_prec = s->fi->camera;
 	s->fi->camera_pos = 3;
 }

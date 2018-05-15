@@ -27,7 +27,7 @@ void tp_orphanage(st_rpg *s)
 	s->player.obj->rect.top = 144;
 	sfSprite_setPosition(s->player.obj->sprite,
 	s->player.obj->pos);
-	s->fi->camera = create_vector2f(7226, 5591);
+	s->fi->camera = create_vector2f(7226, 5566);
 	s->fi->camera_prec = s->fi->camera;
 	s->fi->camera_pos = 3;
 }

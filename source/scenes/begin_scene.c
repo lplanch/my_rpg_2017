@@ -26,6 +26,9 @@ void dialog_begin(st_rpg *s)
 void begin_part2(st_rpg *s)
 {
 	dialog_begin(s);
+	s->fi->camera = create_vector2f(7839, 4497);
+	s->fi->camera_prec = s->fi->camera;
+	s->fi->camera_pos = 2;
 }
 
 void begin_scene(st_rpg *s)
